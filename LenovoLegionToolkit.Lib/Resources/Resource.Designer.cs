@@ -322,6 +322,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Long.
+        /// </summary>
+        public static string NotificationDuration_Long {
+            get {
+                return ResourceManager.GetString("NotificationDuration_Long", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string NotificationDuration_Normal {
+            get {
+                return ResourceManager.GetString("NotificationDuration_Normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short.
+        /// </summary>
+        public static string NotificationDuration_Short {
+            get {
+                return ResourceManager.GetString("NotificationDuration_Short", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom center.
         /// </summary>
         public static string NotificationPosition_BottomCenter {

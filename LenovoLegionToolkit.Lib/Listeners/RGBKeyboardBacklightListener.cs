@@ -42,9 +42,9 @@ public class RGBKeyboardBacklightListener : AbstractWMIListener<RGBKeyboardBackl
             var preset = await _controller.SetNextPresetAsync().ConfigureAwait(false);
 
             if (preset == RGBKeyboardBacklightPreset.Off)
-                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightOff, NotificationDuration.Short, preset.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightOff, preset.GetDisplayName()));
             else
-                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightChanged, NotificationDuration.Short, preset.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightChanged, preset.GetDisplayName()));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Next preset set");

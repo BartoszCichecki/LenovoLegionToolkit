@@ -215,13 +215,13 @@ public class PowerStateListener : IListener<EventArgs>
         switch (newState)
         {
             case PowerAdapterStatus.Connected:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected));
                 break;
             case PowerAdapterStatus.ConnectedLowWattage:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage));
                 break;
             case PowerAdapterStatus.Disconnected:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected));
                 break;
         }
     }

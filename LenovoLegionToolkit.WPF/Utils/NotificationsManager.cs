@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Settings;
@@ -197,16 +196,10 @@ public class NotificationsManager
 
             Action<SymbolIcon>? symbolTransform = notification.Type switch
             {
-                NotificationType.PowerModeQuiet => si => si.Foreground = new SolidColorBrush(Color.FromRgb(53, 123, 242)),
-                NotificationType.PowerModePerformance => si => si.Foreground = new SolidColorBrush(Color.FromRgb(212, 51, 51)),
-                NotificationType.PowerModeGodMode => si => si.Foreground = new SolidColorBrush(Color.FromRgb(99, 52, 227)),
+                NotificationType.PowerModeQuiet => si => si.Foreground = PowerModeState.Quiet.GetSolidColorBrush(),
+                NotificationType.PowerModePerformance => si => si.Foreground = PowerModeState.Performance.GetSolidColorBrush(),
+                NotificationType.PowerModeGodMode => si => si.Foreground = PowerModeState.GodMode.GetSolidColorBrush(),
                 _ => null
-            };
-
-            var closeAfter = notification.Duration switch
-            {
-                NotificationDuration.Long => 5000,
-                _ => 1000
             };
 
             Action? clickAction = notification.Type switch
@@ -219,14 +212,14 @@ public class NotificationsManager
                 symbolTransform = si =>
                     si.SetResourceReference(Control.ForegroundProperty, "TextFillColorSecondaryBrush");
 
-            ShowNotification(symbol, overlaySymbol, symbolTransform, text, closeAfter, clickAction);
+            ShowNotification(symbol, overlaySymbol, symbolTransform, text, clickAction);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Notification {notification} shown.");
         });
     }
 
-    private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, int closeAfter, Action? clickAction)
+    private void ShowNotification(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction)
     {
         if (App.Current.MainWindow is not MainWindow mainWindow)
             return;
@@ -238,7 +231,13 @@ public class NotificationsManager
         }
 
         var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, _settings.Store.NotificationPosition) { Owner = mainWindow };
-        nw.Show(closeAfter);
+        nw.Show(_settings.Store.NotificationDuration switch
+        {
+            NotificationDuration.Short => 500,
+            NotificationDuration.Long => 2500,
+            NotificationDuration.Normal => 1000,
+            _ => throw new ArgumentException(nameof(_settings.Store.NotificationDuration))
+        });
 
         _window = nw;
     }

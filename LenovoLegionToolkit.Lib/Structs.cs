@@ -469,21 +469,17 @@ public readonly struct Notification
 {
     public NotificationType Type { get; }
 
-    public NotificationDuration Duration { get; }
-
     public object[] Args { get; }
 
-    public Notification(NotificationType type, NotificationDuration duration, params object[] args)
+    public Notification(NotificationType type, params object[] args)
     {
         Type = type;
-        Duration = duration;
         Args = args;
     }
 
     public override string ToString()
     {
         return $"{nameof(Type)}: {Type}," +
-               $" {nameof(Duration)}: {Duration}," +
                $" {nameof(Args)}: [{string.Join(", ", Args)}]";
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
@@ -13,9 +14,10 @@ public partial class NotificationsSettingsWindow
 {
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    private CardControl[] Cards => new[]
+    private IEnumerable<CardControl> Cards => new[]
     {
         _notificationPositionCard,
+        _notificationDurationCard,
         _updateAvailableCard,
         _capsNumLockCard,
         _fnLockCard,
@@ -36,6 +38,7 @@ public partial class NotificationsSettingsWindow
         _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
 
         _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
+        _notificationDurationComboBox.SetItems(Enum.GetValues<NotificationDuration>(), _settings.Store.NotificationDuration, v => v.GetDisplayName());
 
         _updateAvailableToggle.IsChecked = _settings.Store.Notifications.UpdateAvailable;
         _capsNumLockToggle.IsChecked = _settings.Store.Notifications.CapsNumLock;
@@ -78,6 +81,15 @@ public partial class NotificationsSettingsWindow
             return;
 
         _settings.Store.NotificationPosition = state;
+        _settings.SynchronizeStore();
+    }
+
+    private void NotificationDurationComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (!_notificationDurationComboBox.TryGetSelectedItem(out NotificationDuration state))
+            return;
+
+        _settings.Store.NotificationDuration = state;
         _settings.SynchronizeStore();
     }
 

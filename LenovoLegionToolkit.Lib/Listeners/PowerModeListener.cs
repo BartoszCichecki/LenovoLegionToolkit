@@ -44,16 +44,16 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INoti
         switch (value)
         {
             case PowerModeState.Quiet:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeQuiet, NotificationDuration.Short, value.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.PowerModeQuiet, value.GetDisplayName()));
                 break;
             case PowerModeState.Balance:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeBalance, NotificationDuration.Short, value.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.PowerModeBalance, value.GetDisplayName()));
                 break;
             case PowerModeState.Performance:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModePerformance, NotificationDuration.Short, value.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.PowerModePerformance, value.GetDisplayName()));
                 break;
             case PowerModeState.GodMode:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeGodMode, NotificationDuration.Short, value.GetDisplayName()));
+                MessagingCenter.Publish(new Notification(NotificationType.PowerModeGodMode, value.GetDisplayName()));
                 break;
         }
     }

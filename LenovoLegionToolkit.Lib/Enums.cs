@@ -198,7 +198,11 @@ public enum NativeWindowsMessage
 
 public enum NotificationDuration
 {
+    [Display(ResourceType = typeof(Resource), Name = "NotificationDuration_Short")]
     Short,
+    [Display(ResourceType = typeof(Resource), Name = "NotificationDuration_Normal")]
+    Normal,
+    [Display(ResourceType = typeof(Resource), Name = "NotificationDuration_Long")]
     Long
 }
 

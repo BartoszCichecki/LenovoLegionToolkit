@@ -111,9 +111,7 @@ internal class SmartKeyHelper
 
                 await _automationProcessor.RunNowAsync(pipeline.Id);
 
-                MessagingCenter.Publish(new Notification(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress,
-                    NotificationDuration.Short,
-                    pipeline.Name ?? string.Empty));
+                MessagingCenter.Publish(new Notification(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress, pipeline.Name ?? string.Empty));
             }
         }
         catch (Exception ex)

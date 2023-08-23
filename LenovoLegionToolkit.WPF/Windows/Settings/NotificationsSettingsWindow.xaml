@@ -5,9 +5,9 @@
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    xmlns:resources1="clr-namespace:LenovoLegionToolkit.Lib.Automation.Resources;assembly=LenovoLegionToolkit.Lib.Automation"
     Title="{x:Static resources:Resource.NotificationsSettingsWindow_Title}"
     Height="600"
     MinWidth="500"
@@ -61,7 +61,7 @@
                         Click="DontShowNotificationsToggle_Click" />
                 </wpfui:CardControl>
 
-                <wpfui:CardControl x:Name="_notificationPositionCard" Margin="0,0,0,24">
+                <wpfui:CardControl x:Name="_notificationPositionCard" Margin="0,0,0,8">
                     <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}" />
                     </wpfui:CardControl.Header>
@@ -71,6 +71,18 @@
                         Margin="0,0,0,8"
                         MaxDropDownHeight="Auto"
                         SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
+                </wpfui:CardControl>
+
+                <wpfui:CardControl x:Name="_notificationDurationCard" Margin="0,0,0,24">
+                    <wpfui:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationDuration_Title}" />
+                    </wpfui:CardControl.Header>
+                    <ComboBox
+                        x:Name="_notificationDurationComboBox"
+                        MinWidth="200"
+                        Margin="0,0,0,8"
+                        MaxDropDownHeight="Auto"
+                        SelectionChanged="NotificationDurationComboBox_SelectionChanged" />
                 </wpfui:CardControl>
 
                 <wpfui:CardControl x:Name="_updateAvailableCard" Margin="0,0,0,24">

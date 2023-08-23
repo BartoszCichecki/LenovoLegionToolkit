@@ -113,11 +113,11 @@ public class DriverKeyListener : IListener<DriverKey>
                     {
                         case MicrophoneState.On:
                             await _microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff, NotificationDuration.Short));
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff));
                             break;
                         case MicrophoneState.Off:
                             await _microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn, NotificationDuration.Short));
+                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn));
                             break;
                     }
                 }
@@ -141,8 +141,8 @@ public class DriverKeyListener : IListener<DriverKey>
                 {
                     var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(status == TouchpadLockState.Off
-                        ? new Notification(NotificationType.TouchpadOn, NotificationDuration.Short)
-                        : new Notification(NotificationType.TouchpadOff, NotificationDuration.Short));
+                        ? new Notification(NotificationType.TouchpadOn)
+                        : new Notification(NotificationType.TouchpadOff));
                 }
             }
 
@@ -152,8 +152,8 @@ public class DriverKeyListener : IListener<DriverKey>
                 {
                     var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(state == WhiteKeyboardBacklightState.Off
-                        ? new Notification(NotificationType.WhiteKeyboardBacklightOff, NotificationDuration.Short, state.GetDisplayName())
-                        : new Notification(NotificationType.WhiteKeyboardBacklightChanged, NotificationDuration.Short, state.GetDisplayName()));
+                        ? new Notification(NotificationType.WhiteKeyboardBacklightOff, state.GetDisplayName())
+                        : new Notification(NotificationType.WhiteKeyboardBacklightChanged, state.GetDisplayName()));
                 }
             }
         }

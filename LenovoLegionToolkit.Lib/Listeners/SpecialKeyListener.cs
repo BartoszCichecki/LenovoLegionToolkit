@@ -66,10 +66,10 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
             }
 
             if (value == SpecialKey.CameraOn)
-                MessagingCenter.Publish(new Notification(NotificationType.CameraOn, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.CameraOn));
 
             if (value == SpecialKey.CameraOff)
-                MessagingCenter.Publish(new Notification(NotificationType.CameraOff, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.CameraOff));
         }
         catch { /* Ignored. */ }
     }
@@ -87,10 +87,10 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
             }
 
             if (value == SpecialKey.FnLockOn)
-                MessagingCenter.Publish(new Notification(NotificationType.FnLockOn, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.FnLockOn));
 
             if (value == SpecialKey.FnLockOff)
-                MessagingCenter.Publish(new Notification(NotificationType.FnLockOff, NotificationDuration.Short));
+                MessagingCenter.Publish(new Notification(NotificationType.FnLockOff));
         }
         catch { /* Ignored. */ }
     }
@@ -148,7 +148,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
 
             _ = Task.Delay(TimeSpan.FromSeconds(1)).ContinueWith(_ =>
             {
-                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, NotificationDuration.Long, next.DisplayName));
+                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, next.DisplayName));
             });
 
             if (Log.Instance.IsTraceEnabled)
@@ -196,16 +196,16 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
             switch (value)
             {
                 case 0:
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Off));
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightOff, SpectrumKeyboardBacklightBrightness.Off));
                     break;
                 case 1:
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Low));
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, SpectrumKeyboardBacklightBrightness.Low));
                     break;
                 case 2:
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.Medium));
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, SpectrumKeyboardBacklightBrightness.Medium));
                     break;
                 case 3:
-                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, NotificationDuration.Short, SpectrumKeyboardBacklightBrightness.High));
+                    MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightChanged, SpectrumKeyboardBacklightBrightness.High));
                     break;
             }
         }
@@ -224,7 +224,7 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
                 return;
             }
 
-            MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, NotificationDuration.Short, value));
+            MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, value));
         }
         catch { /* Ignored. */ }
     }

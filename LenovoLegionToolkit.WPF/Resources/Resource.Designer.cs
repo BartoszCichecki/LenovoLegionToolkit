@@ -2958,6 +2958,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Duration.
+        /// </summary>
+        public static string NotificationsSettingsWindow_NotificationDuration_Title {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_NotificationDuration_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Position.
         /// </summary>
         public static string NotificationsSettingsWindow_NotificationPosition_Title {

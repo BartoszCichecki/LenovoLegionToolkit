@@ -51,7 +51,7 @@ public class LightingChangeListener : AbstractWMIListener<LightingChangeState, i
                             ? NotificationType.PanelLogoLightingOn
                             : NotificationType.PanelLogoLightingOff;
 
-                        MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
+                        MessagingCenter.Publish(new Notification(type));
                         break;
                     }
                 case LightingChangeState.Ports when await _portsBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
@@ -60,7 +60,7 @@ public class LightingChangeListener : AbstractWMIListener<LightingChangeState, i
                             ? NotificationType.PortLightingOn
                             : NotificationType.PortLightingOff;
 
-                        MessagingCenter.Publish(new Notification(type, NotificationDuration.Short));
+                        MessagingCenter.Publish(new Notification(type));
                         break;
                     }
             }

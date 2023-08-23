@@ -1889,4 +1889,7 @@ Switching modes may require restart.</value>
 	  <value>Allow switching between integrated and discrete GPU.
 Requires restart.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Duration</value>
+  </data>
 </root>

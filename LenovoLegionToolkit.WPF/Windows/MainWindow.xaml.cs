@@ -195,7 +195,7 @@ public partial class MainWindow
                 _updateIndicator.Visibility = Visibility.Visible;
 
                 if (WindowState == WindowState.Minimized)
-                    MessagingCenter.Publish(new Notification(NotificationType.UpdateAvailable, NotificationDuration.Long, versionNumber));
+                    MessagingCenter.Publish(new Notification(NotificationType.UpdateAvailable, versionNumber));
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
