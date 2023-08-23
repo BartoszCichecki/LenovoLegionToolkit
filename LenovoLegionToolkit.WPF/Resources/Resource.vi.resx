@@ -1876,7 +1876,4 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>Đã ngắt kết nối DGPU</value>
   </data>
-  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Cập nhật</value>
-  </data>
 </root>
