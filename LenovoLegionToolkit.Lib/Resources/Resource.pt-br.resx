@@ -436,4 +436,13 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>Carregamento por Carregador e USB</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Longa</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Curta</value>
+  </data>
 </root>
