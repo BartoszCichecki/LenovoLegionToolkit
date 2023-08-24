@@ -1889,4 +1889,10 @@ Ein Wechsel des Modus kann einen Neustart erfordern.</value>
 	  <value>Ermöglicht den Wechsel zwischen integrierter und diskreter GPU.
 Erfordert einen Neustart.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Dauer</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+	  <value>Updates</value>
+  </data>
 </root>
