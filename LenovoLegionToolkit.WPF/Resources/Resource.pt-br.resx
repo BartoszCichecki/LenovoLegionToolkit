@@ -1889,6 +1889,9 @@ Uma reinicialização pode ser necessária.</value>
 	  <value>Permite alternar entre as GPU's integrada e dedicada.
 Requer reinicialização.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Duração</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Atualizações</value>
   </data>
