@@ -436,4 +436,13 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>Secteur et USB PD</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Longue</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Normale</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Courte</value>
+  </data>
 </root>

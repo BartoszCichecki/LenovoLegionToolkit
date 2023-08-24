@@ -1877,6 +1877,23 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU déconnecté</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Mode de fonctionnement du GPU</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Sélectionne le mode de fonctionnement du GPU en fonction de l'utilisation et des conditions d'alimentation de votre ordinateur.
+Le changement de mode peut nécessiter un redémarrage.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Mode Hybride</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Permet le changement entre le GPU intégré et dédié.
+Nécessite un redémarrage.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Durée</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Mises à jour</value>
   </data>
