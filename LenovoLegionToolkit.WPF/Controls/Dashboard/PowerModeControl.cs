@@ -43,23 +43,32 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         _powerPlanListener.Changed += PowerPlanListener_Changed;
     }
 
-    private void ThermalModeListener_Changed(object? sender, ThermalModeState e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
+    private async void ThermalModeListener_Changed(object? sender, ThermalModeState e) => await _throttleDispatcher.DispatchAsync(async () =>
     {
-        if (IsLoaded && IsVisible)
-            await RefreshAsync();
-    }));
+        await Dispatcher.InvokeAsync(async () =>
+        {
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
+        });
+    });
 
-    private void PowerModeListener_Changed(object? sender, PowerModeState e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
+    private async void PowerModeListener_Changed(object? sender, PowerModeState e) => await _throttleDispatcher.DispatchAsync(async () =>
     {
-        if (IsLoaded && IsVisible)
-            await RefreshAsync();
-    }));
+        await Dispatcher.InvokeAsync(async () =>
+        {
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
+        });
+    });
 
-    private void PowerPlanListener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(() => _throttleDispatcher.DispatchAsync(async () =>
+    private async void PowerPlanListener_Changed(object? sender, EventArgs e) => await _throttleDispatcher.DispatchAsync(async () =>
     {
-        if (IsLoaded && IsVisible)
-            await RefreshAsync();
-    }));
+        await Dispatcher.InvokeAsync(async () =>
+        {
+            if (IsLoaded && IsVisible)
+                await RefreshAsync();
+        });
+    });
 
     protected override async Task OnRefreshAsync()
     {
