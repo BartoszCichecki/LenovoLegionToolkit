@@ -137,6 +137,8 @@ public partial class ColorPickerControl
         if (string.IsNullOrWhiteSpace(s))
             return 0;
 
-        return (byte)Math.Clamp(Convert.ToInt32(s), 0, 255);
+        Int32.TryParse(s, out int userInput);
+        
+        return (byte)Math.Clamp(userInput, 0, 255);
     }
 }
