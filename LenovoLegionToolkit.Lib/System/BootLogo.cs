@@ -22,6 +22,20 @@ public static class BootLogo
                                     PInvokeExtensions.VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS |
                                     PInvokeExtensions.VARIABLE_ATTRIBUTE_RUNTIME_ACCESS;
 
+    public static bool IsSupported()
+    {
+        try
+        {
+            _ = GetInfo();
+            _ = GetChecksum();
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public static (bool, Resolution, string[]) GetStatus()
     {
         var info = GetInfo();
@@ -98,6 +112,36 @@ public static class BootLogo
 
             if (!PInvoke.SetFirmwareEnvironmentVariableEx(LBLDESP, LBLDESP_GUID, ptr.ToPointer(), ptrSize, SCOPE_ATTR))
                 PInvokeExtensions.ThrowIfWin32Error("SetFirmwareEnvironmentVariableEx");
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(ptr);
+
+            SetPrivilege(false);
+        }
+    }
+
+    private static unsafe uint GetChecksum()
+    {
+        var ptr = Marshal.AllocHGlobal(Marshal.SizeOf<BootLogoChecksum>());
+
+        try
+        {
+            if (!SetPrivilege(true))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Cannot set UEFI privileges.");
+
+                throw new InvalidOperationException("Cannot set UEFI privilege.");
+            }
+
+            var ptrSize = (uint)Marshal.SizeOf<BootLogoChecksum>();
+
+            var size = PInvoke.GetFirmwareEnvironmentVariableEx(LBLDVC, LBLDVC_GUID, ptr.ToPointer(), ptrSize, null);
+            if (size != ptrSize)
+                PInvokeExtensions.ThrowIfWin32Error("GetFirmwareEnvironmentVariableEx");
+
+            return Marshal.PtrToStructure<BootLogoChecksum>(ptr).Crc;
         }
         finally
         {
