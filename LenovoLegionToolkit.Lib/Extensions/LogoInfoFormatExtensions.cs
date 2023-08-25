@@ -15,16 +15,16 @@ public static class LogoInfoFormatExtensions
             yield return ImageFormat.Png;
     }
 
-    public static IEnumerable<string> Extensions(this BootLogoFormat format)
+    public static IEnumerable<string> ExtensionFilters(this BootLogoFormat format)
     {
         if (format.HasFlag(BootLogoFormat.Bmp))
-            yield return ".bmp";
+            yield return "*.bmp";
         if (format.HasFlag(BootLogoFormat.Png))
-            yield return ".png";
+            yield return "*.png";
         if (format.HasFlag(BootLogoFormat.Jpeg))
         {
-            yield return ".jpeg";
-            yield return ".jpg";
+            yield return "*.jpeg";
+            yield return "*.jpg";
         }
     }
 }

@@ -166,6 +166,15 @@
                 Visibility="Hidden" />
         </wpfui:CardControl>
 
+        <wpfui:CardAction
+            x:Name="_bootLogoCard"
+            Margin="0,0,0,8"
+            Click="BootLogo_Click">
+            <wpfui:CardAction.Content>
+                <controls:CardHeaderControl Title="Boot Logo" Subtitle="Customize Boot Logo image, visible during system startup." />
+            </wpfui:CardAction.Content>
+        </wpfui:CardAction>
+
         <TextBlock
             Margin="0,16,0,24"
             FontSize="24"

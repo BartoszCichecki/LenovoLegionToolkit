@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -36,10 +37,10 @@ public static class BootLogo
         }
     }
 
-    public static (bool, Resolution, string[]) GetStatus()
+    public static (bool, Resolution, ImageFormat[], string[]) GetStatus()
     {
         var info = GetInfo();
-        return (info.Enabled == 1, new(info.SupportedWidth, info.SupportedHeight), info.SupportedFormat.Extensions().ToArray());
+        return (info.Enabled == 1, new(info.SupportedWidth, info.SupportedHeight), info.SupportedFormat.ImageFormats().ToArray(), info.SupportedFormat.ExtensionFilters().ToArray());
     }
 
     public static async Task EnableAsync(string sourcePath)
