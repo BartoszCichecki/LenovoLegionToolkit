@@ -436,4 +436,13 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>AC 方形電源孔和 USB PD 電源孔</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>長</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>短</value>
+  </data>
 </root>
