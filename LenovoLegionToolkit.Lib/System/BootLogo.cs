@@ -273,8 +273,16 @@ public static class BootLogo
     {
         // ReSharper disable once StringLiteralTypo
         var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-        var userLetters = DriveInfo.GetDrives().Select(di => di.VolumeLabel.ToCharArray()[0]);
-        var letter = letters.Last(c => !userLetters.Contains(c));
+        var usedLetters = DriveInfo.GetDrives().Select(di => di.Name.First()).ToArray();
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Used drive letters: {string.Join(",", usedLetters)}");
+
+        var letter = letters.Last(c => !usedLetters.Contains(c));
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Using '{letter}' letter.");
+
         return letter;
     }
 
