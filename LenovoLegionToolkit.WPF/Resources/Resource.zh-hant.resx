@@ -1427,7 +1427,7 @@
     <value>已有可供使用的更新</value>
   </data>
   <data name="UpdateWindow_WhatsNew" xml:space="preserve">
-    <value>有什麼新鮮事？</value>
+    <value>有什麼新功能？</value>
   </data>
   <data name="WhiteKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>調整鍵盤背光亮度</value>
@@ -1873,6 +1873,23 @@
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>DGPU 已中斷連接</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>GPU 運作模式</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>根據您的使用場景和電源情況選擇顯示卡的執行模式。
+切換模式可能需要重新啟動。</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>混合模式（Hybrid）</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
+需要重新啟動。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>持續時間</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>更新</value>
