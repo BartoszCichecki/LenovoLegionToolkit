@@ -247,7 +247,9 @@ public class GodModeControllerV2 : AbstractGodModeController
             GPUTemperatureLimit = stepperValues.GetValueOrNull(CapabilityID.GPUTemperatureLimit),
             GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = stepperValues.GetValueOrNull(CapabilityID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline),
             FanTableInfo = fanTableData is null ? null : new FanTableInfo(fanTableData, await GetDefaultFanTableAsync().ConfigureAwait(false)),
-            FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false)
+            FanFullSpeed = await GetFanFullSpeedAsync().ConfigureAwait(false),
+            MinValueOffset = 0,
+            MaxValueOffset = 0
         };
 
         if (Log.Instance.IsTraceEnabled)
