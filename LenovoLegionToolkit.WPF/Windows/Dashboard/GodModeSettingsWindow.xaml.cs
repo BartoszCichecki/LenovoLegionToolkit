@@ -197,13 +197,13 @@ public partial class GodModeSettingsWindow
 
         var maxValueOffset = preset.MaxValueOffset;
         if (maxValueOffset.HasValue)
-            _maxValueOffsetNumberBox.Text = $"{maxValueOffset}";
+            _maxValueOffsetNumberBox.Value = maxValueOffset;
         else
             _maxValueOffsetCardControl.Visibility = Visibility.Collapsed;
 
         var minValueOffset = preset.MinValueOffset;
         if (minValueOffset.HasValue)
-            _minValueOffsetNumberBox.Text = $"{minValueOffset}";
+            _minValueOffsetNumberBox.Value = minValueOffset;
         else
             _minValueOffsetCardControl.Visibility = Visibility.Collapsed;
 
