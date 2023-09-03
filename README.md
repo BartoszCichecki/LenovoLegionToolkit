@@ -290,7 +290,7 @@ Starting from version 2.14.0, LLT is much more strict about detecting leftover p
 2. Lenovo Vantage Service
 3. System Interface Foundation V2 Device
 
-The easiest solution is to go into LLT settings and selection options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
+The easiest solution is to go into LLT settings and select options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
 
 If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing `Vantage` or `ImController`. You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of `ImController` processes.
 
