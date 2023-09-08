@@ -2086,6 +2086,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CPU to GPU Dynamic Boost.
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Name.
         /// </summary>
         public static string GodModeSettingsWindow_EditPreset_Message {
@@ -2228,6 +2246,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string GodModeSettingsWindow_GPU_Title {
             get {
                 return ResourceManager.GetString("GodModeSettingsWindow_GPU_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GPU to CPU Dynamic Boost.
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU..
+        /// </summary>
+        public static string GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description {
+            get {
+                return ResourceManager.GetString("GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description", resourceCulture);
             }
         }
         
