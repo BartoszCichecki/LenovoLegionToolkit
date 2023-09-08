@@ -420,7 +420,9 @@ It would be great to expand the list of compatible devices, but to do it your he
 
 If you are willing to check if this app works correctly on your device that is currently unsupported, click _Continue_ on the popup you saw on startup. Lenovo Legion Toolkit will start logging automatically so you can submit them if anything goes wrong.
 
-*Remember that some functions may not function properly, so keep this in mind.*
+**If your laptop is not part of Legion series, this software is not for you. Please do NOT open compatibility requests for other devices.**
+
+*Remember that some functions may not function properly.*
 
 I would appreciate it, if you create an issue here on GitHub with the results of your testing.
 
