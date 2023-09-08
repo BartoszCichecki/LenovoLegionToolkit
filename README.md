@@ -23,9 +23,7 @@ Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression
 
 <br />
 
-Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion series laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
-
-**If your laptop is not part of Legion series, this software is not for you. Please do NOT open compatibility requests for other devices. Issues will be closed and not looked at!**
+Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion (and similar) series laptops, that allows changing a couple of features that are only available in Lenovo Vantage or Legion Zone.
 
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
@@ -122,7 +120,7 @@ Generations 6 (MY2021), 7 (MY2022) and 8 (MY2023) are supported, although some f
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
-**Support for other laptop that are not part of Legion series is not planned.**
+**Support for other laptops is not planned.**
 
 ### Lenovo's software
 
@@ -290,7 +288,7 @@ Starting from version 2.14.0, LLT is much more strict about detecting leftover p
 2. Lenovo Vantage Service
 3. System Interface Foundation V2 Device
 
-The easiest solution is to go into LLT settings and selection options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
+The easiest solution is to go into LLT settings and select options to disable Lenovo Vantage, LegionZone and Hotkeys (only still installed ones are shown).
 
 If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing `Vantage` or `ImController`. You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of `ImController` processes.
 
@@ -420,7 +418,9 @@ It would be great to expand the list of compatible devices, but to do it your he
 
 If you are willing to check if this app works correctly on your device that is currently unsupported, click _Continue_ on the popup you saw on startup. Lenovo Legion Toolkit will start logging automatically so you can submit them if anything goes wrong.
 
-*Remember that some functions may not function properly, so keep this in mind.*
+**If your laptop is not part of Legion, IdeaPad Gaming or LOQ series, this software is not for you. Please do NOT open compatibility requests for other devices.**
+
+*Remember that some functions may not function properly.*
 
 I would appreciate it, if you create an issue here on GitHub with the results of your testing.
 
