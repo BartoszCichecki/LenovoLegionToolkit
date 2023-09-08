@@ -122,7 +122,7 @@ Generations 6 (MY2021), 7 (MY2022) and 8 (MY2023) are supported, although some f
 
 If you are getting an incompatible message on startup, you can check the *Contribution* section down at the bottom, to see how can you help. Keep in mind, that not always I can make all options compatible with all hardware since I do not have access to it.
 
-**Support for other laptop that are not part of Legion series is not planned.**
+**Support for other laptops, that are not part of Legion series, is not planned.**
 
 ### Lenovo's software
 
