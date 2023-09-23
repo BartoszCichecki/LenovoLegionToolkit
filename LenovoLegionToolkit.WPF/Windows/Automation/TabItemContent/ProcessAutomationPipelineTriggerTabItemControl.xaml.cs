@@ -59,9 +59,9 @@ public partial class ProcessAutomationPipelineTriggerTabItemControl : IAutomatio
             Filter = "Exe Files (.exe)|*.exe",
             CheckFileExists = true,
         };
-        var result = ofd.ShowDialog();
 
-        if (!result.HasValue || !result.Value)
+        var result = ofd.ShowDialog() ?? false;
+        if (!result)
             return;
 
         var processInfo = ProcessInfo.FromPath(ofd.FileName);

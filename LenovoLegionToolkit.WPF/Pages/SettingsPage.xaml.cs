@@ -99,6 +99,8 @@ public partial class SettingsPage
         _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _synchronizeBrightnessToAllPowerPlansToggle.IsChecked = _settings.Store.SynchronizeBrightnessToAllPowerPlans;
 
+        _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
+
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
         await loadingTask;
@@ -446,6 +448,15 @@ public partial class SettingsPage
 
         _settings.Store.SynchronizeBrightnessToAllPowerPlans = state.Value;
         _settings.SynchronizeStore();
+    }
+
+    private void BootLogo_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var window = new BootLogoWindow { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
     }
 
     private void PowerPlans_Click(object sender, RoutedEventArgs e)

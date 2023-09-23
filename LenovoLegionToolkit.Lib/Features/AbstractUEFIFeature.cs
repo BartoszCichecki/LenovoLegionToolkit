@@ -92,7 +92,7 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges [feature={GetType().Name}]");
 
-                throw new InvalidOperationException("Cannot set privileges UEFI");
+                throw new InvalidOperationException("Cannot set UEFI privileges");
             }
 
             Marshal.StructureToPtr(structure, ptr, false);

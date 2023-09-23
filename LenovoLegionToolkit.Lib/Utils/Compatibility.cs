@@ -114,6 +114,7 @@ public static class Compatibility
                 SupportsGSync = await GetSupportsGSyncAsync().ConfigureAwait(false),
                 SupportsIGPUMode = await GetSupportsIGPUModeAsync().ConfigureAwait(false),
                 SupportsAIMode = await GetSupportsAIModeAsync().ConfigureAwait(false),
+                SupportBootLogoChange = GetSupportBootLogoChange(smartFanVersion),
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                 HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
                 IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
@@ -148,6 +149,7 @@ public static class Compatibility
             Log.Instance.Trace($"     * SupportsGSync: '{machineInformation.Properties.SupportsGSync}'");
             Log.Instance.Trace($"     * SupportsIGPUMode: '{machineInformation.Properties.SupportsIGPUMode}'");
             Log.Instance.Trace($"     * SupportsAIMode: '{machineInformation.Properties.SupportsAIMode}'");
+            Log.Instance.Trace($"     * SupportBootLogoChange: '{machineInformation.Properties.SupportBootLogoChange}'");
             Log.Instance.Trace($"     * HasQuietToPerformanceModeSwitchingBug: '{machineInformation.Properties.HasQuietToPerformanceModeSwitchingBug}'");
             Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
             Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
@@ -369,6 +371,8 @@ public static class Compatibility
             return false;
         }
     }
+
+    private static bool GetSupportBootLogoChange(int smartFanVersion) => smartFanVersion < 6;
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
     {
