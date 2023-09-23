@@ -138,9 +138,10 @@ The app allows to:
 - Spectrum RGB, 4-zone RGB and White backlight keyboards support.
 - Deactivate discrete GPU (nVidia only).
 - View battery statistics.
-- Download software updates.
+- Check for driver and software updates.
+- Check warranty status.
 - Define Actions that will run when the laptop is i.e. connected to AC power.
-- Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling it.
+- Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling them.
 - ... and more!
 
 ### Custom Mode
