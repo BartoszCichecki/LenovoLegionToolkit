@@ -436,4 +436,13 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>AC và USB PD</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Dài</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Bình thường</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Ngắn</value>
+  </data>
 </root>
