@@ -82,7 +82,7 @@ You can download the installer from the [Releases page](https://github.com/Barto
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
-If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode or Actions.
+If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
 
 #### Required drivers
 
