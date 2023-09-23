@@ -457,7 +457,6 @@ public partial class SettingsPage
 
         var window = new BootLogoWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
-
     }
 
     private void PowerPlans_Click(object sender, RoutedEventArgs e)
