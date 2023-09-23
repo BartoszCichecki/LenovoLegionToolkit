@@ -436,4 +436,13 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>Maiņstrāva un USB PD</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Ilgi</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Normāli</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Īsi</value>
+  </data>
 </root>

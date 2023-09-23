@@ -1876,6 +1876,23 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
 	  <value>Đã ngắt kết nối DGPU</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Chế độ hoạt động của GPU</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
+Chuyển đổi giữa các chế độ có thể cần phải khởi động lại.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Hybrid</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
+Yêu cầu khởi động lại.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Thời lượng</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Cập nhật</value>
   </data>

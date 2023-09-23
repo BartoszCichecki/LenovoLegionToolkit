@@ -165,4 +165,17 @@
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando lo schermo si spegne</value>
   </data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Coperchio aperto</value>
+  </data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Coperchio chiuso</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quando l'utente diventa inattivo</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>Disattiva GPU</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
+  </data>
 </root>
