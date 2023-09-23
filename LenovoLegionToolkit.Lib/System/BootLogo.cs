@@ -23,10 +23,14 @@ public static class BootLogo
                                     PInvokeExtensions.VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS |
                                     PInvokeExtensions.VARIABLE_ATTRIBUTE_RUNTIME_ACCESS;
 
-    public static bool IsSupported()
+    public static async Task<bool> IsSupportedAsync()
     {
         try
         {
+            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
+            if (!mi.Properties.SupportBootLogoChange)
+                return false;
+
             _ = GetInfo();
             _ = GetChecksum();
             return true;

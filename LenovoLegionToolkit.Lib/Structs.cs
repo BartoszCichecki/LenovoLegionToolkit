@@ -412,6 +412,7 @@ public readonly struct MachineInformation
         public bool SupportsGSync { get; init; }
         public bool SupportsIGPUMode { get; init; }
         public bool SupportsAIMode { get; init; }
+        public bool SupportBootLogoChange { get; init; }
         public bool HasQuietToPerformanceModeSwitchingBug { get; init; }
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }
         public bool IsExcludedFromLenovoLighting { get; init; }
