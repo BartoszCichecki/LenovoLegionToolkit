@@ -44,6 +44,7 @@ public static class Compatibility
         "15IRH",
         "15ITH",
 
+        "14APH",
         "14IRP",
 
         // Chinese variants

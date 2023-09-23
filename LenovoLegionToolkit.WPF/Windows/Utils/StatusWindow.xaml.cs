@@ -143,12 +143,23 @@ public partial class StatusWindow
             return;
         }
 
-        var mousePosition = Control.MousePosition;
-        var point = new Point(mousePosition.X, mousePosition.Y);
-        var mouse = transform.Value.Transform(point);
+        const double offset = 8;
 
-        Left = mouse.X - ActualWidth;
-        Top = mouse.Y - ActualHeight - 16;
+        var mousePoint = Control.MousePosition;
+        var screenRectangle = Screen.FromPoint(mousePoint).WorkingArea;
+
+        var mouse = transform.Value.Transform(new Point(mousePoint.X, mousePoint.Y));
+        var screen = transform.Value.Transform(new Vector(screenRectangle.Width, screenRectangle.Height));
+
+        if (mouse.X + offset + ActualWidth > screen.X)
+            Left = mouse.X - ActualWidth - offset;
+        else
+            Left = mouse.X + offset;
+
+        if (mouse.Y + offset + ActualHeight > screen.Y)
+            Top = mouse.Y - ActualHeight - offset;
+        else
+            Top = mouse.Y + offset;
     }
 
     private void RefreshPowerMode(PowerModeState? powerModeState, string? godModePresetName)
