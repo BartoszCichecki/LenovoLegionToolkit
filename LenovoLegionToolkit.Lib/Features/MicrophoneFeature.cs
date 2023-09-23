@@ -13,7 +13,18 @@ public class MicrophoneFeature : IFeature<MicrophoneState>
 
     private IEnumerable<AudioEndpointVolume> AudioEndpointVolumes => _enumerator.EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).Select(d => d.AudioEndpointVolume);
 
-    public Task<bool> IsSupportedAsync() => Task.FromResult(AudioEndpointVolumes.Any());
+    public Task<bool> IsSupportedAsync()
+    {
+        try
+        {
+            var isSupported = AudioEndpointVolumes.Any();
+            return Task.FromResult(isSupported);
+        }
+        catch
+        {
+            return Task.FromResult(false);
+        }
+    }
 
     public Task<MicrophoneState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<MicrophoneState>());
 
