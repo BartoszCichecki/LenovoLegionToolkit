@@ -412,4 +412,10 @@
     <value>Attivo</value>
     <comment>Informs the user that WinLock is or will be turned on.</comment>
   </data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+    <value>USB Power Delivery</value>
+  </data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+    <value>AC and USB PD</value>
+  </data>
 </root>
