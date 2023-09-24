@@ -1895,4 +1895,28 @@ Requer reinicialização.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Atualizações</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Logo de Inicialização</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Personalizar o Logo de Boot visível na inicialização do sistema.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Logo de Inicialização</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>A imagem de inicialização padrão está definida</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>A imagem de inicialização padrão está definida</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Status</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Redefinir para o padrão</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Personalizar</value>
+  </data>
 </root>

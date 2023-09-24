@@ -437,7 +437,7 @@ Bu modları değiştirmek yeniden başlatma gerektirebilir.</value>
 UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün çalışmayacaktır.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
-    <value>GPU'yu devredışı bırak</value>
+    <value>GPU Pasifleştir</value>
   </data>
   <data name="DelayAutomationStepControl_Message" xml:space="preserve">
     <value>Sonraki adımı çalıştırmadan önce gecikme ekleyin.</value>
@@ -494,7 +494,7 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
     <value>Aktif</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Devredışı bırak</value>
+    <value>Pasifleştir</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Aktif değil</value>
@@ -1895,5 +1895,29 @@ Yeniden başlatma gerektirir.</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Güncellemeler</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Açılış Logosu</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Sistem başladığında görülebilen Açılış Logosu görüntüsünü özelleştirin.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Açılış Logosu</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Varsayılan Başlangıç Logosu ayarla</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Özel Başlangıç Logosu ayarla</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Durum</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Varsayılana döndür</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Özelleştir</value>
   </data>
 </root>
