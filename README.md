@@ -306,7 +306,7 @@ You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customize
 
 #### <a id="faq-customize-conservation-mode" />Can I customize Conservation mode threshold?
 
-No. Conservation mode threshold is set in firmware to 60% (pre 2022) or 80% (2022 and later) and it can't be changed.
+No. Conservation mode threshold is set in firmware to 60% (2021 and earlier) or 80% (2022 and later) and it can't be changed.
 
 #### <a id="faq-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
 
