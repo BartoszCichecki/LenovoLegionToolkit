@@ -265,6 +265,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
 * [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
 * [Can I customize hotkeys?](#faq-custom-hotkeys)
+* [Can I customize Conservation mode threshold?](#faq-customize-conservation-mode)
 * [Can I customize fans in Quiet, Balance or Performance modes?](#faq-fan-curves)
 * [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
 * [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
@@ -302,6 +303,10 @@ If you downloaded the installer from this projects website, you shouldn't worry 
 #### <a id="faq-custom-hotkeys" />Can I customize hotkeys?
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
+
+#### <a id="faq-customize-conservation-mode" />Can I customize Conservation mode threshold?
+
+No. Conservation mode threshold is set in firmware to 60% (pre 2022) or 80% (2022 and later) and it can't be changed.
 
 #### <a id="faq-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
 
