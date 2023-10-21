@@ -1919,4 +1919,13 @@ Requer reinicialização.</value>
   <data name="BootLogoWindow_Customize" xml:space="preserve">
 	  <value>Personalizar</value>
   </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Ações</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Texto da notificação</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Exibir notificação</value>
+  </data>
 </root>
