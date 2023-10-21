@@ -1893,4 +1893,13 @@ Nepieciešama restartēšana.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Atjauninājumi</value>
   </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Darbības</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Paziņojuma Teksts</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Rādīt paziņojumu</value>
+  </data>
 </root>
