@@ -2930,11 +2930,38 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notification Text.
+        /// </summary>
+        public static string NotificationAutomationStepControl_NotificationText {
+            get {
+                return ResourceManager.GetString("NotificationAutomationStepControl_NotificationText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show notification.
+        /// </summary>
+        public static string NotificationAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("NotificationAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AC Adapter.
         /// </summary>
         public static string NotificationsSettingsWindow_ACAdapter {
             get {
                 return ResourceManager.GetString("NotificationsSettingsWindow_ACAdapter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Actions.
+        /// </summary>
+        public static string NotificationsSettingsWindow_Automation {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_Automation", resourceCulture);
             }
         }
         

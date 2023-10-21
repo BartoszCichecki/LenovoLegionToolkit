@@ -326,6 +326,7 @@ public class AutomationPipelineControl : UserControl
             HybridModeAutomationStep s => await HybridModeAutomationStepControlFactory.GetControlAsync(s),
             InstantBootAutomationStep s => new InstantBootAutomationStepControl(s),
             MicrophoneAutomationStep s => new MicrophoneAutomationStepControl(s),
+            NotificationAutomationStep s => new NotificationAutomationStepControl(s),
             OneLevelWhiteKeyboardBacklightAutomationStep s => new OneLevelWhiteKeyboardBacklightAutomationStepControl(s),
             OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
             OverclockDiscreteGPUAutomationStep s => new OverclockDiscreteGPUAutomationStepControl(s),

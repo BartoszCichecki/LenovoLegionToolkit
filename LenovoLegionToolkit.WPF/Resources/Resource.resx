@@ -1919,4 +1919,13 @@ Requires restart.</value>
   <data name="BootLogoWindow_Customize" xml:space="preserve">
 	  <value>Customize</value>
   </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Actions</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Notification Text</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Show notification</value>
+  </data>
 </root>
