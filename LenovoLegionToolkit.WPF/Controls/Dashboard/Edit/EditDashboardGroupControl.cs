@@ -4,14 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
-using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
 
@@ -97,7 +95,7 @@ public class EditDashboardGroupControl : UserControl
         _moveUpButton.Click += (_, _) => MoveUp?.Invoke(this, EventArgs.Empty);
         _moveDownButton.Click += (_, _) => MoveDown?.Invoke(this, EventArgs.Empty);
         _deleteButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
-        _addItemButton.Click += (_, _) => ShowContextMenu();
+        _addItemButton.Click += (_, _) => ShowAddItemWindow();
 
         _buttonsStackPanel.Children.Add(_editButton);
         _buttonsStackPanel.Children.Add(_moveUpButton);
@@ -150,32 +148,10 @@ public class EditDashboardGroupControl : UserControl
         _cardHeaderControl.Title = result;
     }
 
-    private void ShowContextMenu()
+    private void ShowAddItemWindow()
     {
-        var allItems = Enum.GetValues<DashboardItem>();
-        var existingItems = _getExistingItems().ToArray();
-
-        var menuItems = new List<MenuItem>();
-
-        foreach (var item in allItems)
-        {
-            var menuItem = new MenuItem { SymbolIcon = item.GetIcon(), Header = item.GetTitle() };
-            menuItem.Click += (_, _) => AddItem(item);
-            menuItem.IsEnabled = !existingItems.Contains(item);
-            menuItems.Add(menuItem);
-        }
-
-        var contextMenu = new ContextMenu
-        {
-            PlacementTarget = _addItemButton,
-            Placement = PlacementMode.Bottom,
-        };
-
-        foreach (var menuItem in menuItems.OrderBy(mi => mi.Header))
-            contextMenu.Items.Add(menuItem);
-
-        _addItemButton.ContextMenu = contextMenu;
-        _addItemButton.ContextMenu.IsOpen = true;
+        var window = new AddDashboardItemWindow(_getExistingItems, AddItem) { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
     }
 
     private void AddItem(DashboardItem dashboardItem)
