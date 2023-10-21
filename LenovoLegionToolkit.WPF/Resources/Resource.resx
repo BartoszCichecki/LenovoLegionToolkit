@@ -1928,4 +1928,7 @@ Requires restart.</value>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
 	  <value>Show notification</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Preset</value>
+  </data>
 </root>

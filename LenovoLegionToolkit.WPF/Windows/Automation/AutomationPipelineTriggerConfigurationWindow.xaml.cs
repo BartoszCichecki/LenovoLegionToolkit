@@ -93,6 +93,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     private static bool IsValid(IAutomationPipelineTrigger trigger) => trigger switch
     {
         IPowerModeAutomationPipelineTrigger => true,
+        IGodModePresetChangedAutomationPipelineTrigger => true,
         IProcessesAutomationPipelineTrigger => true,
         IUserInactivityPipelineTrigger ut when ut.InactivityTimeSpan > TimeSpan.Zero => true,
         ITimeAutomationPipelineTrigger => true,
@@ -102,6 +103,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
     private static IAutomationPipelineTriggerTabItemContent<IAutomationPipelineTrigger>? Create(IAutomationPipelineTrigger trigger) => trigger switch
     {
         IPowerModeAutomationPipelineTrigger pmt => new PowerModeAutomationPipelineTriggerTabItemContent(pmt),
+        IGodModePresetChangedAutomationPipelineTrigger gmpt => new GodModePresetPipelineTriggerTabItemContent(gmpt),
         IProcessesAutomationPipelineTrigger pt => new ProcessAutomationPipelineTriggerTabItemControl(pt),
         IUserInactivityPipelineTrigger ut when ut.InactivityTimeSpan > TimeSpan.Zero => new UserInactivityPipelineTriggerTabItemContent(ut),
         ITimeAutomationPipelineTrigger tt => new TimeAutomationPipelineTriggerTabItemContent(tt),

@@ -612,6 +612,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset.
+        /// </summary>
+        public static string AutomationPipelineControl_SubtitlePart_Preset {
+            get {
+                return ResourceManager.GetString("AutomationPipelineControl_SubtitlePart_Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unnamed.
         /// </summary>
         public static string AutomationPipelineControl_Unnamed {

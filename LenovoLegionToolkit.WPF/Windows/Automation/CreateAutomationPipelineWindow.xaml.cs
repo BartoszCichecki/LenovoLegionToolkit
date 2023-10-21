@@ -23,6 +23,7 @@ public partial class CreateAutomationPipelineWindow
         new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
         new ACAdapterDisconnectedAutomationPipelineTrigger(),
         new PowerModeAutomationPipelineTrigger(PowerModeState.Balance),
+        new GodModePresetChangedAutomationPipelineTrigger(Guid.Empty),
         new GamesAreRunningAutomationPipelineTrigger(),
         new GamesStopAutomationPipelineTrigger(),
         new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),

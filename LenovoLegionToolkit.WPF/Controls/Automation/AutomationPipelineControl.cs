@@ -11,6 +11,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -29,6 +30,7 @@ public class AutomationPipelineControl : UserControl
     private readonly TaskCompletionSource _initializedTaskCompletionSource = new();
 
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
+    private readonly GodModeSettings _godModeSettings = IoCContainer.Resolve<GodModeSettings>();
 
     private readonly CardExpander _cardExpander = new()
     {
@@ -248,6 +250,15 @@ public class AutomationPipelineControl : UserControl
 
         if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger pm)
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_PowerMode}: {pm.PowerModeState.GetDisplayName()}";
+
+        if (AutomationPipeline.Trigger is IGodModePresetChangedAutomationPipelineTrigger gmpt)
+        {
+            var name = _godModeSettings.Store.Presets.Where(kv => kv.Key == gmpt.PresetId)
+                .Select(kv => kv.Value.Name)
+                .DefaultIfEmpty("-")
+                .First();
+            result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Preset}: {name}";
+        }
 
         if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Apps}: {string.Join(", ", pt.Processes.Select(p => p.Name))}";

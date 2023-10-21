@@ -36,7 +36,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");
 
-        var preset = await GetActivePresetAsync().ConfigureAwait(false);
+        var (presetId, preset) = await GetActivePresetAsync().ConfigureAwait(false);
 
         var settings = new Dictionary<CapabilityID, StepperValue?>
         {
@@ -132,8 +132,10 @@ public class GodModeControllerV2 : AbstractGodModeController
             }
         }
 
+        RaisePresetChanged(presetId);
+
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"State applied.");
+            Log.Instance.Trace($"State applied. [name={preset.Name}, id={presetId}]");
     }
 
     public override Task<FanTable> GetMinimumFanTableAsync()

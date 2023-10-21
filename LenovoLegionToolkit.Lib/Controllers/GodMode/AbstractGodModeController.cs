@@ -16,6 +16,8 @@ public abstract class AbstractGodModeController : IGodModeController
     protected readonly VantageDisabler VantageDisabler;
     protected readonly LegionZoneDisabler LegionZoneDisabler;
 
+    public event EventHandler<Guid>? PresetChanged;
+
     protected AbstractGodModeController(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
@@ -26,6 +28,8 @@ public abstract class AbstractGodModeController : IGodModeController
     public abstract Task<bool> NeedsVantageDisabledAsync();
 
     public abstract Task<bool> NeedsLegionZoneDisabledAsync();
+
+    public Task<Guid> GetActivePresetIdAsync() => Task.FromResult(_settings.Store.ActivePresetId);
 
     public Task<string?> GetActivePresetNameAsync()
     {
@@ -121,7 +125,9 @@ public abstract class AbstractGodModeController : IGodModeController
 
     protected abstract Task<GodModePreset> GetDefaultStateAsync();
 
-    protected async Task<GodModeSettings.GodModeSettingsStore.Preset> GetActivePresetAsync()
+    protected void RaisePresetChanged(Guid presetId) => PresetChanged?.Invoke(this, presetId);
+
+    protected async Task<(Guid, GodModeSettings.GodModeSettingsStore.Preset)> GetActivePresetAsync()
     {
         if (!IsValidStore(_settings.Store))
         {
@@ -136,7 +142,7 @@ public abstract class AbstractGodModeController : IGodModeController
         var presets = _settings.Store.Presets;
 
         if (presets.TryGetValue(activePresetId, out var activePreset))
-            return activePreset;
+            return (activePresetId, activePreset);
 
         throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
     }
