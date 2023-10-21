@@ -24,6 +24,7 @@ public static partial class WMI
                 }).ConfigureAwait(false);
             return result
                 .OfType<(string, int)>()
+                .DistinctBy(sm => sm.Item1)
                 .ToDictionary(sm => sm.Item1, sm => sm.Item2);
         }
     }
