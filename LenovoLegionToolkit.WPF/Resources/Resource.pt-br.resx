@@ -1928,4 +1928,7 @@ Requer reinicialização.</value>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
 	  <value>Exibir notificação</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Predefinição</value>
+  </data>
 </root>
