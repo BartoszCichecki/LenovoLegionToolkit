@@ -1932,4 +1932,7 @@ Requiere un reinicio.</value>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
 	  <value>Mostrar notificación</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Predefinido</value>
+  </data>
 </root>

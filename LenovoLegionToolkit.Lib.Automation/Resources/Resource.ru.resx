@@ -193,4 +193,7 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>Вкл.</value>
   </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Когда изменяется пресет пользовательского режима</value>
+  </data>
 </root>

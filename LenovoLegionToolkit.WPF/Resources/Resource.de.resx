@@ -1928,4 +1928,7 @@ Erfordert einen Neustart.</value>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
 	  <value>Benachrichtigung anzeigen</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Vorlage</value>
+  </data>
 </root>
