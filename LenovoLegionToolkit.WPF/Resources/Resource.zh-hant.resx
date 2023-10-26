@@ -180,7 +180,7 @@
     <value>套用 &amp; 關閉</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Lenovo Legion 工具套件必須在執行時才能使自動化操作。</value>
+    <value>自動化操作一定要在 Lenovo Legion 工具套件執行時才可以運作。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>啟用</value>
@@ -204,7 +204,7 @@
     <value>尚未定義快捷操作。點擊「新增」以建立新的快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>對系統匣選單中的圖示提供快捷操作。</value>
+    <value>提供系統匣選單圖示的快捷操作。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>快捷操作</value>
@@ -354,10 +354,10 @@
     <value>初次使用電池時間。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
-    <value>當電池充滿時的容量。</value>
+    <value>當電池充飽時的容量。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
-    <value>充滿容量</value>
+    <value>充飽容量</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>已連接較低功率電源供應器</value>
@@ -607,7 +607,7 @@
     <value>CPU</value>
   </data>
   <data name="FanCurveControl_CPUSensor" xml:space="preserve">
-    <value>CPU 感應器</value>
+    <value>CPU 感測器</value>
   </data>
   <data name="FanCurveControl_FanSpeed" xml:space="preserve">
     <value>風扇轉速</value>
@@ -684,7 +684,7 @@
     <value>無法載入設定。</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
-    <value>風扇轉速不僅僅由一個溫度感應器決定的。它根據 CPU、GPU 和散熱器溫度之間的最高值決定轉速。將滑鼠懸停在滑塊上可以查看精確的數值。</value>
+    <value>風扇轉速不僅僅由一個溫度感測器決定的。它根據 CPU、GPU 和散熱器溫度之間的最高值決定轉速。將滑鼠懸停在方塊上可以查看精確的數值。</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
     <value>風扇曲線</value>
@@ -1081,7 +1081,7 @@
     <value>速度</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
-    <value>Readme</value>
+    <value>請閱讀我（Readme）</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>重新整理</value>
@@ -1637,7 +1637,7 @@
     <value>CPU 在一定的延遲後可以達到的最大功耗限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
-    <value>CPU 降頻前的溫度限制。</value>
+    <value>在降低頻率和功率之前，CPU 可以達到的最高溫度。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
     <value>基於 CPU 的功率，最大可以借用 GPU 的額外功率。</value>
@@ -1646,7 +1646,7 @@
     <value>基本功率上，最大可以分配給 GPU 的額外功率。</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
-    <value>GPU 降頻前的溫度限制。</value>
+    <value>在降低頻率和功率之前，GPU 可以達到的最高溫度。</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>預設</value>
@@ -1893,5 +1893,41 @@
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>更新</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>啟動商標</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>客製化系統啟動時的啟動商標圖片。</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>啟動商標</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>已設定為預設啟動商標</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>已設定為預設啟動商標</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>狀態</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>回復為預設</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>客製化</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>操作</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>通知文字</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>顯示通知</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>預設</value>
   </data>
 </root>
