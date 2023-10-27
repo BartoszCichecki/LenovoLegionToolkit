@@ -1890,8 +1890,35 @@ Pārslēdzot režīmus dators iespējams būs jārestartē.</value>
 	  <value>Atļaut pārslēgšanos starp integrēto un diskrēto GPU.
 Nepieciešama restartēšana.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+	  <value>Ilgums</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Atjauninājumi</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Sāknēšanās Logo</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Rediģēt Sāknēšanās Logo attēlu, kurš redzams ieslēdzot sistēmu.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Sāknēšanās Logo</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Noklusējuma Sāknēšanās Logo ir iestatīts</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Pielāgots Sāknēšanās Logo ir iestatīts</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Statuss</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Atgriezt uz noklusējumu</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Pielāgot</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
 	  <value>Darbības</value>
@@ -1901,5 +1928,8 @@ Nepieciešama restartēšana.</value>
   </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
 	  <value>Rādīt paziņojumu</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Priekšiestatījums</value>
   </data>
 </root>
