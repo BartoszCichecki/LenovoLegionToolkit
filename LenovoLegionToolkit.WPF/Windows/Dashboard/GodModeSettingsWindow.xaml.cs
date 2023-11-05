@@ -109,7 +109,6 @@ public partial class GodModeSettingsWindow
                 CPUPL1Tau = preset.CPUPL1Tau?.WithValue(_cpuPL1TauControl.Value),
                 APUsPPTPowerLimit = preset.APUsPPTPowerLimit?.WithValue(_apuSPPTPowerLimitControl.Value),
                 CPUTemperatureLimit = preset.CPUTemperatureLimit?.WithValue(_cpuTemperatureLimitControl.Value),
-                CPUToGPUDynamicBoost = preset.CPUToGPUDynamicBoost?.WithValue(_cpuToGpuDynamicBoostControl.Value),
                 GPUPowerBoost = preset.GPUPowerBoost?.WithValue(_gpuPowerBoostControl.Value),
                 GPUConfigurableTGP = preset.GPUConfigurableTGP?.WithValue(_gpuConfigurableTGPControl.Value),
                 GPUTemperatureLimit = preset.GPUTemperatureLimit?.WithValue(_gpuTemperatureLimitControl.Value),
@@ -169,7 +168,6 @@ public partial class GodModeSettingsWindow
         _cpuPL1TauControl.Set(preset.CPUPL1Tau);
         _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit);
         _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
-        _cpuToGpuDynamicBoostControl.Set(preset.CPUToGPUDynamicBoost);
         _gpuPowerBoostControl.Set(preset.GPUPowerBoost);
         _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP);
         _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
@@ -219,8 +217,7 @@ public partial class GodModeSettingsWindow
             _cpuCrossLoadingLimitControl,
             _cpuPL1TauControl,
             _apuSPPTPowerLimitControl,
-            _cpuTemperatureLimitControl,
-            _cpuToGpuDynamicBoostControl
+            _cpuTemperatureLimitControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
         var gpuSectionVisible = new[]
@@ -273,9 +270,6 @@ public partial class GodModeSettingsWindow
 
         if (_cpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.CPUTemperatureLimit is { } cpuTemperatureLimit)
             _cpuTemperatureLimitControl.Value = cpuTemperatureLimit;
-
-        if (_cpuToGpuDynamicBoostControl.Visibility == Visibility.Visible && defaults.CPUToGPUDynamicBoost is { } cpuToGPUDynamicBoost)
-            _cpuToGpuDynamicBoostControl.Value = cpuToGPUDynamicBoost;
 
         if (_gpuPowerBoostControl.Visibility == Visibility.Visible && defaults.GPUPowerBoost is { } gpuPowerBoost)
             _gpuPowerBoostControl.Value = gpuPowerBoost;

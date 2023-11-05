@@ -176,13 +176,6 @@
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_TempLimit_Description}"
                         Unit="°C" />
 
-                    <godMode:GodModeValueControl
-                        x:Name="_cpuToGpuDynamicBoostControl"
-                        Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl}"
-                        Margin="0,0,0,8"
-                        Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl_Description}"
-                        Unit="W" />
-
                     <TextBlock
                         x:Name="_gpuSectionTitle"
                         Margin="0,16,0,24"

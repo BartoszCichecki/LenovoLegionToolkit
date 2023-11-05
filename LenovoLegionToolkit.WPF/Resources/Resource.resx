@@ -1895,12 +1895,6 @@ Requires restart.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Updates</value>
   </data>
-  <data name="GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl" xml:space="preserve">
-	  <value>CPU to GPU Dynamic Boost</value>
-  </data>
-  <data name="GodModeSettingsWindow_CPU_ToGpuDynamicBoostControl_Description" xml:space="preserve">
-	  <value>This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU.</value>
-  </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
 	  <value>GPU to CPU Dynamic Boost</value>
   </data>

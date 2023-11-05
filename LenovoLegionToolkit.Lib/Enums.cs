@@ -52,7 +52,6 @@ public enum CapabilityID
     APUsPPTPowerLimit = 0x0105FF00,
     CPUCrossLoadingPowerLimit = 0x0106FF00,
     CPUPL1Tau = 0x0107FF00,
-    CPUToGPUDynamicBoost = 0x0201FF00,
     GPUPowerBoost = 0x0201FF00,
     GPUConfigurableTGP = 0x0202FF00,
     GPUTemperatureLimit = 0x0203FF00,

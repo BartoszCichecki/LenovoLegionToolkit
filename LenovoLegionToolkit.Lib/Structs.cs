@@ -264,7 +264,6 @@ public readonly struct GodModeDefaults
     public int? CPUPL1Tau { get; init; }
     public int? APUsPPTPowerLimit { get; init; }
     public int? CPUTemperatureLimit { get; init; }
-    public int? CPUToGPUDynamicBoost { get; init; }
     public int? GPUPowerBoost { get; init; }
     public int? GPUConfigurableTGP { get; init; }
     public int? GPUTemperatureLimit { get; init; }
@@ -281,7 +280,6 @@ public readonly struct GodModeDefaults
         $" {nameof(CPUPL1Tau)}: {CPUPL1Tau}," +
         $" {nameof(APUsPPTPowerLimit)}: {APUsPPTPowerLimit}," +
         $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
-        $" {nameof(CPUToGPUDynamicBoost)}: {CPUToGPUDynamicBoost}," +
         $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
         $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
         $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +
@@ -307,7 +305,6 @@ public readonly struct GodModePreset
     public StepperValue? CPUPL1Tau { get; init; }
     public StepperValue? APUsPPTPowerLimit { get; init; }
     public StepperValue? CPUTemperatureLimit { get; init; }
-    public StepperValue? CPUToGPUDynamicBoost { get; init; }
     public StepperValue? GPUPowerBoost { get; init; }
     public StepperValue? GPUConfigurableTGP { get; init; }
     public StepperValue? GPUTemperatureLimit { get; init; }
@@ -327,7 +324,6 @@ public readonly struct GodModePreset
         $" {nameof(CPUPL1Tau)}: {CPUPL1Tau}," +
         $" {nameof(APUsPPTPowerLimit)}: {APUsPPTPowerLimit}," +
         $" {nameof(CPUTemperatureLimit)}: {CPUTemperatureLimit}," +
-        $" {nameof(CPUToGPUDynamicBoost)}: {CPUToGPUDynamicBoost}," +
         $" {nameof(GPUPowerBoost)}: {GPUPowerBoost}," +
         $" {nameof(GPUConfigurableTGP)}: {GPUConfigurableTGP}," +
         $" {nameof(GPUTemperatureLimit)}: {GPUTemperatureLimit}," +
