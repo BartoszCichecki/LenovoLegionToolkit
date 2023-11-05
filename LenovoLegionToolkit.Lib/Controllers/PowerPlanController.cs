@@ -177,7 +177,7 @@ public class PowerPlanController
 
     private static unsafe string GetPowerPlanName(Guid powerPlanGuid)
     {
-        var nameSize = 1024u;
+        var nameSize = 2048u;
         var namePtr = Marshal.AllocHGlobal((int)nameSize);
 
         try
@@ -186,6 +186,10 @@ public class PowerPlanController
                 PInvokeExtensions.ThrowIfWin32Error("PowerReadFriendlyName");
 
             return Marshal.PtrToStringUni(namePtr) ?? string.Empty;
+        }
+        catch
+        {
+            return powerPlanGuid.ToString();
         }
         finally
         {
