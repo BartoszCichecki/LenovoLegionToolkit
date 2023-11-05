@@ -109,10 +109,12 @@ public partial class GodModeSettingsWindow
                 CPUPL1Tau = preset.CPUPL1Tau?.WithValue(_cpuPL1TauControl.Value),
                 APUsPPTPowerLimit = preset.APUsPPTPowerLimit?.WithValue(_apuSPPTPowerLimitControl.Value),
                 CPUTemperatureLimit = preset.CPUTemperatureLimit?.WithValue(_cpuTemperatureLimitControl.Value),
+                CPUToGPUDynamicBoost = preset.CPUToGPUDynamicBoost?.WithValue(_cpuToGpuDynamicBoostControl.Value),
                 GPUPowerBoost = preset.GPUPowerBoost?.WithValue(_gpuPowerBoostControl.Value),
                 GPUConfigurableTGP = preset.GPUConfigurableTGP?.WithValue(_gpuConfigurableTGPControl.Value),
                 GPUTemperatureLimit = preset.GPUTemperatureLimit?.WithValue(_gpuTemperatureLimitControl.Value),
                 GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline = preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline?.WithValue(_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value),
+                GPUToCPUDynamicBoost = preset.GPUToCPUDynamicBoost?.WithValue(_gpuToCpuDynamicBoostControl.Value),
                 FanTableInfo = preset.FanTableInfo is not null ? _fanCurveControl.GetFanTableInfo() : null,
                 FanFullSpeed = preset.FanFullSpeed is not null ? _fanFullSpeedToggle.IsChecked : null,
                 MaxValueOffset = preset.MaxValueOffset is not null ? (int?)_maxValueOffsetNumberBox.Value : null,
@@ -167,10 +169,12 @@ public partial class GodModeSettingsWindow
         _cpuPL1TauControl.Set(preset.CPUPL1Tau);
         _apuSPPTPowerLimitControl.Set(preset.APUsPPTPowerLimit);
         _cpuTemperatureLimitControl.Set(preset.CPUTemperatureLimit);
+        _cpuToGpuDynamicBoostControl.Set(preset.CPUToGPUDynamicBoost);
         _gpuPowerBoostControl.Set(preset.GPUPowerBoost);
         _gpuConfigurableTGPControl.Set(preset.GPUConfigurableTGP);
         _gpuTemperatureLimitControl.Set(preset.GPUTemperatureLimit);
         _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Set(preset.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline);
+        _gpuToCpuDynamicBoostControl.Set(preset.GPUToCPUDynamicBoost);
 
         var fanTableInfo = preset.FanTableInfo;
         if (fanTableInfo.HasValue)
@@ -215,7 +219,8 @@ public partial class GodModeSettingsWindow
             _cpuCrossLoadingLimitControl,
             _cpuPL1TauControl,
             _apuSPPTPowerLimitControl,
-            _cpuTemperatureLimitControl
+            _cpuTemperatureLimitControl,
+            _cpuToGpuDynamicBoostControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
         var gpuSectionVisible = new[]
@@ -223,7 +228,8 @@ public partial class GodModeSettingsWindow
             _gpuPowerBoostControl,
             _gpuConfigurableTGPControl,
             _gpuTemperatureLimitControl,
-            _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl
+            _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl,
+            _gpuToCpuDynamicBoostControl
         }.Any(v => v.Visibility == Visibility.Visible);
 
         var fanSectionVisible = new[]
@@ -268,6 +274,9 @@ public partial class GodModeSettingsWindow
         if (_cpuTemperatureLimitControl.Visibility == Visibility.Visible && defaults.CPUTemperatureLimit is { } cpuTemperatureLimit)
             _cpuTemperatureLimitControl.Value = cpuTemperatureLimit;
 
+        if (_cpuToGpuDynamicBoostControl.Visibility == Visibility.Visible && defaults.CPUToGPUDynamicBoost is { } cpuToGPUDynamicBoost)
+            _cpuToGpuDynamicBoostControl.Value = cpuToGPUDynamicBoost;
+
         if (_gpuPowerBoostControl.Visibility == Visibility.Visible && defaults.GPUPowerBoost is { } gpuPowerBoost)
             _gpuPowerBoostControl.Value = gpuPowerBoost;
 
@@ -279,6 +288,9 @@ public partial class GodModeSettingsWindow
 
         if (_gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Visibility == Visibility.Visible && defaults.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline is { } gpuTotalProcessingPowerTargetOnAcOffsetFromBaseline)
             _gpuTotalProcessingPowerTargetOnAcOffsetFromBaselineControl.Value = gpuTotalProcessingPowerTargetOnAcOffsetFromBaseline;
+
+        if (_gpuToCpuDynamicBoostControl.Visibility == Visibility.Visible && defaults.GPUToCPUDynamicBoost is { } gpuToCPUDynamicBoost)
+            _gpuToCpuDynamicBoostControl.Value = gpuToCPUDynamicBoost;
 
         if (_fanCurveCardControl.Visibility == Visibility.Visible && defaults.FanTable is { } fanTable)
         {
