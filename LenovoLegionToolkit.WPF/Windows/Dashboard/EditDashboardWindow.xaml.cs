@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Settings;
@@ -52,6 +53,8 @@ public partial class EditDashboardWindow
 
         foreach (var group in groups)
             _groupsStackPanel.Children.Add(CreateGroupControl(group));
+
+        GroupsChanged();
 
         await loadingTask;
 
@@ -112,7 +115,13 @@ public partial class EditDashboardWindow
         control.MoveUp += (_, _) => MoveGroupUp(control);
         control.MoveDown += (_, _) => MoveGroupDown(control);
         control.Delete += (_, _) => DeleteGroup(control);
+        control.Changed += (_, _) => GroupsChanged();
         return control;
+    }
+
+    private void GroupsChanged()
+    {
+        _groupsStackPanel.Children.OfType<EditDashboardGroupControl>().ForEach(c => c.RefreshAdd());
     }
 
     private void MoveGroupUp(UIElement control)

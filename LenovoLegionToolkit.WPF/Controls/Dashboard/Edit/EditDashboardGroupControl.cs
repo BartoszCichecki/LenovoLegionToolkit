@@ -81,6 +81,7 @@ public class EditDashboardGroupControl : UserControl
     public event EventHandler? MoveUp;
     public event EventHandler? MoveDown;
     public event EventHandler? Delete;
+    public event EventHandler? Changed;
 
     private DashboardGroupType _dashboardGroupType;
     private readonly Func<IEnumerable<DashboardItem>> _getExistingItems;
@@ -157,6 +158,7 @@ public class EditDashboardGroupControl : UserControl
     private void AddItem(DashboardItem dashboardItem)
     {
         _itemsStackPanel.Children.Add(CreateGroupControl(dashboardItem));
+        Changed?.Invoke(this, EventArgs.Empty);
     }
 
     private Control CreateGroupControl(DashboardItem dashboardItem)
@@ -178,6 +180,7 @@ public class EditDashboardGroupControl : UserControl
 
         _itemsStackPanel.Children.Remove(control);
         _itemsStackPanel.Children.Insert(index, control);
+        Changed?.Invoke(this, EventArgs.Empty);
     }
 
     private void MoveItemDown(UIElement control)
@@ -190,10 +193,14 @@ public class EditDashboardGroupControl : UserControl
 
         _itemsStackPanel.Children.Remove(control);
         _itemsStackPanel.Children.Insert(index, control);
+        Changed?.Invoke(this, EventArgs.Empty);
     }
 
     private void DeleteItem(UIElement control)
     {
         _itemsStackPanel.Children.Remove(control);
+        Changed?.Invoke(this, EventArgs.Empty);
     }
+
+    public void RefreshAdd() => _addItemButton.IsEnabled = Enum.GetValues<DashboardItem>().Except(_getExistingItems()).Any();
 }

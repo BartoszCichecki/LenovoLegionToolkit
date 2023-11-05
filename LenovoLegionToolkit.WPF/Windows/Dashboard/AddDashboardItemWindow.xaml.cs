@@ -40,7 +40,7 @@ public partial class AddDashboardItemWindow
         var allItems = Enum.GetValues<DashboardItem>();
         var existingItems = _existingItems().ToArray();
 
-        foreach (var item in allItems)
+        foreach (var item in allItems.Except(existingItems))
             _content.Children.Add(CreateCardControl(item));
 
         return Task.CompletedTask;
