@@ -142,7 +142,7 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
             if (PInvoke.CM_Get_DevNode_Status(out var status, out _, deviceInfoData.DevInst, 0) != 0)
                 continue;
 
-            if ((status & 0x400) != 0)
+            if (status.HasFlag(CM_DEVNODE_STATUS_FLAGS.DN_HAS_PROBLEM))
                 continue;
 
             return true;

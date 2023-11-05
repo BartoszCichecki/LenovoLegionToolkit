@@ -25,7 +25,7 @@ internal static class ServiceControllerExtension
                 throw new ExternalException("Open Service Error");
 
             var result = PInvoke.ChangeServiceConfig(serviceHandle,
-                PInvoke.SERVICE_NO_CHANGE,
+                (ENUM_SERVICE_TYPE)PInvoke.SERVICE_NO_CHANGE,
                 enabled ? SERVICE_START_TYPE.SERVICE_AUTO_START : SERVICE_START_TYPE.SERVICE_DISABLED,
                 SERVICE_ERROR.SERVICE_ERROR_NORMAL,
                 null as string,
