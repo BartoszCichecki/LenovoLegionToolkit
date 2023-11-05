@@ -151,6 +151,9 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adicionar novo</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+	  <value>Ativar o controlo dos esquemas de energia mesmo com o Vantage ou os seus serviços estão ativos. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Ativar sempre o esquema de energia do Windows</value>
   </data>
@@ -750,6 +753,9 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+	  <value>O Lenovo Vantage ou os seus serviços estão ativos</value>
+  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
   </data>
@@ -1014,6 +1020,9 @@ Podes mudar com Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O esquema de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+	  <value>Habilitar esta opção enquanto o Lenovo Vantage ou os seus serviços estão ativos e mudar o esquema de energia pode resultar num comportamento inesperado.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Tens a certeza?</value>
   </data>
@@ -1197,6 +1206,12 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+	  <value>O Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+	  <value>Não foi possível ativar o Vantage e/ou o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Podes excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1811,10 +1826,29 @@ Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver i
   <data name="InstantBootControl_Title" xml:space="preserve">
 	  <value>Boot Instantâneo</value>
   </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+	  <value>Ligar o dispositivo quando um carregador é conectado.</value>
+  </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
 	  <value>Boot Instantâneo</value>
   </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ligar o dispositivo quando um carregador é conectado.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+	  <value>Não foi possível alterar o esquema de energia</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+	  <value>O esquema de energia {0} não está disponível em bateria.</value>
+	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+	  <value>Sensores</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Atualizações</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Predefinição</value>
   </data>
 </root>
