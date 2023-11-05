@@ -1907,4 +1907,40 @@ Requires restart.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
 	  <value>This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU.</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Boot Logo</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Customize Boot Logo image, visible during system startup.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Boot Logo</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Default Boot Logo is set</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Custom Boot Logo is set</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Status</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Revert to default</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Customize</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Actions</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Notification Text</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Show notification</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Preset</value>
+  </data>
 </root>

@@ -19,6 +19,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool RefreshRate { get; set; } = true;
         public bool ACAdapter { get; set; }
         public bool SmartKey { get; set; }
+        public bool AutomationNotification { get; set; } = true;
     }
 
     public class ApplicationSettingsStore

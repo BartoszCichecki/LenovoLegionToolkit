@@ -1896,4 +1896,40 @@
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Обновления</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Логотип загрузки</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Настройка логотипа загрузки, отображаемого при запуске системы.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Логотип загрузки</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Установлен логотип загрузки по умолчанию</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Установлен пользовательский логотип загрузки</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Состояние</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Вернуть параметры по умолчанию</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Настроить</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Действия</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Текст уведомления</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Показывать уведомление</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Пресет</value>
+  </data>
 </root>

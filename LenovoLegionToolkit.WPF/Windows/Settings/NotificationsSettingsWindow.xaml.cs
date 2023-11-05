@@ -28,7 +28,8 @@ public partial class NotificationsSettingsWindow
         _powerModeCard,
         _refreshRateCard,
         _acAdapterCard,
-        _smartKeyCard
+        _smartKeyCard,
+        _automationCard
     };
 
     public NotificationsSettingsWindow()
@@ -51,6 +52,7 @@ public partial class NotificationsSettingsWindow
         _refreshRateToggle.IsChecked = _settings.Store.Notifications.RefreshRate;
         _acAdapterToggle.IsChecked = _settings.Store.Notifications.ACAdapter;
         _smartKeyToggle.IsChecked = _settings.Store.Notifications.SmartKey;
+        _automationToggle.IsChecked = _settings.Store.Notifications.AutomationNotification;
 
         RefreshCards();
     }
@@ -200,6 +202,16 @@ public partial class NotificationsSettingsWindow
             return;
 
         _settings.Store.Notifications.UpdateAvailable = state.Value;
+        _settings.SynchronizeStore();
+    }
+
+    private void AutomationToggle_Click(object sender, RoutedEventArgs e)
+    {
+        var state = _automationToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.Notifications.AutomationNotification = state.Value;
         _settings.SynchronizeStore();
     }
 }

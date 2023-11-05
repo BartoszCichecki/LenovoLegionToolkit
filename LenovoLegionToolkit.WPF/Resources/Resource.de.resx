@@ -1895,4 +1895,40 @@ Erfordert einen Neustart.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Updates</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Boot-Logo</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Anpassen des Boot-Logos, das während des Systemstarts sichtbar ist.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Boot-Logo</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Standard Boot-Logo ist eingestellt</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Benutzerdefiniertes Boot-Logo ist eingestellt</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>Status</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Auf Standard zurücksetzen</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Anpassen</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>Aktionen</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>Benachrichtigungstext</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>Benachrichtigung anzeigen</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>Vorlage</value>
+  </data>
 </root>

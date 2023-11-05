@@ -215,9 +215,9 @@ public partial class SpectrumKeyboardBacklightControl
                 Filter = "Json Files (.json)|*.json",
                 CheckFileExists = true,
             };
-            var result = ofd.ShowDialog();
 
-            if (!result.HasValue || !result.Value)
+            var result = ofd.ShowDialog() ?? false;
+            if (!result)
                 return;
 
             var profile = await _controller.GetProfileAsync();

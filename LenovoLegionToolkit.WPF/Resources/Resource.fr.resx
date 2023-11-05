@@ -1897,4 +1897,28 @@ Nécessite un redémarrage.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>Mises à jour</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>Logo de démarrage</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>Personnaliser le logo de démarrage qui est visible lorsque l'ordinateur démarre.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>Logo de démarrage</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>Le logo de démarrage par défaut est enregistré</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>Le logo de démarrage personnalisé est enregistré</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>État</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>Rétablir par défaut</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>Personnaliser</value>
+  </data>
 </root>

@@ -68,9 +68,9 @@ public class SpectrumKeyboardBacklightImportProfileAutomationStepControl : Abstr
                 Filter = "Json Files (.json)|*.json",
                 CheckFileExists = true,
             };
-            var result = ofd.ShowDialog();
 
-            if (!result.HasValue || !result.Value)
+            var result = ofd.ShowDialog() ?? false;
+            if (!result)
                 return;
 
             _path.Text = ofd.FileName;

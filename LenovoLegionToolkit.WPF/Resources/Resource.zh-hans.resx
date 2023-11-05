@@ -1903,4 +1903,40 @@
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
 	  <value>新版本更新提醒</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+	  <value>自定义开机画面</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+	  <value>自定义在启动阶段所展示的图案。</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+	  <value>自定义开机画面</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+	  <value>已设置为默认开机画面</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+	  <value>已设置为自定义开机画面</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+	  <value>当前状态</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+	  <value>重置为默认设置</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+	  <value>自定义</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+	  <value>自动化</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+	  <value>提示弹窗文本</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+	  <value>显示提示弹窗</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+	  <value>预设</value>
+  </data>
 </root>

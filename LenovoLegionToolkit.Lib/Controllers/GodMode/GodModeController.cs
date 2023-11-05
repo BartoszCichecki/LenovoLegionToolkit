@@ -10,6 +10,20 @@ public class GodModeController : IGodModeController
     private readonly IGodModeController _controllerV1;
     private readonly IGodModeController _controllerV2;
 
+    public event EventHandler<Guid>? PresetChanged
+    {
+        add
+        {
+            _controllerV1.PresetChanged += value;
+            _controllerV2.PresetChanged += value;
+        }
+        remove
+        {
+            _controllerV1.PresetChanged -= value;
+            _controllerV2.PresetChanged -= value;
+        }
+    }
+
     public GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
     {
         _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
@@ -26,6 +40,12 @@ public class GodModeController : IGodModeController
     {
         var controller = await GetControllerAsync().ConfigureAwait(false);
         return await controller.NeedsLegionZoneDisabledAsync().ConfigureAwait(false);
+    }
+
+    public async Task<Guid> GetActivePresetIdAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false);
+        return await controller.GetActivePresetIdAsync().ConfigureAwait(false);
     }
 
     public async Task<string?> GetActivePresetNameAsync()

@@ -29,7 +29,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Applying state...");
 
-        var preset = await GetActivePresetAsync().ConfigureAwait(false);
+        var (presetId, preset) = await GetActivePresetAsync().ConfigureAwait(false);
 
         var cpuLongTermPowerLimit = preset.CPULongTermPowerLimit;
         var cpuShortTermPowerLimit = preset.CPUShortTermPowerLimit;
@@ -252,8 +252,10 @@ public class GodModeControllerV1 : AbstractGodModeController
             }
         }
 
+        RaisePresetChanged(presetId);
+
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"State applied.");
+            Log.Instance.Trace($"State applied. [name={preset.Name}, id={presetId}]");
     }
 
     public override Task<FanTable> GetMinimumFanTableAsync()

@@ -213,6 +213,7 @@ public enum NotificationType
     ACAdapterConnected,
     ACAdapterConnectedLowWattage,
     ACAdapterDisconnected,
+    AutomationNotification,
     CameraOn,
     CameraOff,
     CapsLockOn,

@@ -38,6 +38,13 @@ public interface IPowerModeAutomationPipelineTrigger : IAutomationPipelineTrigge
     IPowerModeAutomationPipelineTrigger DeepCopy(PowerModeState powerModeState);
 }
 
+public interface IGodModePresetChangedAutomationPipelineTrigger : IAutomationPipelineTrigger
+{
+    Guid PresetId { get; }
+
+    IGodModePresetChangedAutomationPipelineTrigger DeepCopy(Guid powerModeState);
+}
+
 public interface IGameAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
 public interface IProcessesAutomationPipelineTrigger : IAutomationPipelineTrigger

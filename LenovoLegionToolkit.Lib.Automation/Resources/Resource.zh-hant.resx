@@ -193,4 +193,7 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>開啟</value>
   </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>當客製化模式預設變更時</value>
+  </data>
 </root>

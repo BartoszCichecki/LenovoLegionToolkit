@@ -10,6 +10,7 @@ public static class AutomationPipelineTriggerExtensions
     {
         IPowerStateAutomationPipelineTrigger => SymbolRegular.BatteryCharge24,
         IPowerModeAutomationPipelineTrigger => SymbolRegular.Gauge24,
+        IGodModePresetChangedAutomationPipelineTrigger => SymbolRegular.Gauge24,
         IGameAutomationPipelineTrigger => SymbolRegular.XboxController24,
         IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
         IUserInactivityPipelineTrigger => SymbolRegular.ClockAlarm24,
