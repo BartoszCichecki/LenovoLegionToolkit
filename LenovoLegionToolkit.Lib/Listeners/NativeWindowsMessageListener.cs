@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
@@ -17,6 +18,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 {
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly DGPUNotify _dgpuNotify;
+    private readonly SmartFnLockController _smartFnLockController;
 
     private readonly HOOKPROC _kbProc;
 
@@ -34,10 +36,11 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public event EventHandler<NativeWindowsMessage>? Changed;
 
-    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify)
+    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify, SmartFnLockController smartFnLockController)
     {
         _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
         _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
+        _smartFnLockController = smartFnLockController ?? throw new ArgumentNullException(nameof(smartFnLockController));
 
         _kbProc = LowLevelKeyboardProc;
     }
@@ -252,25 +255,30 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         Changed?.Invoke(this, NativeWindowsMessage.OnDisplayDeviceArrival);
     }
 
-    private static LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+    private LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
-        if (nCode == PInvoke.HC_ACTION && wParam.Value == PInvoke.WM_KEYUP)
+        if (nCode != PInvoke.HC_ACTION)
+            return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
+
+        var kbStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(new IntPtr(lParam.Value));
+
+        _smartFnLockController.OnKeyboardEvent(wParam.Value, kbStruct);
+
+        if (wParam.Value != PInvoke.WM_KEYUP)
+            return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
+
+        if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_CAPITAL)
         {
-            var kbStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(new IntPtr(lParam.Value));
+            var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_CAPITAL) & 0x1) != 0;
+            var type = isOn ? NotificationType.CapsLockOn : NotificationType.CapsLockOff;
+            MessagingCenter.Publish(new Notification(type));
+        }
 
-            if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_CAPITAL)
-            {
-                var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_CAPITAL) & 0x1) != 0;
-                var type = isOn ? NotificationType.CapsLockOn : NotificationType.CapsLockOff;
-                MessagingCenter.Publish(new Notification(type));
-            }
-
-            if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_NUMLOCK)
-            {
-                var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_NUMLOCK) & 0x1) != 0;
-                var type = isOn ? NotificationType.NumLockOn : NotificationType.NumLockOff;
-                MessagingCenter.Publish(new Notification(type));
-            }
+        if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_NUMLOCK)
+        {
+            var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_NUMLOCK) & 0x1) != 0;
+            var type = isOn ? NotificationType.NumLockOn : NotificationType.NumLockOff;
+            MessagingCenter.Publish(new Notification(type));
         }
 
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);

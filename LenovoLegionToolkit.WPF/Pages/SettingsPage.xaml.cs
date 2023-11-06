@@ -92,6 +92,8 @@ public partial class SettingsPage
         _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
+        _smartFnLockToggle.IsChecked = _settings.Store.SmartFnLock;
+
         _smartKeySinglePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _smartKeyDoublePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
 
@@ -111,6 +113,7 @@ public partial class SettingsPage
         _vantageToggle.Visibility = Visibility.Visible;
         _legionZoneToggle.Visibility = Visibility.Visible;
         _fnKeysToggle.Visibility = Visibility.Visible;
+        _smartFnLockToggle.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
@@ -417,6 +420,15 @@ public partial class SettingsPage
         _smartKeyDoublePressActionCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         _notificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private void SmartFnLockToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        _settings.Store.SmartFnLock = _smartFnLockToggle.IsChecked ?? false;
+        _settings.SynchronizeStore();
     }
 
     private void NotificationsCard_Click(object sender, RoutedEventArgs e)

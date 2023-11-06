@@ -1937,4 +1937,10 @@ Requires restart.</value>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
 	  <value>Preset</value>
   </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+	  <value>Smart Fn Lock</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+	  <value>Fn Lock will be temporarily disabled when Shift, Ctrl, Alt or Windows key is depressed.</value>
+  </data>
 </root>

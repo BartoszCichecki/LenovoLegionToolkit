@@ -4591,6 +4591,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Fn Lock will be temporarily disabled when Shift, Ctrl, Alt or Windows key is depressed..
+        /// </summary>
+        public static string SettingsPage_SmartFnLock_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_SmartFnLock_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smart Fn Lock.
+        /// </summary>
+        public static string SettingsPage_SmartFnLock_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_SmartFnLock_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Assign Quick Action to Fn+F9 double press..
         /// </summary>
         public static string SettingsPage_SmartKeyDoublePressAction_Message {
