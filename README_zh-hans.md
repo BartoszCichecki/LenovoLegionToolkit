@@ -14,7 +14,7 @@
 
 本软件不运行后台服务，使用较少的内存，几乎不使用 CPU ，并且不收集用户信息。本程序仅适用于 Windows 。
 
-**中文用户可加入[拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737)，频道内推送正式版/测试版更新并附带国内镜像加速下载来链接。**
+**中文用户可加入[拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737)，频道内推送正式版/测试版更新并附带国内镜像加速下载链接。**
 
 加入 Legion Series Discord: https://discord.com/invite/legionseries!
 
