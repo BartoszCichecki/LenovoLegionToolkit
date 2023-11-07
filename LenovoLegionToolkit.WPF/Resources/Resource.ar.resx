@@ -155,13 +155,13 @@
     <value>تشغيل وضع الطاقة الخاص بالويندوز</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
+    <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>ال USB يعمل دائما</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
+    <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>ال USB يعمل دائما</value>
@@ -185,7 +185,7 @@
     <value>لا يوجد أجراءات معرفة. اضعط على "اضافة جديد" لأنشاء أجراءات جديدة.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>ان كانت مفعلة, هذه الأجراءات سوف تعمل تلقائيا. كلما تغيرت الحالة سوفت يقيم كل الأجراءات ابتداء من اعلى لأسفل. الأجراءات التى تطابق الحالة الحالية سوف تنفذ.</value>
+    <value>ان كانت مفعلة, هذه الأجراءات سوف تعمل تلقائيا. كلما تغيرت الحالة سوفت يقيم كل الأجراءات ابتداء من اعلى لأسفل. الأجراءات التى تطابق الحالة الحالية سوف تنفذ.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>الأجراءات</value>
@@ -365,7 +365,7 @@
     <value>تاريخ التنصيع</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>الوقت منذ توصيل كابل الشحن لأخر مرة.
+    <value>الوقت منذ توصيل كابل الشحن لأخر مرة.
 هذا الوقت يمكن ان يكون غير دقيق لو الحاسب تم شحنه و هو فى وضع النوم او مغلق.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -495,7 +495,7 @@
     <value>قتل التطبيقات</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>أغلاق بطاقة الشاشة الخارجية لو كانت تعمل دون الحاجة أليها.</value>
+    <value>أغلاق بطاقة الشاشة الخارجية لو كانت تعمل دون الحاجة أليها.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>يوجد شاشة خارجية متصلة ببطاقة نفيديا.</value>
@@ -519,7 +519,7 @@
     <value>كرت الشاشة الخارجى</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>تغيير سطوع الخاصة بشاشة اللاب توب.
+    <value>تغيير سطوع الخاصة بشاشة اللاب توب.
 أوضاع الطاقة يكمن أن تغير سطوع في بعض الأجهزة. ضع فى الاعتبار انه يجب أن تجعل هذه الخطوة أخر خطوة لو حدثت أي مشكلة.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
@@ -962,13 +962,13 @@
     <value>لصق</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>اختر وضع الأداء.</value>
+    <value>اختر وضع الأداء.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>وضع الطاقة</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>حدد وضع الأداء.
+    <value>حدد وضع الأداء.
 يمكنك تبديل الوضع باستخدام Fn + Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
