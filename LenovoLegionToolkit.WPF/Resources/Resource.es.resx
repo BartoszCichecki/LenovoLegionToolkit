@@ -1896,6 +1896,12 @@ Requiere un reinicio.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Actualizaciones</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>Aumento dinámico de la GPU a la CPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Es la máxima potencia adicional que puede asignarse a la GPU desde la CPU, en base al uso de ésta. Cuanto mayor sea el valor, mejor será el rendimiento de las aplicaciones que utilizan la GPU.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logo de arranque</value>
   </data>
@@ -1931,5 +1937,11 @@ Requiere un reinicio.</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>Predefinido</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Bloqueo Fn inteligente</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>El bloqueo Fn se desactivará temporalmente al pulsar las teclas Mayús, Ctrl o Alt.</value>
   </data>
 </root>
