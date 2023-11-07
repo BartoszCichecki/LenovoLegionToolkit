@@ -3129,6 +3129,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string Off {
+            get {
+                return ResourceManager.GetString("Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to OK.
         /// </summary>
         public static string OK {
@@ -4591,7 +4600,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fn Lock will be temporarily disabled when Shift, Ctrl, Alt or Windows key is depressed..
+        ///   Looks up a localized string similar to Fn Lock will be temporarily disabled when Alt, Ctrl or Shift key is depressed..
         /// </summary>
         public static string SettingsPage_SmartFnLock_Message {
             get {

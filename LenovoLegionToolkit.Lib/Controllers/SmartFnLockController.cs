@@ -19,7 +19,6 @@ public class SmartFnLockController
 
     private bool _ctrlDepressed;
     private bool _shiftDepressed;
-    private bool _winDepressed;
     private bool _altDepressed;
     private bool _restoreFnLock;
 
@@ -31,7 +30,7 @@ public class SmartFnLockController
 
     public void OnKeyboardEvent(nuint wParam, KBDLLHOOKSTRUCT kbStruct)
     {
-        if (!_settings.Store.SmartFnLock)
+        if (_settings.Store.SmartFnLockFlags == ModifierKey.None)
             return;
 
         Task.Run(async () =>
@@ -72,7 +71,7 @@ public class SmartFnLockController
 
     private bool IsModifierKeyPressed(nuint wParam, KBDLLHOOKSTRUCT kbStruct)
     {
-        var isKeyDown = wParam == PInvoke.WM_KEYDOWN;
+        var isKeyDown = wParam is PInvoke.WM_KEYDOWN or PInvoke.WM_SYSKEYDOWN;
         var vkKeyCode = (VIRTUAL_KEY)kbStruct.vkCode;
 
         if (vkKeyCode is VIRTUAL_KEY.VK_LCONTROL or VIRTUAL_KEY.VK_RCONTROL)
@@ -81,11 +80,20 @@ public class SmartFnLockController
         if (vkKeyCode is VIRTUAL_KEY.VK_LSHIFT or VIRTUAL_KEY.VK_RSHIFT)
             _shiftDepressed = isKeyDown;
 
-        if (vkKeyCode is VIRTUAL_KEY.VK_LWIN or VIRTUAL_KEY.VK_RWIN)
-            _winDepressed = isKeyDown;
+        if (vkKeyCode is VIRTUAL_KEY.VK_LMENU or VIRTUAL_KEY.VK_RMENU)
+            _altDepressed = isKeyDown;
 
-        _altDepressed = kbStruct.flags.HasFlag(KBDLLHOOKSTRUCT_FLAGS.LLKHF_ALTDOWN);
+        var result = false;
 
-        return _ctrlDepressed || _shiftDepressed || _winDepressed || _altDepressed;
+        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Ctrl))
+            result |= _ctrlDepressed;
+
+        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Shift))
+            result |= _shiftDepressed;
+
+        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Alt))
+            result |= _altDepressed;
+
+        return result;
     }
 }

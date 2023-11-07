@@ -92,7 +92,9 @@ public partial class SettingsPage
         _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
-        _smartFnLockToggle.IsChecked = _settings.Store.SmartFnLock;
+        _smartFnLockComboBox.SetItems(new[] { ModifierKey.None, ModifierKey.Alt, ModifierKey.Alt | ModifierKey.Ctrl | ModifierKey.Shift },
+            _settings.Store.SmartFnLockFlags,
+            m => m is ModifierKey.None ? Resource.Off : m.ToString());
 
         _smartKeySinglePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _smartKeyDoublePressActionCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
@@ -113,7 +115,7 @@ public partial class SettingsPage
         _vantageToggle.Visibility = Visibility.Visible;
         _legionZoneToggle.Visibility = Visibility.Visible;
         _fnKeysToggle.Visibility = Visibility.Visible;
-        _smartFnLockToggle.Visibility = Visibility.Visible;
+        _smartFnLockComboBox.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
@@ -191,6 +193,18 @@ public partial class SettingsPage
             return;
 
         Autorun.Set(state);
+    }
+
+    private void SmartFnLockComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        if (!_smartFnLockComboBox.TryGetSelectedItem(out ModifierKey modifierKey))
+            return;
+
+        _settings.Store.SmartFnLockFlags = modifierKey;
+        _settings.SynchronizeStore();
     }
 
     private void SmartKeySinglePressActionCard_Click(object sender, RoutedEventArgs e)
@@ -420,15 +434,6 @@ public partial class SettingsPage
         _smartKeyDoublePressActionCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         _notificationsCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = state.Value ? Visibility.Visible : Visibility.Collapsed;
-    }
-
-    private void SmartFnLockToggle_Click(object sender, RoutedEventArgs e)
-    {
-        if (_isRefreshing)
-            return;
-
-        _settings.Store.SmartFnLock = _smartFnLockToggle.IsChecked ?? false;
-        _settings.SynchronizeStore();
     }
 
     private void NotificationsCard_Click(object sender, RoutedEventArgs e)
