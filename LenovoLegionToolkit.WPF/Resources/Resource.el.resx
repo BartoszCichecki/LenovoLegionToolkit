@@ -155,13 +155,13 @@
     <value>Πάντα ενεργό προφίλ παροχής ενέργειας</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Φορτίστε τις συσκευές USB όταν ο υπολογιστής είναι απενεργοποιημένος, σε κατάσταση αναστολής λειτουργίας ή αδρανοποίησης.</value>
+    <value>Φορτίστε τις συσκευές USB όταν ο υπολογιστής είναι απενεργοποιημένος, σε κατάσταση αναστολής λειτουργίας ή αδρανοποίησης.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Πάντα ενεργά USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Φορτίστε τις συσκευές USB όταν ο υπολογιστής είναι απενεργοποιημένος, σε κατάσταση αναστολής λειτουργίας ή αδρανοποίησης.</value>
+    <value>Φορτίστε τις συσκευές USB όταν ο υπολογιστής είναι απενεργοποιημένος, σε κατάσταση αναστολής λειτουργίας ή αδρανοποίησης.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Πάντα ενεργά USB</value>
@@ -185,7 +185,7 @@
     <value>Δεν έχουν οριστεί ενέργειες. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα ενέργεια.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Εάν είναι ενεργή, αυτή η ενέργεια θα εκτελεστεί αυτόματα. Κάθε φορά που αλλάζει η κατάσταση, όλες οι ενέργειες θα αξιολογηθούν από πάνω προς τα κάτω.
+    <value>Εάν είναι ενεργή, αυτή η ενέργεια θα εκτελεστεί αυτόματα. Κάθε φορά που αλλάζει η κατάσταση, όλες οι ενέργειες θα αξιολογηθούν από πάνω προς τα κάτω.
 Θα εκτελούνται μόνο οι ενέργειες που αντιστοιχούν στην τρέχουσα κατάσταση.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -366,7 +366,7 @@
     <value>Ημερομηνία παραγωγής</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Χρόνος από την τελευταία φορά που ο υπολογιστής φόρτιζε.
+    <value>Χρόνος από την τελευταία φορά που ο υπολογιστής φόρτιζε.
 Αυτή η ώρα μπορεί να μην είναι ανακριβής εάν ο υπολογιστής φόρτιζε ενώ ήταν σε αδράνεια.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -499,7 +499,7 @@
     <value>Τερματισμός εφαρμογών</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Απενεργοποίηση της διακριτής GPU εάν είναι άσκοπα ενεργή.</value>
+    <value>Απενεργοποίηση της διακριτής GPU εάν είναι άσκοπα ενεργή.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Μια οθόνη είναι συνδεδεμένη στην nVidia GPU.</value>
@@ -523,7 +523,7 @@
     <value>Διακριτή GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Αλλαγή φωτεινότητας οθόνης της ενσωματωμένης οθόνης.
+    <value>Αλλαγή φωτεινότητας οθόνης της ενσωματωμένης οθόνης.
 Οι λειτουργίες τροφοδοσίας αλλάζουν τη φωτεινότητα σε ορισμένες συσκευές. Φροντίστε να βάλετε αυτό το βήμα τελευταίο, εάν κάτι δεν λειτουργεί σωστά.
 
 ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δεν θα εκτελεστεί σωστά εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη.</value>
@@ -963,13 +963,13 @@
     <value>Επικόλληση</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Επιλογή λειτουργίας απόδοσης.</value>
+    <value>Επιλογή λειτουργίας απόδοσης.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Λειτουργία Ισχύος</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Επιλέξτε λειτουργία απόδοσης.
+    <value>Επιλέξτε λειτουργία απόδοσης.
 Μπορείτε να αλλάξετε λειτουργία με το Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
