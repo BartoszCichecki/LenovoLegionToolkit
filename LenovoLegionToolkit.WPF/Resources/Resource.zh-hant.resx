@@ -152,20 +152,20 @@
     <value>新增</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-	  <value>即使 Vantage 或其服務已啟用，也要啟用電源計劃。
+    <value>即使 Vantage 或其服務已啟用，也要啟用電源計劃。
 此選項僅適用於沒有多個電源計劃的裝置。</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>保持啟用 Windows 電源計劃</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>保持 USB 供電</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
+    <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>保持 USB 供電</value>
@@ -189,7 +189,7 @@
     <value>尚未定義操作。點擊「新增」以新增新的操作。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>如果啟用，此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
+    <value>如果啟用，此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>操作</value>
@@ -369,7 +369,7 @@
     <value>製造日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>自筆記型電腦上次連接到電源供應器以來的時間。
+    <value>自筆記型電腦上次連接到電源供應器以來的時間。
 如果在關機或休眠時充電，可能導致此時間不準確。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -502,7 +502,7 @@
     <value>強制關閉應用程式</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>如果 GPU 不需要活動時停用顯示卡。</value>
+    <value>如果 GPU 不需要活動時停用顯示卡。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>顯示器已連接到 nVidia GPU。</value>
@@ -526,7 +526,7 @@
     <value>獨立顯示卡</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>變更內部顯示器顯示亮度。
+    <value>變更內部顯示器顯示亮度。
 
 警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
   </data>
@@ -643,14 +643,14 @@
     <value>鎖定 Fn 鍵</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-	  <value>警告！
+    <value>警告！
 一些筆記型電腦可能接受較低的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>最小偏移</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-	  <value>警告！
+    <value>警告！
 一些筆記型電腦可能接受較高的功率限制。請小心，此選項可能導致未知的後果，因此如果您不確定自己在做什麼，請將其保留為 0。</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -751,7 +751,7 @@
     <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>Lenovo Vantage 或其相關服務正在執行</value>
+    <value>Lenovo Vantage 或其相關服務正在執行</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>關於</value>
@@ -999,13 +999,13 @@
     <value>貼上</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>選擇效能模式。</value>
+    <value>選擇效能模式。</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>電源模式</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>選擇效能模式。
+    <value>選擇效能模式。
 您可以透過快捷鍵 Fn+Q 快速更改。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1018,7 +1018,7 @@
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>當 Lenovo Vantage 或其相關服務正在執行且變更筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
+    <value>當 Lenovo Vantage 或其相關服務正在執行且變更筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>您確定嗎？</value>
@@ -1205,10 +1205,10 @@
     <value>無法啟用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-	  <value>Vantage 或 ImController 可能沒有被正確地啟用</value>
+    <value>Vantage 或 ImController 可能沒有被正確地啟用</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-	  <value>無法啟用 Vantage 或 ImController</value>
+    <value>無法啟用 Vantage 或 ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
@@ -1530,7 +1530,7 @@
     <value>名稱</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
+    <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>客製化</value>
@@ -1712,7 +1712,7 @@
     <value>偵測到 S0 Lower Power Model</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
+    <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>選擇電源模式變更時要套用的 Windows 電源計劃。</value>
@@ -1796,138 +1796,135 @@
     <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
-	  <value>最大：{0}</value>
+    <value>最大：{0}</value>
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
-	  <value>CPU</value>
+    <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>使用率</value>
+    <value>使用率</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
-	  <value>核心時脈</value>
+    <value>核心時脈</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
-	  <value>溫度</value>
+    <value>溫度</value>
   </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
-	  <value>風扇</value>
+    <value>風扇</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-	  <value>GPU</value>
+    <value>GPU</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
-	  <value>記憶體時脈</value>
+    <value>記憶體時脈</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
-	  <value>重新整理間隔</value>
+    <value>重新整理間隔</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>快速啟動</value>
+    <value>快速啟動</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>當電源連接後啟動筆記型電腦。</value>
+    <value>當電源連接後啟動筆記型電腦。</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
-	  <value>快速啟動</value>
+    <value>快速啟動</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>當電源連接後啟動筆記型電腦。</value>
+    <value>當電源連接後啟動筆記型電腦。</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
-	  <value>無法變更電源模式</value>
+    <value>無法變更電源模式</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-	  <value>當未連接電源供應器時無法啟用 {0}。</value>
-	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+    <value>當未連接電源供應器時無法啟用 {0}。</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
-	  <value>感測器</value>
+    <value>感測器</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-	  <value>無法變更 GPU 運作模式</value>
-  </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>如果 dGPU 仍然未啟用，請稍後再次嘗試變更模式。&#x0a;如果仍未有反應，請重新啟動您的筆記型電腦。</value>
+    <value>無法變更 GPU 運作模式</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-	  <value>dGPU 目前使用中</value>
+    <value>dGPU 目前使用中</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-	  <value>當 dGPU 未使用時將自動中斷連接。</value>
+    <value>當 dGPU 未使用時將自動中斷連接。</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-	  <value>dGPU 目前正在使用或筆記型電腦未使用電池電源</value>
+    <value>dGPU 目前正在使用或筆記型電腦未使用電池電源</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-	  <value>未使用筆記本電腦或使用電池供電時，dGPU 將自動中斷連接。</value>
+    <value>未使用筆記本電腦或使用電池供電時，dGPU 將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-	  <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-	  <value>當 LenovoZong 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 LenovoZong 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-	  <value>DGPU 已連接</value>
+    <value>DGPU 已連接</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-	  <value>DGPU 已中斷連接</value>
+    <value>DGPU 已中斷連接</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>GPU 運作模式</value>
+    <value>GPU 運作模式</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>根據您的使用場景和電源情況選擇顯示卡的執行模式。
+    <value>根據您的使用場景和電源情況選擇顯示卡的執行模式。
 切換模式可能需要重新啟動。</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>混合模式（Hybrid）</value>
+    <value>混合模式（Hybrid）</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
+    <value>混合模式允許在內建顯示卡和獨立顯示卡之間切換。
 需要重新啟動。</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
-	  <value>持續時間</value>
+    <value>持續時間</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>更新</value>
+    <value>更新</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
-	  <value>啟動商標</value>
+    <value>啟動商標</value>
   </data>
   <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
-	  <value>客製化系統啟動時的啟動商標圖片。</value>
+    <value>客製化系統啟動時的啟動商標圖片。</value>
   </data>
   <data name="BootLogoWindow_Title" xml:space="preserve">
-	  <value>啟動商標</value>
+    <value>啟動商標</value>
   </data>
   <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
-	  <value>已設定為預設啟動商標</value>
+    <value>已設定為預設啟動商標</value>
   </data>
   <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
-	  <value>已設定為預設啟動商標</value>
+    <value>已設定為預設啟動商標</value>
   </data>
   <data name="BootLogoWindow_Status" xml:space="preserve">
-	  <value>狀態</value>
+    <value>狀態</value>
   </data>
   <data name="RevertToDefault" xml:space="preserve">
-	  <value>回復為預設</value>
+    <value>回復為預設</value>
   </data>
   <data name="BootLogoWindow_Customize" xml:space="preserve">
-	  <value>客製化</value>
+    <value>客製化</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
-	  <value>操作</value>
+    <value>操作</value>
   </data>
   <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
-	  <value>通知文字</value>
+    <value>通知文字</value>
   </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
-	  <value>顯示通知</value>
+    <value>顯示通知</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
-	  <value>預設</value>
+    <value>預設</value>
   </data>
 </root>
