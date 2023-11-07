@@ -329,7 +329,7 @@
     <value>Datum proizvodnje</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Vrijeme od posljednjeg povezivanja laptopa na punjač.
+    <value>Vrijeme od posljednjeg povezivanja laptopa na punjač.
 Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao ili isključen.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
