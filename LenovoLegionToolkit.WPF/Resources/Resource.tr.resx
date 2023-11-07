@@ -1893,6 +1893,12 @@ Yeniden başlatma gerektirir.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Güncellemeler</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>GPU Üstünden CPU Üstüne Dinamik Güç</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Bu CPU kullanımına bağlı olarak CPU üstünden GPU üstüne tahsis edilebilecek azami ek güçtür. Değer ne kadar yüksek olursa GPU kullanan uygulamaların performansı da o kadar iyi olur.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Açılış Logosu</value>
   </data>
@@ -1928,5 +1934,11 @@ Yeniden başlatma gerektirir.</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>Ön ayar</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Akıllı Fn Kilidi</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Shift, Ctrl veya Alt tuşuna basıldığında Fn Kilidi geçici olarak devre dışı bırakılacaktır.</value>
   </data>
 </root>
