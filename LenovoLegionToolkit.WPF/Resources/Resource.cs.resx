@@ -155,13 +155,13 @@
     <value>Vždy aktivovat Režim napájení windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
+    <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Vždy napájené USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
+    <value>Nabíjet zařízení USB, když je počitač vypnut, nebo v režimu spánku/hibernace.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Vždy napájené USB</value>
@@ -185,7 +185,7 @@
     <value>Nejsou definovány žádné akce. Kliknutím na „Přidat novou“ vytvoříte novou akci.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Pokud je tato funkce povolena, akce se spustí automaticky. Kdykoli se stav změní, všechny akce budou vyhodnoceny shora dolů.
+    <value>Pokud je tato funkce povolena, akce se spustí automaticky. Kdykoli se stav změní, všechny akce budou vyhodnoceny shora dolů.
 Spustí se pouze akce, které odpovídají aktuálnímu stavu.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -366,7 +366,7 @@ Spustí se pouze akce, které odpovídají aktuálnímu stavu.</value>
     <value>Datum výroby</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Čas od posledního připojení notebooku k nabíječce.
+    <value>Čas od posledního připojení notebooku k nabíječce.
 Tento čas nemusí být přesný, pokud byl notebook nabíjen ve spánku nebo ve vypnutém stavu.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -499,7 +499,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
     <value>Ukončit aplikace</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Deaktivovat dedikované GPU, když je zbytečně aktivní.</value>
+    <value>Deaktivovat dedikované GPU, když je zbytečně aktivní.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Monitor je připojen k nVidia GPU.</value>
@@ -523,7 +523,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý
     <value>Dedikované GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Změnit jas displeje notebooku.
+    <value>Změnit jas displeje notebooku.
 Režimy napájení mění jas na některých zařízeních. Ujisti se, že tento krok dáš jako poslední, pokud něco nefunguje správně.
 
 VAROVÁNÍ: Tato akce neproběhne správně, pokud je displej notebooku vypnutý.</value>
@@ -977,13 +977,13 @@ Vždy se ujisti, že instaluješ správné balíčky.</value>
     <value>Vložit</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Vyber režim výkonu.</value>
+    <value>Vyber režim výkonu.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Režim výkonu</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Vyber režim výkonu.
+    <value>Vyber režim výkonu.
 Režim můžeš přepínat pomocí Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1486,7 +1486,7 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
     <value>Název</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Některé funkce se nemusí objevit na přehledu kvůli stavu a konfiguraci tvého zařízení.</value>
+    <value>Některé funkce se nemusí objevit na přehledu kvůli stavu a konfiguraci tvého zařízení.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Přizpůsobit</value>
@@ -1668,7 +1668,7 @@ Toto nastavení se aplikuje jen když je zapnutý vlastní režim.</value>
     <value>Byl zjištěn model S0 s nižším výkonem</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Systém Windows hlásí, že toto zařízení podporuje moderní úsporný režim. Použití jiných plán napájení než Rovnováha může způsobit neočekávané chování.</value>
+    <value>Systém Windows hlásí, že toto zařízení podporuje moderní úsporný režim. Použití jiných plán napájení než Rovnováha může způsobit neočekávané chování.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Vyber plány napájení, které se změní, když se změní režim výkonu.</value>
