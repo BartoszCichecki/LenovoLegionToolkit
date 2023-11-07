@@ -24,4 +24,13 @@ public static class EnumExtensions
 
         return displayAttribute.Name;
     }
+
+    public static string GetFlagsDisplayName(this Enum enumValue)
+    {
+        var names = Enum.GetValues(enumValue.GetType())
+            .Cast<Enum>()
+            .Where(enumValue.HasFlag)
+            .Select(GetDisplayName);
+        return string.Join(", ", names);
+    }
 }

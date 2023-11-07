@@ -43,7 +43,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public List<Guid> SmartKeySinglePressActionList { get; set; } = new();
         public List<Guid> SmartKeyDoublePressActionList { get; set; } = new();
         public bool SynchronizeBrightnessToAllPowerPlans { get; set; }
-        public ModifierKey SmartFnLockFlags { get; set; } = ModifierKey.None;
+        public ModifierKey SmartFnLockFlags { get; set; }
     }
 
     public ApplicationSettings() : base("settings.json")

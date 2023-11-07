@@ -322,6 +322,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alt.
+        /// </summary>
+        public static string ModifierKey_Alt {
+            get {
+                return ResourceManager.GetString("ModifierKey_Alt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ctrl.
+        /// </summary>
+        public static string ModifierKey_Ctrl {
+            get {
+                return ResourceManager.GetString("ModifierKey_Ctrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shift.
+        /// </summary>
+        public static string ModifierKey_Shift {
+            get {
+                return ResourceManager.GetString("ModifierKey_Shift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Long.
         /// </summary>
         public static string NotificationDuration_Long {

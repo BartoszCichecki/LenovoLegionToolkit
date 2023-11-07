@@ -189,9 +189,11 @@ public enum MicrophoneState
 [Flags]
 public enum ModifierKey
 {
-    None = 0,
+    [Display(ResourceType = typeof(Resource), Name = "ModifierKey_Shift")]
     Shift = 1,
+    [Display(ResourceType = typeof(Resource), Name = "ModifierKey_Ctrl")]
     Ctrl = 2,
+    [Display(ResourceType = typeof(Resource), Name = "ModifierKey_Alt")]
     Alt = 4
 }
 

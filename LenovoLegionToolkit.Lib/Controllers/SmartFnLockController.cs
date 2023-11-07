@@ -30,7 +30,7 @@ public class SmartFnLockController
 
     public void OnKeyboardEvent(nuint wParam, KBDLLHOOKSTRUCT kbStruct)
     {
-        if (_settings.Store.SmartFnLockFlags == ModifierKey.None)
+        if (_settings.Store.SmartFnLockFlags == 0)
             return;
 
         Task.Run(async () =>
