@@ -152,20 +152,20 @@
     <value>Добави ново</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-	  <value>Активирай Планът за захранването, дори когато Vantage или неговите услуги работят.
+    <value>Активирай Планът за захранването, дори когато Vantage или неговите услуги работят.
 Тази опция е предназначена само за устройства, които не са дошли с множество планове на захранването.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Винаги активирай Планът за захранване на Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
+    <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Винаги включен USB</value>
@@ -189,7 +189,7 @@
     <value>Нямате дефинирани Действия. Натиснете "Добави ново", за да създадете ново Действие.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
+    <value>Действия ще бъдат изпълнени автоматично, ако функцията е активирана. При промяна в състоянието, всички те ще бъдат проверени от горе надолу. Само тези, които съвпадат с настоящото състояние, ще бъдат изпълнени.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Действия</value>
@@ -369,7 +369,7 @@
     <value>Дата на производство</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Изминалото време от последното свързване на зарядното.
+    <value>Изминалото време от последното свързване на зарядното.
 Възможни са неточности, ако лаптопът е бил зареждан по време на спящ режим или докато е бил изключен.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -502,7 +502,7 @@
     <value>Спри приложенията</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Деактивирайте допълнителната видеокарта ако се използва без да има нужда.</value>
+    <value>Деактивирайте допълнителната видеокарта ако се използва без да има нужда.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Монитор беше свързан към графичната карта на Nvidia.</value>
@@ -526,7 +526,7 @@
     <value>Допълнителна видеокарта</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Променете яркостта на вградения екран.
+    <value>Променете яркостта на вградения екран.
 Промяна в режима на захранване може да доведе до промяна в яркостта при някои устройства. Уверете се, че настоящата стъпка е сложена на последно място, ако нещо не работи, както очаквате.
 
 ВНИМАНИЕ: Това действие може да не се изпълни правилно, ако вграденият екран е изключен.</value>
@@ -644,14 +644,14 @@
     <value>Заключен клавиш Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-	  <value>ВНИМАНИ!
+    <value>ВНИМАНИ!
 Някои лаптопи може да поддържат по-ниски стойности от посочените, но внимавайте. Тази опция може да доведе до непредвидимо поведение, затова я оставете на 0 ако не сте сигурни какво правите.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Минимален офсет</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-	  <value>ВНИМАНИ!
+    <value>ВНИМАНИ!
 Някои лаптопи може да поддържат по-високи стойности от посочените, но внимавайте. Тази опция може да доведе до непредвидимо поведение, затова я оставете на 0 ако не сте сигурни какво правите.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -752,7 +752,7 @@
     <value>Подсветката на клавиатурата не може да бъде управлявана тук, когато Vantage или неговите услуги работят.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>Lenovo Vantage или неговите услуги работят</value>
+    <value>Lenovo Vantage или неговите услуги работят</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Относно</value>
@@ -1000,13 +1000,13 @@
     <value>Поставяне</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Изберете режим на производителност.</value>
+    <value>Изберете режим на производителност.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим на захранване</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Изберете режим на производителност.
+    <value>Изберете режим на производителност.
 Може да промените режима с клавишната комбинация Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1019,7 +1019,7 @@
     <value>Избраният режим на захранване може да не работи правилно без свързано зарядно.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>Активиране на тази настройки, когато Lenovo Vantage или неговите услуги работят и извършват промени в режима на захранване на Вашия лаптоп, може да доведе до неочаквано поведение.</value>
+    <value>Активиране на тази настройки, когато Lenovo Vantage или неговите услуги работят и извършват промени в режима на захранване на Вашия лаптоп, може да доведе до неочаквано поведение.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Сигурни ли сте?</value>
@@ -1206,10 +1206,10 @@
     <value>Приложението Lenovo Hotkeys не можа да бъде активирано</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-	  <value>Vantage и/или ImController може да не са били активирани правилно</value>
+    <value>Vantage и/или ImController може да не са били активирани правилно</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-	  <value>Vantage и/или ImController не можаха да бъдат активирани</value>
+    <value>Vantage и/или ImController не можаха да бъдат активирани</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Може да изключите избрани честоти на опресняване, за да направите клавишната комбинация Fn+R по-полезна.</value>
@@ -1529,7 +1529,7 @@
     <value>Име</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>В зависимост от състоянието и настройките на Вашето устройство, някои функции може да не бъдат показани на информационното табло.</value>
+    <value>В зависимост от състоянието и настройките на Вашето устройство, някои функции може да не бъдат показани на информационното табло.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Персонализиране</value>
@@ -1711,7 +1711,7 @@
     <value>Открит е S0 Lower Power Model</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows докладва, че това устройство поддържа модерен режим на готовност. Използвайки план на захранване различен от Балансиран може да доведе до неочаквано поведение.</value>
+    <value>Windows докладва, че това устройство поддържа модерен режим на готовност. Използвайки план на захранване различен от Балансиран може да доведе до неочаквано поведение.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Изберете план на захранване, когато режимът на работа бъде променен.</value>
@@ -1795,85 +1795,82 @@
     <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
-	  <value>Максимално: {0}</value>
+    <value>Максимално: {0}</value>
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
-	  <value>Процесор</value>
+    <value>Процесор</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Натовараност</value>
+    <value>Натовараност</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
-	  <value>Тактова честота на ядрото</value>
+    <value>Тактова честота на ядрото</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
-	  <value>Температура</value>
+    <value>Температура</value>
   </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
-	  <value>Перка</value>
+    <value>Перка</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-	  <value>Допълнителна видеокарта</value>
+    <value>Допълнителна видеокарта</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
-	  <value>Тактова честота на паметта</value>
+    <value>Тактова честота на паметта</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
-	  <value>Честота на опресняване</value>
+    <value>Честота на опресняване</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Моментално стартиране</value>
+    <value>Моментално стартиране</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Лаптопът да бъде включен, когато зарядното е свързано.</value>
+    <value>Лаптопът да бъде включен, когато зарядното е свързано.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
-	  <value>Моментално стартиране</value>
+    <value>Моментално стартиране</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>Лаптопът да бъде включен, когато зарядното е свързано.</value>
+    <value>Лаптопът да бъде включен, когато зарядното е свързано.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
-	  <value>Промяната в режима на захранване не е възможна</value>
+    <value>Промяната в режима на захранване не е възможна</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-	  <value>{0} режим на захранване не е наличен без свързано зарядно.</value>
-	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+    <value>{0} режим на захранване не е наличен без свързано зарядно.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
-	  <value>Сензори</value>
+    <value>Сензори</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-	  <value>Промяната в режима на работа на допълнителната видеокартата беше неуспешна</value>
-  </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Опитайте да промените режима отново след няколко секунди, ако не виждате очакваните резултати.&#x0a;Ако допълнителната видеокарта не реагира изобщо, моля рестартирайте устройството.</value>
+    <value>Промяната в режима на работа на допълнителната видеокартата беше неуспешна</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-	  <value>Допълнителната видеокарта е използвана в момента</value>
+    <value>Допълнителната видеокарта е използвана в момента</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-	  <value>Допълнителната видеокарта ще бъде деактивирана автоматично, когато не се използва.</value>
+    <value>Допълнителната видеокарта ще бъде деактивирана автоматично, когато не се използва.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-	  <value>Допълнителната видеокарта е използвана в момента или лаптоптът не е черпи енергия от батерията</value>
+    <value>Допълнителната видеокарта е използвана в момента или лаптоптът не е черпи енергия от батерията</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-	  <value>Допълнителната видеокарта ще бъде деактивирана, когато не се използва или лаптопът черпи енергия от батерията.</value>
+    <value>Допълнителната видеокарта ще бъде деактивирана, когато не се използва или лаптопът черпи енергия от батерията.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-	  <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато Lenovo Vantage или неговите услуги работят.</value>
+    <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато Lenovo Vantage или неговите услуги работят.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-	  <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато LegionZone или неговите услуги работят.</value>
+    <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато LegionZone или неговите услуги работят.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-	  <value>Допълнителна видеокарта активирана</value>
+    <value>Допълнителна видеокарта активирана</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-	  <value>Допълнителна видео карта деактивирана</value>
+    <value>Допълнителна видео карта деактивирана</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Актуализации</value>
+    <value>Актуализации</value>
   </data>
 </root>

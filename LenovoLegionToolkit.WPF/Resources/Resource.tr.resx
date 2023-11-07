@@ -152,20 +152,20 @@
     <value>Yeni ekle</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-	  <value>Vantage veya hizmetleri açık olduğunda bile Güç Planını etkinleştirin.
+    <value>Vantage veya hizmetleri açık olduğunda bile Güç Planını etkinleştirin.
 Bu seçenek, yalnızca birden fazla güç planıyla gelmeyen cihazlar için tasarlanmıştır.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Windows Güç Planlarını her zaman aktif et</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
+    <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
+    <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Her zaman açık USB</value>
@@ -189,7 +189,7 @@ Bu seçenek, yalnızca birden fazla güç planıyla gelmeyen cihazlar için tasa
     <value>Eylem bulunamadı. Yeni Eylem oluşturmak için "Yeni ekle"yi tıklayın.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Etkinleştirilirse, bu eylem otomatik olarak çalışacaktır. Durum değiştiğinde, tüm eylemler yukarıdan aşağıya doğru çalıştırılacaktır.
+    <value>Etkinleştirilirse, bu eylem otomatik olarak çalışacaktır. Durum değiştiğinde, tüm eylemler yukarıdan aşağıya doğru çalıştırılacaktır.
 Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,7 +370,7 @@ Yalnızca mevcut durumla eşleşen eylemler çalışacaktır.</value>
     <value>Üretim tarihi</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Dizüstü bilgisayarın AC gücüne en son bağlandığından beri geçen süre.
+    <value>Dizüstü bilgisayarın AC gücüne en son bağlandığından beri geçen süre.
 Dizüstü bilgisayar uyurken veya kapalıyken şarj edildiyse bu süre doğru olmayabilir.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -503,7 +503,7 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
     <value>Uygulamaları kapat</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
+    <value>Gereksiz yere etkinse harici GPU'yu devre dışı bırakın.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>nVidia GPU'ya bir monitör bağlı.</value>
@@ -527,7 +527,7 @@ UYARI: Dahili ekran kapalıysa veya Hibrit modu etkin değilse bu eylem düzgün
     <value>Harici GPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Yerleşik ekranın parlaklığını değiştirin.
+    <value>Yerleşik ekranın parlaklığını değiştirin.
 Güç modları, bazı cihazlarda parlaklığı değiştirir. Bir şey doğru çalışmıyorsa, bu adımı en son koyduğunuzdan emin olun.
 
 UYARI: Dahili ekran kapalıysa bu eylem düzgün çalışmayacaktır.</value>
@@ -645,14 +645,14 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
     <value>Fn Kilidi</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-	  <value>UYARI!
+    <value>UYARI!
 Bazı bilgisayarlar, belirtilenden daha düşük değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimum ofset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-	  <value>UYARI!
+    <value>UYARI!
 Bazı bilgisayarlar, belirtilenden daha yüksek değerleri kabul edebilir, ancak dikkatli olun. Bu seçenek öngörülemeyen davranışlara neden olabilir, bu nedenle ne yaptığınızdan emin değilseniz, bunu 0'da bırakın.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -753,7 +753,7 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
     <value>Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>Lenovo Vantage veya hizmetleri çalışıyor</value>
+    <value>Lenovo Vantage veya hizmetleri çalışıyor</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Hakkında</value>
@@ -1001,13 +1001,13 @@ Daima doğru paketleri kurduğunuzdan emin olun.</value>
     <value>Yapıştır</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Performans modunu seçin.</value>
+    <value>Performans modunu seçin.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Güç Modu</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Performans modunu seçin.
+    <value>Performans modunu seçin.
 Fn+Q ile modu değiştirebilirsiniz.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1020,7 +1020,7 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
     <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>Lenovo Vantage veya hizmetleri çalışırken ve dizüstü bilgisayarınızın güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
+    <value>Lenovo Vantage veya hizmetleri çalışırken ve dizüstü bilgisayarınızın güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Emin misiniz?</value>
@@ -1207,10 +1207,10 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
     <value>Lenovo Hotkeys Tuşları etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-	  <value>Vantage ve/veya ImController doğru şekilde etkinleştirilmemiş olabilir</value>
+    <value>Vantage ve/veya ImController doğru şekilde etkinleştirilmemiş olabilir</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-	  <value>Vantage ve/veya ImController etkinleştirilemedi</value>
+    <value>Vantage ve/veya ImController etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R kısayolunu daha kullanışlı hale getirmek için yenileme hızlarını hariç tutabilirsiniz.</value>
@@ -1532,7 +1532,7 @@ UYARI: Dahili ekran kapalıysa, bu işlem doğru çalışmaz.</value>
     <value>İsim</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Cihazınızın durumuna ve yapılandırmasına bağlı olarak bazı özellikler Ana Menü'de görünmeyebilir.</value>
+    <value>Cihazınızın durumuna ve yapılandırmasına bağlı olarak bazı özellikler Ana Menü'de görünmeyebilir.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Özelleştir</value>
@@ -1714,7 +1714,7 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
     <value>S0 Düşük Güç Modu algılandı</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
+    <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>
@@ -1798,138 +1798,147 @@ UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
     <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
-	  <value>Azami: {0}</value>
+    <value>Azami: {0}</value>
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
-	  <value>CPU</value>
+    <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Kullanım</value>
+    <value>Kullanım</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
-	  <value>Çekirdek Saati</value>
+    <value>Çekirdek Saati</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
-	  <value>Sıcaklık</value>
+    <value>Sıcaklık</value>
   </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
-	  <value>Fan</value>
+    <value>Fan</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-	  <value>GPU</value>
+    <value>GPU</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
-	  <value>Bellek Saati</value>
+    <value>Bellek Saati</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
-	  <value>Yenileme aralığı</value>
+    <value>Yenileme aralığı</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Anında Önyükleme</value>
+    <value>Anında Önyükleme</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
+    <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
-	  <value>Anında Önyükleme</value>
+    <value>Anında Önyükleme</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
+    <value>Bir şarj cihazı bağlandığında dizüstü bilgisayarı açın.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
-	  <value>Güç Modu değiştirilemiyor</value>
+    <value>Güç Modu değiştirilemiyor</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-	  <value>{0} güç modu, AC gücü olmadan kullanılamaz.</value>
-	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+    <value>{0} güç modu, AC gücü olmadan kullanılamaz.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
-	  <value>Sensörler</value>
+    <value>Sensörler</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-	  <value>GPU Çalışma Modu Değiştirilemedi</value>
-  </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Beklenen sonucu görmezseniz, birkaç saniye içinde modu tekrar değiştirmeyi deneyin.&#x0a;dGPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlatın.</value>
+    <value>GPU Çalışma Modu Değiştirilemedi</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-	  <value>dGPU şuan kullanımda</value>
+    <value>dGPU şuan kullanımda</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-	  <value>dGPU kullanılmadığında otomatik olarak kapanacaktır.</value>
+    <value>dGPU kullanılmadığında otomatik olarak kapanacaktır.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-	  <value>dGPU şuan kullanımda veya dizüstü pil gücünde çalışmıyor</value>
+    <value>dGPU şuan kullanımda veya dizüstü pil gücünde çalışmıyor</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-	  <value>dGPU kullanılmadığında ve dizüstü pil gücünde çalıştığında otomatik olarak kapanacaktır.</value>
+    <value>dGPU kullanılmadığında ve dizüstü pil gücünde çalıştığında otomatik olarak kapanacaktır.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-	  <value>Özel Mod ayarları, Lenovo Vantage veya hizmetleri çalışırken doğru şekilde uygulanmayacaktır.</value>
+    <value>Özel Mod ayarları, Lenovo Vantage veya hizmetleri çalışırken doğru şekilde uygulanmayacaktır.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-	  <value>LegionZone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
+    <value>LegionZone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-	  <value>DGPU bağlı</value>
+    <value>DGPU bağlı</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-	  <value>DGPU bağlı değil</value>
+    <value>DGPU bağlı değil</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>GPU Çalışma Modu</value>
+    <value>GPU Çalışma Modu</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bilgisayarınızın kullanım ve güç koşullarına göre GPU çalışma modunu seçin.
+    <value>Bilgisayarınızın kullanım ve güç koşullarına göre GPU çalışma modunu seçin.
 Mod değiştirme, yeniden başlatma gerektirebilir.</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Hibrit Modu</value>
+    <value>Hibrit Modu</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Dahili ve harici GPU arasında geçişe izin verin.
+    <value>Dahili ve harici GPU arasında geçişe izin verin.
 Yeniden başlatma gerektirir.</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
-	  <value>Süre</value>
+    <value>Süre</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Güncellemeler</value>
+    <value>Güncellemeler</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>GPU Üstünden CPU Üstüne Dinamik Güç</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Bu CPU kullanımına bağlı olarak CPU üstünden GPU üstüne tahsis edilebilecek azami ek güçtür. Değer ne kadar yüksek olursa GPU kullanan uygulamaların performansı da o kadar iyi olur.</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
-	  <value>Açılış Logosu</value>
+    <value>Açılış Logosu</value>
   </data>
   <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
-	  <value>Sistem başladığında görülebilen Açılış Logosu görüntüsünü özelleştirin.</value>
+    <value>Sistem başladığında görülebilen Açılış Logosu görüntüsünü özelleştirin.</value>
   </data>
   <data name="BootLogoWindow_Title" xml:space="preserve">
-	  <value>Açılış Logosu</value>
+    <value>Açılış Logosu</value>
   </data>
   <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
-	  <value>Varsayılan Başlangıç Logosu ayarla</value>
+    <value>Varsayılan Başlangıç Logosu ayarla</value>
   </data>
   <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
-	  <value>Özel Başlangıç Logosu ayarla</value>
+    <value>Özel Başlangıç Logosu ayarla</value>
   </data>
   <data name="BootLogoWindow_Status" xml:space="preserve">
-	  <value>Durum</value>
+    <value>Durum</value>
   </data>
   <data name="RevertToDefault" xml:space="preserve">
-	  <value>Varsayılana döndür</value>
+    <value>Varsayılana döndür</value>
   </data>
   <data name="BootLogoWindow_Customize" xml:space="preserve">
-	  <value>Özelleştir</value>
+    <value>Özelleştir</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
-	  <value>Eylemler</value>
+    <value>Eylemler</value>
   </data>
   <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
-	  <value>Bildirim Metni</value>
+    <value>Bildirim Metni</value>
   </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
-	  <value>Bildirimi göster</value>
+    <value>Bildirimi göster</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
-	  <value>Ön ayar</value>
+    <value>Ön ayar</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Akıllı Fn Kilidi</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Shift, Ctrl veya Alt tuşuna basıldığında Fn Kilidi geçici olarak devre dışı bırakılacaktır.</value>
   </data>
 </root>

@@ -155,13 +155,13 @@
     <value>Завжди активувати план живлення Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Заряджати USB-пристрої, коли комп'ютер вимкнений або знаходиться у режимах сну чи гібернації.</value>
+    <value>Заряджати USB-пристрої, коли комп'ютер вимкнений або знаходиться у режимах сну чи гібернації.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Завжди увімкнені USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Заряджати USB-пристрої, коли комп'ютер вимкнений або у режимі сну та режимі гібернації.</value>
+    <value>Заряджати USB-пристрої, коли комп'ютер вимкнений або у режимі сну та режимі гібернації.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Завжди умімкнені USB</value>
@@ -185,7 +185,7 @@
     <value>Дії не визначено. Натисніть "Додати" щоб створити нову дію.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Якщо увімкнено ці функції будуть запускатися автоматично. При зміні стану всі дії будуть оцінюватися згори донизу. Тільки дії, які підходять під теперішній стан будуть запущені.</value>
+    <value>Якщо увімкнено ці функції будуть запускатися автоматично. При зміні стану всі дії будуть оцінюватися згори донизу. Тільки дії, які підходять під теперішній стан будуть запущені.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Дії</value>
@@ -365,7 +365,7 @@
     <value>Дата виготовлення</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Час, з моменту якого ноутбук востаннє був під'єднаний до мережі.
+    <value>Час, з моменту якого ноутбук востаннє був під'єднаний до мережі.
 Цей час може бути неточним, якщо ноутбук заряджався вимкненим чи в режимі сну.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -498,7 +498,7 @@
     <value>Примусово закрити застосунки</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Вимкнути дискретну відеокарту якщо вона працює без необхідності.</value>
+    <value>Вимкнути дискретну відеокарту якщо вона працює без необхідності.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Дисплей під'єднаний до відеокарти nVidia</value>
@@ -522,7 +522,7 @@
     <value>Дискретна ГП</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Змінити яскравість вбудованого дисплея.
+    <value>Змінити яскравість вбудованого дисплея.
 Режими живлення змінюють яскравість на деяких пристроях. Переконайтеся, що робите цей крок останнім, якщо щось не працює належним чином.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
@@ -977,13 +977,13 @@
     <value>Вставити</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Обрати режим потужності.</value>
+    <value>Обрати режим потужності.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим живлення</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Оберіть режим потужності.
+    <value>Оберіть режим потужності.
 Ви можете перемикатися між режимами використовуючи Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1486,7 +1486,7 @@
     <value>Назва</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Деякі можливості можуть не з'явитися на панелі керування, залежачи від стану та конфігурації вашого пристрою.</value>
+    <value>Деякі можливості можуть не з'явитися на панелі керування, залежачи від стану та конфігурації вашого пристрою.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Налаштувати</value>

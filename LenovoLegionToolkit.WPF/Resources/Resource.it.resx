@@ -155,13 +155,13 @@
     <value>Utilizza i piani energetici di Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
+    <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB sempre attive</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
+    <value>Alimenta i dispositivi connessi alle porte USB, quando il computer è spento, in standby o in ibernazione.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB sempre attive</value>
@@ -185,7 +185,7 @@
     <value>Nessuna azione configurata. clicca su "Aggiungi nuova" per configurare una nuova azione.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Se attive, queste azioni verranno eseguite automaticamente secondo gli eventi configurati. La priorità delle azioni è dall'alto verso il basso.</value>
+    <value>Se attive, queste azioni verranno eseguite automaticamente secondo gli eventi configurati. La priorità delle azioni è dall'alto verso il basso.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Azioni automatizzate</value>
@@ -365,7 +365,7 @@
     <value>Data di produzione</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Tempo trascorso dall'ultimo collegamento dell'alimentatore.
+    <value>Tempo trascorso dall'ultimo collegamento dell'alimentatore.
 l'orario indicato potrebbe non essere corretto se il laptop è stato caricato mentre era in standby o spento.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -498,7 +498,7 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
     <value>Chiudi applicazioni</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Disattiva la GPU dedicata se inutilmente attiva.</value>
+    <value>Disattiva la GPU dedicata se inutilmente attiva.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un monitor è collegato alla GPU Nvidia.</value>
@@ -522,7 +522,7 @@ Attenzione: Questa azione non funzionerà correttamente se il display è spento 
     <value>GPU dedicata</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Cambia la luminosità del display integrato.
+    <value>Cambia la luminosità del display integrato.
 Alcune opzioni energetiche potrebbero cambiare la luminosità su alcuni dispositivi. Lascia per ultimo questa azione, se le cose non funzionano correttamente.
 
 ATTENZIONE: questa azione non verrà eseguita correttamente se il display interno è spento.</value>
@@ -975,13 +975,13 @@ Assicurati sempre di installare i pacchetti corretti.</value>
     <value>Incolla</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Cambia la modalità energetica.</value>
+    <value>Cambia la modalità energetica.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modalità energetica</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Cambia la modalità energetica.
+    <value>Cambia la modalità energetica.
 Puoi anche usare la scorciatoia Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1497,7 +1497,7 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
     <value>Nome</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Alcune opzioni potrebbero non apparire nella Dashboard in base allo stato e configurazione del tuo dispositivo.</value>
+    <value>Alcune opzioni potrebbero non apparire nella Dashboard in base allo stato e configurazione del tuo dispositivo.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizza</value>

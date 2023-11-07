@@ -152,20 +152,20 @@
     <value>Thêm mới</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-	  <value>Kích hoạt Power Plan ngay cả khi Vantage hoặc các dịch vụ của Vantage được bật.
+    <value>Kích hoạt Power Plan ngay cả khi Vantage hoặc các dịch vụ của Vantage được bật.
 Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Power Plan khác nhau.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Luôn kích hoạt Windows Power Plan</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
+    <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>Luôn bật cổng USB</value>
@@ -189,7 +189,7 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
     <value>Chưa có Hành động nào được tạo. Bấm "Thêm mới" để tạo Hành động mới.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Nếu kích hoạt, các Hành động này sẽ chạy tự động. Khi điều kiện thay đổi, các Hành động sẽ được đọc từ trên xuống dưới.
+    <value>Nếu kích hoạt, các Hành động này sẽ chạy tự động. Khi điều kiện thay đổi, các Hành động sẽ được đọc từ trên xuống dưới.
 Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
@@ -370,7 +370,7 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Ngày sản xuất</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Thời gian kể từ khi laptop được ngắt khỏi nguồn điện.
+    <value>Thời gian kể từ khi laptop được ngắt khỏi nguồn điện.
 Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ hoặc Tắt.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -503,7 +503,7 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
     <value>Tắt app dùng GPU rời</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Tắt GPU rời nếu nó bị kích hoạt không cần thiết.</value>
+    <value>Tắt GPU rời nếu nó bị kích hoạt không cần thiết.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Một màn hình được kết nối tới GPU Nvidia rời.</value>
@@ -527,7 +527,7 @@ CẢNH BÁO: Hành động sẽ không chạy đúng nếu màn hình laptop kh�
     <value>GPU rời</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Thay đổi độ sáng màn hình laptop.
+    <value>Thay đổi độ sáng màn hình laptop.
 Thay đổi các chế độ ảnh hưởng đến độ sáng màn hình trên một số thiết bị. Hãy để bước này được thực hiện cuối cùng nếu nó chạy không đúng.
 
 CẢNH BÁO: Hành động có thể chạy không đúng nếu màn hình laptop tắt.</value>
@@ -645,14 +645,14 @@ Xin chân thành cảm ơn!</value>
     <value>Khóa phím Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-	  <value>CẢNH BÁO!
+    <value>CẢNH BÁO!
 Một số laptop có thể nhận giá trị thấp hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimum offset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-	  <value>CẢNH BÁO!
+    <value>CẢNH BÁO!
 Một số laptop có thể nhận giá trị cao hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -753,7 +753,7 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>Lenovo Vantage hoặc các dịch vụ của nó đang chạy</value>
+    <value>Lenovo Vantage hoặc các dịch vụ của nó đang chạy</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Thông tin</value>
@@ -1001,13 +1001,13 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Dán</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Lựa chọn Chế độ.</value>
+    <value>Lựa chọn Chế độ.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Chuyển đổi các Chế độ hiệu năng.
+    <value>Chuyển đổi các Chế độ hiệu năng.
 Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1020,7 +1020,7 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
     <value>Chế độ được lựa chọn có thể không hoạt động nếu không được kết nối nguồn điện ngoài.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>Bật tùy chọn này khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy khiến thay đổi Power plans của Laptop và có thể gây ra lỗi.</value>
+    <value>Bật tùy chọn này khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy khiến thay đổi Power plans của Laptop và có thể gây ra lỗi.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Bạn chắc chứ?</value>
@@ -1207,10 +1207,10 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-	  <value>Vantage hoặc ImController có thể đã không được kích hoạt đúng cách</value>
+    <value>Vantage hoặc ImController có thể đã không được kích hoạt đúng cách</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-	  <value>Không thể kích hoạt Vantage hoặc ImController</value>
+    <value>Không thể kích hoạt Vantage hoặc ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
@@ -1532,7 +1532,7 @@ CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Tên</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Một số chức năng sẽ không xuất hiện trên Trang Chủ tùy vào trạng thái và cấu hình của Laptop.</value>
+    <value>Một số chức năng sẽ không xuất hiện trên Trang Chủ tùy vào trạng thái và cấu hình của Laptop.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Tùy chỉnh</value>
@@ -1714,7 +1714,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Phát hiện chế độ ngủ S0 Low Power</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>Windows báo rằng thiết bị này hỗ trợ Modern Standby. Dùng power plan khác ngoài Balance có thể gây ra lỗi ngoài ý muốn.</value>
+    <value>Windows báo rằng thiết bị này hỗ trợ Modern Standby. Dùng power plan khác ngoài Balance có thể gây ra lỗi ngoài ý muốn.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Chọn Windows Power Plan được sử dụng khi đổi chế độ.</value>
@@ -1798,102 +1798,99 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
     <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
-	  <value>Tối đa: {0}</value>
+    <value>Tối đa: {0}</value>
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
-	  <value>CPU</value>
+    <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Sử dụng</value>
+    <value>Sử dụng</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
-	  <value>Core Clock</value>
+    <value>Core Clock</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
-	  <value>Nhiệt độ</value>
+    <value>Nhiệt độ</value>
   </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
-	  <value>Quạt</value>
+    <value>Quạt</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-	  <value>GPU</value>
+    <value>GPU</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
-	  <value>Memory Clock</value>
+    <value>Memory Clock</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
-	  <value>Thời gian làm mới</value>
+    <value>Thời gian làm mới</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Khởi động tức thì</value>
+    <value>Khởi động tức thì</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+    <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
-	  <value>Khởi động tức thì</value>
+    <value>Khởi động tức thì</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+    <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
-	  <value>Không thể thay đổi Power Mode</value>
+    <value>Không thể thay đổi Power Mode</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-	  <value>{0} Power mode không khả dụng nếu không kết nối với bộ sạc.</value>
-	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+    <value>{0} Power mode không khả dụng nếu không kết nối với bộ sạc.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
-	  <value>Cảm biến</value>
+    <value>Cảm biến</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-	  <value>Không thể thay đổi Working Mode của GPU</value>
-  </data>
-  <data name="IGPUModeChangeException_Message" xml:space="preserve">
-	  <value>Nếu bạn không thấy kết quả như mong đợi, hãy thử thay đổi lại chế độ sau vài giây.&#x0a;Nếu dGPU hoàn toàn không phản hồi, hãy khởi động lại máy tính xách tay của bạn.</value>
+    <value>Không thể thay đổi Working Mode của GPU</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-	  <value>dGPU hiện đang được sử dụng</value>
+    <value>dGPU hiện đang được sử dụng</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-	  <value>dGPU sẽ tự động ngắt kết nối khi không được sử dụng.</value>
+    <value>dGPU sẽ tự động ngắt kết nối khi không được sử dụng.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-	  <value>dGPU hiện đang được sử dụng hoặc laptop đang không sử dụng pin</value>
+    <value>dGPU hiện đang được sử dụng hoặc laptop đang không sử dụng pin</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-	  <value>dGPU sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
+    <value>dGPU sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-	  <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
+    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-	  <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
+    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-	  <value>Đã kết nối với DGPU</value>
+    <value>Đã kết nối với DGPU</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-	  <value>Đã ngắt kết nối DGPU</value>
+    <value>Đã ngắt kết nối DGPU</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Chế độ hoạt động của GPU</value>
+    <value>Chế độ hoạt động của GPU</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
+    <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
 Chuyển đổi giữa các chế độ có thể cần phải khởi động lại.</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Hybrid</value>
+    <value>Hybrid</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
+    <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
 Yêu cầu khởi động lại.</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
-	  <value>Thời lượng</value>
+    <value>Thời lượng</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Cập nhật</value>
+    <value>Cập nhật</value>
   </data>
 </root>

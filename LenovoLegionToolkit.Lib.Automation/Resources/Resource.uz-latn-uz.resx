@@ -193,4 +193,7 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>Janıq</value>
   </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Kostyum rejimi aldınnan ornatılǵanda</value>
+  </data>
 </root>

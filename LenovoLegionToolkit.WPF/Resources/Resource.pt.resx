@@ -152,19 +152,19 @@
     <value>Adicionar novo</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-	  <value>Ativar o controlo dos esquemas de energia mesmo com o Vantage ou os seus serviços estão ativos. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
+    <value>Ativar o controlo dos esquemas de energia mesmo com o Vantage ou os seus serviços estão ativos. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Ativar sempre o esquema de energia do Windows</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-	  <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
+    <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
     <value>USB sempre ligado</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-	  <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
+    <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
     <value>USB sempre ligado</value>
@@ -188,7 +188,7 @@
     <value>Nenhuma Ação definida. Clica em "Adicionar nova" para criar uma nova ação.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-	  <value>Se ativado, estas ações irão ser executadas automaticamente.
+    <value>Se ativado, estas ações irão ser executadas automaticamente.
 Quando o estado mudar, todas as ações serão avaliadas de cima para baixo.
 Apenas as ações que corresponderem ao estado atual irão ser executadas.</value>
   </data>
@@ -370,7 +370,7 @@ Apenas as ações que corresponderem ao estado atual irão ser executadas.</valu
     <value>Data de fabrico</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-	  <value>Tempo desde que o dispositivo foi desconectado do carregador.
+    <value>Tempo desde que o dispositivo foi desconectado do carregador.
 Este tempo pode não estar correto se o dispositivo foi carregado quando estava suspenso ou desligado.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -503,7 +503,7 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
     <value>Fechar apps</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-	  <value>Desativar a GPU discreta se estiver ativada desnecessariamente.</value>
+    <value>Desativar a GPU discreta se estiver ativada desnecessariamente.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Está um monitor ligado à GPU da nVidia.</value>
@@ -527,7 +527,7 @@ ATENÇÃO: Esta ação não irá correr corretamente se o ecrã interno estiver 
     <value>GPU discreta</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
-	  <value>Altera o brilho do ecrã interno.
+    <value>Altera o brilho do ecrã interno.
 Os modos de desempenho podem alterar o brilho nalguns dispositivos.
 Certifica-te de que colocas este passo em último, se algo não funcionar corretamente 
 
@@ -646,14 +646,14 @@ Obrigado desde já!</value>
     <value>Fn Lock</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
-	  <value>ATENÇÃO!
+    <value>ATENÇÃO!
 Alguns portáteis podem aceitar valores menores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Offset mínimo</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
-	  <value>ATENÇÃO!
+    <value>ATENÇÃO!
 Alguns portáteis podem aceitar valores maiores do que indicam, mas tem cuidado. Esta opção pode resultar num comportamento desconhecido, portanto se não tiveres a certeza do que estás a fazer, deixa isto em 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
@@ -754,7 +754,7 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
     <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
-	  <value>O Lenovo Vantage ou os seus serviços estão ativos</value>
+    <value>O Lenovo Vantage ou os seus serviços estão ativos</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Sobre</value>
@@ -1002,13 +1002,13 @@ Confirma sempre que estás a instalar o pacotes corretos.</value>
     <value>Colar</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Selecionar modo de desempenho.</value>
+    <value>Selecionar modo de desempenho.</value>
   </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de energia</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
-	  <value>Seleciona o esquema de energia.
+    <value>Seleciona o esquema de energia.
 Podes mudar com Fn+Q.</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
@@ -1021,7 +1021,7 @@ Podes mudar com Fn+Q.</value>
     <value>O esquema de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-	  <value>Habilitar esta opção enquanto o Lenovo Vantage ou os seus serviços estão ativos e mudar o esquema de energia pode resultar num comportamento inesperado.</value>
+    <value>Habilitar esta opção enquanto o Lenovo Vantage ou os seus serviços estão ativos e mudar o esquema de energia pode resultar num comportamento inesperado.</value>
   </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Tens a certeza?</value>
@@ -1208,10 +1208,10 @@ Se desativado, esta app irá executar os atalhos Fn.
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-	  <value>O Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
+    <value>O Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-	  <value>Não foi possível ativar o Vantage e/ou o ImController</value>
+    <value>Não foi possível ativar o Vantage e/ou o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Podes excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1531,7 +1531,7 @@ ATENÇÃO: Esta ação não irá executar corretamente se o ecrã interno estive
     <value>Nome</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-	  <value>Algumas funções podem não aparecer na Dashboard dependendo do estado e da configuração do teu dispositivo.</value>
+    <value>Algumas funções podem não aparecer na Dashboard dependendo do estado e da configuração do teu dispositivo.</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Personalizar</value>
@@ -1713,7 +1713,7 @@ Esta definição apenas tem efeito quando o mesmo está ativo.</value>
     <value>Modelo de Baixa Energia S0 detetado</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
-	  <value>O Windows reporta que este dispositivo suporta Modern Standy. Usar Esquemas de Energia para além de Equilibrado pode causar comportamentos inesperados.</value>
+    <value>O Windows reporta que este dispositivo suporta Modern Standy. Usar Esquemas de Energia para além de Equilibrado pode causar comportamentos inesperados.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
     <value>Selecionar os Esquemas de Energia do Windows a aplicar quando o Modo de Energia muda.</value>
@@ -1797,58 +1797,58 @@ Atenção: Esta ação não irá correr corretamente se a GPU discreta estiver i
     <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
-	  <value>Máximo: {0}</value>
+    <value>Máximo: {0}</value>
   </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
-	  <value>CPU</value>
+    <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-	  <value>Utilização</value>
+    <value>Utilização</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
-	  <value>Frequência do Núcleo</value>
+    <value>Frequência do Núcleo</value>
   </data>
   <data name="SensorsControl_Temperature_Title" xml:space="preserve">
-	  <value>Temperatura</value>
+    <value>Temperatura</value>
   </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
-	  <value>Ventoinha</value>
+    <value>Ventoinha</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-	  <value>GPU</value>
+    <value>GPU</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
-	  <value>Frequência da Memória</value>
+    <value>Frequência da Memória</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
-	  <value>Intervalo de atualização</value>
+    <value>Intervalo de atualização</value>
   </data>
   <data name="InstantBootControl_Title" xml:space="preserve">
-	  <value>Boot Instantâneo</value>
+    <value>Boot Instantâneo</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-	  <value>Ligar o dispositivo quando um carregador é conectado.</value>
+    <value>Ligar o dispositivo quando um carregador é conectado.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
-	  <value>Boot Instantâneo</value>
+    <value>Boot Instantâneo</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-	  <value>Ligar o dispositivo quando um carregador é conectado.</value>
+    <value>Ligar o dispositivo quando um carregador é conectado.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
-	  <value>Não foi possível alterar o esquema de energia</value>
+    <value>Não foi possível alterar o esquema de energia</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-	  <value>O esquema de energia {0} não está disponível em bateria.</value>
-	  <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+    <value>O esquema de energia {0} não está disponível em bateria.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
-	  <value>Sensores</value>
+    <value>Sensores</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
-	  <value>Atualizações</value>
+    <value>Atualizações</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
-	  <value>Predefinição</value>
+    <value>Predefinição</value>
   </data>
 </root>
