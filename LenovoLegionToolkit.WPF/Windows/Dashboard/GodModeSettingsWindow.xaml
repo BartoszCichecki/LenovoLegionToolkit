@@ -130,16 +130,14 @@
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_LongTermPL_Description}"
-                        Unit="W"
-                        ValueChanged="CpuLongTermPowerLimitSlider_ValueChanged" />
+                        Unit="W" />
 
                     <godMode:GodModeValueControl
                         x:Name="_cpuShortTermPowerLimitControl"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL}"
                         Margin="0,0,0,8"
                         Description="{x:Static resources:Resource.GodModeSettingsWindow_CPU_ShortTermPL_Description}"
-                        Unit="W"
-                        ValueChanged="CpuShortTermPowerLimitSlider_ValueChanged" />
+                        Unit="W" />
 
                     <godMode:GodModeValueControl
                         x:Name="_cpuPeakPowerLimitControl"
