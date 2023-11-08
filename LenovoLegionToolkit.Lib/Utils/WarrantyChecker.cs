@@ -76,19 +76,32 @@ public class WarrantyChecker
 
     private static async Task<WarrantyInfo?> GetChineseWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation, CancellationToken token)
     {
-        var warrantySummaryString = await httpClient.GetStringAsync($"https://msupport.lenovo.com.cn/centerapi/devicedetail?sn={machineInformation.SerialNumber}", token).ConfigureAwait(false);
+        var machineInfo = await httpClient
+            .GetStringAsync($"https://newsupport.lenovo.com.cn/api/machine/getmachineinfo?sn={machineInformation.SerialNumber}", token)
+            .ConfigureAwait(false);
 
-        var node = JsonNode.Parse(warrantySummaryString);
-
-        if (node is null || node["status_code"]?.GetValue<int>() != 200)
+        var node = JsonNode.Parse(machineInfo);
+        if (node is null || node["statusCode"]?.GetValue<int>() != 200)
             return null;
 
         var dataNode = node["data"];
-        var startDateString = dataNode?["warranty_start"]?.ToString();
-        var endDateString = dataNode?["warranty_end"]?.ToString();
+        var startDate = dataNode?["ProductDate"]?.GetValue<DateTime>();
 
-        DateTime? startDate = startDateString is null ? null : DateTime.Parse(startDateString);
-        DateTime? endDate = endDateString is null ? null : DateTime.Parse(endDateString);
+        var driveWarrantyInfo = await httpClient
+            .GetStringAsync($"https://newsupport.lenovo.com.cn/api/drive/{machineInformation.SerialNumber}/drivewarrantyinfo", token)
+            .ConfigureAwait(false);
+
+        node = JsonNode.Parse(driveWarrantyInfo);
+        if (node is null || node["statusCode"]?.GetValue<int>() != 200)
+            return null;
+
+        dataNode = node["data"];
+        var baseInfoNode = dataNode?["baseinfo"]?.AsArray() ?? new JsonArray();
+        var endDate = baseInfoNode
+            .Select(n => n?["EndDate"])
+            .Where(n => n is not null)
+            .Select(n => DateTime.Parse(n!.ToString()))
+            .Max();
 
         var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 
