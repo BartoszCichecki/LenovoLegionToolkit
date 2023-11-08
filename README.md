@@ -164,7 +164,7 @@ Both Spectrum per-key RGB and 4-zone RGB backlight is supported. Vantage and it'
 Other lighting features like both 1 and 3 level white keyboard backlight, panel logo and rear ports backlight are also supported, however there are some constraints:
 
 * GKCN54WW and lower - some lighting features are disabled due to a bug in these BIOS versions causing BSOD
-* some (mostly Gen 6) laptops models might not show all options - this is due misconfigured BIOS that doesn't report availability of these features
+* some (mostly Gen 6) laptops models might not show all options or show options that aren't there - this is due misconfigured BIOS that doesn't report availability of these features
 
 Lighting that required Corsair iCue is not supported by LLT.
 
