@@ -1849,6 +1849,10 @@ UYARI: Harici GPU mevcut değilse, bu işlem doğru çalışmaz.</value>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>GPU Çalışma Modu Değiştirilemedi</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Beklenen sonucu görmezseniz, birkaç saniye içinde modu tekrar değiştirmeyi deneyin.
+GPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlatın.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>dGPU şuan kullanımda</value>
   </data>
@@ -1940,5 +1944,8 @@ Yeniden başlatma gerektirir.</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>Shift, Ctrl veya Alt tuşuna basıldığında Fn Kilidi geçici olarak devre dışı bırakılacaktır.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Kapalı</value>
   </data>
 </root>

@@ -445,4 +445,13 @@
   <data name="NotificationDuration_Short" xml:space="preserve">
     <value>Kurz</value>
   </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+	  <value>Umschalt</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+	  <value>Strg</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+	  <value>Alt</value>
+  </data>
 </root>

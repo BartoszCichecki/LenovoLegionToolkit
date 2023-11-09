@@ -1856,6 +1856,10 @@
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>当前无法切换显卡工作模式</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>如果独显未启用，请在几秒钟后再次尝试更改模式。
+如果仍未有反应，请重新启动设备。</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>独立显卡当前被占用</value>
   </data>
@@ -1900,6 +1904,12 @@
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>新版本更新提醒</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>GPU 至 CPU Dynamic Boost</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>根据 CPU 使用情况从 CPU 分配给 GPU 的最大额外功率。数值越大，使用 GPU 的应用程序性能越好。</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>自定义开机画面</value>
   </data>
@@ -1935,5 +1945,14 @@
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>预设</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>智能锁定 Fn 键</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>按下 Alt、Ctrl 或 Shift 键时，Fn 将会暂时解除锁定。</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关闭</value>
   </data>
 </root>
