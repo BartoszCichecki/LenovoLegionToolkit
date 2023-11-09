@@ -152,6 +152,9 @@ public partial class GodModeSettingsWindow
 
     private async Task SetStateAsync(GodModeState state)
     {
+        _cpuLongTermPowerLimitControl.ValueChanged -= CpuLongTermPowerLimitSlider_ValueChanged;
+        _cpuShortTermPowerLimitControl.ValueChanged -= CpuShortTermPowerLimitSlider_ValueChanged;
+
         var activePresetId = state.ActivePresetId;
         var preset = state.Presets[activePresetId];
 
@@ -159,7 +162,6 @@ public partial class GodModeSettingsWindow
 
         _addPresetsButton.IsEnabled = state.Presets.Count < 5;
         _deletePresetsButton.IsEnabled = state.Presets.Count > 1;
-
 
         _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit);
         _cpuShortTermPowerLimitControl.Set(preset.CPUShortTermPowerLimit);
@@ -246,6 +248,9 @@ public partial class GodModeSettingsWindow
         _fanSectionTitle.Visibility = fanSectionVisible ? Visibility.Visible : Visibility.Collapsed;
         _advancedSectionTitle.Visibility = advancedSectionVisible ? Visibility.Visible : Visibility.Collapsed;
         _advancedSectionMessage.Visibility = advancedSectionVisible ? Visibility.Visible : Visibility.Collapsed;
+
+        _cpuLongTermPowerLimitControl.ValueChanged += CpuLongTermPowerLimitSlider_ValueChanged;
+        _cpuShortTermPowerLimitControl.ValueChanged += CpuShortTermPowerLimitSlider_ValueChanged;
     }
 
     private async void SetDefaults(GodModeDefaults defaults)
