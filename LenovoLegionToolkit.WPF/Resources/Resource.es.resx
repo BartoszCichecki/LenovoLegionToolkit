@@ -518,9 +518,6 @@ El cambio de modo puede requerir un reinicio.</value>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>Reiniciar la GPU</value>
   </data>
-  <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>GPU externa</value>
-  </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>Cambiar el brillo de la pantalla integrada.
 Los modos de energía modifican el brillo en algunos dispositivos. Asegúrese de realizar este paso en último lugar, si algo no funciona bien.
@@ -564,28 +561,14 @@ Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el có
   <data name="Export" xml:space="preserve">
     <value>Exportar</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>Utilizar la GPU integrada sólo si está en modo batería. 
-Utilizar la GPU integrada y externa si el adaptador de CA está conectado. Si se conecta un adaptador no estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Modo híbrido-automático</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>El cambio a/desde este modo requiere un reinicio.</value>
   </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>Modo dGPU</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>La GPU integrada y la externa están activadas.
-El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
-  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo híbrido</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Este modo sólo surte efecto si la GPU externa no está funcionando.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Utilizar sólo la GPU integrada. Este modo minimiza el consumo de energía y el ruido.</value>
@@ -1877,10 +1860,6 @@ El cambio de modo puede requerir un reinicio.</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo híbrido</value>
-  </data>
-  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Permitir cambiar entre la GPU integrada y la GPU externa.
-Requiere un reinicio.</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
     <value>Duración</value>
