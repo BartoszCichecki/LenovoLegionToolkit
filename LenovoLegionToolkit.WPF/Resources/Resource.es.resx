@@ -431,11 +431,6 @@ El cambio de modo puede requerir un reinicio.</value>
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Inicio</value>
   </data>
-  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si está activa innecesariamente.
-
-AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada o el modo híbrido no está activo.</value>
-  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Desactivar la GPU</value>
   </data>
@@ -578,9 +573,6 @@ Utilizar la GPU integrada y externa si el adaptador de CA está conectado. Si se
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
     <value>El cambio a/desde este modo requiere un reinicio.</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Utilizar sólo la GPU externa. Este modo proporciona el mejor rendimiento gráfico, pero aumenta el consumo de energía.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>Modo dGPU</value>
