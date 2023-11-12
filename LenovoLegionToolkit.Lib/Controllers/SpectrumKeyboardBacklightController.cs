@@ -486,7 +486,17 @@ public class SpectrumKeyboardBacklightController
             {
                 var delay = Task.Delay(_auroraRefreshInterval, token);
 
-                _screenCapture.CaptureScreen(ref colorBuffer, width, height, token);
+                try
+                {
+                    _screenCapture.CaptureScreen(ref colorBuffer, width, height, token);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Screen capture failed. Delaying before next refresh...", ex);
+
+                    await Task.Delay(TimeSpan.FromSeconds(1), token).ConfigureAwait(false);
+                }
 
                 token.ThrowIfCancellationRequested();
 
