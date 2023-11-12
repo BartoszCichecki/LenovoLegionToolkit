@@ -625,15 +625,9 @@ Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el có
     <value>¡ATENCIÓN!
 Algunos portátiles pueden aceptar valores más bajos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
   </data>
-  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
-    <value>Desplazamiento mínimo</value>
-  </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>¡ATENCIÓN!
 Algunos portátiles pueden aceptar valores más altos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
-  </data>
-  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Desplazamiento máximo </value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
@@ -1337,10 +1331,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Hora</value>
   </data>
-  <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Permitir cambiar entre la GPU integrada y la GPU externa.
-Requiere un reinicio.</value>
-  </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
     <value>El cambio de modo híbrido requiere un reinicio. ¿Desea reiniciar ahora?</value>
   </data>
@@ -1640,9 +1630,6 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
     <value>Potencia total del procesador en corriente alterna</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
-    <value>Punto en el que la CPU activa el ajuste dinámico de consumo de energía de la GPU.</value>
-  </data>
   <data name="Create" xml:space="preserve">
     <value>Crear</value>
   </data>
@@ -1725,25 +1712,11 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
     <value>Ajustes de overclocking de la GPU</value>
   </data>
-  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-    <value>Desviación de frecuencia del núcleo</value>
-  </data>
-  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-    <value>Desviación de frecuencia de la memoria</value>
-  </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
     <value>Overclock de la GPU</value>
   </data>
-  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.</value>
-  </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Overclock de la GPU</value>
-  </data>
-  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.
-
-AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU externa.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
     <value>Retroiluminación de puertos</value>
@@ -1866,9 +1839,6 @@ El cambio de modo puede requerir un reinicio.</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Actualizaciones</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
-    <value>Aumento dinámico de la GPU a la CPU</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
     <value>Es la máxima potencia adicional que puede asignarse a la GPU desde la CPU, en base al uso de ésta. Cuanto mayor sea el valor, mejor será el rendimiento de las aplicaciones que utilizan la GPU.</value>
