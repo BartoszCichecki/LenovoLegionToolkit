@@ -1848,6 +1848,9 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>Não foi possível alterar o modo de trabalho da GPU</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Tente alterar o modo novamente em alguns segundos, se você não tiver o resultado esperado. Se a GPU dedicada não responder, reinicie o notebook.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>A GPU dedicada está em uso</value>
   </data>
@@ -1939,5 +1942,8 @@ Requer reinicialização.</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>O Fn Lock será temporariamente desativado quando a tecla Shift, Ctrl ou Alt for pressionada.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Desligado</value>
   </data>
 </root>
