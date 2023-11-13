@@ -432,7 +432,7 @@ El cambio de modo puede requerir un reinicio.</value>
     <value>Inicio</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si está activa innecesariamente.
+    <value>Desactivar la GPU dedicada si está activa innecesariamente.
 
 AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está apagada o el modo híbrido no está activo.</value>
   </data>
@@ -524,7 +524,7 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>Reiniciar la GPU</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>GPU externa</value>
+    <value>GPU dedicada</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>Cambiar el brillo de la pantalla integrada.
@@ -571,7 +571,7 @@ Haga clic en el logotipo de PayPal que aparece a continuación, o escanee el có
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>Utilizar la GPU integrada sólo si está en modo batería. 
-Utilizar la GPU integrada y externa si el adaptador de CA está conectado. Si se conecta un adaptador no estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
+Utilizar la GPU integrada y dedicada si el adaptador de CA está conectado. Si se conecta un adaptador no estándar, el sistema cambiará sólo al modo híbrido-iGPU.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>Modo híbrido-automático</value>
@@ -580,20 +580,20 @@ Utilizar la GPU integrada y externa si el adaptador de CA está conectado. Si se
     <value>El cambio a/desde este modo requiere un reinicio.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
-    <value>Utilizar sólo la GPU externa. Este modo proporciona el mejor rendimiento gráfico, pero aumenta el consumo de energía.</value>
+    <value>Utilizar sólo la GPU dedicada. Este modo proporciona el mejor rendimiento gráfico, pero aumenta el consumo de energía.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>Modo dGPU</value>
+    <value>Modo dGPU (GPU dedicada)</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
-    <value>La GPU integrada y la externa están activadas.
+    <value>Las GPUs integrada y dedicada están activadas.
 El sistema alternará automáticamente entre ellas, en función de sus necesidades.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>Modo híbrido</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Este modo sólo surte efecto si la GPU externa no está funcionando.</value>
+    <value>Este modo sólo surte efecto si la GPU dedicada no está funcionando.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Utilizar sólo la GPU integrada. Este modo minimiza el consumo de energía y el ruido.</value>
@@ -651,14 +651,14 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
 Algunos portátiles pueden aceptar valores más bajos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
-    <value>Desplazamiento mínimo</value>
+    <value>Compensación mínima</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>¡ATENCIÓN!
 Algunos portátiles pueden aceptar valores más altos de los indicados, pero tenga cuidado. Esta opción puede dar lugar a un comportamiento impredecible, así que si no está seguro de lo que está haciendo, déjelo en 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
-    <value>Desplazamiento máximo </value>
+    <value>Compensación máxima</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>No cambiar las opciones siguientes a menos que sepa realmente lo que está haciendo.</value>
@@ -708,7 +708,7 @@ En serio, ¡tenga cuidado con esta opción!</value>
     <value>Potencia gráfica total configurable</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
-    <value>Dynamic Boost</value>
+    <value>Mejora dinámica</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
     <value>Límite de temperatura de la GPU</value>
@@ -1363,7 +1363,7 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
     <value>Hora</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Permitir cambiar entre la GPU integrada y la GPU externa.
+    <value>Permitir cambiar entre la GPU integrada y la GPU dedicada.
 Requiere un reinicio.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
@@ -1666,7 +1666,7 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Potencia total del procesador en corriente alterna</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
-    <value>Punto en el que la CPU activa el ajuste dinámico de consumo de energía de la GPU.</value>
+    <value>El punto en el que la CPU activa el ajuste dinámico de consumo de energía de la GPU.</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Crear</value>
@@ -1751,22 +1751,22 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Ajustes de overclocking de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
-    <value>Desviación de frecuencia del núcleo</value>
+    <value>Compensación de frecuencia del núcleo</value>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
-    <value>Desviación de frecuencia de la memoria</value>
+    <value>Compensación de frecuencia de la memoria</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
     <value>Overclock de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.</value>
+    <value>Aumentar el rendimiento haciendo overclocking en la GPU dedicada.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Overclock de la GPU</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Aumentar el rendimiento haciendo overclocking en la GPU externa.
+    <value>Aumentar el rendimiento haciendo overclocking en la GPU dedicada.
 
 AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU externa.</value>
   </data>
@@ -1852,6 +1852,10 @@ AVISO: Esta acción no se ejecutará correctamente si no se dispone de una GPU e
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>No se puede cambiar el modo de trabajo de la GPU</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>En un par de segundos intentar cambiar el modo de nuevo, si no obtiene el resultado esperado.
+Si la dGPU no responde del todo, reinicie su portátil.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>La dGPU está actualmente en uso</value>
   </data>
@@ -1887,7 +1891,7 @@ El cambio de modo puede requerir un reinicio.</value>
     <value>Modo híbrido</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Permitir cambiar entre la GPU integrada y la GPU externa.
+    <value>Permitir cambiar entre la GPU integrada y la GPU dedicada.
 Requiere un reinicio.</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
@@ -1897,7 +1901,7 @@ Requiere un reinicio.</value>
     <value>Actualizaciones</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
-    <value>Aumento dinámico de la GPU a la CPU</value>
+    <value>Mejora dinámica de la GPU a la CPU</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
     <value>Es la máxima potencia adicional que puede asignarse a la GPU desde la CPU, en base al uso de ésta. Cuanto mayor sea el valor, mejor será el rendimiento de las aplicaciones que utilizan la GPU.</value>
@@ -1943,5 +1947,8 @@ Requiere un reinicio.</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>El bloqueo Fn se desactivará temporalmente al pulsar las teclas Mayús, Ctrl o Alt.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Apagado</value>
   </data>
 </root>
