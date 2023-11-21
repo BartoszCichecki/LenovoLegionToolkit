@@ -41,6 +41,10 @@ public partial class MainWindow
         InitializeComponent();
 
         Closing += MainWindow_Closing;
+        Closed += (sender, args) => {
+            _trayHelper?.Dispose();
+            _trayHelper = null;
+        };
         IsVisibleChanged += MainWindow_IsVisibleChanged;
         Loaded += MainWindow_Loaded;
         SourceInitialized += MainWindow_SourceInitialized;
@@ -97,8 +101,6 @@ public partial class MainWindow
 
         if (SuppressClosingEventHandler)
         {
-            _trayHelper?.Dispose();
-            _trayHelper = null;
             return;
         }
 
