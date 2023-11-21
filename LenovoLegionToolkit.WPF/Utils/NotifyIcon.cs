@@ -62,10 +62,8 @@ public class NotifyIcon : NativeWindow, IDisposable
         }
     }
 
-    private UiWindow? _currentToolTipWindow;
-
-    private Func<Task<UiWindow>>? _toolTipWindow;
-    public Func<Task<UiWindow>>? ToolTipWindow
+    private UiWindow? _toolTipWindow;
+    public UiWindow? ToolTipWindow
     {
         set
         {
@@ -132,9 +130,12 @@ public class NotifyIcon : NativeWindow, IDisposable
         }
     }
 
-    private async void ShowToolTip()
+    private void ShowToolTip()
     {
         if (_toolTipWindow is null)
+            return;
+
+        if (_toolTipWindow.IsVisible)
             return;
 
         _showToolTipCancellationTokenSource?.Cancel();
@@ -144,27 +145,22 @@ public class NotifyIcon : NativeWindow, IDisposable
 
         try
         {
-            await Task.Delay(TimeSpan.FromMilliseconds(500), token);
+            // await Task.Delay(TimeSpan.FromMilliseconds(500), token);
 
             if (ContextMenu is not null && ContextMenu.IsOpen)
                 return;
 
-            _currentToolTipWindow?.Close();
-            _currentToolTipWindow = await _toolTipWindow();
-
             token.ThrowIfCancellationRequested();
 
-            _currentToolTipWindow?.Show();
+            _toolTipWindow?.Show();
         }
         catch (OperationCanceledException)
         {
-            _currentToolTipWindow?.Close();
-            _currentToolTipWindow = null;
+            _toolTipWindow?.Close();
         }
         catch (Exception ex)
         {
-            _currentToolTipWindow?.Close();
-            _currentToolTipWindow = null;
+            _toolTipWindow?.Close();
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to show tooltip.", ex);
@@ -178,8 +174,7 @@ public class NotifyIcon : NativeWindow, IDisposable
 
         _showToolTipCancellationTokenSource?.Cancel();
 
-        _currentToolTipWindow?.Hide();
-        _currentToolTipWindow = null;
+        _toolTipWindow?.Hide();
     }
 
     private void ShowContextMenu()

@@ -33,6 +33,7 @@ public class TrayHelper : IDisposable
     private readonly Action _bringToForeground;
 
     private NotifyIcon? _notifyIcon;
+    private StatusWindow _statusWindow;
 
     public TrayHelper(INavigation navigation, Action bringToForeground, bool trayTooltipEnabled)
     {
@@ -46,8 +47,10 @@ public class TrayHelper : IDisposable
             Text = Resource.AppName
         };
 
-        if (trayTooltipEnabled)
-            notifyIcon.ToolTipWindow = async () => await StatusWindow.CreateAsync();
+        if (trayTooltipEnabled) {
+            _statusWindow = new StatusWindow();
+            notifyIcon.ToolTipWindow = _statusWindow;
+        }
 
         notifyIcon.ContextMenu = _contextMenu;
         notifyIcon.OnClick += (_, _) => _bringToForeground();
@@ -155,6 +158,7 @@ public class TrayHelper : IDisposable
         if (_notifyIcon is not null)
             _notifyIcon.Visible = false;
 
+        _statusWindow?.Close();
         _notifyIcon?.Dispose();
         _notifyIcon = null;
     }

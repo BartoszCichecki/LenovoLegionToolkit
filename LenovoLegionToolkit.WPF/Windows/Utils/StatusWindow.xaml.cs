@@ -28,8 +28,8 @@ public partial class StatusWindow
         public bool HasUpdate { get; init; }
     }
 
-    public static async Task<StatusWindow> CreateAsync() => new(await GetStatusWindowDataAsync());
-
+    private readonly Timer _refreshTimer = new();
+    
     private static async Task<StatusWindowData> GetStatusWindowDataAsync()
     {
         var powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
@@ -96,12 +96,14 @@ public partial class StatusWindow
         };
     }
 
-    private StatusWindow(StatusWindowData data)
+    public StatusWindow()
     {
         InitializeComponent();
 
-        Loaded += StatusWindow_Loaded;
-
+        Loaded += async (s, e) => {
+            await RefreshEverything();
+        };
+        
         WindowStyle = WindowStyle.None;
         WindowStartupLocation = WindowStartupLocation.Manual;
         WindowBackdropType = BackgroundType.None;
@@ -125,14 +127,36 @@ public partial class StatusWindow
         if (Log.Instance.IsTraceEnabled)
             _title.Text += " [LOGGING ENABLED]";
 
+        _refreshTimer.Interval = 1000;
+        _refreshTimer.Tick += async (s, e) => {
+            await RefreshEverything();
+        };
+        
+        IsVisibleChanged += (s, e) => {
+            if (e.NewValue is not bool bVal) return;
+            if (bVal) {
+                _refreshTimer.Start();
+                MoveBottomRightEdgeOfWindowToMousePosition();
+            }
+            else {
+                _refreshTimer.Stop();
+            }
+        };
+        
+        Closing += (s, e) => {
+            _refreshTimer.Stop();
+        };
+
+    }
+
+    private async Task RefreshEverything() {
+        var data = await GetStatusWindowDataAsync();
         RefreshPowerMode(data.PowerModeState, data.GodModePresetName);
         RefreshDiscreteGpu(data.GPUStatus);
         RefreshBattery(data.BatteryInformation, data.BatteryState);
         RefreshUpdate(data.HasUpdate);
     }
-
-    private void StatusWindow_Loaded(object sender, RoutedEventArgs e) => MoveBottomRightEdgeOfWindowToMousePosition();
-
+    
     private void MoveBottomRightEdgeOfWindowToMousePosition()
     {
         var transform = PresentationSource.FromVisual(this)?.CompositionTarget?.TransformFromDevice;
