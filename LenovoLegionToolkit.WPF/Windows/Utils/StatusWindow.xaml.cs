@@ -132,11 +132,12 @@ public partial class StatusWindow
             await RefreshEverything();
         };
         
-        IsVisibleChanged += (s, e) => {
+        IsVisibleChanged += async (s, e) => {
             if (e.NewValue is not bool bVal) return;
             if (bVal) {
-                _refreshTimer.Start();
                 MoveBottomRightEdgeOfWindowToMousePosition();
+                await RefreshEverything();
+                _refreshTimer.Start();
             }
             else {
                 _refreshTimer.Stop();
