@@ -136,7 +136,7 @@ The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
 - Spectrum RGB, 4-zone RGB and White backlight keyboards support.
-- Deactivate discrete GPU (nVidia only).
+- Deactivate discrete GPU (NVIDIA only).
 - View battery statistics.
 - Check for driver and software updates.
 - Check warranty status.
@@ -190,7 +190,7 @@ If you encounter issues, you might try to try alternative, experimental method o
 
 These options _are not_ Advanced Optimus and work separately from it.
 
-### Deactivate discrete nVidia GPU
+### Deactivate discrete NVIDIA GPU
 
 Sometimes discrete GPU stays active even when it should not. This can happen for example, if you work with an external screen and you disconnect it - some processes will keep running on discrete GPU keeping it alive and shortening battery life.
 
@@ -203,7 +203,7 @@ Deactivate button will be enabled when dGPU is active, you have Hybrid mode enab
 
 Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
 
-### Overclock discrete nVidia GPUs
+### Overclock discrete NVIDIA GPUs
 
 The overclock option is intended for simple overclocking, similar to the one available in Vantage. It is not intended to replace tools like Afterburner. Here are some points to keep in mind:
 * Make sure GPU overclocking is enabled in BIOS, if your laptop has such option.
@@ -262,8 +262,8 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
-* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#vantage-running)
-* [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#virus)
+* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#faq-vantage-running)
+* [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#faq-virus)
 * [Can I customize hotkeys?](#faq-custom-hotkeys)
 * [Can I customize Conservation mode threshold?](#faq-customize-conservation-mode)
 * [Can I customize fans in Quiet, Balance or Performance modes?](#faq-fan-curves)
@@ -277,7 +277,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [Can you add fan control to other models?](#faq-fan-control)
 * [Why don't I see the custom tooltip when I hover LLT icon in tray?](#faq-custom-tooltip)
 * [How can I OC/UV my CPU?](#faq-cpu-oc)
-* [What, if I overclocked my GPU too much?](#faq-gpu-oc)
+* [What if I overclocked my GPU too much?](#faq-gpu-oc)
 * [Which generation is my laptop?](#faq-which-gen)
 
 
@@ -358,7 +358,7 @@ In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lo
 
 There are very good tools like [Intel XTU](https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html) (which is used by Vantage) or [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/) made just for that.
 
-#### <a id="faq-gpu-oc" />What, if I overclocked my GPU too much?
+#### <a id="faq-gpu-oc" />What if I overclocked my GPU too much?
 
 If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
 
