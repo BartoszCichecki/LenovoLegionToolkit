@@ -34,7 +34,11 @@ public class DisplayBrightnessAutomationStepControl : AbstractAutomationStepCont
 
     protected override UIElement GetCustomControl()
     {
-        _brightness.TextChanged += (_, _) => RaiseChanged();
+        _brightness.TextChanged += (_, _) =>
+        {
+            if ((int?)_brightness.Value != AutomationStep.Brightness)
+                RaiseChanged();
+        };
         _grid.Children.Add(_brightness);
         return _grid;
     }
