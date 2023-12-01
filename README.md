@@ -366,7 +366,7 @@ If you end up in a situation where your GPU is not stable and you can't boot int
 1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
 2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
 
-#### <a id="#faq-boot-logo" />Why is my Boot Logo not applied?
+#### <a id="faq-boot-logo" />Why is my Boot Logo not applied?
 
 When you change the Boot Logo, LLT verifies that it is in the format that is correct format and correct resolution. If LLT shows that boot logo is applied, it means that the setting was correctly saved to UEFI. If you don't see the custom boot logo, it means that even though UEFI is configured and custom image is saved to UEFI partition, your UEFI for some reason does not render it. In this case the best idea is to try a different image, maybe in different format, edited with different image editor etc. If the boot logo is not shown after all these steps, it's probably a problem with your BIOS version.
 
