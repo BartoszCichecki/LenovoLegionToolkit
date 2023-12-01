@@ -41,10 +41,7 @@ public partial class MainWindow
         InitializeComponent();
 
         Closing += MainWindow_Closing;
-        Closed += (sender, args) => {
-            _trayHelper?.Dispose();
-            _trayHelper = null;
-        };
+        Closed += MainWindow_Closed;
         IsVisibleChanged += MainWindow_IsVisibleChanged;
         Loaded += MainWindow_Loaded;
         SourceInitialized += MainWindow_SourceInitialized;
@@ -100,9 +97,7 @@ public partial class MainWindow
         SaveSize();
 
         if (SuppressClosingEventHandler)
-        {
             return;
-        }
 
         if (_applicationSettings.Store.MinimizeOnClose)
         {
@@ -119,6 +114,12 @@ public partial class MainWindow
 
             await App.Current.ShutdownAsync();
         }
+    }
+
+    private void MainWindow_Closed(object? sender, EventArgs args)
+    {
+        _trayHelper?.Dispose();
+        _trayHelper = null;
     }
 
     private void MainWindow_StateChanged(object? sender, EventArgs e)
