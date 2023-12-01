@@ -503,7 +503,7 @@ AVISO: Esta acción no se ejecutará correctamente, si la pantalla interna está
     <value>Terminar aplicaciones</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>Desactivar la GPU externa si está activa innecesariamente.</value>
+    <value>Desactivar la GPU dedicada si está activa innecesariamente.</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>Un monitor está conectado a la GPU nVidia.</value>
@@ -1684,7 +1684,7 @@ Esta configuración sólo tiene efecto si el modo personalizado está activado.<
     <value>Preestablecido</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-    <value>GPU externa</value>
+    <value>GPU dedicada</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
     <value>Estado de energía</value>
