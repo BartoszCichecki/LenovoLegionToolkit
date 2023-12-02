@@ -59,11 +59,17 @@ public class SmartFnLockController
             if (state == FnLockState.Off)
                 return;
 
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Disabling Fn Lock temporarily...");
+
             await _feature.SetStateAsync(FnLockState.Off).ConfigureAwait(false);
             _restoreFnLock = true;
         }
         else if (_restoreFnLock)
         {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Re-enabling Fn Lock...");
+
             await _feature.SetStateAsync(FnLockState.On).ConfigureAwait(false);
             _restoreFnLock = false;
         }
@@ -83,16 +89,23 @@ public class SmartFnLockController
         if (vkKeyCode is VIRTUAL_KEY.VK_LMENU or VIRTUAL_KEY.VK_RMENU)
             _altDepressed = isKeyDown;
 
-        var result = false;
+        if (!_ctrlDepressed && !_shiftDepressed && !_altDepressed)
+            return false;
 
-        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Ctrl))
+        var result = false;
+        var flags = _settings.Store.SmartFnLockFlags;
+
+        if (flags.HasFlag(ModifierKey.Ctrl))
             result |= _ctrlDepressed;
 
-        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Shift))
+        if (flags.HasFlag(ModifierKey.Shift))
             result |= _shiftDepressed;
 
-        if (_settings.Store.SmartFnLockFlags.HasFlag(ModifierKey.Alt))
+        if (flags.HasFlag(ModifierKey.Alt))
             result |= _altDepressed;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Modifier key is depressed: {result} [ctrl={_ctrlDepressed}, shift={_shiftDepressed}, alt={_altDepressed}, flags={flags}]");
 
         return result;
     }
