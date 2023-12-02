@@ -219,6 +219,10 @@ On some laptops though, Lenovo Vantage never switched power plans. If you have o
 
 Laptops that have S0 Low Power mode enabled, also known as Modern Standby, do not work well with mutliple power plans, especially with performance power plans.
 
+### Boot Logo
+
+On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Legion" image you see at boot). Boot logo is *not* stored in UEFI - it is stored on the UEFI partition on boot. When setting custom boot logo, LLT conducts basic checks, like resolution, image format and calculates a checksum. To ensure compatibility. However, the real verification happens on the next boot. UEFI will attempt to load the image from UEFI partition and show it. If that fails for whatever reason, default image will be used. Exact criteria, except for resolution and image format, are not known and some images might not be shown. In this case, try another image, edited with different image editor.
+
 ## Donate
 
 If you enjoy using the Lenovo Legion Toolkit, consider donating.
