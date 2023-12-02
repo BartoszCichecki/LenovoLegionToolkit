@@ -139,7 +139,7 @@
     <value>Про застосунок</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>Переклад українською — Владислав Придатько</value>
+    <value>Українською переклали Владислав Придатько та Дмитро Зозуля.</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -150,6 +150,10 @@
   </data>
   <data name="AddNew" xml:space="preserve">
     <value>Додати нову</value>
+  </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Активувати план живлення, коли Vantage або його служби ввімкнені.
+Ця опція призначена лише для пристроїв, які не постачаються з декількома планами живлення.</value>
   </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Завжди активувати план живлення Windows</value>
@@ -519,7 +523,7 @@
     <value>Перезапустити ГП</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>Дискретна ГП</value>
+    <value>Дискретний ГП</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>Змінити яскравість вбудованого дисплея.
@@ -637,6 +641,20 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Блокування Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>УВАГА!
+Деякі ноутбуки можуть приймати менші значення, ніж вказано, тому будьте обережні. Ця опція може призвести до непередбачуваної поведінки. Якщо ви не впевнені, що робите, залиште значення 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Мінімальний зсув</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>УВАГА!
+Деякі ноутбуки можуть приймати більші значення, ніж вони показують, тому будьте обережні. Ця опція може призвести до непередбачуваної поведінки. Якщо ви не впевнені в тому, що ви робите, залиште 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Максимальний зсув</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Не змінюйте налаштування знизу, поки ви дійсно не зрозумієте, що вони роблять.</value>
   </data>
@@ -730,6 +748,9 @@
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Неможливо керувати підсвіткою клавіатури, коли працює Vantage або його служби.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vatage або його служби запущені</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Про застосунок</value>
@@ -995,6 +1016,9 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Обраний режим живлення може не працювати справно без підключеного блоку живлення.</value>
   </data>
+  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
+    <value>Увімкнення цієї опції під час роботи Lenovo Vantage або його служб і зміна планів живлення вашого ноутбуку можуть призвести до неочікуваної поведінки.</value>
+  </data>
   <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
     <value>Ви впевнені?</value>
   </data>
@@ -1134,7 +1158,7 @@
     <value>Не вдалося вимкнути зони Legion</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Вимкнути зони Legion та їх сервіси без деінсталяції.
+    <value>Вимкнути Legion Zone та його служби без деінсталяції.
 Перезавантаження рекомендоване після зміни цієї опції.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1147,12 +1171,25 @@
     <value>Не вдалося вимкнути гарячі клавіші Lenovo</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Вимкнути гарячі клавіші Lenovo та його сервіси без деінсталяції.
+    <value>Вимкнути гарячі клавіші Lenovo та його служби без деінсталяції.
 Якщо вимкнено, додаток буде використовувати швидкі дії з увімкненою клавішею Fn.
 Перезавантаження рекомендоване після зміни цієї опції.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Вимкнути гарячі клавіші Lenovo</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Можливо, Vantage та/або ImController було вимкнено неправильно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Неможливо вимкнути Vantage та/або ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Вимкнути Lenovo Vantage та ImController без їхньої деінсталяції.
+Рекомендується перезавантаження після зміни цієї опції.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Вимкнути Lenovo Vantage та ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Зони Legion могли бути увімкнені неправильно</value>
@@ -1165,6 +1202,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не вдалося увімкнути гарячі клавіші Lenovo</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Можливо, Vantage та/або ImController було увімкнено неправильно</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Неможливо увімкнути Vantage та/або ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Ви можете виключити частоту оновлення, щоб зробити комбінацію клавіш Fn+R більш корисною.</value>
@@ -1416,13 +1459,13 @@
     <value>Мікрофон</value>
   </data>
   <data name="MicrophoneControl_Message" xml:space="preserve">
-    <value>Коли вимкнено, мікрофон буде приглушений.</value>
+    <value>Коли вимкнено, мікрофони будуть вимкнені.</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>Мікрофон</value>
   </data>
   <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
-    <value>Коли вимкнено, мікрофон буде приглушений.</value>
+    <value>Коли вимкнено, мікрофони будуть вимкнені.</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>Роздільна здатність</value>
@@ -1635,7 +1678,7 @@
     <value>Шаблон</value>
   </data>
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
-    <value>Дискретна ГП</value>
+    <value>Дискретний ГП</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
     <value>Стан живлення</value>
@@ -1664,10 +1707,241 @@
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
     <value>Налаштування</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Виявлено модель з низьким енергоспоживанням S0</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Windows повідомляє, що цей ноутбук підтримує Modern StandBy. Використання планів живлення, відмінних від Збалансованого, може призвести до неочікуваної поведінки.</value>
+  </data>
+  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+    <value>Оберіть плани живлення Windows, які буде застосовано при зміні режиму живлення.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Потужність</value>
   </data>
+  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Плани живлення у панелі управління Windows</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Вимкнений</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Імпортувати профіль підсвічування клавіатури</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Імпортувати та застосувати конфігурації підсвічування до поточного профілю.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Шлях</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Через {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Декілька тригерів...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Налаштування розгону ГП</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Зміна частоти ядра</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Зміна частоти пам'яті</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Розгін ГП</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Підвищення продуктивності шляхом розгону дискретного графічного процесора.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Розгін ГП</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Підвищення продуктивності шляхом розгону дискретного графічного процесора.
+УВАГА: Ця дія не виконуватиметься належним чином, якщо дискретний графічний процесор недоступний.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+    <value>Підсвітка портів</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+    <value>Увімкнути або вимкнути підсвітку портів на задній панелі ноутбука.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Підсвітка портів</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Увімкнути або вимкнути підсвітку портів на задній панелі ноутбука.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+    <value>Підсвітка познаки на панелі</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+    <value>Увімкнути або вимкнути підсвітку на кришці ноутбука.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Підсвітка познаки на панелі</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Увімкнути або вимкнути підсвітку на кришці ноутбука.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>ГГц</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>МГц</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+    <value>Максимум: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+    <value>Процесор</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+    <value>Використання</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+    <value>Частота ядра</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+    <value>Температура</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+    <value>Вентилятор</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+    <value>ГП</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+    <value>Частота пам'яті</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+    <value>Інтервал оновлення</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+    <value>Миттєве ввімкнення</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+    <value>Увімкнути ноутбук, коли зарядний пристрій приєднано.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+    <value>Миттєве ввімкнення</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+    <value>Увімкнути ноутбук, коли зарядний пристрій приєднано.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+    <value>Не вдалося змінити режим живлення</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+    <value>Режим живлення {0} не доступний без живлення від мережі.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+    <value>Датчики</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+    <value>Не можливо змінити режим роботи ГП</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Спробуйте змінити режим ще раз через декілька секунд, якщо ви не бачите очікуваного результату.
+Якщо дискретний ГП зовсім не відповідає, будь ласка, перезавантажте ноутбук.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+    <value>Дискретний ГП зараз використовується</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+    <value>Дискретний ГП автоматично вимикатиметься, коли не використовується.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+    <value>Дискретний ГП зараз використовується або ноутбук працює не від батареї</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+    <value>Дискретний ГП автоматично вимикатиметься, коли не використовується і ноутбук працює від батареї.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Налаштування користувацького режиму не застосовуватимуться правильно, коли запущено Lenovo Vantage або його служби.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Налаштування користувацького режиму не буде застосовано правильно, коли запущено Legion Zone або його служби.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>Під'єднано дискретний ГП</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>Від'єднано дискретний ГП</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Режим роботи ГП</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Оберіть роботи графічного процесора залежно від використання комп'ютера та умов живлення.
+Перемикання режимів може вимагати перезавантаження.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Гібридний режим</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Дозволяти перемикатися між інтегрованим та дискретним ГП.
+Потребує перезавантаження.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+    <value>Тривалість</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+    <value>Оновлення</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>Динамічний прискорювач ГП до ЦП</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Це максимальне додаткове живлення, яке може бути виділене графічному процесору від центрального процесора, на основі використання центрального процесора. Чим вище значення, тим краща продуктивність програм, які використовують ГП.</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>Познака завантаження</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+    <value>Персоналізувати світлину познаки завантаження, видиму при запуску системи.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+    <value>Познака завантаження</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+    <value>Встановлено познаку завантаження за замовчуванням</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+    <value>Встановлено власну познаку завантаження</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+    <value>Стан</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+    <value>Скинути за замовчуванням</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+    <value>Налаштувати</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+    <value>Дії</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>Текст сповіщення</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+    <value>Показувати сповіщення</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Розумне Fn Lock</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Fn Lock буде тимчасово вимкнено при натисканні клавіш Alt, Ctrl або Shift.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Вимкнено</value>
   </data>
 </root>

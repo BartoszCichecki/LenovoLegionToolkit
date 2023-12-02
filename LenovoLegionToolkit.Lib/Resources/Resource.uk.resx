@@ -142,7 +142,7 @@
     <value>Увімкнено із затримкою</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Консервація</value>
+    <value>Збереження</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Звичайний</value>
@@ -150,11 +150,35 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Швидка зарядка</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>Вимкнено</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>Увімкнено</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>Вимкнено</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>Увімкнено</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>Вимкнений</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Увімкнений</value>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>Вимкнено</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>Увімкнено</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>Дискр. ГП</value>
@@ -167,6 +191,14 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Гібридний-іГП</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>Вимкнений</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>Увімкнений</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>Внизу по центру</value>
@@ -194,6 +226,22 @@
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Вгорі справа</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Вимкнений</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>Увімкнений</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>Вимкнений</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>Увімкнений</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Збалансований</value>
@@ -339,6 +387,14 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Системна</value>
   </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>Вимкнений</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>Увімкнений</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Висока</value>
   </data>
@@ -347,5 +403,55 @@
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Вимк.</value>
+  </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>Вимкнена</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>Увімкнена</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+    <value>Вимкнені</value>
+  </data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+    <value>Увімкнені</value>
+  </data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+    <value>Увімкнено</value>
+  </data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+    <value>Вимкнено</value>
+  </data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+    <value>Вимкнено</value>
+  </data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+    <value>Від мережі</value>
+  </data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+    <value>Від USB Power Delivery</value>
+  </data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+    <value>Від мережі та USB PD</value>
+  </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Довга</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Звичайна</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Коротка</value>
+  </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+	  <value>Shift</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+	  <value>Ctrl</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+	  <value>Alt</value>
   </data>
 </root>
