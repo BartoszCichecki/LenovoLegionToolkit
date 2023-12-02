@@ -326,6 +326,7 @@ public class AutomationPipelineControl : UserControl
         {
             AlwaysOnUsbAutomationStep s => new AlwaysOnUsbAutomationStepControl(s),
             BatteryAutomationStep s => new BatteryAutomationStepControl(s),
+            BatteryNightChargeAutomationStep s => new BatteryNightChargeAutomationStepControl(s),
             DeactivateGPUAutomationStep s => new DeactivateGPUAutomationStepControl(s),
             DelayAutomationStep s => new DelayAutomationStepControl(s),
             DisplayBrightnessAutomationStep s => new DisplayBrightnessAutomationStepControl(s),

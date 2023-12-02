@@ -162,6 +162,7 @@ public partial class AutomationPage
         {
             new AlwaysOnUsbAutomationStep(default),
             new BatteryAutomationStep(default),
+            new BatteryNightChargeAutomationStep(default),
             new DeactivateGPUAutomationStep(default),
             new DelayAutomationStep(default),
             new DisplayBrightnessAutomationStep(50),
