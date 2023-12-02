@@ -41,6 +41,10 @@ public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, E
             Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
         var outBuffer = await SendCodeAsync(DriverHandle(), ControlCode, GetInBufferValue()).ConfigureAwait(false);
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Buffer value: {outBuffer} [feature={GetType().Name}]");
+
         var state = await FromInternalAsync(outBuffer).ConfigureAwait(false);
         LastState = state;
 
@@ -59,6 +63,8 @@ public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, E
         foreach (var code in codes)
             await SendCodeAsync(DriverHandle(), ControlCode, code).ConfigureAwait(false);
         LastState = state;
+
+        await VerifyStateSetAsync(state).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State set to {state} [feature={GetType().Name}]");
@@ -82,4 +88,21 @@ public abstract class AbstractDriverFeature<T> : IFeature<T> where T : struct, E
 
         throw new InvalidOperationException($"DeviceIoControl returned 0, last error: {error}");
     });
+
+    private async Task VerifyStateSetAsync(T state)
+    {
+        var retries = 0;
+        while (retries < 10)
+        {
+            if (state.Equals(await GetStateAsync().ConfigureAwait(false)))
+                break;
+
+            retries++;
+
+            await Task.Delay(50).ConfigureAwait(false);
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Verify state {state} set failed. [feature={GetType().Name}]");
+    }
 }
