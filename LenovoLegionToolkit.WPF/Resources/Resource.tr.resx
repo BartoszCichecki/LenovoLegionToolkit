@@ -1948,4 +1948,8 @@ Yeniden başlatma gerektirir.</value>
   <data name="Off" xml:space="preserve">
     <value>Kapalı</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Özel önyükleme logosu tam olarak {0} piksel olmalı.
+Desteklenen biçimler: {1}.</value>
+  </data>
 </root>
