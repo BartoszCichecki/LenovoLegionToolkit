@@ -912,7 +912,7 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>OverDrive</value>
+    <value>Aumentar la velocidad del tiempo de respuesta del monitor</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} descargado(s)</value>
@@ -1950,5 +1950,8 @@ Requiere un reinicio.</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>Apagado</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>El logo de arranque personalizado debe tener un tamaño exacto de {0} píxeles. Los formatos soportados son: {1}.</value>
   </data>
 </root>
