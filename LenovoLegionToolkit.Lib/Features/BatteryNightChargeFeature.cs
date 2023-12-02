@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
@@ -24,7 +25,13 @@ public class BatteryNightChargeFeature : AbstractDriverFeature<BatteryNightCharg
 
     protected override Task<BatteryNightChargeState> FromInternalAsync(uint state)
     {
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Internal value: [bits={Convert.ToString(state, 2)}]");
+
         state = state.ReverseEndianness();
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Internal value #2: [bits={Convert.ToString(state, 2)}]");
 
         if (state.GetNthBit(31))
             return Task.FromResult(BatteryNightChargeState.On);
