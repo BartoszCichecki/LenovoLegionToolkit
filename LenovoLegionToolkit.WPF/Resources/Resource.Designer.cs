@@ -955,6 +955,16 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom boot logo must be exactly {0} pixels large.
+        ///Supported formats are: {1}..
+        /// </summary>
+        public static string BootLogoWindow_Description {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string BootLogoWindow_Status {

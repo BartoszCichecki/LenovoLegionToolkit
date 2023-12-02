@@ -1947,4 +1947,8 @@ Requires restart.</value>
   <data name="Off" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Custom boot logo must be exactly {0} pixels large.
+Supported formats are: {1}.</value>
+  </data>
 </root>

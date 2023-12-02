@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Resources;
 using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.WPF.Windows.Settings;
@@ -25,8 +26,7 @@ public partial class BootLogoWindow
     {
         var (enabled, resolution, formats, _) = BootLogo.GetStatus();
 
-        _descriptionTextBlock.Text =
-            $"Custom boot logo must be exactly {resolution.DisplayName} pixels large.\nSupported formats are: {string.Join(", ", formats.Select(f => f.ToString().ToUpper()))}.";
+        _descriptionTextBlock.Text = string.Format(Resource.BootLogoWindow_Description, resolution.DisplayName, string.Join(", ", formats.Select(f => f.ToString().ToUpper())));
 
         _defaultStatus.Visibility = enabled ? Visibility.Collapsed : Visibility.Visible;
         _customStatus.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
