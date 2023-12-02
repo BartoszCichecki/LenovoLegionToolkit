@@ -133,6 +133,24 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string BatteryNightChargeState_Off {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeState_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string BatteryNightChargeState_On {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeState_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Conservation.
         /// </summary>
         public static string BatteryState_Conservation {

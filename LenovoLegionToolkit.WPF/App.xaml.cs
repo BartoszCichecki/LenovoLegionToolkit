@@ -62,7 +62,6 @@ public partial class App
         var flags = new Flags(e.Args);
 
         Log.Instance.IsTraceEnabled = flags.IsTraceEnabled;
-        Log.Instance.IsTraceEnabled = true;
 
         AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
 
