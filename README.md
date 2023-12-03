@@ -283,6 +283,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 * [How can I OC/UV my CPU?](#faq-cpu-oc)
 * [What if I overclocked my GPU too much?](#faq-gpu-oc)
 * [Why is my Boot Logo not applied?](#faq-boot-logo)
+* [Why do I see stuttering when using Smart Fn Lock?](#faq-smart-fn-lock-stutter)
 * [Which generation is my laptop?](#faq-which-gen)
 
 
@@ -373,6 +374,10 @@ If you end up in a situation where your GPU is not stable and you can't boot int
 #### <a id="faq-boot-logo" />Why is my Boot Logo not applied?
 
 When you change the Boot Logo, LLT verifies that it is in the format that is correct format and correct resolution. If LLT shows that boot logo is applied, it means that the setting was correctly saved to UEFI. If you don't see the custom boot logo, it means that even though UEFI is configured and custom image is saved to UEFI partition, your UEFI for some reason does not render it. In this case the best idea is to try a different image, maybe in different format, edited with different image editor etc. If the boot logo is not shown after all these steps, it's probably a problem with your BIOS version.
+
+#### <a id="faq-smart-fn-lock-stutter" />Why do I see stuttering when using Smart Fn Lock?
+
+On some BIOS versions, toggling Fn Lock causes a brief stutter and since Smart Fn Lock is basically an automatic toggle for Fn Lock, it is also affected by this issue. There are no solutions to this problem as of now.
 
 #### <a id="faq-which-gen" />Which generation is my laptop?
 
