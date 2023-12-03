@@ -1140,7 +1140,7 @@
     <value>Показати цей застосунок</value>
   </data>
   <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
-    <value>Змінити колір акценту додатка.</value>
+    <value>Змінити колір акценту застосунку.</value>
   </data>
   <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
     <value>Колір акценту</value>
@@ -1584,7 +1584,7 @@
     <value>Пресет користувальницького режиму</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
-    <value>Активувати користувацький пресет.
+    <value>Активувати користувальницькі попередні налаштування.
 Ці налаштування працюють тільки, коли включений користувальницький режим.</value>
   </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
@@ -1862,10 +1862,10 @@
     <value>Дискретний ГП автоматично вимикатиметься, коли не використовується і ноутбук працює від батареї.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>Налаштування користувацького режиму не застосовуватимуться правильно, коли запущено Lenovo Vantage або його служби.</value>
+    <value>Налаштування користувальницького режиму не застосовуватимуться правильно, коли запущено Lenovo Vantage або його служби.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Налаштування користувацького режиму не буде застосовано правильно, коли запущено Legion Zone або його служби.</value>
+    <value>Налаштування користувальницького режиму не буде застосовано правильно, коли запущено Legion Zone або його служби.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Під'єднано дискретний ГП</value>
@@ -1943,5 +1943,9 @@
   </data>
   <data name="Off" xml:space="preserve">
     <value>Вимкнено</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Користувальницька познака завантаження має бути рівно {0} пікселів.
+Підтримувані формати: {1}.</value>
   </data>
 </root>

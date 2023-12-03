@@ -1947,4 +1947,8 @@ Erfordert einen Neustart.</value>
   <data name="Off" xml:space="preserve">
     <value>Aus</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Das benutzerdefinierte Boot-Logo muss genau {0} Pixel groß sein.
+Unterstützte Formate sind: {1}.</value>
+  </data>
 </root>
