@@ -24,6 +24,14 @@ public enum AutorunState
     Disabled
 }
 
+public enum BatteryNightChargeState
+{
+    [Display(ResourceType = typeof(Resource), Name = "BatteryNightChargeState_On")]
+    On,
+    [Display(ResourceType = typeof(Resource), Name = "BatteryNightChargeState_Off")]
+    Off
+}
+
 public enum BatteryState
 {
     [Display(ResourceType = typeof(Resource), Name = "BatteryState_Conservation")]

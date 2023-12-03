@@ -702,6 +702,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning..
+        /// </summary>
+        public static string BatteryNightChargeAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overnight Battery Charging.
+        /// </summary>
+        public static string BatteryNightChargeAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning..
+        /// </summary>
+        public static string BatteryNightChargeModeControl_Message {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeModeControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overnight Battery Charging.
+        /// </summary>
+        public static string BatteryNightChargeModeControl_Title {
+            get {
+                return ResourceManager.GetString("BatteryNightChargeModeControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connected, charging....
         /// </summary>
         public static string BatteryPage_ACAdapterConnectedAndCharging {

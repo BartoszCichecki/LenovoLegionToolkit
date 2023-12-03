@@ -1951,4 +1951,16 @@ Requires restart.</value>
 	  <value>Custom boot logo must be exactly {0} pixels large.
 Supported formats are: {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Overnight Battery Charging</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Overnight Battery Charging</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
+  </data>
 </root>

@@ -13,6 +13,7 @@ public enum DashboardItem
 {
     PowerMode,
     BatteryMode,
+    BatteryNightChargeMode,
     AlwaysOnUsb,
     InstantBoot,
     HybridMode,

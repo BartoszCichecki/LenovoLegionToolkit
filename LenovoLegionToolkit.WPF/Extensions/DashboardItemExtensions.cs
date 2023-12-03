@@ -14,6 +14,7 @@ public static class DashboardItemExtensions
     {
         DashboardItem.PowerMode => SymbolRegular.Gauge24,
         DashboardItem.BatteryMode => SymbolRegular.BatteryCharge24,
+        DashboardItem.BatteryNightChargeMode => SymbolRegular.WeatherMoon24,
         DashboardItem.AlwaysOnUsb => SymbolRegular.UsbStick24,
         DashboardItem.InstantBoot => SymbolRegular.PlugDisconnected24,
         DashboardItem.HybridMode => SymbolRegular.LeafOne24,
@@ -40,6 +41,7 @@ public static class DashboardItemExtensions
     {
         DashboardItem.PowerMode => Resource.PowerModeControl_Title,
         DashboardItem.BatteryMode => Resource.BatteryModeControl_Title,
+        DashboardItem.BatteryNightChargeMode => Resource.BatteryNightChargeModeControl_Title,
         DashboardItem.AlwaysOnUsb => Resource.AlwaysOnUSBControl_Title,
         DashboardItem.InstantBoot => Resource.InstantBootControl_Title,
         DashboardItem.HybridMode => $"{Resource.ComboBoxHybridModeControl_Title} / {Resource.ToggleHybridModeControl_Title}",
@@ -66,6 +68,7 @@ public static class DashboardItemExtensions
     {
         DashboardItem.PowerMode => new[] { new PowerModeControl() },
         DashboardItem.BatteryMode => new[] { new BatteryModeControl() },
+        DashboardItem.BatteryNightChargeMode => new[] { new BatteryNightChargeModeControl() },
         DashboardItem.AlwaysOnUsb => new[] { new AlwaysOnUSBControl() },
         DashboardItem.InstantBoot => new[] { new InstantBootControl() },
         DashboardItem.HybridMode => new[] { await HybridModeControlFactory.GetControlAsync() },
