@@ -1955,4 +1955,20 @@
   <data name="Off" xml:space="preserve">
     <value>关闭</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>替换的自定义开机画面图标的图片文件分辨率必须准确地为 {0} 。
+支持的图片文件格式为：{1}。</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>隔夜电池充电</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>启用该功能后，当您插上电源过夜时，该设备将充电至 80%，并在您早上使用该设备时充电至 100%。</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>隔夜电池充电</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>启用该功能后，当您插上电源过夜时，该设备将充电至 80%，并在您早上使用该设备时充电至 100%。</value>
+  </data>
 </root>
