@@ -68,12 +68,12 @@ public class NotificationWindow : UiWindow
     {
         WindowStartupLocation = WindowStartupLocation.Manual;
         ResizeMode = ResizeMode.NoResize;
-        WindowStyle = WindowStyle.None;
         Focusable = false;
         Topmost = true;
         ExtendsContentIntoTitleBar = true;
         ShowInTaskbar = false;
         ShowActivated = false;
+        WindowStyle = WindowStyle.None;
         WindowBackdropType = BackgroundType.Auto;
         _mainGrid.FlowDirection = LocalizationHelper.Direction;
         _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
