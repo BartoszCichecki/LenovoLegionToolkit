@@ -1954,4 +1954,16 @@ Requiere un reinicio.</value>
   <data name="BootLogoWindow_Description" xml:space="preserve">
 	  <value>El logo de arranque personalizado debe tener un tamaño exacto de {0} píxeles. Los formatos soportados son: {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Carga nocturna de la batería</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Si está activado y enchufa este dispositivo durante la noche, cargará al 80% y terminará de cargarse al 100% cuando lo utilice por la mañana.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Carga nocturna de la batería</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Si está activado y enchufa este dispositivo durante la noche, cargará al 80% y terminará de cargarse al 100% cuando lo utilice por la mañana.</value>
+  </data>
 </root>
