@@ -1951,4 +1951,16 @@ Nécessite un redémarrage.</value>
   <data name="BootLogoWindow_Description" xml:space="preserve">
 	  <value>Le logo de démarrage personnalisé doit faire exactement {0} pixels de large. Les formats supportés sont : {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Charger la batterie pendant la nuit</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Lorsque cette option est activée, l'appareil se charge à 80 % lorsqu'il est branché pendant la nuit et finit de se charger à 100 % au moment où vous l'utilisez le matin.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Charger la batterie pendant la nuit</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Lorsque cette option est activée, l'appareil se charge à 80 % lorsqu'il est branché pendant la nuit et finit de se charger à 100 % au moment où vous l'utilisez le matin.</value>
+  </data>
 </root>

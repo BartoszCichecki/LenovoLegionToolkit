@@ -454,4 +454,10 @@
   <data name="ModifierKey_Alt" xml:space="preserve">
 	  <value>Alt</value>
   </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+	  <value>Вкл.</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+	  <value>Откл.</value>
+  </data>
 </root>
