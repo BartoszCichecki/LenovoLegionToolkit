@@ -50,8 +50,8 @@ public abstract class AbstractSensorsController : ISensorsController
         const int genericMaxTemperature = 100;
 
         var cpuUtilization = GetCpuUtilization();
-        var cpuCoreClock = GetCpuCoreClock();
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
+        var cpuCoreClock = GetCpuCoreClock(cpuMaxCoreClock);
         var cpuCurrentTemperature = await GetCpuCurrentTemperatureAsync().ConfigureAwait(false);
         var cpuCurrentFanSpeed = await GetCpuCurrentFanSpeedAsync().ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetCpuMaxFanSpeedAsync().ConfigureAwait(false);
@@ -114,11 +114,11 @@ public abstract class AbstractSensorsController : ISensorsController
         return Math.Min(100, result == 0.0 ? -1 : (int)result);
     }
 
-    private int GetCpuCoreClock()
+    private int GetCpuCoreClock(int cpuMaxCoreClock)
     {
         var baseClock = _cpuBaseClockCache ??= GetCpuBaseClock();
         var clock = baseClock * (_percentProcessorPerformanceCounter.NextValue() / 100.0);
-        return clock < 1 ? -1 : (int)clock;
+        return clock < 1 || clock > cpuMaxCoreClock ? -1 : (int)clock;
     }
 
     private static unsafe int GetCpuBaseClock()
