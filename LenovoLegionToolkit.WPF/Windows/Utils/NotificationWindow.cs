@@ -37,8 +37,8 @@ public class NotificationWindow : UiWindow
 
     private readonly Label _textBlock = new()
     {
-        FontSize = 16,
-        FontWeight = FontWeights.Medium,
+        FontSize = 18,
+        FontWeight = FontWeights.UltraBold,
         VerticalContentAlignment = VerticalAlignment.Center,
     };
 
@@ -68,14 +68,13 @@ public class NotificationWindow : UiWindow
     {
         WindowStartupLocation = WindowStartupLocation.Manual;
         ResizeMode = ResizeMode.NoResize;
-        WindowBackdropType = BackgroundType.None;
-
+        WindowStyle = WindowStyle.None;
         Focusable = false;
         Topmost = true;
         ExtendsContentIntoTitleBar = true;
         ShowInTaskbar = false;
         ShowActivated = false;
-
+        WindowBackdropType = BackgroundType.Auto;
         _mainGrid.FlowDirection = LocalizationHelper.Direction;
         _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
     }
