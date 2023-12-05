@@ -1948,4 +1948,20 @@
   <data name="Off" xml:space="preserve">
     <value>Откл.</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Пользовательский логотип загрузки должен быть размером ровно {0} пикселей.
+Поддерживаемые форматы: {1}.</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Ночная зарядка аккумулятора</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Когда эта функция включена, устройство будет заряжаться на 80% при подключении к сети на ночь и завершать зарядку до 100% к тому времени, как вы воспользуетесь устройством утром.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Ночная зарядка аккумулятора</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Когда эта функция включена, устройство будет заряжаться на 80% при подключении к сети на ночь и завершать зарядку до 100% к тому времени, как вы воспользуетесь устройством утром.</value>
+  </data>
 </root>
