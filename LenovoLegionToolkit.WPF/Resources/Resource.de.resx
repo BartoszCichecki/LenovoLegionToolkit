@@ -1951,4 +1951,16 @@ Erfordert einen Neustart.</value>
 	  <value>Das benutzerdefinierte Boot-Logo muss genau {0} Pixel groß sein.
 Unterstützte Formate sind: {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Akkuaufladung über Nacht</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Wenn diese Funktion aktiviert ist, wird das Gerät über Nacht zu 80 % aufgeladen und wird die Ladung zu 100 % beenden, während Sie das Gerät am Morgen benutzen.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Akkuaufladung über Nacht</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Wenn diese Funktion aktiviert ist, wird das Gerät über Nacht zu 80 % aufgeladen und wird die Ladung zu 100 % beenden, während Sie das Gerät am Morgen benutzen.</value>
+  </data>
 </root>
