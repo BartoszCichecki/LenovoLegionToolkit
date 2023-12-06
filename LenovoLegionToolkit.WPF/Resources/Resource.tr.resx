@@ -1952,4 +1952,16 @@ Yeniden başlatma gerektirir.</value>
 	  <value>Özel önyükleme logosu tam olarak {0} piksel olmalı.
 Desteklenen biçimler: {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Gecelik Pil Şarjı</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Etkinleştirildiğinde, bu cihaz gece takıldığında %80 oranında şarj olur ve sabah siz bu cihazı kullandığınızda şarj işlemi %100 oranında biter.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Gecelik Pil Şarjı</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Etkinleştirildiğinde, bu cihaz gece takıldığında %80 oranında şarj olur ve sabah siz bu cihazı kullandığınızda şarj işlemi %100 oranında biter.</value>
+  </data>
 </root>
