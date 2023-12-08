@@ -1948,4 +1948,16 @@
 	  <value>Користувальницька познака завантаження має бути рівно {0} пікселів.
 Підтримувані формати: {1}.</value>
   </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Заряджання протягом ночі</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Якщо увімкнено, цей пристрій буде заряджатися до 80% при підключенні протягом ночі та закінчить заряджання до 100% до моменту використання пристрою вранці.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Заряджання протягом ночі</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Якщо увімкнено, цей пристрій буде заряджатися до 80% при підключенні протягом ночі та закінчить заряджання до 100% до моменту використання пристрою вранці.</value>
+  </data>
 </root>
