@@ -1739,7 +1739,7 @@
     <value>在 {0} 之後</value>
   </data>
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>多重觸發器……</value>
+    <value>多選觸發條件……</value>
     <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
@@ -1847,29 +1847,33 @@
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>無法變更 GPU 運作模式</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>如果 dGPU（獨立顯示卡）沒有變更模式，請等幾秒後再次嘗試。
+如果仍然沒有得到回應，請重新啟動您的筆記型電腦。</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-    <value>dGPU 目前使用中</value>
+    <value>dGPU（獨立顯示卡）目前使用中</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-    <value>當 dGPU 未使用時將自動中斷連接。</value>
+    <value>當 dGPU（獨立顯示卡）未使用時將自動中斷連接。</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-    <value>dGPU 目前正在使用或筆記型電腦未使用電池電源</value>
+    <value>dGPU（獨立顯示卡）目前正在使用或筆記型電腦未使用電池電源</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-    <value>未使用筆記本電腦或使用電池供電時，dGPU 將自動中斷連接。</value>
+    <value>未使用筆記本電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>當 LenovoZong 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU 已連接</value>
+    <value>DGPU（獨立顯示卡）已連接</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU 已中斷連接</value>
+    <value>DGPU（獨立顯示卡）已中斷連接</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU 運作模式</value>
@@ -1890,6 +1894,12 @@
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>更新</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>GPU 到 CPU Dynamic Boost</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>這是根據 CPU 使用情況可以從 CPU 分配給 GPU 的最大額外功率。該值越高，使用此 GPU 的應用程式的效能越好。</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>啟動商標</value>
@@ -1926,5 +1936,30 @@
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>預設</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>智慧鎖定 Fn 鍵</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除鎖定。</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>客製化啟動商標必須恰好為 {0} 像素。
+支援的格式有：{1}。</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>過夜電池充電</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>過夜電池充電</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
   </data>
 </root>
