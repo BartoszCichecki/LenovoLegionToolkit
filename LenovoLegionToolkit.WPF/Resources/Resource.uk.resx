@@ -493,7 +493,7 @@
     <value>Діє</value>
   </data>
   <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
-    <value>Деактивовано</value>
+    <value>Вимкнути</value>
   </data>
   <data name="Inactive" xml:space="preserve">
     <value>Неактивно</value>
