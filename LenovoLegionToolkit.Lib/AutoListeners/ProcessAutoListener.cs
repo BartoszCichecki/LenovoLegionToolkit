@@ -112,10 +112,8 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
             if (IgnoredNames.Contains(e.processName, StringComparer.InvariantCultureIgnoreCase))
                 return;
 
-            if (!_processCache.TryGetValue(e.processId, out var processInfo))
+            if (!_processCache.Remove(e.processId, out var processInfo))
                 return;
-
-            _processCache.Remove(e.processId);
 
             RaiseChanged(new(ProcessEventInfoType.Stopped, processInfo));
         }

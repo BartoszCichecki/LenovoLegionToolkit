@@ -223,7 +223,12 @@ public class GameAutoListener : AbstractAutoListener<bool>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Process {process.Id} exited.");
 
-            var staleProcesses = _processCache.RemoveWhere(p => p.HasExited);
+            var staleProcesses = _processCache.RemoveWhere(p =>
+            {
+                try { return p.HasExited; }
+                catch { return true; }
+            });
+
             if (staleProcesses > 1)
             {
                 if (Log.Instance.IsTraceEnabled)
