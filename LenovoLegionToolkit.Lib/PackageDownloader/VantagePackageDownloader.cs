@@ -18,7 +18,9 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         public string Category { get; init; }
     }
 
-    private readonly string _catalogBaseUrl = "https://download.lenovo.com/catalog/";
+    private const string CATALOG_BASE_URL = "https://download.lenovo.com/catalog/";
+
+    public VantagePackageDownloader(HttpClientFactory httpClientFactory) : base(httpClientFactory) { }
 
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
@@ -33,9 +35,9 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             _ => throw new ArgumentOutOfRangeException(nameof(os), os, null)
         };
 
-        using var httpClient = new HttpClient();
+        using var httpClient = HttpClientFactory.Create();
 
-        var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{_catalogBaseUrl}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
+        var packageDefinitions = await GetPackageDefinitionsAsync(httpClient, $"{CATALOG_BASE_URL}/{machineType}_{osString}.xml", token).ConfigureAwait(false);
 
         var updateDetector = new VantagePackageUpdateDetector();
         await updateDetector.BuildDriverInfoCache().ConfigureAwait(false);
@@ -86,7 +88,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
         return packageDefinitions;
     }
 
-    private async Task<Package> GetPackage(HttpClient httpClient, VantagePackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
+    private static async Task<Package> GetPackage(HttpClient httpClient, VantagePackageUpdateDetector updateDetector, PackageDefinition packageDefinition, CancellationToken token)
     {
         var location = packageDefinition.Location;
         var baseLocation = location.Remove(location.LastIndexOf("/", StringComparison.InvariantCultureIgnoreCase));

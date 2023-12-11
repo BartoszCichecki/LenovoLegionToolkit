@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
@@ -11,10 +10,12 @@ namespace LenovoLegionToolkit.Lib.Utils;
 public class SunriseSunset
 {
     private readonly SunriseSunsetSettings _settings;
+    private readonly HttpClientFactory _httpClientFactory;
 
-    public SunriseSunset(SunriseSunsetSettings settings)
+    public SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory httpClientFactory)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
     }
 
     public async Task<(Time?, Time?)> GetSunriseSunsetAsync(CancellationToken token = default)
@@ -38,11 +39,11 @@ public class SunriseSunset
         return (sunrise, sunset);
     }
 
-    private static async Task<Coordinate?> GetGeoLocationAsync(CancellationToken token)
+    private async Task<Coordinate?> GetGeoLocationAsync(CancellationToken token)
     {
         try
         {
-            var httpClient = new HttpClient();
+            using var httpClient = _httpClientFactory.Create();
             var responseJson = await httpClient.GetStringAsync("http://ip-api.com/json?fields=lat,lon", token).ConfigureAwait(false);
             var responseJsonNode = JsonNode.Parse(responseJson);
             if (responseJsonNode is not null && double.TryParse(responseJsonNode["lat"]?.ToString(), out var lat) && double.TryParse(responseJsonNode["lon"]?.ToString(), out var lon))

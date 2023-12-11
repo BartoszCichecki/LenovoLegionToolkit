@@ -23,6 +23,8 @@ public class IoCModule : Module
 {
     protected override void Load(ContainerBuilder builder)
     {
+        builder.Register<HttpClientFactory>();
+
         builder.Register<FnKeysDisabler>();
         builder.Register<LegionZoneDisabler>();
         builder.Register<VantageDisabler>();

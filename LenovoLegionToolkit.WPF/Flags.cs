@@ -20,21 +20,29 @@ public class Flags
     public bool ForceDisableLenovoLighting { get; }
     public bool ExperimentalGPUWorkingMode { get; }
     public bool EnableHybridModeAutomation { get; }
+    public Uri? ProxyUrl { get; }
+    public string? ProxyUsername { get; }
+    public string? ProxyPassword { get; }
+    public bool ProxyAllowAllCerts { get; }
 
     public Flags(IEnumerable<string> startupArgs)
     {
         var args = startupArgs.Concat(LoadExternalArgs()).ToArray();
 
-        IsTraceEnabled = args.Contains("--trace");
-        Minimized = args.Contains("--minimized");
-        SkipCompatibilityCheck = args.Contains("--skip-compat-check");
-        DisableTrayTooltip = args.Contains("--disable-tray-tooltip");
-        AllowAllPowerModesOnBattery = args.Contains("--allow-all-power-modes-on-battery");
-        ForceDisableRgbKeyboardSupport = args.Contains("--force-disable-rgbkb");
-        ForceDisableSpectrumKeyboardSupport = args.Contains("--force-disable-spectrumkb");
-        ForceDisableLenovoLighting = args.Contains("--force-disable-lenovolighting");
-        ExperimentalGPUWorkingMode = args.Contains("--experimental-gpu-working-mode");
-        EnableHybridModeAutomation = args.Contains("--enable-hybrid-mode-automation");
+        IsTraceEnabled = BoolValue(args, "--trace");
+        Minimized = BoolValue(args, "--minimized");
+        SkipCompatibilityCheck = BoolValue(args, "--skip-compat-check");
+        DisableTrayTooltip = BoolValue(args, "--disable-tray-tooltip");
+        AllowAllPowerModesOnBattery = BoolValue(args, "--allow-all-power-modes-on-battery");
+        ForceDisableRgbKeyboardSupport = BoolValue(args, "--force-disable-rgbkb");
+        ForceDisableSpectrumKeyboardSupport = BoolValue(args, "--force-disable-spectrumkb");
+        ForceDisableLenovoLighting = BoolValue(args, "--force-disable-lenovolighting");
+        ExperimentalGPUWorkingMode = BoolValue(args, "--experimental-gpu-working-mode");
+        EnableHybridModeAutomation = BoolValue(args, "--enable-hybrid-mode-automation");
+        ProxyUrl = Uri.TryCreate(StringValue(args, "--proxyUrl"), UriKind.Absolute, out var uri) ? uri : null;
+        ProxyUsername = StringValue(args, "--proxyUsername");
+        ProxyPassword = StringValue(args, "--proxyPassword");
+        ProxyAllowAllCerts = BoolValue(args, "--proxyAllowAllCerts");
     }
 
     private static IEnumerable<string> LoadExternalArgs()
@@ -50,6 +58,14 @@ public class Flags
         }
     }
 
+    private static bool BoolValue(IEnumerable<string> values, string key) => values.Contains(key);
+
+    private static string? StringValue(IEnumerable<string> values, string key)
+    {
+        var value = values.FirstOrDefault(s => s.StartsWith(key));
+        return value?.Remove(0, key.Length + 1);
+    }
+
     public override string ToString() =>
         $"{nameof(IsTraceEnabled)}: {IsTraceEnabled}," +
         $" {nameof(Minimized)}: {Minimized}," +
@@ -60,5 +76,9 @@ public class Flags
         $" {nameof(ForceDisableSpectrumKeyboardSupport)}: {ForceDisableSpectrumKeyboardSupport}," +
         $" {nameof(ForceDisableLenovoLighting)}: {ForceDisableLenovoLighting}," +
         $" {nameof(ExperimentalGPUWorkingMode)}: {ExperimentalGPUWorkingMode}," +
-        $" {nameof(EnableHybridModeAutomation)}: {EnableHybridModeAutomation}";
+        $" {nameof(EnableHybridModeAutomation)}: {EnableHybridModeAutomation}," +
+        $" {nameof(ProxyUrl)}: {ProxyUrl}," +
+        $" {nameof(ProxyUsername)}: {ProxyUsername}," +
+        $" {nameof(ProxyPassword)}: {ProxyPassword}," +
+        $" {nameof(ProxyAllowAllCerts)}: {ProxyAllowAllCerts}";
 }

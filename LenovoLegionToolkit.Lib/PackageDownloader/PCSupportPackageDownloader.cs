@@ -11,7 +11,9 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
 public class PCSupportPackageDownloader : AbstractPackageDownloader
 {
-    private readonly string _catalogBaseUrl = "https://pcsupport.lenovo.com/us/en/api/v4/downloads/drivers?productId=";
+    private const string CATALOG_BASE_URL = "https://pcsupport.lenovo.com/us/en/api/v4/downloads/drivers?productId=";
+
+    public PCSupportPackageDownloader(HttpClientFactory httpClientFactory) : base(httpClientFactory) { }
 
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
@@ -24,13 +26,12 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
             _ => throw new InvalidOperationException(nameof(os)),
         };
 
-        using var httpClient = new HttpClient();
-
+        using var httpClient = HttpClientFactory.Create();
         httpClient.DefaultRequestHeaders.Referrer = new Uri("https://pcsupport.lenovo.com/");
 
         progress?.Report(0);
 
-        var catalogJson = await httpClient.GetStringAsync($"{_catalogBaseUrl}{machineType}", token).ConfigureAwait(false);
+        var catalogJson = await httpClient.GetStringAsync($"{CATALOG_BASE_URL}{machineType}", token).ConfigureAwait(false);
         var catalogJsonNode = JsonNode.Parse(catalogJson);
         var downloadsNode = catalogJsonNode?["body"]?["DownloadItems"]?.AsArray();
 
@@ -53,7 +54,7 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
         return packages;
     }
 
-    private async Task<Package?> ParsePackageAsync(HttpClient httpClient, JsonNode downloadNode, CancellationToken token)
+    private static async Task<Package?> ParsePackageAsync(HttpClient httpClient, JsonNode downloadNode, CancellationToken token)
     {
         var id = downloadNode["ID"]!.ToJsonString();
         var category = downloadNode["Category"]!["Name"]!.ToString();
