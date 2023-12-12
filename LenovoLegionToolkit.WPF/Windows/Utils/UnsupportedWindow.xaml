@@ -103,7 +103,6 @@
                     TextWrapping="Wrap" />
 
                 <wpfui:Hyperlink Content="{x:Static resources:Resource.UnsupportedWindow_Disclaimer_GitHub}" NavigateUri="https://github.com/BartoszCichecki/LenovoLegionToolkit#contribution" />
-                <wpfui:Hyperlink Click="Logs_Click" Content="{x:Static resources:Resource.UnsupportedWindow_Disclaimer_Logs}" />
 
             </StackPanel>
 

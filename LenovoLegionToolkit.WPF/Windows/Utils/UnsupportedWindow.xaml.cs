@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
-using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
@@ -38,13 +35,6 @@ public partial class UnsupportedWindow
     private void Window_Closed(object sender, EventArgs e)
     {
         _taskCompletionSource.TrySetResult(false);
-    }
-
-    private void Logs_Click(object sender, RoutedEventArgs e)
-    {
-        var logsDirectory = Path.Combine(Folders.AppData, "log");
-        Directory.CreateDirectory(logsDirectory);
-        Process.Start("explorer", logsDirectory);
     }
 
     private void Continue_Click(object sender, RoutedEventArgs e)
