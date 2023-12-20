@@ -445,4 +445,19 @@
   <data name="NotificationDuration_Short" xml:space="preserve">
     <value>Qısqa</value>
   </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+	  <value>Shift</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+	  <value>Ctrl</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+	  <value>Alt</value>
+  </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+	  <value>Janıq</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+	  <value>Óshik</value>
+  </data>
 </root>

@@ -1849,6 +1849,10 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>Không thể thay đổi Working Mode của GPU</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Nếu bạn không thấy kết quả như mong đợi, hãy thử thay đổi lại chế độ sau vài giây
+Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy tính xách tay của bạn.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>dGPU hiện đang được sử dụng</value>
   </data>
@@ -1892,5 +1896,66 @@ Yêu cầu khởi động lại.</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Cập nhật</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Đây là công suất bổ sung tối đa có thể được đưa cho GPU từ CPU dựa trên mức sử dụng CPU. Giá trị càng cao thì hiệu suất của các ứng dụng sử dụng GPU càng cao.</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>Logo khởi động</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+    <value>Tùy chỉnh hình ảnh Logo khởi động, hiển thị trong quá trình khởi động hệ thống.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+    <value>Logo khởi động</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+    <value>Logo khởi động mặc định được đặt</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+    <value>Logo khởi động tùy chỉnh được đặt</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+    <value>Khôi phục mặc định</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+    <value>Tùy chỉnh</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+    <value>Hành động</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>Nội dung thông báo</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+    <value>Hiển thị thông báo</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Khóa Fn thông minh</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Khóa Fn sẽ tạm thời bị tắt khi phím Alt, Ctrl hoặc Shift đang được nhấn giữ.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Tắt</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+	  <value>Logo khởi động tùy chỉnh phải có độ phân giải chính xác {0}.
+Các định dạng hỗ trợ: {1}.</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+	  <value>Sạc pin qua đêm</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+	  <value>Khi được bật, thiết bị này sẽ sạc tới 80% khi sạc qua đêm và sạc đầy 100% vào thời điểm bạn sử dụng thiết bị này vào buổi sáng.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+	  <value>Sạc pin qua đêm</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+	  <value>Khi được bật, thiết bị này sẽ sạc tới 80% khi sạc qua đêm và sạc đầy 100% vào thời điểm bạn sử dụng thiết bị này vào buổi sáng.</value>
   </data>
 </root>
