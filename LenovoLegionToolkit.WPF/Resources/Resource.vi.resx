@@ -346,7 +346,7 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Ước tính thời gian dùng còn lại: {0}</value>
   </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
-    <value>Thời gian ước tính...</value>
+    <value>Đang ước tính thời gian...</value>
   </data>
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
     <value>Ngày đầu tiên sử dụng</value>
@@ -1847,7 +1847,7 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
     <value>Cảm biến</value>
   </data>
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
-    <value>Không thể thay đổi Working Mode của GPU</value>
+    <value>Không thể thay đổi chế độ hoạt động của GPU</value>
   </data>
   <data name="IGPUModeChangeException_Message" xml:space="preserve">
     <value>Nếu bạn không thấy kết quả như mong đợi, hãy thử thay đổi lại chế độ sau vài giây

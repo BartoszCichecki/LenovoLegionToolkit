@@ -742,7 +742,7 @@
     <value>导入</value>
   </data>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
-    <value>此设备可能与联想拯救箱不兼容</value>
+    <value>此设备可能与拯救者工具箱不兼容。</value>
   </data>
   <data name="IncompatibleDevice_Title" xml:space="preserve">
     <value>拯救者工具箱 Lenovo Legion Toolkit</value>
