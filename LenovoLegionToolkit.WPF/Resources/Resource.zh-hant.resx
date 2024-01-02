@@ -285,7 +285,7 @@
     <value>未命名</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>啟用 Legion AI 引擎可自動偵測遊戲並調整 CPU/GPU 效能。電腦溫度和風扇噪音可能增加。</value>
+    <value>啟用 Legion AI 引擎以自動偵測遊戲並調整 CPU/GPU 效能。可能會增加裝置溫度和風扇噪音。</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>啟用 Legion AI 引擎</value>
@@ -1622,7 +1622,7 @@
     <value>APU 功率限制（SPPT）</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
-    <value>CPU 持續功耗限制。</value>
+    <value>CPU 持續功率限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
     <value>CPU 短時間峰值功率限制。</value>
@@ -1634,7 +1634,7 @@
     <value>CPU 和 GPU 達到最大負載時，CPU 可以達到的最大功率。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
-    <value>CPU 在一定的延遲後可以達到的最大功耗限制。</value>
+    <value>CPU 在一定的延遲後可以達到的最大功率限制。</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
     <value>在降低頻率和功率之前，CPU 可以達到的最高溫度。</value>
