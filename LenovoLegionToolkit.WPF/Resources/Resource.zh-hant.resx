@@ -634,13 +634,13 @@
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>鎖定 Fn 鍵</value>
+    <value>固定 Fn 鍵</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>鎖定 Fn 鍵</value>
+    <value>固定 Fn 鍵</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>警告！
@@ -814,10 +814,10 @@
     <value>開啟 Caps Lock</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>關閉鎖定 Fn 鍵</value>
+    <value>關閉固定 Fn 鍵</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>開啟鎖定 Fn 鍵</value>
+    <value>開啟固定 Fn 鍵</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>關閉麥克風</value>
@@ -866,7 +866,7 @@
     <value>不要顯示通知</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>鎖定 Fn 鍵</value>
+    <value>固定 Fn 鍵</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>鍵盤背光</value>
@@ -1838,7 +1838,7 @@
     <value>無法變更電源模式</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-    <value>當未連接電源供應器時無法啟用 {0}。</value>
+    <value>當未連接電源供應器時無法啟用{0}。</value>
     <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
@@ -1938,10 +1938,10 @@
     <value>預設</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
-    <value>智慧鎖定 Fn 鍵</value>
+    <value>智慧固定 Fn 鍵</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
-    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除鎖定。</value>
+    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除固定。</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>關閉</value>
