@@ -41,12 +41,14 @@ public partial class BootLogoWindow
             _revertToDefaultButton.IsEnabled = false;
 
             await BootLogo.DisableAsync();
+            _resultTextBlock.Text = "Default boot logo set.";
             Refresh();
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Default logo could not be set.", ex);
+            _resultTextBlock.Text = "Default logo could not be set: " + ex.Message;
         }
         finally
         {
@@ -77,12 +79,14 @@ public partial class BootLogoWindow
             var file = ofd.FileName;
 
             await BootLogo.EnableAsync(file);
+            _resultTextBlock.Text = "Custom boot logo set.";
             Refresh();
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Custom logo could not be set.", ex);
+            _resultTextBlock.Text = "Custom logo could not be set: " + ex.Message;
         }
         finally
         {
