@@ -142,7 +142,7 @@
     <value>延遲開啟</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>維護</value>
+    <value>保養</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>一般</value>
