@@ -34,6 +34,24 @@ public partial class BootLogoWindow
         _revertToDefaultButton.Visibility = enabled ? Visibility.Visible : Visibility.Collapsed;
     }
 
+    private string MapExceptionTranslation(string exMessage)
+    {
+        switch (exMessage)
+        {
+            case "Cannot set UEFI privilege.":
+                return Resource.BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege;
+            case "Cannot mount EFI partition.":
+                return Resource.BootLogoWindow_SetError_Cannot_Mount_EFI_Partition;
+            case "Not enough free space on EFI partition.":
+                return Resource.BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition;
+            case "Invalid image size.":
+                return Resource.BootLogoWindow_SetError_Invalid_Image_Size;
+            case "Invalid image format.":
+                return Resource.BootLogoWindow_SetError_Invalid_Image_format;
+            default: return exMessage;
+        }
+    }
+
     private async void RevertToDefaultButton_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -41,14 +59,14 @@ public partial class BootLogoWindow
             _revertToDefaultButton.IsEnabled = false;
 
             await BootLogo.DisableAsync();
-            _resultTextBlock.Text = "Default boot logo set.";
+            _resultTextBlock.Text = Resource.BootLogoWindow_SetDefaultSuccess;
             Refresh();
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Default logo could not be set.", ex);
-            _resultTextBlock.Text = "Default logo could not be set: " + ex.Message;
+            _resultTextBlock.Text = string.Format(Resource.BootLogoWindow_SetDefaultFailed, MapExceptionTranslation(ex.Message));
         }
         finally
         {
@@ -79,14 +97,14 @@ public partial class BootLogoWindow
             var file = ofd.FileName;
 
             await BootLogo.EnableAsync(file);
-            _resultTextBlock.Text = "Custom boot logo set.";
+            _resultTextBlock.Text = Resource.BootLogoWindow_SetCustomSuccess;
             Refresh();
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Custom logo could not be set.", ex);
-            _resultTextBlock.Text = "Custom logo could not be set: " + ex.Message;
+            _resultTextBlock.Text = string.Format(Resource.BootLogoWindow_SetCustomFailed, MapExceptionTranslation(ex.Message));
         }
         finally
         {

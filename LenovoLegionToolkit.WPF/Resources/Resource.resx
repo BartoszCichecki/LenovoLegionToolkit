@@ -1948,19 +1948,46 @@ Requires restart.</value>
     <value>Off</value>
   </data>
   <data name="BootLogoWindow_Description" xml:space="preserve">
-	  <value>Custom boot logo must be exactly {0} pixels large.
+    <value>Custom boot logo must be exactly {0} pixels large.
 Supported formats are: {1}.</value>
   </data>
   <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
-	  <value>Overnight Battery Charging</value>
+    <value>Overnight Battery Charging</value>
   </data>
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
-	  <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
+    <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Overnight Battery Charging</value>
+    <value>Overnight Battery Charging</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
-	  <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
+    <value>When enabled, this device will charge to 80% when plugged in overnight and finish charging to 100% by the time you use this device in the morning.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Invalid image size.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_format" xml:space="preserve">
+    <value>Invalid image format.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>Cannot mount EFI partition.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>Cannot set UEFI privilege.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Not enough free space on EFI partition.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>Custom logo could not be set: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>Default logo could not be set: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Default boot logo set.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Custom boot logo set.</value>
   </data>
 </root>

@@ -1001,6 +1001,87 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Custom logo could not be set: {0}.
+        /// </summary>
+        public static string BootLogoWindow_SetCustomFailed {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetCustomFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom boot logo set..
+        /// </summary>
+        public static string BootLogoWindow_SetCustomSuccess {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetCustomSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default logo could not be set: {0}.
+        /// </summary>
+        public static string BootLogoWindow_SetDefaultFailed {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetDefaultFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default boot logo set..
+        /// </summary>
+        public static string BootLogoWindow_SetDefaultSuccess {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetDefaultSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot mount EFI partition..
+        /// </summary>
+        public static string BootLogoWindow_SetError_Cannot_Mount_EFI_Partition {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetError_Cannot_Mount_EFI_Partition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot set UEFI privilege..
+        /// </summary>
+        public static string BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid image format..
+        /// </summary>
+        public static string BootLogoWindow_SetError_Invalid_Image_format {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetError_Invalid_Image_format", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid image size..
+        /// </summary>
+        public static string BootLogoWindow_SetError_Invalid_Image_Size {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetError_Invalid_Image_Size", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough free space on EFI partition..
+        /// </summary>
+        public static string BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition {
+            get {
+                return ResourceManager.GetString("BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Status.
         /// </summary>
         public static string BootLogoWindow_Status {

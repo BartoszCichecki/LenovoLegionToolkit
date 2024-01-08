@@ -90,6 +90,7 @@
                 Margin="0,24,0,0"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 TextWrapping="Wrap" />
+
             <TextBlock
                 x:Name="_resultTextBlock"
                 Grid.Row="1"
@@ -101,10 +102,10 @@
                         <Style  TargetType="TextBlock">
                             <Setter Property="Foreground" Value="Red" />
                             <Style.Triggers>
-                                <Trigger Property="Text" Value="Custom boot logo set.">
+                                <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetCustomSuccess}">
                                     <Setter Property="Foreground" Value="Green" />
                                 </Trigger>
-                                <Trigger Property="Text" Value="Default boot logo set.">
+                                <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetDefaultSuccess}">
                                     <Setter Property="Foreground" Value="Green" />
                                 </Trigger>
                             </Style.Triggers>
