@@ -21,6 +21,22 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
 
     public abstract Task<bool> IsSupportedAsync();
 
+    public async Task<bool> IsDGPUAvailableAsync()
+    {
+        try
+        {
+            var dgpuHardwareId = await GetDGPUHardwareIdAsync().ConfigureAwait(false);
+            var isAvailable = IsDGPUAvailable(dgpuHardwareId);
+            return isAvailable;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to notify.", ex);
+            return false;
+        }
+    }
+
     public async Task NotifyAsync(bool publish = true)
     {
         lock (_lock)
