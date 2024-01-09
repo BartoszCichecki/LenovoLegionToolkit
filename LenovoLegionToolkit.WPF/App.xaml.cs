@@ -110,6 +110,7 @@ public partial class App
         await InitSpectrumKeyboardControllerAsync();
         await InitGpuOverclockControllerAsync();
         await InitAutomationProcessorAsync();
+        await InitHybridModeAsync();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
 
@@ -338,6 +339,23 @@ public partial class App
 
         var fnKeysStatus = await IoCContainer.Resolve<FnKeysDisabler>().GetStatusAsync();
         Log.Instance.Trace($"FnKeys status: {fnKeysStatus}");
+    }
+
+    private static async Task InitHybridModeAsync()
+    {
+        try
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Initializing hybrid mode...");
+
+            var feature = IoCContainer.Resolve<HybridModeFeature>();
+            await feature.EnsureDGPUEjectedIfNeededAsync();
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Couldn't initialize hybrid mode.", ex);
+        }
     }
 
     private static async Task InitAutomationProcessorAsync()

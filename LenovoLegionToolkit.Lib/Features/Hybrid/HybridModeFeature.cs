@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
@@ -10,6 +11,8 @@ public class HybridModeFeature : IFeature<HybridModeState>
     private readonly GSyncFeature _gSyncFeature;
     private readonly IGPUModeFeature _igpuModeFeature;
     private readonly DGPUNotify _dgpuNotify;
+
+    private readonly CancellationTokenSource _ensureDGPUEjectedIfNeededCancellationTokenSource = new();
 
     public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
     {
@@ -64,6 +67,8 @@ public class HybridModeFeature : IFeature<HybridModeState>
 
     public async Task SetStateAsync(HybridModeState state)
     {
+        _ensureDGPUEjectedIfNeededCancellationTokenSource.Cancel();
+
         var (gSync, igpuMode) = Unpack(state);
 
         if (Log.Instance.IsTraceEnabled)
@@ -100,6 +105,64 @@ public class HybridModeFeature : IFeature<HybridModeState>
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State set to {state} [gSync={gSync}, igpuMode={igpuMode}]");
+    }
+
+    public async Task EnsureDGPUEjectedIfNeededAsync()
+    {
+        if (!await _igpuModeFeature.IsSupportedAsync().ConfigureAwait(false) || !await _dgpuNotify.IsSupportedAsync().ConfigureAwait(false))
+            return;
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                const int maxRetries = 5;
+                const int delay = 5 * 1000;
+
+                var retry = 1;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Will make sure that dGPU is ejected. [maxRetries={maxRetries}, delay={delay}ms]");
+
+                while (retry <= maxRetries)
+                {
+                    await Task.Delay(delay).ConfigureAwait(false);
+
+                    if (_ensureDGPUEjectedIfNeededCancellationTokenSource.IsCancellationRequested)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Cancelled, aborting...");
+                        break;
+                    }
+
+                    if (await _igpuModeFeature.GetStateAsync().ConfigureAwait(false) != IGPUModeState.IGPUOnly)
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"Not in iGPU-only mode, aborting...");
+                        break;
+                    }
+
+                    if (!await _dgpuNotify.IsDGPUAvailableAsync().ConfigureAwait(false))
+                    {
+                        if (Log.Instance.IsTraceEnabled)
+                            Log.Instance.Trace($"dGPU already unavailable, aborting...");
+                        break;
+                    }
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Notifying dGPU... [retry={retry}, maxRetries={maxRetries}]");
+
+                    await _dgpuNotify.NotifyAsync(false).ConfigureAwait(false);
+
+                    retry++;
+                }
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to ensure dGPU is ejected", ex);
+            }
+        });
     }
 
     private static (GSyncState, IGPUModeState) Unpack(HybridModeState state) => state switch
