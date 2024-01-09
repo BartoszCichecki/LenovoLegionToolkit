@@ -152,7 +152,7 @@ public class HybridModeFeature : IFeature<HybridModeState>
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Notifying dGPU... [retry={retry}, maxRetries={maxRetries}]");
 
-                    await _dgpuNotify.NotifyAsync().ConfigureAwait(false);
+                    await _dgpuNotify.NotifyAsync(false).ConfigureAwait(false);
 
                     retry++;
                 }
