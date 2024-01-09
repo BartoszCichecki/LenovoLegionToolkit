@@ -1966,7 +1966,7 @@ Supported formats are: {1}.</value>
   <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
     <value>Invalid image size.</value>
   </data>
-  <data name="BootLogoWindow_SetError_Invalid_Image_format" xml:space="preserve">
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
     <value>Invalid image format.</value>
   </data>
   <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">

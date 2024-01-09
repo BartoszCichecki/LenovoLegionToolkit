@@ -1057,9 +1057,9 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Invalid image format..
         /// </summary>
-        public static string BootLogoWindow_SetError_Invalid_Image_format {
+        public static string BootLogoWindow_SetError_Invalid_Image_Format {
             get {
-                return ResourceManager.GetString("BootLogoWindow_SetError_Invalid_Image_format", resourceCulture);
+                return ResourceManager.GetString("BootLogoWindow_SetError_Invalid_Image_Format", resourceCulture);
             }
         }
         

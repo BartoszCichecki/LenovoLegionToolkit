@@ -57,6 +57,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <TextBlock
@@ -93,24 +94,26 @@
 
             <TextBlock
                 x:Name="_resultTextBlock"
-                Grid.Row="1"
+                Grid.Row="2"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Margin="0,82,0,0"
+                Margin="0,24,0,0"
+                FontWeight="Medium"
+                TextAlignment="Center"
                 TextWrapping="Wrap">
                 <TextBlock.Style>
-                        <Style  TargetType="TextBlock">
-                            <Setter Property="Foreground" Value="Red" />
-                            <Style.Triggers>
-                                <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetCustomSuccess}">
-                                    <Setter Property="Foreground" Value="Green" />
-                                </Trigger>
-                                <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetDefaultSuccess}">
-                                    <Setter Property="Foreground" Value="Green" />
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground" Value="{DynamicResource SystemFillColorErrorBrush}" />
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetCustomSuccess}">
+                                <Setter Property="Foreground" Value="{DynamicResource SystemFillColorSuccessBrush}" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Static resources:Resource.BootLogoWindow_SetDefaultSuccess}">
+                                <Setter Property="Foreground" Value="{DynamicResource SystemFillColorSuccessBrush}" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
             </TextBlock>
         </Grid>
 

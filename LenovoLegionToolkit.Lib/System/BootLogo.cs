@@ -12,6 +12,16 @@ using Windows.Win32.Security;
 
 namespace LenovoLegionToolkit.Lib.System;
 
+public class CantSetUEFIPrivilegeException : Exception { }
+
+public class CantMountUEFIPartitionException : Exception { }
+
+public class NotEnoughSpaceOnUEFIPartitionException : Exception { }
+
+public class InvalidBootLogoImageFormatException : Exception { }
+
+public class InvalidBootLogoImageSizeException : Exception { }
+
 public static class BootLogo
 {
     private const string LBLDESP = "LBLDESP";
@@ -94,7 +104,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
 
-                throw new InvalidOperationException("Cannot set UEFI privilege.");
+                throw new CantSetUEFIPrivilegeException();
             }
 
             var ptrSize = (uint)Marshal.SizeOf<BootLogoInfo>();
@@ -132,7 +142,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
 
-                throw new InvalidOperationException("Cannot set UEFI privilege.");
+                throw new CantSetUEFIPrivilegeException();
             }
 
             Marshal.StructureToPtr(info, ptr, false);
@@ -166,7 +176,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
 
-                throw new InvalidOperationException("Cannot set UEFI privilege.");
+                throw new CantSetUEFIPrivilegeException();
             }
 
             var ptrSize = (uint)Marshal.SizeOf<BootLogoChecksum>();
@@ -205,7 +215,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
 
-                throw new InvalidOperationException("Cannot set UEFI privilege.");
+                throw new CantSetUEFIPrivilegeException();
             }
 
             Marshal.StructureToPtr(str, ptr, false);
@@ -240,7 +250,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot mount EFI partition.");
 
-                throw new InvalidOperationException("Cannot mount EFI partition.");
+                throw new CantMountUEFIPartitionException();
             }
 
             if (new DriveInfo($"{drive}:").AvailableFreeSpace < new FileInfo(sourcePath).Length)
@@ -248,7 +258,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not enough free space on EFI partition.");
 
-                throw new InvalidOperationException("Not enough free space on EFI partition.");
+                throw new NotEnoughSpaceOnUEFIPartitionException();
             }
 
             var destinationDirectory = Path.Combine($"{drive}:", "EFI", "Lenovo", "Logo");
@@ -290,7 +300,7 @@ public static class BootLogo
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot mount EFI partition");
 
-                throw new InvalidOperationException("Cannot mount EFI partition.");
+                throw new CantMountUEFIPartitionException();
             }
 
             var directoryPath = $@"{drive}:\EFI\Lenovo\Logo";
@@ -327,7 +337,7 @@ public static class BootLogo
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Invalid image size.");
 
-            throw new InvalidOperationException("Invalid image size.");
+            throw new InvalidBootLogoImageSizeException();
         }
 
         if (!info.SupportedFormat.ImageFormats().Contains(image.RawFormat))
@@ -335,7 +345,7 @@ public static class BootLogo
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Invalid image format.");
 
-            throw new InvalidOperationException("Invalid image format.");
+            throw new InvalidBootLogoImageFormatException();
         }
 
         if (Log.Instance.IsTraceEnabled)
