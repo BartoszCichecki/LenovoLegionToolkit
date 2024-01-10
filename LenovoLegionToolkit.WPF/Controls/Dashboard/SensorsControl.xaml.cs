@@ -92,6 +92,8 @@ public partial class SensorsControl
                 return;
             }
 
+            await _controller.PrepareAsync();
+
             while (!token.IsCancellationRequested)
             {
                 try

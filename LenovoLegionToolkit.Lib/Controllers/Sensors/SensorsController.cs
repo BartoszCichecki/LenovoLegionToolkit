@@ -20,6 +20,12 @@ internal class SensorsController : ISensorsController
 
     public async Task<bool> IsSupportedAsync() => await GetControllerAsync().ConfigureAwait(false) is not null;
 
+    public async Task PrepareAsync()
+    {
+        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found.");
+        await controller.PrepareAsync().ConfigureAwait(false);
+    }
+
     public async Task<SensorsData> GetDataAsync()
     {
         var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found.");

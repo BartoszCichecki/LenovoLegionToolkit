@@ -31,6 +31,12 @@ public class SafePerformanceCounter
         }
     }
 
+    public void Reset()
+    {
+        _performanceCounter = null;
+        _ = NextValue();
+    }
+
     private void TryCreateIfNeeded()
     {
         if (_performanceCounter is not null)
