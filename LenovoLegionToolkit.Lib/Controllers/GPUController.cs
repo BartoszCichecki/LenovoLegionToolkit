@@ -108,17 +108,25 @@ public class GPUController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Deactivating... [state={_state}, gpuInstanceId={_gpuInstanceId}]");
 
-            /*if (_state is not GPUState.Active and not GPUState.Inactive)
-                return;
-            */
             
-            if (string.IsNullOrEmpty(_gpuInstanceId))
+            //return if gpu is not active or not inactive
+            if (_state != GPUState.Active && _state != GPUState.Inactive)
+            {
+                Log.Instance.Trace($"return at not active or not inactive");
                 return;
+            }
+                
+
+            if (string.IsNullOrEmpty(_gpuInstanceId))
+            {
+                Log.Instance.Trace($"return at gpuInstanceId is null or empty");
+                return;
+            }
 
             await CMD.RunAsync("pnputil", $"/restart-device \"{_gpuInstanceId}\"").ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Deactivating... [state= {_state}, gpuInstanceId={_gpuInstanceId}]");
+                Log.Instance.Trace($"Deactivating after checks... [state= {_state}, gpuInstanceId={_gpuInstanceId}]");
         }
     }
 
@@ -232,6 +240,19 @@ public class GPUController
             return;
         }
 
+
+        //below is Nvidia GPU found, should update the _gpuInstanceId
+        
+        var pnpDeviceIdPart = NVAPI.GetGPUId(gpu);
+
+        if (string.IsNullOrEmpty(pnpDeviceIdPart))
+            throw new InvalidOperationException("pnpDeviceIdPart is null or empty");
+
+
+        var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
+        _gpuInstanceId = gpuInstanceId;
+
+
         try
         {
             var stateId = gpu.PerformanceStatesInfo.CurrentPerformanceState.StateId.ToString().GetUntilOrEmpty("_");
@@ -256,12 +277,14 @@ public class GPUController
 
             _performanceState = "Unknown";
         }
+        
 
         var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
         if (processNames.Count < 1)
         {
             if (NVAPI.IsDisplayConnected(gpu))
             {
+
                 _state = GPUState.MonitorConnected;
 
                 if (Log.Instance.IsTraceEnabled)
@@ -290,15 +313,25 @@ public class GPUController
             return;
         }
 
+
+        //below is the case that Nvidia GPU found, but no monitor connected, should update the _gpuInstanceId, and return
+        //bug is cause here that _gpuInstanceId is not updated even if Nvidia GPU is on (active or non active), 
+        //so the restart gpu will not work if the gpu is on inactive state
+        //should move the line below to after
+
+        /*
         var pnpDeviceIdPart = NVAPI.GetGPUId(gpu);
 
         if (string.IsNullOrEmpty(pnpDeviceIdPart))
             throw new InvalidOperationException("pnpDeviceIdPart is null or empty");
 
-        var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
 
-        _state = GPUState.Active;
+        var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
+       
+
         _gpuInstanceId = gpuInstanceId;
+        */
+        _state = GPUState.Active;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Active [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}, pnpDeviceIdPart={pnpDeviceIdPart}]");
