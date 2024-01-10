@@ -44,6 +44,13 @@ public abstract class AbstractSensorsController : ISensorsController
 
     public abstract Task<bool> IsSupportedAsync();
 
+    public Task PrepareAsync()
+    {
+        _percentProcessorPerformanceCounter.Reset();
+        _percentProcessorUtilityCounter.Reset();
+        return Task.CompletedTask;
+    }
+
     public async Task<SensorsData> GetDataAsync()
     {
         const int genericMaxUtilization = 100;
@@ -51,7 +58,7 @@ public abstract class AbstractSensorsController : ISensorsController
 
         var cpuUtilization = GetCpuUtilization(genericMaxUtilization);
         var cpuMaxCoreClock = _cpuMaxCoreClockCache ??= await GetCpuMaxCoreClockAsync().ConfigureAwait(false);
-        var cpuCoreClock = GetCpuCoreClock(cpuMaxCoreClock);
+        var cpuCoreClock = GetCpuCoreClock();
         var cpuCurrentTemperature = await GetCpuCurrentTemperatureAsync().ConfigureAwait(false);
         var cpuCurrentFanSpeed = await GetCpuCurrentFanSpeedAsync().ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetCpuMaxFanSpeedAsync().ConfigureAwait(false);
@@ -116,11 +123,11 @@ public abstract class AbstractSensorsController : ISensorsController
         return result;
     }
 
-    private int GetCpuCoreClock(int cpuMaxCoreClock)
+    private int GetCpuCoreClock()
     {
         var baseClock = _cpuBaseClockCache ??= GetCpuBaseClock();
         var clock = (int)(baseClock * (_percentProcessorPerformanceCounter.NextValue() / 100f));
-        if (clock < 1 || clock > cpuMaxCoreClock)
+        if (clock < 1)
             return -1;
         return clock;
     }
