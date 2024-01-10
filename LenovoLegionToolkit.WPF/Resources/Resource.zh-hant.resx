@@ -1947,19 +1947,19 @@
     <value>關閉</value>
   </data>
   <data name="BootLogoWindow_Description" xml:space="preserve">
-	  <value>客製化啟動商標必須恰好為 {0} 像素。
+    <value>客製化啟動商標必須恰好為 {0} 像素。
 支援的格式有：{1}。</value>
   </data>
   <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
-	  <value>過夜電池充電</value>
+    <value>過夜電池充電</value>
   </data>
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
-	  <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
+    <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
-	  <value>過夜電池充電</value>
+    <value>過夜電池充電</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
-	  <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
+    <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
   </data>
 </root>

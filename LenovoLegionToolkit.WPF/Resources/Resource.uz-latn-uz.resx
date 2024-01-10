@@ -1947,19 +1947,19 @@ ESKERTIW: Diskret GPU ámeldegi bolmasa, bul ámel tuwrı atqarılmaydı.</value
     <value>Óshik</value>
   </data>
   <data name="BootLogoWindow_Description" xml:space="preserve">
-	  <value>Arnawlı júklew logotipi áyne {0} piksel úlken bolıwı kerek.
+    <value>Arnawlı júklew logotipi áyne {0} piksel úlken bolıwı kerek.
 Qollap - quwatlanatuǵın formatlar: {1}.</value>
   </data>
   <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
-	  <value>Batareykanı túnde zaryadlaw</value>
+    <value>Batareykanı túnde zaryadlaw</value>
   </data>
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
-	  <value>Eger qosılǵan bolsa, bul qurılma túnde toqqa jalǵanǵanda 80% quwatlanadı hám azanda bul qurılmadan paydalanǵanda 100% quwatlanadı.</value>
+    <value>Eger qosılǵan bolsa, bul qurılma túnde toqqa jalǵanǵanda 80% quwatlanadı hám azanda bul qurılmadan paydalanǵanda 100% quwatlanadı.</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Batareyanı túnde zaryadlaw</value>
+    <value>Batareyanı túnde zaryadlaw</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Eger qosılǵan bolsa, bul qurılma túnde rozetkaǵa jalǵanǵanda 80% quwatlanadı hám azanda bul qurılmadan paydalanǵanda 100% quwatlanadı.</value>
+    <value>Eger qosılǵan bolsa, bul qurılma túnde rozetkaǵa jalǵanǵanda 80% quwatlanadı hám azanda bul qurılmadan paydalanǵanda 100% quwatlanadı.</value>
   </data>
 </root>

@@ -1947,19 +1947,43 @@ Requer reinicialização.</value>
     <value>Desligado</value>
   </data>
   <data name="BootLogoWindow_Description" xml:space="preserve">
-	  <value>O logotipo de inicialização personalizado deve ter exatamente {0} pixels de tamanho.
+    <value>O logotipo de inicialização personalizado deve ter exatamente {0} pixels de tamanho.
  Os formatos suportados são: {1}.</value>
   </data>
   <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
-	  <value>Carregamento noturno da bateria</value>
+    <value>Carregamento noturno da bateria</value>
   </data>
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
-	  <value>Quando ativado, este dispositivo carregará até 80% quando conectado durante a noite e terminará de carregar até 100% no momento em que você usar este dispositivo pela manhã.</value>
+    <value>Quando ativado, este dispositivo carregará até 80% quando conectado durante a noite e terminará de carregar até 100% no momento em que você usar este dispositivo pela manhã.</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
-	  <value>Carregamento noturno da bateria</value>
+    <value>Carregamento noturno da bateria</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
-	  <value>Quando ativado, este dispositivo carregará até 80% quando conectado durante a noite e terminará de carregar até 100% no momento em que você usar este dispositivo pela manhã.</value>
+    <value>Quando ativado, este dispositivo carregará até 80% quando conectado durante a noite e terminará de carregar até 100% no momento em que você usar este dispositivo pela manhã.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Tamanho de imagem inválido.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>Não foi possível montar a partição EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>Não foi possível definir o privilégio UEFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Espaço insuficiente na partição EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>O logo personalizado não pôde ser definido: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>O logo padrão não pôde ser definido: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Definição da imagem de boot padrão.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Definição da imagem de boot padrão.</value>
   </data>
 </root>
