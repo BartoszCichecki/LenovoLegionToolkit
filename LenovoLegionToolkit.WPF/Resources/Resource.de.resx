@@ -1963,4 +1963,31 @@ Unterstützte Formate sind: {1}.</value>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
     <value>Wenn diese Funktion aktiviert ist, wird das Gerät über Nacht zu 80 % aufgeladen und wird die Ladung zu 100 % beenden, während Sie das Gerät am Morgen benutzen.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Ungültige Bildgröße.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Ungültiges Bildformat.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>EFI-Partition kann nicht gemountet werden.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>UEFI-Berechtigung kann nicht gesetzt werden.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Nicht genügend Speicherplatz auf der EFI-Partition.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>Benutzerdefiniertes Logo kann nicht eingestellt werden: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>Standardlogo kann nicht eingestellt werden: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Standard Boot-Logo eingestellt.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Benutzerdefiniertes Boot-Logo eingestellt.</value>
+  </data>
 </root>
