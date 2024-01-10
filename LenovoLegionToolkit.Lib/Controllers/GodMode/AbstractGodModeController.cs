@@ -200,6 +200,21 @@ public abstract class AbstractGodModeController : IGodModeController
         if (state is not { } stateValue)
             return null;
 
+        if (stateValue.Steps.Length > 0)
+        {
+            var value = store?.Value ?? stateValue.Value;
+            var steps = stateValue.Steps;
+            var defaultValue = stateValue.DefaultValue;
+
+            if (!steps.Contains(value))
+            {
+                var valueTemp = value;
+                value = steps.MinBy(v => Math.Abs((long)v - valueTemp));
+            }
+
+            return new(value, 0, 0, 0, steps, defaultValue);
+        }
+
         if (stateValue.Step > 0)
         {
             var value = store?.Value ?? stateValue.Value;
@@ -214,21 +229,6 @@ public abstract class AbstractGodModeController : IGodModeController
                 value = defaultValue ?? Math.Clamp(value, min, max);
 
             return new(value, min, max, step, Array.Empty<int>(), defaultValue);
-        }
-
-        if (stateValue.Steps.Length > 0)
-        {
-            var value = store?.Value ?? stateValue.Value;
-            var steps = stateValue.Steps;
-            var defaultValue = stateValue.DefaultValue;
-
-            if (!steps.Contains(value))
-            {
-                var valueTemp = value;
-                value = steps.MinBy(v => Math.Abs((long)v - valueTemp));
-            }
-
-            return new(value, 0, 0, 0, steps, defaultValue);
         }
 
         return null;
