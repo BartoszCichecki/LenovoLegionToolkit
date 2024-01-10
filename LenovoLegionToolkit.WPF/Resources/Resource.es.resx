@@ -1966,4 +1966,31 @@ Requiere un reinicio.</value>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
     <value>Si está activado y enchufa este dispositivo durante la noche, cargará al 80% y terminará de cargarse al 100% cuando lo utilice por la mañana.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Tamaño de imagen no válido.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Formato de imagen no válido.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>No se puede montar la partición EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>No se puede establecer el privilegio UEFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>No hay suficiente espacio libre en la partición EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>No se ha podido establecer el logo personalizado: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>No se ha podido establecer el logo predefinido: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Logo de arranque predefinido.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Logo de arranque personalizado.</value>
+  </data>
 </root>
