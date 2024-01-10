@@ -108,9 +108,10 @@ public class GPUController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Deactivating... [state={_state}, gpuInstanceId={_gpuInstanceId}]");
 
-            if (_state is not GPUState.Active and not GPUState.Inactive)
+            /*if (_state is not GPUState.Active and not GPUState.Inactive)
                 return;
-
+            */
+            
             if (string.IsNullOrEmpty(_gpuInstanceId))
                 return;
 
