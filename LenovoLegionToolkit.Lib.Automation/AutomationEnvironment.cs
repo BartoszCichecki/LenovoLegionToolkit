@@ -22,6 +22,8 @@ public class AutomationEnvironment
     private const string TIME = "LLT_TIME";
     private const string DAYS = "LLT_DAYS";
     private const string USER_ACTIVE = "LLT_IS_USER_ACTIVE";
+    private const string WIFI_CONNECTED = "WIFI_CONNECTED";
+    private const string WIFI_SSID = "WIFI_SSID";
 
     private const string VALUE_TRUE = "TRUE";
     private const string VALUE_FALSE = "FALSE";
@@ -62,6 +64,10 @@ public class AutomationEnvironment
     public DayOfWeek[] Days { set => _dictionary[DAYS] = value.Length < 1 ? null : string.Join(",", value.Select(v => v.ToString().ToUpperInvariant())); }
 
     public bool UserActive { set => _dictionary[USER_ACTIVE] = value ? VALUE_TRUE : VALUE_FALSE; }
+
+    public bool WiFiConnected { set => _dictionary[WIFI_CONNECTED] = value ? VALUE_TRUE : VALUE_FALSE; }
+
+    public string? WiFiSsid { set => _dictionary[WIFI_SSID] = value; }
 
     public Dictionary<string, string?> Dictionary => new(_dictionary);
 
