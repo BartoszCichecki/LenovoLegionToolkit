@@ -257,26 +257,24 @@ public class GPUController
             _performanceState = "Unknown";
         }
 
-        if (NVAPI.IsDisplayConnected(gpu))
-        {
-            _state = GPUState.MonitorConnected;
-
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace(
-                    $"Monitor connected [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
-
-            return;
-        }
-
         var pnpDeviceIdPart = NVAPI.GetGPUId(gpu);
 
         if (string.IsNullOrEmpty(pnpDeviceIdPart))
             throw new InvalidOperationException("pnpDeviceIdPart is null or empty");
 
         var gpuInstanceId = await WMI.Win32.PnpEntity.GetDeviceIDAsync(pnpDeviceIdPart).ConfigureAwait(false);
-
         var processNames = NVAPIExtensions.GetActiveProcesses(gpu);
-        if (processNames.Any())
+
+        if (NVAPI.IsDisplayConnected(gpu))
+        {
+            _processes = processNames;
+            _state = GPUState.MonitorConnected;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace(
+                    $"Monitor connected [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
+        }
+        else if (processNames.Any())
         {
             _processes = processNames;
             _state = GPUState.Active;
