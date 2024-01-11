@@ -1966,6 +1966,9 @@ Nécessite un redémarrage.</value>
   <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
     <value>Taille d'image non valide.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Format d'image non valide.</value>
+  </data>
   <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
     <value>Montage de la partition EFI impossible.</value>
   </data>
