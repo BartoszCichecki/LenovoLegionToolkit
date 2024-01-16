@@ -85,9 +85,17 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
         switch (data.NotificationCode)
         {
             case 0x0A: /* Connected */
-                RaiseChanged((true, ssid: GetSsid(data)));
+                var ssid = GetSsid(data);
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"WiFi connected. [ssid={ssid}]");
+
+                RaiseChanged((true, ssid));
                 break;
             case 0x15: /* Disconnected */
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"WiFi disconnected.");
+
                 RaiseChanged((false, ssid: null));
                 break;
         }
