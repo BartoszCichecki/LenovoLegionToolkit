@@ -43,6 +43,8 @@ public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrig
 
     public IAutomationPipelineTrigger DeepCopy() => new WiFiConnectedAutomationPipelineTrigger(Ssid);
 
+    public IWiFiConnectedPipelineTrigger DeepCopy(string? ssid) => new WiFiConnectedAutomationPipelineTrigger(ssid);
+
     public override bool Equals(object? obj) => obj is WiFiConnectedAutomationPipelineTrigger t && Ssid == t.Ssid;
 
     public override int GetHashCode() => HashCode.Combine(Ssid);

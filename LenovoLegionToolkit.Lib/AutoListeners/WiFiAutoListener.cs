@@ -16,8 +16,6 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
 
     private IDisposable? _wlanNotificationDisposable;
 
-    public event EventHandler<(bool connected, string? ssid)>? Changed;
-
     public unsafe WiFiAutoListener(IMainThreadDispatcher mainThreadDispatcher)
     {
         _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
@@ -87,10 +85,10 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
         switch (data.NotificationCode)
         {
             case 0x0A: /* Connected */
-                Changed?.Invoke(this, (true, ssid: GetSsid(data)));
+                RaiseChanged((true, ssid: GetSsid(data)));
                 break;
             case 0x15: /* Disconnected */
-                Changed?.Invoke(this, (false, ssid: null));
+                RaiseChanged((false, ssid: null));
                 break;
         }
     }

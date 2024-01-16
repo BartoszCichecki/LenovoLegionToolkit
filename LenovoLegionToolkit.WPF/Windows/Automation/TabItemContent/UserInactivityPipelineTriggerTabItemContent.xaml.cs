@@ -20,8 +20,11 @@ public partial class UserInactivityPipelineTriggerTabItemContent : IAutomationPi
         TimeSpan.FromMinutes(30)
     };
 
+    private readonly IUserInactivityPipelineTrigger _trigger;
+
     public UserInactivityPipelineTriggerTabItemContent(IUserInactivityPipelineTrigger trigger)
     {
+        _trigger = trigger;
         InitializeComponent();
 
         _timeoutComboBox.SetItems(TimeSpans, trigger.InactivityTimeSpan, t => t.Humanize());
@@ -29,7 +32,9 @@ public partial class UserInactivityPipelineTriggerTabItemContent : IAutomationPi
 
     public IUserInactivityPipelineTrigger GetTrigger()
     {
-        var t = _timeoutComboBox.TryGetSelectedItem(out TimeSpan tt) ? tt : TimeSpan.FromSeconds(30);
-        return new UserInactivityAutomationPipelineTrigger(t);
+        var state = _timeoutComboBox.TryGetSelectedItem(out TimeSpan tt)
+            ? tt
+            : TimeSpan.FromSeconds(30);
+        return _trigger.DeepCopy(state);
     }
 }

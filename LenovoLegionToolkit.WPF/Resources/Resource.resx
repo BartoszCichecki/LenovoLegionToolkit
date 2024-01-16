@@ -1990,4 +1990,13 @@ Supported formats are: {1}.</value>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Custom boot logo set.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Network name (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Copy current network name</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Leave empty for any Wi-Fi network.</value>
+  </data>
 </root>
