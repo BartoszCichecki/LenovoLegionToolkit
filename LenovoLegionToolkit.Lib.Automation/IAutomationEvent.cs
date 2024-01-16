@@ -44,3 +44,9 @@ public readonly struct UserInactivityAutomationEvent : IAutomationEvent
     public TimeSpan InactivityTimeSpan { get; init; }
     public TimeSpan ResolutionTimeSpan { get; init; }
 }
+
+public readonly struct WiFiAutomationEvent : IAutomationEvent
+{
+    public bool IsConnected { get; init; }
+    public string? Ssid { get; init; }
+}

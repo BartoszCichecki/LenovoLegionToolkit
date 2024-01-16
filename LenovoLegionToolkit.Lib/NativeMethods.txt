@@ -76,6 +76,10 @@ EFFECTIVE_POWER_MODE_V2
 
 NOTIFYICONDATAW
 
+WLAN_INTERFACE_STATE
+WLAN_CONNECTION_ATTRIBUTES
+WLAN_CONNECTION_NOTIFICATION_DATA 
+
 GetSystemInfo
 CallNtPowerInformation
 
@@ -160,3 +164,9 @@ PowerUnregisterSuspendResumeNotification
 
 Shell_NotifyIcon
 RegisterWindowMessage
+
+WlanOpenHandle
+WlanCloseHandle
+WlanEnumInterfaces
+WlanQueryInterface
+WlanRegisterNotification

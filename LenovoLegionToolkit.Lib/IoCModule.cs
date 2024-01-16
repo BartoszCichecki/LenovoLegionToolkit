@@ -97,6 +97,7 @@ public class IoCModule : Module
         builder.Register<ProcessAutoListener>();
         builder.Register<TimeAutoListener>();
         builder.Register<UserInactivityAutoListener>();
+        builder.Register<WiFiAutoListener>();
 
         builder.Register<AIController>();
         builder.Register<DisplayBrightnessController>();

@@ -5536,6 +5536,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copy current network name.
+        /// </summary>
+        public static string WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName {
+            get {
+                return ResourceManager.GetString("WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leave empty for any Wi-Fi network..
+        /// </summary>
+        public static string WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork {
+            get {
+                return ResourceManager.GetString("WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Network name (SSID).
+        /// </summary>
+        public static string WiFiConnectedPipelineTriggerTabItemContent_NetworkName {
+            get {
+                return ResourceManager.GetString("WiFiConnectedPipelineTriggerTabItemContent_NetworkName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enabled or disable Windows key..
         /// </summary>
         public static string WinKeyAutomationStepControl_Message {

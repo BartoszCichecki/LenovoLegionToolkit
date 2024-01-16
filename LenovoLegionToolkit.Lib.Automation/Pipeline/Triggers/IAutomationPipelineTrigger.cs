@@ -70,3 +70,12 @@ public interface IUserInactivityPipelineTrigger : IAutomationPipelineTrigger
 
     IUserInactivityPipelineTrigger DeepCopy(TimeSpan timeSpan);
 }
+
+public interface IWiFiConnectedPipelineTrigger : IAutomationPipelineTrigger
+{
+    string? Ssid { get; }
+
+    IWiFiConnectedPipelineTrigger DeepCopy(string? ssid);
+}
+
+public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
