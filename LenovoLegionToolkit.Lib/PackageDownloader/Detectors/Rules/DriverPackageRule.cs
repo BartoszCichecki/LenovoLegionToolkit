@@ -71,17 +71,7 @@ internal readonly struct DriverPackageRule : IPackageRule
             if (Date < driverInfo.Date)
                 return false;
 
-            if (Date == driverInfo.Date)
-            {
-                var result = Version > driverInfo.Version;
-                return result;
-            }
-
-            if (Date > driverInfo.Date)
-            {
-                var result = Version != driverInfo.Version;
-                return result;
-            }
+            return Version > driverInfo.Version;
         }
 
         if (Version is not null && driverInfo.Version is not null)
