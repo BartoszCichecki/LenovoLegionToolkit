@@ -25,6 +25,7 @@ public class AutomationProcessor
     private readonly ProcessAutoListener _processAutoListener;
     private readonly TimeAutoListener _timeAutoListener;
     private readonly UserInactivityAutoListener _userInactivityAutoListener;
+    private readonly WiFiAutoListener _wifiAutoListener;
 
     private readonly AsyncLock _ioLock = new();
     private readonly AsyncLock _runLock = new();
@@ -44,7 +45,8 @@ public class AutomationProcessor
         GameAutoListener gameAutoListener,
         ProcessAutoListener processAutoListener,
         TimeAutoListener timeAutoListener,
-        UserInactivityAutoListener userInactivityAutoListener)
+        UserInactivityAutoListener userInactivityAutoListener,
+        WiFiAutoListener wifiAutoListener)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
@@ -55,6 +57,7 @@ public class AutomationProcessor
         _processAutoListener = processAutoListener ?? throw new ArgumentNullException(nameof(processAutoListener));
         _timeAutoListener = timeAutoListener ?? throw new ArgumentNullException(nameof(timeAutoListener));
         _userInactivityAutoListener = userInactivityAutoListener ?? throw new ArgumentNullException(nameof(userInactivityAutoListener));
+        _wifiAutoListener = wifiAutoListener ?? throw new ArgumentNullException(nameof(wifiAutoListener));
     }
 
     #region Initialization / pipeline reloading
@@ -299,6 +302,16 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
+    private async void WiFiAutoListener_Changed(object? sender, (bool connected, string? ssid) wifiInfo)
+    {
+        var e = new WiFiAutomationEvent
+        {
+            IsConnected = wifiInfo.connected,
+            Ssid = wifiInfo.ssid
+        };
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
     #endregion
 
     #region Event processing
@@ -333,6 +346,7 @@ public class AutomationProcessor
         await _processAutoListener.UnsubscribeChangedAsync(ProcessAutoListener_Changed).ConfigureAwait(false);
         await _timeAutoListener.UnsubscribeChangedAsync(TimeAutoListener_Changed).ConfigureAwait(false);
         await _userInactivityAutoListener.UnsubscribeChangedAsync(UserInactivityAutoListener_Changed).ConfigureAwait(false);
+        await _wifiAutoListener.UnsubscribeChangedAsync(WiFiAutoListener_Changed).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped listeners...");
@@ -379,6 +393,14 @@ public class AutomationProcessor
                 Log.Instance.Trace($"Starting user inactivity listener...");
 
             await _userInactivityAutoListener.SubscribeChangedAsync(UserInactivityAutoListener_Changed).ConfigureAwait(false);
+        }
+
+        if (triggers.OfType<IWiFiConnectedPipelineTrigger>().Any() || triggers.OfType<WiFiDisconnectedAutomationPipelineTrigger>().Any())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Starting WiFi listener...");
+
+            await _wifiAutoListener.SubscribeChangedAsync(WiFiAutoListener_Changed).ConfigureAwait(false);
         }
 
         if (Log.Instance.IsTraceEnabled)

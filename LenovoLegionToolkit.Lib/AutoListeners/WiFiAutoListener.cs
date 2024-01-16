@@ -7,36 +7,34 @@ using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.NetworkManagement.WiFi;
 
-namespace LenovoLegionToolkit.Lib.Listeners;
+namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class WiFiListener : IListener<(bool connected, string ssid)>
+public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ssid)>
 {
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly WLAN_NOTIFICATION_CALLBACK _wlanCallback;
 
     private IDisposable? _wlanNotificationDisposable;
 
-    public event EventHandler<(bool connected, string ssid)>? Changed;
+    public event EventHandler<(bool connected, string? ssid)>? Changed;
 
-    public unsafe WiFiListener(IMainThreadDispatcher mainThreadDispatcher)
+    public unsafe WiFiAutoListener(IMainThreadDispatcher mainThreadDispatcher)
     {
         _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
 
         _wlanCallback = WlanCallback;
     }
 
-    public Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         _wlanNotificationDisposable = RegisterWlanNotification();
-
         return Task.CompletedTask;
     });
 
-    public Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {
         _wlanNotificationDisposable?.Dispose();
         _wlanNotificationDisposable = null;
-
         return Task.CompletedTask;
     });
 
@@ -46,7 +44,6 @@ public class WiFiListener : IListener<(bool connected, string ssid)>
 
         try
         {
-
             handlePtr = Marshal.AllocHGlobal(Marshal.SizeOf<HANDLE>());
 
             if (PInvoke.WlanOpenHandle(2, out _, (HANDLE*)handlePtr) != 0)
@@ -87,14 +84,15 @@ public class WiFiListener : IListener<(bool connected, string ssid)>
     {
         var data = Marshal.PtrToStructure<L2_NOTIFICATION_DATA>(new(param0));
 
-        if (data.NotificationSource != WLAN_NOTIFICATION_SOURCES.WLAN_NOTIFICATION_SOURCE_ACM)
-            return;
-
-        if (data.NotificationCode == 0xA /* Connected */)
-            Changed?.Invoke(this, (true, ssid: GetSsid(data)));
-
-        if (data.NotificationCode == 0x15 /* Disconnected */)
-            Changed?.Invoke(this, (false, ssid: GetSsid(data)));
+        switch (data.NotificationCode)
+        {
+            case 0x0A: /* Connected */
+                Changed?.Invoke(this, (true, ssid: GetSsid(data)));
+                break;
+            case 0x15: /* Disconnected */
+                Changed?.Invoke(this, (false, ssid: null));
+                break;
+        }
     }
 
     private static unsafe string GetSsid(L2_NOTIFICATION_DATA data)

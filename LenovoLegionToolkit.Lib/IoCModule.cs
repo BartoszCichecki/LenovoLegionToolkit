@@ -89,7 +89,6 @@ public class IoCModule : Module
         builder.Register<SpecialKeyListener>().AutoActivateListener();
         builder.Register<SystemThemeListener>().AutoActivateListener();
         builder.Register<ThermalModeListener>().AutoActivateListener();
-        builder.Register<WiFiListener>().AutoActivateListener();
         builder.Register<WinKeyListener>().AutoActivateListener();
 
         builder.Register<GameAutoListener>();
@@ -98,6 +97,7 @@ public class IoCModule : Module
         builder.Register<ProcessAutoListener>();
         builder.Register<TimeAutoListener>();
         builder.Register<UserInactivityAutoListener>();
+        builder.Register<WiFiAutoListener>();
 
         builder.Register<AIController>();
         builder.Register<DisplayBrightnessController>();
