@@ -1962,4 +1962,31 @@
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
     <value>啟用後，該裝置在過夜插入時將充電到 80%，並在您早上使用裝置時完成充電到 100%。</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>無效的圖片尺寸。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>無效的圖片格式。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>無法掛載 EFI 分割區。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>無法設定 UEFI 權限。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>EFI 分割區空間不足。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>客製化商標無法被設定：{0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>預設商標無法被設定：{0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>設定為預設啟動商標。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>設定為客製化啟動商標。</value>
+  </data>
 </root>
