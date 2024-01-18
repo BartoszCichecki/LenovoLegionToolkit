@@ -1991,4 +1991,13 @@ Desteklenen biçimler: {1}.</value>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Özel başlangıç logosu ayarla.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Ağ adı (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Mevcut ağ adını kopyala</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Herhangi bir Wi-Fi ağı için boş bırakın.</value>
+  </data>
 </root>
