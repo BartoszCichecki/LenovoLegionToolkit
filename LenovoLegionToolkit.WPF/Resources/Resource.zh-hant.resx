@@ -1905,7 +1905,7 @@
     <value>啟動商標</value>
   </data>
   <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
-    <value>客製化系統啟動時的啟動商標圖片。</value>
+    <value>客製化系統啟動時的商標圖片。</value>
   </data>
   <data name="BootLogoWindow_Title" xml:space="preserve">
     <value>啟動商標</value>
@@ -1988,5 +1988,14 @@
   </data>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>設定為客製化啟動商標。</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>網路名稱（SSID）</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>複製目前的網路名稱</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>將任何 Wi-Fi 網路留空。</value>
   </data>
 </root>

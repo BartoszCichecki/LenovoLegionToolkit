@@ -1993,4 +1993,13 @@ Requiere un reinicio.</value>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Logo de arranque personalizado.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Nombre de la red (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Copiar el nombre de la red actual</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Dejar vacío para cualquier red Wi-Fi.</value>
+  </data>
 </root>

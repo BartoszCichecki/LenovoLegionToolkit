@@ -1933,6 +1933,9 @@ Yêu cầu khởi động lại.</value>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
     <value>Hiển thị thông báo</value>
   </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+    <value>Thiết lập sẵn</value>
+  </data>
   <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
     <value>Khóa Fn thông minh</value>
   </data>
@@ -1957,5 +1960,14 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
     <value>Khi được bật, thiết bị này sẽ sạc tới 80% khi sạc qua đêm và sạc đầy 100% vào thời điểm bạn sử dụng thiết bị này vào buổi sáng.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Kích thước ảnh không hợp lệ.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Định dạng ảnh không hợp lệ.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Không đủ chỗ trống trên phân vùng EFI.</value>
   </data>
 </root>
