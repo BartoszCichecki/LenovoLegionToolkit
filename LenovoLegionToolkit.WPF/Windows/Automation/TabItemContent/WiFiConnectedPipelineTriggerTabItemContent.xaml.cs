@@ -50,7 +50,14 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
         if (ssid is null)
             return;
 
-        _ssidStackPanel.Children.Add(CreateControl(ssid));
+        var last = _ssidStackPanel.Children
+            .OfType<ItemControl>()
+            .LastOrDefault();
+
+        if (last is not null && string.IsNullOrEmpty(last.Text))
+            last.Text = ssid;
+        else
+            _ssidStackPanel.Children.Add(CreateControl(ssid));
     }
 
     private UserControl CreateControl(string ssid)
@@ -94,7 +101,7 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
         public string Text
         {
             get => _textBox.Text;
-            init => _textBox.Text = value;
+            set => _textBox.Text = value;
         }
 
         public event EventHandler? Delete;
