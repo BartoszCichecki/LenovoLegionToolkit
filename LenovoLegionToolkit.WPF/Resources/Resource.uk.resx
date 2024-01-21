@@ -1987,4 +1987,13 @@
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Користувацький екран завантаження встановлено.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Назва мережі (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Скопіювати поточну назву мережі</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Залиште пустим для будь-якої мережі Wi-Fi.</value>
+  </data>
 </root>
