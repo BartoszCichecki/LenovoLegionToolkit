@@ -124,13 +124,13 @@
     <value>Bản dựng</value>
   </data>
   <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
-    <value>Phiên bản mới nhất trên Github</value>
+    <value>Phiên bản mới nhất trên GitHub</value>
   </data>
   <data name="AboutPage_Links" xml:space="preserve">
     <value>Liên kết</value>
   </data>
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
-    <value>Liên kết đến dự án trên Github</value>
+    <value>Liên kết đến dự án trên GitHub</value>
   </data>
   <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
     <value>Thư viện bên thứ ba</value>
@@ -1967,7 +1967,25 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
     <value>Định dạng ảnh không hợp lệ.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>Không thể mount phân vùng EFI.</value>
+  </data>
   <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
     <value>Không đủ chỗ trống trên phân vùng EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Đang dùng logo khởi động mặc định.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Đang dùng logo khởi động tùy chỉnh.</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Tên mạng (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Sao chép tên mạng hiện tại</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Bỏ trống cho bất kì mạng Wi-Fi nào.</value>
   </data>
 </root>
