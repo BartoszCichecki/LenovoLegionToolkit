@@ -9,25 +9,30 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <StackPanel>
-        <Grid Margin="16,16,16,16">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <ui:TextBox
-                x:Name="_ssidTextBox"
-                Grid.Column="0"
-                MinWidth="160"
-                PlaceholderText="{x:Static resources:Resource.WiFiConnectedPipelineTriggerTabItemContent_NetworkName}" />
-            <ui:Button
-                Grid.Column="1"
-                Height="36"
-                Margin="8,0,0,0"
-                Click="CopyCurrentNetworkNameButton_OnClick"
-                Icon="Wifi124"
-                ToolTip="{x:Static resources:Resource.WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName}" />
-        </Grid>
-        <Label Margin="16,0,16,0" Content="{x:Static resources:Resource.WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork}" />
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel Margin="16,16,0,16">
+            <StackPanel x:Name="_ssidStackPanel" />
+            <StackPanel
+                Margin="0,8,0,0"
+                HorizontalAlignment="Right"
+                Orientation="Horizontal">
+                <ui:Button
+                    x:Name="_addNetworkNameButton"
+                    Appearance="Primary"
+                    Click="AddNetworkNameButton_OnClick"
+                    Content="{x:Static resources:Resource.Add}"
+                    Icon="Add24" />
+                <ui:Button
+                    Height="{Binding ActualHeight, ElementName=_addNetworkNameButton}"
+                    Margin="8,0,0,0"
+                    Click="CopyCurrentNetworkNameButton_OnClick"
+                    Icon="Wifi124"
+                    ToolTip="{x:Static resources:Resource.WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName}" />
+            </StackPanel>
+            <Label
+                Margin="0,16,16,0"
+                HorizontalAlignment="Center"
+                Content="{x:Static resources:Resource.WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork}" />
+        </StackPanel>
+    </ScrollViewer>
 </UserControl>

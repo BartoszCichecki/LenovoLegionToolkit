@@ -36,7 +36,7 @@ public partial class CreateAutomationPipelineWindow
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
         new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
-        new WiFiConnectedAutomationPipelineTrigger(null),
+        new WiFiConnectedAutomationPipelineTrigger(Array.Empty<string>()),
         new WiFiDisconnectedAutomationPipelineTrigger(),
         new TimeAutomationPipelineTrigger(false, false, TimeExtensions.UtcNow, Enum.GetValues<DayOfWeek>()),
         new OnStartupAutomationPipelineTrigger()

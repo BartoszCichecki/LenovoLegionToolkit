@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
@@ -9,12 +11,12 @@ public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrig
 {
     public string DisplayName => "When WiFi is connected";
 
-    public string? Ssid { get; }
+    public string[] Ssids { get; }
 
     [JsonConstructor]
-    public WiFiConnectedAutomationPipelineTrigger(string? ssid)
+    public WiFiConnectedAutomationPipelineTrigger(string[] ssids)
     {
-        Ssid = ssid;
+        Ssids = ssids;
     }
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
@@ -22,32 +24,32 @@ public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrig
         if (automationEvent is not WiFiAutomationEvent { IsConnected: true } e)
             return Task.FromResult(false);
 
-        return Task.FromResult(Ssid == null || Ssid == e.Ssid);
+        return Task.FromResult(Ssids.IsEmpty() || Ssids.Contains(e.Ssid));
     }
 
     public Task<bool> IsMatchingState()
     {
         var ssid = WiFi.GetConnectedNetworkSSID();
 
-        if (Ssid is null && ssid is not null)
+        if (Ssids.IsEmpty() && ssid is not null)
             return Task.FromResult(true);
 
-        return Task.FromResult(Ssid is not null && Ssid == ssid);
+        return Task.FromResult(Ssids.Contains(ssid));
     }
 
     public void UpdateEnvironment(ref AutomationEnvironment environment)
     {
         environment.WiFiConnected = true;
-        environment.WiFiSsid = Ssid;
+        environment.WiFiSsid = string.Join(",", Ssids);
     }
 
-    public IAutomationPipelineTrigger DeepCopy() => new WiFiConnectedAutomationPipelineTrigger(Ssid);
+    public IAutomationPipelineTrigger DeepCopy() => new WiFiConnectedAutomationPipelineTrigger(Ssids);
 
-    public IWiFiConnectedPipelineTrigger DeepCopy(string? ssid) => new WiFiConnectedAutomationPipelineTrigger(ssid);
+    public IWiFiConnectedPipelineTrigger DeepCopy(string[] ssids) => new WiFiConnectedAutomationPipelineTrigger(ssids);
 
-    public override bool Equals(object? obj) => obj is WiFiConnectedAutomationPipelineTrigger t && Ssid == t.Ssid;
+    public override bool Equals(object? obj) => obj is WiFiConnectedAutomationPipelineTrigger t && Ssids.SequenceEqual(t.Ssids);
 
-    public override int GetHashCode() => HashCode.Combine(Ssid);
+    public override int GetHashCode() => HashCode.Combine(Ssids);
 
-    public override string ToString() => $"{nameof(Ssid)}: {Ssid}";
+    public override string ToString() => $"{nameof(Ssids)}: {string.Join(",", Ssids)}";
 }

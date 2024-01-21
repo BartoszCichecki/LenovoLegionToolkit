@@ -73,9 +73,9 @@ public interface IUserInactivityPipelineTrigger : IAutomationPipelineTrigger
 
 public interface IWiFiConnectedPipelineTrigger : IAutomationPipelineTrigger
 {
-    string? Ssid { get; }
+    string[] Ssids { get; }
 
-    IWiFiConnectedPipelineTrigger DeepCopy(string? ssid);
+    IWiFiConnectedPipelineTrigger DeepCopy(string[] ssids);
 }
 
 public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
