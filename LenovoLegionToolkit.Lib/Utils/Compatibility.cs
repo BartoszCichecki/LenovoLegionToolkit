@@ -40,6 +40,7 @@ public static class Compatibility
         "15APH",
         "15ARH",
         "15IAH",
+        "15IAX",
         "15IHU",
         "15IMH",
         "15IRH",
