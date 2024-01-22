@@ -193,4 +193,7 @@
   <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
     <value>Bật</value>
   </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Khi thay đổi thiết lập trong chế độ Tùy Chỉnh</value>
+  </data>
 </root>

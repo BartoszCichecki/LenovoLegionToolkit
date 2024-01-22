@@ -1990,4 +1990,13 @@ Nécessite un redémarrage.</value>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Logo de démarrage personnalisé appliqué.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Nom du point d'accès (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Copier le nom du point d'accès actuel</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Laisser vide pour n'importe quel réseau Wi-Fi.</value>
+  </data>
 </root>
