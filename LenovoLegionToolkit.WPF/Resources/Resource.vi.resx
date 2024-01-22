@@ -189,8 +189,8 @@ Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Pow
     <value>Chưa có Hành động nào được tạo. Bấm "Thêm mới" để tạo Hành động mới.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Nếu kích hoạt, các Hành động này sẽ chạy tự động. Khi điều kiện thay đổi, các Hành động sẽ được đọc từ trên xuống dưới.
-Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</value>
+    <value>Nếu chọn kích hoạt, các Hành động bên dưới sẽ tự động chạy. Khi có bất cứ điều kiện nào thay đổi, tất cả các Hành động sẽ được đánh giá lại theo thứ tự từ trên xuống dưới.
+Chỉ có các Hành động thỏa điều kiện hiện tại sẽ được chạy.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Hành động</value>
@@ -241,7 +241,7 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Đặc quyền</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>Không thực hiện thêm bất kì Hành động khác sau khi thực hiện xong.</value>
+    <value>Không thực hiện thêm bất kì Hành động nào khác sau khi thực hiện xong Hành động này.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Chạy ngay bây giờ</value>
@@ -295,13 +295,13 @@ Chỉ có các chức năng hợp với điều kiện sẽ được chạy.</va
     <value>Cài đặt chế độ Cân bằng</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
-    <value>Chọn pin được sạc như thế nào.</value>
+    <value>Chọn cách pin được sạc.</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ Pin</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
-    <value>Chọn pin được sạc như thế nào.</value>
+    <value>Chọn cách pin được sạc.</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
     <value>Chế độ Pin</value>
@@ -398,7 +398,7 @@ Thời gian có thể không chính xác nếu laptop được sạc khi Ngủ h
     <value>Đỏ</value>
   </data>
   <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
-    <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
+    <value>Chọn chế độ hoạt động của GPU dựa trên cách bạn sử dụng máy tính và tình trạng nguồn điện.
 Chuyển đổi giữa các chế độ có thể cần phải khởi động lại.</value>
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
@@ -552,7 +552,7 @@ Xin chân thành cảm ơn!</value>
     <value>Chỉnh sửa</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-    <value>Bỏ tích những tần số quét mà bạn không muốn dùng khi dùng phím FN+R.</value>
+    <value>Bỏ tích những tần số quét mà bạn không muốn dùng khi dùng tổ hợp phím Fn+R.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>Hãy đảm bảo màn hình laptop bật. Lenovo Legion Toolkit không thể đổi tần số quét nếu màn hình laptop không bật.</value>
@@ -621,16 +621,16 @@ Xin chân thành cảm ơn!</value>
     <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>Bật máy khi lật mở màn hình.</value>
+    <value>Khởi động laptop khi bạn mở màn hình.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
-    <value>Lật để bật máy</value>
+    <value>Mở màn hình để khởi động</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>Bật máy khi lật mở màn hình.</value>
+    <value>Khởi động laptop khi bạn mở màn hình.</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
-    <value>Lật để bật máy</value>
+    <value>Mở màn hình để khởi động</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Sử dụng các chức năng thứ 2 của hàng phím chức năng F1-F12 mà không giữ phím FN.</value>
@@ -639,21 +639,21 @@ Xin chân thành cảm ơn!</value>
     <value>Khóa phím Fn</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
-    <value>Sử dụng các chức năng thứ 2 của hàng phím F1-F12 mà không giữ phím FN.</value>
+    <value>Sử dụng các chức năng thứ 2 của hàng phím F1-F12 mà không cần giữ phím Fn.</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Khóa phím Fn</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>CẢNH BÁO!
-Một số laptop có thể nhận giá trị thấp hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
+Một số laptop có thể nhận giá trị thấp hơn mức cho phép, nên bạn hãy cẩn thận. Chức năng này có thể khiến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, hãy giữ nguyên giá trị này tại 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
     <value>Minimum offset</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
     <value>CẢNH BÁO!
-Một số laptop có thể nhận giá trị cao hơn cho phép, nhưng hãy cẩn thận. Chức năng có thể dẫn đến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, giữ nguyên giá trị này tại 0.</value>
+Một số laptop có thể nhận giá trị thấp hơn mức cho phép, nên bạn hãy cẩn thận. Chức năng này có thể khiến laptop hoạt động không ổn định. Nếu bạn không biết bạn đang làm gì, hãy giữ nguyên giá trị này tại 0.</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
     <value>Maximum offset</value>
@@ -720,7 +720,7 @@ THẬT CẨN THẬN KHI SỬ DỤNG LỰA CHỌN NÀY!!! KHÔNG NÊN SỬ DỤNG
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>Bật HDR (Dải tương phản động rộng) trên màn hình laptop.
 
-CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt.</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -780,7 +780,7 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Cài đặt</value>
   </data>
   <data name="MainWindow_UpdateAvailable" xml:space="preserve">
-    <value>Có cập nhật mới!</value>
+    <value>Có bản cập nhật mới!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
     <value>Bản cập nhật {0} đã có sẵn!</value>
@@ -861,7 +861,7 @@ CẢNH BÁO: Hành động sẽ không chạy nếu màn hình laptop tắt.</va
     <value>Caps Lock và Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Tắt các thông báo cho các phím tắt Fn, ví dụ như tắt mic thu âm.
+    <value>Tắt thông báo của các phím tắt Fn, ví dụ như tắt microphone.
 Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -934,7 +934,7 @@ Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toà
     <value>Đã có lỗi xảy ra</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
-    <value>Có cập nhật mới!</value>
+    <value>Có bản cập nhật mới!</value>
   </data>
   <data name="PackageControl_OldPackageWarning" xml:space="preserve">
     <value>Gói cài đặt này đã hơn 1 năm tuổi.</value>
@@ -944,7 +944,7 @@ Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toà
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
     <value>Dưới đây là danh sách các gói cài đặt được đánh dấu là tương thích với laptop của bạn.
-Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</value>
+Luôn kiểm tra rằng bạn cài đặt đúng các gói cài đặt mà bạn muốn cài.</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>Kiểm tra Mã máy và Hệ điều hành được đặt đúng.</value>
@@ -953,7 +953,7 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Đã có lỗi xảy ra</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>Đổi thứ tự sắp xếp, lọc kết quả, ẩn các gói cài đặt hoặc làm mới danh sách sẽ dừng tất cả các gói đang được tải về. Bạn có muốn tiếp tục?</value>
+    <value>Thay đổi thứ tự sắp xếp, lọc kết quả, ẩn các gói cài đặt hoặc làm mới danh sách sẽ dừng quá trình tải về. Bạn có muốn tiếp tục?</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>Đang tải xuống</value>
@@ -974,7 +974,7 @@ Luôn kiểm tra rằng bạn cài đặt đúng gói cài đặt mong muốn.</
     <value>Chính (Khuyên Dùng)</value>
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
-    <value>Tương tự như trên Lenovo PC Support</value>
+    <value>Tương tự như trên Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
     <value>Phụ</value>
@@ -1897,6 +1897,9 @@ Yêu cầu khởi động lại.</value>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Cập nhật</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>Công suất Dynamic Boost nhường từ GPU sang CPU</value>
+  </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
     <value>Đây là công suất bổ sung tối đa có thể được đưa cho GPU từ CPU dựa trên mức sử dụng CPU. Giá trị càng cao thì hiệu suất của các ứng dụng sử dụng GPU càng cao.</value>
   </data>
@@ -1970,8 +1973,17 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
     <value>Không thể mount phân vùng EFI.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>Không thể cài đặt quyền ưu tiên với UEFI.</value>
+  </data>
   <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
     <value>Không đủ chỗ trống trên phân vùng EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>Logo tùy chỉnh không thể được đặt: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>Logo nguyên bản không thể được đặt: {0}</value>
   </data>
   <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
     <value>Đang dùng logo khởi động mặc định.</value>
