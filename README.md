@@ -418,6 +418,10 @@ Some, less frequently needed, features or options can be enabled by using additi
 * `--force-disable-spectrumkb` - disables all lighting features for Spectrum per-key RGB keyboards
 * `--force-disable-lenovolighting` - disables all lighting features related to panel logo, ports backlight and some white backlit keyboards
 * `--experimental-gpu-working-mode` - changes GPU Working Mode switch to use experimental method, that is used by LegionZone _(No support is provided when this argument is used)_
+* `--proxyUrl=example.com` - specifies proxy server URL that LLT should use
+* `--proxyUsername=some_username` - if applicable, specifies proxy server username to use
+* `--proxyPassword=some_password` - if applicable, specifies proxy server password to use
+* `--proxyAllowAllCerts` - if needed relaxes criteria needed to establish HTTPS/SSL connections via proxy server
 
 If you decide to use the arguments with `args.txt` file:
 1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`
