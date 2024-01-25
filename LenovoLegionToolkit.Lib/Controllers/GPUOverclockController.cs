@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
@@ -17,14 +18,21 @@ public class GPUOverclockController
     private readonly GPUOverclockSettings _settings;
     private readonly VantageDisabler _vantageDisabler;
     private readonly LegionZoneDisabler _legionZoneDisabler;
+    private readonly NativeWindowsMessageListener _nativeWindowsMessageListener;
 
     public event EventHandler? Changed;
 
-    public GPUOverclockController(GPUOverclockSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
+    public GPUOverclockController(GPUOverclockSettings settings,
+        VantageDisabler vantageDisabler,
+        LegionZoneDisabler legionZoneDisabler,
+        NativeWindowsMessageListener nativeWindowsMessageListener)
     {
         _settings = settings ?? throw new ArgumentNullException(nameof(settings));
         _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
         _legionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
+        _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
+
+        _nativeWindowsMessageListener.Changed += NativeWindowsMessageListenerOnChanged;
     }
 
     public static int GetMaxCoreDeltaMhz() => 250;
@@ -108,7 +116,6 @@ public class GPUOverclockController
                 Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
 
             Changed?.Invoke(this, EventArgs.Empty);
-
             return;
         }
 
@@ -118,7 +125,6 @@ public class GPUOverclockController
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
 
             Changed?.Invoke(this, EventArgs.Empty);
-
             return;
         }
 
@@ -192,6 +198,15 @@ public class GPUOverclockController
 
         await ApplyStateAsync().ConfigureAwait(false);
         return true;
+    }
+
+    private async void NativeWindowsMessageListenerOnChanged(object? sender, NativeWindowsMessage e)
+    {
+        if (e != NativeWindowsMessage.OnDisplayDeviceArrival)
+            return;
+
+        if (await IsSupportedAsync().ConfigureAwait(false))
+            await ApplyStateAsync().ConfigureAwait(false);
     }
 
     private static int GetMaxMemoryDeltaMhz(PhysicalGPU? gpu) => gpu?.MemoryInformation.RAMMaker switch
