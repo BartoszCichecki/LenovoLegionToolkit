@@ -1985,12 +1985,6 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
     <value>Logo nguyên bản không thể được đặt: {0}</value>
   </data>
-  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
-    <value>Đang dùng logo khởi động mặc định.</value>
-  </data>
-  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
-    <value>Đang dùng logo khởi động tùy chỉnh.</value>
-  </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
 	  <value>Tên mạng (SSID)</value>
   </data>
