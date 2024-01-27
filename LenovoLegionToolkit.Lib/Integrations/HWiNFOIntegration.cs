@@ -13,8 +13,8 @@ public class HWiNFOIntegration
     private const string CUSTOM_SENSOR_HIVE = "HKEY_CURRENT_USER";
     private const string CUSTOM_SENSOR_PATH = @"Software\HWiNFO64\Sensors\Custom";
     private const string CUSTOM_SENSOR_GROUP_NAME = "Lenovo Legion Toolkit";
-    private const string CPU_SENSOR_NAME = "CPU Fan Speed";
-    private const string GPU_SENSOR_NAME = "GPU Fan Speed";
+    private const string CPU_SENSOR_NAME = "CPU Fan";
+    private const string GPU_SENSOR_NAME = "GPU Fan";
 
     private readonly TimeSpan _refreshInterval = TimeSpan.FromSeconds(1);
 
