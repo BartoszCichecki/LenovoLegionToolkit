@@ -103,6 +103,13 @@ public abstract class AbstractSensorsController : ISensorsController
         return result;
     }
 
+    public async Task<(int cpuFanSpeed, int gpuFanSpeed)> GetFanSpeedsAsync()
+    {
+        var cpuFanSpeed = await GetCpuCurrentFanSpeedAsync().ConfigureAwait(false);
+        var gpuFanSpeed = await GetGpuCurrentFanSpeedAsync().ConfigureAwait(false);
+        return (cpuFanSpeed, gpuFanSpeed);
+    }
+
     protected abstract Task<int> GetCpuCurrentTemperatureAsync();
 
     protected abstract Task<int> GetGpuCurrentTemperatureAsync();

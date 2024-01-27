@@ -211,5 +211,22 @@
                 FontSize="20"
                 Symbol="Open24" />
         </wpfui:CardControl>
+
+        <TextBlock
+            Margin="0,16,0,24"
+            FontSize="24"
+            FontWeight="Medium"
+            Text="{x:Static resources:Resource.SettingsPage_Integrations_Title}" />
+
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_HWiNFO_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_HWiNFO_Message}" />
+            </wpfui:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_hwinfoIntegrationToggle"
+                Margin="0,0,0,8"
+                Click="HWiNFOIntegrationToggle_Click"
+                Visibility="Hidden" />
+        </wpfui:CardControl>
     </StackPanel>
 </wpfui:UiPage>
