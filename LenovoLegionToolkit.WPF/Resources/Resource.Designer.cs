@@ -4637,7 +4637,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Share fan speed data with HWiNFO64. You may need to restart HWiNFO64 after changing this option..
+        ///   Looks up a localized string similar to Share fan speed, battery temperature etc. with HWiNFO64. You may need to restart HWiNFO64 after changing this option..
         /// </summary>
         public static string SettingsPage_HWiNFO_Message {
             get {
