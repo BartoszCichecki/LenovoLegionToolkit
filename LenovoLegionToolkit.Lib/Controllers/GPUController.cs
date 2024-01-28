@@ -4,12 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using AsyncKeyedLock;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Resources;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
-using AsyncKeyedLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
@@ -51,11 +51,8 @@ public class GPUController
 
     public async Task<GPUStatus> RefreshNowAsync()
     {
-        using (await _lock.LockAsync().ConfigureAwait(false))
-        {
-            await RefreshLoopAsync(0, 0, CancellationToken.None).ConfigureAwait(false);
-            return new GPUStatus(_state, _performanceState, _processes);
-        }
+        await RefreshLoopAsync(0, 0, CancellationToken.None).ConfigureAwait(false);
+        return new GPUStatus(_state, _performanceState, _processes);
     }
 
     public async Task StartAsync(int delay = 1_000, int interval = 5_000)
