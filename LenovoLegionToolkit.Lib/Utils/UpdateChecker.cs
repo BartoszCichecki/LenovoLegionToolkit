@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
-using NeoSmart.AsyncLock;
+using AsyncKeyedLock;
 using Octokit;
 using Octokit.Internal;
 
@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit.Lib.Utils;
 public class UpdateChecker
 {
     private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
-    private readonly AsyncLock _updateSemaphore = new();
+    private readonly AsyncNonKeyedLocker _updateSemaphore = new();
 
     private readonly HttpClientFactory _httpClientFactory;
 

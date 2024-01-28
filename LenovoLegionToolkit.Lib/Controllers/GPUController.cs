@@ -9,13 +9,13 @@ using LenovoLegionToolkit.Lib.Resources;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
-using NeoSmart.AsyncLock;
+using AsyncKeyedLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class GPUController
 {
-    private readonly AsyncLock _lock = new();
+    private readonly AsyncNonKeyedLocker _lock = new();
 
     private Task? _refreshTask;
     private CancellationTokenSource? _refreshCancellationTokenSource;

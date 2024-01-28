@@ -6,7 +6,7 @@ using Windows.Win32;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
-using NeoSmart.AsyncLock;
+using AsyncKeyedLock;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
@@ -20,7 +20,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 {
     public class RGBKeyboardBacklightController
     {
-        private static readonly AsyncLock IoLock = new();
+        private static readonly AsyncNonKeyedLocker IoLock = new();
 
         private readonly RGBKeyboardSettings _settings;
 

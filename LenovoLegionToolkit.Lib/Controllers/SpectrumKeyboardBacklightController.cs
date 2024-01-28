@@ -11,7 +11,7 @@ using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
-using NeoSmart.AsyncLock;
+using AsyncKeyedLock;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Windows.Win32;
@@ -43,7 +43,7 @@ public class SpectrumKeyboardBacklightController
         }
     }
 
-    private static readonly AsyncLock GetDeviceHandleLock = new();
+    private static readonly AsyncNonKeyedLocker GetDeviceHandleLock = new();
     private static readonly object IoLock = new();
 
     private readonly TimeSpan _auroraRefreshInterval = TimeSpan.FromMilliseconds(60);

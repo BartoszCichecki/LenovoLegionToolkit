@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
-using NeoSmart.AsyncLock;
+using AsyncKeyedLock;
 using Windows.Win32;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
 using Windows.Win32.UI.WindowsAndMessaging;
@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class SmartFnLockController
 {
-    private readonly AsyncLock _lock = new();
+    private readonly AsyncNonKeyedLocker _lock = new();
 
     private readonly FnLockFeature _feature;
     private readonly ApplicationSettings _settings;
