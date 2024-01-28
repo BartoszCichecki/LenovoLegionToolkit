@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
@@ -113,6 +114,12 @@ public class EditDashboardGroupControl : UserControl
         _cardHeaderControl.Accessory = _buttonsStackPanel;
         _cardExpander.Header = _cardHeaderControl;
         _cardExpander.Content = _stackPanel;
+
+        AutomationProperties.SetName(_cardExpander, _cardHeaderControl.Title);
+        AutomationProperties.SetName(_editButton, _cardHeaderControl.Title);
+        AutomationProperties.SetName(_moveUpButton, _cardHeaderControl.Title);
+        AutomationProperties.SetName(_moveDownButton, _cardHeaderControl.Title);
+        AutomationProperties.SetName(_deleteButton, _cardHeaderControl.Title);
 
         Content = _cardExpander;
     }

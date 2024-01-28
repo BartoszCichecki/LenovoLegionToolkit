@@ -39,6 +39,8 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         Title = Resource.PowerModeControl_Title;
         Subtitle = Resource.PowerModeControl_Message;
 
+        AutomationProperties.SetName(_configButton, Resource.PowerModeControl_Title);
+
         _thermalModeListener.Changed += ThermalModeListener_Changed;
         _powerModeListener.Changed += PowerModeListener_Changed;
         _powerPlanListener.Changed += PowerPlanListener_Changed;
@@ -115,8 +117,6 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
     protected override FrameworkElement GetAccessory(ComboBox comboBox)
     {
-        AutomationProperties.SetName(_configButton, Resource.PowerModeControl_Title);
-
         _configButton.Click += ConfigButton_Click;
 
         var stackPanel = new StackPanel

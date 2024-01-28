@@ -2011,4 +2011,7 @@ Supported formats are: {1}.</value>
   <data name="Settings" xml:space="preserve">
 	  <value>Settings</value>
   </data>
+  <data name="Information" xml:space="preserve">
+	  <value>Information</value>
+  </data>
 </root>

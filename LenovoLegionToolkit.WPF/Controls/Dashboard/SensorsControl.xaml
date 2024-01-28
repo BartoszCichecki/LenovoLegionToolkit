@@ -11,7 +11,7 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <wpfui:CardControl>
+    <wpfui:CardControl Focusable="False">
         <wpfui:CardControl.Header>
             <Grid>
                 <Grid.ColumnDefinitions>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -46,6 +47,8 @@ public static class HybridModeControlFactory
             Icon = SymbolRegular.LeafOne24;
             Title = Resource.ComboBoxHybridModeControl_Title;
             Subtitle = Resource.ComboBoxHybridModeControl_Message;
+
+            AutomationProperties.SetName(_infoButton, $"{Resource.ComboBoxHybridModeControl_Title} {Resource.Information}");
 
             _dgpuNotify.Notified += DGPUNotify_Notified;
         }

@@ -52,6 +52,7 @@
             x:Name="_infoBar"
             Grid.Row="1"
             Margin="12,0,16,16"
+            Focusable="False"
             Icon="Info24">
             <wpfui:CardControl.Header>
                 <TextBlock Text="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}" TextWrapping="Wrap" />
@@ -65,11 +66,11 @@
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer x:Name="_groupsScrollViewer">
                 <StackPanel>
-                    <wpfui:CardControl Margin="0,0,16,16">
+                    <wpfui:CardControl Margin="0,0,16,16" Focusable="False">
                         <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
                         </wpfui:CardControl.Header>
-                        <wpfui:ToggleSwitch x:Name="_sensorsSwitch" />
+                        <wpfui:ToggleSwitch x:Name="_sensorsSwitch" AutomationProperties.Name="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
                     </wpfui:CardControl>
                     <StackPanel x:Name="_groupsStackPanel" Margin="0,0,16,0" />
                 </StackPanel>
