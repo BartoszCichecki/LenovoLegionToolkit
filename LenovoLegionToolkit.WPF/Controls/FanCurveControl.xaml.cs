@@ -327,10 +327,15 @@ public partial class FanCurveControl
             }
         }
 
-        private static string GetDescription(FanTableData tableData, int index, int value)
+        private static string? GetDescription(FanTableData tableData, int index, int value)
         {
+            var temp = tableData.Temps[index];
+
+            if (temp >= 127)
+                return null;
+
             var rpm = value < 0 ? 0 : tableData.FanSpeeds[value];
-            return $"{tableData.Temps[index]}{Resource.Celsius} @ {rpm} {Resource.RPM}";
+            return $"{temp}{Resource.Celsius} @ {rpm} {Resource.RPM}";
         }
     }
 }
