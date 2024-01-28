@@ -10,14 +10,19 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <wpfui:CardControl Margin="0,0,0,8" Icon="Desktop24">
+    <wpfui:CardControl
+        Margin="0,0,0,8"
+        Focusable="False"
+        Icon="Desktop24">
         <wpfui:CardControl.Header>
             <controls:CardHeaderControl Title="{x:Static resources:Resource.TurnOffMonitorsControl_Title}" Subtitle="{x:Static resources:Resource.TurnOffMonitorsControl_Message}" />
         </wpfui:CardControl.Header>
         <wpfui:Button
             x:Name="_turnOffButton"
             MinWidth="120"
+            AutomationProperties.Name="{x:Static resources:Resource.TurnOffMonitorsControl_Title}"
             Click="TurnOffButton_Click"
-            Content="{x:Static resources:Resource.TurnOffMonitorsControl_TurnOff}" />
+            Content="{x:Static resources:Resource.TurnOffMonitorsControl_TurnOff}"
+            Focusable="True" />
     </wpfui:CardControl>
 </controls:AbstractRefreshingControl>

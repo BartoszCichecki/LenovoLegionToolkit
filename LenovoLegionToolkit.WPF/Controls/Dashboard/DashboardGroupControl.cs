@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 
@@ -25,13 +26,16 @@ public class DashboardGroupControl : UserControl
     {
         var stackPanel = new StackPanel { Margin = new(0, 0, 16, 0) };
 
-        stackPanel.Children.Add(new TextBlock
+        var textBlock = new TextBlock
         {
             Text = _dashboardGroup.GetName(),
+            Focusable = true,
             FontSize = 24,
             FontWeight = FontWeights.Medium,
             Margin = new(0, 16, 0, 24)
-        });
+        };
+        AutomationProperties.SetName(textBlock, textBlock.Text);
+        stackPanel.Children.Add(textBlock);
 
         var controlsTasks = _dashboardGroup.Items.Select(i => i.GetControlAsync());
         var controls = await Task.WhenAll(controlsTasks);

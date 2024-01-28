@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -114,6 +115,8 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
     protected override FrameworkElement GetAccessory(ComboBox comboBox)
     {
+        AutomationProperties.SetName(_configButton, Resource.PowerModeControl_Title);
+
         _configButton.Click += ConfigButton_Click;
 
         var stackPanel = new StackPanel
