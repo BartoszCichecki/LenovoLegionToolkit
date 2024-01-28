@@ -139,6 +139,14 @@ public static class Registry
         Microsoft.Win32.Registry.SetValue(@$"{hive}\{subKey}", valueName, value);
     }
 
+    public static void Delete(string hive, string subKey)
+    {
+        using var registryKey = GetBaseKey(hive);
+        if (registryKey.OpenSubKey(subKey) is null)
+            return;
+        registryKey.DeleteSubKeyTree(subKey);
+    }
+
     private static RegistryKey GetBaseKey(string hive) => hive switch
     {
         "HKLM" or "HKEY_LOCAL_MACHINE" => Microsoft.Win32.Registry.LocalMachine,

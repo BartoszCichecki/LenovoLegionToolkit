@@ -2000,4 +2000,13 @@ Desteklenen biçimler: {1}.</value>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>Herhangi bir Wi-Fi ağı için boş bırakın.</value>
   </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>HWiNFO64 ile fan hızını, pil sıcaklığını vb. paylaşın. Bu seçeneği değiştirdikten sonra HWiNFO64 yeniden başlatılması gerekebilir.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Bütünleşmeler</value>
+  </data>
 </root>

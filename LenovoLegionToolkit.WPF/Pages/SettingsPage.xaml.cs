@@ -9,6 +9,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
@@ -23,6 +24,7 @@ namespace LenovoLegionToolkit.WPF.Pages;
 public partial class SettingsPage
 {
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly IntegrationsSettings _integrationsSettings = IoCContainer.Resolve<IntegrationsSettings>();
 
     private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
     private readonly LegionZoneDisabler _legionZoneDisabler = IoCContainer.Resolve<LegionZoneDisabler>();
@@ -30,6 +32,7 @@ public partial class SettingsPage
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
+    private readonly HWiNFOIntegration _hwinfoIntegration = IoCContainer.Resolve<HWiNFOIntegration>();
 
     private bool _isRefreshing;
 
@@ -107,6 +110,8 @@ public partial class SettingsPage
 
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
+        _hwinfoIntegrationToggle.IsChecked = _integrationsSettings.Store.HWiNFO;
+
         await loadingTask;
 
         _themeComboBox.Visibility = Visibility.Visible;
@@ -117,6 +122,7 @@ public partial class SettingsPage
         _fnKeysToggle.Visibility = Visibility.Visible;
         _smartFnLockComboBox.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
+        _hwinfoIntegrationToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
     }
@@ -488,5 +494,16 @@ public partial class SettingsPage
     private void PowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
     {
         Process.Start("control", "/name Microsoft.PowerOptions");
+    }
+
+    private async void HWiNFOIntegrationToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        _integrationsSettings.Store.HWiNFO = _hwinfoIntegrationToggle.IsChecked ?? false;
+        _integrationsSettings.SynchronizeStore();
+
+        await _hwinfoIntegration.StartStopIfNeededAsync();
     }
 }

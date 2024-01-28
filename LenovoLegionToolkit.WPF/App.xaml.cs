@@ -20,6 +20,7 @@ using LenovoLegionToolkit.Lib.Features.Hybrid;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Features.PanelLogo;
 using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
+using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
@@ -113,6 +114,7 @@ public partial class App
         await InitHybridModeAsync();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
+        await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
 
 #if !DEBUG
         Autorun.Validate();

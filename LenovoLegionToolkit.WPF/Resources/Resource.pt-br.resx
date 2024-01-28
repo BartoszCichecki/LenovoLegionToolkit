@@ -1986,4 +1986,13 @@ Requer reinicialização.</value>
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>Definição da imagem de boot padrão.</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Nome da rede (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Copiar o nome da rede atual</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Deixe em branco para qualquer rede WI-FI.</value>
+  </data>
 </root>

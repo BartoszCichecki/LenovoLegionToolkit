@@ -136,7 +136,7 @@
     <value>{0} giây</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Khi nối với nguồn điện công suất thấp</value>
+    <value>Khi kết nối với nguồn điện công suất thấp</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi khởi động</value>

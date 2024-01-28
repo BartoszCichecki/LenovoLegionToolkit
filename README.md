@@ -281,7 +281,7 @@ Translations provided by:
 * Russian - [Edward Johan](https://github.com/younyokel)
 * Turkish - Undervolt
 * Ukrainian -  [Vladyslav Prydatko](https://github.com/va1dee), [Dmytro Zozulia](https://github.com/Nollasko)
-* Vietnamese - Not_Nhan, Kuri
+* Vietnamese - Not_Nhan, Kuri, Nagidrop
 
 Many thanks to everyone else, who monitors and corrects translations!
 

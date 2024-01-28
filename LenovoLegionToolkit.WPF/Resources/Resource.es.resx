@@ -2002,4 +2002,13 @@ Requiere un reinicio.</value>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>Dejar vacío para cualquier red Wi-Fi.</value>
   </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>Compartir la velocidad del ventilador, la temperatura de la batería, etc... con HWiNFO64. Puede que tenga que reiniciar HWiNFO64 después de cambiar esta opción.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Integraciones</value>
+  </data>
 </root>
