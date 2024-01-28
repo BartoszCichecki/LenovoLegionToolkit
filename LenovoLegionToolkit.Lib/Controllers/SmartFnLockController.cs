@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using AsyncKeyedLock;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
-using AsyncKeyedLock;
 using Windows.Win32;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
 using Windows.Win32.UI.WindowsAndMessaging;

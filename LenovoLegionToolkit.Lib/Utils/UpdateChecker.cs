@@ -4,8 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.Extensions;
 using AsyncKeyedLock;
+using LenovoLegionToolkit.Lib.Extensions;
 using Octokit;
 using Octokit.Internal;
 
