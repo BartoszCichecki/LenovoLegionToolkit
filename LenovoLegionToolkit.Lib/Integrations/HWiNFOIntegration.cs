@@ -66,12 +66,12 @@ public class HWiNFOIntegration
     {
         try
         {
+            await SetSensorValuesAsync().ConfigureAwait(false);
+
             while (true)
             {
-                token.ThrowIfCancellationRequested();
-                await SetSensorValuesAsync().ConfigureAwait(false);
                 await Task.Delay(_refreshInterval, token).ConfigureAwait(false);
-
+                await SetSensorValuesAsync(false).ConfigureAwait(false);
             }
         }
         catch (OperationCanceledException) { }
@@ -82,35 +82,34 @@ public class HWiNFOIntegration
         }
     }
 
-    private async Task SetSensorValuesAsync()
+    private async Task SetSensorValuesAsync(bool firstRun = true)
     {
         var (cpuFanSpeed, gpuFanSpeed) = await _sensorController.GetFanSpeedsAsync().ConfigureAwait(false);
         var batteryTemp = Battery.GetBatteryInformation().BatteryTemperatureC;
 
-        SetValue(SENSOR_TYPE_FAN, 0, CPU_FAN_SENSOR_NAME, cpuFanSpeed);
-        SetValue(SENSOR_TYPE_FAN, 1, GPU_FAN_SENSOR_NAME, gpuFanSpeed);
+        SetValue(SENSOR_TYPE_FAN, 0, CPU_FAN_SENSOR_NAME, cpuFanSpeed, firstRun);
+        SetValue(SENSOR_TYPE_FAN, 1, GPU_FAN_SENSOR_NAME, gpuFanSpeed, firstRun);
 
-        if (batteryTemp.HasValue)
-        {
-            var nfi = new NumberFormatInfo { NumberDecimalSeparator = "." };
-            SetValue(SENSOR_TYPE_TEMP, 0, BATTERY_TEMP_SENSOR_NAME, batteryTemp.Value.ToString(nfi));
-        }
-        else
-        {
-            SetValue(SENSOR_TYPE_TEMP, 0, BATTERY_TEMP_SENSOR_NAME, string.Empty);
-        }
+        var batteryTempString = batteryTemp.HasValue
+            ? batteryTemp.Value.ToString(new NumberFormatInfo { NumberDecimalSeparator = "." })
+            : string.Empty;
+        SetValue(SENSOR_TYPE_TEMP, 0, BATTERY_TEMP_SENSOR_NAME, batteryTempString, firstRun);
     }
 
-    private static void SetValue<T>(string type, int index, string name, T value) where T : notnull
+    private static void SetValue<T>(string type, int index, string name, T value, bool firstRun) where T : notnull
     {
-        Registry.SetValue(CUSTOM_SENSOR_HIVE,
-            $@"{CUSTOM_SENSOR_PATH}\{CUSTOM_SENSOR_GROUP_NAME}\{type}{index}",
-            "Name",
-            name);
         Registry.SetValue(CUSTOM_SENSOR_HIVE,
             $@"{CUSTOM_SENSOR_PATH}\{CUSTOM_SENSOR_GROUP_NAME}\{type}{index}",
             "Value",
             value);
+
+        if (!firstRun)
+            return;
+
+        Registry.SetValue(CUSTOM_SENSOR_HIVE,
+            $@"{CUSTOM_SENSOR_PATH}\{CUSTOM_SENSOR_GROUP_NAME}\{type}{index}",
+            "Name",
+            name);
     }
 
     private static void ClearValues()
