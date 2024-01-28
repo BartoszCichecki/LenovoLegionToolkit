@@ -13,6 +13,8 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
+            AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.BatteryPage_Title}" />
@@ -30,24 +32,32 @@
                     x:Name="_percentRemaining"
                     Margin="0,0,0,4"
                     HorizontalAlignment="Left"
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
                     FlowDirection="LeftToRight"
+                    Focusable="True"
                     FontSize="32"
                     FontWeight="Medium" />
                 <TextBlock
                     x:Name="_status"
                     Margin="0,0,0,2"
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
+                    Focusable="True"
                     FontSize="16"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <TextBlock
                     x:Name="_lowBattery"
                     Margin="0,0,0,2"
+                    Focusable="True"
                     FontSize="14"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
                     Text="{x:Static resources:Resource.BatteryPage_LowLevel}"
                     Visibility="Hidden" />
                 <TextBlock
                     x:Name="_lowWattageCharger"
+                    Focusable="True"
                     FontSize="14"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
                     Text="{x:Static resources:Resource.BatteryPage_LowWattageChargerConnected}"
