@@ -85,7 +85,7 @@ public class HWiNFOIntegration
     private async Task SetSensorValuesAsync(bool firstRun = true)
     {
         var (cpuFanSpeed, gpuFanSpeed) = await _sensorController.GetFanSpeedsAsync().ConfigureAwait(false);
-        var batteryTemp = Battery.GetBatteryInformation().BatteryTemperatureC;
+        var batteryTemp = Battery.GetBatteryTemperatureC();
 
         SetValue(SENSOR_TYPE_FAN, 0, CPU_FAN_SENSOR_NAME, cpuFanSpeed, firstRun);
         SetValue(SENSOR_TYPE_FAN, 1, GPU_FAN_SENSOR_NAME, gpuFanSpeed, firstRun);

@@ -56,6 +56,21 @@ public static class Battery
         };
     }
 
+    public static double? GetBatteryTemperatureC()
+    {
+        try
+        {
+            var lenovoBatteryInformation = FindLenovoBatteryInformation();
+            return lenovoBatteryInformation.HasValue ? DecodeTemperatureC(lenovoBatteryInformation.Value.Temperature) : null;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get temperature of battery.", ex);
+            return null;
+        }
+    }
+
     public static DateTime? GetOnBatterySince()
     {
         try
@@ -190,8 +205,11 @@ public static class Battery
     {
         try
         {
+            if (s < 1)
+                return null;
+
             var date = new DateTime((s >> 9) + 1980, (s >> 5) & 15, (s & 31), 0, 0, 0, DateTimeKind.Unspecified);
-            if (date.Year is < 2018 or > 2026)
+            if (date.Year is < 2018 or > 2030)
                 return null;
             return date;
         }
