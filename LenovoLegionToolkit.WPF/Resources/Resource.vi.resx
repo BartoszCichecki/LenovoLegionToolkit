@@ -1985,6 +1985,12 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
     <value>Logo nguyên bản không thể được đặt: {0}</value>
   </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Logo khởi động mặc định được đặt.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Logo khởi động tùy chỉnh được đặt.</value>
+  </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
 	  <value>Tên mạng (SSID)</value>
   </data>
@@ -1993,5 +1999,14 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>Bỏ trống cho bất kì mạng Wi-Fi nào.</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>Dùng chung dữ liệu tốc độ quạt, nhiệt độ pin,... với HWiNFO64. Bạn có thể cần phải khởi động lại HWiNFO64 sau khi thay đổi tùy chọn này.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Tích hợp</value>
   </data>
 </root>
