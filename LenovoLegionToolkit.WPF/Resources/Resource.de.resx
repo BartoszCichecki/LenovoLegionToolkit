@@ -1999,4 +1999,13 @@ Unterstützte Formate sind: {1}.</value>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>Leer lassen für jedes Wi-Fi-Netzwerk.</value>
   </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>Teilen Sie Lüftergeschwindigkeit, Batterietemperatur usw. mit HWiNFO64. Möglicherweise müssen Sie HWiNFO64 neu starten, nachdem Sie diese Option geändert haben.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Integrationen</value>
+  </data>
 </root>

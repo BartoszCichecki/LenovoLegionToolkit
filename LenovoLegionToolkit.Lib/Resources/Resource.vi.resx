@@ -250,7 +250,7 @@
     <value>Tùy Chỉnh</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Hiệu suất</value>
+    <value>Hiệu Suất</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Im Lặng</value>
@@ -259,13 +259,13 @@
     <value>Nhanh</value>
   </data>
   <data name="RGBKeyboardBacklightSpeed_Fastest" xml:space="preserve">
-    <value>Nhanh hơn</value>
+    <value>Nhanh nhất</value>
   </data>
   <data name="RGBKeyboardBacklightSpeed_Slow" xml:space="preserve">
     <value>Chậm</value>
   </data>
   <data name="RGBKeyboardBacklightSpeed_Slowest" xml:space="preserve">
-    <value>Chậm hơn</value>
+    <value>Chậm nhất</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
     <value>Cao</value>

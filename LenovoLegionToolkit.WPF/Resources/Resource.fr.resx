@@ -1999,4 +1999,13 @@ Nécessite un redémarrage.</value>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>Laisser vide pour n'importe quel réseau Wi-Fi.</value>
   </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>Partager la vitesse du ventilateur, la température de la batterie, etc. avec HWiNFO64. Vous devrez peut-être redémarrer HWiNFO64 après avoir modifié cette option.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Intégrations</value>
+  </data>
 </root>
