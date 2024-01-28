@@ -292,7 +292,7 @@ Chỉ có các Hành động thỏa điều kiện hiện tại sẽ được ch
     <value>Kích hoạt AI Engine</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Cài đặt chế độ Cân bằng</value>
+    <value>Cài đặt chế độ Cân Bằng</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Chọn cách pin được sạc.</value>
@@ -1026,7 +1026,7 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
     <value>Bạn chắc chứ?</value>
   </data>
   <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Cân bằng</value>
+    <value>Cân Bằng</value>
   </data>
   <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
     <value>Tùy Chỉnh</value>
@@ -1041,7 +1041,7 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
     <value>Im Lặng</value>
   </data>
   <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Power plans</value>
+    <value>Power Plans</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Thay đổi tùy chọn đèn nền bàn phím.</value>
@@ -1091,7 +1091,7 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>Thay đổi tần số quét màn hình laptop.
 
-CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+CẢNH BÁO! Hành động này sẽ không chạy nếu màn hình laptop tắt.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Tần số quét</value>
@@ -1182,10 +1182,10 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage và/ hoặc ImController đã không được ngắt đúng cách</value>
+    <value>Vantage và/hoặc ImController đã không được ngắt đúng cách</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Không thể ngắt Vantage và/ hoặc ImController</value>
+    <value>Không thể ngắt Vantage và/hoặc ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
@@ -1207,10 +1207,10 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage hoặc ImController có thể đã không được kích hoạt đúng cách</value>
+    <value>Vantage và/hoặc ImController có thể đã không được kích hoạt đúng cách</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Không thể kích hoạt Vantage hoặc ImController</value>
+    <value>Không thể kích hoạt Vantage và/hoặc ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
@@ -1240,16 +1240,16 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Power plans</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
-    <value>Gán hành động nhanh khi gõ đúp FN+F9.</value>
+    <value>Gán hành động nhanh khi gõ đúp tổ hợp phím Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
-    <value>Hành động phụ cho phím tắt FN+F9</value>
+    <value>Hành động phụ cho phím tắt Fn+F9</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
-    <value>Gán hành động nhanh khi gõ đơn FN+F9.</value>
+    <value>Gán hành động nhanh khi gõ 1 lần tổ hợp phím Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
-    <value>Hành động chính cho phím tắt FN+F9</value>
+    <value>Hành động chính cho phím tắt Fn+F9</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Đặt giao diện sáng hoặc tối tùy theo cài đặt hệ thống.</value>
@@ -1288,10 +1288,10 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Hiệu ứng</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
-    <value>Không thể xuất profile</value>
+    <value>Không thể xuất cấu hình</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
-    <value>Không thể xuất profile</value>
+    <value>Không thể xuất cấu hình</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
     <value>Cấu hình không thể được nhập vào</value>
@@ -1360,17 +1360,17 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
     <value>Thời gian</value>
   </data>
   <data name="ToggleHybridModeControl_Message" xml:space="preserve">
-    <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
+    <value>Cho phép chuyển đổi giữa GPU tích hợp và GPU rời.
 Yêu cầu khởi động lại.</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Message" xml:space="preserve">
-    <value>Thay đổi chế độ Hybrid cần phải khởi động lại. Bạn có muốn khởi động lại ngay?</value>
+    <value>Bật tắt chế độ Hybrid cần phải khởi động lại. Bạn có muốn khởi động lại ngay?</value>
   </data>
   <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Cần khởi động lại</value>
   </data>
   <data name="ToggleHybridModeControl_Title" xml:space="preserve">
-    <value>Hybrid</value>
+    <value>Chế độ Hybrid</value>
   </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
     <value>Tắt Touchpad.</value>
@@ -1402,7 +1402,7 @@ Hãy báo cáo lỗi này tại {1}.</value>
 Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_GitHub" xml:space="preserve">
-    <value>Hãy truy cập trang của dự án trên Github để có thêm thông tin.</value>
+    <value>Hãy truy cập trang của dự án trên GitHub để biết thêm thông tin.</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
     <value>Thư mục log</value>
@@ -1411,7 +1411,7 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
     <value>Mã máy</value>
   </data>
   <data name="UnsupportedWindow_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit chưa được thử với thiết bị của bạn.</value>
+    <value>Lenovo Legion Toolkit chưa được kiểm thử trên thiết bị của bạn.</value>
   </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
     <value>Mẫu máy</value>
@@ -1482,7 +1482,7 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>Thay đổi độ phân giải màn hình laptop.
 
-CẢNH BẢO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+CẢNH BẢO! Hành động này sẽ không chạy nếu màn hình laptop tắt.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1496,7 +1496,7 @@ CẢNH BẢO! Hành động sẽ không chạy nếu màn hình laptop tắt.</v
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>Thay đổi scaling màn hình laptop.
 
-CẢNH BÁO! Hành động sẽ không chạy nếu màn hình laptop tắt.</value>
+CẢNH BÁO! Hành động này sẽ không chạy nếu màn hình laptop tắt.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Màn hình</value>
@@ -1560,10 +1560,10 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
     <value>Tên</value>
   </data>
   <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
-    <value>Đèn Logo bật</value>
+    <value>Đèn logo Legion bật</value>
   </data>
   <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
-    <value>Đèn Logo tắt</value>
+    <value>Đèn logo Legion tắt</value>
   </data>
   <data name="Notification_PortLightingOn" xml:space="preserve">
     <value>Đèn I/O bật</value>
@@ -1584,11 +1584,11 @@ Di chuyển chuột hoặc bấm phím bất kỳ trên bàn phím để bật m
     <value>Lưu &amp; Đóng</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
-    <value>Thiết lập sẵn chế độ tùy chỉnh</value>
+    <value>Thiết lập sẵn chế độ Tùy Chỉnh</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
-    <value>Kích hoạt thiết lập sẵn trong chế độ tùy chỉnh.
-Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
+    <value>Kích hoạt thiết lập sẵn trong chế độ Tùy Chỉnh.
+Chỉ hoạt động khi chế độ Tùy Chỉnh đang bật.</value>
   </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>Tên thiết lập sẵn</value>
@@ -1624,10 +1624,10 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Giới hạn điện năng cho APU sPPT</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
-    <value>Lượng điện năng tối ta CPU có thể sử dụng liên tục.</value>
+    <value>Lượng điện năng tối đa CPU có thể sử dụng liên tục.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
-    <value>Lượng điện năng tiêu thụ CPU có thể sử dụng trong thời gian ngắn.</value>
+    <value>Lượng điện năng tối đa CPU có thể sử dụng trong thời gian ngắn.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
     <value>Lượng điện năng tối đa CPU có thể sử dụng tức thì.</value>
@@ -1636,16 +1636,16 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Lượng điện năng tối đa CPU có thể sử dụng khi cả CPU và GPU cùng được sử dụng hết công suất.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
-    <value>Lượng điện năng tiêu thụ CPU có thể sử dụng với một độ trễ nhất định.</value>
+    <value>Lượng điện năng tối đa CPU có thể sử dụng với một độ trễ nhất định.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
     <value>Nhiệt độ tối đa CPU có thể đạt trước khi giảm xung và giảm điện năng tiêu thụ.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
-    <value>Lượng điện năng có thể được sử dụng bởi GPU trên ngưỡng công suất tối đa tùy thuộc vào tiêu thụ tiện của CPU.</value>
+    <value>Lượng điện năng GPU có thể sử dụng thêm vượt mức công suất tối đa tùy thuộc vào mức tiêu thụ điện của CPU cao hay thấp.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
-    <value>Lượng điện năng tối đa GPU có thể sử dụng trên ngưỡng cơ bản.</value>
+    <value>Lượng điện năng GPU có thể sử dụng thêm vượt mức công suất cơ bản.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
     <value>Nhiệt độ tối đa GPU có thể đạt trước khi giảm xung và giảm điện năng tiêu thụ.</value>
@@ -1657,7 +1657,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Giới hạn công suất thời gian ngắn</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
-    <value>Thời gian mà CPU được sử dụng công suất tối đa trong thời gian ngắn. Khi quá hạn, CPU sẽ dùng công suất tối đa trong thời gian dài.</value>
+    <value>Thời gian CPU được phép tăng tốc và công suất được giới hạn bởi Giới hạn công suất thời gian ngắn. Khi hết thời gian, công suất CPU sẽ được giới hạn bởi Giới hạn công suất thời gian dài.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
     <value>Công suất tối đa khi có nguồn điện AC</value>
@@ -1672,7 +1672,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Thêm hành động</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-    <value>- Tạo hành động -</value>
+    <value>Tạo Hành động</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>Chế độ</value>
@@ -1696,7 +1696,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Tốc độ sạc/xả</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
-    <value>Có cập nhật mới!</value>
+    <value>Có bản cập nhật mới!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
     <value>Chọn biểu tượng</value>
@@ -1717,7 +1717,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Windows báo rằng thiết bị này hỗ trợ Modern Standby. Dùng power plan khác ngoài Balance có thể gây ra lỗi ngoài ý muốn.</value>
   </data>
   <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
-    <value>Chọn Windows Power Plan được sử dụng khi đổi chế độ.</value>
+    <value>Chọn Windows Power Plan được sử dụng tương ứng khi thay đổi Chế độ hiệu năng.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Nguồn</value>
@@ -1732,7 +1732,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Nhập cấu hình đèn nền bàn phím</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-    <value>Nhập và áp dụng cấu hình bàn phím cho profile hiện tại.</value>
+    <value>Nhập và áp dụng cài đặt đèn nền bàn phím cho cấu hình hiện tại.</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Đường dẫn</value>
@@ -1757,7 +1757,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
     <value>Ép xung GPU</value>
   </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
-    <value>Tăng hiệu suất máy bằng việc ép xung GPU rời.</value>
+    <value>Tăng hiệu năng máy bằng cách ép xung GPU rời.</value>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Ép xung GPU</value>
@@ -1765,7 +1765,7 @@ Chỉ hoạt động khi chế độ tùy chỉnh đã đang chạy.</value>
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Tăng hiệu suất máy bằng việc ép xung GPU rời.
 
-CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không có mặt.</value>
+CẢNH BÁO: Hành động này có thể chạy không đúng nếu GPU rời không có sẵn.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
     <value>Đèn I/O</value>
@@ -1804,7 +1804,7 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
     <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
-    <value>Sử dụng</value>
+    <value>Mức sử dụng</value>
   </data>
   <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
     <value>Core Clock</value>
@@ -1828,13 +1828,13 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
     <value>Khởi động tức thì</value>
   </data>
   <data name="InstantBootControl_Message" xml:space="preserve">
-    <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+    <value>Khởi động laptop khi kết nối với bộ sạc.</value>
   </data>
   <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
     <value>Khởi động tức thì</value>
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
-    <value>Bật máy tính xách tay khi kết nối với bộ sạc.</value>
+    <value>Khởi động laptop khi kết nối với bộ sạc.</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
     <value>Không thể thay đổi Power Mode</value>
@@ -1854,16 +1854,16 @@ CẢNH BÁO: hành động có thể chạy không đúng nếu GPU rời không
 Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy tính xách tay của bạn.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-    <value>dGPU hiện đang được sử dụng</value>
+    <value>GPU rời hiện đang được sử dụng</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-    <value>dGPU sẽ tự động ngắt kết nối khi không được sử dụng.</value>
+    <value>GPU rời sẽ tự động ngắt kết nối khi không được sử dụng.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-    <value>dGPU hiện đang được sử dụng hoặc laptop đang không sử dụng pin</value>
+    <value>GPU rời hiện đang được sử dụng hoặc laptop đang không sử dụng pin</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-    <value>dGPU sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
+    <value>GPU rời sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
@@ -1872,23 +1872,23 @@ Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy 
     <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>Đã kết nối với DGPU</value>
+    <value>Đã kết nối với GPU rời</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>Đã ngắt kết nối DGPU</value>
+    <value>Đã ngắt kết nối GPU rời</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ hoạt động của GPU</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Lựa chọn Chế độ hoạt động của GPU dựa trên sử dụng và nguồn điện.
+    <value>Chọn chế độ hoạt động của GPU dựa trên cách bạn sử dụng máy tính và tình trạng nguồn điện.
 Chuyển đổi giữa các chế độ có thể cần phải khởi động lại.</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Hybrid</value>
   </data>
   <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
-    <value>Cho phép đổi giữa GPU tích hợp và GPU rời.
+    <value>Cho phép chuyển đổi giữa GPU tích hợp và GPU rời.
 Yêu cầu khởi động lại.</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
@@ -1913,10 +1913,10 @@ Yêu cầu khởi động lại.</value>
     <value>Logo khởi động</value>
   </data>
   <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
-    <value>Logo khởi động mặc định được đặt</value>
+    <value>Đang dùng logo khởi động mặc định</value>
   </data>
   <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
-    <value>Logo khởi động tùy chỉnh được đặt</value>
+    <value>Đang dùng logo khởi động tùy chỉnh</value>
   </data>
   <data name="BootLogoWindow_Status" xml:space="preserve">
     <value>Trạng thái</value>
@@ -1983,7 +1983,7 @@ Các định dạng hỗ trợ: {1}.</value>
     <value>Logo tùy chỉnh không thể được đặt: {0}</value>
   </data>
   <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
-    <value>Logo nguyên bản không thể được đặt: {0}</value>
+    <value>Logo mặc định không thể được đặt: {0}</value>
   </data>
   <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
     <value>Logo khởi động mặc định được đặt.</value>
