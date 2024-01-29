@@ -2023,4 +2023,7 @@ Supported formats are: {1}.</value>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
 	  <value>Open README</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+	  <value>Preset</value>
+  </data>
 </root>

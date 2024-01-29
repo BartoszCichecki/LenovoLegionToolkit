@@ -5024,6 +5024,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset.
+        /// </summary>
+        public static string SpectrumKeyboardBacklightControl_Preset {
+            get {
+                return ResourceManager.GetString("SpectrumKeyboardBacklightControl_Preset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Reset to default.
         /// </summary>
         public static string SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip {

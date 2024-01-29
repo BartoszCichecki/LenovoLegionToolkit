@@ -28,6 +28,7 @@
                     <Slider
                         x:Name="_brightnessSlider"
                         Width="200"
+                        AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Brightness_Title}"
                         IsSnapToTickEnabled="True"
                         Maximum="9"
                         Minimum="0"
@@ -65,6 +66,8 @@
                     Grid.Column="0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="1"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="1"
                     GroupName="profile">
@@ -77,6 +80,8 @@
                     Grid.Column="2"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="2"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="2"
                     GroupName="profile">
@@ -89,6 +94,8 @@
                     Grid.Column="4"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="3"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="3"
                     GroupName="profile">
@@ -101,6 +108,8 @@
                     Grid.Column="6"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="4"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="4"
                     GroupName="profile">
@@ -113,6 +122,8 @@
                     Grid.Column="8"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="5"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="5"
                     GroupName="profile">
@@ -125,6 +136,8 @@
                     Grid.Column="10"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    AutomationProperties.HelpText="6"
+                    AutomationProperties.Name="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Preset}"
                     Click="ProfileButton_OnClick"
                     Content="6"
                     GroupName="profile">
@@ -207,6 +220,7 @@
 
                 <TextBlock
                     Grid.Column="0"
+                    Focusable="True"
                     FontSize="20"
                     FontWeight="Medium"
                     Text="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Effects}" />

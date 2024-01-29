@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
@@ -25,7 +26,12 @@ public abstract class AbstractComboBoxRGBKeyboardCardControl<T> : UserControl
     public string Title
     {
         get => _cardHeaderControl.Title;
-        set => _cardHeaderControl.Title = value;
+        set
+        {
+            _cardHeaderControl.Title = value;
+
+            AutomationProperties.SetName(_comboBox, value);
+        }
     }
 
     public string Subtitle
