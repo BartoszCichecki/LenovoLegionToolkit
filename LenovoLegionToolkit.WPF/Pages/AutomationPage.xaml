@@ -27,11 +27,15 @@
                 <StackPanel Grid.Row="0" Margin="0,24,0,24">
 
                     <TextBlock
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.AutomationPage_Actions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_Actions_Message}" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        Focusable="True"
+                        Text="{x:Static resources:Resource.AutomationPage_Actions_Message}" />
                 </StackPanel>
 
                 <controls:LoadableControl
@@ -47,6 +51,7 @@
                             <wpfui:ToggleSwitch
                                 x:Name="_enableAutomaticPipelinesToggle"
                                 Margin="0,0,0,8"
+                                AutomationProperties.Name="{x:Static resources:Resource.AutomationPage_ActionsEnabled_Title}"
                                 Click="EnableAutomaticPipelinesToggle_Click" />
                         </wpfui:CardControl>
 
@@ -54,6 +59,7 @@
                             x:Name="_noAutomaticActionsText"
                             Margin="0,16,0,16"
                             HorizontalAlignment="Center"
+                            Focusable="True"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{x:Static resources:Resource.AutomationPage_Actions_Empty}" />
@@ -75,11 +81,15 @@
                 <StackPanel Grid.Row="2" Margin="0,24,0,24">
 
                     <TextBlock
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.AutomationPage_QuickActions_Title}" />
 
-                    <TextBlock Margin="0,8,0,0" Text="{x:Static resources:Resource.AutomationPage_QuickActions_Message}" />
+                    <TextBlock
+                        Margin="0,8,0,0"
+                        Focusable="True"
+                        Text="{x:Static resources:Resource.AutomationPage_QuickActions_Message}" />
 
                 </StackPanel>
 
@@ -93,6 +103,7 @@
                             x:Name="_noManualActionsText"
                             Margin="0,16,0,16"
                             HorizontalAlignment="Center"
+                            Focusable="True"
                             FontWeight="Medium"
                             Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                             Text="{x:Static resources:Resource.AutomationPage_QuickActions_Empty}" />
