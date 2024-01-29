@@ -18,8 +18,7 @@ public class EditDashboardGroupControl : UserControl
 {
     private readonly CardExpander _cardExpander = new()
     {
-        Margin = new(0, 0, 0, 8),
-        IsExpanded = true
+        Margin = new(0, 0, 0, 8)
     };
 
     private readonly CardHeaderControl _cardHeaderControl = new();

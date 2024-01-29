@@ -18,10 +18,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 {
     protected readonly IFeature<T> Feature = IoCContainer.Resolve<IFeature<T>>();
 
-    private readonly CardControl _cardControl = new()
-    {
-        Focusable = false,
-    };
+    private readonly CardControl _cardControl = new();
 
     private readonly CardHeaderControl _cardHeaderControl = new();
 

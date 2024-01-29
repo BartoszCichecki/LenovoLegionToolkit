@@ -15,8 +15,7 @@ public class EditDashboardItemControl : UserControl
 
     private readonly CardControl _cardControl = new()
     {
-        Margin = new(0, 0, 0, 8),
-        Focusable = false
+        Margin = new(0, 0, 0, 8)
     };
 
     private readonly CardHeaderControl _cardHeaderControl = new();
