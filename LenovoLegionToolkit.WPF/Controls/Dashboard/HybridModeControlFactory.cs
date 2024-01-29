@@ -48,7 +48,8 @@ public static class HybridModeControlFactory
             Title = Resource.ComboBoxHybridModeControl_Title;
             Subtitle = Resource.ComboBoxHybridModeControl_Message;
 
-            AutomationProperties.SetName(_infoButton, $"{Resource.ComboBoxHybridModeControl_Title} {Resource.Information}");
+            AutomationProperties.SetName(_infoButton, Resource.ComboBoxHybridModeControl_Title);
+            AutomationProperties.SetHelpText(_infoButton, Resource.Information);
 
             _dgpuNotify.Notified += DGPUNotify_Notified;
         }

@@ -52,6 +52,7 @@
             <StackPanel Grid.Row="0" Grid.Column="1">
                 <TextBlock
                     Margin="0,0,0,16"
+                    Focusable="True"
                     FontWeight="Medium"
                     Text="{x:Static resources:Resource.UnsupportedWindow_Message}"
                     TextWrapping="Wrap" />
@@ -70,35 +71,42 @@
                     <TextBlock
                         Grid.Row="0"
                         Grid.Column="0"
+                        Focusable="True"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_Vendor}" />
                     <TextBlock
                         Grid.Row="1"
                         Grid.Column="0"
+                        Focusable="True"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_Model}" />
                     <TextBlock
                         Grid.Row="2"
                         Grid.Column="0"
+                        Focusable="True"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.UnsupportedWindow_MachineType}" />
 
                     <TextBlock
                         x:Name="_vendorText"
                         Grid.Row="0"
-                        Grid.Column="1" />
+                        Grid.Column="1"
+                        Focusable="True" />
                     <TextBlock
                         x:Name="_modelText"
                         Grid.Row="1"
-                        Grid.Column="1" />
+                        Grid.Column="1"
+                        Focusable="True" />
                     <TextBlock
                         x:Name="_machineTypeText"
                         Grid.Row="2"
-                        Grid.Column="1" />
+                        Grid.Column="1"
+                        Focusable="True" />
                 </Grid>
 
                 <TextBlock
                     Margin="0,16,0,24"
+                    Focusable="True"
                     Text="{x:Static resources:Resource.UnsupportedWindow_Disclaimer}"
                     TextWrapping="Wrap" />
 

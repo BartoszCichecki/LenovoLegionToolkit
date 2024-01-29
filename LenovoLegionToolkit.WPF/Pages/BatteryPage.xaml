@@ -13,7 +13,6 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
-            AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"

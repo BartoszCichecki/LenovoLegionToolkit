@@ -63,12 +63,14 @@
             <TextBlock
                 Grid.Row="0"
                 Grid.Column="0"
+                Focusable="True"
                 Text="{x:Static resources:Resource.BootLogoWindow_Status}" />
 
             <TextBlock
                 x:Name="_defaultStatus"
                 Grid.Row="0"
                 Grid.Column="1"
+                Focusable="True"
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.BootLogoWindow_DefaultLogoSet}"
                 TextAlignment="Right"
@@ -78,6 +80,7 @@
                 x:Name="_customStatus"
                 Grid.Row="0"
                 Grid.Column="1"
+                Focusable="True"
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.BootLogoWindow_CustomLogoSet}"
                 TextAlignment="Right"
@@ -89,6 +92,7 @@
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Margin="0,24,0,0"
+                Focusable="True"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 TextWrapping="Wrap" />
 

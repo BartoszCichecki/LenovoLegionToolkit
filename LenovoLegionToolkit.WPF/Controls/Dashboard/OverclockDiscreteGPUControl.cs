@@ -62,7 +62,8 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
     private void InitializeComponent()
     {
         AutomationProperties.SetName(_toggle, Resource.OverclockDiscreteGPUControl_Title);
-        AutomationProperties.SetName(_configButton, $"{Resource.OverclockDiscreteGPUControl_Title} {Resource.Settings}");
+        AutomationProperties.SetName(_configButton, Resource.OverclockDiscreteGPUControl_Title);
+        AutomationProperties.SetHelpText(_configButton, Resource.Settings);
 
         _toggle.Click += Toggle_Click;
         _configButton.Click += ConfigButton_Click;

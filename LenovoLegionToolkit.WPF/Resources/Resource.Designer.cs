@@ -3429,6 +3429,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download.
+        /// </summary>
+        public static string PackageControl_Download {
+            get {
+                return ResourceManager.GetString("PackageControl_Download", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} downloaded!.
         /// </summary>
         public static string PackageControl_DownloadComplete_Message {
@@ -3506,6 +3515,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackageControl_OldPackageWarning {
             get {
                 return ResourceManager.GetString("PackageControl_OldPackageWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open README.
+        /// </summary>
+        public static string PackageControl_OpenReadme {
+            get {
+                return ResourceManager.GetString("PackageControl_OpenReadme", resourceCulture);
             }
         }
         
@@ -3592,7 +3610,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download to.
+        ///   Looks up a localized string similar to Download folder.
         /// </summary>
         public static string PackagesPage_DownloadTo {
             get {
@@ -3624,6 +3642,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackagesPage_OnlyShowUpdates {
             get {
                 return ResourceManager.GetString("PackagesPage_OnlyShowUpdates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open Download folder.
+        /// </summary>
+        public static string PackagesPage_OpenDownloadTo {
+            get {
+                return ResourceManager.GetString("PackagesPage_OpenDownloadTo", resourceCulture);
             }
         }
         

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
@@ -156,6 +157,8 @@ public partial class SelectSmartKeyPipelinesWindow
 
             _grid.Children.Add(_checkBox);
             _grid.Children.Add(_nameTextBox);
+
+            AutomationProperties.SetLabeledBy(_checkBox, _nameTextBox);
 
             Content = _grid;
         }

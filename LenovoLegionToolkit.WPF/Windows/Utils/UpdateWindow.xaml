@@ -45,6 +45,7 @@
             <TextBlock
                 Grid.Column="0"
                 VerticalAlignment="Center"
+                Focusable="True"
                 FontSize="12"
                 IsHitTestVisible="False"
                 Text="{x:Static resources:Resource.UpdateWindow_Title}" />

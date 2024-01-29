@@ -51,6 +51,7 @@
 
                 <TextBlock
                     Margin="0,0,0,16"
+                    Focusable="True"
                     FontWeight="Medium"
                     Text="Select language"
                     TextWrapping="Wrap" />

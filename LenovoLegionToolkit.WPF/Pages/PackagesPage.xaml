@@ -26,6 +26,7 @@
             <TextBlock
                 Grid.Row="0"
                 Margin="0,24,0,24"
+                Focusable="True"
                 FontSize="24"
                 FontWeight="Medium"
                 Text="{x:Static resources:Resource.PackagesPage_Title}" />
@@ -84,12 +85,15 @@
                             Grid.Row="0"
                             Grid.Column="1"
                             Margin="8,0,0,0"
+                            AutomationProperties.Name="{x:Static resources:Resource.PackagesPage_MachineType}"
+                            ClearButtonEnabled="False"
                             PlaceholderText="(eg. 82JQ)" />
                         <ComboBox
                             x:Name="_osComboBox"
                             Grid.Row="1"
                             Grid.Column="1"
                             Margin="8,8,0,0"
+                            AutomationProperties.Name="{x:Static resources:Resource.PackagesPage_OperatingSystem}"
                             MaxDropDownHeight="Auto" />
                         <Grid
                             Grid.Row="2"
@@ -104,6 +108,9 @@
                             <wpfui:TextBox
                                 x:Name="_downloadToText"
                                 Grid.Column="0"
+                                AutomationProperties.Name="{x:Static resources:Resource.PackagesPage_DownloadTo}"
+                                ClearButtonEnabled="False"
+                                PlaceholderText="(eg. 82JQ)"
                                 TextChanged="DownloadToText_OnTextChanged" />
 
                             <wpfui:Button
@@ -111,14 +118,16 @@
                                 Margin="4,0,0,0"
                                 VerticalAlignment="Stretch"
                                 Click="DownloadToButton_Click"
-                                Icon="MoreHorizontal24" />
+                                Icon="MoreHorizontal24"
+                                ToolTip="{x:Static resources:Resource.PackagesPage_DownloadTo}" />
 
                             <wpfui:Button
                                 Grid.Column="2"
                                 Margin="4,0,0,-1"
                                 VerticalAlignment="Stretch"
                                 Click="OpenDownloadToButton_Click"
-                                Icon="Open24" />
+                                Icon="Open24"
+                                ToolTip="{x:Static resources:Resource.PackagesPage_OpenDownloadTo}" />
 
                         </Grid>
 
@@ -128,9 +137,16 @@
                             Grid.Column="3"
                             HorizontalAlignment="Right">
 
-                            <TextBlock Margin="0,0,0,4" Text="{x:Static resources:Resource.PackagesPage_Source}" />
+                            <TextBlock
+                                Margin="0,0,0,4"
+                                AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                                Focusable="True"
+                                Text="{x:Static resources:Resource.PackagesPage_Source}" />
                             <RadioButton
                                 x:Name="_sourcePrimaryRadio"
+                                AutomationProperties.HelpText="{x:Static resources:Resource.PackagesPage_PrimarySource_Message}"
+                                AutomationProperties.Name="{x:Static resources:Resource.PackagesPage_PrimarySource}"
+                                Focusable="True"
                                 GroupName="source"
                                 IsChecked="True">
                                 <StackPanel>
@@ -141,7 +157,11 @@
                                         Text="{x:Static resources:Resource.PackagesPage_PrimarySource_Message}" />
                                 </StackPanel>
                             </RadioButton>
-                            <RadioButton x:Name="_sourceSecondaryRadio" GroupName="source">
+                            <RadioButton
+                                x:Name="_sourceSecondaryRadio"
+                                AutomationProperties.HelpText="{x:Static resources:Resource.PackagesPage_SecondarySource_Message}"
+                                AutomationProperties.Name="{x:Static resources:Resource.PackagesPage_SecondarySource}"
+                                GroupName="source">
                                 <StackPanel>
                                     <TextBlock Text="{x:Static resources:Resource.PackagesPage_SecondarySource}" />
                                     <TextBlock
@@ -206,6 +226,7 @@
                             <wpfui:TextBox
                                 x:Name="_filterTextBox"
                                 Grid.Column="0"
+                                AutomationProperties.Name="{x:Static resources:Resource.Filter}"
                                 Icon="Search24"
                                 PlaceholderEnabled="True"
                                 PlaceholderText="{x:Static resources:Resource.Filter}"

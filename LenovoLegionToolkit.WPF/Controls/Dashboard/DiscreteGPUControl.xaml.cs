@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Automation;
 using System.Windows.Controls.Primitives;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
@@ -69,7 +68,6 @@ public partial class DiscreteGPUControl
             _discreteGPUStatusActiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusDescription.Text = "-";
-            AutomationProperties.SetName(_discreteGPUStatusDescription, Resource.DiscreteGPUControl_Title);
             _gpuInfoButton.ToolTip = null;
             _gpuInfoButton.IsEnabled = false;
             Visibility = Visibility.Collapsed;
@@ -101,7 +99,6 @@ public partial class DiscreteGPUControl
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusDescription.Text = Resource.Active;
-            AutomationProperties.SetName(_discreteGPUStatusDescription, $"{Resource.DiscreteGPUControl_Title} {Resource.Active}");
             _gpuInfoButton.ToolTip = tooltipStringBuilder.AppendLine().AppendLine().Append(processesStringBuilder).ToString();
             _gpuInfoButton.IsEnabled = true;
         }
@@ -111,7 +108,6 @@ public partial class DiscreteGPUControl
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Visible;
             _discreteGPUStatusDescription.Text = Resource.PoweredOff;
-            AutomationProperties.SetName(_discreteGPUStatusDescription, $"{Resource.DiscreteGPUControl_Title} {Resource.PoweredOff}");
             _gpuInfoButton.ToolTip = tooltipStringBuilder.ToString();
             _gpuInfoButton.IsEnabled = true;
         }
@@ -121,7 +117,6 @@ public partial class DiscreteGPUControl
             _discreteGPUStatusInactiveIndicator.Visibility = Visibility.Visible;
             _discreteGPUStatusPoweredOffIndicator.Visibility = Visibility.Collapsed;
             _discreteGPUStatusDescription.Text = Resource.Inactive;
-            AutomationProperties.SetName(_discreteGPUStatusDescription, $"{Resource.DiscreteGPUControl_Title} {Resource.Inactive}");
             _gpuInfoButton.ToolTip = tooltipStringBuilder.ToString();
             _gpuInfoButton.IsEnabled = true;
         }

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -140,6 +141,8 @@ public partial class ExcludeRefreshRatesWindow
 
             _grid.Children.Add(_checkBox);
             _grid.Children.Add(_nameTextBox);
+
+            AutomationProperties.SetLabeledBy(_checkBox, _nameTextBox);
 
             Content = _grid;
         }

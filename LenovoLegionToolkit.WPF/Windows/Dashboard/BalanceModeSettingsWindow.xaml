@@ -57,6 +57,7 @@
 
                 <TextBlock
                     Margin="32,4,0,0"
+                    Focusable="True"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                     Text="{x:Static resources:Resource.BalanceModeSettingsWindow_AIEngine_Message}"
                     TextWrapping="Wrap" />

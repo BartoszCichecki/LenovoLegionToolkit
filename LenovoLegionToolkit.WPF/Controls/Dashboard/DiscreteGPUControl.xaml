@@ -44,15 +44,18 @@
                 <TextBlock
                     x:Name="_discreteGPUStatusDescription"
                     Grid.Column="1"
-                    Margin="8,4,0,0"
+                    Margin="8,0,0,0"
                     VerticalAlignment="Center"
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.DiscreteGPUControl_Title}"
                     Focusable="True"
                     FontWeight="Medium" />
                 <wpfui:Button
                     x:Name="_gpuInfoButton"
                     Grid.Column="2"
                     Margin="8,0,0,0"
-                    AutomationProperties.Name="{x:Static resources:Resource.Information}"
+                    AutomationProperties.HelpText="{x:Static resources:Resource.Information}"
+                    AutomationProperties.Name="{x:Static resources:Resource.DiscreteGPUControl_Title}"
                     ClickMode="Hover"
                     FontSize="20"
                     Icon="QuestionCircle24"

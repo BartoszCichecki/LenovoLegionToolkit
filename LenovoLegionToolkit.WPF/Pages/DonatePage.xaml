@@ -12,7 +12,6 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
-            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"
@@ -22,7 +21,6 @@
             MaxWidth="450"
             Margin="0,0,0,24"
             HorizontalAlignment="Left"
-            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
             Focusable="True"
             FontSize="14"
             Text="{x:Static resources:Resource.DonatePage_Message}"
