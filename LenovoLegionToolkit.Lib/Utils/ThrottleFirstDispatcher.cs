@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AsyncKeyedLock;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
 public class ThrottleFirstDispatcher
 {
-    private readonly AsyncNonKeyedLocker _lock = new();
+    private readonly AsyncLock _lock = new();
 
     private readonly TimeSpan _interval;
     private readonly string? _tag;

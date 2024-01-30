@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using AsyncKeyedLock;
 using LenovoLegionToolkit.Lib.AutoListeners;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -11,6 +10,7 @@ using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Utils;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Automation;
 
@@ -27,8 +27,8 @@ public class AutomationProcessor
     private readonly UserInactivityAutoListener _userInactivityAutoListener;
     private readonly WiFiAutoListener _wifiAutoListener;
 
-    private readonly AsyncNonKeyedLocker _ioLock = new();
-    private readonly AsyncNonKeyedLocker _runLock = new();
+    private readonly AsyncLock _ioLock = new();
+    private readonly AsyncLock _runLock = new();
 
     private List<AutomationPipeline> _pipelines = new();
     private CancellationTokenSource? _cts;

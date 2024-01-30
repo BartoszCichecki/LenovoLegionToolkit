@@ -64,7 +64,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="0,0,32,0">
-                <wpfui:Hyperlink Content="AsyncKeyedLock" NavigateUri="https://github.com/MarkCiliaVincenti/AsyncKeyedLock" />
+                <wpfui:Hyperlink Content="AsyncLock" NavigateUri="https://github.com/neosmart/AsyncLock" />
                 <wpfui:Hyperlink Content="Autofac" NavigateUri="https://github.com/autofac/Autofac" />
                 <wpfui:Hyperlink Content="ColorPicker" NavigateUri="https://github.com/PixiEditor/ColorPicker" />
                 <wpfui:Hyperlink Content="CsWin32" NavigateUri="https://github.com/microsoft/CsWin32" />

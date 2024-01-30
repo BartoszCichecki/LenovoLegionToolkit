@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using AsyncKeyedLock;
 using LenovoLegionToolkit.Lib.Utils;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public abstract class AbstractAutoListener<T> : IAutoListener<T>
 {
-    private readonly AsyncNonKeyedLocker _startStopLock = new();
+    private readonly AsyncLock _startStopLock = new();
 
     private bool _started;
 
