@@ -12,7 +12,9 @@
 
 **本软件仅适配拯救者系列，如果你不是拯救者系列笔记本则这个软件不适合你，请不要提出兼容 Issue ，如果提出将被直接关闭不作受理。**
 
-本软件不运行后台服务，使用较少的内存，几乎不使用 CPU ，并且不收集用户信息。本程序仅适用于 Windows 。
+本软件不运行后台服务，使用较少的内存，几乎不使用 CPU，并且不收集用户信息。本程序仅适用于 Windows。
+
+如果你正在寻找一个 Lenovo Vantage 在 Linux 系统下的替代品，请查看 [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) 项目。
 
 **中文用户可加入[拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737)，频道内推送正式版/测试版更新并附带国内镜像加速下载链接。**
 
@@ -40,9 +42,27 @@
 
 ## 下载
 
-你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)。或者使用 [winget](https://github.com/microsoft/winget-cli)：
+- 你可以在这里下载最新版本：[发行版页面 Releases page](https://github.com/BartoszCichecki/LenovoLegionToolkit/releases/latest)。
+- 使用 [winget](https://github.com/microsoft/winget-cli)：
 
-`winget install BartoszCichecki.LenovoLegionToolkit`
+  ```sh
+  winget install BartoszCichecki.LenovoLegionToolkit
+  ```
+
+- 使用 [Scoop](https://scoop.sh)：
+
+  ```sh
+  scoop bucket add versions
+  ```
+
+  ```sh
+  scoop bucket add extras
+  ```
+
+  ```sh
+  scoop install extras/lenovolegiontoolkit
+  ```
+
 
 #### 接下来的步骤
 
@@ -60,6 +80,8 @@
 2. 找到 “.NET 桌面运行时” 一栏；
 3. 点击安装程序下的“X64”一栏下载安装程序；
 4. 运行安装程序并按照指引进行安装。
+
+> 注意：如果你是使用 Scoop 安装了 LLT，.NET 6 依赖应该已经被自动安装。如果它没有被安装或 LLT 无法正常启动，可以使用 `scoop update` 以更新所有软件包并加上 `--force` 参数以强制重新安装 LLT。
 
 
 在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的.NET运行时 "部分，你应该能看到类似的内容：
@@ -102,33 +124,58 @@
 
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
 - 使用并修改自定义模式，包括 2022 款及更新的机型的调节风扇曲线功能。
-- 支持调节 Spectrum RGB 键盘、4 分区 RGB键盘和白色背光的键盘。
+- 支持调节 Spectrum RGB 键盘、4 分区 RGB 键盘和白色背光的键盘。
 - 强制休眠独立显卡（仅限英伟达显卡）。
 - 查看电池统计数据。
 - 下载、更新驱动。
 - 通过自动化实现插入/拔出充电器的自动操作。
 - 无需卸载即可禁用 Lenovo Vantage、Legion Zone 和 Lenovo Hotkeys 服务。
 
-##### 自定义模式
+### 自定义模式
 
 以下版本的 BIOS 支持自定义模式：
-* GKCN49WW 和更高
-* H1CN49WW 和更高
-* HACN31WW 和更高
-* HHCN23WW 和更高
-* K1CN31WW 和更高
-* K9CN34WW 和更高
-* KFCN32WW 和更高
-* KWCN28WW 和更高
-* J2CN40WW 和更高
-* JUCN51WW 和更高
-* JYCN39WW 和更高
-* M3CN32WW 和更高
-* M0CN27WW 和更高 
+* GKCN（24及以上）
+* GKCN（46及以上）
+* H1CN（39及以上）
+* HACN（31及以上）
+* HHCN（20及以上）
 
-并非所有设备都支持自定义模式的所有功能。
+请确保你的 BIOS 版本达到以上最低版本限制。如果你仍然在使用更老版本的 BIOS，你需要先更新才能使用自定义模式。
 
-##### 强制休眠英伟达显卡
+### RGB 和灯光控制
+
+LLT 支持 Spectrum 单键 RGB 和四分区 RGB 背光。请在使用这些功能前确保你已经禁用了 Lenovo Vantage，以避免双方同时发送控制信息造成冲突。如果你在使用别的可能和 LLT 冲突的 RGB 控制软件，请参考 [FAQ](#faq) 里的解决方案。
+
+LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和后部接口背光等灯光控制功能，不过有以下限制：
+
+* GKCN54WW 及以下版本的 BIOS 由于其中的 bug 会造成系统蓝屏，因此部分灯光控制功能被禁用。
+* 部分 Legion 笔记本型号（尤其是 2021 年的型号）可能不显示所有控制选项或显示部分不存在的选项。这主要是由于 BIOS 中对于功能可用性的配置错误。
+
+需要 Corsair iCue 的灯光控制不会被 LLT 支持。
+
+### 混合模式和显卡工作模式
+
+你有两种主要工作模式来控制你的独立显卡工作方式：
+
+1. 启用混合模式 - 内置显示器会被连接到集成显卡，独立显卡只会在需要时工作以延长续航。
+2. 禁用混合模式（独显直连）- 内置显示器被直接连接到独立显卡以提高性能，但这也意味着电池续航会缩短。
+
+切换这两种工作模式需要重启电脑。
+
+在 2022 及 2023 年的型号上混合模式还有两个附加选项：
+
+1. 禁用独立显卡 - 这会断开独立显卡连接，以最大限度延长电池续航。
+2. 自动混合模式 - 这会在笔记本使用电池供电时尝试断开独立显卡连接，并在重新连接电源时重新启用独立显卡。
+
+当独立显卡在被使用时（包括有软件或程序调用了独立显卡，连接了外部显示器或其他联想没有说明的情况）独立显卡连接大概率无法被断开。请在使用 LLT 的强制休眠显卡功能之前确保 LLT 已经监测到了独立显卡关闭并没有连接外部显示器，否则可能会造成错误。
+
+所有以上提到的功能均是通过调用 EC（嵌入式控制器）的功能实现的，因此这些功能工作与否取决于联想固件的适配性，而非 LLT。据我的观察和测试，这些功能在大多数时候都是可靠的，除非你频繁切换显卡工作模式。电脑可能需要一定的时间才能完成切换，因此请在每次切换后稍作等待。LLT 也尝试通过阻止频繁切换显卡工作模式和在 EC 未能正常唤醒独立显卡时重试唤醒来缓解这个问题。因此在切换到混合模式时，当 EC 未能唤醒独立显卡时，独立显卡可能需要十秒左右才能重新出现。
+
+如果你还遇到问题，请尝试[命令行参数](#命令行参数)内的其他实验性显卡工作模式。
+
+请注意这些功能和英伟达 Advanced Optimus 动态显示切换不同，也不与其一同工作。
+
+### 强制休眠英伟达显卡
 
 有时独立显卡会一直保持活动状态。例如在你插上外接显示器并断开后，一些进程会继续使用独显上运行，导致续航骤减。
 
@@ -141,22 +188,31 @@
 
 注意，强制休眠显卡可能会导致一些应用崩溃。
 
-#### 超频英伟达独立显卡
+### 超频英伟达独立显卡
+
 此超频选项用于简单的超频，类似于 Legion Zone 与 Vantage 中的超频。它并不打算取代微星小飞机（Afterburner）等工具。同时以下有几点你需要注意：
 * 确保在 BIOS 中开启了 GPU 超频选项（如果你的电脑有的话）。
 * 当 Vantage 或 Legion Zone 运行时，超频无法生效。
 * 不建议在使用微星小飞机（Afterburner）等超频工具时使用此选项。
 * 如果你之前修改过控制台，那么你需要点击“自定义”按钮并添加此选项才能看到此选项。
 
-##### Windows电源计划
+### Windows电源计划
 
 当切换性能模式时，拯救者工具箱会在 Lenovo Vantage 禁用的情况下自动切换 Windows 的电源计划。
 
 但在一些笔记本上，Lenovo Vantage 不会切换电源计划。如果你的电脑不会自动切换电源计划，你可以在设置中设置不同性能模式对应的电源计划。这会让拯救者工具箱总是切换Windows电源计划即使 Lenovo Vantage 在后台运行。
 
-##### CPU 睿频模式
+### CPU 睿频模式
 
 启用了 S0 低功率模式（又名现代待机）的笔记本电脑，在多个电源计划的情况下会导致许多小问题，特别是性能电源计划。
+
+### 开机画面
+
+在 2021 及 2022 年的拯救者笔记本上可以使用 LLT 更改开机画面（默认为拯救者的 Logo 图像）。
+
+开机画面**并不被储存在 UEFI 内**，而是在启动盘的 UEFI 分区内。在设置开机画面时，LLT 会做一些基本的图像检查，比如分辨率、图像格式检查，并计算校验和以确保兼容性。不过，**LLT 无法保证通过检查的图像一定会正确的被 UEFI 读取**。在更改开机画面后的下一次启动时，UEFI 会尝试从 UEFI 分区中加载图像并在开机时显示出来，但若加载失败，则会沿用默认图像。具体的标准除了分辨率和格式外尚不清楚。
+
+若你设置的开机画面无法被正确显示，请尝试别的图片。
 
 ## 赞助
 
@@ -177,7 +233,8 @@
 
 翻译贡献者：
 * 保加利亚语 - [Ekscentricitet](https://github.com/Ekscentricitet)
-* 中文 - [凌卡Karl](https://github.com/KarlLee830)
+* 简体中文 - [凌卡Karl](https://github.com/KarlLee830)
+* 繁体中文 - [flandretw](https://github.com/flandretw)
 * 捷克语 - J0sef
 * 荷兰语 - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
 * 法语 - EliotAku, [Georges de Massol](https://github.com/jojo2massol), Rigbone, ZeroDegree
@@ -185,6 +242,7 @@
 * 希腊语 - GreatApo
 * 意大利语 - [Lampadina17](https://github.com/Lampadina17)
 * 卡拉卡尔帕克语 - KarLin, Gulnaz, Niyazbek Tolibaev, Shingis Joldasbaev
+* 拉脱维亚语 - RJSkudra
 * 罗马尼亚语 - [Mario Bălănică](https://github.com/mariobalanica)
 * 斯洛伐克语 - Mitschud, Newbie414
 * 西班牙语 - M.A.G.
@@ -192,92 +250,148 @@
 * 葡萄牙语（巴西） - Vernon
 * 俄语 - [Edward Johan](https://github.com/younyokel)
 * 土耳其语 - Undervolt
-* 乌克兰语 -  [Владислав «vaidee» Придатько](https://github.com/va1dee)
-* 越南语 - Not_Nhan
+* 乌克兰语 - [Vladyslav Prydatko](https://github.com/va1dee), [Dmytro Zozulia](https://github.com/Nollasko)
+* 越南语 - Not_Nhan, Kuri, Nagidrop
 
 ## FAQ
 
-#### 为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？
+* [为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？](#faq-vantage-running)
+* [为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？](#faq-virus)
+* [我能自定义热键吗？](#faq-custom-hotkeys)
+* [我可以自定义节能模式充电阈值吗？](#faq-customize-conservation-mode)
+* [我可以更改安静，均衡及野兽模式的风扇策略吗？](#faq-fan-curves)
+* [更换主板后提示不兼容？](#faq-incompatible)
+* [为什么我无法在使用电池供电时切换到野兽与自定义模式？](#faq-perf-custom-battery)
+* [我可以在使用拯救者工具箱时使用其他RGB软件吗？](#faq-rgb-software)
+* [支持 iCue RGB 键盘吗？](#faq-icue)
+* [能不能多增加一些 RGB 效果？](#faq-more-rgb-effects)
+* [2022 款之前的机器能否自定义调节风扇曲线？](#faq-fan-control)
+* [为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？](#faq-ai-fnq-bug)
+* [为何即使自动化配置正确，游戏检测仍无法正常触发？](#faq-game-detect)
+* [为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？](#faq-custom-tooltip)
+* [我在哪里可以找到 CPU 睿频模式的设置？](#faq-cpu-oc)
+* [如果我在对 GPU 进行超频时超过了阈值，该怎么办？](#faq-gpu-oc)
+* [我的开机画面为什么没有生效？](#faq-boot-logo)
+* [为什么使用智能 Fn 锁时会出现卡顿？](#faq-smart-fn-lock-stutter)
+
+#### <a id="faq-vantage-running" />为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？
+
+自 2.14.0 版本开始，LLT 对于 Vantage 残留进程检测更加严格。总的来说，Vantage 安装了三个组件：
+
+1. Lenovo Vantage App
+2. Lenovo Vantage Service
+3. System Interface Foundation V2 Device
+
+最简单的解决方法是进入 LLT 的设置界面并禁用 Lenovo Vantage，LegionZone 和 Hotkeys（只有没有被卸载的软件会被显示在设置界面）。
+
+如果你还是想卸载它们，请确保卸载全部三个组件，否则 LLT 的部分功能可能无法正常运行。你可以检查任务管理器中是否有名称中包含 “Vantage” 或是 “ImController” 字样的进程。如果你需要别的帮助或是在卸载 `ImController` 过程中遇到问题，可以参考：[Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070)。
+
+#### <a id="faq-virus" />为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？
 
 拯救者工具箱使用了许多底层的 Windows API，杀毒软件可能会识别这些 API 的调用为可疑的，从而造成误报。拯救者工具箱本身是开源的，任何感觉此软件有问题的人可以很简单的审查此软件源代码。同时所有安装包都是直接在 Github 上使用 Github Actions 构建的，所以你也不需要担心安装包含有恶意内容。此问题可以通过对程序签名来解决，但此项目只是我业余时间来制作的开源项目，我无法负担每年花几百美元买一个证书。
 
 简而言之，如果你从这个项目的网站上下载了安装程序，不需要担心杀毒软件的报毒，这只是一个误报。同时如果你有能力帮助解决杀毒软件的误报问题，欢迎联系我。
 
-#### 更换主板后提示不兼容？
+#### <a id="faq-custom-hotkeys" />我能自定义热键吗？
+
+你可以在 LLT 的设置界面内自定义 Fn+F9 的热键功能。其余的热键是无法被自定义的。
+
+#### <a id="faq-customize-conservation-mode" />我可以自定义节能模式充电阈值吗？
+
+不能，该阈值是在固件中被锁死的，无法被更改。对于 2021 年及以前的型号该阈值为 60%，对于之后的型号则为 80%。
+
+#### <a id="faq-fan-curves" />我可以更改安静，均衡及野兽模式的风扇策略吗？
+
+不能。除自定义模式以外，风扇策略都是不能更改的。
+
+#### <a id="faq-incompatible" />更换主板后提示不兼容？
 
 有时新主板内的机型和序列号信息出错，你可以尝试 [这篇教程](https://laptopwiki.eu/laptopwiki/guides/lenovo/legion_bios_lvarrecovery) 来恢复。如果这不起作用你可以尝试打开 `%LOCALAPPDATA%\LenovoLegionToolkit` 并创建一个名为 `args.txt` 的文件并打开文件后呼入 `--skip-compat-check` ，这会禁用拯救者工具箱的兼容性检查。我们建议你在无法正确恢复型号、序列号等信息的情况下再使用这个办法。
 
-
-#### 为什么我无法在使用电池供电时切换到野兽与自定义模式？
+#### <a id="faq-perf-custom-battery" />为什么我无法在使用电池供电时切换到野兽与自定义模式？
 
 在 2.11.0 版本后，拯救者工具箱与 Lenovo Vantage 与 Legion Zone 的行为保持一致，将不再允许在没有插入适当电源适配器的情况下启用野兽与自定义模式。
 
-如果出于某种原因，你想在电池供电的情况下使用这些模式，你可以使用`--allow-all-power-modes-on-battery`参数来启用。请注意，当笔记本电脑没有连接到全功率的电源适配器时，功耗限制与其他设置在大多数设备上无法正常应用，同时可能会出现一些未知的问题。
+如果出于某种原因，你想在电池供电的情况下使用这些模式，你可以使用`--allow-all-power-modes-on-battery`参数来启用（参见[命令行参数](#命令行参数)）。请注意，当笔记本电脑没有连接到全功率的电源适配器时，功耗限制与其他设置在大多数设备上无法正常应用，同时可能会出现一些未知的问题。
 
-我已经警告过你了，这是在无需全功率电源适配器便可强制启用全部性能模式的步骤：
+#### <a id="faq-rgb-software" />我可以在使用拯救者工具箱时使用其他RGB软件吗？
 
-1. 打开 `%LOCALAPPDATA%\LenovoLegionToolkit`；
-2. 创建名为 `args.txt` 的文件（如果已经有了则编辑它）；
-3. 在文件内粘贴 `--allow-all-power-modes-on-battery`；
-4. 重启拯救者工具箱。
+总的来说，可以。 当 Lenovo Vantage 运行时，拯救者工具箱将禁用 RGB 控制，以避免冲突。如果你想使用其他 RGB 软件，如 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)，你可以在拯救者工具箱中使用 `--force-disable-rgbkb` 或 `--force-disable-spectrumkb` 参数禁用 RGB 以避免冲突（参考[命令行参数](#命令行参数)）。
 
-#### 支持 iCue RGB 键盘吗？
+#### <a id="faq-icue" />支持 iCue RGB 键盘吗？
 
 不支持，我推荐你看看 [OpenRGB](https://openrgb.org/) 这个项目。
 
-#### 能不能多整一些 RGB 效果？
+#### <a id="faq-more-rgb-effects" />能不能多增加一些 RGB 效果？
 
 只有硬件支持的选项可用，不计划支持自定义效果。如果你想要自定义效果可以看看 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)。
 
-#### 我可以在使用拯救者工具箱时使用其他RGB软件吗？
-
-总的来说，可以。 当 Lenovo Vantage 运行时，拯救者工具箱将禁用 RGB 控制，以避免冲突。如果你想使用其他 RGB 软件，如 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)，你可以在拯救者工具箱中禁用 RGB 以避免冲突。
-
-禁用 RGB 方法：
-1. 打开 `%LOCALAPPDATA%\LenovoLegionToolkit`；
-2. 在此处创建名为 `args.txt` 的文件。（如果已有，请编辑此文件。）；
-3. 根据你的键盘型号，在文件夹内粘贴 `--force-disable-rgbkb` 或 `--force-disable-spectrumkb`。（如果此文件夹内已被添加了启动参数，请另起一行，保证每行一个参数。）；
-4. 启动拯救者工具箱，
-
-#### 2022 款之前的机器能否自定义调节风扇曲线？
+#### <a id="faq-fan-control" />2022 款之前的机器能否自定义调节风扇曲线？
 
 如果你是 2022 款与更新的机型的拯救者，但不支持自定义风扇曲线的话，请提交 Issue，我们会尝试适配。2022 款之前的机型由于技术原因无法支持。
 
-#### 为什么我锁定 Fn 键后的效果是反的？
-
-一些设备确实有这个问题，坦率地讲，我也不知道。但如果你知道解决欢迎贡献代码！
-
-#### 为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
+#### <a id="faq-ai-fnq-bug" />为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
 
 貌似有些 BIOS 版本在使用 Fn+Q 快捷键时有一个奇怪的问题，你可以试试更新 BIOS，除此之外只能等联想修复它了。
 
-#### 为何即使自动化配置正确，游戏检测仍无法正常触发？
+#### <a id="faq-game-detect" />为何即使自动化配置正确，游戏检测仍无法正常触发？
 
 拯救者工具箱的游戏检测功能是基于 Windows 游戏检测的。这意味着游戏检测功能仅能被 Windows 认为是游戏的 EXE 文件触发。同时如果你删除了 Xbox Game Bar，此功能大概率将无法正常工作。
 
 Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar (Win + G) 设置中将任何程序标记为游戏。你可以在注册表中找到可识别的游戏列表：`HKEY_CURRENT_USER\System\GameConfigStore\Children`。
 
-#### 为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？
+#### <a id="faq-custom-tooltip" />为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？
 
 在 Windows 10 和 11 中，微软对托盘做了大量的修改，修改导致了很多东西产生了变化，从而导致许多东西无法正常工作。因此，自定义工具提示有时会无法正常工作。你可以试试更新你的 Windows，除此之外没什么好办法了。
 
-#### 我在哪里可以找到 CPU 睿频模式的设置？
+#### <a id="faq-cpu-oc" />我在哪里可以找到 CPU 睿频模式的设置？
 
 简而言之，在 Windows 控制面板中。此选项因很难维护已经从拯救者工具箱中删除了。在拯救者工具箱的设置中，你可以找到一个直接跳转到控制面板中电源计划设置页面的按钮，在那里你可以轻松地编辑 CPU 睿频模式设置以及 Windows 电源计划的其他设置。
 
 默认情况下，这个设置是隐藏的，但你也可以通过在终端运行`powercfg.exe -attributes sub_processor perfboostmode -attrib_hide`来重新打开这个选项。
 另外我还推荐其他一些应用程序可以轻松地管理多个电源计划设置：[PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) 与 [QuickCPU](https://coderbag.com/product/quickcpu)。
 
-#### 我可以自定义快捷键吗？
-
-你可以在拯救者工具箱设置中自定义 Fn + F9（星星键，又名 Lenovo Smart 键） 热键。其他快捷键无法自定义。
-
-#### 如果我超频 GPU 超多了怎么办？
+#### <a id="faq-gpu-oc" />如果我在对 GPU 进行超频时超过了阈值，该怎么办？
 
 如果你超频到 GPU 无法稳定运行，甚至无法启动 Windows 的情况，你可以通过以下两种方法尝试解决：
 
-1. 进入 BIOS，尝试找到类似于 “Enabled GPU Overclocking” 与 “显卡超频”的选项并将其禁用，启动 Windows，修改拯救者工具箱中的超频参数，并将此选项再次启用。
-2. 在安全模式下启动Windows，删除拯救者工具箱设置下的`gpu_oc.json`文件，该文件位于`"%LOCALAPPDATA%\LenovoLegionToolkit`。
+1. 进入 BIOS，尝试找到类似于 “Enabled GPU Overclocking” 与“显卡超频”的选项并将其禁用，启动 Windows，修改拯救者工具箱中的超频参数，并将此选项再次启用。
+2. 在安全模式下启动 Windows，删除拯救者工具箱设置下的 `gpu_oc.json` 文件，该文件位于 `"%LOCALAPPDATA%\LenovoLegionToolkit`。
+
+#### <a id="faq-boot-logo" />我的开机画面为什么没有生效？
+
+当你设置开机画面时，LLT会做一些基本的检查以确保图像的分辨率和格式符合标准。如果 LLT 显示开机画面已被设置，意味着该图像已经被写入了启动盘的 UEFI 分区。如果你在启动时没有看到开机画面，这意味着你的开机画面无法被正确显示，即使相关选项已经在 UEFI 中被成功配置。在这种情况下，你也许可以尝试使用另外的一张图片，更改图片的格式，或使用别的图像编辑软件，等等。如果你尝试了所有可能的解决方案但你的开机画面还是无法被正常显示，那这也许就是由 BIOS 造成的问题了，你可以尝试更新 BIOS 版本再重试。
+
+#### <a id="faq-smart-fn-lock-stutter" />为什么使用智能 Fn 锁时会出现卡顿？
+
+在一些版本的 BIOS 上切换 Fn 锁是会造成一定的卡顿。由于智能 Fn 锁本质上是自动的 Fn 锁切换，因此也会受到这个问题的影响。目前没有已知的解决方法。
+
+## 命令行参数
+
+一些并不常用的功能在 GUI 中没有对应的启动开关。这些功能需要通过在启动 LLT 时添加命令行参数，或将参数添加到 `args.txt` 中的方式启用。
+
+* `--trace` - 启用日志记录并将日志保存到 `%LOCALAPPDATA%\LenovoLegionToolkit\log`
+* `--minimized` - 以最小化到托盘的方式启动 LLT
+* `--skip-compat-check` - 在启动 LLT 时不检查设备兼容性 _（使用该参数时 LLT 不保证能够正常运行，也不会为此参数造成的问题提供技术支持）_
+* `--disable-tray-tooltip` - 当鼠标悬停在托盘图标上方时不显示 LLT 托盘自定义工具提示
+* `--allow-all-power-modes-on-battery` - 允许在未接通外部电源的情况下启用所有性能模式 _（使用该参数时 LLT 不保证能够正常运行，也不会为此参数造成的问题提供技术支持）_
+* `--enable-hybrid-mode-automation` - 允许使用 LLT 自动化操作切换混合模式或其他显卡工作模式 _（使用该参数时 LLT 不保证能够正常运行，也不会为此参数造成的问题提供技术支持）_
+* `--force-disable-rgbkb` - 禁用四分区 RGB 键盘的所有光效控制功能
+* `--force-disable-spectrumkb` - 禁用 Spectrum 单键 RGB 的所有光效控制功能
+* `--force-disable-lenovolighting` - 禁用拯救者 Logo，白色键盘背光，和其他如端口背光的光效控制功能
+* `--experimental-gpu-working-mode` - 将显卡工作模式切换至和 LegionZone 相同的实验性模式 _（使用该参数时 LLT 不保证能够正常运行，也不会为此参数造成的问题提供技术支持）_
+* `--proxyUrl=example.com` - 指定 LLT 应该使用的代理服务器地址
+* `--proxyUsername=some_username` - 如果需要，指定 LLT 使用的代理服务器的用户名
+* `--proxyPassword=some_password` - 如果需要，指定 LLT 使用的代理服务器的密码
+* `--proxyAllowAllCerts` - 如果需要，放宽通过代理服务器建立 HTTPS/SSL 连接的所需标准
+
+如果你希望将所需参数保存至 `args.txt` 文件内：
+1. 进入 `%LOCALAPPDATA%\LenovoLegionToolkit` 文件夹
+2. 在那里创建一个名为 `args.txt` 的文本文件
+3. 在文件内的每一行添加**一个**参数
+4. 启动 LLT
+
+任何没有在上方列出的，曾经可用的命令行参数均已被废弃，也无法再使用。
 
 ## 如何开启记录Log
 
