@@ -242,41 +242,38 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task SetCurrentPresetAsync()
         {
-            using (await IoLock.LockAsync().ConfigureAwait(false))
-            {
 #if !MOCK_RGB
-                _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
+            _ = DeviceHandle ?? throw new InvalidOperationException("RGB Keyboard unsupported.");
 #endif
 
-                await ThrowIfVantageEnabled().ConfigureAwait(false);
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
+            var state = _settings.Store.State;
 
-                var preset = state.SelectedPreset;
+            var preset = state.SelectedPreset;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Current preset is {preset}.");
+
+            LENOVO_RGB_KEYBOARD_STATE str;
+            if (preset == RGBKeyboardBacklightPreset.Off)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Creating off state.");
+
+                str = CreateOffState();
+            }
+            else
+            {
+                var presetDescription = state.Presets[preset];
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Current preset is {preset}.");
+                    Log.Instance.Trace($"Creating state: {presetDescription}");
 
-                LENOVO_RGB_KEYBOARD_STATE str;
-                if (preset == RGBKeyboardBacklightPreset.Off)
-                {
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Creating off state.");
-
-                    str = CreateOffState();
-                }
-                else
-                {
-                    var presetDescription = state.Presets[preset];
-
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Creating state: {presetDescription}");
-
-                    str = Convert(presetDescription);
-                }
-
-                await SendToDevice(str).ConfigureAwait(false);
+                str = Convert(presetDescription);
             }
+
+            await SendToDevice(str).ConfigureAwait(false);
         }
 
         private async Task ThrowIfVantageEnabled()
@@ -337,59 +334,39 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 Zone2Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
                 Zone3Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
                 Zone4Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
+                Effect = preset.Effect switch
+                {
+                    RGBKeyboardBacklightEffect.Static => 1,
+                    RGBKeyboardBacklightEffect.Breath => 3,
+                    RGBKeyboardBacklightEffect.WaveRTL => 4,
+                    RGBKeyboardBacklightEffect.WaveLTR => 4,
+                    RGBKeyboardBacklightEffect.Smooth => 6,
+                    _ => 0
+                },
+                WaveRTL = (byte)(preset.Effect == RGBKeyboardBacklightEffect.WaveRTL ? 1 : 0),
+                WaveLTR = (byte)(preset.Effect == RGBKeyboardBacklightEffect.WaveLTR ? 1 : 0),
+                Brightness = preset.Brightness switch
+                {
+                    RGBKeyboardBacklightBrightness.Low => 1,
+                    RGBKeyboardBacklightBrightness.High => 2,
+                    _ => 0
+                }
             };
 
-            switch (preset.Effect)
-            {
-                case RGBKeyboardBacklightEffect.Static:
-                    result.Effect = 1;
-                    break;
-                case RGBKeyboardBacklightEffect.Breath:
-                    result.Effect = 3;
-                    break;
-                case RGBKeyboardBacklightEffect.WaveRTL:
-                    result.Effect = 4;
-                    result.WaveRTL = 1;
-                    break;
-                case RGBKeyboardBacklightEffect.WaveLTR:
-                    result.Effect = 4;
-                    result.WaveLTR = 1;
-                    break;
-                case RGBKeyboardBacklightEffect.Smooth:
-                    result.Effect = 6;
-                    break;
-            }
-
-            switch (preset.Brightness)
-            {
-                case RGBKeyboardBacklightBrightness.Low:
-                    result.Brightness = 1;
-                    break;
-                case RGBKeyboardBacklightBrightness.High:
-                    result.Brightness = 2;
-                    break;
-            }
 
             if (preset.Effect != RGBKeyboardBacklightEffect.Static)
             {
-                switch (preset.Speed)
+                result.Speed = preset.Speed switch
                 {
-                    case RGBKeyboardBacklightSpeed.Slowest:
-                        result.Speed = 1;
-                        break;
-                    case RGBKeyboardBacklightSpeed.Slow:
-                        result.Speed = 2;
-                        break;
-                    case RGBKeyboardBacklightSpeed.Fast:
-                        result.Speed = 3;
-                        break;
-                    case RGBKeyboardBacklightSpeed.Fastest:
-                        result.Speed = 4;
-                        break;
-                }
+                    RGBKeyboardBacklightSpeed.Slowest => 1,
+                    RGBKeyboardBacklightSpeed.Slow => 2,
+                    RGBKeyboardBacklightSpeed.Fast => 3,
+                    RGBKeyboardBacklightSpeed.Fastest => 4,
+                    _ => 0
+                };
             }
 
-            if (preset.Effect == RGBKeyboardBacklightEffect.Static || preset.Effect == RGBKeyboardBacklightEffect.Breath)
+            if (preset.Effect is RGBKeyboardBacklightEffect.Static or RGBKeyboardBacklightEffect.Breath)
             {
                 result.Zone1Rgb = new[] { preset.Zone1.R, preset.Zone1.G, preset.Zone1.B };
                 result.Zone2Rgb = new[] { preset.Zone2.R, preset.Zone2.G, preset.Zone2.B };
