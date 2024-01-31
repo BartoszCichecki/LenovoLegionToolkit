@@ -75,6 +75,7 @@
                             x:Name="_quietModeComboBox"
                             MinWidth="200"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_QuietMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="QuietModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
@@ -87,6 +88,7 @@
                             x:Name="_balanceModeComboBox"
                             MinWidth="200"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_BalanceMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="BalanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
@@ -99,6 +101,7 @@
                             x:Name="_performanceModeComboBox"
                             MinWidth="200"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_PerformanceMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
@@ -111,6 +114,7 @@
                             x:Name="_godModeComboBox"
                             MinWidth="200"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_CustomMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="GodModeComboBox_SelectionChanged" />
                     </wpfui:CardControl>
@@ -122,6 +126,7 @@
                         <wpfui:ToggleSwitch
                             x:Name="_activatePowerProfilesWithVantageEnabledToggle"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}"
                             Click="ActivatePowerProfilesWithVantageEnabled_Click" />
                     </wpfui:CardControl>
 

@@ -168,6 +168,14 @@ public partial class MainWindow
         window.ShowDialog();
     }
 
+    private void UpdateIndicator_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key is not Key.Enter and not Key.Space)
+            return;
+
+        ShowUpdateWindow();
+    }
+
     private void UpdateIndicator_Click(object sender, RoutedEventArgs e) => ShowUpdateWindow();
 
     private void LoadDeviceInfo()

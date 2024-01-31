@@ -13,6 +13,7 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.BatteryPage_Title}" />
@@ -30,24 +31,32 @@
                     x:Name="_percentRemaining"
                     Margin="0,0,0,4"
                     HorizontalAlignment="Left"
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
                     FlowDirection="LeftToRight"
+                    Focusable="True"
                     FontSize="32"
                     FontWeight="Medium" />
                 <TextBlock
                     x:Name="_status"
                     Margin="0,0,0,2"
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_Title}"
+                    Focusable="True"
                     FontSize="16"
                     FontWeight="Medium"
                     Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
                 <TextBlock
                     x:Name="_lowBattery"
                     Margin="0,0,0,2"
+                    Focusable="True"
                     FontSize="14"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
                     Text="{x:Static resources:Resource.BatteryPage_LowLevel}"
                     Visibility="Hidden" />
                 <TextBlock
                     x:Name="_lowWattageCharger"
+                    Focusable="True"
                     FontSize="14"
                     Foreground="{DynamicResource SystemFillColorCautionBrush}"
                     Text="{x:Static resources:Resource.BatteryPage_LowWattageChargerConnected}"
@@ -64,7 +73,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryTemperatureText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -74,7 +86,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryDischargeRateText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_DischargeRate_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -84,18 +99,24 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryCapacityText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,8">
-            <TextBlock
-                x:Name="_batteryFullChargeCapacityText"
-                FlowDirection="LeftToRight"
-                FontSize="14" />
             <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Message}" />
             </wpfui:CardControl.Header>
+            <TextBlock
+                x:Name="_batteryFullChargeCapacityText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Title}"
+                FlowDirection="LeftToRight"
+                Focusable="True"
+                FontSize="14" />
         </wpfui:CardControl>
 
         <wpfui:CardControl Margin="0,0,0,24">
@@ -104,7 +125,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryDesignCapacityText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_DesignCapacity_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -114,7 +138,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_onBatterySinceText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_OnBatterySince_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -124,7 +151,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryCycleCountText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_CycleCount_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -134,7 +164,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryManufactureDateText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_ManufactureDate_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 
@@ -144,7 +177,10 @@
             </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryFirstUseDateText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_FirstUseDate_Title}"
                 FlowDirection="LeftToRight"
+                Focusable="True"
                 FontSize="14" />
         </wpfui:CardControl>
 

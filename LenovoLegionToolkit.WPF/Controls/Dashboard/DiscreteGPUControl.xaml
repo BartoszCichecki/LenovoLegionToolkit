@@ -41,32 +41,32 @@
                     Height="12"
                     Fill="#BF360C"
                     Visibility="Collapsed" />
-                <Label
+                <TextBlock
                     x:Name="_discreteGPUStatusDescription"
                     Grid.Column="1"
-                    Margin="8,4,0,0"
+                    Margin="8,0,0,0"
                     VerticalAlignment="Center"
-                    FontWeight="Medium">
-                    <Label.Foreground>
-                        <SolidColorBrush Color="{DynamicResource TextFillColorPrimary}" />
-                    </Label.Foreground>
-                </Label>
-
+                    AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                    AutomationProperties.Name="{x:Static resources:Resource.DiscreteGPUControl_Title}"
+                    Focusable="True"
+                    FontWeight="Medium" />
                 <wpfui:Button
                     x:Name="_gpuInfoButton"
                     Grid.Column="2"
                     Margin="8,0,0,0"
+                    AutomationProperties.HelpText="{x:Static resources:Resource.Information}"
+                    AutomationProperties.Name="{x:Static resources:Resource.DiscreteGPUControl_Title}"
                     ClickMode="Hover"
                     FontSize="20"
                     Icon="QuestionCircle24"
                     ToolTipService.InitialShowDelay="0" />
-
             </Grid>
             <wpfui:Button
                 x:Name="_deactivateGPUButton"
                 MinWidth="150"
                 Margin="0,8,0,0"
                 Appearance="Primary"
+                AutomationProperties.Name="{x:Static resources:Resource.DiscreteGPUControl_Deactivate}"
                 Click="DeactivateGPUButton_Click"
                 IsEnabled="False"
                 ToolTipService.InitialShowDelay="0"

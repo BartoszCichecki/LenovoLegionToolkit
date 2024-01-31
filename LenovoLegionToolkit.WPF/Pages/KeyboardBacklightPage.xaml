@@ -16,6 +16,7 @@
         <TextBlock
             x:Name="_titleTextBlock"
             Margin="0,16,0,24"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.KeyboardBacklightPage_Title}" />

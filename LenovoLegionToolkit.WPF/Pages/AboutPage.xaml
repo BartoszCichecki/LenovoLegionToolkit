@@ -12,25 +12,29 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.AboutPage_Title}" />
 
         <TextBlock
             Padding="0,0,0,8"
+            Focusable="True"
             FontSize="16"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.AboutPage_AppName}" />
         <TextBlock
             x:Name="_version"
             Padding="0,0,0,8"
+            Focusable="True"
             Text="{x:Static resources:Resource.AboutPage_Version}" />
         <TextBlock
             x:Name="_build"
             Padding="0,0,0,16"
+            Focusable="True"
             Text="{x:Static resources:Resource.AboutPage_Build}" />
 
-        <TextBlock x:Name="_copyright" />
+        <TextBlock x:Name="_copyright" Focusable="True" />
         <TextBlock
             x:Name="_translationCredit"
             Padding="0,8,0,0"
@@ -38,6 +42,7 @@
 
         <TextBlock
             Padding="0,24,0,8"
+            Focusable="True"
             FontSize="14"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.AboutPage_Links}" />
@@ -52,6 +57,7 @@
 
         <TextBlock
             Padding="0,24,0,8"
+            Focusable="True"
             FontSize="14"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.AboutPage_ThirdPartyLibraries}" />
@@ -90,6 +96,8 @@
 
         <TextBlock
             Padding="0,24,0,8"
+            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Focusable="True"
             FontSize="14"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.AboutPage_ApplicationFolders}" />

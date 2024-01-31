@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -32,7 +33,11 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
     protected string Title
     {
         get => _cardHeaderControl.Title;
-        set => _cardHeaderControl.Title = value;
+        set
+        {
+            _cardHeaderControl.Title = value;
+            AutomationProperties.SetName(_comboBox, value);
+        }
     }
 
     protected string Subtitle

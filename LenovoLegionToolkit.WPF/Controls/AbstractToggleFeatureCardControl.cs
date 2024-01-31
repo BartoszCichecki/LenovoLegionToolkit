@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Utils;
@@ -29,7 +30,11 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
     protected string Title
     {
         get => _cardHeaderControl.Title;
-        set => _cardHeaderControl.Title = value;
+        set
+        {
+            _cardHeaderControl.Title = value;
+            AutomationProperties.SetName(_toggle, value);
+        }
     }
 
     protected string Subtitle

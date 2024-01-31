@@ -75,6 +75,7 @@
 
                     <TextBlock
                         Margin="0,16,0,24"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_ActivePreset_Title}" />
@@ -121,6 +122,7 @@
                     <TextBlock
                         x:Name="_cpuSectionTitle"
                         Margin="0,16,0,24"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_CPU_Title}" />
@@ -177,6 +179,7 @@
                     <TextBlock
                         x:Name="_gpuSectionTitle"
                         Margin="0,16,0,24"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_GPU_Title}" />
@@ -219,6 +222,7 @@
                     <TextBlock
                         x:Name="_fanSectionTitle"
                         Margin="0,16,0,24"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Title}" />
@@ -248,12 +252,14 @@
                         <wpfui:ToggleSwitch
                             x:Name="_fanFullSpeedToggle"
                             Margin="0,0,0,8"
+                            AutomationProperties.Name="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}"
                             Click="FanFullSpeedToggle_Click" />
                     </wpfui:CardControl>
 
                     <TextBlock
                         x:Name="_advancedSectionTitle"
                         Margin="0,16,0,8"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Title}" />
@@ -261,6 +267,7 @@
                     <TextBlock
                         x:Name="_advancedSectionMessage"
                         Margin="0,0,0,24"
+                        Focusable="True"
                         FontSize="12"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Message}" />
 
@@ -272,6 +279,7 @@
                             x:Name="_maxValueOffsetNumberBox"
                             Width="120"
                             Margin="32,0,0,0"
+                            AutomationProperties.Name="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Title}"
                             ClearButtonEnabled="False"
                             MaxDecimalPlaces="0"
                             Maximum="100"
@@ -286,6 +294,7 @@
                             x:Name="_minValueOffsetNumberBox"
                             Width="120"
                             Margin="32,0,0,0"
+                            AutomationProperties.Name="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MinOffset_Title}"
                             ClearButtonEnabled="False"
                             MaxDecimalPlaces="0"
                             Maximum="0"

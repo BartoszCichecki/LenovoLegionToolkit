@@ -57,6 +57,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_dontShowNotificationsToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_DontShowNotifications_Title}"
                         Click="DontShowNotificationsToggle_Click" />
                 </wpfui:CardControl>
 
@@ -68,6 +69,7 @@
                         x:Name="_notificationPositionComboBox"
                         MinWidth="200"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}"
                         MaxDropDownHeight="Auto"
                         SelectionChanged="NotificationPositionComboBox_SelectionChanged" />
                 </wpfui:CardControl>
@@ -80,6 +82,7 @@
                         x:Name="_notificationDurationComboBox"
                         MinWidth="200"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationDuration_Title}"
                         MaxDropDownHeight="Auto"
                         SelectionChanged="NotificationDurationComboBox_SelectionChanged" />
                 </wpfui:CardControl>
@@ -91,6 +94,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_updateAvailableToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_Updates_Title}"
                         Click="UpdateAvailableToggle_Click" />
                 </wpfui:CardControl>
 
@@ -101,6 +105,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_automationToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_Automation}"
                         Click="AutomationToggle_Click" />
                 </wpfui:CardControl>
 
@@ -111,6 +116,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_capsNumLockToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_CapsAndNumLock}"
                         Click="CapsNumLockToggle_Click" />
                 </wpfui:CardControl>
 
@@ -121,6 +127,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_fnLockToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_FnLock}"
                         Click="FnLockToggle_Click" />
                 </wpfui:CardControl>
 
@@ -131,6 +138,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_touchpadLockToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_TouchpadLock}"
                         Click="TouchpadLockToggle_Click" />
                 </wpfui:CardControl>
 
@@ -141,6 +149,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_smartKeyToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_SmartKey}"
                         Click="SmartKeyToggle_Click" />
                 </wpfui:CardControl>
 
@@ -151,6 +160,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_keyboardBacklightToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_KeyboardBacklight}"
                         Click="KeyboardBacklightToggle_Click" />
                 </wpfui:CardControl>
 
@@ -161,6 +171,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_cameraLockToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_Camera}"
                         Click="CameraLockToggle_Click" />
                 </wpfui:CardControl>
 
@@ -171,6 +182,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_microphoneToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_Microphone}"
                         Click="MicrophoneToggle_Click" />
                 </wpfui:CardControl>
 
@@ -181,6 +193,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_powerModeToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_PowerMode}"
                         Click="PowerModeToggle_Click" />
                 </wpfui:CardControl>
 
@@ -191,6 +204,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_refreshRateToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_RefreshRate}"
                         Click="RefreshRateToggle_Click" />
                 </wpfui:CardControl>
 
@@ -201,6 +215,7 @@
                     <wpfui:ToggleSwitch
                         x:Name="_acAdapterToggle"
                         Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_ACAdapter}"
                         Click="ACAdapterToggle_Click" />
                 </wpfui:CardControl>
             </StackPanel>

@@ -12,6 +12,7 @@
     <StackPanel Margin="0,0,16,12">
         <TextBlock
             Margin="0,16,0,24"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.DonatePage_Title}" />
@@ -20,6 +21,7 @@
             MaxWidth="450"
             Margin="0,0,0,24"
             HorizontalAlignment="Left"
+            Focusable="True"
             FontSize="14"
             Text="{x:Static resources:Resource.DonatePage_Message}"
             TextAlignment="Justify"

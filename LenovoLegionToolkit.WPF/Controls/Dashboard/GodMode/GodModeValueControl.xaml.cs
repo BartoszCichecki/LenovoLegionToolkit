@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Windows;
+using System.Windows.Automation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -14,7 +15,14 @@ public partial class GodModeValueControl
     public string Title
     {
         get => _cardControlHeader.Title;
-        set => _cardControlHeader.Title = value;
+        set
+        {
+            _cardControlHeader.Title = value;
+
+            AutomationProperties.SetName(_slider, _cardControlHeader.Title);
+            AutomationProperties.SetName(_comboBox, _cardControlHeader.Title);
+            AutomationProperties.SetName(_resetToDefaultButton, _cardControlHeader.Title);
+        }
     }
 
     public string Description
@@ -75,7 +83,10 @@ public partial class GodModeValueControl
         remove => _slider.ValueChanged -= value;
     }
 
-    public GodModeValueControl() => InitializeComponent();
+    public GodModeValueControl()
+    {
+        InitializeComponent();
+    }
 
     public void Set(StepperValue? stepperValue)
     {

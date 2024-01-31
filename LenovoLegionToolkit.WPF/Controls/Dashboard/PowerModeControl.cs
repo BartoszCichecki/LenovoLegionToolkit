@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -37,6 +38,8 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         Icon = SymbolRegular.Gauge24;
         Title = Resource.PowerModeControl_Title;
         Subtitle = Resource.PowerModeControl_Message;
+
+        AutomationProperties.SetName(_configButton, Resource.PowerModeControl_Title);
 
         _thermalModeListener.Changed += ThermalModeListener_Changed;
         _powerModeListener.Changed += PowerModeListener_Changed;

@@ -14,6 +14,8 @@
 
         <TextBlock
             Margin="0,16,0,24"
+            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Title}" />
@@ -29,6 +31,7 @@
                 x:Name="_langComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_Language_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="LangComboBox_SelectionChanged"
                 Visibility="Hidden" />
@@ -42,6 +45,7 @@
                 x:Name="_themeComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_Theme_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="ThemeComboBox_SelectionChanged"
                 Visibility="Hidden" />
@@ -57,6 +61,7 @@
                     x:Name="_accentColorSourceComboBox"
                     MinWidth="160"
                     Margin="8,0,0,0"
+                    AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_AccentColor_Title}"
                     MaxDropDownHeight="Auto"
                     SelectionChanged="AccentColorSourceComboBox_SelectionChanged" />
             </StackPanel>
@@ -70,6 +75,7 @@
                 x:Name="_autorunComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_Autorun_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="AutorunComboBox_SelectionChanged"
                 Visibility="Hidden" />
@@ -82,6 +88,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_minimizeOnCloseToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_MinimizeOnClose_Title}"
                 Click="MinimizeOnCloseToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -93,6 +100,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_vantageToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_DisableVantage_Title}"
                 Click="VantageToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -104,6 +112,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_legionZoneToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_DisableLegionZone_Title}"
                 Click="LegionZoneToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -115,6 +124,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_fnKeysToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_DisableLenovoHotkeys_Title}"
                 Click="FnKeysToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -127,6 +137,7 @@
                 x:Name="_smartFnLockComboBox"
                 MinWidth="150"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_SmartFnLock_Title}"
                 SelectionChanged="SmartFnLockComboBox_SelectionChanged"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -174,6 +185,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_synchronizeBrightnessToAllPowerPlansToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title}"
                 Click="SynchronizeBrightnessToAllPowerPlansToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>
@@ -189,6 +201,8 @@
 
         <TextBlock
             Margin="0,16,0,24"
+            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Power_Title}" />
@@ -214,6 +228,8 @@
 
         <TextBlock
             Margin="0,16,0,24"
+            AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+            Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Integrations_Title}" />
@@ -225,6 +241,7 @@
             <wpfui:ToggleSwitch
                 x:Name="_hwinfoIntegrationToggle"
                 Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_HWiNFO_Title}"
                 Click="HWiNFOIntegrationToggle_Click"
                 Visibility="Hidden" />
         </wpfui:CardControl>

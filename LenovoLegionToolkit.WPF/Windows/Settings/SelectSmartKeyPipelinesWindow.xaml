@@ -59,12 +59,16 @@
                 <wpfui:CardControl.Header>
                     <controls:CardHeaderControl Title="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_ShowThisApp}" />
                 </wpfui:CardControl.Header>
-                <wpfui:ToggleSwitch x:Name="_showThisAppToggle" Click="ShowThisAppToggle_Click" />
+                <wpfui:ToggleSwitch
+                    x:Name="_showThisAppToggle"
+                    AutomationProperties.Name="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_ShowThisApp}"
+                    Click="ShowThisAppToggle_Click" />
             </wpfui:CardControl>
 
             <TextBlock
                 Grid.Row="1"
                 Margin="0,0,0,8"
+                Focusable="True"
                 Foreground="{DynamicResource TextFillColorSecondaryBrush}"
                 Text="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_List_Description}"
                 TextWrapping="Wrap" />

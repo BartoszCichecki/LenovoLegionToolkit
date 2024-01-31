@@ -17,7 +17,9 @@
         <wpfui:Button
             x:Name="_turnOffButton"
             MinWidth="120"
+            AutomationProperties.Name="{x:Static resources:Resource.TurnOffMonitorsControl_Title}"
             Click="TurnOffButton_Click"
-            Content="{x:Static resources:Resource.TurnOffMonitorsControl_TurnOff}" />
+            Content="{x:Static resources:Resource.TurnOffMonitorsControl_TurnOff}"
+            Focusable="True" />
     </wpfui:CardControl>
 </controls:AbstractRefreshingControl>
