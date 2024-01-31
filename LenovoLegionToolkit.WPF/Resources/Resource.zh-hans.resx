@@ -1971,4 +1971,49 @@
   <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
     <value>启用该功能后，当您插上电源过夜时，该设备将充电至 80%，并在您早上使用该设备时充电至 100%。</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>无效的图像分辨率。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>无效的图像格式。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>无法挂载 EFI 分区。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>无法设置 UEFI 权限。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>EFI 分区空间不足。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>自定义开机画面设置失败：{0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>预设开机画面设置失败：{0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>已设置为默认开机画面。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>已设置为自定义开机画面。</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>网络名称（SSID）</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>复制当前的网络名称</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>将任何 Wi-Fi 网络留空。</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>将风扇速度，电池温度等数据和 HWiNFO64 共享。你也许需要在改变此选项的值后重启 HWiNFO64。</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>应用集成</value>
+  </data>
 </root>
