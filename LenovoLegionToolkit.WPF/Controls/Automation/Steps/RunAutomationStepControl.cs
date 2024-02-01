@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.WPF.Resources;
@@ -30,6 +31,9 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         Icon = SymbolRegular.WindowConsole20;
         Title = Resource.RunAutomationStepControl_Title;
         Subtitle = Resource.RunAutomationStepControl_Message;
+
+        AutomationProperties.SetName(_scriptPath, Resource.RunAutomationStepControl_ExePath);
+        AutomationProperties.SetName(_scriptArguments, Resource.RunAutomationStepControl_ExeArguments);
 
         SizeChanged += RunAutomationStepControl_SizeChanged;
     }
@@ -69,8 +73,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
 
     protected override Task RefreshAsync()
     {
-        _scriptPath.Text = AutomationStep.ScriptPath;
-        _scriptArguments.Text = AutomationStep.ScriptArguments;
+        _scriptPath.Text = AutomationStep.ScriptPath ?? string.Empty;
+        _scriptArguments.Text = AutomationStep.ScriptArguments ?? string.Empty;
         return Task.CompletedTask;
     }
 }

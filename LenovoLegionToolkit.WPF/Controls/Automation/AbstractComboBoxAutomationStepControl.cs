@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
@@ -12,7 +13,6 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
 public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl<IAutomationStep<T>> where T : struct
 {
-
     private readonly ComboBox _comboBox = new()
     {
         MinWidth = 150,
@@ -58,6 +58,8 @@ public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAut
 
     protected override async Task RefreshAsync()
     {
+        AutomationProperties.SetName(_comboBox, Title);
+
         var items = await AutomationStep.GetAllStatesAsync();
         var selectedItem = AutomationStep.State;
 

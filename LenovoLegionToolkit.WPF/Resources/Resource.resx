@@ -2029,4 +2029,7 @@ Supported formats are: {1}.</value>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
 	  <value>Refresh</value>
   </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Delete</value>
+  </data>
 </root>

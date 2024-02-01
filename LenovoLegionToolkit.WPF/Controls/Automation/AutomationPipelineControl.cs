@@ -19,8 +19,8 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
 using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using CardExpander = LenovoLegionToolkit.WPF.Controls.Custom.CardExpander;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
@@ -426,6 +426,8 @@ public class AutomationPipelineControl : UserControl
         _stepsStackPanel.Children.Add(control);
         _cardHeaderControl.Subtitle = GenerateSubtitle();
         _cardHeaderControl.SubtitleToolTip = _cardHeaderControl.Subtitle;
+
+        control.Focus();
 
         OnChanged?.Invoke(this, EventArgs.Empty);
     }
