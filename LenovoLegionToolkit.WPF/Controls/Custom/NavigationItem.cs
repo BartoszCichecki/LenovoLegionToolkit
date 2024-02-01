@@ -32,7 +32,7 @@ public class NavigationItem : Wpf.Ui.Controls.NavigationItem
             if (result == string.Empty)
                 result = AutomationProperties.GetName(_owner);
 
-            return $"Navigate to {result}";
+            return result;
         }
     }
 }

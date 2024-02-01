@@ -37,11 +37,12 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 FlowDirection="LeftToRight"
+                Focusable="False"
                 FontSize="12"
                 IsHitTestVisible="False"
                 Text="{x:Static resources:Resource.AppName}" />
 
-            <wpfui:Badge
+            <custom:Badge
                 x:Name="_openLogIndicator"
                 Grid.Column="1"
                 Margin="0,0,8,0"
@@ -49,16 +50,20 @@
                 Appearance="Caution"
                 Content="Log"
                 Cursor="Hand"
+                Focusable="True"
+                KeyDown="OpenLogIndicator_KeyDown"
                 MouseLeftButtonDown="OpenLogIndicator_Click"
                 MouseRightButtonDown="OpenLogIndicator_Click"
                 Visibility="Collapsed" />
 
-            <wpfui:Badge
+            <custom:Badge
                 x:Name="_deviceInfoIndicator"
                 Grid.Column="2"
                 Padding="8,2,8,2"
                 Appearance="Transparent"
                 Cursor="Hand"
+                Focusable="True"
+                KeyDown="DeviceInfoIndicator_KeyDown"
                 MouseLeftButtonDown="DeviceInfoIndicator_Click"
                 MouseRightButtonDown="DeviceInfoIndicator_Click"
                 Visibility="Collapsed" />
