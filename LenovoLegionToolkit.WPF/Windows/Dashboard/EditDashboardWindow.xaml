@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -48,15 +49,15 @@
                 Text="{x:Static resources:Resource.EditDashboardWindow_Title}" />
         </Grid>
 
-        <wpfui:CardControl
+        <custom:CardControl
             x:Name="_infoBar"
             Grid.Row="1"
             Margin="12,0,16,16"
             Icon="Info24">
-            <wpfui:CardControl.Header>
+            <custom:CardControl.Header>
                 <TextBlock Text="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}" TextWrapping="Wrap" />
-            </wpfui:CardControl.Header>
-        </wpfui:CardControl>
+            </custom:CardControl.Header>
+        </custom:CardControl>
 
         <controls:LoadableControl
             x:Name="_loader"
@@ -65,12 +66,12 @@
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer x:Name="_groupsScrollViewer">
                 <StackPanel>
-                    <wpfui:CardControl Margin="0,0,16,16">
-                        <wpfui:CardControl.Header>
+                    <custom:CardControl Margin="0,0,16,16">
+                        <custom:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
-                        </wpfui:CardControl.Header>
+                        </custom:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_sensorsSwitch" AutomationProperties.Name="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
-                    </wpfui:CardControl>
+                    </custom:CardControl>
                     <StackPanel x:Name="_groupsStackPanel" Margin="0,0,16,0" />
                 </StackPanel>
             </wpfui:DynamicScrollViewer>

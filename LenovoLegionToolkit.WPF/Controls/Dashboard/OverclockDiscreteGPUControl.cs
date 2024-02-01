@@ -12,6 +12,7 @@ using LenovoLegionToolkit.WPF.Windows.Dashboard;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -23,8 +24,7 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
     private readonly CardControl _cardControl = new()
     {
         Icon = SymbolRegular.DeveloperBoardLightning20,
-        Margin = new(0, 0, 0, 8),
-        Focusable = false
+        Margin = new(0, 0, 0, 8)
     };
 
     private readonly CardHeaderControl _cardHeaderControl = new()

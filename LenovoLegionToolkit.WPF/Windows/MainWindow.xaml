@@ -2,6 +2,7 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
@@ -81,28 +82,28 @@
                 SelectedPageIndex="0">
 
                 <wpfui:NavigationStore.Items>
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
                         Icon="Home24"
                         PageTag="dashboard"
                         PageType="{x:Type pages:DashboardPage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         x:Name="_keyboardItem"
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
                         Icon="Keyboard24"
                         PageTag="keyboardBacklight"
                         PageType="{x:Type pages:KeyboardBacklightPage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
                         Icon="BatteryCheckmark24"
                         PageTag="battery"
                         PageType="{x:Type pages:BatteryPage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
                         Icon="Rocket24"
                         PageTag="automation"
                         PageType="{x:Type pages:AutomationPage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
                         Icon="Box24"
                         PageTag="packages"
@@ -110,17 +111,17 @@
                 </wpfui:NavigationStore.Items>
 
                 <wpfui:NavigationStore.Footer>
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
                         Icon="Settings24"
                         PageTag="settings"
                         PageType="{x:Type pages:SettingsPage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
                         Icon="Money24"
                         PageTag="donate"
                         PageType="{x:Type pages:DonatePage}" />
-                    <wpfui:NavigationItem
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
                         Icon="Info24"
                         PageTag="about"

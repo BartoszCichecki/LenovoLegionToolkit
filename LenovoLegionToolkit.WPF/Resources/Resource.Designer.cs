@@ -1446,6 +1446,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string DeviceInformationWindow_Refresh {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Serial number.
         /// </summary>
         public static string DeviceInformationWindow_SerialNumber_Title {

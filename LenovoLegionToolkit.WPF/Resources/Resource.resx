@@ -2026,4 +2026,7 @@ Supported formats are: {1}.</value>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Preset</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Refresh</value>
+  </data>
 </root>

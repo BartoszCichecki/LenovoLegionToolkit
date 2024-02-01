@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Automation;
+using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls;
@@ -134,6 +136,8 @@ public class CardHeaderControl : UserControl
         IsEnabledChanged += (_, _) => UpdateTextStyle();
     }
 
+    protected override AutomationPeer OnCreateAutomationPeer() => new CardHeaderControlAutomationPeer(this);
+
     private void RefreshLayout()
     {
         if (string.IsNullOrWhiteSpace(Subtitle) && string.IsNullOrWhiteSpace(Warning))
@@ -158,6 +162,43 @@ public class CardHeaderControl : UserControl
             _titleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
             _subtitleTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
             _warningTextBlock.SetResourceReference(ForegroundProperty, "TextFillColorDisabledBrush");
+        }
+    }
+
+    private class CardHeaderControlAutomationPeer : FrameworkElementAutomationPeer
+    {
+        private readonly CardHeaderControl _owner;
+
+        public CardHeaderControlAutomationPeer(CardHeaderControl owner) : base(owner) => _owner = owner;
+
+        protected override string GetClassNameCore() => nameof(CardHeaderControl);
+
+        protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Pane;
+
+        public override object? GetPattern(PatternInterface patternInterface)
+        {
+            if (patternInterface == PatternInterface.ItemContainer)
+                return this;
+
+            return base.GetPattern(patternInterface);
+        }
+
+        protected override string GetNameCore()
+        {
+            var result = base.GetNameCore() ?? string.Empty;
+
+            if (result == string.Empty)
+                result = AutomationProperties.GetName(_owner);
+
+            if (result == string.Empty && !string.IsNullOrWhiteSpace(_owner._titleTextBlock.Text))
+            {
+                result = _owner._titleTextBlock.Text;
+
+                if (!string.IsNullOrWhiteSpace(_owner._subtitleTextBlock.Text))
+                    result += $", {_owner._subtitleTextBlock.Text}";
+            }
+
+            return result;
         }
     }
 }

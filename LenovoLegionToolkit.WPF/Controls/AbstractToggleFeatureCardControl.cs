@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
+using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Controls;
 
@@ -59,7 +60,7 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
 
     protected abstract T OffState { get; }
 
-    public virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
+    protected virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
 
     protected AbstractToggleFeatureCardControl()
     {

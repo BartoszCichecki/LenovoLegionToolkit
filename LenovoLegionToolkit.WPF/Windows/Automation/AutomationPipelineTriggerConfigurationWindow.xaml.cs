@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
+using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -34,11 +35,13 @@ public partial class AutomationPipelineTriggerConfigurationWindow
                 header.Children.Add(new SymbolIcon { Symbol = trigger.Icon(), Margin = new(8, 0, 0, 0) });
                 header.Children.Add(new TextBlock { Text = trigger.DisplayName, Margin = new(4, 0, 8, 0) });
 
-                _tabControl.Items.Add(new TabItem
+                var tabItem = new TabItem
                 {
                     Header = header,
                     Content = content
-                });
+                };
+                AutomationProperties.SetName(tabItem, trigger.DisplayName);
+                _tabControl.Items.Add(tabItem);
             }
             else
             {
