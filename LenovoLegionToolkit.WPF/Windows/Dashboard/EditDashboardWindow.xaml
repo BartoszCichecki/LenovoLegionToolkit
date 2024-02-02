@@ -49,15 +49,14 @@
                 Text="{x:Static resources:Resource.EditDashboardWindow_Title}" />
         </Grid>
 
-        <custom:CardControl
+        <custom:InfoBar
             x:Name="_infoBar"
+            Title="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}"
             Grid.Row="1"
             Margin="12,0,16,16"
-            Icon="Info24">
-            <custom:CardControl.Header>
-                <TextBlock Text="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}" TextWrapping="Wrap" />
-            </custom:CardControl.Header>
-        </custom:CardControl>
+            IsClosable="False"
+            IsOpen="True"
+            Severity="Informational" />
 
         <controls:LoadableControl
             x:Name="_loader"

@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -61,14 +62,14 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <wpfui:CardControl
+                <custom:CardControl
                     Grid.Row="0"
                     Margin="0,8,0,8"
                     Icon="Info24">
-                    <wpfui:CardControl.Header>
+                    <custom:CardControl.Header>
                         <TextBlock Text="{x:Static resources:Resource.ExcludeRefreshRatesWindow_Description}" TextWrapping="Wrap" />
-                    </wpfui:CardControl.Header>
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                </custom:CardControl>
 
                 <Border Grid.Row="1" CornerRadius="8">
                     <Border.Background>

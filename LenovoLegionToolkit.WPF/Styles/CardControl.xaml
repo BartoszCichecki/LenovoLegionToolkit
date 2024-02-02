@@ -3,6 +3,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom">
 
+    <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
+
     <Style BasedOn="{StaticResource DefaultUiCardControlStyle}" TargetType="{x:Type custom:CardControl}" />
+
+    <!--  ReSharper restore Xaml.StaticResourceNotResolved  -->
 
 </ResourceDictionary>

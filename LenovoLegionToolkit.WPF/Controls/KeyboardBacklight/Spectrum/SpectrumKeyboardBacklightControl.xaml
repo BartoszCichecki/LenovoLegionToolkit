@@ -10,7 +10,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
     <StackPanel Margin="0,0,8,0">
 
-        <wpfui:InfoBar
+        <custom:InfoBar
             x:Name="_vantageWarningInfoBar"
             Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Margin="0,0,0,16"

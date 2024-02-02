@@ -2,11 +2,12 @@
     x:Class="LenovoLegionToolkit.WPF.Controls.Packages.PackageControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
 
-    <wpfui:CardControl Margin="0,0,0,8">
-        <wpfui:CardControl.Header>
+    <custom:CardControl Margin="0,0,0,8">
+        <custom:CardControl.Header>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -180,7 +181,7 @@
                 </StackPanel>
 
             </Grid>
-        </wpfui:CardControl.Header>
-    </wpfui:CardControl>
+        </custom:CardControl.Header>
+    </custom:CardControl>
 
 </UserControl>

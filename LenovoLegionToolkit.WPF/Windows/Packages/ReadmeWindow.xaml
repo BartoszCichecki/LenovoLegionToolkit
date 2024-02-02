@@ -52,7 +52,10 @@
                 </Grid.RowDefinitions>
 
                 <ScrollViewer Grid.Row="0">
-                    <TextBlock x:Name="_content" TextWrapping="Wrap" />
+                    <TextBlock
+                        x:Name="_content"
+                        Focusable="True"
+                        TextWrapping="Wrap" />
                 </ScrollViewer>
 
                 <Grid Grid.Row="1" Margin="0,16,0,0">

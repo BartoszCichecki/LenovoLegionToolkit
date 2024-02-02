@@ -30,7 +30,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <wpfui:InfoBar
+        <custom:InfoBar
             x:Name="_vantageWarningInfoBar"
             Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Grid.Row="0"

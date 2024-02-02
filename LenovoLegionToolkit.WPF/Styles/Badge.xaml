@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom">
 
+    <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
+
     <Style TargetType="{x:Type custom:Badge}">
         <Setter Property="Foreground">
             <Setter.Value>
@@ -14,7 +16,6 @@
                 <SolidColorBrush Color="{DynamicResource SystemAccentColorSecondary}" />
             </Setter.Value>
         </Setter>
-        <!--<Setter Property="BorderBrush" Value="{DynamicResource SystemAccentBrush}" />-->
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Padding" Value="4" />
         <Setter Property="Focusable" Value="False" />
@@ -75,5 +76,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <!--  ReSharper restore Xaml.StaticResourceNotResolved  -->
 
 </ResourceDictionary>

@@ -359,7 +359,8 @@ public partial class PackagesPage : IProgress<float>
                 Text = Resource.PackagesPage_NoMatchingDownloads,
                 Foreground = (SolidColorBrush)FindResource("TextFillColorSecondaryBrush"),
                 HorizontalAlignment = HorizontalAlignment.Center,
-                Margin = new(0, 32, 0, 32)
+                Margin = new(0, 32, 0, 32),
+                Focusable = true
             };
             _packagesStackPanel.Children.Add(tb);
         }
