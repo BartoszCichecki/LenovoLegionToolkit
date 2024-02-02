@@ -169,6 +169,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string AbstractAutomationStepControl_Delete {
+            get {
+                return ResourceManager.GetString("AbstractAutomationStepControl_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active.
         /// </summary>
         public static string Active {
@@ -1442,6 +1451,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_Model_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_Model_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refresh.
+        /// </summary>
+        public static string DeviceInformationWindow_Refresh {
+            get {
+                return ResourceManager.GetString("DeviceInformationWindow_Refresh", resourceCulture);
             }
         }
         

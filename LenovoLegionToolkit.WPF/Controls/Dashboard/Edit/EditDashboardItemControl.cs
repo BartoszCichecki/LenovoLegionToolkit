@@ -4,8 +4,8 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
+using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
 

@@ -1,12 +1,15 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="http://schemas.lepo.co/wpfui/2022/xaml">
+    xmlns:controls="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom">
+
+    <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
 
     <Thickness x:Key="InfoBarPadding">14,8,14,8</Thickness>
     <Thickness x:Key="InfoBarBorderThemeThickness">1</Thickness>
 
-    <Style TargetType="{x:Type controls:InfoBar}">
+    <Style TargetType="{x:Type custom:InfoBar}">
         <Setter Property="Background">
             <Setter.Value>
                 <SolidColorBrush Color="{DynamicResource ControlFillColorDefault}" />
@@ -27,8 +30,8 @@
         <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="Border.CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-        <Setter Property="Focusable" Value="False" />
-        <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        <Setter Property="Focusable" Value="True" />
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="True" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -132,5 +135,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--  ReSharper restore Xaml.StaticResourceNotResolved  -->
 
 </ResourceDictionary>

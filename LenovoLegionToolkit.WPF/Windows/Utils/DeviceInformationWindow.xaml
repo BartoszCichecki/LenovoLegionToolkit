@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -53,43 +54,44 @@
 
                 <TextBlock
                     Margin="0,16,0,24"
+                    Focusable="True"
                     FontSize="24"
                     FontWeight="Medium"
                     Text="{x:Static resources:Resource.DeviceInformationWindow_Device_Title}" />
 
-                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Manufacturer_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_manufacturerLabel" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock x:Name="_manufacturerLabel" Focusable="True" />
+                </custom:CardControl>
 
-                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Model_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_modelLabel" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock x:Name="_modelLabel" Focusable="True" />
+                </custom:CardControl>
 
-                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_MachineType_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_mtmLabel" />
-                </wpfui:CardControl>
-                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <wpfui:CardControl.Header>
+                    </custom:CardControl.Header>
+                    <TextBlock x:Name="_mtmLabel" Focusable="True" />
+                </custom:CardControl>
+                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_SerialNumber_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_serialNumberLabel" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock x:Name="_serialNumberLabel" Focusable="True" />
+                </custom:CardControl>
 
-                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_BiosVersion_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_biosLabel" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock x:Name="_biosLabel" Focusable="True" />
+                </custom:CardControl>
 
                 <Grid Margin="0,16,0,24">
 
@@ -100,6 +102,7 @@
 
                     <TextBlock
                         Grid.Column="0"
+                        Focusable="True"
                         FontSize="24"
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.DeviceInformationWindow_Warranty_Title}" />
@@ -107,25 +110,32 @@
                         x:Name="_refreshWarrantyButton"
                         Grid.Column="1"
                         Click="RefreshWarrantyButton_OnClick"
-                        Icon="ArrowClockwise32" />
+                        Icon="ArrowClockwise32"
+                        ToolTip="{x:Static resources:Resource.DeviceInformationWindow_Refresh}" />
                 </Grid>
 
-                <wpfui:CardControl Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_warrantyStartLabel" Content="-" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock
+                        x:Name="_warrantyStartLabel"
+                        Focusable="True"
+                        Text="-" />
+                </custom:CardControl>
 
-                <wpfui:CardControl Margin="0,0,0,8">
-                    <wpfui:CardControl.Header>
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyEndDate_Title}" />
-                    </wpfui:CardControl.Header>
-                    <Label x:Name="_warrantyEndLabel" Content="-" />
-                </wpfui:CardControl>
+                    </custom:CardControl.Header>
+                    <TextBlock
+                        x:Name="_warrantyEndLabel"
+                        Focusable="True"
+                        Text="-" />
+                </custom:CardControl>
 
 
-                <wpfui:CardAction
+                <custom:CardAction
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
                     Click="WarrantyLinkCardAction_OnClick"

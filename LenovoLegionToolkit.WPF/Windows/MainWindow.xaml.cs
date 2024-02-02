@@ -48,19 +48,20 @@ public partial class MainWindow
         StateChanged += MainWindow_StateChanged;
 
 #if DEBUG
-        _title.Text += Debugger.IsAttached ? " [DEBUG ATTACHED]" : " [DEBUG]";
+        _title.Text += Debugger.IsAttached ? " [DEBUGGER ATTACHED]" : " [DEBUG]";
 #else
         var version = Assembly.GetEntryAssembly()?.GetName().Version;
         if (version is not null && version.IsBeta())
             _title.Text += " [BETA]";
 #endif
 
-
         if (Log.Instance.IsTraceEnabled)
         {
             _title.Text += " [LOGGING ENABLED]";
             _openLogIndicator.Visibility = Visibility.Visible;
         }
+
+        Title = _title.Text;
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
@@ -146,27 +147,27 @@ public partial class MainWindow
         CheckForUpdates();
     }
 
-    private void OpenLogIndicator_Click(object sender, MouseButtonEventArgs e)
-    {
-        try
-        {
-            if (!Directory.Exists(Folders.AppData))
-                return;
+    private void OpenLogIndicator_Click(object sender, MouseButtonEventArgs e) => OpenLog();
 
-            Process.Start("explorer", Log.Instance.LogPath);
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Failed to open log.", ex);
-        }
+    private void OpenLogIndicator_KeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key is not Key.Enter and not Key.Space)
+            return;
+
+        OpenLog();
     }
 
-    private void DeviceInfoIndicator_Click(object sender, RoutedEventArgs e)
+    private void DeviceInfoIndicator_Click(object sender, MouseButtonEventArgs e) => ShowDeviceInfoWindow();
+
+    private void DeviceInfoIndicator_KeyDown(object sender, KeyEventArgs e)
     {
-        var window = new DeviceInformationWindow { Owner = this };
-        window.ShowDialog();
+        if (e.Key is not Key.Enter and not Key.Space)
+            return;
+
+        ShowDeviceInfoWindow();
     }
+
+    private void UpdateIndicator_Click(object sender, RoutedEventArgs e) => ShowUpdateWindow();
 
     private void UpdateIndicator_KeyDown(object sender, KeyEventArgs e)
     {
@@ -175,8 +176,6 @@ public partial class MainWindow
 
         ShowUpdateWindow();
     }
-
-    private void UpdateIndicator_Click(object sender, RoutedEventArgs e) => ShowUpdateWindow();
 
     private void LoadDeviceInfo()
     {
@@ -234,15 +233,37 @@ public partial class MainWindow
 
     private void BringToForeground() => WindowExtensions.BringToForeground(this);
 
-    public void SendToTray()
+    private static void OpenLog()
     {
-        Hide();
-        ShowInTaskbar = false;
+        try
+        {
+            if (!Directory.Exists(Folders.AppData))
+                return;
+
+            Process.Start("explorer", Log.Instance.LogPath);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to open log.", ex);
+        }
+    }
+
+    private void ShowDeviceInfoWindow()
+    {
+        var window = new DeviceInformationWindow { Owner = this };
+        window.ShowDialog();
     }
 
     public void ShowUpdateWindow()
     {
         var window = new UpdateWindow { Owner = this };
         window.ShowDialog();
+    }
+
+    public void SendToTray()
+    {
+        Hide();
+        ShowInTaskbar = false;
     }
 }

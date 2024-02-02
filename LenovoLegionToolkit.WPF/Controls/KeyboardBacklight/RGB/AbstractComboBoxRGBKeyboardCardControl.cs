@@ -5,7 +5,7 @@ using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
-using Wpf.Ui.Controls;
+using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB;
 

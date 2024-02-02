@@ -5,9 +5,6 @@
 
     <!--  ReSharper disable Xaml.StaticResourceNotResolved  -->
 
-    <!--
-        Always visible scrollbar when mouse is over DynamicScrollViewer
-    -->
     <ControlTemplate x:Key="DynamicVerticalScrollBar" TargetType="{x:Type wpfui:DynamicScrollBar}">
         <Grid>
             <Grid.RowDefinitions>
