@@ -964,9 +964,6 @@
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>下载进行中</value>
   </data>
-  <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>下载到</value>
-  </data>
   <data name="Filter" xml:space="preserve">
     <value>搜索...</value>
   </data>
@@ -2015,5 +2012,26 @@
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
 	  <value>应用集成</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+	  <value>设置</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+	  <value>关于</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+	  <value>下载文件夹</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+	  <value>打开下载文件夹</value>
+  </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+	  <value>下载</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+	  <value>打开 README</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+	  <value>预设</value>
   </data>
 </root>

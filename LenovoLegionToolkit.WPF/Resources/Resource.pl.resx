@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Strona projektu na GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Biblioteki firm trzecich</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>O programie</value>
   </data>
@@ -148,8 +151,24 @@
   <data name="AddNew" xml:space="preserve">
     <value>Dodaj</value>
   </data>
+  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
+    <value>Uruchom plan zasilania, nawet gdy Vantage lub jego usługi są aktywne.
+Ta opcja przeznaczona wyłącznie dla urządzeń, które, nie posiadają więcej planów zasilania.</value>
+  </data>
   <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
     <value>Zawsze aktywuj plan zasilania Windows</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>USB zawsze włączone</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>Ładuj urządzenia USB gdy komputer jest wyłączony, uśpiony lub zahibernowany.</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>USB zawsze włączone</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>

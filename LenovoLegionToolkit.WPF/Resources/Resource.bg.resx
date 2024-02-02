@@ -957,9 +957,6 @@
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>Изтеглянето е в ход</value>
   </data>
-  <data name="PackagesPage_DownloadTo" xml:space="preserve">
-    <value>Сваляне в</value>
-  </data>
   <data name="Filter" xml:space="preserve">
     <value>Филтрирай...</value>
   </data>
