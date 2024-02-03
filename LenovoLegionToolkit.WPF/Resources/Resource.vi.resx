@@ -2027,4 +2027,10 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Thiết lập sẵn</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Làm mới</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Xóa</value>
+  </data>
 </root>
