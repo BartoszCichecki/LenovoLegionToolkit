@@ -2029,4 +2029,10 @@ Requiere un reinicio.</value>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Predefinido</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Actualizar</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Eliminar</value>
+  </data>
 </root>

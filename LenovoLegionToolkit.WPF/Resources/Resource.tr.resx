@@ -2027,4 +2027,10 @@ Desteklenen biçimler: {1}.</value>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Ön ayar</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Yenile</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Sil</value>
+  </data>
 </root>
