@@ -2026,4 +2026,10 @@ Unterstützte Formate sind: {1}.</value>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Vorlage</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Aktualisieren</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Löschen</value>
+  </data>
 </root>
