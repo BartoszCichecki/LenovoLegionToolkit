@@ -2023,4 +2023,10 @@
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>Шаблон</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Оновити</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Видалити</value>
+  </data>
 </root>
