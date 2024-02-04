@@ -177,7 +177,7 @@ public abstract class AbstractSensorsController : ISensorsController
 
     private GPUInfo GetGPUInfo()
     {
-        if (_gpuController.LastKnownState is GPUState.Inactive or GPUState.PoweredOff)
+        if (_gpuController.LastKnownState is GPUState.Inactive or GPUState.PoweredOff or GPUState.Unknown)
             return GPUInfo.Empty;
 
         try
