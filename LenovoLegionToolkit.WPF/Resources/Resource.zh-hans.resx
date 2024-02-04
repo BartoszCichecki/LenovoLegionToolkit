@@ -2034,4 +2034,10 @@
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
 	  <value>预设</value>
   </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>刷新</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>删除</value>
+  </data>
 </root>
