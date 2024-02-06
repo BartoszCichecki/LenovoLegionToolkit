@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -28,8 +27,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"
@@ -59,39 +57,39 @@
                     FontWeight="Medium"
                     Text="{x:Static resources:Resource.DeviceInformationWindow_Device_Title}" />
 
-                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Manufacturer_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock x:Name="_manufacturerLabel" Focusable="True" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
-                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_Model_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock x:Name="_modelLabel" Focusable="True" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
-                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_MachineType_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock x:Name="_mtmLabel" Focusable="True" />
-                </custom:CardControl>
-                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <custom:CardControl.Header>
+                </wpfui:CardControl>
+                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_SerialNumber_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock x:Name="_serialNumberLabel" Focusable="True" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
-                <custom:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8" Click="DeviceCardControl_Click">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_BiosVersion_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock x:Name="_biosLabel" Focusable="True" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
                 <Grid Margin="0,16,0,24">
 
@@ -114,28 +112,28 @@
                         ToolTip="{x:Static resources:Resource.DeviceInformationWindow_Refresh}" />
                 </Grid>
 
-                <custom:CardControl Margin="0,0,0,8">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock
                         x:Name="_warrantyStartLabel"
                         Focusable="True"
                         Text="-" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
-                <custom:CardControl Margin="0,0,0,8">
-                    <custom:CardControl.Header>
+                <wpfui:CardControl Margin="0,0,0,8">
+                    <wpfui:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyEndDate_Title}" />
-                    </custom:CardControl.Header>
+                    </wpfui:CardControl.Header>
                     <TextBlock
                         x:Name="_warrantyEndLabel"
                         Focusable="True"
                         Text="-" />
-                </custom:CardControl>
+                </wpfui:CardControl>
 
 
-                <custom:CardAction
+                <wpfui:CardAction
                     x:Name="_warrantyLinkCardAction"
                     Margin="0,8,0,8"
                     Click="WarrantyLinkCardAction_OnClick"
@@ -147,13 +145,5 @@
             </StackPanel>
 
         </wpfui:DynamicScrollViewer>
-
-        <wpfui:Snackbar
-            x:Name="_snackBar"
-            Grid.Row="1"
-            HorizontalAlignment="Center"
-            CloseButtonEnabled="False"
-            Icon="Checkmark24"
-            Timeout="1000" />
     </Grid>
 </local:BaseWindow>

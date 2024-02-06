@@ -3,14 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:device="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml">
     <StackPanel Margin="0,0,8,0">
 
-        <custom:InfoBar
+        <wpfui:InfoBar
             x:Name="_vantageWarningInfoBar"
             Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Margin="0,0,0,16"
@@ -21,10 +20,10 @@
 
         <StackPanel x:Name="_content">
 
-            <custom:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
-                <custom:CardControl.Header>
+            <wpfui:CardControl Margin="0,0,0,24" Icon="BrightnessHigh24">
+                <wpfui:CardControl.Header>
                     <controls:CardHeaderControl Title="{x:Static resources:Resource.SpectrumKeyboardBacklightControl_Brightness_Title}" />
-                </custom:CardControl.Header>
+                </wpfui:CardControl.Header>
                 <Slider
                     x:Name="_brightnessSlider"
                     Width="200"
@@ -35,7 +34,7 @@
                     TickFrequency="1"
                     TickPlacement="BottomRight"
                     ValueChanged="BrightnessSlider_OnValueChanged" />
-            </custom:CardControl>
+            </wpfui:CardControl>
 
             <Grid
                 Height="36"

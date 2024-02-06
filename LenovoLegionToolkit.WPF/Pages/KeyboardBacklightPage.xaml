@@ -1,4 +1,4 @@
-﻿<wpfui:UiPage
+﻿<Page
     x:Class="LenovoLegionToolkit.WPF.Pages.KeyboardBacklightPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,8 +8,7 @@
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.KeyboardBacklightPage_Title}"
     FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
-    Initialized="KeyboardBacklightPage_Initialized"
-    Scrollable="True">
+    Initialized="KeyboardBacklightPage_Initialized">
 
     <StackPanel Margin="0,0,0,0">
 
@@ -34,4 +33,4 @@
 
     </StackPanel>
 
-</wpfui:UiPage>
+</Page>

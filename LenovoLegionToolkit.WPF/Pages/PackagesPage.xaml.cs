@@ -20,10 +20,10 @@ using LenovoLegionToolkit.WPF.Controls.Packages;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using HorizontalAlignment = System.Windows.HorizontalAlignment;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
+using TextBlock = Wpf.Ui.Controls.TextBlock;
 
 namespace LenovoLegionToolkit.WPF.Pages;
 
@@ -289,7 +289,7 @@ public partial class PackagesPage : IProgress<float>
 
         var hideMenuItem = new MenuItem
         {
-            SymbolIcon = SymbolRegular.EyeOff24,
+            Icon = SymbolRegular.EyeOff24.GetIcon(),
             Header = "Hide",
         };
         hideMenuItem.Click += (_, _) =>
@@ -302,7 +302,7 @@ public partial class PackagesPage : IProgress<float>
 
         var hideAllMenuItem = new MenuItem
         {
-            SymbolIcon = SymbolRegular.EyeOff24,
+            Icon = SymbolRegular.EyeOff24.GetIcon(),
             Header = "Hide all",
         };
         hideAllMenuItem.Click += (_, _) =>
@@ -367,9 +367,9 @@ public partial class PackagesPage : IProgress<float>
 
         if (_packageDownloaderSettings.Store.HiddenPackages.Any())
         {
-            var clearHidden = new Hyperlink
+            var clearHidden = new HyperlinkButton
             {
-                Icon = SymbolRegular.Eye24,
+                Icon = SymbolRegular.Eye24.GetIcon(),
                 Content = "Show hidden downloads",
                 HorizontalAlignment = HorizontalAlignment.Right,
             };

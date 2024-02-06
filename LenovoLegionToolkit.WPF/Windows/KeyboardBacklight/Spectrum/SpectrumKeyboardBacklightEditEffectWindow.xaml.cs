@@ -40,8 +40,6 @@ public partial class SpectrumKeyboardBacklightEditEffectWindow
         ResizeMode = ResizeMode.CanMinimize;
 
         _title.Text = Resource.SpectrumKeyboardBacklightEditEffectWindow_Title_Add;
-
-        _titleBar.UseSnapLayout = false;
         _titleBar.CanMaximize = false;
 
         SetInitialValues();

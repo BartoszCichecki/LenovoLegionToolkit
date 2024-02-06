@@ -9,7 +9,6 @@ using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils;

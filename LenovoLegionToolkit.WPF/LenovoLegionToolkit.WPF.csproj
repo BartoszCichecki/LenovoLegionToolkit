@@ -41,7 +41,7 @@
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
-		<PackageReference Include="WPF-UI" Version="2.1.0" />
+		<PackageReference Include="WPF-UI" Version="3.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
@@ -80,5 +80,9 @@
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controls\Custom\" />
+	  <Folder Include="Styles\" />
 	</ItemGroup>
 </Project>

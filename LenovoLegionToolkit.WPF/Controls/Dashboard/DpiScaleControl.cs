@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using DpiScale = LenovoLegionToolkit.Lib.DpiScale;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
@@ -16,7 +17,7 @@ public class DpiScaleControl : AbstractComboBoxFeatureCardControl<DpiScale>
 
     public DpiScaleControl()
     {
-        Icon = SymbolRegular.TextFontSize24;
+        Icon = SymbolRegular.TextFontSize24.GetIcon();
         Title = Resource.DpiScaleControl_Title;
         Subtitle = Resource.DpiScaleControl_Message;
 

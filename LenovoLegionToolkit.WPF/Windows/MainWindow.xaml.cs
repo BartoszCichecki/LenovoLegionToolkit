@@ -34,7 +34,7 @@ public partial class MainWindow
 
     public bool SuppressClosingEventHandler { get; set; }
 
-    public Snackbar Snackbar => _snackbar;
+    public SnackbarPresenter SnackbarPresenter => _snackbarPresenter;
 
     public MainWindow()
     {
@@ -48,7 +48,7 @@ public partial class MainWindow
         StateChanged += MainWindow_StateChanged;
 
 #if DEBUG
-        _title.Text += Debugger.IsAttached ? " [DEBUGGER ATTACHED]" : " [DEBUG]";
+        _titleBar.Title += Debugger.IsAttached ? " [DEBUGGER ATTACHED]" : " [DEBUG]";
 #else
         var version = Assembly.GetEntryAssembly()?.GetName().Version;
         if (version is not null && version.IsBeta())
@@ -57,25 +57,21 @@ public partial class MainWindow
 
         if (Log.Instance.IsTraceEnabled)
         {
-            _title.Text += " [LOGGING ENABLED]";
+            _titleBar.Title += " [LOGGING ENABLED]";
             _openLogIndicator.Visibility = Visibility.Visible;
         }
 
-        Title = _title.Text;
+        Title = _titleBar.Title;
     }
 
     private void MainWindow_SourceInitialized(object? sender, EventArgs e) => RestoreSize();
 
     private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
     {
-        _contentGrid.Visibility = Visibility.Hidden;
-
         if (!await KeyboardBacklightPage.IsSupportedAsync())
-            _navigationStore.Items.Remove(_keyboardItem);
+            _navigationStore.MenuItems.Remove(_keyboardItem);
 
         SmartKeyHelper.Instance.BringToForeground = () => Dispatcher.Invoke(BringToForeground);
-
-        _contentGrid.Visibility = Visibility.Visible;
 
         LoadDeviceInfo();
         CheckForUpdates();
@@ -84,8 +80,8 @@ public partial class MainWindow
         InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToPrevious), Key.Tab, ModifierKeys.Control | ModifierKeys.Shift));
 
         var key = (int)Key.D1;
-        foreach (var item in _navigationStore.Items.OfType<NavigationItem>())
-            InputBindings.Add(new KeyBinding(new ActionCommand(() => _navigationStore.Navigate(item.PageTag)), (Key)key++, ModifierKeys.Control));
+        foreach (var item in _navigationStore.MenuItems.OfType<NavigationViewItem>())
+            InputBindings.Add(new KeyBinding(new ActionCommand(() => _navigationStore.Navigate(item.TargetPageTag)), (Key)key++, ModifierKeys.Control));
 
         var trayHelper = new TrayHelper(_navigationStore, BringToForeground, TrayTooltipEnabled);
         await trayHelper.InitializeAsync();

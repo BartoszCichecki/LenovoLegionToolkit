@@ -30,8 +30,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"

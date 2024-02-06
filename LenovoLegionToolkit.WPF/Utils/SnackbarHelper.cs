@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Windows;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Utils;
@@ -13,71 +12,62 @@ public static class SnackbarHelper
     public static async Task ShowAsync(string title, string? message = null, SnackbarType type = SnackbarType.Success)
     {
         var mainWindow = Application.Current.MainWindow as MainWindow;
-        var snackBar = mainWindow?.Snackbar;
-
-        if (snackBar is null)
+        var snackBarPresenter = mainWindow?.SnackbarPresenter;
+        if (snackBarPresenter is null)
             return;
 
-        SetupSnackbarAppearance(snackBar, title, message, type);
-        SetTitleAndMessage(snackBar, title, message);
+        var snackBar = GetSnackBar(snackBarPresenter, type, title, message);
         await snackBar.ShowAsync();
     }
 
     public static void Show(string title, string? message = null, SnackbarType type = SnackbarType.Success)
     {
         var mainWindow = Application.Current.MainWindow as MainWindow;
-        var snackBar = mainWindow?.Snackbar;
-
-        if (snackBar is null)
+        var snackBarPresenter = mainWindow?.SnackbarPresenter;
+        if (snackBarPresenter is null)
             return;
 
-        SetupSnackbarAppearance(snackBar, title, message, type);
-        SetTitleAndMessage(snackBar, title, message);
+        var snackBar = GetSnackBar(snackBarPresenter, type, title, message);
         snackBar.Show();
     }
 
-    private static void SetupSnackbarAppearance(Snackbar snackBar, string title, string? message, SnackbarType type)
+    private static Snackbar GetSnackBar(SnackbarPresenter snackBarPresenter, SnackbarType type, string title, string? message)
     {
-        snackBar.Appearance = type switch
+        var snackBar = new Snackbar(snackBarPresenter)
         {
-            SnackbarType.Warning => ControlAppearance.Caution,
-            SnackbarType.Error => ControlAppearance.Danger,
-            _ => ControlAppearance.Secondary
+            Appearance = type switch
+            {
+                SnackbarType.Warning => ControlAppearance.Caution,
+                SnackbarType.Error => ControlAppearance.Danger,
+                _ => ControlAppearance.Secondary
+            },
+            Icon = type switch
+            {
+                SnackbarType.Warning => SymbolRegular.Warning24.GetIcon(),
+                SnackbarType.Error => SymbolRegular.ErrorCircle24.GetIcon(),
+                SnackbarType.Info => SymbolRegular.Info24.GetIcon(),
+                _ => SymbolRegular.Checkmark24.GetIcon()
+            },
+            Title = title,
+            Content = message,
+            IsCloseButtonEnabled = type switch
+            {
+                SnackbarType.Success => false,
+                _ => true
+            },
+            Timeout = type switch
+            {
+                SnackbarType.Success => TimeSpan.FromSeconds(2),
+                _ => GetTimeSpanForTextLength(title, message)
+            }
         };
-        snackBar.Icon = type switch
-        {
-            SnackbarType.Warning => SymbolRegular.Warning24,
-            SnackbarType.Error => SymbolRegular.ErrorCircle24,
-            SnackbarType.Info => SymbolRegular.Info24,
-            _ => SymbolRegular.Checkmark24
-        };
-        snackBar.Timeout = type switch
-        {
-            SnackbarType.Success => 2000,
-            _ => Math.Clamp(GetTextLengthInMilliseconds(title, message), 5000, 10000)
-        };
-        snackBar.CloseButtonEnabled = type switch
-        {
-            SnackbarType.Success => false,
-            _ => true
-        };
+        return snackBar;
     }
 
-    private static void SetTitleAndMessage(FrameworkElement snackBar, string title, string? message)
-    {
-        if (snackBar.FindName("_snackbarTitle") is TextBlock snackbarTitle)
-            snackbarTitle.Text = title;
-
-        if (snackBar.FindName("_snackbarMessage") is TextBlock snackbarMessage)
-        {
-            snackbarMessage.Visibility = string.IsNullOrEmpty(message) ? Visibility.Collapsed : Visibility.Visible;
-            snackbarMessage.Text = message;
-        }
-    }
-
-    private static int GetTextLengthInMilliseconds(string title, string? message)
+    private static TimeSpan GetTimeSpanForTextLength(string title, string? message)
     {
         var length = 2 + (title.Length + (message?.Length ?? 0)) % 10;
-        return length * 1000;
+        var milliseconds = Math.Clamp(length * 1000, 5000, 10000);
+        return TimeSpan.FromMilliseconds(milliseconds);
     }
 }

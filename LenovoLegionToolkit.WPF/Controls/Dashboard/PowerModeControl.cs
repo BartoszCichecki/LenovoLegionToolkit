@@ -9,10 +9,11 @@ using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
@@ -27,7 +28,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
     private readonly Button _configButton = new()
     {
-        Icon = SymbolRegular.Settings24,
+        Icon = SymbolRegular.Settings24.GetIcon(),
         FontSize = 20,
         Margin = new(8, 0, 0, 0),
         Visibility = Visibility.Collapsed,
@@ -35,7 +36,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
 
     public PowerModeControl()
     {
-        Icon = SymbolRegular.Gauge24;
+        Icon = SymbolRegular.Gauge24.GetIcon();
         Title = Resource.PowerModeControl_Title;
         Subtitle = Resource.PowerModeControl_Message;
 

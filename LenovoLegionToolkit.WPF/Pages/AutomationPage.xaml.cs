@@ -16,7 +16,7 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
 using LenovoLegionToolkit.WPF.Windows.Utils;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 #pragma warning disable CA2211
@@ -234,32 +234,32 @@ public partial class AutomationPage
         var index = stackPanel.Children.IndexOf(control);
         var maxIndex = stackPanel.Children.Count - 1;
 
-        var moveUpMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowUp24, Header = Resource.MoveUp };
+        var moveUpMenuItem = new MenuItem { Icon = SymbolRegular.ArrowUp24.GetIcon(), Header = Resource.MoveUp };
         if (index > 0)
             moveUpMenuItem.Click += (_, _) => MovePipeline(control, stackPanel, index - 1);
         else
             moveUpMenuItem.IsEnabled = false;
         menuItems.Add(moveUpMenuItem);
 
-        var moveDownMenuItem = new MenuItem { SymbolIcon = SymbolRegular.ArrowDown24, Header = Resource.MoveDown };
+        var moveDownMenuItem = new MenuItem { Icon = SymbolRegular.ArrowDown24.GetIcon(), Header = Resource.MoveDown };
         if (index < maxIndex)
             moveDownMenuItem.Click += (_, _) => MovePipeline(control, stackPanel, index + 1);
         else
             moveDownMenuItem.IsEnabled = false;
         menuItems.Add(moveDownMenuItem);
 
-        var renameMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = Resource.Rename };
+        var renameMenuItem = new MenuItem { Icon = SymbolRegular.Edit24.GetIcon(), Header = Resource.Rename };
         renameMenuItem.Click += async (_, _) => await RenamePipelineAsync(control);
         menuItems.Add(renameMenuItem);
 
         if (control.AutomationPipeline.Trigger is null)
         {
-            var changeIconMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Edit24, Header = Resource.AutomationPage_ChangeIcon };
+            var changeIconMenuItem = new MenuItem { Icon = SymbolRegular.Edit24.GetIcon(), Header = Resource.AutomationPage_ChangeIcon };
             changeIconMenuItem.Click += async (_, _) => await ChangePipelineIconAsync(control);
             menuItems.Add(changeIconMenuItem);
         }
 
-        var deleteMenuItem = new MenuItem { SymbolIcon = SymbolRegular.Delete24, Header = Resource.Delete };
+        var deleteMenuItem = new MenuItem { Icon = SymbolRegular.Delete24.GetIcon(), Header = Resource.Delete };
         deleteMenuItem.Click += (_, _) => DeletePipeline(control, stackPanel);
         menuItems.Add(deleteMenuItem);
 

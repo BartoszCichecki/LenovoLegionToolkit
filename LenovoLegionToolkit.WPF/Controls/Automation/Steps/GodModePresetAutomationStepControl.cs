@@ -8,7 +8,7 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
@@ -23,7 +23,7 @@ public class GodModePresetAutomationStepControl : AbstractAutomationStepControl<
 
     public GodModePresetAutomationStepControl(GodModePresetAutomationStep step) : base(step)
     {
-        Icon = SymbolRegular.Gauge24;
+        Icon = SymbolRegular.Gauge24.GetIcon();
         Title = Resource.GodModePresetAutomationStepControl_Title;
         Subtitle = Resource.GodModePresetAutomationStepControl_Message;
     }

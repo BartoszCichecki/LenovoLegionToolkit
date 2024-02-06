@@ -2,7 +2,6 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:pages="clr-namespace:LenovoLegionToolkit.WPF.Pages"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
@@ -17,12 +16,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <wpfui:TitleBar Grid.Row="0" />
+        <wpfui:TitleBar
+            x:Name="_titleBar"
+            Title="{x:Static resources:Resource.AppName}"
+            Grid.Row="0" />
 
         <Grid Grid.Row="0" Margin="12,4,150,4">
             <Grid.ColumnDefinitions>
@@ -31,18 +32,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <TextBlock
-                x:Name="_title"
-                Grid.Column="0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Center"
-                FlowDirection="LeftToRight"
-                Focusable="False"
-                FontSize="12"
-                IsHitTestVisible="False"
-                Text="{x:Static resources:Resource.AppName}" />
-
-            <custom:Badge
+            <wpfui:Badge
                 x:Name="_openLogIndicator"
                 Grid.Column="1"
                 Margin="0,0,8,0"
@@ -56,7 +46,7 @@
                 MouseRightButtonDown="OpenLogIndicator_Click"
                 Visibility="Collapsed" />
 
-            <custom:Badge
+            <wpfui:Badge
                 x:Name="_deviceInfoIndicator"
                 Grid.Column="2"
                 Padding="8,2,8,2"
@@ -70,108 +60,79 @@
 
         </Grid>
 
-        <Grid
-            x:Name="_contentGrid"
-            Grid.Row="1"
-            Margin="12,6,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+        <wpfui:NavigationView
+            x:Name="_navigationStore"
+            Grid.Row="0"
+            Padding="42,0,42,0"
+            PaneDisplayMode="LeftFluent"
+            TitleBar="{Binding ElementName=_titleBar, Mode=OneWay}"
+            Transition="FadeInWithSlide">
 
-            <wpfui:NavigationStore
-                x:Name="_navigationStore"
-                Grid.Column="0"
-                Margin="0,0,12,12"
-                Frame="{Binding ElementName=_rootFrame}"
-                SelectedPageIndex="0">
+            <wpfui:NavigationView.MenuItems>
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
+                    TargetPageTag="dashboard"
+                    TargetPageType="{x:Type pages:DashboardPage}">
+                    <wpfui:NavigationViewItem.Icon>
+                        <wpfui:SymbolIcon Symbol="Home24" />
+                    </wpfui:NavigationViewItem.Icon>
+                </wpfui:NavigationViewItem>
+                <wpfui:NavigationViewItem
+                    x:Name="_keyboardItem"
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
+                    TargetPageTag="keyboardBacklight"
+                    TargetPageType="{x:Type pages:KeyboardBacklightPage}">
+                    <wpfui:NavigationViewItem.Icon>
+                        <wpfui:SymbolIcon Symbol="Keyboard24" />
+                    </wpfui:NavigationViewItem.Icon>
+                </wpfui:NavigationViewItem>
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
+                    Icon="BatteryCheckmark24"
+                    TargetPageTag="battery"
+                    TargetPageType="{x:Type pages:BatteryPage}" />
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
+                    Icon="Rocket24"
+                    TargetPageTag="automation"
+                    TargetPageType="{x:Type pages:AutomationPage}" />
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
+                    Icon="Box24"
+                    TargetPageTag="packages"
+                    TargetPageType="{x:Type pages:PackagesPage}" />
+            </wpfui:NavigationView.MenuItems>
 
-                <wpfui:NavigationStore.Items>
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Dashboard}"
-                        Icon="Home24"
-                        PageTag="dashboard"
-                        PageType="{x:Type pages:DashboardPage}" />
-                    <custom:NavigationItem
-                        x:Name="_keyboardItem"
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Keyboard}"
-                        Icon="Keyboard24"
-                        PageTag="keyboardBacklight"
-                        PageType="{x:Type pages:KeyboardBacklightPage}" />
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Battery}"
-                        Icon="BatteryCheckmark24"
-                        PageTag="battery"
-                        PageType="{x:Type pages:BatteryPage}" />
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Actions}"
-                        Icon="Rocket24"
-                        PageTag="automation"
-                        PageType="{x:Type pages:AutomationPage}" />
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
-                        Icon="Box24"
-                        PageTag="packages"
-                        PageType="{x:Type pages:PackagesPage}" />
-                </wpfui:NavigationStore.Items>
+            <wpfui:NavigationView.FooterMenuItems>
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
+                    Icon="Settings24"
+                    TargetPageTag="settings"
+                    TargetPageType="{x:Type pages:SettingsPage}" />
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
+                    Icon="Money24"
+                    TargetPageTag="donate"
+                    TargetPageType="{x:Type pages:DonatePage}" />
+                <wpfui:NavigationViewItem
+                    Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
+                    Icon="Info24"
+                    TargetPageTag="about"
+                    TargetPageType="{x:Type pages:AboutPage}" />
+            </wpfui:NavigationView.FooterMenuItems>
 
-                <wpfui:NavigationStore.Footer>
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Settings}"
-                        Icon="Settings24"
-                        PageTag="settings"
-                        PageType="{x:Type pages:SettingsPage}" />
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Donate}"
-                        Icon="Money24"
-                        PageTag="donate"
-                        PageType="{x:Type pages:DonatePage}" />
-                    <custom:NavigationItem
-                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_About}"
-                        Icon="Info24"
-                        PageTag="about"
-                        PageType="{x:Type pages:AboutPage}" />
-                </wpfui:NavigationStore.Footer>
+            <wpfui:NavigationView.ContentOverlay>
+                <wpfui:SnackbarPresenter
+                    x:Name="_snackbarPresenter"
+                    MinWidth="300"
+                    HorizontalAlignment="Center" />
+            </wpfui:NavigationView.ContentOverlay>
 
-            </wpfui:NavigationStore>
-
-            <Border
-                Grid.Column="1"
-                Background="{DynamicResource ControlFillColorDefaultBrush}"
-                CornerRadius="8,0,0,0">
-                <Frame Name="_rootFrame" Margin="24,0,0,0" />
-            </Border>
-
-            <wpfui:Snackbar
-                x:Name="_snackbar"
-                Grid.Column="1"
-                MinWidth="300"
-                HorizontalAlignment="Center"
-                Icon="Checkmark24">
-                <StackPanel Margin="4,4,4,4" VerticalAlignment="Center">
-                    <!--  ReSharper disable once UnusedMember.Global  -->
-                    <TextBlock
-                        x:Name="_snackbarTitle"
-                        VerticalAlignment="Center"
-                        FontSize="16"
-                        FontWeight="Medium"
-                        Foreground="{DynamicResource TextFillColorPrimaryBrush}"
-                        TextWrapping="WrapWithOverflow" />
-                    <!--  ReSharper disable once UnusedMember.Global  -->
-                    <TextBlock
-                        x:Name="_snackbarMessage"
-                        Margin="0,6,0,0"
-                        FontSize="14"
-                        Foreground="{DynamicResource TextFillColorSecondaryBrush}"
-                        TextWrapping="WrapWithOverflow" />
-                </StackPanel>
-            </wpfui:Snackbar>
-
-        </Grid>
+        </wpfui:NavigationView>
 
         <Border
             x:Name="_updateIndicator"
-            Grid.Row="2"
+            Grid.Row="1"
             Padding="8,4,8,4"
             Background="{DynamicResource SystemFillColorSuccessBrush}"
             Cursor="Hand"

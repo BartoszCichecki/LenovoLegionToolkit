@@ -1,18 +1,16 @@
 ﻿using System.Windows;
 using System.Windows.Media;
-using Wpf.Ui.Appearance;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows;
 
-public class BaseWindow : UiWindow
+public class BaseWindow : FluentWindow
 {
     protected BaseWindow()
     {
         SnapsToDevicePixels = true;
         ExtendsContentIntoTitleBar = true;
-
-        WindowBackdropType = BackgroundType.Mica;
+        WindowBackdropType = WindowBackdropType.Mica;
 
         DpiChanged += BaseWindow_DpiChanged;
     }

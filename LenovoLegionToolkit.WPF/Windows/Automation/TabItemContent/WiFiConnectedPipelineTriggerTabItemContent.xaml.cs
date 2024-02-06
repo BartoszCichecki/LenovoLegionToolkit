@@ -6,7 +6,8 @@ using System.Windows.Data;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
-using Wpf.Ui.Common;
+using LenovoLegionToolkit.WPF.Extensions;
+using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
@@ -85,7 +86,7 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
         private readonly Button _removeButton = new()
         {
             Margin = new(8, 0, 0, 0),
-            Icon = SymbolRegular.Delete24
+            Icon = SymbolRegular.Delete24.GetIcon()
         };
 
         private readonly Grid _grid = new()

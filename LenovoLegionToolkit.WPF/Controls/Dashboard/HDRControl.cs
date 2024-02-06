@@ -4,8 +4,9 @@ using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -19,7 +20,7 @@ public class HDRControl : AbstractToggleFeatureCardControl<HDRState>
 
     public HDRControl()
     {
-        Icon = SymbolRegular.Hdr24;
+        Icon = SymbolRegular.Hdr24.GetIcon();
         Title = Resource.HDRControl_Title;
         Subtitle = Resource.HDRControl_Message;
 

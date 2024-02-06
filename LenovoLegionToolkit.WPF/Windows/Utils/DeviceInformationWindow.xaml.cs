@@ -5,7 +5,6 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
-using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Controls;
 
@@ -63,7 +62,7 @@ public partial class DeviceInformationWindow
 
     private async void RefreshWarrantyButton_OnClick(object sender, RoutedEventArgs e) => await RefreshAsync(true);
 
-    private async void DeviceCardControl_Click(object sender, RoutedEventArgs e)
+    private void DeviceCardControl_Click(object sender, RoutedEventArgs e)
     {
         if (((sender as CardControl)?.Content as Label)?.Content is not string str)
             return;
@@ -71,7 +70,6 @@ public partial class DeviceInformationWindow
         try
         {
             Clipboard.SetText(str);
-            await _snackBar.ShowAsync(Resource.CopiedToClipboard_Title, string.Format(Resource.CopiedToClipboard_Message_WithParam, str));
         }
         catch (Exception ex)
         {

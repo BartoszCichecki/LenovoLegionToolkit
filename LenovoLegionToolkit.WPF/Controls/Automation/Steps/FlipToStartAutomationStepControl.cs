@@ -1,7 +1,8 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
@@ -9,7 +10,7 @@ public class FlipToStartAutomationStepControl : AbstractComboBoxAutomationStepCa
 {
     public FlipToStartAutomationStepControl(IAutomationStep<FlipToStartState> step) : base(step)
     {
-        Icon = SymbolRegular.Power24;
+        Icon = SymbolRegular.Power24.GetIcon();
         Title = Resource.FlipToStartAutomationStepControl_Title;
         Subtitle = Resource.FlipToStartAutomationStepControl_Message;
     }

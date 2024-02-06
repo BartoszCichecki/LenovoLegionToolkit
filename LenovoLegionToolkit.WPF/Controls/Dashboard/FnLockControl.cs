@@ -1,7 +1,8 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -15,7 +16,7 @@ public class FnLockControl : AbstractToggleFeatureCardControl<FnLockState>
 
     public FnLockControl()
     {
-        Icon = SymbolRegular.Keyboard24;
+        Icon = SymbolRegular.Keyboard24.GetIcon();
         Title = Resource.FnLockControl_Title;
         Subtitle = Resource.FnLockControl_Message;
 

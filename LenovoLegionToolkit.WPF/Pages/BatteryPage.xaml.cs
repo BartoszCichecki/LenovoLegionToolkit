@@ -10,7 +10,7 @@ using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Pages;
 

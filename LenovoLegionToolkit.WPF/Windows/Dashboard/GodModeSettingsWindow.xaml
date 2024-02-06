@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:godMode="clr-namespace:LenovoLegionToolkit.WPF.Controls.Dashboard.GodMode"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
@@ -29,8 +28,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"
@@ -58,7 +56,7 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
-                    <custom:InfoBar
+                    <wpfui:InfoBar
                         x:Name="_vantageRunningWarningInfoBar"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_VantageWarning_Title}"
                         Margin="0,16,0,0"
@@ -66,7 +64,7 @@
                         IsOpen="False"
                         Severity="Error" />
 
-                    <custom:InfoBar
+                    <wpfui:InfoBar
                         x:Name="_legionZoneRunningWarningInfoBar"
                         Title="{x:Static resources:Resource.GodModeSettingsWindow_LegionZoneWarning_Title}"
                         Margin="0,16,0,0"
@@ -228,11 +226,11 @@
                         FontWeight="Medium"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Title}" />
 
-                    <custom:CardControl
+                    <wpfui:CardControl
                         x:Name="_fanCurveCardControl"
                         Margin="0,0,0,8"
                         AutomationProperties.Name="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Title}">
-                        <custom:CardControl.Header>
+                        <wpfui:CardControl.Header>
                             <StackPanel>
                                 <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Curve_Message}" />
                                 <controls:FanCurveControl
@@ -246,19 +244,19 @@
                                     Content="{x:Static resources:Resource.Default}"
                                     Icon="ArrowClockwise24" />
                             </StackPanel>
-                        </custom:CardControl.Header>
-                    </custom:CardControl>
+                        </wpfui:CardControl.Header>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl x:Name="_fanFullSpeedCardControl" Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl x:Name="_fanFullSpeedCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Message}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch
                             x:Name="_fanFullSpeedToggle"
                             Margin="0,0,0,8"
                             AutomationProperties.Name="{x:Static resources:Resource.GodModeSettingsWindow_Fans_Max_Title}"
                             Click="FanFullSpeedToggle_Click" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
                     <TextBlock
                         x:Name="_advancedSectionTitle"
@@ -275,10 +273,10 @@
                         FontSize="12"
                         Text="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_Message}" />
 
-                    <custom:CardControl x:Name="_maxValueOffsetCardControl" Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl x:Name="_maxValueOffsetCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MaxOffset_Message}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_maxValueOffsetNumberBox"
                             Width="120"
@@ -288,12 +286,12 @@
                             MaxDecimalPlaces="0"
                             Maximum="100"
                             Minimum="0" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl x:Name="_minValueOffsetCardControl" Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl x:Name="_minValueOffsetCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MinOffset_Title}" Subtitle="{x:Static resources:Resource.GodModeSettingsWindow_Advanced_MinOffset_Message}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <wpfui:NumberBox
                             x:Name="_minValueOffsetNumberBox"
                             Width="120"
@@ -303,7 +301,7 @@
                             MaxDecimalPlaces="0"
                             Maximum="0"
                             Minimum="-100" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
                 </StackPanel>
             </wpfui:DynamicScrollViewer>
@@ -343,13 +341,10 @@
                 Content="{x:Static resources:Resource.SaveAndClose}" />
         </Grid>
 
-        <wpfui:Snackbar
-            x:Name="_snackBar"
+        <wpfui:SnackbarPresenter
+            x:Name="_snackBarPresenter"
             Grid.Row="1"
-            HorizontalAlignment="Center"
-            CloseButtonEnabled="True"
-            Icon="ErrorCircle24"
-            Timeout="5000" />
+            HorizontalAlignment="Center" />
 
     </Grid>
 </local:BaseWindow>

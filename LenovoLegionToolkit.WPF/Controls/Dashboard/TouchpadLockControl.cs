@@ -2,8 +2,8 @@
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
@@ -18,7 +18,7 @@ public class TouchpadLockControl : AbstractToggleFeatureCardControl<TouchpadLock
 
     public TouchpadLockControl()
     {
-        Icon = SymbolRegular.Tablet24;
+        Icon = SymbolRegular.Tablet24.GetIcon();
         Title = Resource.TouchpadLockControl_Title;
         Subtitle = Resource.TouchpadLockControl_Message;
 

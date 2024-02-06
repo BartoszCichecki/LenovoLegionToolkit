@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.WPF.Controls;
 using LenovoLegionToolkit.WPF.Controls.Automation;
-using Wpf.Ui.Common;
+using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Controls;
-using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation;
 
@@ -51,7 +50,7 @@ public partial class AddAutomationStepWindow
             Header = new CardHeaderControl
             {
                 Title = stepControl.Title,
-                Accessory = new SymbolIcon { Symbol = SymbolRegular.ChevronRight24 }
+                Accessory = SymbolRegular.ChevronRight24.GetIcon()
             },
             Margin = new(0, 8, 0, 0),
         };

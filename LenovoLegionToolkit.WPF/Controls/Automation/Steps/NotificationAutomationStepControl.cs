@@ -2,8 +2,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using TextBox = Wpf.Ui.Controls.TextBox;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
@@ -20,7 +21,7 @@ public class NotificationAutomationStepControl : AbstractAutomationStepControl<N
 
     public NotificationAutomationStepControl(NotificationAutomationStep step) : base(step)
     {
-        Icon = SymbolRegular.Rocket24;
+        Icon = SymbolRegular.Rocket24.GetIcon();
         Title = Resource.NotificationAutomationStepControl_Title;
 
         SizeChanged += RunAutomationStepControl_SizeChanged;

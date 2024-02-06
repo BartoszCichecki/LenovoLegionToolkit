@@ -1,15 +1,13 @@
-﻿<wpfui:UiPage
+﻿<Page
     x:Class="LenovoLegionToolkit.WPF.Pages.BatteryPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
     Title="{x:Static resources:Resource.BatteryPage_Title}"
-    FlowDirection="{x:Static utils:LocalizationHelper.Direction}"
-    Scrollable="True">
+    FlowDirection="{x:Static utils:LocalizationHelper.Direction}">
 
     <StackPanel Margin="0,0,16,12">
         <TextBlock
@@ -65,13 +63,13 @@
             </StackPanel>
         </StackPanel>
 
-        <custom:CardControl
+        <wpfui:CardControl
             x:Name="_batteryTemperatureCardControl"
             Margin="0,0,0,24"
             Click="BatteryTemperatureCardControl_Click">
-            <custom:CardControl.Header>
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryTemperatureText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -79,12 +77,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_DischargeRate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_DischargeRate_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryDischargeRateText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -92,12 +90,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryCapacityText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -105,12 +103,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_FullChargeCapacity_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryFullChargeCapacityText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -118,12 +116,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,24">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,24">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_DesignCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_DesignCapacity_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryDesignCapacityText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -131,12 +129,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_OnBatterySince_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_OnBatterySince_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_onBatterySinceText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -144,12 +142,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_CycleCount_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_CycleCount_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryCycleCountText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -157,12 +155,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl x:Name="_batteryManufactureDateCardControl" Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl x:Name="_batteryManufactureDateCardControl" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_ManufactureDate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_ManufactureDate_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryManufactureDateText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -170,12 +168,12 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl x:Name="_batteryFirstUseDateCardControl" Margin="0,0,0,8">
-            <custom:CardControl.Header>
+        <wpfui:CardControl x:Name="_batteryFirstUseDateCardControl" Margin="0,0,0,8">
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_FirstUseDate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_FirstUse_Message}" />
-            </custom:CardControl.Header>
+            </wpfui:CardControl.Header>
             <TextBlock
                 x:Name="_batteryFirstUseDateText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
@@ -183,7 +181,7 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
     </StackPanel>
-</wpfui:UiPage>
+</Page>

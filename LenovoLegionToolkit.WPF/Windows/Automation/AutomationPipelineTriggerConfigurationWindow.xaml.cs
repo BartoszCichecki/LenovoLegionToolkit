@@ -8,6 +8,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 using Wpf.Ui.Controls;
+using TextBlock = Wpf.Ui.Controls.TextBlock;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation;
 

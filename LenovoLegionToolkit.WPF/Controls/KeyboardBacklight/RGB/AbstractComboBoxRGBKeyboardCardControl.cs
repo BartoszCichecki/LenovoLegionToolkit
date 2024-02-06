@@ -4,8 +4,7 @@ using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
 using LenovoLegionToolkit.WPF.Extensions;
-using Wpf.Ui.Common;
-using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB;
 
@@ -17,7 +16,7 @@ public abstract class AbstractComboBoxRGBKeyboardCardControl<T> : UserControl
 
     private readonly ComboBox _comboBox = new();
 
-    public SymbolRegular Icon
+    public IconElement? Icon
     {
         get => _cardControl.Icon;
         set => _cardControl.Icon = value;

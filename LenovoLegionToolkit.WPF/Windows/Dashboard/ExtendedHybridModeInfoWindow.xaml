@@ -27,7 +27,7 @@
             CanMaximize="false"
             ShowMaximize="false"
             ShowMinimize="false"
-            UseSnapLayout="false" />
+             />
 
         <Grid
             Grid.Row="0"

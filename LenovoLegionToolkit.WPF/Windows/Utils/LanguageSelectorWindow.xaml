@@ -1,4 +1,4 @@
-﻿<wpfui:UiWindow
+﻿<wpfui:FluentWindow
     x:Class="LenovoLegionToolkit.WPF.Windows.Utils.LanguageSelectorWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -27,8 +27,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid Grid.Row="1" Margin="16">
             <Grid.RowDefinitions>
@@ -77,4 +76,4 @@
         </Grid>
     </Grid>
 
-</wpfui:UiWindow>
+</wpfui:FluentWindow>

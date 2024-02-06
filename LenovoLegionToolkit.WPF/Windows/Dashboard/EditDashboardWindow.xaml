@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -29,8 +28,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"
@@ -49,7 +47,7 @@
                 Text="{x:Static resources:Resource.EditDashboardWindow_Title}" />
         </Grid>
 
-        <custom:InfoBar
+        <wpfui:InfoBar
             x:Name="_infoBar"
             Title="{x:Static resources:Resource.EditDashboardWindow_Disclaimer_Message}"
             Grid.Row="1"
@@ -65,12 +63,12 @@
             IndicatorVerticalAlignment="Center">
             <wpfui:DynamicScrollViewer x:Name="_groupsScrollViewer">
                 <StackPanel>
-                    <custom:CardControl Margin="0,0,16,16">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl Margin="0,0,16,16">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch x:Name="_sensorsSwitch" AutomationProperties.Name="{x:Static resources:Resource.EditDashboardWindow_Sensors}" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
                     <StackPanel x:Name="_groupsStackPanel" Margin="0,0,16,0" />
                 </StackPanel>
             </wpfui:DynamicScrollViewer>

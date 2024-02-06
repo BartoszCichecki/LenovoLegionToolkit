@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -28,8 +27,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"
@@ -56,15 +54,15 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <custom:CardControl Grid.Row="0" Margin="0,0,0,24">
-                <custom:CardControl.Header>
+            <wpfui:CardControl Grid.Row="0" Margin="0,0,0,24">
+                <wpfui:CardControl.Header>
                     <controls:CardHeaderControl Title="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_ShowThisApp}" />
-                </custom:CardControl.Header>
+                </wpfui:CardControl.Header>
                 <wpfui:ToggleSwitch
                     x:Name="_showThisAppToggle"
                     AutomationProperties.Name="{x:Static resources:Resource.SelectSmartKeyPipelinesWindow_ShowThisApp}"
                     Click="ShowThisAppToggle_Click" />
-            </custom:CardControl>
+            </wpfui:CardControl>
 
             <TextBlock
                 Grid.Row="1"

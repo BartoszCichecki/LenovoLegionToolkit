@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:lib="clr-namespace:LenovoLegionToolkit.Lib;assembly=LenovoLegionToolkit.Lib"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:rgb="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB"
@@ -30,7 +29,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <custom:InfoBar
+        <wpfui:InfoBar
             x:Name="_vantageWarningInfoBar"
             Title="{x:Static resources:Resource.Keyboard_VantageEnabledWarning_Title}"
             Grid.Row="0"
@@ -105,93 +104,93 @@
             Margin="0,0,8,0"
             OnChanged="CardControl_Changed" />
 
-        <custom:CardControl
+        <wpfui:CardControl
             x:Name="_zone1Control"
             Grid.Row="5"
             Grid.Column="0"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
-            <custom:CardControl.Header>
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone1}" />
-            </custom:CardControl.Header>
-            <custom:CardControl.ContextMenu>
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                        Icon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </custom:CardControl.ContextMenu>
+            </wpfui:CardControl.ContextMenu>
             <controls:ColorPickerControl x:Name="_zone1ColorPicker" ColorChangedDelayed="CardControl_Changed" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl
+        <wpfui:CardControl
             x:Name="_zone2Control"
             Grid.Row="5"
             Grid.Column="1"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
-            <custom:CardControl.Header>
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone2}" />
-            </custom:CardControl.Header>
-            <custom:CardControl.ContextMenu>
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                        Icon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </custom:CardControl.ContextMenu>
+            </wpfui:CardControl.ContextMenu>
             <controls:ColorPickerControl x:Name="_zone2ColorPicker" ColorChangedDelayed="CardControl_Changed" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl
+        <wpfui:CardControl
             x:Name="_zone3Control"
             Grid.Row="5"
             Grid.Column="2"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
-            <custom:CardControl.Header>
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone3}" />
-            </custom:CardControl.Header>
-            <custom:CardControl.ContextMenu>
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                        Icon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </custom:CardControl.ContextMenu>
+            </wpfui:CardControl.ContextMenu>
             <controls:ColorPickerControl x:Name="_zone3ColorPicker" ColorChangedDelayed="CardControl_Changed" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
-        <custom:CardControl
+        <wpfui:CardControl
             x:Name="_zone4Control"
             Grid.Row="5"
             Grid.Column="3"
             Margin="0,0,8,8"
             VerticalAlignment="Top"
             Icon="Color24">
-            <custom:CardControl.Header>
+            <wpfui:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.RGBKeyboardBacklightControl_Zone4}" />
-            </custom:CardControl.Header>
-            <custom:CardControl.ContextMenu>
+            </wpfui:CardControl.Header>
+            <wpfui:CardControl.ContextMenu>
                 <ContextMenu>
                     <!--  ReSharper disable once Xaml.RedundantResource  -->
                     <wpfui:MenuItem
                         Click="SynchroniseZonesMenuItem_Click"
                         Header="Synchronise zones"
-                        SymbolIcon="ArrowsBidirectional24" />
+                        Icon="ArrowsBidirectional24" />
                 </ContextMenu>
-            </custom:CardControl.ContextMenu>
+            </wpfui:CardControl.ContextMenu>
             <controls:ColorPickerControl x:Name="_zone4ColorPicker" ColorChangedDelayed="CardControl_Changed" />
-        </custom:CardControl>
+        </wpfui:CardControl>
 
     </Grid>
 

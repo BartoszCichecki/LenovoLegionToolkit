@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib.Utils;
-using Wpf.Ui.Common;
+using LenovoLegionToolkit.WPF.Extensions;
+using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
@@ -35,10 +36,10 @@ public partial class SymbolRegularPicker
 
     private void ItemButton_Click(object sender, RoutedEventArgs e)
     {
-        if (sender is not Button button)
+        if (sender is not Button { Icon: SymbolIcon icon })
             return;
 
-        _tcs.TrySetResult(button.Icon);
+        _tcs.TrySetResult(icon.Symbol);
         Close();
     }
 
@@ -62,7 +63,7 @@ public partial class SymbolRegularPicker
         {
             var button = new Button()
             {
-                Icon = Enum.Parse<SymbolRegular>(item),
+                Icon = Enum.Parse<SymbolRegular>(item).GetIcon(),
                 FontSize = 32,
                 Width = 80,
                 Height = 80,

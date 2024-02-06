@@ -1,6 +1,7 @@
 ﻿using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -12,7 +13,7 @@ public class OverDriveControl : AbstractToggleFeatureCardControl<OverDriveState>
 
     public OverDriveControl()
     {
-        Icon = SymbolRegular.TopSpeed24;
+        Icon = SymbolRegular.TopSpeed24.GetIcon();
         Title = Resource.OverDriveControl_Title;
         Subtitle = Resource.OverDriveControl_Message;
     }

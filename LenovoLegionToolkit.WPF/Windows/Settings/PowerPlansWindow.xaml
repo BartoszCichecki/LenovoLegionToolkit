@@ -3,7 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
-    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
     xmlns:local="clr-namespace:LenovoLegionToolkit.WPF.Windows"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
@@ -28,8 +27,7 @@
             Grid.Row="0"
             CanMaximize="false"
             ShowMaximize="false"
-            ShowMinimize="false"
-            UseSnapLayout="false" />
+            ShowMinimize="false" />
 
         <Grid
             Grid.Row="0"
@@ -58,20 +56,20 @@
             <wpfui:DynamicScrollViewer>
                 <StackPanel Margin="0,0,16,0">
 
-                    <custom:CardControl
+                    <wpfui:CardControl
                         x:Name="_aoAcWarningCard"
                         Margin="0,0,0,24"
                         Icon="Warning24"
                         Visibility="Collapsed">
-                        <custom:CardControl.Header>
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_AoAcWarning_Title}" Subtitle="{x:Static resources:Resource.PowerPlansWindow_AoAcWarning_Message}" />
-                        </custom:CardControl.Header>
-                    </custom:CardControl>
+                        </wpfui:CardControl.Header>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_QuietMode}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_quietModeComboBox"
                             MinWidth="200"
@@ -79,12 +77,12 @@
                             AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_QuietMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="QuietModeComboBox_SelectionChanged" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_BalanceMode}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_balanceModeComboBox"
                             MinWidth="200"
@@ -92,12 +90,12 @@
                             AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_BalanceMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="BalanceModeComboBox_SelectionChanged" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_PerformanceMode}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_performanceModeComboBox"
                             MinWidth="200"
@@ -105,12 +103,12 @@
                             AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_PerformanceMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="PerformanceModeComboBox_SelectionChanged" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl x:Name="_godModeCardControl" Margin="0,0,0,8">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl x:Name="_godModeCardControl" Margin="0,0,0,8">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.PowerPlansWindow_CustomMode}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <ComboBox
                             x:Name="_godModeComboBox"
                             MinWidth="200"
@@ -118,18 +116,18 @@
                             AutomationProperties.Name="{x:Static resources:Resource.PowerPlansWindow_CustomMode}"
                             MaxDropDownHeight="Auto"
                             SelectionChanged="GodModeComboBox_SelectionChanged" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
-                    <custom:CardControl Margin="0,16,0,16">
-                        <custom:CardControl.Header>
+                    <wpfui:CardControl Margin="0,16,0,16">
+                        <wpfui:CardControl.Header>
                             <controls:CardHeaderControl Title="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}" Subtitle="{x:Static resources:Resource.AlwaysActivatePowerPlans_Message}" />
-                        </custom:CardControl.Header>
+                        </wpfui:CardControl.Header>
                         <wpfui:ToggleSwitch
                             x:Name="_activatePowerProfilesWithVantageEnabledToggle"
                             Margin="0,0,0,8"
                             AutomationProperties.Name="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}"
                             Click="ActivatePowerProfilesWithVantageEnabled_Click" />
-                    </custom:CardControl>
+                    </wpfui:CardControl>
 
                 </StackPanel>
             </wpfui:DynamicScrollViewer>

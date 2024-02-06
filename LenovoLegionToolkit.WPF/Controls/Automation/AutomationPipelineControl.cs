@@ -18,9 +18,8 @@ using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Automation;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
-using CardExpander = LenovoLegionToolkit.WPF.Controls.Custom.CardExpander;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
@@ -218,12 +217,13 @@ public class AutomationPipelineControl : UserControl
         }
     }
 
-    private SymbolRegular GenerateIcon()
+    private IconElement GenerateIcon()
     {
         if (AutomationPipeline.Trigger is not null)
-            return SymbolRegular.Flow20;
+            return SymbolRegular.Flow20.GetIcon();
 
-        return Enum.TryParse<SymbolRegular>(AutomationPipeline.IconName, out var icon) ? icon : SymbolRegular.Play24;
+        var symbol = Enum.TryParse<SymbolRegular>(AutomationPipeline.IconName, out var icon) ? icon : SymbolRegular.Play24;
+        return symbol.GetIcon();
     }
 
     private string GenerateHeader()
@@ -387,7 +387,7 @@ public class AutomationPipelineControl : UserControl
 
         var moveUpMenuItem = new MenuItem
         {
-            SymbolIcon = SymbolRegular.ArrowUp24,
+            Icon = SymbolRegular.ArrowUp24.GetIcon(),
             Header = Resource.MoveUp
         };
         if (index > 0)
@@ -398,7 +398,7 @@ public class AutomationPipelineControl : UserControl
 
         var moveDownMenuItem = new MenuItem
         {
-            SymbolIcon = SymbolRegular.ArrowDown24,
+            Icon = SymbolRegular.ArrowDown24.GetIcon(),
             Header = Resource.MoveDown
         };
         if (index < maxIndex)

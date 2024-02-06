@@ -7,10 +7,10 @@ using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Controls.Dashboard;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Settings;
 using LenovoLegionToolkit.WPF.Windows.Dashboard;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Pages;
@@ -33,8 +33,6 @@ public partial class DashboardPage
         _loader.IsLoading = true;
 
         var initializedTasks = new List<Task> { Task.Delay(TimeSpan.FromSeconds(1)) };
-
-        ScrollHost?.ScrollToTop();
 
         _sensors.Visibility = _dashboardSettings.Store.ShowSensors ? Visibility.Visible : Visibility.Collapsed;
 
@@ -67,9 +65,9 @@ public partial class DashboardPage
 
         _content.RowDefinitions.Add(new RowDefinition { Height = new(1, GridUnitType.Auto) });
 
-        var editDashboardHyperlink = new Hyperlink
+        var editDashboardHyperlink = new HyperlinkButton
         {
-            Icon = SymbolRegular.Edit24,
+            Icon = SymbolRegular.Edit24.GetIcon(),
             Content = Resource.DashboardPage_Customize,
             Margin = new(0, 16, 0, 0),
             HorizontalAlignment = HorizontalAlignment.Center

@@ -2,9 +2,10 @@
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
@@ -14,7 +15,7 @@ public class RefreshRateAutomationStepControl : AbstractComboBoxAutomationStepCa
 
     public RefreshRateAutomationStepControl(IAutomationStep<RefreshRate> step) : base(step)
     {
-        Icon = SymbolRegular.DesktopPulse24;
+        Icon = SymbolRegular.DesktopPulse24.GetIcon();
         Title = Resource.RefreshRateAutomationStepControl_Title;
         Subtitle = Resource.RefreshRateAutomationStepControl_Message;
 

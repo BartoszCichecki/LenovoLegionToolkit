@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -15,7 +16,7 @@ public class ResolutionControl : AbstractComboBoxFeatureCardControl<Resolution>
 
     public ResolutionControl()
     {
-        Icon = SymbolRegular.ScaleFill24;
+        Icon = SymbolRegular.ScaleFill24.GetIcon();
         Title = Resource.ResolutionControl_Title;
         Subtitle = Resource.ResolutionControl_Message;
 

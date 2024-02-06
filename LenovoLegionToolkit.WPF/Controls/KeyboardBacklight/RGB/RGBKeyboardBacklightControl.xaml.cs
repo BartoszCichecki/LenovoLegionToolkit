@@ -8,7 +8,6 @@ using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.WPF.Extensions;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 using Button = Wpf.Ui.Controls.Button;
 using MenuItem = System.Windows.Controls.MenuItem;

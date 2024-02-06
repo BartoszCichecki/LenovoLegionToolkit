@@ -2,8 +2,9 @@
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Steps;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
@@ -13,7 +14,7 @@ public class HDRAutomationStepControl : AbstractComboBoxAutomationStepCardContro
 
     public HDRAutomationStepControl(IAutomationStep<HDRState> step) : base(step)
     {
-        Icon = SymbolRegular.Hdr24;
+        Icon = SymbolRegular.Hdr24.GetIcon();
         Title = Resource.HDRAutomationStepControl_Title;
         Subtitle = Resource.HDRAutomationStepControl_Message;
 

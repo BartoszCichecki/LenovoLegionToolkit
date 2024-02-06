@@ -7,11 +7,10 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.Pipeline;
 using LenovoLegionToolkit.WPF.Assets;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Windows.Utils;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
-using Wpf.Ui.Controls.Interfaces;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Utils;
@@ -34,7 +33,7 @@ public class TrayHelper : IDisposable
 
     private NotifyIcon? _notifyIcon;
 
-    public TrayHelper(INavigation navigation, Action bringToForeground, bool trayTooltipEnabled)
+    public TrayHelper(NavigationView navigation, Action bringToForeground, bool trayTooltipEnabled)
     {
         _bringToForeground = bringToForeground;
 
@@ -65,13 +64,13 @@ public class TrayHelper : IDisposable
         _automationProcessor.PipelinesChanged += (_, p) => SetAutomationItems(p);
     }
 
-    private void InitializeStaticItems(INavigation navigation)
+    private void InitializeStaticItems(NavigationView navigation)
     {
-        foreach (var navigationItem in navigation.Items.OfType<NavigationItem>())
+        foreach (var navigationItem in navigation.MenuItems.OfType<NavigationViewItem>())
         {
             var navigationMenuItem = new MenuItem
             {
-                SymbolIcon = navigationItem.Icon,
+                Icon = navigationItem.Icon,
                 Header = navigationItem.Content,
                 Tag = NAVIGATION_TAG
             };
@@ -81,7 +80,7 @@ public class TrayHelper : IDisposable
                 _bringToForeground();
 
                 await Task.Delay(TimeSpan.FromMilliseconds(500));
-                navigation.Navigate(navigationItem.PageTag);
+                navigation.Navigate(navigationItem.TargetPageTag);
             };
             _contextMenu.Items.Add(navigationMenuItem);
         }
@@ -123,7 +122,7 @@ public class TrayHelper : IDisposable
 
             var item = new MenuItem
             {
-                SymbolIcon = icon,
+                Icon = icon.GetIcon(),
                 Header = pipeline.Name ?? Resource.Unnamed,
                 Tag = AUTOMATION_TAG
             };

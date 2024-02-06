@@ -1,8 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Windows;
 using LenovoLegionToolkit.Lib.Automation.Steps;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
@@ -10,7 +11,7 @@ public class TurnOffMonitorsAutomationStepControl : AbstractAutomationStepContro
 {
     public TurnOffMonitorsAutomationStepControl(IAutomationStep automationStep) : base(automationStep)
     {
-        Icon = SymbolRegular.Desktop24;
+        Icon = SymbolRegular.Desktop24.GetIcon();
         Title = Resource.TurnOffMonitorsAutomationStepControl_Title;
         Subtitle = Resource.TurnOffMonitorsAutomationStepControl_Message;
     }

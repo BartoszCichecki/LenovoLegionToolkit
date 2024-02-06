@@ -1,7 +1,8 @@
 ﻿using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using Wpf.Ui.Common;
+using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Controls.Dashboard;
 
@@ -14,7 +15,7 @@ public class MicrophoneControl : AbstractToggleFeatureCardControl<MicrophoneStat
 
     public MicrophoneControl()
     {
-        Icon = SymbolRegular.Mic24;
+        Icon = SymbolRegular.Mic24.GetIcon();
         Title = Resource.MicrophoneControl_Title;
         Subtitle = Resource.MicrophoneControl_Message;
 

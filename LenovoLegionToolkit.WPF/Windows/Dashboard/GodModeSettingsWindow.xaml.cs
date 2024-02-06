@@ -14,6 +14,8 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
+using Wpf.Ui.Controls;
+using MenuItem = System.Windows.Controls.MenuItem;
 
 namespace LenovoLegionToolkit.WPF.Windows.Dashboard;
 
@@ -78,7 +80,7 @@ public partial class GodModeSettingsWindow
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't load settings.", ex);
 
-            await _snackBar.ShowAsync(Resource.GodModeSettingsWindow_Error_Load_Title, ex.Message);
+            //await _snackBar.ShowAsync(Resource.GodModeSettingsWindow_Error_Load_Title, ex.Message);
 
             Close();
         }
@@ -144,7 +146,15 @@ public partial class GodModeSettingsWindow
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't apply settings", ex);
 
-            await _snackBar.ShowAsync(Resource.GodModeSettingsWindow_Error_Apply_Title, ex.Message);
+            var snackbar = new Snackbar(_snackBarPresenter)
+            {
+                Icon = SymbolRegular.ErrorCircle24.GetIcon(),
+                Title = Resource.GodModeSettingsWindow_Error_Apply_Title,
+                Content = ex.Message,
+                IsCloseButtonEnabled = true,
+                Timeout = TimeSpan.FromSeconds(5)
+            };
+            await snackbar.ShowAsync();
 
             return false;
         }

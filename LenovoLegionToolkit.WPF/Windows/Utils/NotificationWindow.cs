@@ -5,13 +5,11 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Utils;
-using Wpf.Ui.Appearance;
-using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-public class NotificationWindow : UiWindow
+public class NotificationWindow : FluentWindow
 {
     private readonly Grid _mainGrid = new()
     {
@@ -68,7 +66,7 @@ public class NotificationWindow : UiWindow
     {
         WindowStartupLocation = WindowStartupLocation.Manual;
         ResizeMode = ResizeMode.NoResize;
-        WindowBackdropType = BackgroundType.None;
+        WindowBackdropType = WindowBackdropType.Mica;
 
         Focusable = false;
         Topmost = true;
