@@ -440,7 +440,12 @@ public enum SpecialKey
     SpectrumPreset3 = 34,
     SpectrumPreset4 = 35,
     SpectrumPreset5 = 36,
-    SpectrumPreset6 = 37
+    SpectrumPreset6 = 37,
+    FnF4 = 62,
+    FnF8 = 63,
+    WhiteBacklightOff = 64,
+    WhiteBacklight1 = 65,
+    WhiteBacklight2 = 66
 }
 
 public enum SpectrumKeyboardBacklightBrightness

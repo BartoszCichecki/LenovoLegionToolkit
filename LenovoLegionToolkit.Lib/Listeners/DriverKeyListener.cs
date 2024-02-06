@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -124,16 +123,7 @@ public class DriverKeyListener : IListener<DriverKey>
             }
 
             if (value.HasFlag(DriverKey.FnF8))
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = "cmd",
-                    Arguments = "/c \"start ms-settings:network-airplanemode\"",
-                    UseShellExecute = true,
-                    CreateNoWindow = true,
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                });
-            }
+                AirplaneMode.Open();
 
             if (value.HasFlag(DriverKey.FnF10))
             {
