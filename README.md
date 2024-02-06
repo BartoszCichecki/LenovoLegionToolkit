@@ -209,6 +209,8 @@ All above settings are using built in functions of the EC and how well they work
 
 If you encounter issues, you might try to try alternative, experimental method of handling GPU Working Mode - see [Arguments](#arguments) section for more details.
 
+**Disabling dGPU via Device Manager DOES NOT disconnect the device and will cause high power consumption!**
+
 These options _are not_ Advanced Optimus and work separately from it.
 
 ### Deactivate discrete NVIDIA GPU
