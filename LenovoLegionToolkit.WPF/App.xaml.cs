@@ -101,6 +101,7 @@ public partial class App
         IoCContainer.Resolve<PortsBacklightFeature>().ForceDisable = flags.ForceDisableLenovoLighting;
         IoCContainer.Resolve<IGPUModeFeature>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
         IoCContainer.Resolve<DGPUNotify>().ExperimentalGPUWorkingMode = flags.ExperimentalGPUWorkingMode;
+        IoCContainer.Resolve<UpdateChecker>().Disable = flags.DisableUpdateChecker;
 
         AutomationPage.EnableHybridModeAutomation = flags.EnableHybridModeAutomation;
 

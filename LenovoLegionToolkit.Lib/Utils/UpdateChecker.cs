@@ -21,6 +21,8 @@ public class UpdateChecker
     private DateTime _lastUpdate = DateTime.MinValue;
     private Update[] _updates = Array.Empty<Update>();
 
+    public bool Disable { get; set; }
+
     public UpdateChecker(HttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
@@ -30,6 +32,13 @@ public class UpdateChecker
     {
         using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
         {
+            if (Disable)
+            {
+                _lastUpdate = DateTime.UtcNow;
+                _updates = Array.Empty<Update>();
+                return null;
+            }
+
             try
             {
                 var timeSpanSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
