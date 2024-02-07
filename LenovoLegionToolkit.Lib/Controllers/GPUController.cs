@@ -25,7 +25,6 @@ public class GPUController
     private string? _gpuInstanceId;
     private string? _performanceState;
 
-    public GPUState LastKnownState => _state;
     public event EventHandler<GPUStatus>? Refreshed;
 
     public bool IsSupported()
@@ -47,6 +46,12 @@ public class GPUController
             }
             catch { /* Ignored. */ }
         }
+    }
+
+    public async Task<GPUState> GetLastKnownStateAsync()
+    {
+        using (await _lock.LockAsync().ConfigureAwait(false))
+            return _state;
     }
 
     public async Task<GPUStatus> RefreshNowAsync()

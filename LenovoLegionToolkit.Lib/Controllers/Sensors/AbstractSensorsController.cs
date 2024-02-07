@@ -63,7 +63,7 @@ public abstract class AbstractSensorsController : ISensorsController
         var cpuCurrentFanSpeed = await GetCpuCurrentFanSpeedAsync().ConfigureAwait(false);
         var cpuMaxFanSpeed = _cpuMaxFanSpeedCache ??= await GetCpuMaxFanSpeedAsync().ConfigureAwait(false);
 
-        var gpuInfo = GetGPUInfo();
+        var gpuInfo = await GetGPUInfoAsync().ConfigureAwait(false);
         var gpuCurrentTemperature = gpuInfo.Temperature >= 0 ? gpuInfo.Temperature : await GetGpuCurrentTemperatureAsync().ConfigureAwait(false);
         var gpuMaxTemperature = gpuInfo.MaxTemperature >= 0 ? gpuInfo.MaxTemperature : genericMaxTemperature;
         var gpuCurrentFanSpeed = await GetGpuCurrentFanSpeedAsync().ConfigureAwait(false);
@@ -175,9 +175,9 @@ public abstract class AbstractSensorsController : ISensorsController
 
     private static Task<int> GetCpuMaxCoreClockAsync() => WMI.LenovoGameZoneData.GetCPUFrequencyAsync();
 
-    private GPUInfo GetGPUInfo()
+    private async Task<GPUInfo> GetGPUInfoAsync()
     {
-        if (_gpuController.LastKnownState is GPUState.PoweredOff or GPUState.Unknown)
+        if (await _gpuController.GetLastKnownStateAsync().ConfigureAwait(false) is GPUState.PoweredOff or GPUState.Unknown)
             return GPUInfo.Empty;
 
         try
