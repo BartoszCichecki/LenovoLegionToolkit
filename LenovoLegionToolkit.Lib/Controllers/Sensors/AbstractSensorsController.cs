@@ -125,9 +125,9 @@ public abstract class AbstractSensorsController : ISensorsController
     private int GetCpuUtilization(int maxUtilization)
     {
         var result = (int)_percentProcessorUtilityCounter.NextValue();
-        if (result < 0 || result > maxUtilization)
+        if (result < 0)
             return -1;
-        return result;
+        return Math.Min(result, maxUtilization);
     }
 
     private int GetCpuCoreClock()
