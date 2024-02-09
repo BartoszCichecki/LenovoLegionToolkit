@@ -1995,4 +1995,40 @@
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
 	  <value>將任何 Wi-Fi 網路留空。</value>
   </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>與 HWiNFO64 共享風扇速度、電池溫度等。變更此選項後，您可能需要重新啟動 HWiNFO64。</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>整合</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+	  <value>設定</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+	  <value>資訊</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+	  <value>下載資料夾</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+	  <value>開啟下載資料夾</value>
+  </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+	  <value>下載</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+	  <value>開啟 README</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+	  <value>預設</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>重新整理</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>刪除</value>
+  </data>
 </root>
