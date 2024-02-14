@@ -4,7 +4,20 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device;
 
 public partial class SpectrumZoneControl
 {
-    public ushort KeyCode { get; set; }
+    private ushort _keyCode;
+
+    public ushort KeyCode
+    {
+        get => _keyCode;
+        set
+        {
+            _keyCode = value;
+
+#if DEBUG
+            _button.ToolTip = $"0x{value:X2}";
+#endif
+        }
+    }
 
     public Color? Color
     {

@@ -120,7 +120,8 @@ public static class Compatibility
                 HasQuietToPerformanceModeSwitchingBug = GetHasQuietToPerformanceModeSwitchingBug(biosVersion),
                 HasGodModeToOtherModeSwitchingBug = GetHasGodModeToOtherModeSwitchingBug(biosVersion),
                 IsExcludedFromLenovoLighting = GetIsExcludedFromLenovoLighting(biosVersion),
-                IsExcludedFromPanelLogoLenovoLighting = GetIsExcludedFromPanelLenovoLighting(machineType, model)
+                IsExcludedFromPanelLogoLenovoLighting = GetIsExcludedFromPanelLenovoLighting(machineType, model),
+                HasAlternativeFullSpectrumLayout = GetHasAlternativeFullSpectrumLayout(machineType),
             }
         };
 
@@ -156,6 +157,7 @@ public static class Compatibility
             Log.Instance.Trace($"     * HasGodModeToOtherModeSwitchingBug: '{machineInformation.Properties.HasGodModeToOtherModeSwitchingBug}'");
             Log.Instance.Trace($"     * IsExcludedFromLenovoLighting: '{machineInformation.Properties.IsExcludedFromLenovoLighting}'");
             Log.Instance.Trace($"     * IsExcludedFromPanelLogoLenovoLighting: '{machineInformation.Properties.IsExcludedFromPanelLogoLenovoLighting}'");
+            Log.Instance.Trace($"     * HasAlternativeFullSpectrumLayout: '{machineInformation.Properties.HasAlternativeFullSpectrumLayout}'");
         }
 
         return (_machineInformation = machineInformation).Value;
@@ -429,5 +431,15 @@ public static class Compatibility
             result &= model.Contains(m.model);
             return result;
         }).Any();
+    }
+
+    private static bool GetHasAlternativeFullSpectrumLayout(string machineType)
+    {
+        var machineTypes = new[]
+        {
+            "83G0", // Gen 9
+            "83AG"  // Gen 8
+        };
+        return machineTypes.Contains(machineType);
     }
 }
