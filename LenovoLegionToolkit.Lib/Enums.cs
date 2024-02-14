@@ -527,7 +527,8 @@ public enum SpectrumLayout
 {
     KeyboardOnly,
     KeyboardAndFront,
-    Full
+    Full,
+    FullAlternative
 }
 
 public enum Theme

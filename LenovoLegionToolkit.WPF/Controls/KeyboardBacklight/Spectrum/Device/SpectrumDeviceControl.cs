@@ -9,6 +9,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device;
 
 public class SpectrumDeviceControl : UserControl
 {
+    private readonly SpectrumDeviceFullAlternativeControl _fullAlternative = new();
     private readonly SpectrumDeviceFullControl _full = new();
     private readonly SpectrumDeviceKeyboardAndFrontControl _keyboardAndFront = new();
     private readonly SpectrumDeviceKeyboardOnlyControl _keyboardOnly = new();
@@ -22,12 +23,17 @@ public class SpectrumDeviceControl : UserControl
 
     public void SetLayout(SpectrumLayout spectrumLayout, KeyboardLayout keyboardLayout, HashSet<ushort> keys)
     {
+        _stackPanel.Children.Remove(_fullAlternative);
         _stackPanel.Children.Remove(_full);
         _stackPanel.Children.Remove(_keyboardAndFront);
         _stackPanel.Children.Remove(_keyboardOnly);
 
         switch (spectrumLayout)
         {
+            case SpectrumLayout.FullAlternative:
+                _stackPanel.Children.Add(_fullAlternative);
+                _fullAlternative.SetLayout(keyboardLayout);
+                break;
             case SpectrumLayout.Full:
                 _stackPanel.Children.Add(_full);
                 _full.SetLayout(keyboardLayout);

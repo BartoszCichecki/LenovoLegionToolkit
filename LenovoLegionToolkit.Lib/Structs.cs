@@ -421,6 +421,7 @@ public readonly struct MachineInformation
         public bool HasGodModeToOtherModeSwitchingBug { get; init; }
         public bool IsExcludedFromLenovoLighting { get; init; }
         public bool IsExcludedFromPanelLogoLenovoLighting { get; init; }
+        public bool HasAlternativeFullSpectrumLayout { get; init; }
     }
 
     public string Vendor { get; init; }

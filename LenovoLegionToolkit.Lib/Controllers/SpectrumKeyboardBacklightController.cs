@@ -112,9 +112,11 @@ public class SpectrumKeyboardBacklightController
             Log.Instance.Trace($"Checking keyboard layout...");
 
         var (width, height, keys) = await ReadAllKeyCodesAsync().ConfigureAwait(false);
+        var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
 
         var spectrumLayout = (width, height) switch
         {
+            (22, 9) when mi.Properties.HasAlternativeFullSpectrumLayout => SpectrumLayout.FullAlternative,
             (22, 9) => SpectrumLayout.Full,
             (20, 8) => SpectrumLayout.KeyboardAndFront,
             _ => SpectrumLayout.KeyboardOnly // (20, 7)

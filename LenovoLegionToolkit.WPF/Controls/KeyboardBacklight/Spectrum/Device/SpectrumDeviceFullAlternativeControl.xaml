@@ -1,0 +1,153 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device.SpectrumDeviceFullAlternativeControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device"
+    FlowDirection="LeftToRight">
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="24" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Panel Logo  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="0"
+            Grid.Column="6"
+            Height="32"
+            Margin="0,0,0,24"
+            KeyCode="0x05DD" />
+
+        <!--  Keyboard  -->
+        <controls:SpectrumKeyboardControl
+            x:Name="_keyboard"
+            Grid.Row="2"
+            Grid.RowSpan="5"
+            Grid.Column="1"
+            Grid.ColumnSpan="6"
+            Padding="16" />
+
+        <!--  Rear vents  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="2"
+            KeyCode="0x03EA" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="2"
+            Margin="2"
+            KeyCode="0x03EB" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="3"
+            Margin="2"
+            KeyCode="0x03EC" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="4"
+            Margin="2"
+            KeyCode="0x03ED" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="5"
+            Margin="2"
+            KeyCode="0x03EE" />
+        <controls:SpectrumZoneControl
+            Grid.Row="1"
+            Grid.Column="6"
+            Margin="2"
+            KeyCode="0x03EF" />
+
+        <!--  Left side  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="2"
+            Grid.Column="0"
+            Height="24"
+            Margin="2"
+            VerticalAlignment="Top"
+            KeyCode="0x03E9" />
+        <controls:SpectrumZoneControl
+            Grid.Row="5"
+            Grid.Column="0"
+            Margin="2"
+            KeyCode="0x01F5" />
+        <controls:SpectrumZoneControl
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="2"
+            KeyCode="0x01F6" />
+
+        <!--  Right side  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="2"
+            Grid.Column="7"
+            Height="24"
+            Margin="2"
+            VerticalAlignment="Top"
+            KeyCode="0x03F0" />
+        <controls:SpectrumZoneControl
+            Grid.Row="5"
+            Grid.Column="7"
+            Margin="2"
+            KeyCode="0x01FE" />
+        <controls:SpectrumZoneControl
+            Grid.Row="6"
+            Grid.Column="7"
+            Margin="2"
+            KeyCode="0x01FD" />
+
+        <!--  Front  -->
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="1"
+            Margin="2"
+            KeyCode="0x01F7" />
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="2"
+            Margin="2"
+            KeyCode="0x01F8" />
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="3"
+            Margin="2"
+            KeyCode="0x01F9" />
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="4"
+            Margin="2"
+            KeyCode="0x01FA" />
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="5"
+            Margin="2"
+            KeyCode="0x01FB" />
+        <controls:SpectrumZoneControl
+            Grid.Row="7"
+            Grid.Column="6"
+            Margin="2"
+            KeyCode="0x01FC" />
+
+    </Grid>
+
+</UserControl>
