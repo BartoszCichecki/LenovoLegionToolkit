@@ -4781,6 +4781,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Resets the counter for &quot;On battery since&quot; in the battery section when the system reboots..
+        /// </summary>
+        public static string SettingsPage_OnBatterySinceReset_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_OnBatterySinceReset_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset &quot;On battery since&quot; at startup.
+        /// </summary>
+        public static string SettingsPage_OnBatterySinceReset_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_OnBatterySinceReset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Power.
         /// </summary>
         public static string SettingsPage_Power_Title {

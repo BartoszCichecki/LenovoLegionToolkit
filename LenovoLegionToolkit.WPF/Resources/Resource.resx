@@ -1988,48 +1988,54 @@ Supported formats are: {1}.</value>
     <value>Custom boot logo set.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Network name (SSID)</value>
+    <value>Network name (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Copy current network name</value>
+    <value>Copy current network name</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Leave empty for any Wi-Fi network.</value>
+    <value>Leave empty for any Wi-Fi network.</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>Share fan speed, battery temperature etc. with HWiNFO64. You may need to restart HWiNFO64 after changing this option.</value>
+    <value>Share fan speed, battery temperature etc. with HWiNFO64. You may need to restart HWiNFO64 after changing this option.</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>Integrations</value>
+    <value>Integrations</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>Settings</value>
+    <value>Settings</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>Information</value>
+    <value>Information</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>Download folder</value>
+    <value>Download folder</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>Open Download folder</value>
+    <value>Open Download folder</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>Download</value>
+    <value>Download</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>Open README</value>
+    <value>Open README</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
-	  <value>Preset</value>
+    <value>Preset</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
-	  <value>Refresh</value>
+    <value>Refresh</value>
   </data>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
-	  <value>Delete</value>
+    <value>Delete</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Resets the counter for "On battery since" in the battery section when the system reboots.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Reset "On battery since" at startup</value>
   </data>
 </root>
