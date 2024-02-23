@@ -25,10 +25,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             if (automationEvent is not TimeAutomationEvent)
                 return Task.FromResult(false);
 
-            return Task.FromResult(true);
+            return IsMatching();
         }
 
         public Task<bool> IsMatchingState()
+        {
+            return IsMatching();
+        }
+
+        private Task<bool> IsMatching()
         {
             var currentDayMinutes = (int)DateTime.Now.TimeOfDay.TotalMinutes;
             var isPeriod = currentDayMinutes % PeriodMinutes == 0;
