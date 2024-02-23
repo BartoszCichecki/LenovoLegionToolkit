@@ -40,7 +40,8 @@ public partial class CreateAutomationPipelineWindow
         new WiFiConnectedAutomationPipelineTrigger(Array.Empty<string>()),
         new WiFiDisconnectedAutomationPipelineTrigger(),
         new TimeAutomationPipelineTrigger(false, false, TimeExtensions.UtcNow, Enum.GetValues<DayOfWeek>()),
-        new OnStartupAutomationPipelineTrigger()
+        new OnStartupAutomationPipelineTrigger(),
+        new PeriodicAutomationPipelineTrigger(null)
     };
 
     private readonly HashSet<Type> _existingTriggerTypes;

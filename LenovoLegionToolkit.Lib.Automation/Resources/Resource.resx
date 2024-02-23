@@ -194,6 +194,9 @@
     <value>On</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>When Custom Mode preset changes</value>
+    <value>When Custom Mode preset changes</value>
+  </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Periodic action</value>
   </data>
 </root>

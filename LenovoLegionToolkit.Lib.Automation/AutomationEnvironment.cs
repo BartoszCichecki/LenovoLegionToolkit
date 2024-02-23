@@ -24,6 +24,7 @@ public class AutomationEnvironment
     private const string USER_ACTIVE = "LLT_IS_USER_ACTIVE";
     private const string WIFI_CONNECTED = "WIFI_CONNECTED";
     private const string WIFI_SSID = "WIFI_SSID";
+    private const string PERIOD_MINUTES = "LLT_PERIOD_MINUTES";
 
     private const string VALUE_TRUE = "TRUE";
     private const string VALUE_FALSE = "FALSE";
@@ -68,6 +69,7 @@ public class AutomationEnvironment
     public bool WiFiConnected { set => _dictionary[WIFI_CONNECTED] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public string? WiFiSsid { set => _dictionary[WIFI_SSID] = value; }
+    public int? PeriodMinutes { set => _dictionary[PERIOD_MINUTES] = value.ToString(); }
 
     public Dictionary<string, string?> Dictionary => new(_dictionary);
 
