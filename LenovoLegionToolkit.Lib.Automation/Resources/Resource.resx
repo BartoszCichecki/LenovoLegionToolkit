@@ -198,5 +198,6 @@
   </data>
   <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Periodic action</value>
+    <comment>The display name of the periodic automation action.</comment>
   </data>
 </root>
