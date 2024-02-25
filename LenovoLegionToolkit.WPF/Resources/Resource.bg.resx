@@ -1843,6 +1843,10 @@
   <data name="IGPUModeChangeException_Title" xml:space="preserve">
     <value>Промяната в режима на работа на допълнителната видеокартата беше неуспешна</value>
   </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Опитайте да промените режима отново след няколко секунди, ако не виждате очакваните резултати.
+Ако допълнителната видео карта не реагира изобщо, моля рестартирайте устройството.</value>
+  </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>Допълнителната видеокарта е използвана в момента</value>
   </data>
@@ -1867,7 +1871,163 @@
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
     <value>Допълнителна видео карта деактивирана</value>
   </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Режим на работа на видео картата</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Изберете режим на работа за видео картата в зависимост от натоварването и захранването на компютъра.
+Промяна в режима може да изисква рестартиране.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Хибриден режим</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Позволи превключване между вградена и допълнителна видеокарта.
+Изисква рестартиране.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+    <value>Продължителност</value>
+  </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>Актуализации</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>Динамичен бууст на видео картата от процесора</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Това е максималната допълнителна мощност, която може да бъде отпусната на видео картата от процесора, в зависимост от натовареността му. Колкото по-голяма е стойността, толкова по-висока ще бъде производителността на приложенията, които изпозлват видео картата.</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>Лого при стартиране</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+    <value>Изберете изображение, което ще бъде показано при стартиране на системата, вместо логото по подразбиране на Lenovo.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+    <value>Лого при стартиране</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+    <value>Зададено е логото по подразбиране</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+    <value>Зададено е потребителско лого</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+    <value>Състояние</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+    <value>Връщане към подразбиране</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+    <value>Персонализиране</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>Съдържание на известието</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+    <value>Покажи известие</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+    <value>Предварително зададена настройка</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Умно заключване на Fn бутона</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Заключването на бутона Fn ще бъде изключено временно, когато някой от бутоните Alt, Ctrl или Shift е натиснат.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Изключено</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+    <value>Потребителското лого трябва да бъде с големина от точно {0} пиксела.
+Поддържаните формати са: {1}.</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+    <value>Зареждане на батерията през нощта</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+    <value>Когато тази функция е активирана, устройството ще се зарежда до 80%, когато е включено през нощта, и до 100% преди да го използвате на сутринта.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+    <value>Зареждане на батерията през нощта</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+    <value>Когато тази функция е активирана, устройството ще се зарежда до 80%, когато е включено през нощта, и до 100% преди да го използвате на сутринта.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Избрахте изображение с невалидна големина.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Избрахте изображение с невалиден формат.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>Не може да се монтира EFI дял.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>Не може да се зададе привилегия UEFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Няма достатъчно свободно място в EFI дяла.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>Потребителското лого не беше зададено успешно: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>Потребителското лого не беше зададено успешно: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Зададено е логото по подразбиране.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Зададено е потребителско лого.</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+	  <value>Име на мрежата (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+	  <value>Копиране на текущото име на мрежата</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+	  <value>Оставете празно за която и да е Wi-Fi мрежа.</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+	  <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+	  <value>Споделете скоростта на вентилатора, температурата на батерията и др. с HWiNFO64. Може да се наложи да рестартирате HWiNFO64 при промяна на тази настройка.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+	  <value>Интеграции</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+	  <value>Настройки</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+	  <value>Информация</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+	  <value>Папка за сваляне</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+	  <value>Отвори папката за сваляне</value>
+  </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+	  <value>Сваляне</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+	  <value>Отвори README</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+	  <value>Предварително зададена настройка</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+	  <value>Опресни</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+	  <value>Изтрий</value>
   </data>
 </root>
