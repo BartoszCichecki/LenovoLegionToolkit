@@ -69,7 +69,7 @@ public class AutomationEnvironment
     public bool WiFiConnected { set => _dictionary[WIFI_CONNECTED] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public string? WiFiSsid { set => _dictionary[WIFI_SSID] = value; }
-    public int? PeriodMinutes { set => _dictionary[PERIOD_MINUTES] = value.ToString(); }
+    public int PeriodMinutes { set => _dictionary[PERIOD_MINUTES] = value.ToString(); }
 
     public Dictionary<string, string?> Dictionary => new(_dictionary);
 

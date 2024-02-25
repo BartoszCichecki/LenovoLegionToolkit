@@ -9,10 +9,10 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     {
         public string DisplayName => Resource.PeriodicActionPipelineTrigger_DisplayName;
 
-        public int? PeriodMinutes { get; }
+        public int PeriodMinutes { get; }
 
         [JsonConstructor]
-        public PeriodicAutomationPipelineTrigger(int? periodMinutes)
+        public PeriodicAutomationPipelineTrigger(int periodMinutes)
         {
             PeriodMinutes = periodMinutes;
         }
