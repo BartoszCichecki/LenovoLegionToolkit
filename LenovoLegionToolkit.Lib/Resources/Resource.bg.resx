@@ -436,4 +436,28 @@
   <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
     <value>Зарядно и USB Захранване с Висока Мощност</value>
   </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Дълга</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Нормална</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Къса</value>
+  </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+	  <value>Shift</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+	  <value>Ctrl</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+	  <value>Alt</value>
+  </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+	  <value>Включено</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+	  <value>Изключено</value>
+  </data>
 </root>
