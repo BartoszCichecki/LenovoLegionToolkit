@@ -17,7 +17,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent
 
         public void MinutesTabItem_Initialized(object? sender, EventArgs e)
         {
-            _periodPickerMinutes.Value = _periodMinutes.TotalMinutes > 0 ? _periodMinutes.TotalMinutes : 1;
+            _periodPickerMinutes.Value = _periodMinutes.TotalMinutes;
         }
 
         public IPeriodicAutomationPipelineTrigger GetTrigger()
