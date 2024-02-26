@@ -118,7 +118,9 @@ public partial class BatteryPage
             _onBatterySinceText.Text = "-";
         }
 
-        _batteryDischargeRateText.Text = $"{batteryInfo.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
+        var dischargeRateWatts = batteryInfo.DischargeRate / 1000.0 ;
+        var dischargePercentage = dischargeRateWatts / (batteryInfo.EstimateChargeRemaining / 1000.0);
+        _batteryDischargeRateText.Text = $"{dischargeRateWatts:+0.00;-0.00;0.00} W ({dischargePercentage:+0.00%;-0.00%;0.00%})";
         _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
         _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapacity / 1000.0:0.00} Wh";
         _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
