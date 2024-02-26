@@ -9,16 +9,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     {
         public string DisplayName => Resource.PeriodicActionPipelineTrigger_DisplayName;
 
-        public int PeriodMinutes { get; }
+        public TimeSpan PeriodMinutes { get; }
 
         [JsonConstructor]
-        public PeriodicAutomationPipelineTrigger(int periodMinutes)
+        public PeriodicAutomationPipelineTrigger(TimeSpan periodMinutes)
         {
             PeriodMinutes = periodMinutes;
         }
 
         public IAutomationPipelineTrigger DeepCopy() => new PeriodicAutomationPipelineTrigger(PeriodMinutes);
-        public IPeriodicAutomationPipelineTrigger DeepCopy(int PeriodMinutes) => new PeriodicAutomationPipelineTrigger(PeriodMinutes);
+        public IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan PeriodMinutes) => new PeriodicAutomationPipelineTrigger(PeriodMinutes);
 
         public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
         {
@@ -36,7 +36,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         private Task<bool> IsMatching()
         {
             var currentDayMinutes = (int)DateTime.Now.TimeOfDay.TotalMinutes;
-            var isPeriod = currentDayMinutes % PeriodMinutes == 0;
+            var isPeriod = currentDayMinutes % PeriodMinutes.TotalMinutes == 0;
 
             if (isPeriod)
                 return Task.FromResult(true);
@@ -44,9 +44,6 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             return Task.FromResult(false);
         }
 
-        public void UpdateEnvironment(ref AutomationEnvironment environment)
-        {
-            environment.PeriodMinutes = PeriodMinutes;
-        }
+        public void UpdateEnvironment(ref AutomationEnvironment environment) { }
     }
 }

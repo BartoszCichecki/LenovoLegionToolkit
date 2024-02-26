@@ -82,6 +82,6 @@ public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomatio
 
 public interface IPeriodicAutomationPipelineTrigger : IAutomationPipelineTrigger 
 {
-    public int PeriodMinutes { get; }
-    IPeriodicAutomationPipelineTrigger DeepCopy(int PeriodMinutes);
+    public TimeSpan PeriodMinutes { get; }
+    IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan PeriodMinutes);
 }

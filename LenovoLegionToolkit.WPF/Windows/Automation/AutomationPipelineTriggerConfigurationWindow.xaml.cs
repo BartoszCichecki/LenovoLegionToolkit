@@ -101,7 +101,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         IUserInactivityPipelineTrigger ut when ut.InactivityTimeSpan > TimeSpan.Zero => true,
         ITimeAutomationPipelineTrigger => true,
         IWiFiConnectedPipelineTrigger => true,
-        IPeriodicAutomationPipelineTrigger papt when papt.PeriodMinutes > 0 => true,
+        IPeriodicAutomationPipelineTrigger papt when papt.PeriodMinutes.TotalMinutes >= 0 => true,
         _ => false
     };
 
