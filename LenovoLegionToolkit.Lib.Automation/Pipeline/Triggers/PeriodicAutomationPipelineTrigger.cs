@@ -9,16 +9,16 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
     {
         public string DisplayName => Resource.PeriodicActionPipelineTrigger_DisplayName;
 
-        public TimeSpan PeriodMinutes { get; }
+        public TimeSpan Period { get; }
 
         [JsonConstructor]
-        public PeriodicAutomationPipelineTrigger(TimeSpan periodMinutes)
+        public PeriodicAutomationPipelineTrigger(TimeSpan period)
         {
-            PeriodMinutes = periodMinutes;
+            Period = period;
         }
 
-        public IAutomationPipelineTrigger DeepCopy() => new PeriodicAutomationPipelineTrigger(PeriodMinutes);
-        public IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan PeriodMinutes) => new PeriodicAutomationPipelineTrigger(PeriodMinutes);
+        public IAutomationPipelineTrigger DeepCopy() => new PeriodicAutomationPipelineTrigger(Period);
+        public IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan Period) => new PeriodicAutomationPipelineTrigger(Period);
 
         public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
         {
@@ -36,7 +36,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
         private Task<bool> IsMatching()
         {
             var currentDayMinutes = (int)DateTime.Now.TimeOfDay.TotalMinutes;
-            var isPeriod = currentDayMinutes % PeriodMinutes.TotalMinutes == 0;
+            var isPeriod = currentDayMinutes % Period.TotalMinutes == 0;
 
             if (isPeriod)
                 return Task.FromResult(true);

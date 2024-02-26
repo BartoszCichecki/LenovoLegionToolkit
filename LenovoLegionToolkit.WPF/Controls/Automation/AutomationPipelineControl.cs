@@ -291,7 +291,7 @@ public class AutomationPipelineControl : UserControl
             result += $" | {string.Join(",", wt.Ssids)}";
 
         if (AutomationPipeline.Trigger is IPeriodicAutomationPipelineTrigger pet)
-            result += $" | {Resource.PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes}: {pet.PeriodMinutes.TotalMinutes}";
+            result += $" | {Resource.PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes}: {pet.Period.TotalMinutes}";
 
         return result;
     }

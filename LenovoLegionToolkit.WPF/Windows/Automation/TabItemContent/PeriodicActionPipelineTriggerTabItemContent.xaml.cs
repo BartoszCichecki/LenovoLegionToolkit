@@ -6,18 +6,18 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent
     public partial class PeriodicAutomationPipelineTriggerTabItemContent : IAutomationPipelineTriggerTabItemContent<IPeriodicAutomationPipelineTrigger>
     {
         private readonly IPeriodicAutomationPipelineTrigger _trigger;
-        private readonly TimeSpan _periodMinutes;
+        private readonly TimeSpan _period;
 
         public PeriodicAutomationPipelineTriggerTabItemContent(IPeriodicAutomationPipelineTrigger trigger)
         {
             _trigger = trigger;
-            _periodMinutes = trigger.PeriodMinutes;
+            _period = trigger.Period;
             InitializeComponent();
         }
 
         public void MinutesTabItem_Initialized(object? sender, EventArgs e)
         {
-            _periodPickerMinutes.Value = _periodMinutes.TotalMinutes;
+            _periodPickerMinutes.Value = _period.TotalMinutes;
         }
 
         public IPeriodicAutomationPipelineTrigger GetTrigger()
