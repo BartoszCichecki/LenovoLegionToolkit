@@ -22,8 +22,8 @@ public class AutomationEnvironment
     private const string TIME = "LLT_TIME";
     private const string DAYS = "LLT_DAYS";
     private const string USER_ACTIVE = "LLT_IS_USER_ACTIVE";
-    private const string WIFI_CONNECTED = "WIFI_CONNECTED";
-    private const string WIFI_SSID = "WIFI_SSID";
+    private const string WIFI_CONNECTED = "LLT_WIFI_CONNECTED";
+    private const string WIFI_SSID = "LLT_WIFI_SSID";
 
     private const string VALUE_TRUE = "TRUE";
     private const string VALUE_FALSE = "FALSE";

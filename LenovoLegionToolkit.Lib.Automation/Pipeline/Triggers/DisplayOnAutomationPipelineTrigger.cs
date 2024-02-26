@@ -24,7 +24,7 @@ public class DisplayOnAutomationPipelineTrigger : INativeWindowsMessagePipelineT
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.DisplayOn = true;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.DisplayOn = true;
 
     public IAutomationPipelineTrigger DeepCopy() => new DisplayOnAutomationPipelineTrigger();
 

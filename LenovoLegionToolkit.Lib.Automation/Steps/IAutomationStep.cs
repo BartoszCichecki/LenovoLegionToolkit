@@ -6,7 +6,7 @@ public interface IAutomationStep
 {
     Task<bool> IsSupportedAsync();
 
-    Task RunAsync(AutomationEnvironment environment);
+    Task RunAsync(AutomationContext context, AutomationEnvironment environment);
 
     IAutomationStep DeepCopy();
 }

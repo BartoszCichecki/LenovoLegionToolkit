@@ -17,7 +17,7 @@ public class DisplayBrightnessAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public Task RunAsync(AutomationEnvironment _)
+    public Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         return _controller.SetBrightnessAsync(Brightness);
     }

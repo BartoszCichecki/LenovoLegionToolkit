@@ -28,7 +28,7 @@ public class GodModePresetAutomationStep : IAutomationStep
 
     public Task<GodModeState> GetStateAsync() => _controller.GetStateAsync();
 
-    public async Task RunAsync(AutomationEnvironment _)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         var state = await _controller.GetStateAsync().ConfigureAwait(false);
         if (!state.Presets.ContainsKey(PresetId))

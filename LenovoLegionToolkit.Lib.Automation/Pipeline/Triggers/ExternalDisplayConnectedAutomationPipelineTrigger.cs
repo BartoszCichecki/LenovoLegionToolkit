@@ -30,7 +30,7 @@ public class ExternalDisplayConnectedAutomationPipelineTrigger : INativeWindowsM
     }
 
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.ExternalDisplayConnected = true;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.ExternalDisplayConnected = true;
 
     public IAutomationPipelineTrigger DeepCopy() => new ExternalDisplayConnectedAutomationPipelineTrigger();
 
