@@ -4628,6 +4628,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When toggled, the discharge rate in percentage will be calculated based on the remaining charge. Otherwise, it will be calculated based on the full charg capacity..
+        /// </summary>
+        public static string SettingsPage_DischargePercentageBasedOnRemainingCharge_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_DischargePercentageBasedOnRemainingCharge_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Discharge percentage based on remaining charge.
+        /// </summary>
+        public static string SettingsPage_DischargePercentageBasedOnRemainingCharge_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_DischargePercentageBasedOnRemainingCharge_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legion Zone may have not been enabled correctly.
         /// </summary>
         public static string SettingsPage_EnableLegionZone_Error_Message {
