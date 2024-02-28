@@ -194,6 +194,6 @@
     <value>开</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>当自定义模式预设切换时</value>
+    <value>当自定义模式预设切换时</value>
   </data>
 </root>
