@@ -4637,7 +4637,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When toggled, the discharge rate in percentage will be calculated based on the remaining charge. Otherwise, it will be calculated based on the full charg capacity..
+        ///   Looks up a localized string similar to When enabled, the battery discharge rate percentage will be calculated based on the remaining battery charge. If disabled, it will be calculated based on the total battery capacity..
         /// </summary>
         public static string SettingsPage_DischargePercentageBasedOnRemainingCharge_Message {
             get {

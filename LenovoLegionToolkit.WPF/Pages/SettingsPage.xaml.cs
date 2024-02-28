@@ -105,20 +105,14 @@ public partial class SettingsPage
         _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _synchronizeBrightnessToAllPowerPlansToggle.IsChecked = _settings.Store.SynchronizeBrightnessToAllPowerPlans;
-<<<<<<< HEAD
         _dischargePercentageBasedOnRemainingChargeToggle.IsChecked = _settings.Store.IsDischargePercentageBasedOnRemainingCharge;
-=======
         _onBatterySinceResetToggle.IsChecked = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
->>>>>>> master
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
-<<<<<<< HEAD
         _dischargePercentageBasedOnRemainingChargeToggle.Visibility = Visibility.Visible;
-=======
         _onBatterySinceResetToggle.Visibility = Visibility.Visible;
->>>>>>> master
 
         _hwinfoIntegrationToggle.IsChecked = _integrationsSettings.Store.HWiNFO;
 

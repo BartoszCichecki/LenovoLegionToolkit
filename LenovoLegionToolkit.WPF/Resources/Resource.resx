@@ -2033,10 +2033,11 @@ Supported formats are: {1}.</value>
     <value>Delete</value>
   </data>
   <data name="SettingsPage_DischargePercentageBasedOnRemainingCharge_Message" xml:space="preserve">
-    <value>When toggled, the discharge rate in percentage will be calculated based on the remaining charge. Otherwise, it will be calculated based on the full charg capacity.</value>
+    <value>When enabled, the battery discharge rate percentage will be calculated based on the remaining battery charge. If disabled, it will be calculated based on the total battery capacity.</value>
   </data>
   <data name="SettingsPage_DischargePercentageBasedOnRemainingCharge_Title" xml:space="preserve">
     <value>Discharge percentage based on remaining charge</value>
+  </data>
   <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
     <value>Period (minutes)</value>
     <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
