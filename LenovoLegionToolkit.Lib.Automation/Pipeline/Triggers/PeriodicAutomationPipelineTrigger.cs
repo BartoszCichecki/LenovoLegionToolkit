@@ -17,33 +17,25 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers
             Period = period;
         }
 
-        public IAutomationPipelineTrigger DeepCopy() => new PeriodicAutomationPipelineTrigger(Period);
-        public IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan Period) => new PeriodicAutomationPipelineTrigger(Period);
-
         public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
         {
-            if (automationEvent is not TimeAutomationEvent)
-                return Task.FromResult(false);
-
-            return IsMatching();
+            return automationEvent is not TimeAutomationEvent ? Task.FromResult(false) : IsMatching();
         }
 
-        public Task<bool> IsMatchingState()
-        {
-            return IsMatching();
-        }
+        public Task<bool> IsMatchingState() => IsMatching();
+
+        public IAutomationPipelineTrigger DeepCopy() => new PeriodicAutomationPipelineTrigger(Period);
+
+        public IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan period) => new PeriodicAutomationPipelineTrigger(period);
 
         private Task<bool> IsMatching()
         {
             var currentDayMinutes = (int)DateTime.Now.TimeOfDay.TotalMinutes;
             var isPeriod = currentDayMinutes % Period.TotalMinutes == 0;
 
-            if (isPeriod)
-                return Task.FromResult(true);
-
-            return Task.FromResult(false);
+            return Task.FromResult(isPeriod);
         }
 
-        public void UpdateEnvironment(ref AutomationEnvironment environment) { }
+        public void UpdateEnvironment(AutomationEnvironment environment) { }
     }
 }

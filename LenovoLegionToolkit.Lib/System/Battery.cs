@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.System;
 public static class Battery
 {
     private static readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
-    
+
     public static BatteryInformation GetBatteryInformation()
     {
         var powerStatus = GetSystemPowerStatus();
@@ -80,9 +80,7 @@ public static class Battery
         {
             var resetOnReboot = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
 
-            DateTime lastRebootTime = new();
-            if (resetOnReboot)
-                lastRebootTime = DateTime.Now - TimeSpan.FromMilliseconds(Environment.TickCount);
+            var lastRebootTime = DateTime.Now - TimeSpan.FromMilliseconds(Environment.TickCount);
 
             var logs = new List<(DateTime Date, bool IsACOnline)>();
 
@@ -109,11 +107,11 @@ public static class Battery
 
             logs.Reverse();
 
-            var firstLastAcOffEvent = logs
+            var (dateTime, _) = logs
                 .TakeWhile(log => log.IsACOnline != true)
                 .LastOrDefault();
 
-            return firstLastAcOffEvent.Date;
+            return dateTime;
         }
         catch (Exception ex)
         {
