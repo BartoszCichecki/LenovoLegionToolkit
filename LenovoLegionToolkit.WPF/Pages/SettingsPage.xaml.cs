@@ -105,10 +105,12 @@ public partial class SettingsPage
         _notificationsCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _excludeRefreshRatesCard.Visibility = fnKeysStatus != SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
         _synchronizeBrightnessToAllPowerPlansToggle.IsChecked = _settings.Store.SynchronizeBrightnessToAllPowerPlans;
+        _onBatterySinceResetToggle.IsChecked = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
         _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
+        _onBatterySinceResetToggle.Visibility = Visibility.Visible;
 
         _hwinfoIntegrationToggle.IsChecked = _integrationsSettings.Store.HWiNFO;
 
@@ -494,6 +496,19 @@ public partial class SettingsPage
     private void PowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
     {
         Process.Start("control", "/name Microsoft.PowerOptions");
+    }
+
+    private void OnBatterySinceResetToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var state = _onBatterySinceResetToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.ResetBatteryOnSinceTimerOnReboot = state.Value;
+        _settings.SynchronizeStore();
     }
 
     private async void HWiNFOIntegrationToggle_Click(object sender, RoutedEventArgs e)
