@@ -1,0 +1,41 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent.PeriodicAutomationPipelineTriggerTabItemContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    Initialized="PeriodTabItem_Initialized"
+    mc:Ignorable="d">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                Text="{Binding Source={x:Static resources:Resource.PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes}}" />
+
+            <TextBlock
+                Grid.Column="0"
+                Margin="0,0,10,0"
+                VerticalAlignment="Center"
+                Text=":" />
+
+            <ui:NumberBox
+                x:Name="_periodPickerMinutes"
+                Grid.Column="1"
+                ClearButtonEnabled="False"
+                MaxDecimalPlaces="0"
+                Maximum="1440"
+                Minimum="1" />
+        </Grid>
+    </StackPanel>
+</UserControl>

@@ -21,7 +21,7 @@ public class GamesStopAutomationPipelineTrigger : IGameAutomationPipelineTrigger
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.GameRunning = false;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.GameRunning = false;
 
     public IAutomationPipelineTrigger DeepCopy() => new GamesStopAutomationPipelineTrigger();
 }

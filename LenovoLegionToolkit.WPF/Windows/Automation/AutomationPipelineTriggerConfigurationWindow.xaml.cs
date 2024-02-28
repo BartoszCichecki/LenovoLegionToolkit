@@ -101,6 +101,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         IUserInactivityPipelineTrigger ut when ut.InactivityTimeSpan > TimeSpan.Zero => true,
         ITimeAutomationPipelineTrigger => true,
         IWiFiConnectedPipelineTrigger => true,
+        IPeriodicAutomationPipelineTrigger papt when papt.Period > TimeSpan.Zero => true,
         _ => false
     };
 
@@ -112,6 +113,7 @@ public partial class AutomationPipelineTriggerConfigurationWindow
         IUserInactivityPipelineTrigger ut when ut.InactivityTimeSpan > TimeSpan.Zero => new UserInactivityPipelineTriggerTabItemContent(ut),
         ITimeAutomationPipelineTrigger tt => new TimeAutomationPipelineTriggerTabItemContent(tt),
         IWiFiConnectedPipelineTrigger wt => new WiFiConnectedPipelineTriggerTabItemContent(wt),
+        IPeriodicAutomationPipelineTrigger pet => new PeriodicAutomationPipelineTriggerTabItemContent(pet),
         _ => null
     };
 }

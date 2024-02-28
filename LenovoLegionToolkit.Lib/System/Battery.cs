@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.System.Power;
@@ -11,6 +12,8 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class Battery
 {
+    private static readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+
     public static BatteryInformation GetBatteryInformation()
     {
         var powerStatus = GetSystemPowerStatus();
@@ -75,6 +78,10 @@ public static class Battery
     {
         try
         {
+            var resetOnReboot = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
+
+            var lastRebootTime = DateTime.Now - TimeSpan.FromMilliseconds(Environment.TickCount);
+
             var logs = new List<(DateTime Date, bool IsACOnline)>();
 
             var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
@@ -89,15 +96,22 @@ public static class Battery
                 if (date is null || isAcOnline is null)
                     continue;
 
+                if (resetOnReboot && date < lastRebootTime)
+                    continue;
+
                 logs.Add((date.Value, isAcOnline.Value));
             }
 
             if (logs.Count < 1)
                 return null;
 
-            var (dateTime, isACOnline) = logs.MaxBy(l => l.Date);
-            if (!isACOnline)
-                return dateTime;
+            logs.Reverse();
+
+            var (dateTime, _) = logs
+                .TakeWhile(log => log.IsACOnline != true)
+                .LastOrDefault();
+
+            return dateTime;
         }
         catch (Exception ex)
         {

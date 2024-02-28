@@ -194,6 +194,6 @@
     <value>Włączone</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Gdy szablon trybu własnego ulegnie zmianie</value>
+    <value>Gdy szablon trybu własnego ulegnie zmianie</value>
   </data>
 </root>

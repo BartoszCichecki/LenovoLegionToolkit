@@ -11,9 +11,9 @@ public class RefreshRateAutomationStep : AbstractFeatureAutomationStep<RefreshRa
     [JsonConstructor]
     public RefreshRateAutomationStep(RefreshRate state) : base(state) { }
 
-    public override Task RunAsync(AutomationEnvironment environment)
+    public override Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
-        return RetryHelper.RetryAsync(() => base.RunAsync(environment),
+        return RetryHelper.RetryAsync(() => base.RunAsync(context, environment),
             5,
             TimeSpan.FromSeconds(1),
             ex => ex is ModeChangeException,

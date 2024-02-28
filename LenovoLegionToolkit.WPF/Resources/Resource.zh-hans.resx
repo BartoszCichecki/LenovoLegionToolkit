@@ -1996,48 +1996,48 @@
     <value>已设置为自定义开机画面。</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>网络名称（SSID）</value>
+    <value>网络名称（SSID）</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>复制当前的网络名称</value>
+    <value>复制当前的网络名称</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>将任何 Wi-Fi 网络留空。</value>
+    <value>将任何 Wi-Fi 网络留空。</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>将风扇速度，电池温度等数据和 HWiNFO64 共享。你也许需要在改变此选项的值后重启 HWiNFO64。</value>
+    <value>将风扇速度，电池温度等数据和 HWiNFO64 共享。你也许需要在改变此选项的值后重启 HWiNFO64。</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>应用集成</value>
+    <value>应用集成</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>设置</value>
+    <value>设置</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>关于</value>
+    <value>关于</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>下载文件夹</value>
+    <value>下载文件夹</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>打开下载文件夹</value>
+    <value>打开下载文件夹</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>下载</value>
+    <value>下载</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>打开 README</value>
+    <value>打开 README</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
-	  <value>预设</value>
+    <value>预设</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
-	  <value>刷新</value>
+    <value>刷新</value>
   </data>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
-	  <value>删除</value>
+    <value>删除</value>
   </data>
 </root>

@@ -19,12 +19,13 @@ public class RunAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public async Task RunAsync(AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
 
-        await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, false, environment.Dictionary).ConfigureAwait(false);
+        var (_, output) = await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, environment: environment.Dictionary).ConfigureAwait(false);
+        context.LastRunOutput = output.TrimEnd();
     }
 
     IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);

@@ -194,6 +194,6 @@
     <value>Ligado</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Quando a predefinição do Modo Customizado muda</value>
+    <value>Quando a predefinição do Modo Customizado muda</value>
   </data>
 </root>

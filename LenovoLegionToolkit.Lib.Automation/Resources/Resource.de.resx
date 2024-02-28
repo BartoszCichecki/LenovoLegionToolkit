@@ -194,6 +194,6 @@
     <value>An</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wenn sich die Vorlage des benutzerdefinierten Modus ändert</value>
+    <value>Wenn sich die Vorlage des benutzerdefinierten Modus ändert</value>
   </data>
 </root>

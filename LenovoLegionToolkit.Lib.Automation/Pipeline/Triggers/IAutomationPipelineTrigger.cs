@@ -13,7 +13,7 @@ public interface IAutomationPipelineTrigger
 
     Task<bool> IsMatchingState();
 
-    void UpdateEnvironment(ref AutomationEnvironment environment);
+    void UpdateEnvironment(AutomationEnvironment environment);
 
     IAutomationPipelineTrigger DeepCopy();
 }
@@ -79,3 +79,10 @@ public interface IWiFiConnectedPipelineTrigger : IAutomationPipelineTrigger
 }
 
 public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+
+public interface IPeriodicAutomationPipelineTrigger : IAutomationPipelineTrigger
+{
+    public TimeSpan Period { get; }
+
+    IPeriodicAutomationPipelineTrigger DeepCopy(TimeSpan period);
+}

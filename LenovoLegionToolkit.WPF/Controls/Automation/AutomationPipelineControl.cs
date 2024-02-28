@@ -290,6 +290,9 @@ public class AutomationPipelineControl : UserControl
         if (AutomationPipeline.Trigger is IWiFiConnectedPipelineTrigger wt && wt.Ssids.Any())
             result += $" | {string.Join(",", wt.Ssids)}";
 
+        if (AutomationPipeline.Trigger is IPeriodicAutomationPipelineTrigger pet)
+            result += $" | {Resource.PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes}: {pet.Period.TotalMinutes}";
+
         return result;
     }
 

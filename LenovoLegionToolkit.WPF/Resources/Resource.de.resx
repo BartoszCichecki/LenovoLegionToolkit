@@ -1988,48 +1988,48 @@ Unterstützte Formate sind: {1}.</value>
     <value>Benutzerdefiniertes Boot-Logo eingestellt.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Netzwerkname (SSID)</value>
+    <value>Netzwerkname (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Aktuellen Netzwerknamen kopieren</value>
+    <value>Aktuellen Netzwerknamen kopieren</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Leer lassen für jedes Wi-Fi-Netzwerk.</value>
+    <value>Leer lassen für jedes Wi-Fi-Netzwerk.</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>Teilen Sie Lüftergeschwindigkeit, Batterietemperatur usw. mit HWiNFO64. Möglicherweise müssen Sie HWiNFO64 neu starten, nachdem Sie diese Option geändert haben.</value>
+    <value>Teilen Sie Lüftergeschwindigkeit, Batterietemperatur usw. mit HWiNFO64. Möglicherweise müssen Sie HWiNFO64 neu starten, nachdem Sie diese Option geändert haben.</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>Integrationen</value>
+    <value>Integrationen</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>Einstellungen</value>
+    <value>Einstellungen</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>Information</value>
+    <value>Information</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>Download-Ordner</value>
+    <value>Download-Ordner</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>Öffne Download-Ordner</value>
+    <value>Öffne Download-Ordner</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>Herunterladen</value>
+    <value>Herunterladen</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>Öffne README (LIESMICH)</value>
+    <value>Öffne README (LIESMICH)</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
-	  <value>Vorlage</value>
+    <value>Vorlage</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
-	  <value>Aktualisieren</value>
+    <value>Aktualisieren</value>
   </data>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
-	  <value>Löschen</value>
+    <value>Löschen</value>
   </data>
 </root>

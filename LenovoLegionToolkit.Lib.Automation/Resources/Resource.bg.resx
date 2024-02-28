@@ -194,6 +194,6 @@
     <value>Включен</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>При промяна в предварително зададената настройка на режима по избор</value>
+    <value>При промяна в предварително зададената настройка на режима по избор</value>
   </data>
 </root>
