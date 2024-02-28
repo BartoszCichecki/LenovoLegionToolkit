@@ -21,7 +21,7 @@ public class SpectrumKeyboardBacklightBrightnessAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 
-    public async Task RunAsync(AutomationEnvironment _)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
             return;

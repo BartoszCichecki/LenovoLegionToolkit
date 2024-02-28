@@ -20,7 +20,7 @@ public class WiFiDisconnectedAutomationPipelineTrigger : IWiFiDisconnectedPipeli
         return Task.FromResult(ssid is null);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.WiFiConnected = false;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.WiFiConnected = false;
 
     public IAutomationPipelineTrigger DeepCopy() => new WiFiDisconnectedAutomationPipelineTrigger();
 

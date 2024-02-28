@@ -24,7 +24,7 @@ public class DisplayOffAutomationPipelineTrigger : INativeWindowsMessagePipeline
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) => environment.DisplayOn = false;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.DisplayOn = false;
 
     public IAutomationPipelineTrigger DeepCopy() => new DisplayOffAutomationPipelineTrigger();
 

@@ -15,10 +15,14 @@ public class NotificationAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public Task RunAsync(AutomationEnvironment environment)
+    public Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         if (!string.IsNullOrWhiteSpace(Text))
-            MessagingCenter.Publish(new Notification(NotificationType.AutomationNotification, Text));
+        {
+            var text = Text.Replace("$RUN_OUTPUT$", context.LastRunOutput);
+            MessagingCenter.Publish(new Notification(NotificationType.AutomationNotification, text));
+        }
+
         return Task.CompletedTask;
     }
 

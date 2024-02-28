@@ -48,7 +48,7 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
         return await IsMatching(time, day).ConfigureAwait(false);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    public void UpdateEnvironment(AutomationEnvironment environment)
     {
         environment.IsSunset = IsSunset;
         environment.IsSunrise = IsSunrise;
