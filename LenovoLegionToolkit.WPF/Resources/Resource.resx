@@ -2032,6 +2032,10 @@ Supported formats are: {1}.</value>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Delete</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Period (minutes)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
   <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
     <value>Resets the counter for "On battery since" in the battery section when the system reboots.</value>
   </data>

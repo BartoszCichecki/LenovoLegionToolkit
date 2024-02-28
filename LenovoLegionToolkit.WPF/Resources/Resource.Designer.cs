@@ -3808,6 +3808,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Period (minutes).
+        /// </summary>
+        public static string PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes {
+            get {
+                return ResourceManager.GetString("PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turn on or off the backlight of the ports on the back of the laptop..
         /// </summary>
         public static string PortsBacklightAutomationStepControl_Message {
