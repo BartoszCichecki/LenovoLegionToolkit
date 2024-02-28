@@ -241,6 +241,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Periodic action.
+        /// </summary>
+        public static string PeriodicActionPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("PeriodicActionPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When Power Mode is changed.
         /// </summary>
         public static string PowerModeAutomationPipelineTrigger_DisplayName {

@@ -379,7 +379,7 @@ public class AutomationProcessor
             await _processAutoListener.SubscribeChangedAsync(ProcessAutoListener_Changed).ConfigureAwait(false);
         }
 
-        if (triggers.OfType<ITimeAutomationPipelineTrigger>().Any())
+        if (triggers.OfType<ITimeAutomationPipelineTrigger>().Any() || triggers.OfType<IPeriodicAutomationPipelineTrigger>().Any())
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting time listener...");
