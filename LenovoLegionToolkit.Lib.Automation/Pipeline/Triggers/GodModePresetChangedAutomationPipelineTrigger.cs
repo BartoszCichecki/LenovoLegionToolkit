@@ -33,7 +33,7 @@ public class GodModePresetChangedAutomationPipelineTrigger : IGodModePresetChang
         return PresetId == await controller.GetActivePresetIdAsync().ConfigureAwait(false);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment) { /* Ignored */ }
+    public void UpdateEnvironment(AutomationEnvironment environment) { /* Ignored */ }
 
     public IAutomationPipelineTrigger DeepCopy() => new GodModePresetChangedAutomationPipelineTrigger(PresetId);
 

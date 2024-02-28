@@ -37,7 +37,7 @@ public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrig
         return Task.FromResult(Ssids.Contains(ssid));
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    public void UpdateEnvironment(AutomationEnvironment environment)
     {
         environment.WiFiConnected = true;
         environment.WiFiSsid = string.Join(",", Ssids);

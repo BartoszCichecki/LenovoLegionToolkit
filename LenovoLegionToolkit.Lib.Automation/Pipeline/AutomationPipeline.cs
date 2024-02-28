@@ -57,7 +57,11 @@ public class AutomationPipeline
             return;
         }
 
+        var context = new AutomationContext();
+        var environment = new AutomationEnvironment();
         var stepExceptions = new List<Exception>();
+
+        AllTriggers.ForEach(t => t.UpdateEnvironment(environment));
 
         foreach (var step in Steps)
         {
@@ -68,15 +72,12 @@ public class AutomationPipeline
                 break;
             }
 
-            var environment = new AutomationEnvironment();
-            AllTriggers.ForEach(t => t.UpdateEnvironment(ref environment));
-
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Running step... [type={step.GetType().Name}]");
 
             try
             {
-                await step.RunAsync(environment).ConfigureAwait(false);
+                await step.RunAsync(context, environment).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

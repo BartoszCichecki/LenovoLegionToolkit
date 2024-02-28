@@ -48,7 +48,7 @@ public class ProcessesStopRunningAutomationPipelineTrigger : IProcessesAutomatio
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    public void UpdateEnvironment(AutomationEnvironment environment)
     {
         environment.ProcessesStarted = false;
         environment.Processes = Processes;

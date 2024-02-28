@@ -47,7 +47,7 @@ public class ProcessesAreRunningAutomationPipelineTrigger : IProcessesAutomation
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(ref AutomationEnvironment environment)
+    public void UpdateEnvironment(AutomationEnvironment environment)
     {
         environment.ProcessesStarted = true;
         environment.Processes = Processes;
