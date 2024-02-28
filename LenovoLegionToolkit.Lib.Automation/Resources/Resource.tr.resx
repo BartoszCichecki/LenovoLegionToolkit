@@ -194,6 +194,6 @@
     <value>Açık</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Özel mod ön ayarı değiştiğinde</value>
+    <value>Özel mod ön ayarı değiştiğinde</value>
   </data>
 </root>
