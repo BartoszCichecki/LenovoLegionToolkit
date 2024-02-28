@@ -1985,48 +1985,48 @@
     <value>Користувацький екран завантаження встановлено.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Назва мережі (SSID)</value>
+    <value>Назва мережі (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Скопіювати поточну назву мережі</value>
+    <value>Скопіювати поточну назву мережі</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Залиште пустим для будь-якої мережі Wi-Fi.</value>
+    <value>Залиште пустим для будь-якої мережі Wi-Fi.</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>Поділитися швидкістю вентилятора, температурою тощо з HWiNFO64. Вам, можливо, доведеться перезапустити HWiNFO64 після зміни цього налаштування.</value>
+    <value>Поділитися швидкістю вентилятора, температурою тощо з HWiNFO64. Вам, можливо, доведеться перезапустити HWiNFO64 після зміни цього налаштування.</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>Інтеграції</value>
+    <value>Інтеграції</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>Налаштування</value>
+    <value>Налаштування</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>Інформація</value>
+    <value>Інформація</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>Тека завантажень</value>
+    <value>Тека завантажень</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>Відкрити теку завантажень</value>
+    <value>Відкрити теку завантажень</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>Завантажити</value>
+    <value>Завантажити</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>Відкрити README</value>
+    <value>Відкрити README</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
-	  <value>Шаблон</value>
+    <value>Шаблон</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
-	  <value>Оновити</value>
+    <value>Оновити</value>
   </data>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
-	  <value>Видалити</value>
+    <value>Видалити</value>
   </data>
 </root>
