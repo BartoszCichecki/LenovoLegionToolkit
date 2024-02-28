@@ -1989,12 +1989,12 @@
     <value>Пользовательский логотип загрузки установлен.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Название сети (SSID)</value>
+    <value>Название сети (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Скопировать название текущей сети</value>
+    <value>Скопировать название текущей сети</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Оставить пустым для любой сети.</value>
+    <value>Оставить пустым для любой сети.</value>
   </data>
 </root>
