@@ -1988,42 +1988,42 @@ Nécessite un redémarrage.</value>
     <value>Logo de démarrage personnalisé appliqué.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Nom du point d'accès (SSID)</value>
+    <value>Nom du point d'accès (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Copier le nom du point d'accès actuel</value>
+    <value>Copier le nom du point d'accès actuel</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Laisser vide pour n'importe quel réseau Wi-Fi.</value>
+    <value>Laisser vide pour n'importe quel réseau Wi-Fi.</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>Partager la vitesse du ventilateur, la température de la batterie, etc. avec HWiNFO64. Vous devrez peut-être redémarrer HWiNFO64 après avoir modifié cette option.</value>
+    <value>Partager la vitesse du ventilateur, la température de la batterie, etc. avec HWiNFO64. Vous devrez peut-être redémarrer HWiNFO64 après avoir modifié cette option.</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>Intégrations</value>
+    <value>Intégrations</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>Paramètres</value>
+    <value>Paramètres</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>Information</value>
+    <value>Information</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>Télécharger le dossier</value>
+    <value>Télécharger le dossier</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>Ouvrir le dossier des téléchargements</value>
+    <value>Ouvrir le dossier des téléchargements</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>Télécharger</value>
+    <value>Télécharger</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>Ouvrir le README</value>
+    <value>Ouvrir le README</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
-	  <value>Préréglage</value>
+    <value>Préréglage</value>
   </data>
 </root>

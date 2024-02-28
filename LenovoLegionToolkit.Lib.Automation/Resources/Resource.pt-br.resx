@@ -194,6 +194,6 @@
     <value>Ativado</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Quando uma Pré-definição de Modo Personalizado mudar</value>
+    <value>Quando uma Pré-definição de Modo Personalizado mudar</value>
   </data>
 </root>

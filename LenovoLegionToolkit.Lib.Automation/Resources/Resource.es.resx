@@ -194,6 +194,6 @@
     <value>Encendido</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Al cambiar el predefinido del modo personalizado</value>
+    <value>Al cambiar el predefinido del modo personalizado</value>
   </data>
 </root>

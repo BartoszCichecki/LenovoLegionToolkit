@@ -1984,39 +1984,39 @@ Requer reinicialização.</value>
     <value>Definição da imagem de boot padrão.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-	  <value>Nome da rede (SSID)</value>
+    <value>Nome da rede (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-	  <value>Copiar o nome da rede atual</value>
+    <value>Copiar o nome da rede atual</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
-	  <value>Deixe em branco para qualquer rede WI-FI.</value>
+    <value>Deixe em branco para qualquer rede WI-FI.</value>
   </data>
   <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
-	  <value>HWiNFO64</value>
+    <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-	  <value>Compartilhe a velocidade dos coolers, a temperatura da bateria, etc. com HWiNFO64.  Pode ser necessário reiniciar o HWiNFO64 após alterar esta opção.</value>
+    <value>Compartilhe a velocidade dos coolers, a temperatura da bateria, etc. com HWiNFO64.  Pode ser necessário reiniciar o HWiNFO64 após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
-	  <value>Integrações</value>
+    <value>Integrações</value>
   </data>
   <data name="Settings" xml:space="preserve">
-	  <value>Configurações</value>
+    <value>Configurações</value>
   </data>
   <data name="Information" xml:space="preserve">
-	  <value>Informações</value>
+    <value>Informações</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
-	  <value>Pasta de downloads</value>
+    <value>Pasta de downloads</value>
   </data>
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
-	  <value>Abrir a pasta de downloads</value>
+    <value>Abrir a pasta de downloads</value>
   </data>
   <data name="PackageControl_Download" xml:space="preserve">
-	  <value>Download</value>
+    <value>Download</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-	  <value>Abrir README</value>
+    <value>Abrir README</value>
   </data>
 </root>

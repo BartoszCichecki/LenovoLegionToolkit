@@ -194,6 +194,6 @@
     <value>Вкл.</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Когда изменяется пресет пользовательского режима</value>
+    <value>Когда изменяется пресет пользовательского режима</value>
   </data>
 </root>
