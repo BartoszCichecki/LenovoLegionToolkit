@@ -200,4 +200,10 @@
     <value>Periodic action</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>When WiFi is connected</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>When WiFi is disconnected</value>
+  </data>
 </root>

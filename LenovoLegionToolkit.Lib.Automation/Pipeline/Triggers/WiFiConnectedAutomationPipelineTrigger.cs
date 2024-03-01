@@ -3,13 +3,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrigger
 {
-    public string DisplayName => "When WiFi is connected";
+    public string DisplayName => Resource.WiFiConnectedAutomationPipelineTrigger_DisplayName;
 
     public string[] Ssids { get; }
 
