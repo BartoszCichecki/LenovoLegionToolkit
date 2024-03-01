@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 public class WiFiDisconnectedAutomationPipelineTrigger : IWiFiDisconnectedPipelineTrigger
 {
-    public string DisplayName => "When WiFi is disconnected";
+    public string DisplayName => Resource.WiFiDisconnectedAutomationPipelineTrigger_DisplayName;
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
