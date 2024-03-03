@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Controls.Automation.Steps;
 
 public class TurnOnWiFiAutomationStepControl : AbstractAutomationStepControl
 {
-    public TurnOnWiFiAutomationStepControl(IAutomationStep automationStep) : base(automationStep)
+    public TurnOnWiFiAutomationStepControl(TurnOnWiFiAutomationStep automationStep) : base(automationStep)
     {
         Icon = SymbolRegular.Wifi124;
         Title = Resource.TurnOnWiFiAutomationStepControl_Title;
