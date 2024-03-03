@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
@@ -17,7 +17,7 @@ public class WiFiDisconnectedAutomationPipelineTrigger : IWiFiDisconnectedPipeli
 
     public Task<bool> IsMatchingState()
     {
-        var ssid = WiFi.GetConnectedNetworkSSID();
+        var ssid = WiFi.GetConnectedNetworkSsid();
         return Task.FromResult(ssid is null);
     }
 
