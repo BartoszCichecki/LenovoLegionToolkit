@@ -2040,4 +2040,14 @@
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>删除</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>设置执行间隔（分钟）</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>在系统开机或重新启动时重置【电池】下的电池使用时间计数器。</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>启动时重置电池使用时间</value>
+  </data>
 </root>
