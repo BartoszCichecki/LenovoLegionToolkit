@@ -46,7 +46,7 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
 
     private void CopyCurrentNetworkNameButton_OnClick(object sender, RoutedEventArgs e)
     {
-        var ssid = WiFi.GetConnectedNetworkSSID();
+        var ssid = WiFi.GetConnectedNetworkSsids().FirstOrDefault();
         if (ssid is null)
             return;
 
