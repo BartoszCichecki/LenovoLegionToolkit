@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
-using LenovoLegionToolkit.Lib.Extensions;
-using ManagedNativeWifi;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.NetworkManagement.WiFi;
@@ -13,24 +9,6 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class WiFi
 {
-    public static void TurnOn()
-    {
-        NativeWifi.EnumerateInterfaces()
-            .ForEach(i => NativeWifi.TurnOnInterfaceRadio(i.Id));
-    }
-
-    public static void TurnOff()
-    {
-        NativeWifi.EnumerateInterfaces()
-            .ForEach(i => NativeWifi.TurnOffInterfaceRadio(i.Id));
-    }
-
-    public static IEnumerable<string> GetConnectedNetworkSsids()
-    {
-        return NativeWifi.EnumerateConnectedNetworkSsids()
-            .Select(c => c.ToString());
-    }
-
     public static unsafe string? GetConnectedNetworkSSID()
     {
         var handlePtr = IntPtr.Zero;

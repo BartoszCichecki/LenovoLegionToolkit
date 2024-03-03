@@ -359,8 +359,6 @@ public class AutomationPipelineControl : UserControl
             SpectrumKeyboardBacklightImportProfileAutomationStep s => new SpectrumKeyboardBacklightImportProfileAutomationStepControl(s),
             SpectrumKeyboardBacklightProfileAutomationStep s => new SpectrumKeyboardBacklightProfileAutomationStepControl(s),
             TurnOffMonitorsAutomationStep s => new TurnOffMonitorsAutomationStepControl(s),
-            TurnOffWiFiAutomationStep s => new TurnOffWiFiAutomationStepControl(s),
-            TurnOnWiFiAutomationStep s => new TurnOnWiFiAutomationStepControl(s),
             TouchpadLockAutomationStep s => new TouchpadLockAutomationStepControl(s),
             WhiteKeyboardBacklightAutomationStep s => new WhiteKeyboardBacklightAutomationStepControl(s),
             WinKeyAutomationStep s => new WinKeyAutomationStepControl(s),

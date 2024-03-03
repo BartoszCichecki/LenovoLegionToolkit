@@ -189,8 +189,6 @@ public partial class AutomationPage
             new SpectrumKeyboardBacklightImportProfileAutomationStep(default),
             new TouchpadLockAutomationStep(default),
             new TurnOffMonitorsAutomationStep(),
-            new TurnOffWiFiAutomationStep(),
-            new TurnOnWiFiAutomationStep(),
             new WhiteKeyboardBacklightAutomationStep(default),
             new WinKeyAutomationStep(default)
         };

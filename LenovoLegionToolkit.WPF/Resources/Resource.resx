@@ -2042,10 +2042,4 @@ Supported formats are: {1}.</value>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Reset "On battery since" at startup</value>
   </data>
-  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Turn off WiFi</value>
-  </data>
-  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Turn on WiFi</value>
-  </data>
 </root>

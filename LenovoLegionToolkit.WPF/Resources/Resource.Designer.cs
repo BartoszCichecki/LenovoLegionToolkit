@@ -5504,24 +5504,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turn off WiFi.
-        /// </summary>
-        public static string TurnOffWiFiAutomationStepControl_Title {
-            get {
-                return ResourceManager.GetString("TurnOffWiFiAutomationStepControl_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Turn on WiFi.
-        /// </summary>
-        public static string TurnOnWiFiAutomationStepControl_Title {
-            get {
-                return ResourceManager.GetString("TurnOnWiFiAutomationStepControl_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Unexpected exception occurred:
         ///{0}
         ///
