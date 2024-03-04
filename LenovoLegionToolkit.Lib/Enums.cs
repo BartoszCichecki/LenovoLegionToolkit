@@ -350,6 +350,14 @@ public enum PowerModeState
     GodMode = 254
 }
 
+public enum PowerStateEvent
+{
+    Unknown = -1,
+    StatusChange,
+    Suspend,
+    Resume,
+}
+
 public enum ProcessEventInfoType
 {
     Started,

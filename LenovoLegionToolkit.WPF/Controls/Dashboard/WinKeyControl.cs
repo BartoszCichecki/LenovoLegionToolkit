@@ -1,4 +1,5 @@
-﻿using LenovoLegionToolkit.Lib;
+﻿using System;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.WPF.Resources;
 using Wpf.Ui.Common;
@@ -24,7 +25,7 @@ public class WinKeyControl : AbstractToggleFeatureCardControl<WinKeyState>
         _listener.Changed += Listener_Changed;
     }
 
-    private void Listener_Changed(object? sender, WinKeyChanged e) => Dispatcher.Invoke(async () =>
+    private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
     {
         if (!IsLoaded || !IsVisible)
             return;

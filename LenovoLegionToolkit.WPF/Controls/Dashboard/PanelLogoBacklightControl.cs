@@ -22,9 +22,9 @@ public class PanelLogoBacklightControl : AbstractToggleFeatureCardControl<PanelL
         _listener.Changed += Listener_Changed;
     }
 
-    private void Listener_Changed(object? sender, LightingChangeState e) => Dispatcher.Invoke(async () =>
+    private void Listener_Changed(object? sender, LightingChangeListener.ChangedEventArgs e) => Dispatcher.Invoke(async () =>
     {
-        if (e != LightingChangeState.Panel)
+        if (e.State != LightingChangeState.Panel)
             return;
 
         await RefreshAsync();

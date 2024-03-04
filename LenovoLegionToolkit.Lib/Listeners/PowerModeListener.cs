@@ -7,9 +7,14 @@ using LenovoLegionToolkit.Lib.System.Management;
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener(PowerPlanController powerPlanController)
-    : AbstractWMIListener<PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent.Listen),
-        INotifyingListener<PowerModeState>
+    : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent
+        .Listen), INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public PowerModeState State { get; init; }
+    }
+
     private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
 
     protected override PowerModeState GetValue(int value)
@@ -17,6 +22,8 @@ public class PowerModeListener(PowerPlanController powerPlanController)
         var result = (PowerModeState)(value - 1);
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(PowerModeState value) => new() { State = value };
 
     protected override async Task OnChangedAsync(PowerModeState value)
     {

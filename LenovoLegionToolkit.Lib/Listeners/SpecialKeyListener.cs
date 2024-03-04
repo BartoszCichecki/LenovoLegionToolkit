@@ -16,8 +16,13 @@ public class SpecialKeyListener(
     FnKeysDisabler fnKeysDisabler,
     RefreshRateFeature feature,
     MicrophoneFeature microphoneFeature)
-    : AbstractWMIListener<SpecialKey, int>(WMI.LenovoUtilityEvent.Listen)
+    : AbstractWMIListener<SpecialKeyListener.ChangedEventArgs, SpecialKey, int>(WMI.LenovoUtilityEvent.Listen)
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public SpecialKey SpecialKey { get; init; }
+    }
+
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
     private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
@@ -33,6 +38,8 @@ public class SpecialKeyListener(
         var result = (SpecialKey)value;
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(SpecialKey value) => new() { SpecialKey = value };
 
     protected override async Task OnChangedAsync(SpecialKey value)
     {

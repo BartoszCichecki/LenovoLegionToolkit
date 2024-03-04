@@ -29,6 +29,8 @@ public interface INativeWindowsMessagePipelineTrigger : IDisallowDuplicatesAutom
 
 public interface IOnStartupAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
+public interface IOnResumeAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+
 public interface IPowerStateAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
 
 public interface IPowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger

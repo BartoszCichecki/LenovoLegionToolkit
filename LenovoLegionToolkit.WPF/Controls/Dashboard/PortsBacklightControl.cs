@@ -22,9 +22,9 @@ public class PortsBacklightControl : AbstractToggleFeatureCardControl<PortsBackl
         _listener.Changed += Listener_Changed;
     }
 
-    private void Listener_Changed(object? sender, LightingChangeState e) => Dispatcher.Invoke(async () =>
+    private void Listener_Changed(object? sender, LightingChangeListener.ChangedEventArgs e) => Dispatcher.Invoke(async () =>
     {
-        if (e != LightingChangeState.Ports)
+        if (e.State != LightingChangeState.Ports)
             return;
 
         await RefreshAsync();

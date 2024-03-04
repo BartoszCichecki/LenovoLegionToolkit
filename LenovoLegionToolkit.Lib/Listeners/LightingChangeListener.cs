@@ -12,8 +12,14 @@ public class LightingChangeListener(
     PanelLogoBacklightFeature panelLogoBacklightFeature,
     PortsBacklightFeature portsBacklightFeature,
     FnKeysDisabler fnKeysDisabler)
-    : AbstractWMIListener<LightingChangeState, int>(WMI.LenovoLightingEvent.Listen)
+    : AbstractWMIListener<LightingChangeListener.ChangedEventArgs, LightingChangeState, int>(WMI.LenovoLightingEvent
+        .Listen)
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public LightingChangeState State { get; init; }
+    }
+
     private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature = panelLogoBacklightFeature ?? throw new ArgumentNullException(nameof(panelLogoBacklightFeature));
     private readonly PortsBacklightFeature _portsBacklightFeature = portsBacklightFeature ?? throw new ArgumentNullException(nameof(portsBacklightFeature));
     private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
@@ -26,6 +32,8 @@ public class LightingChangeListener(
         var result = (LightingChangeState)value;
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(LightingChangeState value) => new() { State = value };
 
     protected override async Task OnChangedAsync(LightingChangeState value)
     {

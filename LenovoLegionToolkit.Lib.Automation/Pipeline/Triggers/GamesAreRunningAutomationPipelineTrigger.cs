@@ -10,7 +10,7 @@ public class GamesAreRunningAutomationPipelineTrigger : IGameAutomationPipelineT
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        var result = automationEvent is GameAutomationEvent { Started: true };
+        var result = automationEvent is GameAutomationEvent { Running: true };
         return Task.FromResult(result);
     }
 

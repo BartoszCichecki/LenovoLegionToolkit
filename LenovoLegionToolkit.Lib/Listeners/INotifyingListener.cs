@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public interface INotifyingListener<T> : IListener<T>
+public interface INotifyingListener<TEventArgs, in TValue> : IListener<TEventArgs> where TEventArgs : EventArgs
 {
-    Task NotifyAsync(T value);
+    Task NotifyAsync(TValue value);
 }

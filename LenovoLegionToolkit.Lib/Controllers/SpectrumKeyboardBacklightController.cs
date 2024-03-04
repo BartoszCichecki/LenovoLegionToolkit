@@ -73,7 +73,7 @@ public class SpectrumKeyboardBacklightController
         _listener.Changed += Listener_Changed;
     }
 
-    private async void Listener_Changed(object? sender, SpecialKey e)
+    private async void Listener_Changed(object? sender, SpecialKeyListener.ChangedEventArgs e)
     {
         if (!await IsSupportedAsync().ConfigureAwait(false))
             return;
@@ -81,7 +81,7 @@ public class SpectrumKeyboardBacklightController
         if (await _vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             return;
 
-        switch (e)
+        switch (e.SpecialKey)
         {
             case SpecialKey.SpectrumPreset1
                 or SpecialKey.SpectrumPreset2
@@ -826,7 +826,7 @@ public class SpectrumKeyboardBacklightController
         var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
 
         var keys = effect.KeyCodes;
-        if (effect.KeyCodes.Length == 1 && effect.KeyCodes[0] == 0x65)
+        if (effect.KeyCodes is [0x65])
             keys = [];
 
         return new(effectType, speed, direction, clockwiseDirection, colors, keys);

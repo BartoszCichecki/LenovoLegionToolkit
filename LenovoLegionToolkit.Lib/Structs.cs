@@ -464,13 +464,6 @@ public readonly struct PowerPlan(Guid guid, string name, bool isActive)
     public override string ToString() => Name;
 }
 
-public readonly struct ProcessEventInfo(ProcessEventInfoType type, ProcessInfo process)
-{
-    public ProcessEventInfoType Type { get; } = type;
-
-    public ProcessInfo Process { get; } = process;
-}
-
 [method: JsonConstructor]
 public readonly struct ProcessInfo(string name, string? executablePath) : IComparable
 {
@@ -581,15 +574,9 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription(
 
     public override int GetHashCode() => HashCode.Combine(Effect, Speed, Brightness, Zone1, Zone2, Zone3, Zone4);
 
-    public static bool operator ==(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
-    {
-        return left.Equals(right);
-    }
+    public static bool operator ==(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right) => left.Equals(right);
 
-    public static bool operator !=(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
-    {
-        return !(left == right);
-    }
+    public static bool operator !=(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right) => !(left == right);
 
     #endregion
 
@@ -659,14 +646,6 @@ public readonly struct SensorsData
     public SensorData GPU { get; init; }
 
     public override string ToString() => $"{nameof(CPU)}: {CPU}, {nameof(GPU)}: {GPU}";
-}
-
-public readonly struct SensorSettings
-{
-    public int CPUSensorID { get; init; }
-    public int GPUSensorID { get; init; }
-    public int CPUFanID { get; init; }
-    public int GPUFanID { get; init; }
 }
 
 [method: JsonConstructor]
@@ -825,7 +804,10 @@ public readonly struct Update(Release release)
     public string Title { get; } = release.Name;
     public string Description { get; } = release.Body;
     public DateTimeOffset Date { get; } = release.PublishedAt ?? release.CreatedAt;
-    public string? Url { get; } = release.Assets.Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase)).Select(ra => ra.BrowserDownloadUrl).FirstOrDefault();
+    public string? Url { get; } = release.Assets
+        .Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase))
+        .Select(ra => ra.BrowserDownloadUrl)
+        .FirstOrDefault();
 }
 
 public readonly struct WarrantyInfo

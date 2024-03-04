@@ -13,6 +13,7 @@ public class AutomationEnvironment
     private const string GAME_RUNNING = "LLT_IS_GAME_RUNNING";
     private const string LID_OPEN = "LLT_IS_LID_OPEN";
     private const string STARTUP = "LLT_STARTUP";
+    private const string RESUME = "LLT_RESUME";
     private const string POWER_MODE = "LLT_POWER_MODE";
     private const string POWER_MODE_NAME = "LLT_POWER_MODE_NAME";
     private const string PROCESSES_STARTED = "LLT_PROCESSES_STARTED";
@@ -41,6 +42,8 @@ public class AutomationEnvironment
     public bool LidOpen { set => _dictionary[LID_OPEN] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public bool Startup { set => _dictionary[STARTUP] = value ? VALUE_TRUE : VALUE_FALSE; }
+
+    public bool Resume { set => _dictionary[RESUME] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public PowerModeState PowerMode
     {

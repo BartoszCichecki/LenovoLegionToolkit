@@ -9,8 +9,14 @@ using LenovoLegionToolkit.Lib.Utils;
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
-    : AbstractWMIListener<Brightness, byte>(WMI.WmiMonitorBrightnessEvent.Listen)
+    : AbstractWMIListener<DisplayBrightnessListener.ChangedEventArgs, Brightness, byte>(WMI.WmiMonitorBrightnessEvent
+        .Listen)
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public Brightness Brightness { get; init; }
+    }
+
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
 
@@ -20,6 +26,8 @@ public class DisplayBrightnessListener(PowerPlanController powerPlanController, 
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
     protected override Brightness GetValue(byte value) => value;
+
+    protected override ChangedEventArgs GetEventArgs(Brightness value) => new() { Brightness = value };
 
     protected override async Task OnChangedAsync(Brightness value)
     {

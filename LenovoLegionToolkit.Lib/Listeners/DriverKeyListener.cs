@@ -16,9 +16,14 @@ public class DriverKeyListener(
     MicrophoneFeature microphoneFeature,
     TouchpadLockFeature touchpadLockFeature,
     WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
-    : IListener<DriverKey>
+    : IListener<DriverKeyListener.ChangedEventArgs>
 {
-    public event EventHandler<DriverKey>? Changed;
+    public class ChangedEventArgs : EventArgs
+    {
+        public DriverKey DriverKey { get; init; }
+    }
+
+    public event EventHandler<ChangedEventArgs>? Changed;
 
     private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
     private readonly MicrophoneFeature _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
@@ -83,7 +88,7 @@ public class DriverKeyListener(
                     Log.Instance.Trace($"Event received. [key={key}, value={value}]");
 
                 await OnChangedAsync(key).ConfigureAwait(false);
-                Changed?.Invoke(this, key);
+                Changed?.Invoke(this, new() { DriverKey = key });
 
                 resetEvent.Reset();
             }

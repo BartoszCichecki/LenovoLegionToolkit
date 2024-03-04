@@ -35,9 +35,9 @@ internal class SmartKeyHelper
         _specialKeyListener.Changed += SpecialKeyListener_Changed;
     }
 
-    private async void SpecialKeyListener_Changed(object? sender, SpecialKey e)
+    private async void SpecialKeyListener_Changed(object? sender, SpecialKeyListener.ChangedEventArgs e)
     {
-        if (e != SpecialKey.FnF9)
+        if (e.SpecialKey != SpecialKey.FnF9)
             return;
 
         if (await _fnKeysDisabler.GetStatusAsync() == SoftwareStatus.Enabled)

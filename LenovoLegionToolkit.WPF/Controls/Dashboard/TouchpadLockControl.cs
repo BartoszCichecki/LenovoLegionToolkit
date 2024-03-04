@@ -32,12 +32,12 @@ public class TouchpadLockControl : AbstractToggleFeatureCardControl<TouchpadLock
         await _listener.StartAsync();
     }
 
-    private void Listener_Changed(object? sender, DriverKey e) => Dispatcher.Invoke(async () =>
+    private void Listener_Changed(object? sender, DriverKeyListener.ChangedEventArgs e) => Dispatcher.Invoke(async () =>
     {
         if (!IsLoaded || !IsVisible)
             return;
 
-        if (e.HasFlag(DriverKey.FnF10))
+        if (e.DriverKey.HasFlag(DriverKey.FnF10))
             await RefreshAsync();
     });
 }

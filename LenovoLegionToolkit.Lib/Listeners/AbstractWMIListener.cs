@@ -4,12 +4,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public abstract class AbstractWMIListener<T1, T2>(Func<Action<T2>, IDisposable> listen) : IListener<T1>
-    where T1 : struct
+public abstract class AbstractWMIListener<TEventArgs, TValue, TRawValue>(Func<Action<TRawValue>, IDisposable> listen)
+    : IListener<TEventArgs>
+    where TEventArgs : EventArgs
 {
     private IDisposable? _disposable;
 
-    public event EventHandler<T1>? Changed;
+    public event EventHandler<TEventArgs>? Changed;
 
     public Task StartAsync()
     {
@@ -55,15 +56,16 @@ public abstract class AbstractWMIListener<T1, T2>(Func<Action<T2>, IDisposable> 
         return Task.CompletedTask;
     }
 
-    protected abstract T1 GetValue(T2 value);
+    protected abstract TValue GetValue(TRawValue value);
 
-    protected abstract Task OnChangedAsync(T1 value);
+    protected abstract TEventArgs GetEventArgs(TValue value);
 
-    protected void RaiseChanged(T1 value) => Changed?.Invoke(this, value);
+    protected abstract Task OnChangedAsync(TValue value);
 
-    private async void Handler(T2 properties)
+    protected void RaiseChanged(TValue value) => Changed?.Invoke(this, GetEventArgs(value));
+
+    private async void Handler(TRawValue properties)
     {
-
         try
         {
             var value = GetValue(properties);

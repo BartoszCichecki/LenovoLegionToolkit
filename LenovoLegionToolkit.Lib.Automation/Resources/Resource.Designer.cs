@@ -214,6 +214,15 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to On resume.
+        /// </summary>
+        public static string OnResumeAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("OnResumeAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to On startup.
         /// </summary>
         public static string OnStartupAutomationPipelineTrigger_DisplayName {

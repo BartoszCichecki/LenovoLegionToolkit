@@ -46,7 +46,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         _powerPlanListener.Changed += PowerPlanListener_Changed;
     }
 
-    private async void ThermalModeListener_Changed(object? sender, ThermalModeState e) => await _throttleDispatcher.DispatchAsync(async () =>
+    private async void ThermalModeListener_Changed(object? sender, ThermalModeListener.ChangedEventArgs e) => await _throttleDispatcher.DispatchAsync(async () =>
     {
         await Dispatcher.InvokeAsync(async () =>
         {
@@ -55,7 +55,7 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
         });
     });
 
-    private async void PowerModeListener_Changed(object? sender, PowerModeState e) => await _throttleDispatcher.DispatchAsync(async () =>
+    private async void PowerModeListener_Changed(object? sender, PowerModeListener.ChangedEventArgs e) => await _throttleDispatcher.DispatchAsync(async () =>
     {
         await Dispatcher.InvokeAsync(async () =>
         {

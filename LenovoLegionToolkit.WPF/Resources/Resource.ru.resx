@@ -330,9 +330,6 @@
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Число циклов</value>
   </data>
-  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Первоначальная емкость батареи.</value>
-  </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Расчетная емкость</value>
   </data>
@@ -351,9 +348,6 @@
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
     <value>Дата первого применения</value>
   </data>
-  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>Когда впервые была использована батарея.</value>
-  </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>Емкость батареи при полной зарядке.</value>
   </data>
@@ -363,18 +357,12 @@
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Подключено зарядное устройство низкой мощности</value>
   </data>
-  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>Когда была изготовлена батарея.</value>
-  </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Дата изготовления</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Время с момента последнего подключения ноутбука к сети.
 Это время может быть неточным, если ноутбук заряжался во время сна или был выключен.</value>
-  </data>
-  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>На батарее</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Батарея</value>
@@ -1855,12 +1843,6 @@
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
     <value>Дискретная видеокарта будет автоматически отключаться, если она не используется.</value>
-  </data>
-  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-    <value>Дискретная видеокарта в настоящее время используется или ноутбук не работает от батареи</value>
-  </data>
-  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-    <value>Дискретная видеокарта будет автоматически отключаться, если ноутбук не используется и работает от батареи.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>Параметры пользовательского режима будут неправильно применены, если запущен Lenovo Vantage или его службы.</value>

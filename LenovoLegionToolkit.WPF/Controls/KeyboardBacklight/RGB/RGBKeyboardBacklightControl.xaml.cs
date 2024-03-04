@@ -36,7 +36,7 @@ public partial class RGBKeyboardBacklightControl
         SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
     }
 
-    private void Listener_Changed(object? sender, RGBKeyboardBacklightChanged e) => Dispatcher.Invoke(async () =>
+    private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>
     {
         if (!IsLoaded || !IsVisible)
             return;

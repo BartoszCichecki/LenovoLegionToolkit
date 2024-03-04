@@ -10,8 +10,14 @@ using Timer = System.Threading.Timer;
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
-    : AbstractAutoListener<(TimeSpan, uint)>
+    : AbstractAutoListener<UserInactivityAutoListener.ChangedEventArgs>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public TimeSpan TimerResolution { get; init; }
+        public uint TickCount { get; init; }
+    }
+
     private class UserInactivityWindow : NativeWindow, IDisposable
     {
         private readonly Action _callback;
@@ -115,7 +121,7 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User became active.");
 
-            RaiseChanged((_timerResolution, 0));
+            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = 0 });
         }
     }
 
@@ -128,7 +134,7 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
 
-            RaiseChanged((_timerResolution, _tickCount));
+            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = _tickCount });
         }
     }
 }
