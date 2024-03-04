@@ -2019,4 +2019,20 @@ Requer reinicialização.</value>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
     <value>Abrir README</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Período (minutos)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Redefine o contador para "Em bateria desde" na seção de bateria quando o sistema é reinicializado.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Redefinir "Na bateria desde" na inicialização</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Desativar o Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Ligar o Wi-Fi</value>
+  </data>
 </root>
