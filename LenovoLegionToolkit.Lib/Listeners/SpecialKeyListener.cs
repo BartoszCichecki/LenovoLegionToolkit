@@ -11,8 +11,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
+public class SpecialKeyListener : AbstractWMIListener<SpecialKeyListener.ChangedEventArgs, SpecialKey, int>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public SpecialKey SpecialKey { get; init; }
+    }
+
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
     private readonly ApplicationSettings _settings;
@@ -37,6 +42,8 @@ public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
         var result = (SpecialKey)value;
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(SpecialKey value) => new() { SpecialKey = value };
 
     protected override async Task OnChangedAsync(SpecialKey value)
     {

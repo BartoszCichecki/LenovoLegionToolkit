@@ -4,8 +4,14 @@ using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class InstanceStartedEventAutoAutoListener : AbstractAutoListener<(int, string)>
+public class InstanceStartedEventAutoAutoListener : AbstractAutoListener<InstanceStartedEventAutoAutoListener.ChangedEventArgs>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public int ProcessId { get; init; }
+        public string ProcessName { get; init; } = string.Empty;
+    }
+
     private IDisposable? _disposable;
 
     protected override Task StartAsync()
@@ -22,5 +28,5 @@ public class InstanceStartedEventAutoAutoListener : AbstractAutoListener<(int, s
         return Task.CompletedTask;
     }
 
-    private void Handle(int processId, string processName) => RaiseChanged((processId, processName));
+    private void Handle(int processId, string processName) => RaiseChanged(new ChangedEventArgs { ProcessId = processId, ProcessName = processName });
 }

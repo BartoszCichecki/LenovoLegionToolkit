@@ -11,9 +11,14 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DriverKeyListener : IListener<DriverKey>
+public class DriverKeyListener : IListener<DriverKeyListener.ChangedEventArgs>
 {
-    public event EventHandler<DriverKey>? Changed;
+    public class ChangedEventArgs : EventArgs
+    {
+        public DriverKey DriverKey { get; init; }
+    }
+
+    public event EventHandler<ChangedEventArgs>? Changed;
 
     private readonly FnKeysDisabler _fnKeysDisabler;
     private readonly MicrophoneFeature _microphoneFeature;
@@ -86,7 +91,7 @@ public class DriverKeyListener : IListener<DriverKey>
                     Log.Instance.Trace($"Event received. [key={key}, value={value}]");
 
                 await OnChangedAsync(key).ConfigureAwait(false);
-                Changed?.Invoke(this, key);
+                Changed?.Invoke(this, new() { DriverKey = key });
 
                 resetEvent.Reset();
             }

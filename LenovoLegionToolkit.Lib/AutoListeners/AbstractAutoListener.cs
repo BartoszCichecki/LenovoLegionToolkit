@@ -5,21 +5,21 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public abstract class AbstractAutoListener<T> : IAutoListener<T>
+public abstract class AbstractAutoListener<TEventArgs> : IAutoListener<TEventArgs> where TEventArgs : EventArgs
 {
     private readonly AsyncLock _startStopLock = new();
 
     private bool _started;
 
-    private event EventHandler<T>? Changed;
+    private event EventHandler<TEventArgs>? Changed;
 
-    public async Task SubscribeChangedAsync(EventHandler<T> eventHandler)
+    public async Task SubscribeChangedAsync(EventHandler<TEventArgs> eventHandler)
     {
         Changed += eventHandler;
         await StartStopAsync().ConfigureAwait(false);
     }
 
-    public async Task UnsubscribeChangedAsync(EventHandler<T> eventHandler)
+    public async Task UnsubscribeChangedAsync(EventHandler<TEventArgs> eventHandler)
     {
         Changed -= eventHandler;
         await StartStopAsync().ConfigureAwait(false);
@@ -87,5 +87,5 @@ public abstract class AbstractAutoListener<T> : IAutoListener<T>
 
     protected abstract Task StopAsync();
 
-    protected void RaiseChanged(T value) => Changed?.Invoke(this, value);
+    protected void RaiseChanged(TEventArgs value) => Changed?.Invoke(this, value);
 }

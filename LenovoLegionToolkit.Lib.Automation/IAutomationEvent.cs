@@ -11,7 +11,11 @@ public readonly struct NativeWindowsMessageEvent : IAutomationEvent
 
 public struct StartupAutomationEvent : IAutomationEvent { }
 
-public struct PowerStateAutomationEvent : IAutomationEvent { }
+public readonly struct PowerStateAutomationEvent : IAutomationEvent
+{
+    public PowerStateEvent Event { get; init; }
+    public bool PowerAdapterStateChanged { get; init; }
+}
 
 public readonly struct PowerModeAutomationEvent : IAutomationEvent
 {
@@ -25,12 +29,14 @@ public readonly struct CustomModePresetAutomationEvent : IAutomationEvent
 
 public readonly struct GameAutomationEvent : IAutomationEvent
 {
-    public bool Started { get; init; }
+    public bool Running { get; init; }
 }
 
 public readonly struct ProcessAutomationEvent : IAutomationEvent
 {
-    public ProcessEventInfo ProcessEventInfo { get; init; }
+    public ProcessEventInfoType Type { get; init; }
+
+    public ProcessInfo ProcessInfo { get; init; }
 }
 
 public readonly struct TimeAutomationEvent : IAutomationEvent

@@ -10,7 +10,7 @@ public class GamesStopAutomationPipelineTrigger : IGameAutomationPipelineTrigger
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        var result = automationEvent is GameAutomationEvent { Started: false };
+        var result = automationEvent is GameAutomationEvent { Running: false };
         return Task.FromResult(result);
     }
 

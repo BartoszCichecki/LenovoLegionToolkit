@@ -9,8 +9,14 @@ using Windows.Win32.NetworkManagement.WiFi;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ssid)>
+public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEventArgs>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public bool IsConnected { get; init; }
+        public string? Ssid { get; init; }
+    }
+
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly WLAN_NOTIFICATION_CALLBACK _wlanCallback;
 
@@ -90,13 +96,13 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WiFi connected. [ssid={ssid}]");
 
-                RaiseChanged((true, ssid));
+                RaiseChanged(new ChangedEventArgs { IsConnected = true, Ssid = ssid });
                 break;
             case 0x15: /* Disconnected */
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WiFi disconnected.");
 
-                RaiseChanged((false, ssid: null));
+                RaiseChanged(new ChangedEventArgs { IsConnected = false, Ssid = null });
                 break;
         }
     }

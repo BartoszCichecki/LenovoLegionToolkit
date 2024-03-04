@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public interface IListener<T>
+public interface IListener<TEventArgs> where TEventArgs : EventArgs
 {
-    event EventHandler<T>? Changed;
+    event EventHandler<TEventArgs>? Changed;
 
     Task StartAsync();
 

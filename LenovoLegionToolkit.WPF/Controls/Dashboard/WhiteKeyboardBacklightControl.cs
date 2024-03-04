@@ -18,12 +18,12 @@ public class WhiteKeyboardBacklightControl : AbstractComboBoxFeatureCardControl<
         _listener.Changed += ListenerChanged;
     }
 
-    private void ListenerChanged(object? sender, DriverKey e) => Dispatcher.Invoke(async () =>
+    private void ListenerChanged(object? sender, DriverKeyListener.ChangedEventArgs e) => Dispatcher.Invoke(async () =>
     {
         if (!IsLoaded || !IsVisible)
             return;
 
-        if (e.HasFlag(DriverKey.FnSpace))
+        if (e.DriverKey.HasFlag(DriverKey.FnSpace))
             await RefreshAsync();
     });
 }
