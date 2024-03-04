@@ -3,5 +3,4 @@
 public class PanelLogoBacklightFeature(
     PanelLogoLenovoLightingBacklightFeature feature1,
     PanelLogoSpectrumBacklightFeature feature2)
-    : AbstractCompositeFeature<PanelLogoBacklightState, PanelLogoLenovoLightingBacklightFeature,
-        PanelLogoSpectrumBacklightFeature>(feature1, feature2);
+    : AbstractCompositeFeature<PanelLogoBacklightState>(feature1, feature2);
