@@ -17,7 +17,7 @@ public class OnResumeAutomationPipelineTrigger : IOnResumeAutomationPipelineTrig
 
     public Task<bool> IsMatchingState() => Task.FromResult(false);
 
-    public void UpdateEnvironment(AutomationEnvironment environment) => environment.Startup = true;
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.Resume = true;
 
     public IAutomationPipelineTrigger DeepCopy() => new OnResumeAutomationPipelineTrigger();
 
