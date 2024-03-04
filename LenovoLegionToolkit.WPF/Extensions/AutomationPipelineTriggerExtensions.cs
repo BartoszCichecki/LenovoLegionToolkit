@@ -17,6 +17,7 @@ public static class AutomationPipelineTriggerExtensions
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,
         IOnStartupAutomationPipelineTrigger => SymbolRegular.Flash24,
+        IOnResumeAutomationPipelineTrigger => SymbolRegular.Flash24,
         IWiFiConnectedPipelineTrigger => SymbolRegular.Wifi124,
         IWiFiDisconnectedPipelineTrigger => SymbolRegular.WifiOff24,
         IPeriodicAutomationPipelineTrigger => SymbolRegular.ArrowRepeatAll24,
