@@ -69,15 +69,13 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
     private readonly TimeSpan _timerResolution = TimeSpan.FromSeconds(10);
     private readonly object _lock = new();
 
-    private readonly IMainThreadDispatcher _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-
     private UserInactivityWindow? _window;
     private uint _tickCount;
     private Timer? _timer;
 
     public TimeSpan InactivityTimeSpan => _timerResolution * _tickCount;
 
-    protected override Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StartAsync() => mainThreadDispatcher.DispatchAsync(() =>
     {
         lock (_lock)
         {
@@ -92,7 +90,7 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
         return Task.CompletedTask;
     });
 
-    protected override Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StopAsync() => mainThreadDispatcher.DispatchAsync(() =>
     {
         lock (_lock)
         {

@@ -13,11 +13,11 @@ public class ProcessAutoListener(
     InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
     : AbstractAutoListener<ProcessAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(ProcessEventInfoType type, ProcessInfo processInfo) : EventArgs
     {
-        public ProcessEventInfoType Type { get; init; }
+        public ProcessEventInfoType Type { get; } = type;
 
-        public ProcessInfo ProcessInfo { get; init; }
+        public ProcessInfo ProcessInfo { get; } = processInfo;
     }
 
     private static readonly object Lock = new();
@@ -46,21 +46,18 @@ public class ProcessAutoListener(
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
     ];
 
-    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
-    private readonly InstanceStoppedEventAutoAutoListener _instanceStoppedEventAutoAutoListener = instanceStoppedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStoppedEventAutoAutoListener));
-
     private readonly Dictionary<int, ProcessInfo> _processCache = [];
 
     protected override async Task StartAsync()
     {
-        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
-        await _instanceStoppedEventAutoAutoListener.SubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStoppedEventAutoAutoListener.SubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
     }
 
     protected override async Task StopAsync()
     {
-        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
-        await _instanceStoppedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStoppedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
 
         lock (Lock)
             _processCache.Clear();
@@ -96,7 +93,7 @@ public class ProcessAutoListener(
             var processInfo = new ProcessInfo(e.ProcessName, processPath);
             _processCache[e.ProcessId] = processInfo;
 
-            RaiseChanged(new ChangedEventArgs { Type = ProcessEventInfoType.Started, ProcessInfo = processInfo });
+            RaiseChanged(new ChangedEventArgs(ProcessEventInfoType.Started, processInfo));
         }
     }
 
@@ -118,7 +115,7 @@ public class ProcessAutoListener(
             if (!_processCache.Remove(e.ProcessId, out var processInfo))
                 return;
 
-            RaiseChanged(new ChangedEventArgs { Type = ProcessEventInfoType.Stopped, ProcessInfo = processInfo });
+            RaiseChanged(new ChangedEventArgs(ProcessEventInfoType.Stopped, processInfo));
         }
     }
 

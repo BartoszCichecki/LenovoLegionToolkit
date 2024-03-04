@@ -44,7 +44,9 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
 
     public GameAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener)
     {
-        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
+        ArgumentNullException.ThrowIfNull(instanceStartedEventAutoAutoListener);
+
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener;
 
         _gameConfigStoreDetector = new GameConfigStoreDetector();
         _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;

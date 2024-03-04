@@ -24,7 +24,7 @@ public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEve
 
     public unsafe WiFiAutoListener(IMainThreadDispatcher mainThreadDispatcher)
     {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
+        _mainThreadDispatcher = mainThreadDispatcher;
 
         _wlanCallback = WlanCallback;
     }

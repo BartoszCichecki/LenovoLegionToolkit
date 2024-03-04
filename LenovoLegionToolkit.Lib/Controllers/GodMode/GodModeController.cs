@@ -8,20 +8,17 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 public class GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
     : IGodModeController
 {
-    private readonly IGodModeController _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
-    private readonly IGodModeController _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
-
     public event EventHandler<Guid>? PresetChanged
     {
         add
         {
-            _controllerV1.PresetChanged += value;
-            _controllerV2.PresetChanged += value;
+            controllerV1.PresetChanged += value;
+            controllerV2.PresetChanged += value;
         }
         remove
         {
-            _controllerV1.PresetChanged -= value;
-            _controllerV2.PresetChanged -= value;
+            controllerV1.PresetChanged -= value;
+            controllerV2.PresetChanged -= value;
         }
     }
 
@@ -96,10 +93,10 @@ public class GodModeController(GodModeControllerV1 controllerV1, GodModeControll
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
 
         if (mi.Properties.SupportsGodModeV1)
-            return _controllerV1;
+            return controllerV1;
 
         if (mi.Properties.SupportsGodModeV2)
-            return _controllerV2;
+            return controllerV2;
 
         throw new InvalidOperationException("No supported version found.");
     }
