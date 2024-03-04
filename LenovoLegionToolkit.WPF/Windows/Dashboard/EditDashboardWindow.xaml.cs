@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.WPF.Controls.Dashboard.Edit;
@@ -109,7 +108,7 @@ public partial class EditDashboardWindow
             .OfType<EditDashboardGroupControl>()
             .SelectMany(c => c.GetItems());
 
-    private Control CreateGroupControl(DashboardGroup dashboardGroup)
+    private EditDashboardGroupControl CreateGroupControl(DashboardGroup dashboardGroup)
     {
         var control = new EditDashboardGroupControl(dashboardGroup, GetAllItems);
         control.MoveUp += (_, _) => MoveGroupUp(control);

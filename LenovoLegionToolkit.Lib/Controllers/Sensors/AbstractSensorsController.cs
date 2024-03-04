@@ -12,7 +12,7 @@ using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
-public abstract class AbstractSensorsController : ISensorsController
+public abstract class AbstractSensorsController(GPUController gpuController) : ISensorsController
 {
     private readonly struct GPUInfo
     {
@@ -30,17 +30,12 @@ public abstract class AbstractSensorsController : ISensorsController
     private readonly SafePerformanceCounter _percentProcessorPerformanceCounter = new("Processor Information", "% Processor Performance", "_Total");
     private readonly SafePerformanceCounter _percentProcessorUtilityCounter = new("Processor Information", "% Processor Utility", "_Total");
 
-    private readonly GPUController _gpuController;
+    private readonly GPUController _gpuController = gpuController ?? throw new ArgumentNullException(nameof(gpuController));
 
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
     private int? _cpuMaxFanSpeedCache;
     private int? _gpuMaxFanSpeedCache;
-
-    protected AbstractSensorsController(GPUController gpuController)
-    {
-        _gpuController = gpuController ?? throw new ArgumentNullException(nameof(gpuController));
-    }
 
     public abstract Task<bool> IsSupportedAsync();
 

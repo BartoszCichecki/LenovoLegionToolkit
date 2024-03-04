@@ -5,7 +5,8 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class BatteryFeature : AbstractDriverFeature<BatteryState>
+public class BatteryFeature()
+    : AbstractDriverFeature<BatteryState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_CHARGE_MODE)
 {
     private const string BATTERY_CHARGE_MODE_HIVE = "HKEY_CURRENT_USER";
     private const string BATTERY_CHARGE_MODE_PATH = "Software\\Lenovo\\VantageService\\AddinData\\IdeaNotebookAddin";
@@ -14,17 +15,15 @@ public class BatteryFeature : AbstractDriverFeature<BatteryState>
     private const string BATTERY_CHARGE_MODE_RAPID_CHARGE = "Quick";
     private const string BATTERY_CHARGE_MODE_CONSERVATION = "Storage";
 
-    public BatteryFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_CHARGE_MODE) { }
-
     protected override uint GetInBufferValue() => 0xFF;
 
     protected override Task<uint[]> ToInternalAsync(BatteryState state)
     {
         var result = state switch
         {
-            BatteryState.Conservation => LastState == BatteryState.RapidCharge ? new uint[] { 0x8, 0x3 } : new uint[] { 0x3 },
-            BatteryState.Normal => LastState == BatteryState.Conservation ? new uint[] { 0x5 } : new uint[] { 0x8 },
-            BatteryState.RapidCharge => LastState == BatteryState.Conservation ? new uint[] { 0x5, 0x7 } : new uint[] { 0x7 },
+            BatteryState.Conservation => LastState == BatteryState.RapidCharge ? new uint[] { 0x8, 0x3 } : [0x3],
+            BatteryState.Normal => LastState == BatteryState.Conservation ? [0x5] : [0x8],
+            BatteryState.RapidCharge => LastState == BatteryState.Conservation ? [0x5, 0x7] : [0x7],
             _ => throw new InvalidOperationException("Invalid state.")
         };
         return Task.FromResult(result);

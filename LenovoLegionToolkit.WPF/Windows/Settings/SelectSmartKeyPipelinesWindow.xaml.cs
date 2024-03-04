@@ -100,7 +100,7 @@ public partial class SelectSmartKeyPipelinesWindow
         else
         {
             SettingsStoreList.AddRange(selectedPipelines);
-            SettingsStoreGuid = SettingsStoreList.Any() ? SettingsStoreList.First() : Guid.Empty;
+            SettingsStoreGuid = SettingsStoreList.Count != 0 ? SettingsStoreList.First() : Guid.Empty;
         }
 
         _settings.SynchronizeStore();

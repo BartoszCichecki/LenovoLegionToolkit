@@ -13,7 +13,7 @@ using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class PowerPlanController
+public class PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
 {
     private static readonly Dictionary<PowerModeState, Guid> DefaultPowerModes = new()
     {
@@ -23,15 +23,9 @@ public class PowerPlanController
         { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
     };
 
-    private readonly ApplicationSettings _settings;
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
-    private readonly VantageDisabler _vantageDisabler;
-
-    public PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-    }
+    private readonly VantageDisabler _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
 
     public IEnumerable<PowerPlan> GetPowerPlans()
     {
@@ -155,7 +149,7 @@ public class PowerPlanController
         return false;
     }
 
-    private static unsafe IEnumerable<Guid> GetPowerPlansGuid()
+    private static unsafe List<Guid> GetPowerPlansGuid()
     {
         var list = new List<Guid>();
 

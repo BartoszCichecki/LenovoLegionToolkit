@@ -10,23 +10,17 @@ using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class SmartFnLockController
+public class SmartFnLockController(FnLockFeature feature, ApplicationSettings settings)
 {
     private readonly AsyncLock _lock = new();
 
-    private readonly FnLockFeature _feature;
-    private readonly ApplicationSettings _settings;
+    private readonly FnLockFeature _feature = feature ?? throw new ArgumentNullException(nameof(feature));
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
     private bool _ctrlDepressed;
     private bool _shiftDepressed;
     private bool _altDepressed;
     private bool _restoreFnLock;
-
-    public SmartFnLockController(FnLockFeature feature, ApplicationSettings settings)
-    {
-        _feature = feature ?? throw new ArgumentNullException(nameof(feature));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
 
     public void OnKeyboardEvent(nuint wParam, KBDLLHOOKSTRUCT kbStruct)
     {

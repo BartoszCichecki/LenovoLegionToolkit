@@ -8,19 +8,15 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class LightingChangeListener : AbstractWMIListener<LightingChangeState, int>
+public class LightingChangeListener(
+    PanelLogoBacklightFeature panelLogoBacklightFeature,
+    PortsBacklightFeature portsBacklightFeature,
+    FnKeysDisabler fnKeysDisabler)
+    : AbstractWMIListener<LightingChangeState, int>(WMI.LenovoLightingEvent.Listen)
 {
-    private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature;
-    private readonly PortsBacklightFeature _portsBacklightFeature;
-    private readonly FnKeysDisabler _fnKeysDisabler;
-
-    public LightingChangeListener(PanelLogoBacklightFeature panelLogoBacklightFeature, PortsBacklightFeature portsBacklightFeature, FnKeysDisabler fnKeysDisabler)
-        : base(WMI.LenovoLightingEvent.Listen)
-    {
-        _panelLogoBacklightFeature = panelLogoBacklightFeature ?? throw new ArgumentNullException(nameof(panelLogoBacklightFeature));
-        _portsBacklightFeature = portsBacklightFeature ?? throw new ArgumentNullException(nameof(portsBacklightFeature));
-        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
-    }
+    private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature = panelLogoBacklightFeature ?? throw new ArgumentNullException(nameof(panelLogoBacklightFeature));
+    private readonly PortsBacklightFeature _portsBacklightFeature = portsBacklightFeature ?? throw new ArgumentNullException(nameof(portsBacklightFeature));
+    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
 
     protected override LightingChangeState GetValue(int value)
     {

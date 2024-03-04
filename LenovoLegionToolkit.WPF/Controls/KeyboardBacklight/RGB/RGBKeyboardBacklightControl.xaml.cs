@@ -17,9 +17,9 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB;
 
 public partial class RGBKeyboardBacklightControl
 {
-    private Button[] PresetButtons => new[] { _offPresetButton, _preset1Button, _preset2Button, _preset3Button };
+    private Button[] PresetButtons => [_offPresetButton, _preset1Button, _preset2Button, _preset3Button];
 
-    private ColorPickerControl[] Zones => new[] { _zone1ColorPicker, _zone2ColorPicker, _zone3ColorPicker, _zone4ColorPicker };
+    private ColorPickerControl[] Zones => [_zone1ColorPicker, _zone2ColorPicker, _zone3ColorPicker, _zone4ColorPicker];
 
     private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
     private readonly RGBKeyboardBacklightListener _listener = IoCContainer.Resolve<RGBKeyboardBacklightListener>();

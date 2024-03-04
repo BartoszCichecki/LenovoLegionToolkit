@@ -2,10 +2,8 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class FnLockAutomationStep : AbstractFeatureAutomationStep<FnLockState>
+[method: JsonConstructor]
+public class FnLockAutomationStep(FnLockState state) : AbstractFeatureAutomationStep<FnLockState>(state)
 {
-    [JsonConstructor]
-    public FnLockAutomationStep(FnLockState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new FnLockAutomationStep(State);
 }

@@ -5,14 +5,12 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
-public class SensorsControllerV2 : AbstractSensorsController
+public class SensorsControllerV2(GPUController gpuController) : AbstractSensorsController(gpuController)
 {
     private const int CPU_SENSOR_ID = 3;
     private const int GPU_SENSOR_ID = 4;
     private const int CPU_FAN_ID = 0;
     private const int GPU_FAN_ID = 1;
-
-    public SensorsControllerV2(GPUController gpuController) : base(gpuController) { }
 
     public override async Task<bool> IsSupportedAsync()
     {

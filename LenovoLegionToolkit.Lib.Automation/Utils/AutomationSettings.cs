@@ -7,13 +7,13 @@ using LenovoLegionToolkit.Lib.Settings;
 
 namespace LenovoLegionToolkit.Lib.Automation.Utils;
 
-public class AutomationSettings : AbstractSettings<AutomationSettings.AutomationSettingsStore>
+public class AutomationSettings() : AbstractSettings<AutomationSettings.AutomationSettingsStore>("automation.json")
 {
     public class AutomationSettingsStore
     {
         public bool IsEnabled { get; set; }
 
-        public List<AutomationPipeline> Pipelines { get; set; } = new();
+        public List<AutomationPipeline> Pipelines { get; set; } = [];
     }
 
     protected override AutomationSettingsStore Default => new()
@@ -37,6 +37,4 @@ public class AutomationSettings : AbstractSettings<AutomationSettings.Automation
             },
         },
     };
-
-    public AutomationSettings() : base("automation.json") { }
 }

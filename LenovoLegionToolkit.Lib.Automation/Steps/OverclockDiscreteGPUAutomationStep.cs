@@ -4,13 +4,12 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class OverclockDiscreteGPUAutomationStep : IAutomationStep<OverclockDiscreteGPUAutomationStepState>
+public class OverclockDiscreteGPUAutomationStep(OverclockDiscreteGPUAutomationStepState state)
+    : IAutomationStep<OverclockDiscreteGPUAutomationStepState>
 {
     private readonly GPUOverclockController _controller = IoCContainer.Resolve<GPUOverclockController>();
 
-    public OverclockDiscreteGPUAutomationStepState State { get; }
-
-    public OverclockDiscreteGPUAutomationStep(OverclockDiscreteGPUAutomationStepState state) => State = state;
+    public OverclockDiscreteGPUAutomationStepState State { get; } = state;
 
     public Task<OverclockDiscreteGPUAutomationStepState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<OverclockDiscreteGPUAutomationStepState>());
 

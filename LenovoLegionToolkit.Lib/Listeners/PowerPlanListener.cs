@@ -9,21 +9,18 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class PowerPlanListener : AbstractEventLogListener
+public class PowerPlanListener(
+    PowerPlanController powerPlanController,
+    ApplicationSettings settings,
+    VantageDisabler vantageDisabler,
+    PowerModeFeature feature)
+    : AbstractEventLogListener("System",
+        "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
 {
-    private readonly PowerPlanController _powerPlanController;
-    private readonly ApplicationSettings _settings;
-    private readonly VantageDisabler _vantageDisabler;
-    private readonly PowerModeFeature _feature;
-
-    public PowerPlanListener(PowerPlanController powerPlanController, ApplicationSettings settings, VantageDisabler vantageDisabler, PowerModeFeature feature)
-        : base("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        _feature = feature ?? throw new ArgumentNullException(nameof(feature));
-    }
+    private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    private readonly VantageDisabler _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
+    private readonly PowerModeFeature _feature = feature ?? throw new ArgumentNullException(nameof(feature));
 
     protected override async Task OnChangedAsync()
     {

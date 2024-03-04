@@ -10,11 +10,10 @@ using CardControl = LenovoLegionToolkit.WPF.Controls.Custom.CardControl;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
-public abstract class AbstractAutomationStepControl<T> : AbstractAutomationStepControl where T : IAutomationStep
+public abstract class AbstractAutomationStepControl<T>(T automationStep) : AbstractAutomationStepControl(automationStep)
+    where T : IAutomationStep
 {
     protected new T AutomationStep => (T)base.AutomationStep;
-
-    protected AbstractAutomationStepControl(T automationStep) : base(automationStep) { }
 }
 
 public abstract class AbstractAutomationStepControl : UserControl

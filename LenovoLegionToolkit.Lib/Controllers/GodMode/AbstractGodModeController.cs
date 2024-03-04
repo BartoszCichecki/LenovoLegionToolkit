@@ -9,21 +9,18 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public abstract class AbstractGodModeController : IGodModeController
+public abstract class AbstractGodModeController(
+    GodModeSettings settings,
+    VantageDisabler vantageDisabler,
+    LegionZoneDisabler legionZoneDisabler)
+    : IGodModeController
 {
-    private readonly GodModeSettings _settings;
+    private readonly GodModeSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
-    protected readonly VantageDisabler VantageDisabler;
-    protected readonly LegionZoneDisabler LegionZoneDisabler;
+    protected readonly VantageDisabler VantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
+    protected readonly LegionZoneDisabler LegionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
 
     public event EventHandler<Guid>? PresetChanged;
-
-    protected AbstractGodModeController(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        VantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        LegionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
-    }
 
     public abstract Task<bool> NeedsVantageDisabledAsync();
 
@@ -114,7 +111,7 @@ public abstract class AbstractGodModeController : IGodModeController
 
     public Task<FanTable> GetDefaultFanTableAsync()
     {
-        var fanTable = new FanTable(new ushort[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+        var fanTable = new FanTable([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
         return Task.FromResult(fanTable);
     }
 
@@ -155,7 +152,7 @@ public abstract class AbstractGodModeController : IGodModeController
         return fanTable.GetTable().Where((t, i) => t < minimum[i] || t > 10u).IsEmpty();
     }
 
-    private static bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Any() && store.Presets.ContainsKey(store.ActivePresetId);
+    private static bool IsValidStore(GodModeSettings.GodModeSettingsStore store) => store.Presets.Count != 0 && store.Presets.ContainsKey(store.ActivePresetId);
 
     private async Task<GodModeState> LoadStateFromStoreAsync(GodModeSettings.GodModeSettingsStore store, GodModePreset defaultState)
     {
@@ -228,7 +225,7 @@ public abstract class AbstractGodModeController : IGodModeController
             if (value < min || value > max)
                 value = defaultValue ?? Math.Clamp(value, min, max);
 
-            return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+            return new(value, min, max, step, [], defaultValue);
         }
 
         return null;

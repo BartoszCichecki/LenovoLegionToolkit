@@ -31,15 +31,15 @@ public partial class SpectrumKeyboardBacklightControl
     private CancellationTokenSource? _refreshStateCancellationTokenSource;
     private Task? _refreshStateTask;
 
-    private RadioButton[] ProfileButtons => new[]
-    {
+    private RadioButton[] ProfileButtons =>
+    [
         _profileButton1,
         _profileButton2,
         _profileButton3,
         _profileButton4,
         _profileButton5,
         _profileButton6
-    };
+    ];
 
     protected override bool DisablesWhileRefreshing => false;
 
@@ -266,7 +266,7 @@ public partial class SpectrumKeyboardBacklightControl
         {
             _vantageWarningInfoBar.IsOpen = true;
 
-            _device.SetLayout(SpectrumLayout.Full, KeyboardLayout.Ansi, new());
+            _device.SetLayout(SpectrumLayout.Full, KeyboardLayout.Ansi, []);
             _content.IsEnabled = false;
 
             _noEffectsText.Visibility = Visibility.Collapsed;

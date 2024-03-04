@@ -9,7 +9,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Integrations;
 
-public class HWiNFOIntegration
+public class HWiNFOIntegration(SensorsController sensorController, IntegrationsSettings settings)
 {
     private const string CUSTOM_SENSOR_HIVE = "HKEY_CURRENT_USER";
     private const string CUSTOM_SENSOR_PATH = @"Software\HWiNFO64\Sensors\Custom";
@@ -22,17 +22,11 @@ public class HWiNFOIntegration
 
     private readonly TimeSpan _refreshInterval = TimeSpan.FromSeconds(1);
 
-    private readonly SensorsController _sensorController;
-    private readonly IntegrationsSettings _settings;
+    private readonly SensorsController _sensorController = sensorController ?? throw new ArgumentNullException(nameof(sensorController));
+    private readonly IntegrationsSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
     private CancellationTokenSource? _cts;
     private Task? _refreshTask;
-
-    public HWiNFOIntegration(SensorsController sensorController, IntegrationsSettings settings)
-    {
-        _sensorController = sensorController ?? throw new ArgumentNullException(nameof(sensorController));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
 
     public async Task StartStopIfNeededAsync()
     {

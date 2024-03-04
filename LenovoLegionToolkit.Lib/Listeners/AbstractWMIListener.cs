@@ -4,18 +4,12 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public abstract class AbstractWMIListener<T1, T2> : IListener<T1> where T1 : struct
+public abstract class AbstractWMIListener<T1, T2>(Func<Action<T2>, IDisposable> listen) : IListener<T1>
+    where T1 : struct
 {
-    private readonly Func<Action<T2>, IDisposable> _listen;
-
     private IDisposable? _disposable;
 
     public event EventHandler<T1>? Changed;
-
-    protected AbstractWMIListener(Func<Action<T2>, IDisposable> listen)
-    {
-        _listen = listen;
-    }
 
     public Task StartAsync()
     {
@@ -31,7 +25,7 @@ public abstract class AbstractWMIListener<T1, T2> : IListener<T1> where T1 : str
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Starting... [listener={GetType().Name}]");
 
-            _disposable = _listen(Handler);
+            _disposable = listen(Handler);
         }
         catch (Exception ex)
         {

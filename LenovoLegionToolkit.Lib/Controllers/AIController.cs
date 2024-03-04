@@ -14,17 +14,22 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class AIController
+public class AIController(
+    PowerModeListener powerModeListener,
+    PowerStateListener powerStateListener,
+    GameAutoListener gameAutoListener,
+    PowerModeFeature powerModeFeature,
+    BalanceModeSettings settings)
 {
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(1), nameof(AIController));
 
     private readonly AsyncLock _startStopLock = new();
 
-    private readonly PowerModeListener _powerModeListener;
-    private readonly PowerStateListener _powerStateListener;
-    private readonly GameAutoListener _gameAutoListener;
-    private readonly PowerModeFeature _powerModeFeature;
-    private readonly BalanceModeSettings _settings;
+    private readonly PowerModeListener _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
+    private readonly PowerStateListener _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
+    private readonly GameAutoListener _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
+    private readonly PowerModeFeature _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
+    private readonly BalanceModeSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
     public bool IsAIModeEnabled
     {
@@ -34,19 +39,6 @@ public class AIController
             _settings.Store.AIModeEnabled = value;
             _settings.SynchronizeStore();
         }
-    }
-
-    public AIController(PowerModeListener powerModeListener,
-        PowerStateListener powerStateListener,
-        GameAutoListener gameAutoListener,
-        PowerModeFeature powerModeFeature,
-        BalanceModeSettings settings)
-    {
-        _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
-        _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
-        _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
-        _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
     public async Task StartIfNeededAsync()

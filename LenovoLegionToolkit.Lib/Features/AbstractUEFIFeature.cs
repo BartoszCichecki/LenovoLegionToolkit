@@ -7,19 +7,9 @@ using Windows.Win32.Security;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enum, IComparable
+public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint scopeAttribute) : IFeature<T>
+    where T : struct, Enum, IComparable
 {
-    private readonly string _guid;
-    private readonly string _scopeName;
-    private readonly uint _scopeAttribute;
-
-    protected AbstractUEFIFeature(string guid, string scopeName, uint scopeAttribute)
-    {
-        _guid = guid;
-        _scopeName = scopeName;
-        _scopeAttribute = scopeAttribute;
-    }
-
     public async Task<bool> IsSupportedAsync()
     {
         try
@@ -57,7 +47,7 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
             }
 
             var ptrSize = (uint)Marshal.SizeOf<TS>();
-            if (PInvoke.GetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr.ToPointer(), ptrSize, null) != 0)
+            if (PInvoke.GetFirmwareEnvironmentVariableEx(scopeName, guid, ptr.ToPointer(), ptrSize, null) != 0)
             {
                 var result = Marshal.PtrToStructure<TS>(ptr);
 
@@ -69,9 +59,9 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
             else
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Cannot read variable {_scopeName} from UEFI [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot read variable {scopeName} from UEFI [feature={GetType().Name}]");
 
-                throw new InvalidOperationException($"Cannot read variable {_scopeName} from UEFI");
+                throw new InvalidOperationException($"Cannot read variable {scopeName} from UEFI");
             }
         }
         finally
@@ -97,12 +87,12 @@ public abstract class AbstractUEFIFeature<T> : IFeature<T> where T : struct, Enu
 
             Marshal.StructureToPtr(structure, ptr, false);
             var ptrSize = (uint)Marshal.SizeOf<TS>();
-            if (!PInvoke.SetFirmwareEnvironmentVariableEx(_scopeName, _guid, ptr.ToPointer(), ptrSize, _scopeAttribute))
+            if (!PInvoke.SetFirmwareEnvironmentVariableEx(scopeName, guid, ptr.ToPointer(), ptrSize, scopeAttribute))
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Cannot write variable {_scopeName} to UEFI [feature={GetType().Name}]");
+                    Log.Instance.Trace($"Cannot write variable {scopeName} to UEFI [feature={GetType().Name}]");
 
-                throw new InvalidOperationException($"Cannot write variable {_scopeName} to UEFI");
+                throw new InvalidOperationException($"Cannot write variable {scopeName} to UEFI");
             }
             else
             {

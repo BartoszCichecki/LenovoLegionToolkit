@@ -9,16 +9,10 @@ using LenovoLegionToolkit.Lib.Settings;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class WarrantyChecker
+public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory httpClientFactory)
 {
-    private readonly ApplicationSettings _settings;
-    private readonly HttpClientFactory _httpClientFactory;
-
-    public WarrantyChecker(ApplicationSettings settings, HttpClientFactory httpClientFactory)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-    }
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    private readonly HttpClientFactory _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
 
     public async Task<WarrantyInfo?> GetWarrantyInfo(MachineInformation machineInformation, bool forceRefresh = false, CancellationToken token = default)
     {
@@ -46,8 +40,8 @@ public class WarrantyChecker
         if (node is null || node["code"]?.GetValue<int>() != 0)
             return null;
 
-        var baseWarranties = node["data"]?["baseWarranties"]?.AsArray() ?? new JsonArray();
-        var upgradeWarranties = node["data"]?["upgradeWarranties"]?.AsArray() ?? new JsonArray();
+        var baseWarranties = node["data"]?["baseWarranties"]?.AsArray() ?? [];
+        var upgradeWarranties = node["data"]?["upgradeWarranties"]?.AsArray() ?? [];
 
         var startDate = baseWarranties.Concat(upgradeWarranties)
             .Select(n => n?["startDate"])
@@ -98,7 +92,7 @@ public class WarrantyChecker
             return null;
 
         dataNode = node["data"];
-        var baseInfoNode = dataNode?["baseinfo"]?.AsArray() ?? new JsonArray();
+        var baseInfoNode = dataNode?["baseinfo"]?.AsArray() ?? [];
         var endDate = baseInfoNode
             .Select(n => n?["EndDate"])
             .Where(n => n is not null)

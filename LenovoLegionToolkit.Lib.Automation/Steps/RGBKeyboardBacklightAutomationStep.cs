@@ -4,13 +4,12 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class RGBKeyboardBacklightAutomationStep : IAutomationStep<RGBKeyboardBacklightPreset>
+public class RGBKeyboardBacklightAutomationStep(RGBKeyboardBacklightPreset state)
+    : IAutomationStep<RGBKeyboardBacklightPreset>
 {
     private readonly RGBKeyboardBacklightController _controller = IoCContainer.Resolve<RGBKeyboardBacklightController>();
 
-    public RGBKeyboardBacklightPreset State { get; }
-
-    public RGBKeyboardBacklightAutomationStep(RGBKeyboardBacklightPreset state) => State = state;
+    public RGBKeyboardBacklightPreset State { get; } = state;
 
     public Task<RGBKeyboardBacklightPreset[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<RGBKeyboardBacklightPreset>());
 

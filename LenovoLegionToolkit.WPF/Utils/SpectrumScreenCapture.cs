@@ -14,7 +14,7 @@ public class SpectrumScreenCapture : SpectrumKeyboardBacklightController.IScreen
 
     public void CaptureScreen(ref RGBColor[,] buffer, int width, int height, CancellationToken token)
     {
-        var screen = Screen.PrimaryScreen.Bounds;
+        var screen = Screen.PrimaryScreen?.Bounds ?? default;
 
         using var targetImage = new Bitmap(width, height, PIXEL_FORMAT);
 

@@ -2,15 +2,11 @@
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class LambdaDisposable : IDisposable
+public class LambdaDisposable(Action action) : IDisposable
 {
-    private readonly Action _action;
-
-    public LambdaDisposable(Action action) => _action = action;
-
     public void Dispose()
     {
         GC.SuppressFinalize(this);
-        _action();
+        action();
     }
 }

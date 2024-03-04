@@ -260,7 +260,7 @@ public class AutomationPipelineControl : UserControl
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Preset}: {name}";
         }
 
-        if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Any())
+        if (AutomationPipeline.Trigger is IProcessesAutomationPipelineTrigger pt && pt.Processes.Length != 0)
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_Apps}: {string.Join(", ", pt.Processes.Select(p => p.Name))}";
 
         if (AutomationPipeline.Trigger is ITimeAutomationPipelineTrigger tt)
@@ -287,7 +287,7 @@ public class AutomationPipelineControl : UserControl
         if (AutomationPipeline.Trigger is IUserInactivityPipelineTrigger ut && ut.InactivityTimeSpan > TimeSpan.Zero)
             result += $" | {string.Format(Resource.AutomationPipelineControl_SubtitlePart_After, ut.InactivityTimeSpan.Humanize(culture: Resource.Culture))}";
 
-        if (AutomationPipeline.Trigger is IWiFiConnectedPipelineTrigger wt && wt.Ssids.Any())
+        if (AutomationPipeline.Trigger is IWiFiConnectedPipelineTrigger wt && wt.Ssids.Length != 0)
             result += $" | {string.Join(",", wt.Ssids)}";
 
         if (AutomationPipeline.Trigger is IPeriodicAutomationPipelineTrigger pet)
@@ -296,7 +296,7 @@ public class AutomationPipelineControl : UserControl
         return result;
     }
 
-    private UIElement? GenerateAccessory()
+    private Button? GenerateAccessory()
     {
         var triggers = AutomationPipeline.AllTriggers
             .ToArray();

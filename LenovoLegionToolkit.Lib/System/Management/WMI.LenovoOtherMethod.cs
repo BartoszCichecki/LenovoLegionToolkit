@@ -14,25 +14,25 @@ public static partial class WMI
         public static Task<int> GetSupportThermalModeAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "GetSupportThermalMode",
-            new(),
+            [],
             pdc => Convert.ToInt32(pdc["mode"].Value));
 
         public static Task<int> GetSupportLegionZoneVersionAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_Support_LegionZone_Version",
-            new(),
+            [],
             pdc => Convert.ToInt32(pdc["Version"].Value));
 
         public static Task<int> GetLegionDeviceSupportFeatureAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_Legion_Device_Support_Feature",
-            new(),
+            [],
             pdc => Convert.ToInt32(pdc["Status"].Value));
 
         public static Task<int> GetDeviceCurrentSupportFeatureAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_Device_Current_Support_Feature",
-            new(),
+            [],
             pdc => Convert.ToInt32(pdc["Flag"].Value));
 
         public static Task<int> SetDeviceCurrentSupportFeatureAsync(int functionId, int value) => CallAsync("root\\WMI",
@@ -53,7 +53,7 @@ public static partial class WMI
         public static Task<HardwareId> GetDGPUDeviceDIDVIDAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_OTHER_METHOD",
             "Get_DGPU_Device_DIDVID",
-            new(),
+            [],
             pdc =>
             {
                 var id = Convert.ToInt32(pdc["DGPU_ID"].Value);

@@ -53,7 +53,7 @@ public class GodModePresetAutomationStepControl : AbstractAutomationStepControl<
         var selectedPreset = presets.FirstOrDefault(kv => kv.Key == AutomationStep.PresetId);
 
         _comboBox.SetItems(presets, selectedPreset, kv => kv.Value.Name);
-        _comboBox.IsEnabled = presets.Any();
+        _comboBox.IsEnabled = presets.Count != 0;
     }
 
     protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;

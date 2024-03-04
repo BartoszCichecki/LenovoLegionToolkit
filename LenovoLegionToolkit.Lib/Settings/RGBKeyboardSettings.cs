@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public class RGBKeyboardSettings : AbstractSettings<RGBKeyboardSettings.RGBKeyboardSettingsStore>
+public class RGBKeyboardSettings() : AbstractSettings<RGBKeyboardSettings.RGBKeyboardSettingsStore>("rgb_keyboard.json")
 {
     public class RGBKeyboardSettingsStore
     {
@@ -17,6 +17,4 @@ public class RGBKeyboardSettings : AbstractSettings<RGBKeyboardSettings.RGBKeybo
             { RGBKeyboardBacklightPreset.Three, new(RGBKeyboardBacklightEffect.Smooth, RGBKeyboardBacklightSpeed.Slowest, RGBKeyboardBacklightBrightness.Low, new(255, 255, 255), new(255,255,255), new(255,255,255), new (255,255,255)) },
         }),
     };
-
-    public RGBKeyboardSettings() : base("rgb_keyboard.json") { }
 }

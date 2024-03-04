@@ -2,7 +2,8 @@
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public class SunriseSunsetSettings : AbstractSettings<SunriseSunsetSettings.SunriseSunsetSettingsStore>
+public class SunriseSunsetSettings()
+    : AbstractSettings<SunriseSunsetSettings.SunriseSunsetSettingsStore>("sunrise_sunset.json")
 {
     public class SunriseSunsetSettingsStore
     {
@@ -10,6 +11,4 @@ public class SunriseSunsetSettings : AbstractSettings<SunriseSunsetSettings.Sunr
         public Time? Sunrise { get; set; }
         public Time? Sunset { get; set; }
     }
-
-    public SunriseSunsetSettings() : base("sunrise_sunset.json") { }
 }

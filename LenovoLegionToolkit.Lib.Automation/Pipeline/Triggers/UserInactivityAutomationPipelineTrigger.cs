@@ -6,19 +6,14 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class UserInactivityAutomationPipelineTrigger : IUserInactivityPipelineTrigger
+[method: JsonConstructor]
+public class UserInactivityAutomationPipelineTrigger(TimeSpan inactivityTimeSpan) : IUserInactivityPipelineTrigger
 {
     public string DisplayName => InactivityTimeSpan == TimeSpan.Zero
         ? Resource.UserInactivityAutomationPipelineTrigger_DisplayName_Zero
         : Resource.UserInactivityAutomationPipelineTrigger_DisplayName;
 
-    public TimeSpan InactivityTimeSpan { get; }
-
-    [JsonConstructor]
-    public UserInactivityAutomationPipelineTrigger(TimeSpan inactivityTimeSpan)
-    {
-        InactivityTimeSpan = inactivityTimeSpan;
-    }
+    public TimeSpan InactivityTimeSpan { get; } = inactivityTimeSpan;
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {

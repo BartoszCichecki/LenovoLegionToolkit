@@ -3,20 +3,17 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
-public class SensorsController : ISensorsController
+public class SensorsController(
+    SensorsControllerV1 controllerV1,
+    SensorsControllerV2 controllerV2,
+    SensorsControllerV3 controllerV3)
+    : ISensorsController
 {
-    private readonly SensorsControllerV1 _controllerV1;
-    private readonly SensorsControllerV2 _controllerV2;
-    private readonly SensorsControllerV3 _controllerV3;
+    private readonly SensorsControllerV1 _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
+    private readonly SensorsControllerV2 _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
+    private readonly SensorsControllerV3 _controllerV3 = controllerV3 ?? throw new ArgumentNullException(nameof(controllerV3));
 
     private ISensorsController? _controller;
-
-    public SensorsController(SensorsControllerV1 controllerV1, SensorsControllerV2 controllerV2, SensorsControllerV3 controllerV3)
-    {
-        _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
-        _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
-        _controllerV3 = controllerV3 ?? throw new ArgumentNullException(nameof(controllerV3));
-    }
 
     public async Task<bool> IsSupportedAsync() => await GetControllerAsync().ConfigureAwait(false) is not null;
 

@@ -8,22 +8,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayBrightnessListener : AbstractWMIListener<Brightness, byte>
+public class DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
+    : AbstractWMIListener<Brightness, byte>(WMI.WmiMonitorBrightnessEvent.Listen)
 {
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
 
-    private readonly PowerPlanController _powerPlanController;
-    private readonly ApplicationSettings _settings;
+    private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
 
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
-
-    public DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
-        : base(WMI.WmiMonitorBrightnessEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
 
     protected override Brightness GetValue(byte value) => value;
 

@@ -6,20 +6,14 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class HybridModeFeature : IFeature<HybridModeState>
+public class HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
+    : IFeature<HybridModeState>
 {
-    private readonly GSyncFeature _gSyncFeature;
-    private readonly IGPUModeFeature _igpuModeFeature;
-    private readonly DGPUNotify _dgpuNotify;
+    private readonly GSyncFeature _gSyncFeature = gSyncFeature ?? throw new ArgumentNullException(nameof(gSyncFeature));
+    private readonly IGPUModeFeature _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
+    private readonly DGPUNotify _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
 
     private readonly CancellationTokenSource _ensureDGPUEjectedIfNeededCancellationTokenSource = new();
-
-    public HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
-    {
-        _gSyncFeature = gSyncFeature ?? throw new ArgumentNullException(nameof(gSyncFeature));
-        _igpuModeFeature = igpuModeFeature ?? throw new ArgumentNullException(nameof(igpuModeFeature));
-        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
-    }
 
     public async Task<bool> IsSupportedAsync()
     {
@@ -33,10 +27,10 @@ public class HybridModeFeature : IFeature<HybridModeState>
 
         return (mi.Properties.SupportsGSync, mi.Properties.SupportsIGPUMode) switch
         {
-            (true, true) => new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off },
-            (false, true) => new[] { HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto },
-            (true, false) => new[] { HybridModeState.On, HybridModeState.Off },
-            _ => Array.Empty<HybridModeState>()
+            (true, true) => [HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto, HybridModeState.Off],
+            (false, true) => [HybridModeState.On, HybridModeState.OnIGPUOnly, HybridModeState.OnAuto],
+            (true, false) => [HybridModeState.On, HybridModeState.Off],
+            _ => []
         };
     }
 

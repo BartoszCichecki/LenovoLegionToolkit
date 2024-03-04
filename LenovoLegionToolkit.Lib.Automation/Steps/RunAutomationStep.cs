@@ -4,18 +4,12 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class RunAutomationStep : IAutomationStep
+[method: JsonConstructor]
+public class RunAutomationStep(string? scriptPath, string? scriptArguments) : IAutomationStep
 {
-    public string? ScriptPath { get; }
+    public string? ScriptPath { get; } = scriptPath;
 
-    public string? ScriptArguments { get; }
-
-    [JsonConstructor]
-    public RunAutomationStep(string? scriptPath, string? scriptArguments)
-    {
-        ScriptPath = scriptPath;
-        ScriptArguments = scriptArguments;
-    }
+    public string? ScriptArguments { get; } = scriptArguments;
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 

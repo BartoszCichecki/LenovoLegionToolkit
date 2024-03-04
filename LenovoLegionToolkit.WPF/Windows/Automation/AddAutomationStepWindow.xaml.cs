@@ -43,7 +43,7 @@ public partial class AddAutomationStepWindow
         return Task.CompletedTask;
     }
 
-    private UIElement CreateCardControl(AbstractAutomationStepControl stepControl)
+    private CardControl CreateCardControl(AbstractAutomationStepControl stepControl)
     {
         var control = new CardControl
         {

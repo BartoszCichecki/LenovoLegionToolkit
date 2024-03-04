@@ -7,15 +7,10 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class RGBKeyboardBacklightListener : AbstractWMIListener<RGBKeyboardBacklightChanged, int>
+public class RGBKeyboardBacklightListener(RGBKeyboardBacklightController controller)
+    : AbstractWMIListener<RGBKeyboardBacklightChanged, int>(WMI.LenovoGameZoneLightProfileChangeEvent.Listen)
 {
-    private readonly RGBKeyboardBacklightController _controller;
-
-    public RGBKeyboardBacklightListener(RGBKeyboardBacklightController controller)
-        : base(WMI.LenovoGameZoneLightProfileChangeEvent.Listen)
-    {
-        _controller = controller ?? throw new ArgumentNullException(nameof(controller));
-    }
+    private readonly RGBKeyboardBacklightController _controller = controller ?? throw new ArgumentNullException(nameof(controller));
 
     protected override RGBKeyboardBacklightChanged GetValue(int value) => default;
 

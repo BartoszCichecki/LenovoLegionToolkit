@@ -86,7 +86,7 @@ public static class Battery
 
             var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
             using var logReader = new EventLogReader(query);
-            using var propertySelector = new EventLogPropertySelector(new[] { "Event/EventData/Data[@Name='AcOnline']" });
+            using var propertySelector = new EventLogPropertySelector(["Event/EventData/Data[@Name='AcOnline']"]);
 
             while (logReader.ReadEvent() is EventLogRecord record)
             {

@@ -6,16 +6,12 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener : AbstractWMIListener<ThermalModeState, int>
+public class ThermalModeListener(PowerPlanController powerPlanController)
+    : AbstractWMIListener<ThermalModeState, int>(WMI.LenovoGameZoneThermalModeEvent.Listen)
 {
     private readonly ThreadSafeCounter _suppressCounter = new();
 
-    private readonly PowerPlanController _powerPlanController;
-
-    public ThermalModeListener(PowerPlanController powerPlanController) : base(WMI.LenovoGameZoneThermalModeEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-    }
+    private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
 
     protected override ThermalModeState GetValue(int value)
     {

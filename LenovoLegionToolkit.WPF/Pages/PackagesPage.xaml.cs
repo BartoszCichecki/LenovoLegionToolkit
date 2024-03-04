@@ -338,7 +338,7 @@ public partial class PackagesPage : IProgress<float>
 
         _packagesStackPanel.Children.Clear();
 
-        if (_packages is null || !_packages.Any())
+        if (_packages is null || _packages.Count == 0)
             return;
 
         var packages = SortAndFilter(_packages);
@@ -365,7 +365,7 @@ public partial class PackagesPage : IProgress<float>
             _packagesStackPanel.Children.Add(tb);
         }
 
-        if (_packageDownloaderSettings.Store.HiddenPackages.Any())
+        if (_packageDownloaderSettings.Store.HiddenPackages.Count != 0)
         {
             var clearHidden = new Hyperlink
             {

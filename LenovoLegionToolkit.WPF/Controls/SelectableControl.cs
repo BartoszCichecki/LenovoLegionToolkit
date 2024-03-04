@@ -9,11 +9,9 @@ namespace LenovoLegionToolkit.WPF.Controls;
 
 public class SelectableControl : UserControl
 {
-    public class SelectedEventArgs : EventArgs
+    public class SelectedEventArgs(Func<FrameworkElement, bool> containsCenter) : EventArgs
     {
-        public Func<FrameworkElement, bool> ContainsCenter { get; }
-
-        public SelectedEventArgs(Func<FrameworkElement, bool> containsCenter) => ContainsCenter = containsCenter;
+        public Func<FrameworkElement, bool> ContainsCenter { get; } = containsCenter;
     }
 
     private readonly Grid _grid = new()

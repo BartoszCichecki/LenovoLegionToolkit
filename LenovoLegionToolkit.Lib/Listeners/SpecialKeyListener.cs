@@ -11,23 +11,19 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class SpecialKeyListener : AbstractWMIListener<SpecialKey, int>
+public class SpecialKeyListener(
+    ApplicationSettings settings,
+    FnKeysDisabler fnKeysDisabler,
+    RefreshRateFeature feature,
+    MicrophoneFeature microphoneFeature)
+    : AbstractWMIListener<SpecialKey, int>(WMI.LenovoUtilityEvent.Listen)
 {
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
 
-    private readonly ApplicationSettings _settings;
-    private readonly FnKeysDisabler _fnKeysDisabler;
-    private readonly RefreshRateFeature _refreshRateFeature;
-    private readonly MicrophoneFeature _microphoneFeature;
-
-    public SpecialKeyListener(ApplicationSettings settings, FnKeysDisabler fnKeysDisabler, RefreshRateFeature feature, MicrophoneFeature microphoneFeature)
-        : base(WMI.LenovoUtilityEvent.Listen)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
-        _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
-        _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
-    }
+    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
+    private readonly RefreshRateFeature _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
+    private readonly MicrophoneFeature _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
 
     protected override SpecialKey GetValue(int value)
     {

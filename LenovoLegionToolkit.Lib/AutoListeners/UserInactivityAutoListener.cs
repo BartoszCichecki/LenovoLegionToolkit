@@ -9,7 +9,8 @@ using Timer = System.Threading.Timer;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class UserInactivityAutoListener : AbstractAutoListener<(TimeSpan, uint)>
+public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
+    : AbstractAutoListener<(TimeSpan, uint)>
 {
     private class UserInactivityWindow : NativeWindow, IDisposable
     {
@@ -62,18 +63,13 @@ public class UserInactivityAutoListener : AbstractAutoListener<(TimeSpan, uint)>
     private readonly TimeSpan _timerResolution = TimeSpan.FromSeconds(10);
     private readonly object _lock = new();
 
-    private readonly IMainThreadDispatcher _mainThreadDispatcher;
+    private readonly IMainThreadDispatcher _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
 
     private UserInactivityWindow? _window;
     private uint _tickCount;
     private Timer? _timer;
 
     public TimeSpan InactivityTimeSpan => _timerResolution * _tickCount;
-
-    public UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
-    {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-    }
 
     protected override Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
     {

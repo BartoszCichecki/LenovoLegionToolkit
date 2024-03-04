@@ -6,15 +6,11 @@ using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INotifyingListener<PowerModeState>
+public class PowerModeListener(PowerPlanController powerPlanController)
+    : AbstractWMIListener<PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent.Listen),
+        INotifyingListener<PowerModeState>
 {
-    private readonly PowerPlanController _powerPlanController;
-
-    public PowerModeListener(PowerPlanController powerPlanController)
-        : base(WMI.LenovoGameZoneSmartFanModeEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-    }
+    private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
 
     protected override PowerModeState GetValue(int value)
     {

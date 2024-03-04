@@ -5,20 +5,10 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : struct, Enum, IComparable
+public abstract class AbstractLenovoLightingFeature<T>(int lightingID, int controlInterface, int type) : IFeature<T>
+    where T : struct, Enum, IComparable
 {
-    private readonly int _lightingID;
-    private readonly int _controlInterface;
-    private readonly int _type;
-
     public bool ForceDisable { get; set; }
-
-    protected AbstractLenovoLightingFeature(int lightingID, int controlInterface, int type)
-    {
-        _lightingID = lightingID;
-        _controlInterface = controlInterface;
-        _type = type;
-    }
 
     public virtual async Task<bool> IsSupportedAsync()
     {
@@ -31,7 +21,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
             if (mi.Properties.IsExcludedFromLenovoLighting)
                 return false;
 
-            var isSupported = await WMI.LenovoLightingData.ExistsAsync(_lightingID, _controlInterface, _type).ConfigureAwait(false);
+            var isSupported = await WMI.LenovoLightingData.ExistsAsync(lightingID, controlInterface, type).ConfigureAwait(false);
 
             if (!isSupported)
             {
@@ -63,7 +53,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state... [feature={GetType().Name}]");
 
-        var (stateType, level) = await WMI.LenovoLightingMethod.GetLightingCurrentStatusAsync(_lightingID).ConfigureAwait(false);
+        var (stateType, level) = await WMI.LenovoLightingMethod.GetLightingCurrentStatusAsync(lightingID).ConfigureAwait(false);
         var result = FromInternal(stateType, level);
 
         if (Log.Instance.IsTraceEnabled)
@@ -79,7 +69,7 @@ public abstract class AbstractLenovoLightingFeature<T> : IFeature<T> where T : s
 
         var (stateType, level) = ToInternal(state);
 
-        await WMI.LenovoLightingMethod.SetLightingCurrentStatusAsync(_lightingID, stateType, level).ConfigureAwait(false);
+        await WMI.LenovoLightingMethod.SetLightingCurrentStatusAsync(lightingID, stateType, level).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state} [feature={GetType().Name}]");

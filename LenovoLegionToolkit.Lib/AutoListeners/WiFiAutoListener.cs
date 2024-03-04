@@ -14,7 +14,7 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly WLAN_NOTIFICATION_CALLBACK _wlanCallback;
 
-    private IDisposable? _wlanNotificationDisposable;
+    private LambdaDisposable? _wlanNotificationDisposable;
 
     public unsafe WiFiAutoListener(IMainThreadDispatcher mainThreadDispatcher)
     {
@@ -36,7 +36,7 @@ public class WiFiAutoListener : AbstractAutoListener<(bool connected, string? ss
         return Task.CompletedTask;
     });
 
-    private unsafe IDisposable? RegisterWlanNotification()
+    private unsafe LambdaDisposable? RegisterWlanNotification()
     {
         var handlePtr = IntPtr.Zero;
 

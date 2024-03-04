@@ -47,7 +47,7 @@ public partial class AddDashboardItemWindow
         return Task.CompletedTask;
     }
 
-    private UIElement CreateCardControl(DashboardItem item)
+    private CardControl CreateCardControl(DashboardItem item)
     {
         var control = new CardControl
         {

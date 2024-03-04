@@ -7,16 +7,10 @@ using LenovoLegionToolkit.Lib.Settings;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class SunriseSunset
+public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory httpClientFactory)
 {
-    private readonly SunriseSunsetSettings _settings;
-    private readonly HttpClientFactory _httpClientFactory;
-
-    public SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory httpClientFactory)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-    }
+    private readonly SunriseSunsetSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    private readonly HttpClientFactory _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
 
     public async Task<(Time?, Time?)> GetSunriseSunsetAsync(CancellationToken token = default)
     {

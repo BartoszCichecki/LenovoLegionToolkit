@@ -4,18 +4,9 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class ThrottleLastDispatcher
+public class ThrottleLastDispatcher(TimeSpan interval, string? tag = null)
 {
-    private readonly TimeSpan _interval;
-    private readonly string? _tag;
-
     private CancellationTokenSource? _cancellationTokenSource;
-
-    public ThrottleLastDispatcher(TimeSpan interval, string? tag = null)
-    {
-        _interval = interval;
-        _tag = tag;
-    }
 
     public async Task DispatchAsync(Func<Task> task)
     {
@@ -26,18 +17,18 @@ public class ThrottleLastDispatcher
 
             var token = _cancellationTokenSource.Token;
 
-            await Task.Delay(_interval, token).ConfigureAwait(false);
+            await Task.Delay(interval, token).ConfigureAwait(false);
             token.ThrowIfCancellationRequested();
 
-            if (_tag is not null && Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Allowing... [tag={_tag}]");
+            if (tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Allowing... [tag={tag}]");
 
             await task().ConfigureAwait(false);
         }
         catch (OperationCanceledException)
         {
-            if (_tag is not null && Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Throttling... [tag={_tag}]");
+            if (tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Throttling... [tag={tag}]");
         }
     }
 }

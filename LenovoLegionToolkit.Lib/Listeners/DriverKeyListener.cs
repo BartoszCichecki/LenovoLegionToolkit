@@ -11,25 +11,22 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DriverKeyListener : IListener<DriverKey>
+public class DriverKeyListener(
+    FnKeysDisabler fnKeysDisabler,
+    MicrophoneFeature microphoneFeature,
+    TouchpadLockFeature touchpadLockFeature,
+    WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
+    : IListener<DriverKey>
 {
     public event EventHandler<DriverKey>? Changed;
 
-    private readonly FnKeysDisabler _fnKeysDisabler;
-    private readonly MicrophoneFeature _microphoneFeature;
-    private readonly TouchpadLockFeature _touchpadLockFeature;
-    private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature;
+    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
+    private readonly MicrophoneFeature _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
+    private readonly TouchpadLockFeature _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
+    private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
 
     private CancellationTokenSource? _cancellationTokenSource;
     private Task? _listenTask;
-
-    public DriverKeyListener(FnKeysDisabler fnKeysDisabler, MicrophoneFeature microphoneFeature, TouchpadLockFeature touchpadLockFeature, WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
-    {
-        _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
-        _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
-        _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
-        _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
-    }
 
     public Task StartAsync()
     {
@@ -64,7 +61,7 @@ public class DriverKeyListener : IListener<DriverKey>
 
             while (true)
             {
-                WaitHandle.WaitAny(new[] { resetEvent, token.WaitHandle });
+                WaitHandle.WaitAny([resetEvent, token.WaitHandle]);
 
                 token.ThrowIfCancellationRequested();
 

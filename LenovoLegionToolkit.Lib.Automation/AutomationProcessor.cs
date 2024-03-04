@@ -14,51 +14,38 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Automation;
 
-public class AutomationProcessor
+public class AutomationProcessor(
+    AutomationSettings settings,
+    NativeWindowsMessageListener nativeWindowsMessageListener,
+    PowerStateListener powerStateListener,
+    PowerModeListener powerModeListener,
+    GodModeController godModeController,
+    GameAutoListener gameAutoListener,
+    ProcessAutoListener processAutoListener,
+    TimeAutoListener timeAutoListener,
+    UserInactivityAutoListener userInactivityAutoListener,
+    WiFiAutoListener wifiAutoListener)
 {
-    private readonly AutomationSettings _settings;
-    private readonly NativeWindowsMessageListener _nativeWindowsMessageListener;
-    private readonly PowerStateListener _powerStateListener;
-    private readonly PowerModeListener _powerModeListener;
-    private readonly GodModeController _godModeController;
-    private readonly GameAutoListener _gameAutoListener;
-    private readonly ProcessAutoListener _processAutoListener;
-    private readonly TimeAutoListener _timeAutoListener;
-    private readonly UserInactivityAutoListener _userInactivityAutoListener;
-    private readonly WiFiAutoListener _wifiAutoListener;
+    private readonly AutomationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    private readonly NativeWindowsMessageListener _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
+    private readonly PowerStateListener _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
+    private readonly PowerModeListener _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
+    private readonly GodModeController _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
+    private readonly GameAutoListener _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
+    private readonly ProcessAutoListener _processAutoListener = processAutoListener ?? throw new ArgumentNullException(nameof(processAutoListener));
+    private readonly TimeAutoListener _timeAutoListener = timeAutoListener ?? throw new ArgumentNullException(nameof(timeAutoListener));
+    private readonly UserInactivityAutoListener _userInactivityAutoListener = userInactivityAutoListener ?? throw new ArgumentNullException(nameof(userInactivityAutoListener));
+    private readonly WiFiAutoListener _wifiAutoListener = wifiAutoListener ?? throw new ArgumentNullException(nameof(wifiAutoListener));
 
     private readonly AsyncLock _ioLock = new();
     private readonly AsyncLock _runLock = new();
 
-    private List<AutomationPipeline> _pipelines = new();
+    private List<AutomationPipeline> _pipelines = [];
     private CancellationTokenSource? _cts;
 
     public bool IsEnabled => _settings.Store.IsEnabled;
 
     public event EventHandler<List<AutomationPipeline>>? PipelinesChanged;
-
-    public AutomationProcessor(AutomationSettings settings,
-        NativeWindowsMessageListener nativeWindowsMessageListener,
-        PowerStateListener powerStateListener,
-        PowerModeListener powerModeListener,
-        GodModeController godModeController,
-        GameAutoListener gameAutoListener,
-        ProcessAutoListener processAutoListener,
-        TimeAutoListener timeAutoListener,
-        UserInactivityAutoListener userInactivityAutoListener,
-        WiFiAutoListener wifiAutoListener)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
-        _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
-        _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
-        _godModeController = godModeController ?? throw new ArgumentNullException(nameof(godModeController));
-        _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
-        _processAutoListener = processAutoListener ?? throw new ArgumentNullException(nameof(processAutoListener));
-        _timeAutoListener = timeAutoListener ?? throw new ArgumentNullException(nameof(timeAutoListener));
-        _userInactivityAutoListener = userInactivityAutoListener ?? throw new ArgumentNullException(nameof(userInactivityAutoListener));
-        _wifiAutoListener = wifiAutoListener ?? throw new ArgumentNullException(nameof(wifiAutoListener));
-    }
 
     #region Initialization / pipeline reloading
 
@@ -71,7 +58,7 @@ public class AutomationProcessor
             _powerModeListener.Changed += PowerModeListener_Changed;
             _godModeController.PresetChanged += GodModeController_PresetChanged;
 
-            _pipelines = _settings.Store.Pipelines.ToList();
+            _pipelines = [.. _settings.Store.Pipelines];
 
             RaisePipelinesChanged();
 

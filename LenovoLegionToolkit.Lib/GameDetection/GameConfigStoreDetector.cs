@@ -12,14 +12,9 @@ internal class GameConfigStoreDetector
     private const string GAME_CONFIG_STORE_PATH = @"System\GameConfigStore\Children";
     private const string MATCHED_EXE_FULL_PATH_KEY_NAME = "MatchedExeFullPath";
 
-    public class GameDetectedEventArgs : EventArgs
+    public class GameDetectedEventArgs(HashSet<ProcessInfo> games) : EventArgs
     {
-        public HashSet<ProcessInfo> Games { get; }
-
-        public GameDetectedEventArgs(HashSet<ProcessInfo> games)
-        {
-            Games = games;
-        }
+        public HashSet<ProcessInfo> Games { get; } = games;
     }
 
     public event EventHandler<GameDetectedEventArgs>? GamesDetected;

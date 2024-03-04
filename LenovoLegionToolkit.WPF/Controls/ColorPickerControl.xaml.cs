@@ -11,6 +11,9 @@ namespace LenovoLegionToolkit.WPF.Controls;
 
 public partial class ColorPickerControl
 {
+    [GeneratedRegex("^#(?:[0-9A-F]{3}){2}$", RegexOptions.IgnoreCase, "en-DK")]
+    private static partial Regex HexTextRegex();
+
     private bool CanHandleEvent => !_isEditing && _colorPicker is not null && _redNumberBox is not null && _greenNumberBox is not null && _blueNumberBox is not null && _hexTextBox is not null;
 
     private bool _isEditing;
@@ -102,7 +105,7 @@ public partial class ColorPickerControl
         if (!CanHandleEvent)
             return;
 
-        if (!Regex.Match(_hexTextBox.Text, "^#(?:[0-9A-F]{3}){2}$", RegexOptions.IgnoreCase).Success)
+        if (!HexTextRegex().Match(_hexTextBox.Text).Success)
             return;
 
         _isEditing = true;

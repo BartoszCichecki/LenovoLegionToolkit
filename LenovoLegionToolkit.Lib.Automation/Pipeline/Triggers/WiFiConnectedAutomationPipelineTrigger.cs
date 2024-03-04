@@ -8,17 +8,12 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class WiFiConnectedAutomationPipelineTrigger : IWiFiConnectedPipelineTrigger
+[method: JsonConstructor]
+public class WiFiConnectedAutomationPipelineTrigger(string[] ssids) : IWiFiConnectedPipelineTrigger
 {
     public string DisplayName => Resource.WiFiConnectedAutomationPipelineTrigger_DisplayName;
 
-    public string[] Ssids { get; }
-
-    [JsonConstructor]
-    public WiFiConnectedAutomationPipelineTrigger(string[] ssids)
-    {
-        Ssids = ssids;
-    }
+    public string[] Ssids { get; } = ssids;
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {

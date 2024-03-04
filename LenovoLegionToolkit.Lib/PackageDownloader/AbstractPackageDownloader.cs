@@ -13,14 +13,9 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public abstract class AbstractPackageDownloader : IPackageDownloader
+public abstract class AbstractPackageDownloader(HttpClientFactory httpClientFactory) : IPackageDownloader
 {
-    protected readonly HttpClientFactory HttpClientFactory;
-
-    protected AbstractPackageDownloader(HttpClientFactory httpClientFactory)
-    {
-        HttpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-    }
+    protected readonly HttpClientFactory HttpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
 
     public abstract Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default);
 

@@ -32,7 +32,7 @@ internal readonly struct ExternalDetectionRule : IPackageRule
             .Select(s => int.TryParse(s, out var result) ? result : -1)
             .Where(i => i >= 0)
             .Distinct()
-            .ToArray() ?? Array.Empty<int>();
+            .ToArray() ?? [];
         var externalFile = document.SelectSingleNode("/Package/Files/External/File/Name")?.InnerText;
         var packageName = document.SelectSingleNode("/Package/@id")?.InnerText;
 

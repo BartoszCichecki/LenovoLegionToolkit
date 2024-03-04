@@ -77,7 +77,7 @@ internal class SmartKeyHelper
             : _settings.Store.SmartKeySinglePressActionId;
         var actionList = isDoublePress
             ? _settings.Store.SmartKeyDoublePressActionList.ToList()
-            : _settings.Store.SmartKeySinglePressActionList.ToList();
+            : [.. _settings.Store.SmartKeySinglePressActionList];
 
         if (!currentGuid.HasValue)
         {

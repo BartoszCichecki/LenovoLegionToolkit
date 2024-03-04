@@ -2,11 +2,14 @@
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class IGPUModeFeature : AbstractCompositeFeature<IGPUModeState, IGPUModeGamezoneFeature, IGPUModeCapabilityFeature, IGPUModeFeatureFlagsFeature>
+public class IGPUModeFeature(
+    IGPUModeGamezoneFeature feature1,
+    IGPUModeCapabilityFeature feature2,
+    IGPUModeFeatureFlagsFeature feature3)
+    : AbstractCompositeFeature<IGPUModeState, IGPUModeGamezoneFeature, IGPUModeCapabilityFeature,
+        IGPUModeFeatureFlagsFeature>(feature1, feature2, feature3)
 {
     public bool ExperimentalGPUWorkingMode { get; set; }
-
-    public IGPUModeFeature(IGPUModeGamezoneFeature feature1, IGPUModeCapabilityFeature feature2, IGPUModeFeatureFlagsFeature feature3) : base(feature1, feature2, feature3) { }
 
     protected override async Task<IFeature<IGPUModeState>?> GetFeatureLazyAsync()
     {

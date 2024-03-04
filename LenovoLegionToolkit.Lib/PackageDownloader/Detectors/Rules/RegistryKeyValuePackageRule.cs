@@ -80,7 +80,7 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
 
     private static string RemoveNonVersionCharacters(string? versionString)
     {
-        var arr = versionString?.ToCharArray() ?? Array.Empty<char>();
+        var arr = versionString?.ToCharArray() ?? [];
         arr = Array.FindAll(arr, c => char.IsDigit(c) || c == '.');
         return new string(arr);
     }

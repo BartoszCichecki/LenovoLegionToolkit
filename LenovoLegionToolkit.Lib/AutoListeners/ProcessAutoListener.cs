@@ -8,14 +8,17 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
+public class ProcessAutoListener(
+    InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener,
+    InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
+    : AbstractAutoListener<ProcessEventInfo>
 {
     private static readonly object Lock = new();
 
     // ReSharper disable StringLiteralTypo
 
     private static readonly string[] IgnoredNames =
-    {
+    [
         "backgroundTaskHost",
         "CompPkgSrv",
         "conhost",
@@ -27,26 +30,19 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessEventInfo>
         "SearchProtocolHost",
         "svchost",
         "WmiPrvSE"
-    };
+    ];
 
     // ReSharper restore StringLiteralTypo
 
     private static readonly string[] IgnoredPaths =
-    {
+    [
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
-    };
+    ];
 
-    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
-    private readonly InstanceStoppedEventAutoAutoListener _instanceStoppedEventAutoAutoListener;
+    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
+    private readonly InstanceStoppedEventAutoAutoListener _instanceStoppedEventAutoAutoListener = instanceStoppedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStoppedEventAutoAutoListener));
 
-    private readonly Dictionary<int, ProcessInfo> _processCache = new();
-
-    public ProcessAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener, InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
-    {
-        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
-        _instanceStoppedEventAutoAutoListener = instanceStoppedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStoppedEventAutoAutoListener));
-
-    }
+    private readonly Dictionary<int, ProcessInfo> _processCache = [];
 
     protected override async Task StartAsync()
     {

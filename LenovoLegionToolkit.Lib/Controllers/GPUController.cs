@@ -21,7 +21,7 @@ public class GPUController
     private CancellationTokenSource? _refreshCancellationTokenSource;
 
     private GPUState _state = GPUState.Unknown;
-    private List<Process> _processes = new();
+    private List<Process> _processes = [];
     private string? _gpuInstanceId;
     private string? _performanceState;
 
@@ -222,7 +222,7 @@ public class GPUController
             Log.Instance.Trace($"Refresh in progress...");
 
         _state = GPUState.Unknown;
-        _processes = new();
+        _processes = [];
         _gpuInstanceId = null;
         _performanceState = null;
 
@@ -279,7 +279,7 @@ public class GPUController
                 Log.Instance.Trace(
                     $"Monitor connected [state={_state}, processes.Count={_processes.Count}, gpuInstanceId={_gpuInstanceId}]");
         }
-        else if (processNames.Any())
+        else if (processNames.Count != 0)
         {
             _processes = processNames;
             _state = GPUState.Active;

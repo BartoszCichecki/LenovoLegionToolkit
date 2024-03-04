@@ -21,7 +21,7 @@ public static class LocalizationHelper
 
     private static readonly CultureInfo DefaultLanguage = new("en");
 
-    public static readonly CultureInfo[] Languages = {
+    public static readonly CultureInfo[] Languages = [
         DefaultLanguage,
         new("ar"),
         new("bg"),
@@ -45,7 +45,7 @@ public static class LocalizationHelper
         new("zh-hant"),
         // HACK: Karakalpak is not a recognized culture by msbuild, so we use this one as workaround instead.
         new("uz-latn-uz")
-    };
+    ];
 
     public static FlowDirection Direction => Resource.Culture?.TextInfo.IsRightToLeft ?? false
         ? FlowDirection.RightToLeft

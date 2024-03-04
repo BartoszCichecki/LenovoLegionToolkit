@@ -2,12 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class IGPUModeChangeException : Exception
+public class IGPUModeChangeException(IGPUModeState igpuMode) : Exception
 {
-    public IGPUModeState IGPUMode { get; }
-
-    public IGPUModeChangeException(IGPUModeState igpuMode)
-    {
-        IGPUMode = igpuMode;
-    }
+    public IGPUModeState IGPUMode { get; } = igpuMode;
 }

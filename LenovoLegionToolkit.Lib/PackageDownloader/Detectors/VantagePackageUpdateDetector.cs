@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors;
 
 internal class VantagePackageUpdateDetector
 {
-    private readonly List<DriverInfo> _driverInfoCache = new();
+    private readonly List<DriverInfo> _driverInfoCache = [];
 
     public async Task BuildDriverInfoCache()
     {

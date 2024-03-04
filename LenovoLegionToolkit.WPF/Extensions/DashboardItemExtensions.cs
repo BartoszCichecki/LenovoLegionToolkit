@@ -87,7 +87,7 @@ public static class DashboardItemExtensions
         DashboardItem.TouchpadLock => new[] { new TouchpadLockControl() },
         DashboardItem.FnLock => new[] { new FnLockControl() },
         DashboardItem.WinKeyLock => new[] { new WinKeyControl() },
-        DashboardItem.WhiteKeyboardBacklight => new AbstractRefreshingControl[] { new WhiteKeyboardBacklightControl(), new OneLevelWhiteKeyboardBacklightControl() },
+        DashboardItem.WhiteKeyboardBacklight => [new WhiteKeyboardBacklightControl(), new OneLevelWhiteKeyboardBacklightControl()],
         _ => throw new InvalidOperationException($"Invalid DashboardItem {dashboardItem}"),
     };
 }

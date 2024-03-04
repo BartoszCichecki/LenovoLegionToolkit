@@ -23,7 +23,7 @@ public class AutomationPipeline
     public IAutomationPipelineTrigger? Trigger { get; set; }
 
     // ReSharper disable once PropertyCanBeMadeInitOnly.Global
-    public List<IAutomationStep> Steps { get; set; } = new();
+    public List<IAutomationStep> Steps { get; set; } = [];
 
     // ReSharper disable once PropertyCanBeMadeInitOnly.Global
     public bool IsExclusive { get; set; } = true;
@@ -91,7 +91,7 @@ public class AutomationPipeline
                 Log.Instance.Trace($"Step completed successfully. [type={step.GetType().Name}]");
         }
 
-        if (stepExceptions.Any())
+        if (stepExceptions.Count != 0)
             throw new AggregateException(stepExceptions);
     }
 

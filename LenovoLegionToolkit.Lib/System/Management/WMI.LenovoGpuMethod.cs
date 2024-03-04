@@ -15,7 +15,7 @@ public static partial class WMI
         public static Task<(int ctgp, int ppab)> GPUGetDefaultPPABcTGPPowerLimit() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_Default_PPAB_cTGP_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var ctgp = Convert.ToInt32(pdc["Default_cTGP_Powerlimit"].Value);
@@ -26,7 +26,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step)> GPUGetCTGPPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_cTGP_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["Current_cTGP_PowerLimit"].Value);
@@ -45,7 +45,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step)> GPUGetPPABPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_PPAB_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentPPAB_PowerLimit"].Value);
@@ -64,7 +64,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step, int defaultValue)> GPUGetTemperatureLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_GPU_METHOD",
             "GPU_Get_Temperature_Limit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentTemperatueLimit"].Value);

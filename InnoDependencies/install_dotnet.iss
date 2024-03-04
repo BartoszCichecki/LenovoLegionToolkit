@@ -1,8 +1,8 @@
 #define DotNetPrettyName "Microsoft .NET Desktop Runtime"
-#define DotNetName "Microsoft.WindowsDesktop.App 6"
-#define DotNetVersion "6.0.26"
-#define DotNetURL "https://download.visualstudio.microsoft.com/download/pr/3136e217-e5b7-4899-9b7e-aa52ecb8b108/d74134edaa75e3300f8692660b9fb7b5/windowsdesktop-runtime-6.0.26-win-x64.exe"
-#define DotNetExeName "dotnet6.exe"
+#define DotNetName "Microsoft.WindowsDesktop.App 8"
+#define DotNetVersion "8.0.2"
+#define DotNetURL "https://download.visualstudio.microsoft.com/download/pr/84ba33d4-4407-4572-9bfa-414d26e7c67c/bb81f8c9e6c9ee1ca547396f6e71b65f/windowsdesktop-runtime-8.0.2-win-x64.exe"
+#define DotNetExeName "dotnet8.exe"
 #define DotNetExeArgs "/install /repair /passive /norestart"
 
 [Code]

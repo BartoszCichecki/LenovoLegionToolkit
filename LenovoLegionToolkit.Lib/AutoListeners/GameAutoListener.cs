@@ -32,7 +32,7 @@ public class GameAutoListener : AbstractAutoListener<bool>
     private readonly GameConfigStoreDetector _gameConfigStoreDetector;
     private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
 
-    private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
+    private readonly HashSet<ProcessInfo> _detectedGamePathsCache = [];
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
@@ -128,7 +128,7 @@ public class GameAutoListener : AbstractAutoListener<bool>
     {
         lock (Lock)
         {
-            if (_processCache.Any())
+            if (_processCache.Count != 0)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, process cache is not empty.");
@@ -235,7 +235,7 @@ public class GameAutoListener : AbstractAutoListener<bool>
                     Log.Instance.Trace($"Removed {staleProcesses} stale processes.");
             }
 
-            if (_processCache.Any())
+            if (_processCache.Count != 0)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"More games are running...");

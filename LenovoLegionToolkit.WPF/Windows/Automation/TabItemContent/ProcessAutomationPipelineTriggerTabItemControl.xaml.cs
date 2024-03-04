@@ -22,12 +22,12 @@ public partial class ProcessAutomationPipelineTriggerTabItemControl : IAutomatio
     public ProcessAutomationPipelineTriggerTabItemControl(IProcessesAutomationPipelineTrigger trigger)
     {
         _trigger = trigger;
-        _processes = trigger.Processes.ToList();
+        _processes = [.. trigger.Processes];
 
         InitializeComponent();
     }
 
-    public IProcessesAutomationPipelineTrigger GetTrigger() => _trigger.DeepCopy(_processes.ToArray());
+    public IProcessesAutomationPipelineTrigger GetTrigger() => _trigger.DeepCopy([.. _processes]);
 
     private void ProcessAutomationPipelineTriggerTabItemControl_Initialized(object? sender, EventArgs e)
     {
@@ -98,7 +98,7 @@ public partial class ProcessAutomationPipelineTriggerTabItemControl : IAutomatio
             var processes = ClipboardExtensions.GetProcesses()
                 .Where(p => !_processes.Contains(p))
                 .ToArray();
-            if (!processes.Any())
+            if (processes.Length == 0)
                 return;
 
             _processes.AddRange(processes);

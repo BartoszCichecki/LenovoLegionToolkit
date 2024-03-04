@@ -97,7 +97,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         var selectedItem = await Feature.GetStateAsync();
 
         _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
-        _comboBox.IsEnabled = items.Any();
+        _comboBox.IsEnabled = items.Length != 0;
         _comboBox.Visibility = Visibility.Visible;
     }
 

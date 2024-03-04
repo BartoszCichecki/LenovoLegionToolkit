@@ -95,7 +95,7 @@ public partial class SettingsPage
         _fnKeysCard.Visibility = fnKeysStatus != SoftwareStatus.NotFound ? Visibility.Visible : Visibility.Collapsed;
         _fnKeysToggle.IsChecked = fnKeysStatus == SoftwareStatus.Disabled;
 
-        _smartFnLockComboBox.SetItems(new[] { (ModifierKey)0, ModifierKey.Alt, ModifierKey.Alt | ModifierKey.Ctrl | ModifierKey.Shift },
+        _smartFnLockComboBox.SetItems([(ModifierKey)0, ModifierKey.Alt, ModifierKey.Alt | ModifierKey.Ctrl | ModifierKey.Shift],
             _settings.Store.SmartFnLockFlags,
             m => m is 0 ? Resource.Off : m.GetFlagsDisplayName());
 

@@ -20,7 +20,7 @@ internal readonly struct DriverPackageRule : IPackageRule
         var hardwareIds = node?.SelectNodes("HardwareID")?
             .OfType<XmlNode>()
             .Select(n => n.InnerText)
-            .ToArray() ?? Array.Empty<string>();
+            .ToArray() ?? [];
         var dateString = node?.SelectSingleNode("Date")?.InnerText;
         var versionString = node?.SelectSingleNode("Version")?.InnerText;
 
@@ -85,7 +85,7 @@ internal readonly struct DriverPackageRule : IPackageRule
 
     private static string RemoveNonVersionCharacters(string? versionString)
     {
-        var arr = versionString?.ToCharArray() ?? Array.Empty<char>();
+        var arr = versionString?.ToCharArray() ?? [];
         arr = Array.FindAll(arr, c => char.IsDigit(c) || c == '.');
         return new string(arr);
     }

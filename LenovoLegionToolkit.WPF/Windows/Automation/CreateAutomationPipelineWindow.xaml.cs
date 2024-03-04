@@ -19,7 +19,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation;
 public partial class CreateAutomationPipelineWindow
 {
     private readonly IAutomationPipelineTrigger[] _triggers =
-    {
+    [
         new ACAdapterConnectedAutomationPipelineTrigger(),
         new LowWattageACAdapterConnectedAutomationPipelineTrigger(),
         new ACAdapterDisconnectedAutomationPipelineTrigger(),
@@ -27,8 +27,8 @@ public partial class CreateAutomationPipelineWindow
         new GodModePresetChangedAutomationPipelineTrigger(Guid.Empty),
         new GamesAreRunningAutomationPipelineTrigger(),
         new GamesStopAutomationPipelineTrigger(),
-        new ProcessesAreRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
-        new ProcessesStopRunningAutomationPipelineTrigger(Array.Empty<ProcessInfo>()),
+        new ProcessesAreRunningAutomationPipelineTrigger([]),
+        new ProcessesStopRunningAutomationPipelineTrigger([]),
         new UserInactivityAutomationPipelineTrigger(TimeSpan.Zero),
         new UserInactivityAutomationPipelineTrigger(TimeSpan.FromMinutes(1)),
         new LidOpenedAutomationPipelineTrigger(),
@@ -37,12 +37,12 @@ public partial class CreateAutomationPipelineWindow
         new DisplayOffAutomationPipelineTrigger(),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
         new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
-        new WiFiConnectedAutomationPipelineTrigger(Array.Empty<string>()),
+        new WiFiConnectedAutomationPipelineTrigger([]),
         new WiFiDisconnectedAutomationPipelineTrigger(),
         new TimeAutomationPipelineTrigger(false, false, TimeExtensions.UtcNow, Enum.GetValues<DayOfWeek>()),
         new PeriodicAutomationPipelineTrigger(TimeSpan.FromMinutes(1)),
         new OnStartupAutomationPipelineTrigger()
-    };
+    ];
 
     private readonly HashSet<Type> _existingTriggerTypes;
     private readonly Action<IAutomationPipelineTrigger> _createPipeline;
@@ -106,7 +106,7 @@ public partial class CreateAutomationPipelineWindow
         return Task.CompletedTask;
     }
 
-    private UIElement CreateMultipleSelectCardControl()
+    private CardControl CreateMultipleSelectCardControl()
     {
         var control = new CardControl
         {
@@ -128,7 +128,7 @@ public partial class CreateAutomationPipelineWindow
         return control;
     }
 
-    private UIElement CreateCardControl(IAutomationPipelineTrigger trigger)
+    private CardControl CreateCardControl(IAutomationPipelineTrigger trigger)
     {
         UIElement accessory;
 

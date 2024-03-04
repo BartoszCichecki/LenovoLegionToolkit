@@ -5,10 +5,11 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public class GodModeController : IGodModeController
+public class GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
+    : IGodModeController
 {
-    private readonly IGodModeController _controllerV1;
-    private readonly IGodModeController _controllerV2;
+    private readonly IGodModeController _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
+    private readonly IGodModeController _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
 
     public event EventHandler<Guid>? PresetChanged
     {
@@ -22,12 +23,6 @@ public class GodModeController : IGodModeController
             _controllerV1.PresetChanged -= value;
             _controllerV2.PresetChanged -= value;
         }
-    }
-
-    public GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
-    {
-        _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
-        _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
     }
 
     public async Task<bool> NeedsVantageDisabledAsync()
