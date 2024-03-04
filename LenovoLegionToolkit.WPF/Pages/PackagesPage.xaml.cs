@@ -67,7 +67,7 @@ public partial class PackagesPage : IProgress<float>
 
     public void Report(float value) => Dispatcher.Invoke(() =>
     {
-        _loader.IsIndeterminate = value <= 0;
+        _loader.IsIndeterminate = value < 0;
         _loader.Progress = value;
     });
 

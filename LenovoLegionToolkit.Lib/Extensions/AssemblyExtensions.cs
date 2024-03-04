@@ -11,7 +11,7 @@ public static class AssemblyExtensions
         const string buildVersionMetadataPrefix = "+build";
 
         var attribute = assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>();
-        if (attribute?.InformationalVersion == null)
+        if (attribute?.InformationalVersion is null)
             return null;
 
         var value = attribute.InformationalVersion;
