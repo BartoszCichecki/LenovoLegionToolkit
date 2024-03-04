@@ -11,7 +11,7 @@ public readonly struct NativeWindowsMessageEvent : IAutomationEvent
 
 public struct StartupAutomationEvent : IAutomationEvent { }
 
-public struct PowerStateAutomationEvent : IAutomationEvent
+public readonly struct PowerStateAutomationEvent : IAutomationEvent
 {
     public PowerStateEvent Event { get; init; }
     public bool PowerAdapterStateChanged { get; init; }
