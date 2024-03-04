@@ -62,7 +62,11 @@ public class AIController
         await StopAsync().ConfigureAwait(false);
 
         if (!IsAIModeEnabled)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"AI Mode is not enabled.");
             return;
+        }
 
         using (await _startStopLock.LockAsync().ConfigureAwait(false))
         {
@@ -72,6 +76,9 @@ public class AIController
             await _gameAutoListener.SubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
 
             await RefreshAsync().ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Started.");
         }
     }
 
@@ -94,6 +101,9 @@ public class AIController
 
             if (await ShouldDisableAsync().ConfigureAwait(false))
                 await DisableAsync().ConfigureAwait(false);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopped.");
         }
     }
 
@@ -136,13 +146,31 @@ public class AIController
     private async Task<bool> ShouldEnableAsync()
     {
         if (await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false) != PowerAdapterStatus.Connected)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Power adapter not connected.");
+
             return false;
+        }
 
         if (await _powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Not in balanced mode.");
+
             return false;
+        }
 
         if (!_gameAutoListener.AreGamesRunning())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Games aren't running.");
+
             return false;
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"All conditions met.");
 
         return true;
     }
@@ -150,10 +178,23 @@ public class AIController
     private async Task<bool> ShouldDisableAsync()
     {
         if (await _powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Not in balanced mode.");
+
             return false;
+        }
 
         if (await WMI.LenovoGameZoneData.GetIntelligentSubModeAsync().ConfigureAwait(false) == 0)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Not needed.");
+
             return false;
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"All conditions met.");
 
         return true;
     }
