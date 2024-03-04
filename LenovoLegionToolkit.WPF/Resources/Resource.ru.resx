@@ -330,6 +330,9 @@
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Число циклов</value>
   </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Первоначальная емкость аккумулятора.</value>
+  </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Расчетная емкость</value>
   </data>
@@ -348,6 +351,9 @@
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
     <value>Дата первого применения</value>
   </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Когда впервые был использован аккумулятор.</value>
+  </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>Емкость батареи при полной зарядке.</value>
   </data>
@@ -357,12 +363,18 @@
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Подключено зарядное устройство низкой мощности</value>
   </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Когда был изготовлен аккумулятор.</value>
+  </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>Дата изготовления</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Время с момента последнего подключения ноутбука к сети.
 Это время может быть неточным, если ноутбук заряжался во время сна или был выключен.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>На аккумуляторе</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Батарея</value>
@@ -1844,6 +1856,12 @@
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
     <value>Дискретная видеокарта будет автоматически отключаться, если она не используется.</value>
   </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+    <value>Дискретная видеокарта в настоящее время используется или ноутбук не работает от аккумулятора</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+    <value>Дискретная видеокарта будет автоматически отключаться, если ноутбук не используется и работает от акумулятора.</value>
+  </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>Параметры пользовательского режима будут неправильно применены, если запущен Lenovo Vantage или его службы.</value>
   </data>
@@ -1978,5 +1996,57 @@
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
     <value>Оставить пустым для любой сети.</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+    <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+    <value>Делиться данными о скорости вращения вентилятора, температуре аккумулятора и т.д. с HWiNFO64. После изменения этого параметра может потребоваться перезапуск HWiNFO64.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+    <value>Интеграции</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Папка загрузки</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+    <value>Открыть папку загрузки</value>
+  </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+    <value>Загрузить</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+    <value>Открыть README</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+    <value>Пресет</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Период (минуты)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Сбрасывать счет времени значения "На аккумуляторе" при перезагрузке системы.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Сбросить счетчик "На аккумуляторе" при запуске</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Выключить WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Включить WiFi</value>
   </data>
 </root>
