@@ -59,11 +59,9 @@ public readonly struct BiosVersion(string prefix, int? version)
     public override string ToString() => $"{nameof(Prefix)}: {Prefix}, {nameof(Version)}: {Version}";
 }
 
-public readonly struct Brightness
+public readonly struct Brightness(byte value)
 {
-    public byte Value { get; private init; }
-
-    public static implicit operator Brightness(byte value) => new() { Value = value };
+    public byte Value { get; } = value;
 }
 
 public readonly struct DiscreteCapability(CapabilityID id, int value)
@@ -84,12 +82,12 @@ public readonly struct DisplayAdvancedColorInfo(
     public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
 }
 
-public readonly struct DriverInfo
+public readonly struct DriverInfo(string deviceId, string hardwareId, Version? version, DateTime? date)
 {
-    public string DeviceId { get; init; }
-    public string HardwareId { get; init; }
-    public Version? Version { get; init; }
-    public DateTime? Date { get; init; }
+    public string DeviceId { get; } = deviceId;
+    public string HardwareId { get; } = hardwareId;
+    public Version? Version { get; } = version;
+    public DateTime? Date { get; } = date;
 }
 
 public readonly struct FanTableData
@@ -203,25 +201,18 @@ public readonly struct FanTableInfo(FanTableData[] data, FanTable table)
         $" {nameof(Table)}: {Table}";
 }
 
-public readonly struct GPUOverclockInfo
+public readonly struct GPUOverclockInfo(int coreDeltaMhz, int memoryDeltaMhz)
 {
     public static readonly GPUOverclockInfo Zero = new();
 
-    public int CoreDeltaMhz { get; init; }
-    public int MemoryDeltaMhz { get; init; }
-
+    public int CoreDeltaMhz { get; } = coreDeltaMhz;
+    public int MemoryDeltaMhz { get; } = memoryDeltaMhz;
 
     #region Equality
 
-    public override bool Equals(object? obj)
-    {
-        return obj is GPUOverclockInfo other && Equals(other);
-    }
+    public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
 
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
-    }
+    public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
 
     public static bool operator ==(GPUOverclockInfo left, GPUOverclockInfo right) => left.Equals(right);
 
@@ -321,12 +312,12 @@ public readonly struct GPUStatus(GPUState state, string? performanceState, List<
     public int ProcessCount => Processes.Count;
 }
 
-public readonly struct HardwareId
+public readonly struct HardwareId(string vendor, string device)
 {
     public static readonly HardwareId Empty = new();
 
-    public string Vendor { get; init; }
-    public string Device { get; init; }
+    public string Vendor { get; } = vendor;
+    public string Device { get; } = device;
 
     #region Equality
 
@@ -638,12 +629,12 @@ public readonly struct SensorData
         $" {nameof(MaxFanSpeed)}: {MaxFanSpeed}";
 }
 
-public readonly struct SensorsData
+public readonly struct SensorsData(SensorData cpu, SensorData gpu)
 {
-    public static readonly SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
+    public static readonly SensorsData Empty = new(SensorData.Empty, SensorData.Empty);
 
-    public SensorData CPU { get; init; }
-    public SensorData GPU { get; init; }
+    public SensorData CPU { get; } = cpu;
+    public SensorData GPU { get; } = gpu;
 
     public override string ToString() => $"{nameof(CPU)}: {CPU}, {nameof(GPU)}: {GPU}";
 }
@@ -780,10 +771,10 @@ public readonly struct StepperValue(int value, int min, int max, int step, int[]
         $" {nameof(DefaultValue)} : {DefaultValue}";
 }
 
-public readonly struct Time
+public readonly struct Time(int hour, int minute)
 {
-    public int Hour { get; init; }
-    public int Minute { get; init; }
+    public int Hour { get; } = hour;
+    public int Minute { get; } = minute;
 
     #region Equality
 
@@ -810,11 +801,11 @@ public readonly struct Update(Release release)
         .FirstOrDefault();
 }
 
-public readonly struct WarrantyInfo
+public readonly struct WarrantyInfo(DateTime? start, DateTime? end, Uri? link)
 {
-    public DateTime? Start { get; init; }
-    public DateTime? End { get; init; }
-    public Uri? Link { get; init; }
+    public DateTime? Start { get; init; } = start;
+    public DateTime? End { get; init; } = end;
+    public Uri? Link { get; init; } = link;
 }
 
 public readonly struct WindowSize(double width, double height)

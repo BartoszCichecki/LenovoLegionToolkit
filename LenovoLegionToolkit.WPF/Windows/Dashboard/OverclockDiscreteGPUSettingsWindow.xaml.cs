@@ -55,11 +55,7 @@ public partial class OverclockDiscreteGPUSettingsWindow
     private void Save()
     {
         var (enabled, _) = _gpuOverclockController.GetState();
-        var info = new GPUOverclockInfo
-        {
-            CoreDeltaMhz = (int)_coreSlider.Value,
-            MemoryDeltaMhz = (int)_memorySlider.Value
-        };
+        var info = new GPUOverclockInfo((int)_coreSlider.Value, (int)_memorySlider.Value);
 
         _gpuOverclockController.SaveState(enabled, info);
     }

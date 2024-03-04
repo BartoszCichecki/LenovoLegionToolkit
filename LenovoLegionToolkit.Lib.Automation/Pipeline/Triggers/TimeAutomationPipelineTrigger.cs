@@ -35,7 +35,7 @@ public class TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? 
     public async Task<bool> IsMatchingState()
     {
         var now = DateTime.UtcNow;
-        var time = new Time { Hour = now.Hour, Minute = now.Minute };
+        var time = new Time(now.Hour, now.Minute);
         var day = now.DayOfWeek;
 
         return await IsMatching(time, day).ConfigureAwait(false);

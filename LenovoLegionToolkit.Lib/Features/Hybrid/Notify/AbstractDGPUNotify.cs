@@ -181,7 +181,7 @@ public abstract partial class AbstractDGPUNotify : IDGPUNotify
             var vendor = matches[0].Groups[1].Value;
             var device = matches[1].Groups[2].Value;
 
-            return new HardwareId { Vendor = vendor, Device = device };
+            return new(vendor, device);
         }
         catch
         {

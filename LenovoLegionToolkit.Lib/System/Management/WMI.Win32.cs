@@ -119,13 +119,7 @@ public static partial class WMI
                     if (driverDateString is not null)
                         driverDate = ManagementDateTimeConverter.ToDateTime(driverDateString).Date;
 
-                    return new DriverInfo
-                    {
-                        DeviceId = deviceId,
-                        HardwareId = hardwareId,
-                        Version = driverVersion,
-                        Date = driverDate
-                    };
+                    return new DriverInfo(deviceId, hardwareId, driverVersion, driverDate);
                 });
         }
     }

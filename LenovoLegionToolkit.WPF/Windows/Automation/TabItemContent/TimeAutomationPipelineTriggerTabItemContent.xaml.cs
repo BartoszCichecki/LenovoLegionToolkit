@@ -77,7 +77,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         var pickedMinute = (int?)_timePickerMinutes.Value ?? 0;
 
         var utc = DateTimeExtensions.LocalFrom(pickedHour, pickedMinute).ToUniversalTime();
-        return new Time { Hour = utc.Hour, Minute = utc.Minute };
+        return new Time(utc.Hour, utc.Minute);
     }
 
     private DayOfWeek[] GetSelectedDays()

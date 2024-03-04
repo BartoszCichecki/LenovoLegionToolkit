@@ -98,12 +98,7 @@ public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory htt
 
         var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 
-        var warrantyInfo = new WarrantyInfo
-        {
-            Start = startDate,
-            End = endDate,
-            Link = link,
-        };
+        var warrantyInfo = new WarrantyInfo(startDate, endDate, link);
 
         return warrantyInfo;
     }

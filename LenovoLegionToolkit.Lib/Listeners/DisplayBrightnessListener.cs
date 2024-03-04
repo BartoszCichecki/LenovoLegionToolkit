@@ -22,7 +22,7 @@ public class DisplayBrightnessListener(PowerPlanController powerPlanController, 
 
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
-    protected override Brightness GetValue(byte value) => value;
+    protected override Brightness GetValue(byte value) => new(value);
 
     protected override ChangedEventArgs GetEventArgs(Brightness value) => new(value);
 

@@ -57,6 +57,6 @@ public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory htt
         if (sunrise == null || sunset == null)
             return (null, null);
 
-        return (new Time { Hour = sunrise.Value.Hour, Minute = sunrise.Value.Minute }, new Time { Hour = sunset.Value.Hour, Minute = sunset.Value.Minute });
+        return (new Time(sunrise.Value.Hour, sunrise.Value.Minute), new Time(sunset.Value.Hour, sunset.Value.Minute));
     }
 }

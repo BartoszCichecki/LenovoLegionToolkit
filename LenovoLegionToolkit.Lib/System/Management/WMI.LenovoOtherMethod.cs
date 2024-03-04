@@ -59,7 +59,7 @@ public static partial class WMI
                 var id = Convert.ToInt32(pdc["DGPU_ID"].Value);
                 var vendorId = id & 0xFFFF;
                 var deviceId = id >> 16;
-                return new HardwareId { Vendor = $"{vendorId:X}", Device = $"{deviceId:X}" };
+                return new HardwareId($"{vendorId:X}", $"{deviceId:X}");
             });
 
         public static Task<int> GetFeatureValueAsync(CapabilityID id) => CallAsync("root\\WMI",

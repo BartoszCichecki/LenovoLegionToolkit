@@ -92,22 +92,22 @@ public static partial class WMI
                 var id = pdc["Data"].Value.ToString();
 
                 if (id is null)
-                    return default;
+                    return HardwareId.Empty;
 
                 try
                 {
                     var matches = DGPUHWIdRegex().Matches(id);
                     if (matches.Count != 2)
-                        return default;
+                        return HardwareId.Empty;
 
                     var vendor = matches[0].Groups[1].Value;
                     var device = matches[1].Groups[2].Value;
 
-                    return new HardwareId { Vendor = vendor, Device = device };
+                    return new HardwareId(vendor, device);
                 }
                 catch
                 {
-                    return default;
+                    return HardwareId.Empty;
                 }
             });
 

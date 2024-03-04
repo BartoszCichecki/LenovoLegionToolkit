@@ -236,6 +236,6 @@ public class GPUOverclockController
         var states = GPUApi.GetPerformanceStates20(gpu.Handle);
         var core = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
         var memory = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
-        return new() { CoreDeltaMhz = core, MemoryDeltaMhz = memory };
+        return new(core, memory);
     }
 }
