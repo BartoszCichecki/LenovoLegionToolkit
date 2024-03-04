@@ -309,19 +309,16 @@ public class GodModeControllerV2(
 
         var fanTableData = data
             .Where(d => d.mode == (int)powerModeState + 1)
-            .Select(d => new FanTableData
+            .Select(d =>
             {
-                Type = (d.fanId, d.sensorId) switch
+                var type = (d.fanId, d.sensorId) switch
                 {
                     (1, 4) => FanTableType.CPU,
                     (1, 1) => FanTableType.CPUSensor,
                     (2, 5) => FanTableType.GPU,
                     _ => FanTableType.Unknown,
-                },
-                FanId = d.fanId,
-                SensorId = d.sensorId,
-                FanSpeeds = d.fanTableData,
-                Temps = d.sensorTableData
+                };
+                return new FanTableData(type, d.fanId, d.sensorId, d.fanTableData, d.sensorTableData);
             })
             .ToArray();
 

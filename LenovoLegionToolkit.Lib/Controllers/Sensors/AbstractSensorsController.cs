@@ -69,30 +69,26 @@ public abstract class AbstractSensorsController(GPUController gpuController) : I
         var gpuCurrentFanSpeed = await GetGpuCurrentFanSpeedAsync().ConfigureAwait(false);
         var gpuMaxFanSpeed = _gpuMaxFanSpeedCache ??= await GetGpuMaxFanSpeedAsync().ConfigureAwait(false);
 
-        var cpu = new SensorData
-        {
-            Utilization = cpuUtilization,
-            MaxUtilization = genericMaxUtilization,
-            CoreClock = cpuCoreClock,
-            MaxCoreClock = cpuMaxCoreClock,
-            Temperature = cpuCurrentTemperature,
-            MaxTemperature = genericMaxTemperature,
-            FanSpeed = cpuCurrentFanSpeed,
-            MaxFanSpeed = cpuMaxFanSpeed,
-        };
-        var gpu = new SensorData
-        {
-            Utilization = gpuInfo.Utilization,
-            MaxUtilization = genericMaxUtilization,
-            CoreClock = gpuInfo.CoreClock,
-            MaxCoreClock = gpuInfo.MaxCoreClock,
-            MemoryClock = gpuInfo.MemoryClock,
-            MaxMemoryClock = gpuInfo.MaxMemoryClock,
-            Temperature = gpuCurrentTemperature,
-            MaxTemperature = gpuMaxTemperature,
-            FanSpeed = gpuCurrentFanSpeed,
-            MaxFanSpeed = gpuMaxFanSpeed,
-        };
+        var cpu = new SensorData(cpuUtilization,
+            genericMaxUtilization,
+            cpuCoreClock,
+            cpuMaxCoreClock,
+            -1,
+            -1,
+            cpuCurrentTemperature,
+            genericMaxTemperature,
+            cpuCurrentFanSpeed,
+            cpuMaxFanSpeed);
+        var gpu = new SensorData(gpuInfo.Utilization,
+            genericMaxUtilization,
+            gpuInfo.CoreClock,
+            gpuInfo.MaxCoreClock,
+            gpuInfo.MemoryClock,
+            gpuInfo.MaxMemoryClock,
+            gpuCurrentTemperature,
+            gpuMaxTemperature,
+            gpuCurrentFanSpeed,
+            gpuMaxFanSpeed);
         var result = new SensorsData(cpu, gpu);
 
         if (Log.Instance.IsTraceEnabled)

@@ -602,19 +602,16 @@ public class GodModeControllerV1(
         var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
         var fanTableData = data
-            .Select(d => new FanTableData
+            .Select(d =>
             {
-                Type = (d.fanId, d.sensorId) switch
+                var type = (d.fanId, d.sensorId) switch
                 {
                     (0, 3) => FanTableType.CPU,
                     (1, 4) => FanTableType.GPU,
                     (0, 0) => FanTableType.CPUSensor,
                     _ => FanTableType.Unknown,
-                },
-                FanId = d.fanId,
-                SensorId = d.sensorId,
-                FanSpeeds = d.fanTableData,
-                Temps = d.sensorTableData
+                };
+                return new FanTableData(type, d.fanId, d.sensorId, d.fanTableData, d.sensorTableData);
             })
             .ToArray();
 

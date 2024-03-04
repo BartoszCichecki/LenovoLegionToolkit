@@ -12,21 +12,34 @@ using Octokit;
 
 namespace LenovoLegionToolkit.Lib;
 
-public readonly struct BatteryInformation
+public readonly struct BatteryInformation(
+    bool isCharging,
+    int batteryPercentage,
+    int batteryLifeRemaining,
+    int fullBatteryLifeRemaining,
+    int dischargeRate,
+    int estimateChargeRemaining,
+    int designCapacity,
+    int fullChargeCapacity,
+    int cycleCount,
+    bool isLowBattery,
+    double? batteryTemperatureC,
+    DateTime? manufactureDate,
+    DateTime? firstUseDate)
 {
-    public bool IsCharging { get; init; }
-    public int BatteryPercentage { get; init; }
-    public int BatteryLifeRemaining { get; init; }
-    public int FullBatteryLifeRemaining { get; init; }
-    public int DischargeRate { get; init; }
-    public int EstimateChargeRemaining { get; init; }
-    public int DesignCapacity { get; init; }
-    public int FullChargeCapacity { get; init; }
-    public int CycleCount { get; init; }
-    public bool IsLowBattery { get; init; }
-    public double? BatteryTemperatureC { get; init; }
-    public DateTime? ManufactureDate { get; init; }
-    public DateTime? FirstUseDate { get; init; }
+    public bool IsCharging { get; } = isCharging;
+    public int BatteryPercentage { get; } = batteryPercentage;
+    public int BatteryLifeRemaining { get; } = batteryLifeRemaining;
+    public int FullBatteryLifeRemaining { get; init; } = fullBatteryLifeRemaining;
+    public int DischargeRate { get; } = dischargeRate;
+    public int EstimateChargeRemaining { get; } = estimateChargeRemaining;
+    public int DesignCapacity { get; } = designCapacity;
+    public int FullChargeCapacity { get; } = fullChargeCapacity;
+    public int CycleCount { get; } = cycleCount;
+    public bool IsLowBattery { get; } = isLowBattery;
+    public double? BatteryTemperatureC { get; } = batteryTemperatureC;
+    public DateTime? ManufactureDate { get; } = manufactureDate;
+    public DateTime? FirstUseDate { get; } = firstUseDate;
 }
 
 public readonly struct BiosVersion(string prefix, int? version)
@@ -90,13 +103,13 @@ public readonly struct DriverInfo(string deviceId, string hardwareId, Version? v
     public DateTime? Date { get; } = date;
 }
 
-public readonly struct FanTableData
+public readonly struct FanTableData(FanTableType type, byte fanId, byte sensorId, ushort[] fanSpeeds, ushort[] temps)
 {
-    public FanTableType Type { get; init; }
-    public byte FanId { get; init; }
-    public byte SensorId { get; init; }
-    public ushort[] FanSpeeds { get; init; }
-    public ushort[] Temps { get; init; }
+    public FanTableType Type { get; } = type;
+    public byte FanId { get; } = fanId;
+    public byte SensorId { get; } = sensorId;
+    public ushort[] FanSpeeds { get; } = fanSpeeds;
+    public ushort[] Temps { get; } = temps;
 
     public override string ToString() =>
         $"{nameof(Type)}: {Type}," +
@@ -506,9 +519,6 @@ public readonly struct RangeCapability(CapabilityID id, int defaultValue, int mi
 [method: JsonConstructor]
 public readonly struct RGBColor(byte r, byte g, byte b)
 {
-    public static readonly RGBColor Black = new(0, 0, 0);
-    public static readonly RGBColor White = new(255, 255, 255);
-
     public byte R { get; } = r;
     public byte G { get; } = g;
     public byte B { get; } = b;
@@ -590,31 +600,30 @@ public readonly struct RGBKeyboardBacklightState(
     public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> Presets { get; } = presets;
 }
 
-public readonly struct SensorData
+public readonly struct SensorData(
+    int utilization,
+    int maxUtilization,
+    int coreClock,
+    int maxCoreClock,
+    int memoryClock,
+    int maxMemoryClock,
+    int temperature,
+    int maxTemperature,
+    int fanSpeed,
+    int maxFanSpeed)
 {
-    public static readonly SensorData Empty = new()
-    {
-        Utilization = -1,
-        CoreClock = -1,
-        MaxCoreClock = -1,
-        MemoryClock = -1,
-        MaxMemoryClock = -1,
-        Temperature = -1,
-        MaxTemperature = -1,
-        FanSpeed = -1,
-        MaxFanSpeed = -1
-    };
+    public static readonly SensorData Empty = new(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
 
-    public int Utilization { get; init; }
-    public int MaxUtilization { get; init; }
-    public int CoreClock { get; init; }
-    public int MaxCoreClock { get; init; }
-    public int MemoryClock { get; init; }
-    public int MaxMemoryClock { get; init; }
-    public int Temperature { get; init; }
-    public int MaxTemperature { get; init; }
-    public int FanSpeed { get; init; }
-    public int MaxFanSpeed { get; init; }
+    public int Utilization { get; } = utilization;
+    public int MaxUtilization { get; } = maxUtilization;
+    public int CoreClock { get; } = coreClock;
+    public int MaxCoreClock { get; } = maxCoreClock;
+    public int MemoryClock { get; } = memoryClock;
+    public int MaxMemoryClock { get; } = maxMemoryClock;
+    public int Temperature { get; } = temperature;
+    public int MaxTemperature { get; } = maxTemperature;
+    public int FanSpeed { get; } = fanSpeed;
+    public int MaxFanSpeed { get; } = maxFanSpeed;
 
     public override string ToString() =>
         $"{nameof(Utilization)}: {Utilization}," +
@@ -803,9 +812,9 @@ public readonly struct Update(Release release)
 
 public readonly struct WarrantyInfo(DateTime? start, DateTime? end, Uri? link)
 {
-    public DateTime? Start { get; init; } = start;
-    public DateTime? End { get; init; } = end;
-    public Uri? Link { get; init; } = link;
+    public DateTime? Start { get; } = start;
+    public DateTime? End { get; } = end;
+    public Uri? Link { get; } = link;
 }
 
 public readonly struct WindowSize(double width, double height)

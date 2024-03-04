@@ -41,22 +41,19 @@ public static class Battery
                 Log.Instance.Trace($"Failed to get temperature of battery.", ex);
         }
 
-        return new()
-        {
-            IsCharging = powerStatus.ACLineStatus == 1,
-            BatteryPercentage = powerStatus.BatteryLifePercent,
-            BatteryLifeRemaining = (int)powerStatus.BatteryLifeTime,
-            FullBatteryLifeRemaining = (int)powerStatus.BatteryFullLifeTime,
-            DischargeRate = status.Rate,
-            EstimateChargeRemaining = (int)status.Capacity,
-            DesignCapacity = (int)information.DesignedCapacity,
-            FullChargeCapacity = (int)information.FullChargedCapacity,
-            CycleCount = (int)information.CycleCount,
-            IsLowBattery = powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
-            BatteryTemperatureC = temperatureC,
-            ManufactureDate = manufactureDate,
-            FirstUseDate = firstUseDate
-        };
+        return new(powerStatus.ACLineStatus == 1,
+            powerStatus.BatteryLifePercent,
+            (int)powerStatus.BatteryLifeTime,
+            (int)powerStatus.BatteryFullLifeTime,
+            status.Rate,
+            (int)status.Capacity,
+            (int)information.DesignedCapacity,
+            (int)information.FullChargedCapacity,
+            (int)information.CycleCount,
+            powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
+            temperatureC,
+            manufactureDate,
+            firstUseDate);
     }
 
     public static double? GetBatteryTemperatureC()

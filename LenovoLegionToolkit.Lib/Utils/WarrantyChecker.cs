@@ -57,14 +57,7 @@ public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory htt
         var id = firstProductNode?["Id"];
         var link = id is null ? null : new Uri($"https://pcsupport.lenovo.com/products/{id}");
 
-        var warrantyInfo = new WarrantyInfo
-        {
-            Start = startDate,
-            End = endDate,
-            Link = link,
-        };
-
-        return warrantyInfo;
+        return new WarrantyInfo(startDate, endDate, link);
     }
 
     private static async Task<WarrantyInfo?> GetChineseWarrantyInfo(HttpClient httpClient, MachineInformation machineInformation, CancellationToken token)
@@ -98,8 +91,6 @@ public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory htt
 
         var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 
-        var warrantyInfo = new WarrantyInfo(startDate, endDate, link);
-
-        return warrantyInfo;
+        return new WarrantyInfo(startDate, endDate, link);
     }
 }
