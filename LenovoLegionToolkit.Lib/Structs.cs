@@ -506,19 +506,6 @@ public readonly struct PowerPlan
     public override string ToString() => Name;
 }
 
-public readonly struct ProcessEventInfo
-{
-    public ProcessEventInfoType Type { get; }
-
-    public ProcessInfo Process { get; }
-
-    public ProcessEventInfo(ProcessEventInfoType type, ProcessInfo process)
-    {
-        Type = type;
-        Process = process;
-    }
-}
-
 public readonly struct ProcessInfo : IComparable
 {
     public static ProcessInfo FromPath(string path) => new(Path.GetFileNameWithoutExtension(path), path);

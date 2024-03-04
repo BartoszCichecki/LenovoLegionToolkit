@@ -81,7 +81,7 @@ public class SpectrumKeyboardBacklightController
         _listener.Changed += Listener_Changed;
     }
 
-    private async void Listener_Changed(object? sender, SpecialKey e)
+    private async void Listener_Changed(object? sender, SpecialKeyListener.ChangedEventArgs e)
     {
         if (!await IsSupportedAsync().ConfigureAwait(false))
             return;
@@ -89,7 +89,7 @@ public class SpectrumKeyboardBacklightController
         if (await _vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             return;
 
-        switch (e)
+        switch (e.SpecialKey)
         {
             case SpecialKey.SpectrumPreset1
                 or SpecialKey.SpectrumPreset2

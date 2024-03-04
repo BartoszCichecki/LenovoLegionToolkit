@@ -8,8 +8,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayBrightnessListener : AbstractWMIListener<Brightness, byte>
+public class DisplayBrightnessListener : AbstractWMIListener<DisplayBrightnessListener.ChangedEventArgs, Brightness, byte>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public Brightness Brightness { get; init; }
+    }
+
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
 
@@ -26,6 +31,8 @@ public class DisplayBrightnessListener : AbstractWMIListener<Brightness, byte>
     }
 
     protected override Brightness GetValue(byte value) => value;
+
+    protected override ChangedEventArgs GetEventArgs(Brightness value) => new() { Brightness = value };
 
     protected override async Task OnChangedAsync(Brightness value)
     {

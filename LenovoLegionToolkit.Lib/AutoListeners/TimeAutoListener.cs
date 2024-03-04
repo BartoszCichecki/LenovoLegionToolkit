@@ -5,8 +5,14 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class TimeAutoListener : AbstractAutoListener<(Time, DayOfWeek)>
+public class TimeAutoListener : AbstractAutoListener<TimeAutoListener.ChangedEventArgs>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public Time Time { get; init; }
+        public DayOfWeek Day { get; init; }
+    }
+
     private readonly Timer _timer;
 
     public TimeAutoListener()
@@ -31,5 +37,5 @@ public class TimeAutoListener : AbstractAutoListener<(Time, DayOfWeek)>
         return Task.CompletedTask;
     }
 
-    private void Timer_Elapsed(object? sender, ElapsedEventArgs e) => RaiseChanged((TimeExtensions.UtcNow, DateTime.UtcNow.DayOfWeek));
+    private void Timer_Elapsed(object? sender, ElapsedEventArgs e) => RaiseChanged(new ChangedEventArgs { Time = TimeExtensions.UtcNow, Day = DateTime.UtcNow.DayOfWeek });
 }

@@ -89,9 +89,9 @@ public class OverclockDiscreteGPUControl : AbstractRefreshingControl
         _toggle.Visibility = Visibility.Visible;
     }
 
-    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessage e)
+    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs e)
     {
-        if (e != NativeWindowsMessage.OnDisplayDeviceArrival)
+        if (e.Message != NativeWindowsMessage.OnDisplayDeviceArrival)
             return;
 
         Visibility = Visibility.Visible;

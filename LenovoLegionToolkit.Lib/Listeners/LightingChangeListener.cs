@@ -8,8 +8,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class LightingChangeListener : AbstractWMIListener<LightingChangeState, int>
+public class LightingChangeListener : AbstractWMIListener<LightingChangeListener.ChangedEventArgs, LightingChangeState, int>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public LightingChangeState State { get; init; }
+    }
+
     private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature;
     private readonly PortsBacklightFeature _portsBacklightFeature;
     private readonly FnKeysDisabler _fnKeysDisabler;
@@ -30,6 +35,8 @@ public class LightingChangeListener : AbstractWMIListener<LightingChangeState, i
         var result = (LightingChangeState)value;
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(LightingChangeState value) => new() { State = value };
 
     protected override async Task OnChangedAsync(LightingChangeState value)
     {

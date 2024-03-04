@@ -111,8 +111,8 @@ public partial class App
         await InitRgbKeyboardControllerAsync();
         await InitSpectrumKeyboardControllerAsync();
         await InitGpuOverclockControllerAsync();
-        await InitAutomationProcessorAsync();
         await InitHybridModeAsync();
+        await InitAutomationProcessorAsync();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();

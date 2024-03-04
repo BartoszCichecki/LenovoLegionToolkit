@@ -250,21 +250,21 @@ public class AutomationProcessor
 
     #region Listeners
 
-    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessage message)
+    private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs args)
     {
-        var e = new NativeWindowsMessageEvent { Message = message };
+        var e = new NativeWindowsMessageEvent { Message = args.Message };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void PowerStateListener_Changed(object? sender, EventArgs _)
+    private async void PowerStateListener_Changed(object? sender, PowerStateListener.ChangedEventArgs args)
     {
-        var e = new PowerStateAutomationEvent();
+        var e = new PowerStateAutomationEvent { Event = args.Event, PowerAdapterStateChanged = args.PowerAdapterStateChanged };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void PowerModeListener_Changed(object? sender, PowerModeState powerModeState)
+    private async void PowerModeListener_Changed(object? sender, PowerModeListener.ChangedEventArgs args)
     {
-        var e = new PowerModeAutomationEvent { PowerModeState = powerModeState };
+        var e = new PowerModeAutomationEvent { PowerModeState = args.State };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
@@ -274,40 +274,40 @@ public class AutomationProcessor
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void GameAutoListener_Changed(object? sender, bool started)
+    private async void GameAutoListener_Changed(object? sender, GameAutoListener.ChangedEventArgs args)
     {
-        var e = new GameAutomationEvent { Started = started };
+        var e = new GameAutomationEvent { Running = args.Running };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void ProcessAutoListener_Changed(object? sender, ProcessEventInfo processEventInfo)
+    private async void ProcessAutoListener_Changed(object? sender, ProcessAutoListener.ChangedEventArgs args)
     {
-        var e = new ProcessAutomationEvent { ProcessEventInfo = processEventInfo };
+        var e = new ProcessAutomationEvent { Type = args.Type, ProcessInfo = args.ProcessInfo };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void TimeAutoListener_Changed(object? sender, (Time time, DayOfWeek day) timeDay)
+    private async void TimeAutoListener_Changed(object? sender, TimeAutoListener.ChangedEventArgs args)
     {
-        var e = new TimeAutomationEvent { Time = timeDay.time, Day = timeDay.day };
+        var e = new TimeAutomationEvent { Time = args.Time, Day = args.Day };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void UserInactivityAutoListener_Changed(object? sender, (TimeSpan resolution, uint tickCount) inactivityInfo)
+    private async void UserInactivityAutoListener_Changed(object? sender, UserInactivityAutoListener.ChangedEventArgs args)
     {
         var e = new UserInactivityAutomationEvent
         {
-            InactivityTimeSpan = inactivityInfo.resolution * inactivityInfo.tickCount,
-            ResolutionTimeSpan = inactivityInfo.resolution
+            InactivityTimeSpan = args.TimerResolution * args.TickCount,
+            ResolutionTimeSpan = args.TimerResolution
         };
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
-    private async void WiFiAutoListener_Changed(object? sender, (bool connected, string? ssid) wifiInfo)
+    private async void WiFiAutoListener_Changed(object? sender, WiFiAutoListener.ChangedEventArgs args)
     {
         var e = new WiFiAutomationEvent
         {
-            IsConnected = wifiInfo.connected,
-            Ssid = wifiInfo.ssid
+            IsConnected = args.IsConnected,
+            Ssid = args.Ssid
         };
         await ProcessEvent(e).ConfigureAwait(false);
     }

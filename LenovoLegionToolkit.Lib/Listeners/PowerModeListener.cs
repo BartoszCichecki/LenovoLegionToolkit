@@ -6,8 +6,13 @@ using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INotifyingListener<PowerModeState>
+public class PowerModeListener : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>, INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public PowerModeState State { get; init; }
+    }
+
     private readonly PowerPlanController _powerPlanController;
 
     public PowerModeListener(PowerPlanController powerPlanController)
@@ -21,6 +26,8 @@ public class PowerModeListener : AbstractWMIListener<PowerModeState, int>, INoti
         var result = (PowerModeState)(value - 1);
         return result;
     }
+
+    protected override ChangedEventArgs GetEventArgs(PowerModeState value) => new() { State = value };
 
     protected override async Task OnChangedAsync(PowerModeState value)
     {

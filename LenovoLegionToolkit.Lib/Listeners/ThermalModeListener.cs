@@ -6,8 +6,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener : AbstractWMIListener<ThermalModeState, int>
+public class ThermalModeListener : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public ThermalModeState State { get; init; }
+    }
+
     private readonly ThreadSafeCounter _suppressCounter = new();
 
     private readonly PowerPlanController _powerPlanController;
@@ -31,6 +36,8 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeState, int>
 
         return state;
     }
+
+    protected override ChangedEventArgs GetEventArgs(ThermalModeState value) => new() { State = value };
 
     protected override async Task OnChangedAsync(ThermalModeState state)
     {
