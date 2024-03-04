@@ -6,10 +6,10 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class InstanceStoppedEventAutoAutoListener : AbstractAutoListener<InstanceStoppedEventAutoAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(int processId, string processName) : EventArgs
     {
-        public int ProcessId { get; init; }
-        public string ProcessName { get; init; } = string.Empty;
+        public int ProcessId { get; } = processId;
+        public string ProcessName { get; } = processName;
     }
 
     private IDisposable? _disposable;
@@ -28,5 +28,5 @@ public class InstanceStoppedEventAutoAutoListener : AbstractAutoListener<Instanc
         return Task.CompletedTask;
     }
 
-    private void Handle(int processId, string processName) => RaiseChanged(new ChangedEventArgs { ProcessId = processId, ProcessName = processName });
+    private void Handle(int processId, string processName) => RaiseChanged(new ChangedEventArgs(processId, processName));
 }

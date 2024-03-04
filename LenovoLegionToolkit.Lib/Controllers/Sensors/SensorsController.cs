@@ -9,10 +9,6 @@ public class SensorsController(
     SensorsControllerV3 controllerV3)
     : ISensorsController
 {
-    private readonly SensorsControllerV1 _controllerV1 = controllerV1 ?? throw new ArgumentNullException(nameof(controllerV1));
-    private readonly SensorsControllerV2 _controllerV2 = controllerV2 ?? throw new ArgumentNullException(nameof(controllerV2));
-    private readonly SensorsControllerV3 _controllerV3 = controllerV3 ?? throw new ArgumentNullException(nameof(controllerV3));
-
     private ISensorsController? _controller;
 
     public async Task<bool> IsSupportedAsync() => await GetControllerAsync().ConfigureAwait(false) is not null;
@@ -40,14 +36,14 @@ public class SensorsController(
         if (_controller is not null)
             return _controller;
 
-        if (await _controllerV3.IsSupportedAsync().ConfigureAwait(false))
-            return _controller = _controllerV3;
+        if (await controllerV3.IsSupportedAsync().ConfigureAwait(false))
+            return _controller = controllerV3;
 
-        if (await _controllerV2.IsSupportedAsync().ConfigureAwait(false))
-            return _controller = _controllerV2;
+        if (await controllerV2.IsSupportedAsync().ConfigureAwait(false))
+            return _controller = controllerV2;
 
-        if (await _controllerV1.IsSupportedAsync().ConfigureAwait(false))
-            return _controller = _controllerV1;
+        if (await controllerV1.IsSupportedAsync().ConfigureAwait(false))
+            return _controller = controllerV1;
 
         return null;
     }

@@ -12,10 +12,10 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
     : AbstractAutoListener<UserInactivityAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(TimeSpan timerResolution, uint tickCount) : EventArgs
     {
-        public TimeSpan TimerResolution { get; init; }
-        public uint TickCount { get; init; }
+        public TimeSpan TimerResolution { get; } = timerResolution;
+        public uint TickCount { get; } = tickCount;
     }
 
     private class UserInactivityWindow : NativeWindow, IDisposable
@@ -119,7 +119,7 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User became active.");
 
-            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = 0 });
+            RaiseChanged(new ChangedEventArgs(_timerResolution, 0));
         }
     }
 
@@ -132,7 +132,7 @@ public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatch
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
 
-            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = _tickCount });
+            RaiseChanged(new ChangedEventArgs(_timerResolution, _tickCount));
         }
     }
 }

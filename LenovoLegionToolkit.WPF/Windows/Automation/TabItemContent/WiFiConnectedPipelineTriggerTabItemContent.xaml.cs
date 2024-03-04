@@ -63,7 +63,7 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
     private UserControl CreateControl(string ssid)
     {
         var control = new ItemControl { Text = ssid };
-        control.Delete += (s, e) =>
+        control.Delete += (s, _) =>
         {
             if (s is not UIElement element)
                 return;
@@ -109,7 +109,7 @@ public partial class WiFiConnectedPipelineTriggerTabItemContent : IAutomationPip
         public ItemControl()
         {
             _removeButton.SetBinding(HeightProperty, new Binding(nameof(_textBox.ActualHeight)) { Source = _textBox });
-            _removeButton.Click += (s, e) => Delete?.Invoke(this, EventArgs.Empty);
+            _removeButton.Click += (_, _) => Delete?.Invoke(this, EventArgs.Empty);
 
             Grid.SetColumn(_textBox, 0);
             Grid.SetColumn(_removeButton, 1);

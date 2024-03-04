@@ -11,21 +11,18 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory httpClientFactory)
 {
-    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    private readonly HttpClientFactory _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-
     public async Task<WarrantyInfo?> GetWarrantyInfo(MachineInformation machineInformation, bool forceRefresh = false, CancellationToken token = default)
     {
-        if (!forceRefresh && _settings.Store.WarrantyInfo.HasValue)
-            return _settings.Store.WarrantyInfo.Value;
+        if (!forceRefresh && settings.Store.WarrantyInfo.HasValue)
+            return settings.Store.WarrantyInfo.Value;
 
-        using var httpClient = _httpClientFactory.Create();
+        using var httpClient = httpClientFactory.Create();
 
         var warrantyInfo = await GetStandardWarrantyInfo(httpClient, machineInformation, token).ConfigureAwait(false);
         warrantyInfo ??= await GetChineseWarrantyInfo(httpClient, machineInformation, token).ConfigureAwait(false);
 
-        _settings.Store.WarrantyInfo = warrantyInfo;
-        _settings.SynchronizeStore();
+        settings.Store.WarrantyInfo = warrantyInfo;
+        settings.SynchronizeStore();
 
         return warrantyInfo;
     }

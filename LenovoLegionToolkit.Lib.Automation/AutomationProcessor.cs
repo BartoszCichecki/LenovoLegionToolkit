@@ -228,63 +228,55 @@ public class AutomationProcessor(
 
     private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs args)
     {
-        var e = new NativeWindowsMessageEvent { Message = args.Message };
+        var e = new NativeWindowsMessageEvent(args.Message);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void PowerStateListener_Changed(object? sender, PowerStateListener.ChangedEventArgs args)
     {
-        var e = new PowerStateAutomationEvent { Event = args.Event, PowerAdapterStateChanged = args.PowerAdapterStateChanged };
+        var e = new PowerStateAutomationEvent(args.PowerStateEvent, args.PowerAdapterStateChanged);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void PowerModeListener_Changed(object? sender, PowerModeListener.ChangedEventArgs args)
     {
-        var e = new PowerModeAutomationEvent { PowerModeState = args.State };
+        var e = new PowerModeAutomationEvent(args.State);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void GodModeController_PresetChanged(object? sender, Guid presetId)
     {
-        var e = new CustomModePresetAutomationEvent { Id = presetId };
+        var e = new CustomModePresetAutomationEvent(presetId);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void GameAutoListener_Changed(object? sender, GameAutoListener.ChangedEventArgs args)
     {
-        var e = new GameAutomationEvent { Running = args.Running };
+        var e = new GameAutomationEvent(args.Running);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void ProcessAutoListener_Changed(object? sender, ProcessAutoListener.ChangedEventArgs args)
     {
-        var e = new ProcessAutomationEvent { Type = args.Type, ProcessInfo = args.ProcessInfo };
+        var e = new ProcessAutomationEvent(args.Type, args.ProcessInfo);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void TimeAutoListener_Changed(object? sender, TimeAutoListener.ChangedEventArgs args)
     {
-        var e = new TimeAutomationEvent { Time = args.Time, Day = args.Day };
+        var e = new TimeAutomationEvent(args.Time, args.Day);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void UserInactivityAutoListener_Changed(object? sender, UserInactivityAutoListener.ChangedEventArgs args)
     {
-        var e = new UserInactivityAutomationEvent
-        {
-            InactivityTimeSpan = args.TimerResolution * args.TickCount,
-            ResolutionTimeSpan = args.TimerResolution
-        };
+        var e = new UserInactivityAutomationEvent(args.TimerResolution);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
     private async void WiFiAutoListener_Changed(object? sender, WiFiAutoListener.ChangedEventArgs args)
     {
-        var e = new WiFiAutomationEvent
-        {
-            IsConnected = args.IsConnected,
-            Ssid = args.Ssid
-        };
+        var e = new WiFiAutomationEvent(args.IsConnected, args.Ssid);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 

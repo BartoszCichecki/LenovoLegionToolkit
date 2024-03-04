@@ -14,23 +14,28 @@ namespace LenovoLegionToolkit.Lib.Controllers.Sensors;
 
 public abstract class AbstractSensorsController(GPUController gpuController) : ISensorsController
 {
-    private readonly struct GPUInfo
+    private readonly struct GPUInfo(
+        int utilization,
+        int coreClock,
+        int maxCoreClock,
+        int memoryClock,
+        int maxMemoryClock,
+        int temperature,
+        int maxTemperature)
     {
-        public static readonly GPUInfo Empty = new() { Utilization = -1, CoreClock = -1, MaxCoreClock = -1, MemoryClock = -1, MaxMemoryClock = -1, Temperature = -1, MaxTemperature = -1 };
+        public static readonly GPUInfo Empty = new(-1, -1, -1, -1, -1, -1, -1);
 
-        public int Utilization { get; init; }
-        public int CoreClock { get; init; }
-        public int MaxCoreClock { get; init; }
-        public int MemoryClock { get; init; }
-        public int MaxMemoryClock { get; init; }
-        public int Temperature { get; init; }
-        public int MaxTemperature { get; init; }
+        public int Utilization { get; } = utilization;
+        public int CoreClock { get; } = coreClock;
+        public int MaxCoreClock { get; } = maxCoreClock;
+        public int MemoryClock { get; } = memoryClock;
+        public int MaxMemoryClock { get; } = maxMemoryClock;
+        public int Temperature { get; } = temperature;
+        public int MaxTemperature { get; } = maxTemperature;
     }
 
     private readonly SafePerformanceCounter _percentProcessorPerformanceCounter = new("Processor Information", "% Processor Performance", "_Total");
     private readonly SafePerformanceCounter _percentProcessorUtilityCounter = new("Processor Information", "% Processor Utility", "_Total");
-
-    private readonly GPUController _gpuController = gpuController ?? throw new ArgumentNullException(nameof(gpuController));
 
     private int? _cpuBaseClockCache;
     private int? _cpuMaxCoreClockCache;
@@ -172,7 +177,7 @@ public abstract class AbstractSensorsController(GPUController gpuController) : I
 
     private async Task<GPUInfo> GetGPUInfoAsync()
     {
-        if (await _gpuController.GetLastKnownStateAsync().ConfigureAwait(false) is GPUState.PoweredOff or GPUState.Unknown)
+        if (await gpuController.GetLastKnownStateAsync().ConfigureAwait(false) is GPUState.PoweredOff or GPUState.Unknown)
             return GPUInfo.Empty;
 
         try
@@ -199,16 +204,13 @@ public abstract class AbstractSensorsController(GPUController gpuController) : I
             var currentTemperature = temperatureSensor?.CurrentTemperature ?? -1;
             var maxTemperature = temperatureSensor?.DefaultMaximumTemperature ?? -1;
 
-            return new()
-            {
-                Utilization = utilization,
-                CoreClock = currentCoreClock,
-                MaxCoreClock = maxCoreClock + maxCoreClockOffset,
-                MemoryClock = currentMemoryClock,
-                MaxMemoryClock = maxMemoryClock + maxMemoryClockOffset,
-                Temperature = currentTemperature,
-                MaxTemperature = maxTemperature
-            };
+            return new(utilization,
+                currentCoreClock,
+                maxCoreClock + maxCoreClockOffset,
+                currentMemoryClock,
+                maxMemoryClock + maxMemoryClockOffset,
+                currentTemperature,
+                maxTemperature);
         }
         catch
         {

@@ -9,13 +9,10 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory httpClientFactory)
 {
-    private readonly SunriseSunsetSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    private readonly HttpClientFactory _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-
     public async Task<(Time?, Time?)> GetSunriseSunsetAsync(CancellationToken token = default)
     {
-        var (sunrise, sunset) = (_settings.Store.Sunrise, _settings.Store.Sunset);
-        if (_settings.Store.LastCheckDateTime == DateTime.Today && sunrise is not null && sunset is not null)
+        var (sunrise, sunset) = (settings.Store.Sunrise, settings.Store.Sunset);
+        if (settings.Store.LastCheckDateTime == DateTime.Today && sunrise is not null && sunset is not null)
             return (sunrise, sunset);
 
         var coordinate = await GetGeoLocationAsync(token).ConfigureAwait(false);
@@ -25,10 +22,10 @@ public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory htt
 
         (sunrise, sunset) = CalculateSunriseSunset(coordinate);
 
-        _settings.Store.LastCheckDateTime = DateTime.UtcNow;
-        _settings.Store.Sunrise = sunrise;
-        _settings.Store.Sunset = sunset;
-        _settings.SynchronizeStore();
+        settings.Store.LastCheckDateTime = DateTime.UtcNow;
+        settings.Store.Sunrise = sunrise;
+        settings.Store.Sunset = sunset;
+        settings.SynchronizeStore();
 
         return (sunrise, sunset);
     }
@@ -37,7 +34,7 @@ public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory htt
     {
         try
         {
-            using var httpClient = _httpClientFactory.Create();
+            using var httpClient = httpClientFactory.Create();
             var responseJson = await httpClient.GetStringAsync("http://ip-api.com/json?fields=lat,lon", token).ConfigureAwait(false);
             var responseJsonNode = JsonNode.Parse(responseJson);
             if (responseJsonNode is not null && double.TryParse(responseJsonNode["lat"]?.ToString(), out var lat) && double.TryParse(responseJsonNode["lon"]?.ToString(), out var lon))

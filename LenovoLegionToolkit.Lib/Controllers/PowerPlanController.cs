@@ -23,10 +23,6 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
     };
 
-    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-
-    private readonly VantageDisabler _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-
     public IEnumerable<PowerPlan> GetPowerPlans()
     {
         var powerPlansGuid = GetPowerPlansGuid();
@@ -44,7 +40,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
 
-        var powerPlanId = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
+        var powerPlanId = settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
         var isDefault = false;
 
         if (powerPlanId == Guid.Empty)
@@ -105,7 +101,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
     {
         var powerModes = new Dictionary<PowerModeState, Guid>(DefaultPowerModes);
 
-        foreach (var kv in _settings.Store.PowerPlans)
+        foreach (var kv in settings.Store.PowerPlans)
         {
             powerModes[kv.Key] = kv.Value;
         }
@@ -117,7 +113,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
 
     private async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
     {
-        var activateWhenVantageEnabled = _settings.Store.ActivatePowerProfilesWithVantageEnabled;
+        var activateWhenVantageEnabled = settings.Store.ActivatePowerProfilesWithVantageEnabled;
         if (activateWhenVantageEnabled)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -134,7 +130,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             return true;
         }
 
-        var status = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+        var status = await vantageDisabler.GetStatusAsync().ConfigureAwait(false);
         if (status is SoftwareStatus.NotFound or SoftwareStatus.Disabled)
         {
             if (Log.Instance.IsTraceEnabled)

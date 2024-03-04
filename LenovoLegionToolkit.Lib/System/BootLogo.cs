@@ -12,15 +12,15 @@ using Windows.Win32.Security;
 
 namespace LenovoLegionToolkit.Lib.System;
 
-public class CantSetUEFIPrivilegeException : Exception { }
+public class CantSetUEFIPrivilegeException : Exception;
 
-public class CantMountUEFIPartitionException : Exception { }
+public class CantMountUEFIPartitionException : Exception;
 
-public class NotEnoughSpaceOnUEFIPartitionException : Exception { }
+public class NotEnoughSpaceOnUEFIPartitionException : Exception;
 
-public class InvalidBootLogoImageFormatException : Exception { }
+public class InvalidBootLogoImageFormatException : Exception;
 
-public class InvalidBootLogoImageSizeException : Exception { }
+public class InvalidBootLogoImageSizeException : Exception;
 
 public static class BootLogo
 {

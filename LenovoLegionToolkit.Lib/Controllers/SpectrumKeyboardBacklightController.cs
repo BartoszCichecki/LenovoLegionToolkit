@@ -49,26 +49,21 @@ public class SpectrumKeyboardBacklightController
     private CancellationTokenSource? _auroraRefreshCancellationTokenSource;
     private Task? _auroraRefreshTask;
 
-    private readonly JsonSerializerSettings _jsonSerializerSettings;
+    private readonly JsonSerializerSettings _jsonSerializerSettings = new()
+    {
+        Formatting = Formatting.Indented,
+        TypeNameHandling = TypeNameHandling.Auto,
+        ObjectCreationHandling = ObjectCreationHandling.Replace,
+        Converters = [new StringEnumConverter()]
+    };
 
     public bool ForceDisable { get; set; }
 
     public SpectrumKeyboardBacklightController(SpecialKeyListener listener, VantageDisabler vantageDisabler, IScreenCapture screenCapture)
     {
-        _listener = listener ?? throw new ArgumentNullException(nameof(listener));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
-
-        _jsonSerializerSettings = new()
-        {
-            Formatting = Formatting.Indented,
-            TypeNameHandling = TypeNameHandling.Auto,
-            ObjectCreationHandling = ObjectCreationHandling.Replace,
-            Converters =
-            {
-                new StringEnumConverter(),
-            }
-        };
+        _listener = listener;
+        _vantageDisabler = vantageDisabler;
+        _screenCapture = screenCapture;
 
         _listener.Changed += Listener_Changed;
     }

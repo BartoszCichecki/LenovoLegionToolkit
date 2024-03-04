@@ -18,20 +18,20 @@ public interface IAutomationPipelineTrigger
     IAutomationPipelineTrigger DeepCopy();
 }
 
-public interface IDisallowDuplicatesAutomationPipelineTrigger : IAutomationPipelineTrigger { }
+public interface IDisallowDuplicatesAutomationPipelineTrigger : IAutomationPipelineTrigger;
 
 public interface ICompositeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     public IAutomationPipelineTrigger[] Triggers { get; }
 }
 
-public interface INativeWindowsMessagePipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface INativeWindowsMessagePipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
-public interface IOnStartupAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IOnStartupAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
-public interface IOnResumeAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IOnResumeAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
-public interface IPowerStateAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IPowerStateAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
 public interface IPowerModeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
@@ -47,7 +47,7 @@ public interface IGodModePresetChangedAutomationPipelineTrigger : IAutomationPip
     IGodModePresetChangedAutomationPipelineTrigger DeepCopy(Guid powerModeState);
 }
 
-public interface IGameAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IGameAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
 public interface IProcessesAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
@@ -80,7 +80,7 @@ public interface IWiFiConnectedPipelineTrigger : IAutomationPipelineTrigger
     IWiFiConnectedPipelineTrigger DeepCopy(string[] ssids);
 }
 
-public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger { }
+public interface IWiFiDisconnectedPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
 public interface IPeriodicAutomationPipelineTrigger : IAutomationPipelineTrigger
 {

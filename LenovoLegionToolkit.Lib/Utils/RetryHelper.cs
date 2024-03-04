@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class MaximumRetriesReachedException : Exception { }
+public class MaximumRetriesReachedException : Exception;
 
 public static class RetryHelper
 {

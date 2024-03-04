@@ -13,7 +13,7 @@ public class ACAdapterConnectedAutomationPipelineTrigger : IPowerStateAutomation
 
     public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        if (automationEvent is not (PowerStateAutomationEvent { Event: PowerStateEvent.StatusChange, PowerAdapterStateChanged: true } or StartupAutomationEvent))
+        if (automationEvent is not (PowerStateAutomationEvent { PowerStateEvent: PowerStateEvent.StatusChange, PowerAdapterStateChanged: true } or StartupAutomationEvent))
             return false;
 
         var status = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);

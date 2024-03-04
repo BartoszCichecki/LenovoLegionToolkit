@@ -10,8 +10,6 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 public class RGBKeyboardBacklightListener(RGBKeyboardBacklightController controller)
     : AbstractWMIListener<EventArgs, RGBKeyboardBacklightChanged, int>(WMI.LenovoGameZoneLightProfileChangeEvent.Listen)
 {
-    private readonly RGBKeyboardBacklightController _controller = controller ?? throw new ArgumentNullException(nameof(controller));
-
     protected override RGBKeyboardBacklightChanged GetValue(int value) => default;
 
     protected override EventArgs GetEventArgs(RGBKeyboardBacklightChanged value) => EventArgs.Empty;
@@ -20,7 +18,7 @@ public class RGBKeyboardBacklightListener(RGBKeyboardBacklightController control
     {
         try
         {
-            if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
+            if (!await controller.IsSupportedAsync().ConfigureAwait(false))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Not supported.");
@@ -31,17 +29,16 @@ public class RGBKeyboardBacklightListener(RGBKeyboardBacklightController control
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Taking ownership...");
 
-            await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
+            await controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting next preset set...");
 
-            var preset = await _controller.SetNextPresetAsync().ConfigureAwait(false);
+            var preset = await controller.SetNextPresetAsync().ConfigureAwait(false);
 
-            if (preset == RGBKeyboardBacklightPreset.Off)
-                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightOff, preset.GetDisplayName()));
-            else
-                MessagingCenter.Publish(new Notification(NotificationType.RGBKeyboardBacklightChanged, preset.GetDisplayName()));
+            MessagingCenter.Publish(preset == RGBKeyboardBacklightPreset.Off
+                ? new Notification(NotificationType.RGBKeyboardBacklightOff, preset.GetDisplayName())
+                : new Notification(NotificationType.RGBKeyboardBacklightChanged, preset.GetDisplayName()));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Next preset set");

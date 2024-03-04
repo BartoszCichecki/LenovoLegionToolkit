@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
@@ -14,20 +13,14 @@ public class PowerPlanListener(
     ApplicationSettings settings,
     VantageDisabler vantageDisabler,
     PowerModeFeature feature)
-    : AbstractEventLogListener("System",
-        "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
+    : AbstractEventLogListener("System", "*[System[Provider[@Name='Microsoft-Windows-UserModePowerService'] and EventID=12]]")
 {
-    private readonly PowerPlanController _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    private readonly VantageDisabler _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-    private readonly PowerModeFeature _feature = feature ?? throw new ArgumentNullException(nameof(feature));
-
     protected override async Task OnChangedAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Power plan changed...");
 
-        if (!await _feature.IsSupportedAsync().ConfigureAwait(false))
+        if (!await feature.IsSupportedAsync().ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power modes not supported.");
@@ -35,8 +28,8 @@ public class PowerPlanListener(
             return;
         }
 
-        var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
-        var activateWhenVantageEnabled = _settings.Store.ActivatePowerProfilesWithVantageEnabled;
+        var vantageStatus = await vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+        var activateWhenVantageEnabled = settings.Store.ActivatePowerProfilesWithVantageEnabled;
         if (vantageStatus == SoftwareStatus.Enabled && !activateWhenVantageEnabled)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -44,10 +37,10 @@ public class PowerPlanListener(
             return;
         }
 
-        var powerPlans = _powerPlanController.GetPowerPlans().ToArray();
+        var powerPlans = powerPlanController.GetPowerPlans().ToArray();
         var activePowerPlan = powerPlans.First(pp => pp.IsActive);
 
-        var powerModes = _powerPlanController.GetMatchingPowerModes(activePowerPlan.Guid);
+        var powerModes = powerPlanController.GetMatchingPowerModes(activePowerPlan.Guid);
         if (powerModes.Length != 1)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -56,7 +49,7 @@ public class PowerPlanListener(
         }
 
         var powerMode = powerModes[0];
-        var currentPowerMode = await _feature.GetStateAsync().ConfigureAwait(false);
+        var currentPowerMode = await feature.GetStateAsync().ConfigureAwait(false);
         if (powerMode == currentPowerMode)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -64,7 +57,7 @@ public class PowerPlanListener(
             return;
         }
 
-        await _feature.SetStateAsync(powerMode).ConfigureAwait(false);
+        await feature.SetStateAsync(powerMode).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Power mode set.");

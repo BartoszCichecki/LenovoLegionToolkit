@@ -31,9 +31,9 @@ public class DGPUNotify : IDGPUNotify
 
     public DGPUNotify(DGPUGamezoneNotify gamezoneNotify, DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify)
     {
-        _gamezoneNotify = gamezoneNotify ?? throw new ArgumentNullException(nameof(gamezoneNotify));
-        _capabilityNotify = capabilityNotify ?? throw new ArgumentNullException(nameof(capabilityNotify));
-        _featureFlagsNotify = featureFlagsNotify ?? throw new ArgumentNullException(nameof(featureFlagsNotify));
+        _gamezoneNotify = gamezoneNotify;
+        _capabilityNotify = capabilityNotify;
+        _featureFlagsNotify = featureFlagsNotify;
 
         _lazyAsyncNotify = new(GetNotifyLazyAsync);
     }

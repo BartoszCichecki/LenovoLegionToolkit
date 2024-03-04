@@ -15,10 +15,9 @@ public abstract class AbstractGodModeController(
     LegionZoneDisabler legionZoneDisabler)
     : IGodModeController
 {
-    private readonly GodModeSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
+    protected VantageDisabler VantageDisabler => vantageDisabler;
 
-    protected readonly VantageDisabler VantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-    protected readonly LegionZoneDisabler LegionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
+    protected LegionZoneDisabler LegionZoneDisabler => legionZoneDisabler;
 
     public event EventHandler<Guid>? PresetChanged;
 
@@ -26,11 +25,11 @@ public abstract class AbstractGodModeController(
 
     public abstract Task<bool> NeedsLegionZoneDisabledAsync();
 
-    public Task<Guid> GetActivePresetIdAsync() => Task.FromResult(_settings.Store.ActivePresetId);
+    public Task<Guid> GetActivePresetIdAsync() => Task.FromResult(settings.Store.ActivePresetId);
 
     public Task<string?> GetActivePresetNameAsync()
     {
-        var store = _settings.Store;
+        var store = settings.Store;
         var name = store.Presets
             .Where(p => p.Key == store.ActivePresetId)
             .Select(p => p.Value.Name)
@@ -43,7 +42,7 @@ public abstract class AbstractGodModeController(
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var store = _settings.Store;
+        var store = settings.Store;
         var defaultState = await GetDefaultStateAsync().ConfigureAwait(false);
 
         if (!IsValidStore(store))
@@ -97,9 +96,9 @@ public abstract class AbstractGodModeController(
             });
         }
 
-        _settings.Store.ActivePresetId = activePresetId;
-        _settings.Store.Presets = presets;
-        _settings.SynchronizeStore();
+        settings.Store.ActivePresetId = activePresetId;
+        settings.Store.Presets = presets;
+        settings.SynchronizeStore();
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State saved.");
@@ -127,7 +126,7 @@ public abstract class AbstractGodModeController(
 
     protected async Task<(Guid, GodModeSettings.GodModeSettingsStore.Preset)> GetActivePresetAsync()
     {
-        if (!IsValidStore(_settings.Store))
+        if (!IsValidStore(settings.Store))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Invalid store, generating default one.");
@@ -136,8 +135,8 @@ public abstract class AbstractGodModeController(
             await SetStateAsync(state).ConfigureAwait(false);
         }
 
-        var activePresetId = _settings.Store.ActivePresetId;
-        var presets = _settings.Store.Presets;
+        var activePresetId = settings.Store.ActivePresetId;
+        var presets = settings.Store.Presets;
 
         if (presets.TryGetValue(activePresetId, out var activePreset))
             return (activePresetId, activePreset);

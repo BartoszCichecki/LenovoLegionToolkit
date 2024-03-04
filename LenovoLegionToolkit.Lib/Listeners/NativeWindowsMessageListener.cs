@@ -16,9 +16,9 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessageListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(NativeWindowsMessage message) : EventArgs
     {
-        public NativeWindowsMessage Message { get; init; }
+        public NativeWindowsMessage Message { get; } = message;
     }
 
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
@@ -43,9 +43,9 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify, SmartFnLockController smartFnLockController)
     {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
-        _smartFnLockController = smartFnLockController ?? throw new ArgumentNullException(nameof(smartFnLockController));
+        _mainThreadDispatcher = mainThreadDispatcher;
+        _dgpuNotify = dgpuNotify;
+        _smartFnLockController = smartFnLockController;
 
         _kbProc = LowLevelKeyboardProc;
     }
@@ -260,7 +260,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.OnDisplayDeviceArrival);
     }
 
-    private void RaiseChanged(NativeWindowsMessage message) => Changed?.Invoke(this, new ChangedEventArgs { Message = message });
+    private void RaiseChanged(NativeWindowsMessage message) => Changed?.Invoke(this, new ChangedEventArgs(message));
 
     private LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {

@@ -22,10 +22,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
     {
         private static readonly AsyncLock IoLock = new();
 
-        private readonly RGBKeyboardSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-
-        private readonly VantageDisabler _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-
         private SafeFileHandle? _deviceHandle;
 
         private SafeFileHandle? DeviceHandle
@@ -104,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                return _settings.Store.State;
+                return settings.Store.State;
             }
         }
 
@@ -118,8 +114,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                _settings.Store.State = state;
-                _settings.SynchronizeStore();
+                settings.Store.State = state;
+                settings.SynchronizeStore();
 
                 var selectedPreset = state.SelectedPreset;
 
@@ -158,11 +154,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
+                var state = settings.Store.State;
                 var presets = state.Presets;
 
-                _settings.Store.State = new(preset, presets);
-                _settings.SynchronizeStore();
+                settings.Store.State = new(preset, presets);
+                settings.SynchronizeStore();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Preset is {preset}.");
@@ -199,13 +195,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
+                var state = settings.Store.State;
 
                 var newPreset = state.SelectedPreset.Next();
                 var presets = state.Presets;
 
-                _settings.Store.State = new(newPreset, presets);
-                _settings.SynchronizeStore();
+                settings.Store.State = new(newPreset, presets);
+                settings.SynchronizeStore();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"New preset is {newPreset}.");
@@ -242,7 +238,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var state = _settings.Store.State;
+            var state = settings.Store.State;
 
             var preset = state.SelectedPreset;
 
@@ -272,7 +268,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task ThrowIfVantageEnabled()
         {
-            var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+            var vantageStatus = await vantageDisabler.GetStatusAsync().ConfigureAwait(false);
             if (vantageStatus == SoftwareStatus.Enabled)
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }

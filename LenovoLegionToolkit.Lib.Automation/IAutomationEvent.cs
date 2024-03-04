@@ -2,57 +2,58 @@
 
 namespace LenovoLegionToolkit.Lib.Automation;
 
-public interface IAutomationEvent { }
+public interface IAutomationEvent;
 
-public readonly struct NativeWindowsMessageEvent : IAutomationEvent
+public readonly struct NativeWindowsMessageEvent(NativeWindowsMessage message) : IAutomationEvent
 {
-    public NativeWindowsMessage Message { get; init; }
+    public NativeWindowsMessage Message { get; } = message;
 }
 
-public struct StartupAutomationEvent : IAutomationEvent { }
+public struct StartupAutomationEvent : IAutomationEvent;
 
-public readonly struct PowerStateAutomationEvent : IAutomationEvent
+public readonly struct PowerStateAutomationEvent(PowerStateEvent powerStateEvent, bool powerAdapterStateChanged)
+    : IAutomationEvent
 {
-    public PowerStateEvent Event { get; init; }
-    public bool PowerAdapterStateChanged { get; init; }
+    public PowerStateEvent PowerStateEvent { get; } = powerStateEvent;
+    public bool PowerAdapterStateChanged { get; } = powerAdapterStateChanged;
 }
 
-public readonly struct PowerModeAutomationEvent : IAutomationEvent
+public readonly struct PowerModeAutomationEvent(PowerModeState powerModeState) : IAutomationEvent
 {
-    public PowerModeState PowerModeState { get; init; }
+    public PowerModeState PowerModeState { get; } = powerModeState;
 }
 
-public readonly struct CustomModePresetAutomationEvent : IAutomationEvent
+public readonly struct CustomModePresetAutomationEvent(Guid id) : IAutomationEvent
 {
-    public Guid Id { get; init; }
+    public Guid Id { get; } = id;
 }
 
-public readonly struct GameAutomationEvent : IAutomationEvent
+public readonly struct GameAutomationEvent(bool running) : IAutomationEvent
 {
-    public bool Running { get; init; }
+    public bool Running { get; } = running;
 }
 
-public readonly struct ProcessAutomationEvent : IAutomationEvent
+public readonly struct ProcessAutomationEvent(ProcessEventInfoType type, ProcessInfo processInfo) : IAutomationEvent
 {
-    public ProcessEventInfoType Type { get; init; }
+    public ProcessEventInfoType Type { get; } = type;
 
-    public ProcessInfo ProcessInfo { get; init; }
+    public ProcessInfo ProcessInfo { get; } = processInfo;
 }
 
-public readonly struct TimeAutomationEvent : IAutomationEvent
+public readonly struct TimeAutomationEvent(Time time, DayOfWeek day) : IAutomationEvent
 {
-    public Time Time { get; init; }
-    public DayOfWeek Day { get; init; }
+    public Time Time { get; } = time;
+    public DayOfWeek Day { get; } = day;
 }
 
-public readonly struct UserInactivityAutomationEvent : IAutomationEvent
+public readonly struct UserInactivityAutomationEvent(TimeSpan inactivityTimeSpan)
+    : IAutomationEvent
 {
-    public TimeSpan InactivityTimeSpan { get; init; }
-    public TimeSpan ResolutionTimeSpan { get; init; }
+    public TimeSpan InactivityTimeSpan { get; } = inactivityTimeSpan;
 }
 
-public readonly struct WiFiAutomationEvent : IAutomationEvent
+public readonly struct WiFiAutomationEvent(bool isConnected, string? ssid) : IAutomationEvent
 {
-    public bool IsConnected { get; init; }
-    public string? Ssid { get; init; }
+    public bool IsConnected { get; } = isConnected;
+    public string? Ssid { get; } = ssid;
 }

@@ -13,10 +13,10 @@ namespace LenovoLegionToolkit.Lib.PackageDownloader;
 public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
     : AbstractPackageDownloader(httpClientFactory)
 {
-    private readonly struct PackageDefinition
+    private readonly struct PackageDefinition(string location, string category)
     {
-        public string Location { get; init; }
-        public string Category { get; init; }
+        public string Location { get; } = location;
+        public string Category { get; } = category;
     }
 
     private const string CATALOG_BASE_URL = "https://download.lenovo.com/catalog/";
@@ -81,7 +81,7 @@ public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
             if (string.IsNullOrWhiteSpace(pLocation) || string.IsNullOrWhiteSpace(pCategory))
                 continue;
 
-            packageDefinitions.Add(new() { Location = pLocation, Category = pCategory });
+            packageDefinitions.Add(new(pLocation, pCategory));
         }
 
         return packageDefinitions;

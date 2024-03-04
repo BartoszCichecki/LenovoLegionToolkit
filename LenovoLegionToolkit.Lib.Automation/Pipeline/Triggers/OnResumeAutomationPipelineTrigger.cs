@@ -12,7 +12,7 @@ public class OnResumeAutomationPipelineTrigger : IOnResumeAutomationPipelineTrig
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        return Task.FromResult(automationEvent is PowerStateAutomationEvent { Event: PowerStateEvent.Resume, PowerAdapterStateChanged: false });
+        return Task.FromResult(automationEvent is PowerStateAutomationEvent { PowerStateEvent: PowerStateEvent.Resume, PowerAdapterStateChanged: false });
     }
 
     public Task<bool> IsMatchingState() => Task.FromResult(false);

@@ -18,17 +18,12 @@ public class DriverKeyListener(
     WhiteKeyboardBacklightFeature whiteKeyboardBacklightFeature)
     : IListener<DriverKeyListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(DriverKey driverKey) : EventArgs
     {
-        public DriverKey DriverKey { get; init; }
+        public DriverKey DriverKey { get; } = driverKey;
     }
 
     public event EventHandler<ChangedEventArgs>? Changed;
-
-    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
-    private readonly MicrophoneFeature _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
-    private readonly TouchpadLockFeature _touchpadLockFeature = touchpadLockFeature ?? throw new ArgumentNullException(nameof(touchpadLockFeature));
-    private readonly WhiteKeyboardBacklightFeature _whiteKeyboardBacklightFeature = whiteKeyboardBacklightFeature ?? throw new ArgumentNullException(nameof(whiteKeyboardBacklightFeature));
 
     private CancellationTokenSource? _cancellationTokenSource;
     private Task? _listenTask;
@@ -70,7 +65,7 @@ public class DriverKeyListener(
 
                 token.ThrowIfCancellationRequested();
 
-                if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+                if (await fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -88,7 +83,7 @@ public class DriverKeyListener(
                     Log.Instance.Trace($"Event received. [key={key}, value={value}]");
 
                 await OnChangedAsync(key).ConfigureAwait(false);
-                Changed?.Invoke(this, new() { DriverKey = key });
+                Changed?.Invoke(this, new(key));
 
                 resetEvent.Reset();
             }
@@ -108,16 +103,16 @@ public class DriverKeyListener(
         {
             if (value.HasFlag(DriverKey.FnF4))
             {
-                if (await _microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
+                if (await microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    switch (await _microphoneFeature.GetStateAsync().ConfigureAwait(false))
+                    switch (await microphoneFeature.GetStateAsync().ConfigureAwait(false))
                     {
                         case MicrophoneState.On:
-                            await _microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
+                            await microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff));
                             break;
                         case MicrophoneState.Off:
-                            await _microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
+                            await microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
                             MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn));
                             break;
                     }
@@ -129,9 +124,9 @@ public class DriverKeyListener(
 
             if (value.HasFlag(DriverKey.FnF10))
             {
-                if (await _touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
+                if (await touchpadLockFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    var status = await _touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
+                    var status = await touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(status == TouchpadLockState.Off
                         ? new Notification(NotificationType.TouchpadOn)
                         : new Notification(NotificationType.TouchpadOff));
@@ -140,9 +135,9 @@ public class DriverKeyListener(
 
             if (value.HasFlag(DriverKey.FnSpace))
             {
-                if (await _whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
+                if (await whiteKeyboardBacklightFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    var state = await _whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
+                    var state = await whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(state == WhiteKeyboardBacklightState.Off
                         ? new Notification(NotificationType.WhiteKeyboardBacklightOff, state.GetDisplayName())
                         : new Notification(NotificationType.WhiteKeyboardBacklightChanged, state.GetDisplayName()));

@@ -16,10 +16,10 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerStateListener : IListener<PowerStateListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(PowerStateEvent powerStateEvent, bool powerAdapterStateChanged) : EventArgs
     {
-        public PowerStateEvent Event { get; init; }
-        public bool PowerAdapterStateChanged { get; init; }
+        public PowerStateEvent PowerStateEvent { get; } = powerStateEvent;
+        public bool PowerAdapterStateChanged { get; } = powerAdapterStateChanged;
     }
 
     private readonly SafeHandle _recipientHandle;
@@ -39,10 +39,10 @@ public class PowerStateListener : IListener<PowerStateListener.ChangedEventArgs>
 
     public unsafe PowerStateListener(PowerModeFeature powerModeFeature, BatteryFeature batteryFeature, DGPUNotify dgpuNotify, RGBKeyboardBacklightController rgbController)
     {
-        _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
-        _batteryFeature = batteryFeature ?? throw new ArgumentNullException(nameof(batteryFeature));
-        _dgpuNotify = dgpuNotify ?? throw new ArgumentNullException(nameof(dgpuNotify));
-        _rgbController = rgbController ?? throw new ArgumentNullException(nameof(rgbController));
+        _powerModeFeature = powerModeFeature;
+        _batteryFeature = batteryFeature;
+        _dgpuNotify = dgpuNotify;
+        _rgbController = rgbController;
 
         _callback = Callback;
         _recipientHandle = new StructSafeHandle<DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS>(new DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS
@@ -181,7 +181,7 @@ public class PowerStateListener : IListener<PowerStateListener.ChangedEventArgs>
         if (powerAdapterStateChanged)
             Notify(powerAdapterState);
 
-        Changed?.Invoke(this, new() { Event = powerStateEvent, PowerAdapterStateChanged = powerAdapterStateChanged });
+        Changed?.Invoke(this, new(powerStateEvent, powerAdapterStateChanged));
     }
 
     private unsafe void RegisterSuspendResumeNotification()

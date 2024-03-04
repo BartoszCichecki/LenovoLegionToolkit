@@ -11,9 +11,9 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(bool running) : EventArgs
     {
-        public bool Running { get; init; }
+        public bool Running { get; } = running;
     }
 
     private class ProcessEqualityComparer : IEqualityComparer<Process>
@@ -198,7 +198,7 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
 
             _lastState = newState;
 
-            RaiseChanged(new ChangedEventArgs { Running = newState });
+            RaiseChanged(new ChangedEventArgs(newState));
         }
     }
 

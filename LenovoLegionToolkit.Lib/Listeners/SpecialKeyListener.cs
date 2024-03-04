@@ -18,17 +18,12 @@ public class SpecialKeyListener(
     MicrophoneFeature microphoneFeature)
     : AbstractWMIListener<SpecialKeyListener.ChangedEventArgs, SpecialKey, int>(WMI.LenovoUtilityEvent.Listen)
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(SpecialKey specialKey) : EventArgs
     {
-        public SpecialKey SpecialKey { get; init; }
+        public SpecialKey SpecialKey { get; } = specialKey;
     }
 
     private readonly ThrottleFirstDispatcher _refreshRateDispatcher = new(TimeSpan.FromSeconds(2), nameof(SpecialKeyListener));
-
-    private readonly ApplicationSettings _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
-    private readonly RefreshRateFeature _refreshRateFeature = feature ?? throw new ArgumentNullException(nameof(feature));
-    private readonly MicrophoneFeature _microphoneFeature = microphoneFeature ?? throw new ArgumentNullException(nameof(microphoneFeature));
 
     protected override SpecialKey GetValue(int value)
     {
@@ -39,13 +34,13 @@ public class SpecialKeyListener(
         return result;
     }
 
-    protected override ChangedEventArgs GetEventArgs(SpecialKey value) => new() { SpecialKey = value };
+    protected override ChangedEventArgs GetEventArgs(SpecialKey value) => new(value);
 
     protected override async Task OnChangedAsync(SpecialKey value)
     {
         try
         {
-            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -150,15 +145,15 @@ public class SpecialKeyListener(
     {
         try
         {
-            if (!await _refreshRateFeature.IsSupportedAsync().ConfigureAwait(false))
+            if (!await feature.IsSupportedAsync().ConfigureAwait(false))
                 return;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Switch refresh rate after Fn+R...");
 
-            var all = await _refreshRateFeature.GetAllStatesAsync().ConfigureAwait(false);
-            var current = await _refreshRateFeature.GetStateAsync().ConfigureAwait(false);
-            var excluded = _settings.Store.ExcludedRefreshRates;
+            var all = await feature.GetAllStatesAsync().ConfigureAwait(false);
+            var current = await feature.GetStateAsync().ConfigureAwait(false);
+            var excluded = settings.Store.ExcludedRefreshRates;
 
             var filtered = all.Except(excluded).ToArray();
 
@@ -187,7 +182,7 @@ public class SpecialKeyListener(
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Switching refresh rate after Fn+R to {next}...");
 
-            await _refreshRateFeature.SetStateAsync(next).ConfigureAwait(false);
+            await feature.SetStateAsync(next).ConfigureAwait(false);
 
             _ = Task.Delay(TimeSpan.FromSeconds(1)).ContinueWith(_ =>
             {
@@ -225,17 +220,17 @@ public class SpecialKeyListener(
     private async Task ToggleMicrophoneAsync()
     {
 
-        if (!await _microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
+        if (!await microphoneFeature.IsSupportedAsync().ConfigureAwait(false))
             return;
 
-        switch (await _microphoneFeature.GetStateAsync().ConfigureAwait(false))
+        switch (await microphoneFeature.GetStateAsync().ConfigureAwait(false))
         {
             case MicrophoneState.On:
-                await _microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
+                await microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
                 MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff));
                 break;
             case MicrophoneState.Off:
-                await _microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
+                await microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
                 MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn));
                 break;
         }

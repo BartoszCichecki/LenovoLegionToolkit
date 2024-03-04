@@ -11,10 +11,10 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(bool isConnected, string? ssid) : EventArgs
     {
-        public bool IsConnected { get; init; }
-        public string? Ssid { get; init; }
+        public bool IsConnected { get; } = isConnected;
+        public string? Ssid { get; } = ssid;
     }
 
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
@@ -96,13 +96,13 @@ public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEve
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WiFi connected. [ssid={ssid}]");
 
-                RaiseChanged(new ChangedEventArgs { IsConnected = true, Ssid = ssid });
+                RaiseChanged(new ChangedEventArgs(true, ssid));
                 break;
             case 0x15: /* Disconnected */
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WiFi disconnected.");
 
-                RaiseChanged(new ChangedEventArgs { IsConnected = false, Ssid = null });
+                RaiseChanged(new ChangedEventArgs(false, null));
                 break;
         }
     }

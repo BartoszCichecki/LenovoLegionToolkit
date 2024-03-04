@@ -15,8 +15,8 @@ public abstract class AbstractCompositeFeature<T, T1, T2> : IFeature<T>
 
     protected AbstractCompositeFeature(T1 feature1, T2 feature2)
     {
-        Feature1 = feature1 ?? throw new ArgumentNullException(nameof(feature1));
-        Feature2 = feature2 ?? throw new ArgumentNullException(nameof(feature2));
+        Feature1 = feature1;
+        Feature2 = feature2;
 
         _lazyAsyncFeature = new(GetFeatureLazyAsync);
     }
@@ -67,9 +67,9 @@ public abstract class AbstractCompositeFeature<T, T1, T2, T3> : IFeature<T>
 
     protected AbstractCompositeFeature(T1 feature1, T2 feature2, T3 feature3)
     {
-        Feature1 = feature1 ?? throw new ArgumentNullException(nameof(feature1));
-        Feature2 = feature2 ?? throw new ArgumentNullException(nameof(feature2));
-        Feature3 = feature3 ?? throw new ArgumentNullException(nameof(feature3));
+        Feature1 = feature1;
+        Feature2 = feature2;
+        Feature3 = feature3;
 
         _lazyAsyncFeature = new(GetFeatureLazyAsync);
     }

@@ -16,8 +16,6 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
     private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
     private readonly AsyncLock _updateSemaphore = new();
 
-    private readonly HttpClientFactory _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-
     private DateTime _lastUpdate = DateTime.MinValue;
     private Update[] _updates = [];
 
@@ -45,7 +43,7 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Checking...");
 
-                var adapter = new HttpClientAdapter(_httpClientFactory.CreateHandler);
+                var adapter = new HttpClientAdapter(httpClientFactory.CreateHandler);
                 var productInformation = new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker");
                 var connection = new Connection(productInformation, adapter);
                 var githubClient = new GitHubClient(connection);
@@ -103,7 +101,7 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 throw new InvalidOperationException("Setup file URL could not be found");
 
             await using var fileStream = File.OpenWrite(tempPath);
-            using var httpClient = _httpClientFactory.Create();
+            using var httpClient = httpClientFactory.Create();
             await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
             return tempPath;

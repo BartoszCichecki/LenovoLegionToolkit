@@ -27,11 +27,10 @@ public class GPUOverclockController
         LegionZoneDisabler legionZoneDisabler,
         NativeWindowsMessageListener nativeWindowsMessageListener)
     {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        _legionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
-        _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
-
+        _settings = settings;
+        _vantageDisabler = vantageDisabler;
+        _legionZoneDisabler = legionZoneDisabler;
+        _nativeWindowsMessageListener = nativeWindowsMessageListener;
         _nativeWindowsMessageListener.Changed += NativeWindowsMessageListenerOnChanged;
     }
 

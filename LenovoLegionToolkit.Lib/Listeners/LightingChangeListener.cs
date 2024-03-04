@@ -15,14 +15,10 @@ public class LightingChangeListener(
     : AbstractWMIListener<LightingChangeListener.ChangedEventArgs, LightingChangeState, int>(WMI.LenovoLightingEvent
         .Listen)
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(LightingChangeState state) : EventArgs
     {
-        public LightingChangeState State { get; init; }
+        public LightingChangeState State { get; } = state;
     }
-
-    private readonly PanelLogoBacklightFeature _panelLogoBacklightFeature = panelLogoBacklightFeature ?? throw new ArgumentNullException(nameof(panelLogoBacklightFeature));
-    private readonly PortsBacklightFeature _portsBacklightFeature = portsBacklightFeature ?? throw new ArgumentNullException(nameof(portsBacklightFeature));
-    private readonly FnKeysDisabler _fnKeysDisabler = fnKeysDisabler ?? throw new ArgumentNullException(nameof(fnKeysDisabler));
 
     protected override LightingChangeState GetValue(int value)
     {
@@ -33,13 +29,13 @@ public class LightingChangeListener(
         return result;
     }
 
-    protected override ChangedEventArgs GetEventArgs(LightingChangeState value) => new() { State = value };
+    protected override ChangedEventArgs GetEventArgs(LightingChangeState value) => new(value);
 
     protected override async Task OnChangedAsync(LightingChangeState value)
     {
         try
         {
-            if (await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+            if (await fnKeysDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, FnKeys are enabled.");
@@ -49,18 +45,18 @@ public class LightingChangeListener(
 
             switch (value)
             {
-                case LightingChangeState.Panel when await _panelLogoBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
+                case LightingChangeState.Panel when await panelLogoBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
                     {
-                        var type = await _panelLogoBacklightFeature.GetStateAsync().ConfigureAwait(false) == PanelLogoBacklightState.On
+                        var type = await panelLogoBacklightFeature.GetStateAsync().ConfigureAwait(false) == PanelLogoBacklightState.On
                             ? NotificationType.PanelLogoLightingOn
                             : NotificationType.PanelLogoLightingOff;
 
                         MessagingCenter.Publish(new Notification(type));
                         break;
                     }
-                case LightingChangeState.Ports when await _portsBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
+                case LightingChangeState.Ports when await portsBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
                     {
-                        var type = await _portsBacklightFeature.GetStateAsync().ConfigureAwait(false) == PortsBacklightState.On
+                        var type = await portsBacklightFeature.GetStateAsync().ConfigureAwait(false) == PortsBacklightState.On
                             ? NotificationType.PortLightingOn
                             : NotificationType.PortLightingOff;
 
