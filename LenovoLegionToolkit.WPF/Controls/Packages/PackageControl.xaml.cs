@@ -109,8 +109,10 @@ public partial class PackageControl : IProgress<float>
             _idleStackPanel.Visibility = Visibility.Collapsed;
             _downloadingStackPanel.Visibility = Visibility.Visible;
 
-            _downloadPackageTokenSource?.Cancel();
-            _downloadPackageTokenSource = new CancellationTokenSource();
+            if (_downloadPackageTokenSource is not null)
+                await _downloadPackageTokenSource.CancelAsync().ConfigureAwait(false);
+
+            _downloadPackageTokenSource = new();
 
             var token = _downloadPackageTokenSource.Token;
 

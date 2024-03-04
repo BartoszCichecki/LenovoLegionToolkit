@@ -334,7 +334,9 @@ public partial class SpectrumKeyboardBacklightControl
     {
         await StopAnimationAsync();
 
-        _refreshStateCancellationTokenSource?.Cancel();
+        if (_refreshStateCancellationTokenSource is not null)
+            await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
         _refreshStateCancellationTokenSource = new();
 
         _refreshStateTask = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
@@ -342,7 +344,10 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task StopAnimationAsync()
     {
-        _refreshStateCancellationTokenSource?.Cancel();
+        if (_refreshStateCancellationTokenSource is not null)
+            await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
+        _refreshStateCancellationTokenSource = new();
 
         if (_refreshStateTask is not null)
             await _refreshStateTask;

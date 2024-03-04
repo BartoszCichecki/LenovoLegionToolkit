@@ -51,7 +51,7 @@ internal class GameConfigStoreDetector
 
     public async Task StopAsync()
     {
-        if (_listener != null)
+        if (_listener is not null)
             await _listener.DisposeAsync().ConfigureAwait(false);
         _listener = null;
     }

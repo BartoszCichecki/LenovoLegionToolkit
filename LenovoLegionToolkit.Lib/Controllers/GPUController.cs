@@ -79,7 +79,8 @@ public class GPUController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping... [refreshTask.isNull={_refreshTask is null}, _refreshCancellationTokenSource.IsCancellationRequested={_refreshCancellationTokenSource?.IsCancellationRequested}]");
 
-        _refreshCancellationTokenSource?.Cancel();
+        if (_refreshCancellationTokenSource is not null)
+            await _refreshCancellationTokenSource.CancelAsync().ConfigureAwait(false);
 
         if (waitForFinish)
         {

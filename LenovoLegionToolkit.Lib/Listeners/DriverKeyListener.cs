@@ -41,10 +41,14 @@ public class DriverKeyListener(
 
     public async Task StopAsync()
     {
-        _cancellationTokenSource?.Cancel();
+        if (_cancellationTokenSource is not null)
+            await _cancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
         _cancellationTokenSource = null;
-        if (_listenTask != null)
+
+        if (_listenTask is not null)
             await _listenTask;
+
         _listenTask = null;
     }
 

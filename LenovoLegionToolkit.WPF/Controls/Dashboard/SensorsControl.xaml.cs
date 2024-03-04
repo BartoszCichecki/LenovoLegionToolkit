@@ -63,9 +63,14 @@ public partial class SensorsControl
             return;
         }
 
-        _cts?.Cancel();
+        if (_cts is not null)
+            await _cts.CancelAsync();
+
+        _cts = null;
+
         if (_refreshTask is not null)
             await _refreshTask;
+
         _refreshTask = null;
 
         UpdateValues(SensorsData.Empty);

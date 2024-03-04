@@ -11,8 +11,7 @@ using LenovoLegionToolkit.WPF.Extensions;
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
 public abstract class AbstractComboBoxAutomationStepCardControl<T>(IAutomationStep<T> step)
-    : AbstractAutomationStepControl<IAutomationStep<T>>(step)
-    where T : struct
+    : AbstractAutomationStepControl<IAutomationStep<T>>(step) where T : struct
 {
     private readonly ComboBox _comboBox = new()
     {

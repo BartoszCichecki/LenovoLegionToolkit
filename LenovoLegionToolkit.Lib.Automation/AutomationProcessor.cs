@@ -165,7 +165,8 @@ public class AutomationProcessor(
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run starting...");
 
-            _cts?.Cancel();
+            if (_cts is not null)
+                await _cts.CancelAsync().ConfigureAwait(false);
 
             if (!IsEnabled)
                 return;

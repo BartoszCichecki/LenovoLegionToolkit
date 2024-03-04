@@ -86,7 +86,7 @@ public class CardHeaderControl : UserControl
         set
         {
             _subtitleTextBlock.ToolTip = value;
-            ToolTipService.SetIsEnabled(_subtitleTextBlock, value != null);
+            ToolTipService.SetIsEnabled(_subtitleTextBlock, value is not null);
             RefreshLayout();
         }
     }

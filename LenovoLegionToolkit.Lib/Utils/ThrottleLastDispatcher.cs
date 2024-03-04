@@ -12,7 +12,9 @@ public class ThrottleLastDispatcher(TimeSpan interval, string? tag = null)
     {
         try
         {
-            _cancellationTokenSource?.Cancel();
+            if (_cancellationTokenSource is not null)
+                await _cancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
             _cancellationTokenSource = new();
 
             var token = _cancellationTokenSource.Token;

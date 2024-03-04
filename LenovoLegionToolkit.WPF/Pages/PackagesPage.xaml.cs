@@ -67,7 +67,7 @@ public partial class PackagesPage : IProgress<float>
 
     public void Report(float value) => Dispatcher.Invoke(() =>
     {
-        _loader.IsIndeterminate = !(value > 0);
+        _loader.IsIndeterminate = value <= 0;
         _loader.Progress = value;
     });
 
@@ -142,8 +142,10 @@ public partial class PackagesPage : IProgress<float>
                 return;
             }
 
-            _getPackagesTokenSource?.Cancel();
-            _getPackagesTokenSource = new CancellationTokenSource();
+            if (_getPackagesTokenSource is not null)
+                await _getPackagesTokenSource.CancelAsync();
+
+            _getPackagesTokenSource = new();
 
             var token = _getPackagesTokenSource.Token;
 
@@ -222,7 +224,9 @@ public partial class PackagesPage : IProgress<float>
             if (_packages is null)
                 return;
 
-            _filterDebounceCancellationTokenSource?.Cancel();
+            if (_filterDebounceCancellationTokenSource is not null)
+                await _filterDebounceCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
             _filterDebounceCancellationTokenSource = new();
 
             await Task.Delay(500, _filterDebounceCancellationTokenSource.Token);

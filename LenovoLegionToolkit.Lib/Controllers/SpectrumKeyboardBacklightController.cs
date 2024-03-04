@@ -355,9 +355,12 @@ public class SpectrumKeyboardBacklightController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping Aurora...");
 
-        _auroraRefreshCancellationTokenSource?.Cancel();
+        if (_auroraRefreshCancellationTokenSource is not null)
+            await _auroraRefreshCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
         if (_auroraRefreshTask is not null)
             await _auroraRefreshTask.ConfigureAwait(false);
+
         _auroraRefreshTask = null;
 
         if (Log.Instance.IsTraceEnabled)

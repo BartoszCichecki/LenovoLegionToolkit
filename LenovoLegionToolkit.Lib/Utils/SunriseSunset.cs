@@ -54,7 +54,7 @@ public class SunriseSunset(SunriseSunsetSettings settings, HttpClientFactory htt
         var sunrise = coordinate.CelestialInfo.SunRise;
         var sunset = coordinate.CelestialInfo.SunSet;
 
-        if (sunrise == null || sunset == null)
+        if (sunrise is null || sunset is null)
             return (null, null);
 
         return (new Time(sunrise.Value.Hour, sunrise.Value.Minute), new Time(sunset.Value.Hour, sunset.Value.Minute));

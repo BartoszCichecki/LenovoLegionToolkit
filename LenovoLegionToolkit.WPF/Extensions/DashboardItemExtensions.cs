@@ -71,7 +71,7 @@ public static class DashboardItemExtensions
         DashboardItem.BatteryNightChargeMode => [new BatteryNightChargeModeControl()],
         DashboardItem.AlwaysOnUsb => [new AlwaysOnUSBControl()],
         DashboardItem.InstantBoot => [new InstantBootControl()],
-        DashboardItem.HybridMode => new[] { await HybridModeControlFactory.GetControlAsync() },
+        DashboardItem.HybridMode => [await HybridModeControlFactory.GetControlAsync()],
         DashboardItem.DiscreteGpu => [new DiscreteGPUControl()],
         DashboardItem.OverclockDiscreteGpu => [new OverclockDiscreteGPUControl()],
         DashboardItem.Resolution => [new ResolutionControl()],

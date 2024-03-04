@@ -57,7 +57,7 @@ public class HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuMo
 
     public async Task SetStateAsync(HybridModeState state)
     {
-        _ensureDGPUEjectedIfNeededCancellationTokenSource.Cancel();
+        await _ensureDGPUEjectedIfNeededCancellationTokenSource.CancelAsync().ConfigureAwait(false);
 
         var (gSync, igpuMode) = Unpack(state);
 

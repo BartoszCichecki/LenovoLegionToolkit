@@ -61,7 +61,7 @@ public static class Registry
 
         return new LambdaAsyncDisposable(async () =>
         {
-            cancellationTokenSource.Cancel();
+            await cancellationTokenSource.CancelAsync().ConfigureAwait(false);
             await task.ConfigureAwait(false);
         });
     }
