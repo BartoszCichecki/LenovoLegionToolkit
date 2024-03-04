@@ -4,21 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
-using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public abstract class AbstractGodModeController(
-    GodModeSettings settings,
-    VantageDisabler vantageDisabler,
-    LegionZoneDisabler legionZoneDisabler)
+public abstract class AbstractGodModeController(GodModeSettings settings)
     : IGodModeController
 {
-    protected VantageDisabler VantageDisabler => vantageDisabler;
-
-    protected LegionZoneDisabler LegionZoneDisabler => legionZoneDisabler;
-
     public event EventHandler<Guid>? PresetChanged;
 
     public abstract Task<bool> NeedsVantageDisabledAsync();

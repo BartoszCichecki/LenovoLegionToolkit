@@ -7,7 +7,8 @@ using WindowsDisplayAPI.Exceptions;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class RefreshRateAutomationStep(RefreshRate state) : AbstractFeatureAutomationStep<RefreshRate>(state)
+public class RefreshRateAutomationStep(RefreshRate state)
+    : AbstractFeatureAutomationStep<RefreshRate>(state)
 {
     public override Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {

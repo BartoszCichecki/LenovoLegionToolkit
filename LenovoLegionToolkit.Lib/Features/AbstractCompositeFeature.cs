@@ -8,15 +8,15 @@ public abstract class AbstractCompositeFeature<T, T1, T2> : IFeature<T>
     where T1 : IFeature<T>
     where T2 : IFeature<T>
 {
-    protected readonly T1 Feature1;
-    protected readonly T2 Feature2;
+    private readonly T1 _feature1;
+    private readonly T2 _feature2;
 
     private readonly Lazy<Task<IFeature<T>?>> _lazyAsyncFeature;
 
     protected AbstractCompositeFeature(T1 feature1, T2 feature2)
     {
-        Feature1 = feature1;
-        Feature2 = feature2;
+        _feature1 = feature1;
+        _feature2 = feature2;
 
         _lazyAsyncFeature = new(GetFeatureLazyAsync);
     }
@@ -43,11 +43,11 @@ public abstract class AbstractCompositeFeature<T, T1, T2> : IFeature<T>
 
     protected virtual async Task<IFeature<T>?> GetFeatureLazyAsync()
     {
-        if (await Feature1.IsSupportedAsync().ConfigureAwait(false))
-            return Feature1;
+        if (await _feature1.IsSupportedAsync().ConfigureAwait(false))
+            return _feature1;
 
-        if (await Feature2.IsSupportedAsync().ConfigureAwait(false))
-            return Feature2;
+        if (await _feature2.IsSupportedAsync().ConfigureAwait(false))
+            return _feature2;
 
         return null;
     }

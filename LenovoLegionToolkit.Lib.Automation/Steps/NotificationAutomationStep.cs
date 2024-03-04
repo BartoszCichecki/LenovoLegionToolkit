@@ -4,7 +4,8 @@ using Newtonsoft.Json;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class NotificationAutomationStep(string? text) : IAutomationStep
+public class NotificationAutomationStep(string? text)
+    : IAutomationStep
 {
     public string? Text { get; } = text;
 

@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class RunAutomationStep(string? scriptPath, string? scriptArguments) : IAutomationStep
+public class RunAutomationStep(string? scriptPath, string? scriptArguments)
+    : IAutomationStep
 {
     public string? ScriptPath { get; } = scriptPath;
 

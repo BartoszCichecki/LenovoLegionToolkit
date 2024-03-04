@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class DelayAutomationStep(Delay state) : IAutomationStep<Delay>
+public class DelayAutomationStep(Delay state)
+    : IAutomationStep<Delay>
 {
     public Delay State { get; } = state;
 

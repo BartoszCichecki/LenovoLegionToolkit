@@ -7,7 +7,8 @@ using WindowsDisplayAPI.Exceptions;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class ResolutionAutomationStep(Resolution state) : AbstractFeatureAutomationStep<Resolution>(state)
+public class ResolutionAutomationStep(Resolution state)
+    : AbstractFeatureAutomationStep<Resolution>(state)
 {
     public override Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {

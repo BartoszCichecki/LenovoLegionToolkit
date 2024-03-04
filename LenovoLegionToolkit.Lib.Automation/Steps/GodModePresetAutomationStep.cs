@@ -8,7 +8,8 @@ using Newtonsoft.Json;
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
 [method: JsonConstructor]
-public class GodModePresetAutomationStep(Guid presetId) : IAutomationStep
+public class GodModePresetAutomationStep(Guid presetId)
+    : IAutomationStep
 {
     private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();

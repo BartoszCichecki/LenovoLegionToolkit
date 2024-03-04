@@ -12,16 +12,15 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
 public class GodModeControllerV1(
     GodModeSettings settings,
-    VantageDisabler vantageDisabler,
     LegionZoneDisabler legionZoneDisabler)
-    : AbstractGodModeController(settings, vantageDisabler, legionZoneDisabler)
+    : AbstractGodModeController(settings)
 {
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(false);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
 
     public override async Task ApplyStateAsync()
     {
-        if (await LegionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await legionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");

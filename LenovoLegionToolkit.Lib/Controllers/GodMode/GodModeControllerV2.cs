@@ -14,21 +14,21 @@ public class GodModeControllerV2(
     GodModeSettings settings,
     VantageDisabler vantageDisabler,
     LegionZoneDisabler legionZoneDisabler)
-    : AbstractGodModeController(settings, vantageDisabler, legionZoneDisabler)
+    : AbstractGodModeController(settings)
 {
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(true);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
 
     public override async Task ApplyStateAsync()
     {
-        if (await VantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
             return;
         }
 
-        if (await LegionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await legionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");

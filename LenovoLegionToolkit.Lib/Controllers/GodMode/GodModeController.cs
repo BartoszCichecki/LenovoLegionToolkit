@@ -8,20 +8,20 @@ namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 public class GodModeController(GodModeControllerV1 controllerV1, GodModeControllerV2 controllerV2)
     : IGodModeController
 {
-    private readonly IGodModeController _controllerV1 = controllerV1;
-    private readonly IGodModeController _controllerV2 = controllerV2;
+    private IGodModeController ControllerV1 => controllerV1;
+    private IGodModeController ControllerV2 => controllerV2;
 
     public event EventHandler<Guid>? PresetChanged
     {
         add
         {
-            _controllerV1.PresetChanged += value;
-            _controllerV2.PresetChanged += value;
+            ControllerV1.PresetChanged += value;
+            ControllerV2.PresetChanged += value;
         }
         remove
         {
-            _controllerV1.PresetChanged -= value;
-            _controllerV2.PresetChanged -= value;
+            ControllerV1.PresetChanged -= value;
+            ControllerV2.PresetChanged -= value;
         }
     }
 

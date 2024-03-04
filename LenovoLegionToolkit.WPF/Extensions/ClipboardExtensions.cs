@@ -18,13 +18,10 @@ public static class ClipboardExtensions
         Clipboard.SetText(sb.ToString());
     }
 
-    public static IEnumerable<ProcessInfo> GetProcesses()
-    {
-        var text = Clipboard.GetText();
-        return text.Split(Environment.NewLine)
-            .Select(l => l.Trim('"'))
-            .Where(File.Exists)
-            .Distinct()
-            .Select(ProcessInfo.FromPath);
-    }
+    public static IEnumerable<ProcessInfo> GetProcesses() => Clipboard.GetText()
+        .Split(Environment.NewLine)
+        .Select(l => l.Trim('"'))
+        .Where(File.Exists)
+        .Distinct()
+        .Select(ProcessInfo.FromPath);
 }
