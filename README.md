@@ -400,7 +400,7 @@ When you change the Boot Logo, LLT verifies that it is in the format that is cor
 
 #### <a id="faq-smart-fn-lock-stutter" />Why do I see stuttering when using Smart Fn Lock?
 
-On some BIOS versions, toggling Fn Lock causes a brief stutter and since Smart Fn Lock is basically an automatic toggle for Fn Lock, it is also affected by this issue. There are no solutions to this problem as of now.
+On some BIOS versions, toggling Fn Lock causes a brief stutter and since Smart Fn Lock is basically an automatic toggle for Fn Lock, it is also affected by this issue. Try disabling "Fool proof Fn Lock" (or similar) option in BIOS - it was reported that it fixes stutter when toggling Fn Lock.
 
 #### <a id="faq-which-gen" />Which generation is my laptop?
 
