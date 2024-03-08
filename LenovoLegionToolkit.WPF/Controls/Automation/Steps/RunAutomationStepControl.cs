@@ -76,6 +76,16 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
             if (_scriptArguments.Text != AutomationStep.ScriptArguments)
                 RaiseChanged();
         };
+        _checkBoxProcessRunSilently.Checked += (_, _) =>
+        {
+            if (_checkBoxProcessRunSilently.IsChecked != AutomationStep.RunSilently)
+                RaiseChanged();
+        };
+        _checkBoxProcessWaitUntilFinished.Checked += (_, _) =>
+        {
+            if (_checkBoxProcessWaitUntilFinished.IsChecked != AutomationStep.WaitUntilFinished)
+                RaiseChanged();
+        };
 
         _stackPanel.Children.Add(_scriptPath);
         _stackPanel.Children.Add(_scriptArguments);
