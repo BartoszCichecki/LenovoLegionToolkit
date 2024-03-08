@@ -2043,9 +2043,15 @@ Supported formats are: {1}.</value>
     <value>Reset "On battery since" at startup</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Turn off WiFi</value>
+    <value>Turn off WiFi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Turn on WiFi</value>
+    <value>Turn on WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Run silently</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Wait until finished</value>
   </data>
 </root>

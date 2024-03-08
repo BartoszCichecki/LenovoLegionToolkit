@@ -24,6 +24,18 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         Width = 300,
     };
 
+    private readonly CheckBox _checkBoxProcessRunSilently = new()
+    {
+        Content = Resource.RunAutomationStepControl_ProcessRunSilently,
+        IsChecked = true,
+    };
+
+    private readonly CheckBox _checkBoxProcessWaitUntilFinished = new()
+    {
+        Content = Resource.RunAutomationStepControl_ProcessWaitUntilFinished,
+        IsChecked = true,
+    };
+
     private readonly StackPanel _stackPanel = new();
 
     public RunAutomationStepControl(RunAutomationStep step) : base(step)
@@ -34,6 +46,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
 
         AutomationProperties.SetName(_scriptPath, Resource.RunAutomationStepControl_ExePath);
         AutomationProperties.SetName(_scriptArguments, Resource.RunAutomationStepControl_ExeArguments);
+        AutomationProperties.SetName(_checkBoxProcessRunSilently, Resource.RunAutomationStepControl_ProcessRunSilently);
+        AutomationProperties.SetName(_checkBoxProcessWaitUntilFinished, Resource.RunAutomationStepControl_ProcessWaitUntilFinished);
 
         SizeChanged += RunAutomationStepControl_SizeChanged;
     }
@@ -65,6 +79,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
 
         _stackPanel.Children.Add(_scriptPath);
         _stackPanel.Children.Add(_scriptArguments);
+        _stackPanel.Children.Add(_checkBoxProcessRunSilently);
+        _stackPanel.Children.Add(_checkBoxProcessWaitUntilFinished);
 
         return _stackPanel;
     }
