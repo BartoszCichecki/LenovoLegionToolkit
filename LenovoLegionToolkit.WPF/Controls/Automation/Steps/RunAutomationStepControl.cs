@@ -62,7 +62,7 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         _scriptArguments.Width = newWidth;
     }
 
-    public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text);
+    public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text, _checkBoxProcessRunSilently.IsChecked, _checkBoxProcessWaitUntilFinished.IsChecked);
 
     protected override UIElement GetCustomControl()
     {
@@ -91,6 +91,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
     {
         _scriptPath.Text = AutomationStep.ScriptPath ?? string.Empty;
         _scriptArguments.Text = AutomationStep.ScriptArguments ?? string.Empty;
+        _checkBoxProcessRunSilently.IsChecked = AutomationStep.RunSilently ?? true;
+        _checkBoxProcessWaitUntilFinished.IsChecked = AutomationStep.WaitUntilFinished ?? true;
         return Task.CompletedTask;
     }
 }

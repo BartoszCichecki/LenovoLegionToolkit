@@ -7,16 +7,17 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class CMD
 {
-    public static async Task<(int, string)> RunAsync(string file, string arguments, bool waitForExit = true, Dictionary<string, string?>? environment = null)
+    public static async Task<(int, string)> RunAsync(string file, string arguments, bool createNoWindow = true, bool waitForExit = true, Dictionary<string, string?>? environment = null)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Running... [file={file}, argument={arguments}]");
 
         var cmd = new Process();
         cmd.StartInfo.UseShellExecute = false;
-        cmd.StartInfo.CreateNoWindow = true;
-        cmd.StartInfo.RedirectStandardOutput = true;
-        cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+        cmd.StartInfo.CreateNoWindow = createNoWindow;
+        cmd.StartInfo.RedirectStandardOutput = createNoWindow;
+        cmd.StartInfo.RedirectStandardError = createNoWindow;
+        cmd.StartInfo.WindowStyle = createNoWindow ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal;
         cmd.StartInfo.FileName = file;
         if (!string.IsNullOrWhiteSpace(arguments))
             cmd.StartInfo.Arguments = arguments;
