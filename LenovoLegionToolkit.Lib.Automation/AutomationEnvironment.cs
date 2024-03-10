@@ -49,8 +49,22 @@ public class AutomationEnvironment
     {
         set
         {
-            _dictionary[POWER_MODE] = $"{(int)value + 1}";
-            _dictionary[POWER_MODE_NAME] = value.ToString().ToUpperInvariant();
+            _dictionary[POWER_MODE] = value switch
+            {
+                PowerModeState.Quiet => "1",
+                PowerModeState.Balance => "2",
+                PowerModeState.Performance => "3",
+                PowerModeState.GodMode => "255",
+                _ => string.Empty
+            }; ;
+            _dictionary[POWER_MODE_NAME] = value switch
+            {
+                PowerModeState.Quiet => "QUIET",
+                PowerModeState.Balance => "BALANCE",
+                PowerModeState.Performance => "PERFORMANCE",
+                PowerModeState.GodMode => "CUSTOM",
+                _ => string.Empty
+            };
         }
     }
 
