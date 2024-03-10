@@ -22,16 +22,19 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
     {
         PlaceholderText = Resource.RunAutomationStepControl_ExeArguments,
         Width = 300,
+        Margin = new(0, 0, 0, 8),
     };
 
     private readonly CheckBox _checkBoxProcessRunSilently = new()
     {
         Content = Resource.RunAutomationStepControl_ProcessRunSilently,
+        ToolTip = Resource.RunAutomationStepControl_ProcessRunSilently_Description
     };
 
     private readonly CheckBox _checkBoxProcessWaitUntilFinished = new()
     {
         Content = Resource.RunAutomationStepControl_ProcessWaitUntilFinished,
+        ToolTip = Resource.RunAutomationStepControl_ProcessWaitUntilFinished_Description
     };
 
     private readonly StackPanel _stackPanel = new();
@@ -60,7 +63,13 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         _scriptArguments.Width = newWidth;
     }
 
-    public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text, _checkBoxProcessRunSilently.IsChecked ?? true, _checkBoxProcessWaitUntilFinished.IsChecked ?? true);
+    public override IAutomationStep CreateAutomationStep()
+    {
+        return new RunAutomationStep(_scriptPath.Text,
+            _scriptArguments.Text,
+            _checkBoxProcessRunSilently.IsChecked ?? true,
+            _checkBoxProcessWaitUntilFinished.IsChecked ?? true);
+    }
 
     protected override UIElement GetCustomControl()
     {

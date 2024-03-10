@@ -2054,4 +2054,10 @@ Supported formats are: {1}.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>Wait until finished</value>
   </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Execute script or program in background, without creating a new window.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Wait until program or script finishes executing</value>
+  </data>
 </root>

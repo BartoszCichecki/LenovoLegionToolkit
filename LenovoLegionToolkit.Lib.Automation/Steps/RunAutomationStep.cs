@@ -15,12 +15,12 @@ public class RunAutomationStep : IAutomationStep
     public bool WaitUntilFinished { get; }
 
     [JsonConstructor]
-    public RunAutomationStep(string? scriptPath, string? scriptArguments, bool runSilently, bool waitUntilFinished)
+    public RunAutomationStep(string? scriptPath, string? scriptArguments, bool? runSilently, bool? waitUntilFinished)
     {
         ScriptPath = scriptPath;
         ScriptArguments = scriptArguments;
-        RunSilently = runSilently;
-        WaitUntilFinished = waitUntilFinished;
+        RunSilently = runSilently ?? true;
+        WaitUntilFinished = waitUntilFinished ?? true;
     }
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
@@ -30,7 +30,11 @@ public class RunAutomationStep : IAutomationStep
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
 
-        var (_, output) = await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, RunSilently, WaitUntilFinished, environment.Dictionary).ConfigureAwait(false);
+        var (_, output) = await CMD.RunAsync(ScriptPath,
+            ScriptArguments ?? string.Empty,
+            RunSilently,
+            WaitUntilFinished,
+            environment.Dictionary).ConfigureAwait(false);
         context.LastRunOutput = output.TrimEnd();
     }
 
