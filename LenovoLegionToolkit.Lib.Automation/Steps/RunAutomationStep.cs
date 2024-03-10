@@ -4,13 +4,24 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-[method: JsonConstructor]
-public class RunAutomationStep(string? scriptPath, string? scriptArguments)
-    : IAutomationStep
+public class RunAutomationStep : IAutomationStep
 {
-    public string? ScriptPath { get; } = scriptPath;
+    public string? ScriptPath { get; }
 
-    public string? ScriptArguments { get; } = scriptArguments;
+    public string? ScriptArguments { get; }
+
+    public bool RunSilently { get; }
+
+    public bool WaitUntilFinished { get; }
+
+    [JsonConstructor]
+    public RunAutomationStep(string? scriptPath, string? scriptArguments, bool? runSilently, bool? waitUntilFinished)
+    {
+        ScriptPath = scriptPath;
+        ScriptArguments = scriptArguments;
+        RunSilently = runSilently ?? true;
+        WaitUntilFinished = waitUntilFinished ?? true;
+    }
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
@@ -19,9 +30,13 @@ public class RunAutomationStep(string? scriptPath, string? scriptArguments)
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
 
-        var (_, output) = await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, environment: environment.Dictionary).ConfigureAwait(false);
+        var (_, output) = await CMD.RunAsync(ScriptPath,
+            ScriptArguments ?? string.Empty,
+            RunSilently,
+            WaitUntilFinished,
+            environment.Dictionary).ConfigureAwait(false);
         context.LastRunOutput = output.TrimEnd();
     }
 
-    IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);
+    IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments, RunSilently, WaitUntilFinished);
 }

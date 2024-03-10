@@ -196,4 +196,14 @@
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi thay đổi thiết lập trong chế độ Tùy Chỉnh</value>
   </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Hành động định kỳ</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Khi kết nối WiFi</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Khi ngắt kết nối WiFi</value>
+  </data>
 </root>

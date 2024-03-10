@@ -12,7 +12,7 @@ public class CardHeaderControl : UserControl
     {
         FontSize = 14,
         FontWeight = FontWeight.FromOpenTypeWeight(500), // Medium
-        VerticalAlignment = VerticalAlignment.Center,
+        VerticalAlignment = VerticalAlignment.Bottom,
         TextTrimming = TextTrimming.CharacterEllipsis,
     };
 
@@ -20,6 +20,7 @@ public class CardHeaderControl : UserControl
     {
         FontSize = 12,
         Margin = new(0, 4, 0, 0),
+        VerticalAlignment = VerticalAlignment.Top,
         TextWrapping = TextWrapping.Wrap,
         TextTrimming = TextTrimming.CharacterEllipsis,
     };

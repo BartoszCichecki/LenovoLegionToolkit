@@ -173,6 +173,8 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 
 如果你还遇到问题，请尝试[命令行参数](#命令行参数)内的其他实验性显卡工作模式。
 
+**通过设备管理器禁用独立显卡并不会断开独立显卡连接，并同时会导致高耗电量！**
+
 请注意这些功能和英伟达 Advanced Optimus 动态显示切换不同，也不与其一同工作。
 
 ### 强制休眠英伟达显卡
@@ -233,7 +235,7 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 
 翻译贡献者：
 * 保加利亚语 - [Ekscentricitet](https://github.com/Ekscentricitet)
-* 简体中文 - [凌卡Karl](https://github.com/KarlLee830)
+* 简体中文 - [凌卡Karl](https://github.com/KarlLee830), [Ace-Radom](https://github.com/Ace-Radom)
 * 繁体中文 - [flandretw](https://github.com/flandretw)
 * 捷克语 - J0sef
 * 荷兰语 - Melm, [JarneStaalPXL](https://github.com/JarneStaalPXL)
@@ -364,7 +366,9 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 
 #### <a id="faq-smart-fn-lock-stutter" />为什么使用智能 Fn 锁时会出现卡顿？
 
-在一些版本的 BIOS 上切换 Fn 锁是会造成一定的卡顿。由于智能 Fn 锁本质上是自动的 Fn 锁切换，因此也会受到这个问题的影响。目前没有已知的解决方法。
+在一些版本的 BIOS 上切换 Fn 锁是会造成一定的卡顿。由于智能 Fn 锁本质上是自动的 Fn 锁切换，因此也会受到这个问题的影响。
+
+如果你遇到了这个问题，你可以尝试关闭 BIOS 内的 `Fn键动态替换`（英语版 BIOS 则为 `Fool Proof Fn Ctrl`）功能。这也许可以解决 Fn 锁切换的卡顿。
 
 ## 命令行参数
 
@@ -380,10 +384,11 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 * `--force-disable-spectrumkb` - 禁用 Spectrum 单键 RGB 的所有光效控制功能
 * `--force-disable-lenovolighting` - 禁用拯救者 Logo，白色键盘背光，和其他如端口背光的光效控制功能
 * `--experimental-gpu-working-mode` - 将显卡工作模式切换至和 LegionZone 相同的实验性模式 _（使用该参数时 LLT 不保证能够正常运行，也不会为此参数造成的问题提供技术支持）_
-* `--proxyUrl=example.com` - 指定 LLT 应该使用的代理服务器地址
-* `--proxyUsername=some_username` - 如果需要，指定 LLT 使用的代理服务器的用户名
-* `--proxyPassword=some_password` - 如果需要，指定 LLT 使用的代理服务器的密码
-* `--proxyAllowAllCerts` - 如果需要，放宽通过代理服务器建立 HTTPS/SSL 连接的所需标准
+* `--proxy-url=example.com` - 指定 LLT 应该使用的代理服务器地址
+* `--proxy-username=some_username` - 如果需要，指定 LLT 使用的代理服务器的用户名
+* `--proxy-password=some_password` - 如果需要，指定 LLT 使用的代理服务器的密码
+* `--proxy-allow-all-certs` - 如果需要，放宽通过代理服务器建立 HTTPS/SSL 连接的所需标准
+* `--disable-update-checker` - 禁用 LLT 自动新版本检测 _（若你希望依赖于 winget，scoop 等等软件更新 LLT，你可以启用此选项）_
 
 如果你希望将所需参数保存至 `args.txt` 文件内：
 1. 进入 `%LOCALAPPDATA%\LenovoLegionToolkit` 文件夹
@@ -405,25 +410,29 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 4. 复现你遇到的问题；
 5. 关闭拯救者工具箱 （同样记得关掉后台）；
 6. 然后打开 `运行` （使用 Win + R 打开）然后输入 `"%LOCALAPPDATA%\LenovoLegionToolkit\log"` ；
-7. 这里就是存放日志文件的地方了，提 Issue 时记得一并提交。
+7. 这里就是存放日志文件的地方了，请在 Issue 内汇报 Bug 时一并提交。
 
 ## 贡献此项目
 
 我感谢你们提交的任何反馈！不要犹豫，直接提交 Issue。我们也欢迎提交 PR，但提交 PR 前务必查看 [CONTRIBUTING.md](CONTRIBUTING.md) 文件！
 
+（译者提示：由于 LLT 并非由国人发起的项目，主要开发者也大多来自欧美，为了整体交流环境的统一和协调，所有 Issue，PR 和 Commit Message **必须**使用英语书写，否则将被直接关闭并锁定，**没有例外**。此点也已在 [CONTRIBUTING.md](CONTRIBUTING.md) 中说明。若你无法流畅地使用英语表达，你可以在使用中文完成草稿后使用百度翻译或 [DeepL](https://www.deepl.com/zh/translator) 等翻译网站或软件将草稿翻译为英语后提交。）
+
 #### 翻译
 
-我们已选择 Crowdin 为翻译平台。如果你想提交翻译请访问 https://crowdin.com/project/llt 并申请权限。
+我们已选择 Crowdin 为翻译平台。如果你想提交软件内文本翻译请访问 https://crowdin.com/project/llt 并申请权限。
+
+对于此简体中文版 README 则可以直接在代码仓库里提交 PR 贡献翻译。
 
 #### Bugs
 
-如果你发现了软件中的任何Bug和问题，请报告。如果你附上日志将会对我们发现问题的根本原因十分有帮助。 你可以在 `%LOCALAPPDATA%\LenovoLegionToolkit\log` 找到日志文件。提交issue时记得附上最新的日志文件！
+如果你发现了软件中的任何 Bug 和问题，请报告。如果你附上日志将会对我们发现问题的根本原因十分有帮助。 你可以在 `%LOCALAPPDATA%\LenovoLegionToolkit\log` 找到日志文件。提交 Issue 时记得附上最新的日志文件！
 
 #### 适配
 
 如果能适配更多设备就更好了！但要做到这点，我真的很需要你的帮助！
 
-如果你愿意在未适配的机型上试试这个软件，请在启动时点击弹窗的继续按钮，拯救者工具箱会自动打开日志记录，这样你就可以在提交issue时提交了！
+如果你愿意在未适配的机型上试试这个软件，请在启动时点击弹窗的继续按钮，拯救者工具箱会自动打开日志记录，这样你就可以在提交 Issue 时提交了！
 
 *注意一些功能可能无法正常运行*
 
@@ -431,7 +440,7 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 
 请确保在你提交的 Issue 中包含以下信息：
 
-1. 完整的设备型号 (Legion Y9000X 2022款 IAH7)
+1. 完整的设备型号 (例如：Legion Y9000X 2022款 IAH7)
 2. 正常工作的功能
 3. 出错的功能
 4. 会导致崩溃闪退的功能

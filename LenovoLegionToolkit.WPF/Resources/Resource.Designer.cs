@@ -4318,6 +4318,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Run silently.
+        /// </summary>
+        public static string RunAutomationStepControl_ProcessRunSilently {
+            get {
+                return ResourceManager.GetString("RunAutomationStepControl_ProcessRunSilently", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Execute script or program in background, without creating a new window..
+        /// </summary>
+        public static string RunAutomationStepControl_ProcessRunSilently_Description {
+            get {
+                return ResourceManager.GetString("RunAutomationStepControl_ProcessRunSilently_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait until finished.
+        /// </summary>
+        public static string RunAutomationStepControl_ProcessWaitUntilFinished {
+            get {
+                return ResourceManager.GetString("RunAutomationStepControl_ProcessWaitUntilFinished", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wait until program or script finishes executing.
+        /// </summary>
+        public static string RunAutomationStepControl_ProcessWaitUntilFinished_Description {
+            get {
+                return ResourceManager.GetString("RunAutomationStepControl_ProcessWaitUntilFinished_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run.
         /// </summary>
         public static string RunAutomationStepControl_Title {

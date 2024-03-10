@@ -2030,4 +2030,14 @@
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Изтрий</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Приод (минути)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Нулира "На батерия от" брояча в раздела за батерията, когато системата бъде рестартирана.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Нулиране на "На батерия от" брояча при стартиране</value>
+  </data>
 </root>

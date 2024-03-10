@@ -196,4 +196,17 @@
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando uma Pré-definição de Modo Personalizado mudar</value>
   </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ação Periódica</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quando o WiFi está conectado</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quando o WiFi está desconectado</value>
+  </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Ao retomar</value>
+  </data>
 </root>
