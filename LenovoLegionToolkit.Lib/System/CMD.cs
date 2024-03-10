@@ -33,7 +33,7 @@ public static class CMD
         if (!waitForExit)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Ran [file={file}, argument={arguments}, waitForExit={waitForExit}, environment=[{(environment is null ? string.Empty : string.Join(",", environment))}]");
+                Log.Instance.Trace($"Ran [file={file}, argument={arguments}, createNoWindow={createNoWindow}, waitForExit={waitForExit}, environment=[{(environment is null ? string.Empty : string.Join(",", environment))}]");
 
             return (-1, string.Empty);
         }
@@ -41,10 +41,10 @@ public static class CMD
         await cmd.WaitForExitAsync().ConfigureAwait(false);
 
         var exitCode = cmd.ExitCode;
-        var output = await cmd.StandardOutput.ReadToEndAsync().ConfigureAwait(false);
+        var output = createNoWindow ? await cmd.StandardOutput.ReadToEndAsync().ConfigureAwait(false) : string.Empty;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, waitForExit={waitForExit}, exitCode={exitCode} output={output}]");
+            Log.Instance.Trace($"Ran [file={file}, argument={arguments}, createNoWindow={createNoWindow}, waitForExit={waitForExit}, exitCode={exitCode} output={output}]");
 
         return (exitCode, output);
     }
