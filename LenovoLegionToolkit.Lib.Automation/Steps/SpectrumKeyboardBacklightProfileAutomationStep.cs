@@ -6,16 +6,15 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class SpectrumKeyboardBacklightProfileAutomationStep : IAutomationStep<int>
+[method: JsonConstructor]
+public class SpectrumKeyboardBacklightProfileAutomationStep(int state)
+    : IAutomationStep<int>
 {
     private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
 
     private readonly int[] _allStates = Enumerable.Range(1, 6).ToArray();
 
-    public int State { get; }
-
-    [JsonConstructor]
-    public SpectrumKeyboardBacklightProfileAutomationStep(int state) => State = state;
+    public int State { get; } = state;
 
     public Task<int[]> GetAllStatesAsync() => Task.FromResult(_allStates);
 

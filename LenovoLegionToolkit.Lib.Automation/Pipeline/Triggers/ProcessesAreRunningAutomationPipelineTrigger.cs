@@ -8,14 +8,12 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class ProcessesAreRunningAutomationPipelineTrigger : IProcessesAutomationPipelineTrigger
+[method: JsonConstructor]
+public class ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[] processes) : IProcessesAutomationPipelineTrigger
 {
     public string DisplayName => Resource.ProcessesAreRunningAutomationPipelineTrigger_DisplayName;
 
-    public ProcessInfo[] Processes { get; }
-
-    [JsonConstructor]
-    public ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[] processes) => Processes = processes;
+    public ProcessInfo[] Processes { get; } = processes;
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {

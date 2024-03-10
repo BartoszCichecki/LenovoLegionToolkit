@@ -12,33 +12,40 @@ using Octokit;
 
 namespace LenovoLegionToolkit.Lib;
 
-public readonly struct BatteryInformation
+public readonly struct BatteryInformation(
+    bool isCharging,
+    int batteryPercentage,
+    int batteryLifeRemaining,
+    int fullBatteryLifeRemaining,
+    int dischargeRate,
+    int estimateChargeRemaining,
+    int designCapacity,
+    int fullChargeCapacity,
+    int cycleCount,
+    bool isLowBattery,
+    double? batteryTemperatureC,
+    DateTime? manufactureDate,
+    DateTime? firstUseDate)
 {
-    public bool IsCharging { get; init; }
-    public int BatteryPercentage { get; init; }
-    public int BatteryLifeRemaining { get; init; }
-    public int FullBatteryLifeRemaining { get; init; }
-    public int DischargeRate { get; init; }
-    public int EstimateChargeRemaining { get; init; }
-    public int DesignCapacity { get; init; }
-    public int FullChargeCapacity { get; init; }
-    public int CycleCount { get; init; }
-    public bool IsLowBattery { get; init; }
-    public double? BatteryTemperatureC { get; init; }
-    public DateTime? ManufactureDate { get; init; }
-    public DateTime? FirstUseDate { get; init; }
+    public bool IsCharging { get; } = isCharging;
+    public int BatteryPercentage { get; } = batteryPercentage;
+    public int BatteryLifeRemaining { get; } = batteryLifeRemaining;
+    public int FullBatteryLifeRemaining { get; init; } = fullBatteryLifeRemaining;
+    public int DischargeRate { get; } = dischargeRate;
+    public int EstimateChargeRemaining { get; } = estimateChargeRemaining;
+    public int DesignCapacity { get; } = designCapacity;
+    public int FullChargeCapacity { get; } = fullChargeCapacity;
+    public int CycleCount { get; } = cycleCount;
+    public bool IsLowBattery { get; } = isLowBattery;
+    public double? BatteryTemperatureC { get; } = batteryTemperatureC;
+    public DateTime? ManufactureDate { get; } = manufactureDate;
+    public DateTime? FirstUseDate { get; } = firstUseDate;
 }
 
-public readonly struct BiosVersion
+public readonly struct BiosVersion(string prefix, int? version)
 {
-    public string Prefix { get; }
-    public int? Version { get; }
-
-    public BiosVersion(string prefix, int? version)
-    {
-        Prefix = prefix;
-        Version = version;
-    }
+    public string Prefix { get; } = prefix;
+    public int? Version { get; } = version;
 
     public bool IsHigherOrEqualThan(BiosVersion other)
     {
@@ -65,56 +72,44 @@ public readonly struct BiosVersion
     public override string ToString() => $"{nameof(Prefix)}: {Prefix}, {nameof(Version)}: {Version}";
 }
 
-public readonly struct Brightness
+public readonly struct Brightness(byte value)
 {
-    public byte Value { get; private init; }
-
-    public static implicit operator Brightness(byte value) => new() { Value = value };
+    public byte Value { get; } = value;
 }
 
-public readonly struct DiscreteCapability
+public readonly struct DiscreteCapability(CapabilityID id, int value)
 {
-    public CapabilityID Id { get; }
-    public int Value { get; }
-
-    public DiscreteCapability(CapabilityID id, int value)
-    {
-        Id = id;
-        Value = value;
-    }
+    public CapabilityID Id { get; } = id;
+    public int Value { get; } = value;
 }
 
-public readonly struct DisplayAdvancedColorInfo
+public readonly struct DisplayAdvancedColorInfo(
+    bool advancedColorSupported,
+    bool advancedColorEnabled,
+    bool wideColorEnforced,
+    bool advancedColorForceDisabled)
 {
-    public bool AdvancedColorSupported { get; }
-    public bool AdvancedColorEnabled { get; }
-    public bool WideColorEnforced { get; }
-    public bool AdvancedColorForceDisabled { get; }
-
-    public DisplayAdvancedColorInfo(bool advancedColorSupported, bool advancedColorEnabled, bool wideColorEnforced, bool advancedColorForceDisabled)
-    {
-        AdvancedColorSupported = advancedColorSupported;
-        AdvancedColorEnabled = advancedColorEnabled;
-        WideColorEnforced = wideColorEnforced;
-        AdvancedColorForceDisabled = advancedColorForceDisabled;
-    }
+    public bool AdvancedColorSupported { get; } = advancedColorSupported;
+    public bool AdvancedColorEnabled { get; } = advancedColorEnabled;
+    public bool WideColorEnforced { get; } = wideColorEnforced;
+    public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
 }
 
-public readonly struct DriverInfo
+public readonly struct DriverInfo(string deviceId, string hardwareId, Version? version, DateTime? date)
 {
-    public string DeviceId { get; init; }
-    public string HardwareId { get; init; }
-    public Version? Version { get; init; }
-    public DateTime? Date { get; init; }
+    public string DeviceId { get; } = deviceId;
+    public string HardwareId { get; } = hardwareId;
+    public Version? Version { get; } = version;
+    public DateTime? Date { get; } = date;
 }
 
-public readonly struct FanTableData
+public readonly struct FanTableData(FanTableType type, byte fanId, byte sensorId, ushort[] fanSpeeds, ushort[] temps)
 {
-    public FanTableType Type { get; init; }
-    public byte FanId { get; init; }
-    public byte SensorId { get; init; }
-    public ushort[] FanSpeeds { get; init; }
-    public ushort[] Temps { get; init; }
+    public FanTableType Type { get; } = type;
+    public byte FanId { get; } = fanId;
+    public byte SensorId { get; } = sensorId;
+    public ushort[] FanSpeeds { get; } = fanSpeeds;
+    public ushort[] Temps { get; } = temps;
 
     public override string ToString() =>
         $"{nameof(Type)}: {Type}," +
@@ -172,7 +167,7 @@ public readonly struct FanTable
         FSS9 = fanTable[9];
     }
 
-    public ushort[] GetTable() => new[] { FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9 };
+    public ushort[] GetTable() => [FSS0, FSS1, FSS2, FSS3, FSS4, FSS5, FSS6, FSS7, FSS8, FSS9];
 
     public byte[] GetBytes()
     {
@@ -209,41 +204,28 @@ public readonly struct FanTable
         $" {nameof(FSS9)}: {FSS9}";
 }
 
-public readonly struct FanTableInfo
+public readonly struct FanTableInfo(FanTableData[] data, FanTable table)
 {
-    public FanTableData[] Data { get; }
-    public FanTable Table { get; }
-
-    public FanTableInfo(FanTableData[] data, FanTable table)
-    {
-        Data = data;
-        Table = table;
-    }
+    public FanTableData[] Data { get; } = data;
+    public FanTable Table { get; } = table;
 
     public override string ToString() =>
         $"{nameof(Data)}: [{string.Join(", ", Data)}]," +
         $" {nameof(Table)}: {Table}";
 }
 
-public readonly struct GPUOverclockInfo
+public readonly struct GPUOverclockInfo(int coreDeltaMhz, int memoryDeltaMhz)
 {
     public static readonly GPUOverclockInfo Zero = new();
 
-    public int CoreDeltaMhz { get; init; }
-    public int MemoryDeltaMhz { get; init; }
-
+    public int CoreDeltaMhz { get; } = coreDeltaMhz;
+    public int MemoryDeltaMhz { get; } = memoryDeltaMhz;
 
     #region Equality
 
-    public override bool Equals(object? obj)
-    {
-        return obj is GPUOverclockInfo other && Equals(other);
-    }
+    public override bool Equals(object? obj) => obj is GPUOverclockInfo other && CoreDeltaMhz == other.CoreDeltaMhz && MemoryDeltaMhz == other.MemoryDeltaMhz;
 
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
-    }
+    public override int GetHashCode() => HashCode.Combine(CoreDeltaMhz, MemoryDeltaMhz);
 
     public static bool operator ==(GPUOverclockInfo left, GPUOverclockInfo right) => left.Equals(right);
 
@@ -335,27 +317,20 @@ public readonly struct GodModePreset
         $" {nameof(MaxValueOffset)}: {MaxValueOffset}";
 }
 
-public readonly struct GPUStatus
+public readonly struct GPUStatus(GPUState state, string? performanceState, List<Process> processes)
 {
-    public GPUState State { get; }
-    public string? PerformanceState { get; }
-    public List<Process> Processes { get; }
+    public GPUState State { get; } = state;
+    public string? PerformanceState { get; } = performanceState;
+    public List<Process> Processes { get; } = processes;
     public int ProcessCount => Processes.Count;
-
-    public GPUStatus(GPUState state, string? performanceState, List<Process> processes)
-    {
-        State = state;
-        PerformanceState = performanceState;
-        Processes = processes;
-    }
 }
 
-public readonly struct HardwareId
+public readonly struct HardwareId(string vendor, string device)
 {
     public static readonly HardwareId Empty = new();
 
-    public string Vendor { get; init; }
-    public string Device { get; init; }
+    public string Vendor { get; } = vendor;
+    public string Device { get; } = device;
 
     #region Equality
 
@@ -471,17 +446,11 @@ public struct Package
     }
 }
 
-public readonly struct Notification
+public readonly struct Notification(NotificationType type, params object[] args)
 {
-    public NotificationType Type { get; }
+    public NotificationType Type { get; } = type;
 
-    public object[] Args { get; }
-
-    public Notification(NotificationType type, params object[] args)
-    {
-        Type = type;
-        Args = args;
-    }
+    public object[] Args { get; } = args;
 
     public override string ToString()
     {
@@ -490,36 +459,23 @@ public readonly struct Notification
     }
 }
 
-public readonly struct PowerPlan
+public readonly struct PowerPlan(Guid guid, string name, bool isActive)
 {
-    public Guid Guid { get; }
-    public string Name { get; }
-    public bool IsActive { get; }
-
-    public PowerPlan(Guid guid, string name, bool isActive)
-    {
-        Guid = guid;
-        Name = name;
-        IsActive = isActive;
-    }
+    public Guid Guid { get; } = guid;
+    public string Name { get; } = name;
+    public bool IsActive { get; } = isActive;
 
     public override string ToString() => Name;
 }
 
-public readonly struct ProcessInfo : IComparable
+[method: JsonConstructor]
+public readonly struct ProcessInfo(string name, string? executablePath) : IComparable
 {
     public static ProcessInfo FromPath(string path) => new(Path.GetFileNameWithoutExtension(path), path);
 
-    public string Name { get; }
+    public string Name { get; } = name;
 
-    public string? ExecutablePath { get; }
-
-    [JsonConstructor]
-    public ProcessInfo(string name, string? executablePath)
-    {
-        Name = name;
-        ExecutablePath = executablePath;
-    }
+    public string? ExecutablePath { get; } = executablePath;
 
     public override string ToString() => $"{nameof(Name)}: {Name}, {nameof(ExecutablePath)}: {ExecutablePath}";
 
@@ -551,40 +507,21 @@ public readonly struct ProcessInfo : IComparable
     #endregion
 }
 
-public readonly struct RangeCapability
+public readonly struct RangeCapability(CapabilityID id, int defaultValue, int min, int max, int step)
 {
-    public CapabilityID Id { get; }
-    public int DefaultValue { get; }
-    public int Min { get; }
-    public int Max { get; }
-    public int Step { get; }
-
-    public RangeCapability(CapabilityID id, int defaultValue, int min, int max, int step)
-    {
-        Id = id;
-        DefaultValue = defaultValue;
-        Min = min;
-        Max = max;
-        Step = step;
-    }
+    public CapabilityID Id { get; } = id;
+    public int DefaultValue { get; } = defaultValue;
+    public int Min { get; } = min;
+    public int Max { get; } = max;
+    public int Step { get; } = step;
 }
 
-public readonly struct RGBColor
+[method: JsonConstructor]
+public readonly struct RGBColor(byte r, byte g, byte b)
 {
-    public static readonly RGBColor Black = new(0, 0, 0);
-    public static readonly RGBColor White = new(255, 255, 255);
-
-    public byte R { get; }
-    public byte G { get; }
-    public byte B { get; }
-
-    [JsonConstructor]
-    public RGBColor(byte r, byte g, byte b)
-    {
-        R = r;
-        G = g;
-        B = b;
-    }
+    public byte R { get; } = r;
+    public byte G { get; } = g;
+    public byte B { get; } = b;
 
     #region Equality
 
@@ -604,34 +541,23 @@ public readonly struct RGBColor
     public override string ToString() => $"{nameof(R)}: {R}, {nameof(G)}: {G}, {nameof(B)}: {B}";
 }
 
-public readonly struct RGBKeyboardBacklightBacklightPresetDescription
+[method: JsonConstructor]
+public readonly struct RGBKeyboardBacklightBacklightPresetDescription(
+    RGBKeyboardBacklightEffect effect,
+    RGBKeyboardBacklightSpeed speed,
+    RGBKeyboardBacklightBrightness brightness,
+    RGBColor zone1,
+    RGBColor zone2,
+    RGBColor zone3,
+    RGBColor zone4)
 {
-    public RGBKeyboardBacklightEffect Effect { get; } = RGBKeyboardBacklightEffect.Static;
-    public RGBKeyboardBacklightSpeed Speed { get; } = RGBKeyboardBacklightSpeed.Slowest;
-    public RGBKeyboardBacklightBrightness Brightness { get; } = RGBKeyboardBacklightBrightness.Low;
-    public RGBColor Zone1 { get; } = RGBColor.White;
-    public RGBColor Zone2 { get; } = RGBColor.White;
-    public RGBColor Zone3 { get; } = RGBColor.White;
-    public RGBColor Zone4 { get; } = RGBColor.White;
-
-    [JsonConstructor]
-    public RGBKeyboardBacklightBacklightPresetDescription(
-        RGBKeyboardBacklightEffect effect,
-        RGBKeyboardBacklightSpeed speed,
-        RGBKeyboardBacklightBrightness brightness,
-        RGBColor zone1,
-        RGBColor zone2,
-        RGBColor zone3,
-        RGBColor zone4)
-    {
-        Effect = effect;
-        Speed = speed;
-        Brightness = brightness;
-        Zone1 = zone1;
-        Zone2 = zone2;
-        Zone3 = zone3;
-        Zone4 = zone4;
-    }
+    public RGBKeyboardBacklightEffect Effect { get; } = effect;
+    public RGBKeyboardBacklightSpeed Speed { get; } = speed;
+    public RGBKeyboardBacklightBrightness Brightness { get; } = brightness;
+    public RGBColor Zone1 { get; } = zone1;
+    public RGBColor Zone2 { get; } = zone2;
+    public RGBColor Zone3 { get; } = zone3;
+    public RGBColor Zone4 { get; } = zone4;
 
     #region Equality
 
@@ -649,15 +575,9 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription
 
     public override int GetHashCode() => HashCode.Combine(Effect, Speed, Brightness, Zone1, Zone2, Zone3, Zone4);
 
-    public static bool operator ==(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
-    {
-        return left.Equals(right);
-    }
+    public static bool operator ==(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right) => left.Equals(right);
 
-    public static bool operator !=(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right)
-    {
-        return !(left == right);
-    }
+    public static bool operator !=(RGBKeyboardBacklightBacklightPresetDescription left, RGBKeyboardBacklightBacklightPresetDescription right) => !(left == right);
 
     #endregion
 
@@ -671,44 +591,39 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription
         $" {nameof(Zone4)}: {Zone4}";
 }
 
-public readonly struct RGBKeyboardBacklightState
+[method: JsonConstructor]
+public readonly struct RGBKeyboardBacklightState(
+    RGBKeyboardBacklightPreset selectedPreset,
+    Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> presets)
 {
-    public RGBKeyboardBacklightPreset SelectedPreset { get; }
-    public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> Presets { get; }
-
-    [JsonConstructor]
-    public RGBKeyboardBacklightState(RGBKeyboardBacklightPreset selectedPreset, Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> presets)
-    {
-        SelectedPreset = selectedPreset;
-        Presets = presets;
-    }
+    public RGBKeyboardBacklightPreset SelectedPreset { get; } = selectedPreset;
+    public Dictionary<RGBKeyboardBacklightPreset, RGBKeyboardBacklightBacklightPresetDescription> Presets { get; } = presets;
 }
 
-public readonly struct SensorData
+public readonly struct SensorData(
+    int utilization,
+    int maxUtilization,
+    int coreClock,
+    int maxCoreClock,
+    int memoryClock,
+    int maxMemoryClock,
+    int temperature,
+    int maxTemperature,
+    int fanSpeed,
+    int maxFanSpeed)
 {
-    public static readonly SensorData Empty = new()
-    {
-        Utilization = -1,
-        CoreClock = -1,
-        MaxCoreClock = -1,
-        MemoryClock = -1,
-        MaxMemoryClock = -1,
-        Temperature = -1,
-        MaxTemperature = -1,
-        FanSpeed = -1,
-        MaxFanSpeed = -1
-    };
+    public static readonly SensorData Empty = new(-1, -1, -1, -1, -1, -1, -1, -1, -1, -1);
 
-    public int Utilization { get; init; }
-    public int MaxUtilization { get; init; }
-    public int CoreClock { get; init; }
-    public int MaxCoreClock { get; init; }
-    public int MemoryClock { get; init; }
-    public int MaxMemoryClock { get; init; }
-    public int Temperature { get; init; }
-    public int MaxTemperature { get; init; }
-    public int FanSpeed { get; init; }
-    public int MaxFanSpeed { get; init; }
+    public int Utilization { get; } = utilization;
+    public int MaxUtilization { get; } = maxUtilization;
+    public int CoreClock { get; } = coreClock;
+    public int MaxCoreClock { get; } = maxCoreClock;
+    public int MemoryClock { get; } = memoryClock;
+    public int MaxMemoryClock { get; } = maxMemoryClock;
+    public int Temperature { get; } = temperature;
+    public int MaxTemperature { get; } = maxTemperature;
+    public int FanSpeed { get; } = fanSpeed;
+    public int MaxFanSpeed { get; } = maxFanSpeed;
 
     public override string ToString() =>
         $"{nameof(Utilization)}: {Utilization}," +
@@ -723,36 +638,23 @@ public readonly struct SensorData
         $" {nameof(MaxFanSpeed)}: {MaxFanSpeed}";
 }
 
-public readonly struct SensorsData
+public readonly struct SensorsData(SensorData cpu, SensorData gpu)
 {
-    public static readonly SensorsData Empty = new() { CPU = SensorData.Empty, GPU = SensorData.Empty };
+    public static readonly SensorsData Empty = new(SensorData.Empty, SensorData.Empty);
 
-    public SensorData CPU { get; init; }
-    public SensorData GPU { get; init; }
+    public SensorData CPU { get; } = cpu;
+    public SensorData GPU { get; } = gpu;
 
     public override string ToString() => $"{nameof(CPU)}: {CPU}, {nameof(GPU)}: {GPU}";
 }
 
-public readonly struct SensorSettings
+[method: JsonConstructor]
+public readonly struct DpiScale(int scale) : IDisplayName, IEquatable<DpiScale>
 {
-    public int CPUSensorID { get; init; }
-    public int GPUSensorID { get; init; }
-    public int CPUFanID { get; init; }
-    public int GPUFanID { get; init; }
-}
-
-public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
-{
-    public int Scale { get; }
+    public int Scale { get; } = scale;
 
     [JsonIgnore]
     public string DisplayName => $"{Scale}%";
-
-    [JsonConstructor]
-    public DpiScale(int scale)
-    {
-        Scale = scale;
-    }
 
     #region Equality
 
@@ -769,18 +671,13 @@ public readonly struct DpiScale : IDisplayName, IEquatable<DpiScale>
     #endregion
 }
 
-public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
+[method: JsonConstructor]
+public readonly struct RefreshRate(int frequency) : IDisplayName, IEquatable<RefreshRate>
 {
-    public int Frequency { get; }
+    public int Frequency { get; } = frequency;
 
     [JsonIgnore]
     public string DisplayName => $"{Frequency} Hz";
-
-    [JsonConstructor]
-    public RefreshRate(int frequency)
-    {
-        Frequency = frequency;
-    }
 
     public override string ToString() => $"{Frequency}Hz";
 
@@ -799,23 +696,17 @@ public readonly struct RefreshRate : IDisplayName, IEquatable<RefreshRate>
     #endregion
 }
 
-public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
+[method: JsonConstructor]
+public readonly struct Resolution(int width, int height) : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
     [JsonProperty]
-    private int Width { get; }
+    private int Width { get; } = width;
 
     [JsonProperty]
-    private int Height { get; }
+    private int Height { get; } = height;
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";
-
-    [JsonConstructor]
-    public Resolution(int width, int height)
-    {
-        Width = width;
-        Height = height;
-    }
 
     public Resolution(Size size) : this(size.Width, size.Height) { }
 
@@ -853,49 +744,30 @@ public readonly struct Resolution : IDisplayName, IEquatable<Resolution>, ICompa
 
 }
 
-public readonly struct SpectrumKeyboardBacklightEffect
+public readonly struct SpectrumKeyboardBacklightEffect(
+    SpectrumKeyboardBacklightEffectType type,
+    SpectrumKeyboardBacklightSpeed speed,
+    SpectrumKeyboardBacklightDirection direction,
+    SpectrumKeyboardBacklightClockwiseDirection clockwiseDirection,
+    RGBColor[] colors,
+    ushort[] keys)
 {
-    public SpectrumKeyboardBacklightEffectType Type { get; }
-    public SpectrumKeyboardBacklightSpeed Speed { get; }
-    public SpectrumKeyboardBacklightDirection Direction { get; }
-    public SpectrumKeyboardBacklightClockwiseDirection ClockwiseDirection { get; }
-    public RGBColor[] Colors { get; }
-    public ushort[] Keys { get; }
-
-    public SpectrumKeyboardBacklightEffect(SpectrumKeyboardBacklightEffectType type,
-        SpectrumKeyboardBacklightSpeed speed,
-        SpectrumKeyboardBacklightDirection direction,
-        SpectrumKeyboardBacklightClockwiseDirection clockwiseDirection,
-        RGBColor[] colors,
-        ushort[] keys)
-    {
-        Type = type;
-        Speed = speed;
-        Direction = direction;
-        ClockwiseDirection = clockwiseDirection;
-        Colors = colors;
-        Keys = type.IsAllLightsEffect() ? Array.Empty<ushort>() : keys;
-    }
+    public SpectrumKeyboardBacklightEffectType Type { get; } = type;
+    public SpectrumKeyboardBacklightSpeed Speed { get; } = speed;
+    public SpectrumKeyboardBacklightDirection Direction { get; } = direction;
+    public SpectrumKeyboardBacklightClockwiseDirection ClockwiseDirection { get; } = clockwiseDirection;
+    public RGBColor[] Colors { get; } = colors;
+    public ushort[] Keys { get; } = type.IsAllLightsEffect() ? [] : keys;
 }
 
-public readonly struct StepperValue
+public readonly struct StepperValue(int value, int min, int max, int step, int[] steps, int? defaultValue)
 {
-    public int Value { get; }
-    public int Min { get; }
-    public int Max { get; }
-    public int Step { get; }
-    public int[] Steps { get; }
-    public int? DefaultValue { get; }
-
-    public StepperValue(int value, int min, int max, int step, int[] steps, int? defaultValue)
-    {
-        Value = value;
-        Min = min;
-        Max = max;
-        Step = step;
-        Steps = steps;
-        DefaultValue = defaultValue;
-    }
+    public int Value { get; } = value;
+    public int Min { get; } = min;
+    public int Max { get; } = max;
+    public int Step { get; } = step;
+    public int[] Steps { get; } = steps;
+    public int? DefaultValue { get; } = defaultValue;
 
     public StepperValue WithValue(int value) => new(value, Min, Max, Step, Steps, DefaultValue);
 
@@ -908,10 +780,10 @@ public readonly struct StepperValue
         $" {nameof(DefaultValue)} : {DefaultValue}";
 }
 
-public readonly struct Time
+public readonly struct Time(int hour, int minute)
 {
-    public int Hour { get; init; }
-    public int Minute { get; init; }
+    public int Hour { get; } = hour;
+    public int Minute { get; } = minute;
 
     #region Equality
 
@@ -926,39 +798,27 @@ public readonly struct Time
     #endregion
 }
 
-public readonly struct Update
+public readonly struct Update(Release release)
 {
-    public Version Version { get; }
-    public string Title { get; }
-    public string Description { get; }
-    public DateTimeOffset Date { get; }
-    public string? Url { get; }
-
-    public Update(Release release)
-    {
-        Version = Version.Parse(release.TagName);
-        Title = release.Name;
-        Description = release.Body;
-        Date = release.PublishedAt ?? release.CreatedAt;
-        Url = release.Assets.Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase)).Select(ra => ra.BrowserDownloadUrl).FirstOrDefault();
-    }
+    public Version Version { get; } = Version.Parse(release.TagName);
+    public string Title { get; } = release.Name;
+    public string Description { get; } = release.Body;
+    public DateTimeOffset Date { get; } = release.PublishedAt ?? release.CreatedAt;
+    public string? Url { get; } = release.Assets
+        .Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase))
+        .Select(ra => ra.BrowserDownloadUrl)
+        .FirstOrDefault();
 }
 
-public readonly struct WarrantyInfo
+public readonly struct WarrantyInfo(DateTime? start, DateTime? end, Uri? link)
 {
-    public DateTime? Start { get; init; }
-    public DateTime? End { get; init; }
-    public Uri? Link { get; init; }
+    public DateTime? Start { get; } = start;
+    public DateTime? End { get; } = end;
+    public Uri? Link { get; } = link;
 }
 
-public readonly struct WindowSize
+public readonly struct WindowSize(double width, double height)
 {
-    public double Width { get; }
-    public double Height { get; }
-
-    public WindowSize(double width, double height)
-    {
-        Width = width;
-        Height = height;
-    }
+    public double Width { get; } = width;
+    public double Height { get; } = height;
 }

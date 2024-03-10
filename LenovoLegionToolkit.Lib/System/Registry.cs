@@ -39,7 +39,7 @@ public static class Registry
                     if (regNotifyChangeKeyValueResult != WIN32_ERROR.NO_ERROR)
                         PInvokeExtensions.ThrowIfWin32Error("RegNotifyChangeKeyValue");
 
-                    WaitHandle.WaitAny(new[] { resetEvent, token.WaitHandle });
+                    WaitHandle.WaitAny([resetEvent, token.WaitHandle]);
                     token.ThrowIfCancellationRequested();
 
                     handler();
@@ -61,7 +61,7 @@ public static class Registry
 
         return new LambdaAsyncDisposable(async () =>
         {
-            cancellationTokenSource.Cancel();
+            await cancellationTokenSource.CancelAsync().ConfigureAwait(false);
             await task.ConfigureAwait(false);
         });
     }
@@ -122,7 +122,7 @@ public static class Registry
     public static string[] GetSubKeys(string hive, string subKey)
     {
         using var baseKey = GetBaseKey(hive);
-        return baseKey.OpenSubKey(subKey)?.GetSubKeyNames().Select(s => Path.Combine(subKey, s)).ToArray() ?? Array.Empty<string>();
+        return baseKey.OpenSubKey(subKey)?.GetSubKeyNames().Select(s => Path.Combine(subKey, s)).ToArray() ?? [];
     }
 
     public static T GetValue<T>(string hive, string subKey, string valueName, T defaultValue)

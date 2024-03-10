@@ -1,76 +1,92 @@
 ﻿using System;
 using System.Threading.Tasks;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 
-public class DGPUNotify : IDGPUNotify
+public class DGPUNotify(
+    DGPUGamezoneNotify gamezoneNotify,
+    DGPUCapabilityNotify capabilityNotify,
+    DGPUFeatureFlagsNotify featureFlagsNotify)
+    : IDGPUNotify
 {
-    private readonly DGPUCapabilityNotify _capabilityNotify;
-    private readonly DGPUFeatureFlagsNotify _featureFlagsNotify;
-    private readonly DGPUGamezoneNotify _gamezoneNotify;
+    private readonly AsyncLock _lock = new();
 
-    private readonly Lazy<Task<IDGPUNotify?>> _lazyAsyncNotify;
+    private bool _resolved;
+    private IDGPUNotify? _dgpuNotify;
+
+    private DGPUCapabilityNotify CapabilityNotify => capabilityNotify;
+    private DGPUFeatureFlagsNotify FeatureFlagsNotify => featureFlagsNotify;
+    private DGPUGamezoneNotify GamezoneNotify => gamezoneNotify;
+
+    public bool ExperimentalGPUWorkingMode { get; set; }
 
     public event EventHandler<bool>? Notified
     {
         add
         {
-            _capabilityNotify.Notified += value;
-            _featureFlagsNotify.Notified += value;
-            _gamezoneNotify.Notified += value;
+            CapabilityNotify.Notified += value;
+            FeatureFlagsNotify.Notified += value;
+            GamezoneNotify.Notified += value;
         }
         remove
         {
-            _capabilityNotify.Notified -= value;
-            _featureFlagsNotify.Notified -= value;
-            _gamezoneNotify.Notified -= value;
+            CapabilityNotify.Notified -= value;
+            FeatureFlagsNotify.Notified -= value;
+            GamezoneNotify.Notified -= value;
         }
     }
 
-    public bool ExperimentalGPUWorkingMode { get; set; }
-
-    public DGPUNotify(DGPUGamezoneNotify gamezoneNotify, DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify)
+    public async Task<bool> IsSupportedAsync()
     {
-        _gamezoneNotify = gamezoneNotify ?? throw new ArgumentNullException(nameof(gamezoneNotify));
-        _capabilityNotify = capabilityNotify ?? throw new ArgumentNullException(nameof(capabilityNotify));
-        _featureFlagsNotify = featureFlagsNotify ?? throw new ArgumentNullException(nameof(featureFlagsNotify));
-
-        _lazyAsyncNotify = new(GetNotifyLazyAsync);
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false);
+        if (dgpuNotify is null)
+            return false;
+        return await dgpuNotify.IsSupportedAsync().ConfigureAwait(false);
     }
-
-    public async Task<bool> IsSupportedAsync() => await _lazyAsyncNotify.Value.ConfigureAwait(false) != null;
 
     public async Task<bool> IsDGPUAvailableAsync()
     {
-        var feature = await _lazyAsyncNotify.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
-        return await feature.IsDGPUAvailableAsync().ConfigureAwait(false);
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        return await dgpuNotify.IsDGPUAvailableAsync().ConfigureAwait(false);
     }
 
     public async Task NotifyAsync(bool publish = true)
     {
-        var feature = await _lazyAsyncNotify.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
-        await feature.NotifyAsync(publish).ConfigureAwait(false);
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        await dgpuNotify.NotifyAsync(publish).ConfigureAwait(false);
     }
 
     public async Task NotifyLaterIfNeededAsync()
     {
-        var feature = await _lazyAsyncNotify.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
-        await feature.NotifyLaterIfNeededAsync().ConfigureAwait(false);
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        await dgpuNotify.NotifyLaterIfNeededAsync().ConfigureAwait(false);
     }
 
-    private async Task<IDGPUNotify?> GetNotifyLazyAsync()
+    private async Task<IDGPUNotify?> ResolveAsync()
     {
-        if (ExperimentalGPUWorkingMode)
+        if (!ExperimentalGPUWorkingMode)
+            return await GamezoneNotify.IsSupportedAsync().ConfigureAwait(false) ? GamezoneNotify : null;
+
+        if (await CapabilityNotify.IsSupportedAsync().ConfigureAwait(false))
+            return CapabilityNotify;
+
+        if (await FeatureFlagsNotify.IsSupportedAsync().ConfigureAwait(false))
+            return FeatureFlagsNotify;
+
+        return null;
+    }
+
+    private async Task<IDGPUNotify?> ResolveInternalAsync()
+    {
+        using (await _lock.LockAsync().ConfigureAwait(false))
         {
-            if (await _capabilityNotify.IsSupportedAsync().ConfigureAwait(false))
-                return _capabilityNotify;
+            if (_resolved)
+                return _dgpuNotify;
 
-            if (await _featureFlagsNotify.IsSupportedAsync().ConfigureAwait(false))
-                return _featureFlagsNotify;
-
-            return null;
+            _dgpuNotify = await ResolveAsync().ConfigureAwait(false);
+            _resolved = true;
+            return _dgpuNotify;
         }
-
-        return await _gamezoneNotify.IsSupportedAsync().ConfigureAwait(false) ? _gamezoneNotify : null;
     }
 }

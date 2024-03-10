@@ -11,10 +11,7 @@ using TaskService = Microsoft.Win32.TaskScheduler.TaskService;
 
 namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
-public class SoftwareDisablerException : Exception
-{
-    public SoftwareDisablerException(string message, Exception innerException) : base(message, innerException) { }
-}
+public class SoftwareDisablerException(string message, Exception innerException) : Exception(message, innerException);
 
 public abstract class AbstractSoftwareDisabler
 {
@@ -38,7 +35,7 @@ public abstract class AbstractSoftwareDisabler
                 Log.Instance.Trace($"Running processes count: {processes.Length}. [type={GetType().Name}, processes={string.Join(",", processes)}]");
             }
 
-            isEnabled = services.Any() || processes.Any();
+            isEnabled = services.Length != 0 || processes.Length != 0;
             isInstalled = IsInstalled();
         }
         catch (Exception ex)

@@ -4,13 +4,12 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class DeactivateGPUAutomationStep : IAutomationStep<DeactivateGPUAutomationStepState>
+public class DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState state)
+    : IAutomationStep<DeactivateGPUAutomationStepState>
 {
     private readonly GPUController _controller = IoCContainer.Resolve<GPUController>();
 
-    public DeactivateGPUAutomationStepState State { get; }
-
-    public DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState state) => State = state;
+    public DeactivateGPUAutomationStepState State { get; } = state;
 
     public Task<DeactivateGPUAutomationStepState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<DeactivateGPUAutomationStepState>());
 

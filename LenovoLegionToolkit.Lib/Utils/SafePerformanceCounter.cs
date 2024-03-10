@@ -3,20 +3,9 @@ using System.Diagnostics;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class SafePerformanceCounter
+public class SafePerformanceCounter(string categoryName, string counterName, string instanceName)
 {
-    private readonly string _categoryName;
-    private readonly string _counterName;
-    private readonly string _instanceName;
-
     private PerformanceCounter? _performanceCounter;
-
-    public SafePerformanceCounter(string categoryName, string counterName, string instanceName)
-    {
-        _categoryName = categoryName;
-        _counterName = counterName;
-        _instanceName = instanceName;
-    }
 
     public float NextValue()
     {
@@ -45,14 +34,14 @@ public class SafePerformanceCounter
         try
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Creating performance counter. [categoryName={_categoryName}, counterName={_counterName}, instanceName={_instanceName}]");
+                Log.Instance.Trace($"Creating performance counter. [categoryName={categoryName}, counterName={counterName}, instanceName={instanceName}]");
 
-            _performanceCounter = new(_categoryName, _counterName, _instanceName);
+            _performanceCounter = new(categoryName, counterName, instanceName);
         }
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Failed to create performance counter. [categoryName={_categoryName}, counterName={_counterName}, instanceName={_instanceName}]", ex);
+                Log.Instance.Trace($"Failed to create performance counter. [categoryName={categoryName}, counterName={counterName}, instanceName={instanceName}]", ex);
 
             _performanceCounter = null;
         }

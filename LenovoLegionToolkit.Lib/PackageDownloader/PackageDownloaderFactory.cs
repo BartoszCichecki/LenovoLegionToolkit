@@ -2,7 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public class PackageDownloaderFactory
+public class PackageDownloaderFactory(
+    PCSupportPackageDownloader pcSupportPackageDownloader,
+    VantagePackageDownloader vantagePackageDownloader)
 {
     public enum Type
     {
@@ -10,19 +12,10 @@ public class PackageDownloaderFactory
         Vantage,
     }
 
-    private readonly PCSupportPackageDownloader _pcSupportPackageDownloader;
-    private readonly VantagePackageDownloader _vantagePackageDownloader;
-
-    public PackageDownloaderFactory(PCSupportPackageDownloader pcSupportPackageDownloader, VantagePackageDownloader vantagePackageDownloader)
-    {
-        _pcSupportPackageDownloader = pcSupportPackageDownloader ?? throw new ArgumentNullException(nameof(pcSupportPackageDownloader));
-        _vantagePackageDownloader = vantagePackageDownloader ?? throw new ArgumentNullException(nameof(vantagePackageDownloader));
-    }
-
     public IPackageDownloader GetInstance(Type type) => type switch
     {
-        Type.PCSupport => _pcSupportPackageDownloader,
-        Type.Vantage => _vantagePackageDownloader,
+        Type.PCSupport => pcSupportPackageDownloader,
+        Type.Vantage => vantagePackageDownloader,
         _ => throw new InvalidOperationException(nameof(type)),
     };
 }

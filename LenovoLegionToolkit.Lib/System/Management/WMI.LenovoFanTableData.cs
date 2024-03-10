@@ -21,8 +21,8 @@ public static partial class WMI
                 var mode = pdc.Contains("Mode") ? Convert.ToInt32(pdc["Mode"].Value) : -1;
                 var fanId = Convert.ToByte(pdc["Fan_Id"].Value);
                 var sensorId = Convert.ToByte(pdc["Sensor_ID"].Value);
-                var fanTableData = (ushort[]?)pdc["FanTable_Data"].Value ?? Array.Empty<ushort>();
-                var sensorTableData = (ushort[]?)pdc["SensorTable_Data"].Value ?? Array.Empty<ushort>();
+                var fanTableData = (ushort[]?)pdc["FanTable_Data"].Value ?? [];
+                var sensorTableData = (ushort[]?)pdc["SensorTable_Data"].Value ?? [];
                 return (mode, fanId, sensorId, fanTableData, sensorTableData);
             });
     }

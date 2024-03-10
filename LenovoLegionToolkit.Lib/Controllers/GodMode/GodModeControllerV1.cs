@@ -10,16 +10,17 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public class GodModeControllerV1 : AbstractGodModeController
+public class GodModeControllerV1(
+    GodModeSettings settings,
+    LegionZoneDisabler legionZoneDisabler)
+    : AbstractGodModeController(settings)
 {
-    public GodModeControllerV1(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler) : base(settings, vantageDisabler, legionZoneDisabler) { }
-
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(false);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
 
     public override async Task ApplyStateAsync()
     {
-        if (await LegionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await legionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
@@ -260,7 +261,7 @@ public class GodModeControllerV1 : AbstractGodModeController
 
     public override Task<FanTable> GetMinimumFanTableAsync()
     {
-        var fanTable = new FanTable(new ushort[] { 0, 0, 0, 0, 0, 0, 0, 1, 3, 5 });
+        var fanTable = new FanTable([0, 0, 0, 0, 0, 0, 0, 1, 3, 5]);
         return Task.FromResult(fanTable);
     }
 
@@ -286,7 +287,7 @@ public class GodModeControllerV1 : AbstractGodModeController
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to get defaults in other power modes.", ex);
-            return new Dictionary<PowerModeState, GodModeDefaults>();
+            return [];
         }
     }
 
@@ -484,7 +485,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     {
         var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetLongTermPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.longTerm);
+        return new(value, min, max, step, [], defaultValue?.longTerm);
     }
 
     private static Task SetCPULongTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetLongTermPowerLimitAsync(value);
@@ -497,7 +498,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     {
         var defaultValue = await WMI.LenovoCpuMethod.CPUGetDefaultPowerLimitAsync().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoCpuMethod.CPUGetShortTermPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.shortTerm);
+        return new(value, min, max, step, [], defaultValue?.shortTerm);
     }
 
     private static Task SetCPUShortTermPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetShortTermPowerLimitAsync(value);
@@ -509,7 +510,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static async Task<StepperValue> GetCPUPeakPowerLimitAsync()
     {
         var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetPeakPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        return new(value, min, max, step, [], defaultValue);
     }
 
     private static Task SetCPUPeakPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetPeakPowerLimitAsync(value);
@@ -521,7 +522,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static async Task<StepperValue> GetCPUCrossLoadingPowerLimitAsync()
     {
         var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetCrossLoadingPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        return new(value, min, max, step, [], defaultValue);
     }
 
     private static Task SetCPUCrossLoadingPowerLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetCrossLoadingPowerLimitAsync(value);
@@ -533,7 +534,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static async Task<StepperValue> GetAPUSPPTPowerLimitAsync()
     {
         var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.GetAPUSPPTPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        return new(value, min, max, step, [], defaultValue);
     }
 
     private static Task SetAPUSPPTPowerLimitAsync(int value) => WMI.LenovoCpuMethod.SetAPUSPPTPowerLimitAsync(value);
@@ -545,7 +546,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static async Task<StepperValue> GetCPUTemperatureLimitAsync()
     {
         var (value, min, max, step, defaultValue) = await WMI.LenovoCpuMethod.CPUGetTemperatureControlAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        return new(value, min, max, step, [], defaultValue);
     }
 
     private static Task SetCPUTemperatureLimitAsync(int value) => WMI.LenovoCpuMethod.CPUSetTemperatureControlAsync(value);
@@ -558,7 +559,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     {
         var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetCTGPPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ctgp);
+        return new(value, min, max, step, [], defaultValue?.ctgp);
     }
 
     private static Task SetGPUConfigurableTGPAsync(int value) => WMI.LenovoGpuMethod.GPUSetCTGPPowerLimitAsync(value);
@@ -571,7 +572,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     {
         var defaultValue = await WMI.LenovoGpuMethod.GPUGetDefaultPPABcTGPPowerLimit().OrNullIfException().ConfigureAwait(false);
         var (value, min, max, step) = await WMI.LenovoGpuMethod.GPUGetPPABPowerLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue?.ppab);
+        return new(value, min, max, step, [], defaultValue?.ppab);
     }
 
     private static Task SetGPUPowerBoostAsync(int value) => WMI.LenovoGpuMethod.GPUSetPPABPowerLimitAsync(value);
@@ -583,7 +584,7 @@ public class GodModeControllerV1 : AbstractGodModeController
     private static async Task<StepperValue> GetGPUTemperatureLimitAsync()
     {
         var (value, min, max, step, defaultValue) = await WMI.LenovoGpuMethod.GPUGetTemperatureLimitAsync().ConfigureAwait(false);
-        return new(value, min, max, step, Array.Empty<int>(), defaultValue);
+        return new(value, min, max, step, [], defaultValue);
     }
 
     private static Task SetGPUTemperatureLimitAsync(int value) => WMI.LenovoGpuMethod.GPUSetTemperatureLimitAsync(value);
@@ -600,19 +601,16 @@ public class GodModeControllerV1 : AbstractGodModeController
         var data = await WMI.LenovoFanTableData.ReadAsync().ConfigureAwait(false);
 
         var fanTableData = data
-            .Select(d => new FanTableData
+            .Select(d =>
             {
-                Type = (d.fanId, d.sensorId) switch
+                var type = (d.fanId, d.sensorId) switch
                 {
                     (0, 3) => FanTableType.CPU,
                     (1, 4) => FanTableType.GPU,
                     (0, 0) => FanTableType.CPUSensor,
                     _ => FanTableType.Unknown,
-                },
-                FanId = d.fanId,
-                SensorId = d.sensorId,
-                FanSpeeds = d.fanTableData,
-                Temps = d.sensorTableData
+                };
+                return new FanTableData(type, d.fanId, d.sensorId, d.fanTableData, d.sensorTableData);
             })
             .ToArray();
 

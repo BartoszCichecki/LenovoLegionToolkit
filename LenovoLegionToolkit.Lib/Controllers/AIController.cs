@@ -14,39 +14,25 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class AIController
+public class AIController(
+    PowerModeListener powerModeListener,
+    PowerStateListener powerStateListener,
+    GameAutoListener gameAutoListener,
+    PowerModeFeature powerModeFeature,
+    BalanceModeSettings settings)
 {
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(1), nameof(AIController));
 
     private readonly AsyncLock _startStopLock = new();
 
-    private readonly PowerModeListener _powerModeListener;
-    private readonly PowerStateListener _powerStateListener;
-    private readonly GameAutoListener _gameAutoListener;
-    private readonly PowerModeFeature _powerModeFeature;
-    private readonly BalanceModeSettings _settings;
-
     public bool IsAIModeEnabled
     {
-        get => _settings.Store.AIModeEnabled;
+        get => settings.Store.AIModeEnabled;
         set
         {
-            _settings.Store.AIModeEnabled = value;
-            _settings.SynchronizeStore();
+            settings.Store.AIModeEnabled = value;
+            settings.SynchronizeStore();
         }
-    }
-
-    public AIController(PowerModeListener powerModeListener,
-        PowerStateListener powerStateListener,
-        GameAutoListener gameAutoListener,
-        PowerModeFeature powerModeFeature,
-        BalanceModeSettings settings)
-    {
-        _powerModeListener = powerModeListener ?? throw new ArgumentNullException(nameof(powerModeListener));
-        _powerStateListener = powerStateListener ?? throw new ArgumentNullException(nameof(powerStateListener));
-        _gameAutoListener = gameAutoListener ?? throw new ArgumentNullException(nameof(gameAutoListener));
-        _powerModeFeature = powerModeFeature ?? throw new ArgumentNullException(nameof(powerModeFeature));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
     }
 
     public async Task StartIfNeededAsync()
@@ -70,10 +56,10 @@ public class AIController
 
         using (await _startStopLock.LockAsync().ConfigureAwait(false))
         {
-            _powerModeListener.Changed += PowerModeListener_Changed;
-            _powerStateListener.Changed += PowerStateListener_Changed;
+            powerModeListener.Changed += PowerModeListener_Changed;
+            powerStateListener.Changed += PowerStateListener_Changed;
 
-            await _gameAutoListener.SubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
+            await gameAutoListener.SubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
 
             await RefreshAsync().ConfigureAwait(false);
 
@@ -94,10 +80,10 @@ public class AIController
 
         using (await _startStopLock.LockAsync().ConfigureAwait(false))
         {
-            _powerModeListener.Changed -= PowerModeListener_Changed;
-            _powerStateListener.Changed -= PowerStateListener_Changed;
+            powerModeListener.Changed -= PowerModeListener_Changed;
+            powerStateListener.Changed -= PowerStateListener_Changed;
 
-            await _gameAutoListener.UnsubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
+            await gameAutoListener.UnsubscribeChangedAsync(GameAutoListener_Changed).ConfigureAwait(false);
 
             if (await ShouldDisableAsync().ConfigureAwait(false))
                 await DisableAsync().ConfigureAwait(false);
@@ -153,7 +139,7 @@ public class AIController
             return false;
         }
 
-        if (await _powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
+        if (await powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Not in balanced mode.");
@@ -161,7 +147,7 @@ public class AIController
             return false;
         }
 
-        if (!_gameAutoListener.AreGamesRunning())
+        if (!gameAutoListener.AreGamesRunning())
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Games aren't running.");
@@ -177,7 +163,7 @@ public class AIController
 
     private async Task<bool> ShouldDisableAsync()
     {
-        if (await _powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
+        if (await powerModeFeature.GetStateAsync().ConfigureAwait(false) != PowerModeState.Balance)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Not in balanced mode.");

@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class HDRAutomationStep : AbstractFeatureAutomationStep<HDRState>
+[method: JsonConstructor]
+public class HDRAutomationStep(HDRState state)
+    : AbstractFeatureAutomationStep<HDRState>(state)
 {
-    [JsonConstructor]
-    public HDRAutomationStep(HDRState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new HDRAutomationStep(State);
 }

@@ -18,13 +18,9 @@ using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
-    public class RGBKeyboardBacklightController
+    public class RGBKeyboardBacklightController(RGBKeyboardSettings settings, VantageDisabler vantageDisabler)
     {
         private static readonly AsyncLock IoLock = new();
-
-        private readonly RGBKeyboardSettings _settings;
-
-        private readonly VantageDisabler _vantageDisabler;
 
         private SafeFileHandle? _deviceHandle;
 
@@ -41,12 +37,6 @@ namespace LenovoLegionToolkit.Lib.Controllers
         }
 
         public bool ForceDisable { get; set; }
-
-        public RGBKeyboardBacklightController(RGBKeyboardSettings settings, VantageDisabler vantageDisabler)
-        {
-            _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-            _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        }
 
         public Task<bool> IsSupportedAsync()
         {
@@ -110,7 +100,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                return _settings.Store.State;
+                return settings.Store.State;
             }
         }
 
@@ -124,8 +114,8 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                _settings.Store.State = state;
-                _settings.SynchronizeStore();
+                settings.Store.State = state;
+                settings.SynchronizeStore();
 
                 var selectedPreset = state.SelectedPreset;
 
@@ -164,11 +154,11 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
+                var state = settings.Store.State;
                 var presets = state.Presets;
 
-                _settings.Store.State = new(preset, presets);
-                _settings.SynchronizeStore();
+                settings.Store.State = new(preset, presets);
+                settings.SynchronizeStore();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Preset is {preset}.");
@@ -205,13 +195,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
                 await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-                var state = _settings.Store.State;
+                var state = settings.Store.State;
 
                 var newPreset = state.SelectedPreset.Next();
                 var presets = state.Presets;
 
-                _settings.Store.State = new(newPreset, presets);
-                _settings.SynchronizeStore();
+                settings.Store.State = new(newPreset, presets);
+                settings.SynchronizeStore();
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"New preset is {newPreset}.");
@@ -248,7 +238,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             await ThrowIfVantageEnabled().ConfigureAwait(false);
 
-            var state = _settings.Store.State;
+            var state = settings.Store.State;
 
             var preset = state.SelectedPreset;
 
@@ -278,7 +268,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
         private async Task ThrowIfVantageEnabled()
         {
-            var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+            var vantageStatus = await vantageDisabler.GetStatusAsync().ConfigureAwait(false);
             if (vantageStatus == SoftwareStatus.Enabled)
                 throw new InvalidOperationException("Can't manage RGB keyboard with Vantage enabled.");
         }
@@ -309,7 +299,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             return new()
             {
-                Header = new byte[] { 0xCC, 0x16 },
+                Header = [0xCC, 0x16],
                 Unused = new byte[13],
                 Padding = 0,
                 Effect = 0,
@@ -327,13 +317,13 @@ namespace LenovoLegionToolkit.Lib.Controllers
         {
             var result = new LENOVO_RGB_KEYBOARD_STATE
             {
-                Header = new byte[] { 0xCC, 0x16 },
+                Header = [0xCC, 0x16],
                 Unused = new byte[13],
                 Padding = 0x0,
-                Zone1Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
-                Zone2Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
-                Zone3Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
-                Zone4Rgb = new byte[] { 0xFF, 0xFF, 0xFF },
+                Zone1Rgb = [0xFF, 0xFF, 0xFF],
+                Zone2Rgb = [0xFF, 0xFF, 0xFF],
+                Zone3Rgb = [0xFF, 0xFF, 0xFF],
+                Zone4Rgb = [0xFF, 0xFF, 0xFF],
                 Effect = preset.Effect switch
                 {
                     RGBKeyboardBacklightEffect.Static => 1,
@@ -368,10 +358,10 @@ namespace LenovoLegionToolkit.Lib.Controllers
 
             if (preset.Effect is RGBKeyboardBacklightEffect.Static or RGBKeyboardBacklightEffect.Breath)
             {
-                result.Zone1Rgb = new[] { preset.Zone1.R, preset.Zone1.G, preset.Zone1.B };
-                result.Zone2Rgb = new[] { preset.Zone2.R, preset.Zone2.G, preset.Zone2.B };
-                result.Zone3Rgb = new[] { preset.Zone3.R, preset.Zone3.G, preset.Zone3.B };
-                result.Zone4Rgb = new[] { preset.Zone4.R, preset.Zone4.G, preset.Zone4.B };
+                result.Zone1Rgb = [preset.Zone1.R, preset.Zone1.G, preset.Zone1.B];
+                result.Zone2Rgb = [preset.Zone2.R, preset.Zone2.G, preset.Zone2.B];
+                result.Zone3Rgb = [preset.Zone3.R, preset.Zone3.G, preset.Zone3.B];
+                result.Zone4Rgb = [preset.Zone4.R, preset.Zone4.G, preset.Zone4.B];
             }
 
             return result;

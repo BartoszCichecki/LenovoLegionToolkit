@@ -4,10 +4,9 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 
-public class WhiteKeyboardDriverBacklightFeature : AbstractDriverFeature<WhiteKeyboardBacklightState>
+public class WhiteKeyboardDriverBacklightFeature()
+    : AbstractDriverFeature<WhiteKeyboardBacklightState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD)
 {
-    public WhiteKeyboardDriverBacklightFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_KEYBOARD) { }
-
     public override async Task<bool> IsSupportedAsync()
     {
         try
@@ -29,8 +28,8 @@ public class WhiteKeyboardDriverBacklightFeature : AbstractDriverFeature<WhiteKe
         var result = state switch
         {
             WhiteKeyboardBacklightState.Off => new uint[] { 0x00023 },
-            WhiteKeyboardBacklightState.Low => new uint[] { 0x10023 },
-            WhiteKeyboardBacklightState.High => new uint[] { 0x20023 },
+            WhiteKeyboardBacklightState.Low => [0x10023],
+            WhiteKeyboardBacklightState.High => [0x20023],
             _ => throw new InvalidOperationException("Invalid state"),
         };
         return Task.FromResult(result);

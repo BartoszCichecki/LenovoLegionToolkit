@@ -8,13 +8,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class ProcessAutoListener : AbstractAutoListener<ProcessAutoListener.ChangedEventArgs>
+public class ProcessAutoListener(
+    InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener,
+    InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
+    : AbstractAutoListener<ProcessAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(ProcessEventInfoType type, ProcessInfo processInfo) : EventArgs
     {
-        public ProcessEventInfoType Type { get; init; }
+        public ProcessEventInfoType Type { get; } = type;
 
-        public ProcessInfo ProcessInfo { get; init; }
+        public ProcessInfo ProcessInfo { get; } = processInfo;
     }
 
     private static readonly object Lock = new();
@@ -22,7 +25,7 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessAutoListener.Chan
     // ReSharper disable StringLiteralTypo
 
     private static readonly string[] IgnoredNames =
-    {
+    [
         "backgroundTaskHost",
         "CompPkgSrv",
         "conhost",
@@ -34,37 +37,27 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessAutoListener.Chan
         "SearchProtocolHost",
         "svchost",
         "WmiPrvSE"
-    };
+    ];
 
     // ReSharper restore StringLiteralTypo
 
     private static readonly string[] IgnoredPaths =
-    {
+    [
         Environment.GetFolderPath(Environment.SpecialFolder.Windows),
-    };
+    ];
 
-    private readonly InstanceStartedEventAutoAutoListener _instanceStartedEventAutoAutoListener;
-    private readonly InstanceStoppedEventAutoAutoListener _instanceStoppedEventAutoAutoListener;
-
-    private readonly Dictionary<int, ProcessInfo> _processCache = new();
-
-    public ProcessAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener, InstanceStoppedEventAutoAutoListener instanceStoppedEventAutoAutoListener)
-    {
-        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
-        _instanceStoppedEventAutoAutoListener = instanceStoppedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStoppedEventAutoAutoListener));
-
-    }
+    private readonly Dictionary<int, ProcessInfo> _processCache = [];
 
     protected override async Task StartAsync()
     {
-        await _instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
-        await _instanceStoppedEventAutoAutoListener.SubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStartedEventAutoAutoListener.SubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStoppedEventAutoAutoListener.SubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
     }
 
     protected override async Task StopAsync()
     {
-        await _instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
-        await _instanceStoppedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStartedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStartedEventAutoListener_Changed).ConfigureAwait(false);
+        await instanceStoppedEventAutoAutoListener.UnsubscribeChangedAsync(InstanceStoppedEventAutoListener_Changed).ConfigureAwait(false);
 
         lock (Lock)
             _processCache.Clear();
@@ -100,7 +93,7 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessAutoListener.Chan
             var processInfo = new ProcessInfo(e.ProcessName, processPath);
             _processCache[e.ProcessId] = processInfo;
 
-            RaiseChanged(new ChangedEventArgs { Type = ProcessEventInfoType.Started, ProcessInfo = processInfo });
+            RaiseChanged(new ChangedEventArgs(ProcessEventInfoType.Started, processInfo));
         }
     }
 
@@ -122,7 +115,7 @@ public class ProcessAutoListener : AbstractAutoListener<ProcessAutoListener.Chan
             if (!_processCache.Remove(e.ProcessId, out var processInfo))
                 return;
 
-            RaiseChanged(new ChangedEventArgs { Type = ProcessEventInfoType.Stopped, ProcessInfo = processInfo });
+            RaiseChanged(new ChangedEventArgs(ProcessEventInfoType.Stopped, processInfo));
         }
     }
 

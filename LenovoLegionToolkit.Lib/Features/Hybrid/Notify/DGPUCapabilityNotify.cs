@@ -29,7 +29,7 @@ public class DGPUCapabilityNotify : AbstractDGPUNotify
             var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GPUDidVid).ConfigureAwait(false);
             var vendorId = value & 0xFFFF;
             var deviceId = value >> 16;
-            return new HardwareId { Vendor = $"{vendorId:X}", Device = $"{deviceId:X}" };
+            return new HardwareId($"{vendorId:X}", $"{deviceId:X}");
         }
         catch (Exception)
         {

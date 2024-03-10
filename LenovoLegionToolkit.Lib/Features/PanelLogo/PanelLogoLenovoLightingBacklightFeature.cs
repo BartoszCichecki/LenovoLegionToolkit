@@ -3,10 +3,8 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.PanelLogo;
 
-public class PanelLogoLenovoLightingBacklightFeature : AbstractLenovoLightingFeature<PanelLogoBacklightState>
+public class PanelLogoLenovoLightingBacklightFeature() : AbstractLenovoLightingFeature<PanelLogoBacklightState>(3, 1, 0)
 {
-    public PanelLogoLenovoLightingBacklightFeature() : base(3, 1, 0) { }
-
     public override async Task<bool> IsSupportedAsync()
     {
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);

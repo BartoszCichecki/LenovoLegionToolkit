@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class MicrophoneAutomationStep : AbstractFeatureAutomationStep<MicrophoneState>
+[method: JsonConstructor]
+public class MicrophoneAutomationStep(MicrophoneState state)
+    : AbstractFeatureAutomationStep<MicrophoneState>(state)
 {
-    [JsonConstructor]
-    public MicrophoneAutomationStep(MicrophoneState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new MicrophoneAutomationStep(State);
 }

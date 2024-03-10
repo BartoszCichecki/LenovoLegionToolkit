@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib.System;
 
-public static class SystemTheme
+public static partial class SystemTheme
 {
     private const string REGISTRY_HIVE = "HKEY_CURRENT_USER";
 
@@ -70,14 +70,14 @@ public static class SystemTheme
 
     // ReSharper disable StringLiteralTypo
 
-    [DllImport("uxtheme.dll", EntryPoint = "#95")]
-    private static extern uint GetImmersiveColorFromColorSetEx(uint immersiveColorSet, uint immersiveColorType, bool ignoreHighContrast, uint highContrastCacheMode);
+    [LibraryImport("uxtheme.dll", EntryPoint = "#95A")]
+    private static partial uint GetImmersiveColorFromColorSetEx(uint immersiveColorSet, uint immersiveColorType, [MarshalAs(UnmanagedType.Bool)] bool ignoreHighContrast, uint highContrastCacheMode);
 
-    [DllImport("uxtheme.dll", EntryPoint = "#96", CharSet = CharSet.Unicode)]
-    private static extern uint GetImmersiveColorTypeFromName(string name);
+    [LibraryImport("uxtheme.dll", EntryPoint = "#96W", StringMarshalling = StringMarshalling.Utf16)]
+    private static partial uint GetImmersiveColorTypeFromName(string name);
 
-    [DllImport("uxtheme.dll", EntryPoint = "#98")]
-    private static extern uint GetImmersiveUserColorSetPreference(bool forceCheckRegistry, bool skipCheckOnFail);
+    [LibraryImport("uxtheme.dll", EntryPoint = "#98A")]
+    private static partial uint GetImmersiveUserColorSetPreference([MarshalAs(UnmanagedType.Bool)] bool forceCheckRegistry, [MarshalAs(UnmanagedType.Bool)] bool skipCheckOnFail);
 
     // ReSharper restore StringLiteralTypo
 

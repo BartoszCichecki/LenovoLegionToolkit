@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class PanelLogoBacklightAutomationStep : AbstractFeatureAutomationStep<PanelLogoBacklightState>
+[method: JsonConstructor]
+public class PanelLogoBacklightAutomationStep(PanelLogoBacklightState state)
+    : AbstractFeatureAutomationStep<PanelLogoBacklightState>(state)
 {
-    [JsonConstructor]
-    public PanelLogoBacklightAutomationStep(PanelLogoBacklightState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new PanelLogoBacklightAutomationStep(State);
 }

@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class BatteryNightChargeAutomationStep : AbstractFeatureAutomationStep<BatteryNightChargeState>
+[method: JsonConstructor]
+public class BatteryNightChargeAutomationStep(BatteryNightChargeState state)
+    : AbstractFeatureAutomationStep<BatteryNightChargeState>(state)
 {
-    [JsonConstructor]
-    public BatteryNightChargeAutomationStep(BatteryNightChargeState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new BatteryNightChargeAutomationStep(State);
 }

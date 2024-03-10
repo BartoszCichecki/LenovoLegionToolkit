@@ -93,7 +93,7 @@ public class NotifyIcon : NativeWindow, IDisposable
                     case PInvoke.NIN_POPUPOPEN:
                         if (Log.Instance.IsTraceEnabled)
                             Log.Instance.Trace($"NIN_POPUPOPEN");
-                        ShowToolTip();
+                        ShowToolTipAsync();
                         break;
                     case PInvoke.NIN_POPUPCLOSE:
                         if (Log.Instance.IsTraceEnabled)
@@ -132,12 +132,13 @@ public class NotifyIcon : NativeWindow, IDisposable
         }
     }
 
-    private async void ShowToolTip()
+    private async void ShowToolTipAsync()
     {
         if (_toolTipWindow is null)
             return;
 
-        _showToolTipCancellationTokenSource?.Cancel();
+        if (_showToolTipCancellationTokenSource is not null)
+            await _showToolTipCancellationTokenSource.CancelAsync();
         _showToolTipCancellationTokenSource = new();
 
         var token = _showToolTipCancellationTokenSource.Token;

@@ -74,5 +74,5 @@ public class AutomationEnvironment
 
     public Dictionary<string, string?> Dictionary => new(_dictionary);
 
-    private readonly Dictionary<string, string?> _dictionary = new();
+    private readonly Dictionary<string, string?> _dictionary = [];
 }

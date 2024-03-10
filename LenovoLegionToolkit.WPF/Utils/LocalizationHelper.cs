@@ -21,7 +21,7 @@ public static class LocalizationHelper
 
     private static readonly CultureInfo DefaultLanguage = new("en");
 
-    public static readonly CultureInfo[] Languages = {
+    public static readonly CultureInfo[] Languages = [
         DefaultLanguage,
         new("ar"),
         new("bg"),
@@ -43,9 +43,8 @@ public static class LocalizationHelper
         new("vi"),
         new("zh-hans"),
         new("zh-hant"),
-        // HACK: Karakalpak is not a recognized culture by msbuild, so we use this one as workaround instead.
-        new("uz-latn-uz")
-    };
+        new("uz-latn-uz") // HACK: Karakalpak is not a recognized culture by msbuild, so we use this one as workaround instead.
+    ];
 
     public static FlowDirection Direction => Resource.Culture?.TextInfo.IsRightToLeft ?? false
         ? FlowDirection.RightToLeft
@@ -164,10 +163,7 @@ public static class LocalizationHelper
             var charPtr = new PWSTR((char*)ptr.ToPointer());
 
             length = PInvoke.GetLocaleInfoEx((string?)null, PInvoke.LOCALE_SSHORTDATE, charPtr, length);
-            if (length == 0)
-                return null;
-
-            return charPtr.ToString();
+            return length == 0 ? null : charPtr.ToString();
         }
         finally
         {

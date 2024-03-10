@@ -227,33 +227,20 @@ unsafe void GetFeature<T>(SafeHandle handle, out T str) where T : struct
 #region Structs
 
 [StructLayout(LayoutKind.Sequential)]
-internal struct LENOVO_SPECTRUM_HEADER
+internal struct LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE type, int size)
 {
     public byte Head = 7;
-    public LENOVO_SPECTRUM_OPERATION_TYPE Type;
-    public byte Size;
+    public LENOVO_SPECTRUM_OPERATION_TYPE Type = type;
+    public byte Size = (byte)(size % 256);
     public byte Tail = 3;
-
-    public LENOVO_SPECTRUM_HEADER(LENOVO_SPECTRUM_OPERATION_TYPE type, int size)
-    {
-        Type = type;
-        Size = (byte)(size % 256);
-    }
 }
 
 [StructLayout(LayoutKind.Sequential, Size = 960)]
-internal struct LENOVO_SPECTRUM_GENERIC_REQUEST
+internal struct LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE operation, byte value, byte value2)
 {
-    public LENOVO_SPECTRUM_HEADER Header;
-    public byte Value;
-    public byte Value2;
-
-    public LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE operation, byte value, byte value2)
-    {
-        Header = new LENOVO_SPECTRUM_HEADER(operation, 0xC0);
-        Value = value;
-        Value2 = value2;
-    }
+    public LENOVO_SPECTRUM_HEADER Header = new(operation, 0xC0);
+    public byte Value = value;
+    public byte Value2 = value2;
 }
 
 [StructLayout(LayoutKind.Sequential, Size = 960)]

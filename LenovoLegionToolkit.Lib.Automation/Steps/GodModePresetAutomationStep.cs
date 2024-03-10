@@ -7,18 +7,14 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class GodModePresetAutomationStep : IAutomationStep
+[method: JsonConstructor]
+public class GodModePresetAutomationStep(Guid presetId)
+    : IAutomationStep
 {
     private readonly PowerModeFeature _feature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly GodModeController _controller = IoCContainer.Resolve<GodModeController>();
 
-    public Guid PresetId { get; }
-
-    [JsonConstructor]
-    public GodModePresetAutomationStep(Guid presetId)
-    {
-        PresetId = presetId;
-    }
+    public Guid PresetId { get; } = presetId;
 
     public async Task<bool> IsSupportedAsync()
     {

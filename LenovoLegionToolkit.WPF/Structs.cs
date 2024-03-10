@@ -3,10 +3,10 @@ using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF;
 
-public readonly struct DashboardGroup
+public readonly struct DashboardGroup(DashboardGroupType type, string? customName, params DashboardItem[] items)
 {
     public static readonly DashboardGroup[] DefaultGroups =
-    {
+    [
         new(DashboardGroupType.Power, null,
             DashboardItem.PowerMode,
             DashboardItem.BatteryMode,
@@ -33,20 +33,13 @@ public readonly struct DashboardGroup
             DashboardItem.TouchpadLock,
             DashboardItem.FnLock,
             DashboardItem.WinKeyLock)
-    };
+    ];
 
-    public DashboardGroupType Type { get; }
+    public DashboardGroupType Type { get; } = type;
 
-    public string? CustomName { get; }
+    public string? CustomName { get; } = type == DashboardGroupType.Custom ? customName : null;
 
-    public DashboardItem[] Items { get; }
-
-    public DashboardGroup(DashboardGroupType type, string? customName, params DashboardItem[] items)
-    {
-        Type = type;
-        CustomName = type == DashboardGroupType.Custom ? customName : null;
-        Items = items;
-    }
+    public DashboardItem[] Items { get; } = items;
 
     public string GetName() => Type switch
     {

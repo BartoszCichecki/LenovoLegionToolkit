@@ -112,7 +112,7 @@ public class TrayHelper : IDisposable
 
         pipelines = pipelines.Where(p => p.Trigger is null).Reverse().ToList();
 
-        if (pipelines.Any())
+        if (pipelines.Count != 0)
             _contextMenu.Items.Insert(0, new Separator { Tag = AUTOMATION_TAG });
 
         foreach (var pipeline in pipelines)

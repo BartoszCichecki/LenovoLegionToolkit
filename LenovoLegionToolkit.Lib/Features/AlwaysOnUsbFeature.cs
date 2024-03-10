@@ -5,10 +5,9 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class AlwaysOnUSBFeature : AbstractDriverFeature<AlwaysOnUSBState>
+public class AlwaysOnUSBFeature()
+    : AbstractDriverFeature<AlwaysOnUSBState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
 {
-    public AlwaysOnUSBFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS) { }
-
     protected override uint GetInBufferValue() => 0x2;
 
     protected override Task<uint[]> ToInternalAsync(AlwaysOnUSBState state)
@@ -16,8 +15,8 @@ public class AlwaysOnUSBFeature : AbstractDriverFeature<AlwaysOnUSBState>
         var result = state switch
         {
             AlwaysOnUSBState.Off => new uint[] { 0xB, 0x12 },
-            AlwaysOnUSBState.OnWhenSleeping => new uint[] { 0xA, 0x12 },
-            AlwaysOnUSBState.OnAlways => new uint[] { 0xA, 0x13 },
+            AlwaysOnUSBState.OnWhenSleeping => [0xA, 0x12],
+            AlwaysOnUSBState.OnAlways => [0xA, 0x13],
             _ => throw new InvalidOperationException("Invalid state"),
         };
         return Task.FromResult(result);

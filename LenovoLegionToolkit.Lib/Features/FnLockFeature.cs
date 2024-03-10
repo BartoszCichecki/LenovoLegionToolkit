@@ -5,10 +5,8 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class FnLockFeature : AbstractDriverFeature<FnLockState>
+public class FnLockFeature() : AbstractDriverFeature<FnLockState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
 {
-    public FnLockFeature() : base(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS) { }
-
     protected override uint GetInBufferValue() => 0x2;
 
     protected override Task<uint[]> ToInternalAsync(FnLockState state)
@@ -20,7 +18,7 @@ public class FnLockFeature : AbstractDriverFeature<FnLockState>
             _ => throw new InvalidOperationException("Invalid state"),
         };
 
-        var value = lockOn ? new uint[] { 0xE } : new uint[] { 0xF };
+        var value = lockOn ? new uint[] { 0xE } : [0xF];
         return Task.FromResult(value);
     }
 

@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class TouchpadLockAutomationStep : AbstractFeatureAutomationStep<TouchpadLockState>
+[method: JsonConstructor]
+public class TouchpadLockAutomationStep(TouchpadLockState state)
+    : AbstractFeatureAutomationStep<TouchpadLockState>(state)
 {
-    [JsonConstructor]
-    public TouchpadLockAutomationStep(TouchpadLockState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new TouchpadLockAutomationStep(State);
 }

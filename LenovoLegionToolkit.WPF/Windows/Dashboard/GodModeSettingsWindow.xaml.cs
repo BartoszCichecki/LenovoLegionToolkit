@@ -69,7 +69,7 @@ public partial class GodModeSettingsWindow
 
             await loadingTask;
 
-            _loadButton.Visibility = _defaults.Any() ? Visibility.Visible : Visibility.Collapsed;
+            _loadButton.Visibility = _defaults.Count != 0 ? Visibility.Visible : Visibility.Collapsed;
             _buttonsStackPanel.Visibility = Visibility.Visible;
             _loader.IsLoading = false;
         }

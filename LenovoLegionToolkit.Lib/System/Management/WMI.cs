@@ -25,7 +25,7 @@ public static partial class WMI
         }
     }
 
-    private static IDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
+    private static LambdaDisposable Listen(string scope, FormattableString query, Action<PropertyDataCollection> handler)
     {
         var queryFormatted = query.ToString(WMIPropertyValueFormatter.Instance);
         var watcher = new ManagementEventWatcher(scope, queryFormatted);

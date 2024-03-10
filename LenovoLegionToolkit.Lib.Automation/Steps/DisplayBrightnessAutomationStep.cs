@@ -4,16 +4,12 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class DisplayBrightnessAutomationStep : IAutomationStep
+[method: JsonConstructor]
+public class DisplayBrightnessAutomationStep(int brightness)
+    : IAutomationStep
 {
     private readonly DisplayBrightnessController _controller = IoCContainer.Resolve<DisplayBrightnessController>();
-    public int Brightness { get; }
-
-    [JsonConstructor]
-    public DisplayBrightnessAutomationStep(int brightness)
-    {
-        Brightness = brightness;
-    }
+    public int Brightness { get; } = brightness;
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 

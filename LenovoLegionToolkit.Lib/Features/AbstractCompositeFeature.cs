@@ -1,110 +1,69 @@
 ﻿using System;
 using System.Threading.Tasks;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractCompositeFeature<T, T1, T2> : IFeature<T>
-    where T : struct
-    where T1 : IFeature<T>
-    where T2 : IFeature<T>
+public abstract class AbstractCompositeFeature<T>(params IFeature<T>[] features)
+    : IFeature<T> where T : struct
 {
-    protected readonly T1 Feature1;
-    protected readonly T2 Feature2;
+    private readonly AsyncLock _lock = new();
 
-    private readonly Lazy<Task<IFeature<T>?>> _lazyAsyncFeature;
+    private bool _resolved;
+    private IFeature<T>? _feature;
 
-    protected AbstractCompositeFeature(T1 feature1, T2 feature2)
+    public async Task<bool> IsSupportedAsync()
     {
-        Feature1 = feature1 ?? throw new ArgumentNullException(nameof(feature1));
-        Feature2 = feature2 ?? throw new ArgumentNullException(nameof(feature2));
-
-        _lazyAsyncFeature = new(GetFeatureLazyAsync);
+        var feature = await ResolveInternalAsync().ConfigureAwait(false);
+        if (feature is null)
+            return false;
+        return await feature.IsSupportedAsync().ConfigureAwait(false);
     }
-
-    public async Task<bool> IsSupportedAsync() => await _lazyAsyncFeature.Value.ConfigureAwait(false) != null;
 
     public async Task<T[]> GetAllStatesAsync()
     {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+        var feature = await ResolveInternalAsync().ConfigureAwait(false)
+                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
         return await feature.GetAllStatesAsync().ConfigureAwait(false);
     }
 
     public async Task<T> GetStateAsync()
     {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+        var feature = await ResolveInternalAsync().ConfigureAwait(false)
+                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
         return await feature.GetStateAsync().ConfigureAwait(false);
     }
 
     public async Task SetStateAsync(T state)
     {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+        var feature = await ResolveInternalAsync().ConfigureAwait(false)
+                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
         await feature.SetStateAsync(state).ConfigureAwait(false);
     }
 
-    protected virtual async Task<IFeature<T>?> GetFeatureLazyAsync()
+    protected virtual async Task<IFeature<T>?> ResolveAsync()
     {
-        if (await Feature1.IsSupportedAsync().ConfigureAwait(false))
-            return Feature1;
+        foreach (var feature in features)
+        {
+            if (!await feature.IsSupportedAsync().ConfigureAwait(false))
+                continue;
 
-        if (await Feature2.IsSupportedAsync().ConfigureAwait(false))
-            return Feature2;
+            return feature;
+        }
 
         return null;
     }
-}
 
-public abstract class AbstractCompositeFeature<T, T1, T2, T3> : IFeature<T>
-    where T : struct
-    where T1 : IFeature<T>
-    where T2 : IFeature<T>
-    where T3 : IFeature<T>
-{
-    protected readonly T1 Feature1;
-    protected readonly T2 Feature2;
-    protected readonly T3 Feature3;
-
-    private readonly Lazy<Task<IFeature<T>?>> _lazyAsyncFeature;
-
-    protected AbstractCompositeFeature(T1 feature1, T2 feature2, T3 feature3)
+    private async Task<IFeature<T>?> ResolveInternalAsync()
     {
-        Feature1 = feature1 ?? throw new ArgumentNullException(nameof(feature1));
-        Feature2 = feature2 ?? throw new ArgumentNullException(nameof(feature2));
-        Feature3 = feature3 ?? throw new ArgumentNullException(nameof(feature3));
+        using (await _lock.LockAsync().ConfigureAwait(false))
+        {
+            if (_resolved)
+                return _feature;
 
-        _lazyAsyncFeature = new(GetFeatureLazyAsync);
-    }
-
-    public async Task<bool> IsSupportedAsync() => await _lazyAsyncFeature.Value.ConfigureAwait(false) != null;
-
-    public async Task<T[]> GetAllStatesAsync()
-    {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
-        return await feature.GetAllStatesAsync().ConfigureAwait(false);
-    }
-
-    public async Task<T> GetStateAsync()
-    {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
-        return await feature.GetStateAsync().ConfigureAwait(false);
-    }
-
-    public async Task SetStateAsync(T state)
-    {
-        var feature = await _lazyAsyncFeature.Value.ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
-        await feature.SetStateAsync(state).ConfigureAwait(false);
-    }
-
-    protected virtual async Task<IFeature<T>?> GetFeatureLazyAsync()
-    {
-        if (await Feature1.IsSupportedAsync().ConfigureAwait(false))
-            return Feature1;
-
-        if (await Feature2.IsSupportedAsync().ConfigureAwait(false))
-            return Feature2;
-
-        if (await Feature3.IsSupportedAsync().ConfigureAwait(false))
-            return Feature3;
-
-        return null;
+            _feature = await ResolveAsync().ConfigureAwait(false);
+            _resolved = true;
+            return _feature;
+        }
     }
 }

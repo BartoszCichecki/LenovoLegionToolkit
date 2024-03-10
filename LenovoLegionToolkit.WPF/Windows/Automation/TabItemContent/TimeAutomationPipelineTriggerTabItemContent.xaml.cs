@@ -50,7 +50,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         _timeRadioButton.IsChecked = _time is not null;
         _timePickerPanel.IsEnabled = _time is not null;
 
-        var daysOfWeek = _days.Any() ? _days : Enum.GetValues<DayOfWeek>();
+        var daysOfWeek = _days.Length != 0 ? _days : Enum.GetValues<DayOfWeek>();
         foreach (var daysOfWeekCheckbox in _daysOfWeekPanel.Children.OfType<CheckBox>())
         {
             if (daysOfWeek.Contains((DayOfWeek)daysOfWeekCheckbox.Tag))
@@ -77,7 +77,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
         var pickedMinute = (int?)_timePickerMinutes.Value ?? 0;
 
         var utc = DateTimeExtensions.LocalFrom(pickedHour, pickedMinute).ToUniversalTime();
-        return new Time { Hour = utc.Hour, Minute = utc.Minute };
+        return new Time(utc.Hour, utc.Minute);
     }
 
     private DayOfWeek[] GetSelectedDays()

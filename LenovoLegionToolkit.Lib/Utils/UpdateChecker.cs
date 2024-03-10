@@ -11,22 +11,15 @@ using Octokit.Internal;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class UpdateChecker
+public class UpdateChecker(HttpClientFactory httpClientFactory)
 {
     private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
     private readonly AsyncLock _updateSemaphore = new();
 
-    private readonly HttpClientFactory _httpClientFactory;
-
     private DateTime _lastUpdate = DateTime.MinValue;
-    private Update[] _updates = Array.Empty<Update>();
+    private Update[] _updates = [];
 
     public bool Disable { get; set; }
-
-    public UpdateChecker(HttpClientFactory httpClientFactory)
-    {
-        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
-    }
 
     public async Task<Version?> CheckAsync()
     {
@@ -35,7 +28,7 @@ public class UpdateChecker
             if (Disable)
             {
                 _lastUpdate = DateTime.UtcNow;
-                _updates = Array.Empty<Update>();
+                _updates = [];
                 return null;
             }
 
@@ -45,12 +38,12 @@ public class UpdateChecker
                 var shouldCheck = timeSpanSinceLastUpdate > _minimumTimeSpanForRefresh;
 
                 if (!shouldCheck)
-                    return _updates.Any() ? _updates.First().Version : null;
+                    return _updates.Length != 0 ? _updates.First().Version : null;
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Checking...");
 
-                var adapter = new HttpClientAdapter(_httpClientFactory.CreateHandler);
+                var adapter = new HttpClientAdapter(httpClientFactory.CreateHandler);
                 var productInformation = new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker");
                 var connection = new Connection(productInformation, adapter);
                 var githubClient = new GitHubClient(connection);
@@ -73,7 +66,7 @@ public class UpdateChecker
 
                 _updates = updates;
 
-                return _updates.Any() ? _updates.First().Version : null;
+                return _updates.Length != 0 ? _updates.First().Version : null;
             }
             catch (Exception ex)
             {
@@ -108,7 +101,7 @@ public class UpdateChecker
                 throw new InvalidOperationException("Setup file URL could not be found");
 
             await using var fileStream = File.OpenWrite(tempPath);
-            using var httpClient = _httpClientFactory.Create();
+            using var httpClient = httpClientFactory.Create();
             await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
             return tempPath;

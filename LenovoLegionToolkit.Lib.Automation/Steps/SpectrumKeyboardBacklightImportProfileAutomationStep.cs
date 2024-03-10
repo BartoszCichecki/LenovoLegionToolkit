@@ -4,17 +4,13 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class SpectrumKeyboardBacklightImportProfileAutomationStep : IAutomationStep
+[method: JsonConstructor]
+public class SpectrumKeyboardBacklightImportProfileAutomationStep(string? path)
+    : IAutomationStep
 {
     private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
 
-    public string? Path { get; }
-
-    [JsonConstructor]
-    public SpectrumKeyboardBacklightImportProfileAutomationStep(string? path)
-    {
-        Path = path;
-    }
+    public string? Path { get; } = path;
 
     public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 

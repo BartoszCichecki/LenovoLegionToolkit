@@ -6,21 +6,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>
+public class ThermalModeListener(PowerPlanController powerPlanController)
+    : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>(
+        WMI.LenovoGameZoneThermalModeEvent.Listen)
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(ThermalModeState state) : EventArgs
     {
-        public ThermalModeState State { get; init; }
+        public ThermalModeState State { get; } = state;
     }
 
     private readonly ThreadSafeCounter _suppressCounter = new();
-
-    private readonly PowerPlanController _powerPlanController;
-
-    public ThermalModeListener(PowerPlanController powerPlanController) : base(WMI.LenovoGameZoneThermalModeEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-    }
 
     protected override ThermalModeState GetValue(int value)
     {
@@ -37,7 +32,7 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeListener.Chang
         return state;
     }
 
-    protected override ChangedEventArgs GetEventArgs(ThermalModeState value) => new() { State = value };
+    protected override ChangedEventArgs GetEventArgs(ThermalModeState value) => new(value);
 
     protected override async Task OnChangedAsync(ThermalModeState state)
     {
@@ -54,16 +49,16 @@ public class ThermalModeListener : AbstractWMIListener<ThermalModeListener.Chang
         switch (state)
         {
             case ThermalModeState.Quiet:
-                await _powerPlanController.ActivatePowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
+                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
                 break;
             case ThermalModeState.Balance:
-                await _powerPlanController.ActivatePowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
+                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
                 break;
             case ThermalModeState.Performance:
-                await _powerPlanController.ActivatePowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
+                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
                 break;
             case ThermalModeState.GodMode:
-                await _powerPlanController.ActivatePowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
+                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
                 break;
         }
     }

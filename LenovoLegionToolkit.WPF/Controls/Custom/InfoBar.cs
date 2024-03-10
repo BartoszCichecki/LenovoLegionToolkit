@@ -8,12 +8,8 @@ public class InfoBar : Wpf.Ui.Controls.InfoBar
 {
     protected override AutomationPeer OnCreateAutomationPeer() => new InfoBarAutomationPeer(this);
 
-    private class InfoBarAutomationPeer : FrameworkElementAutomationPeer
+    private class InfoBarAutomationPeer(InfoBar owner) : FrameworkElementAutomationPeer(owner)
     {
-        private readonly InfoBar _owner;
-
-        public InfoBarAutomationPeer(InfoBar owner) : base(owner) => _owner = owner;
-
         protected override string GetClassNameCore() => nameof(InfoBar);
 
         protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Pane;
@@ -28,7 +24,7 @@ public class InfoBar : Wpf.Ui.Controls.InfoBar
 
         protected override AutomationPeer? GetLabeledByCore()
         {
-            if (_owner.Content is UIElement element)
+            if (owner.Content is UIElement element)
                 return CreatePeerForElement(element);
 
             return base.GetLabeledByCore();
@@ -39,10 +35,10 @@ public class InfoBar : Wpf.Ui.Controls.InfoBar
             var result = base.GetNameCore() ?? string.Empty;
 
             if (result == string.Empty)
-                result = AutomationProperties.GetName(_owner);
+                result = AutomationProperties.GetName(owner);
 
             if (result == string.Empty)
-                result = $"{_owner.Title}, {_owner.Message}";
+                result = $"{owner.Title}, {owner.Message}";
 
             return result;
         }

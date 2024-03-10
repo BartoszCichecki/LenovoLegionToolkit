@@ -10,10 +10,10 @@ namespace LenovoLegionToolkit.Lib.Extensions;
 public static class NVAPIExtensions
 {
     private static readonly string[] Exclusions =
-    {
+    [
         "dwm.exe",
         "explorer.exe",
-    };
+    ];
 
     public static List<Process> GetActiveProcesses(PhysicalGPU gpu)
     {

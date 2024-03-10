@@ -43,8 +43,10 @@ public partial class UpdateWindow : IProgress<float>
     {
         try
         {
-            _downloadCancellationTokenSource?.Cancel();
-            _downloadCancellationTokenSource = new CancellationTokenSource();
+            if (_downloadCancellationTokenSource is not null)
+                await _downloadCancellationTokenSource.CancelAsync();
+
+            _downloadCancellationTokenSource = new();
 
             SetDownloading(true);
 

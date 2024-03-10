@@ -7,10 +7,10 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class TimeAutoListener : AbstractAutoListener<TimeAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(Time time, DayOfWeek day) : EventArgs
     {
-        public Time Time { get; init; }
-        public DayOfWeek Day { get; init; }
+        public Time Time { get; } = time;
+        public DayOfWeek Day { get; } = day;
     }
 
     private readonly Timer _timer;
@@ -37,5 +37,5 @@ public class TimeAutoListener : AbstractAutoListener<TimeAutoListener.ChangedEve
         return Task.CompletedTask;
     }
 
-    private void Timer_Elapsed(object? sender, ElapsedEventArgs e) => RaiseChanged(new ChangedEventArgs { Time = TimeExtensions.UtcNow, Day = DateTime.UtcNow.DayOfWeek });
+    private void Timer_Elapsed(object? sender, ElapsedEventArgs e) => RaiseChanged(new ChangedEventArgs(TimeExtensions.UtcNow, DateTime.UtcNow.DayOfWeek));
 }

@@ -11,9 +11,9 @@ namespace LenovoLegionToolkit.Lib.AutoListeners;
 
 public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(bool running) : EventArgs
     {
-        public bool Running { get; init; }
+        public bool Running { get; } = running;
     }
 
     private class ProcessEqualityComparer : IEqualityComparer<Process>
@@ -37,14 +37,14 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
     private readonly GameConfigStoreDetector _gameConfigStoreDetector;
     private readonly EffectiveGameModeDetector _effectiveGameModeDetector;
 
-    private readonly HashSet<ProcessInfo> _detectedGamePathsCache = new();
+    private readonly HashSet<ProcessInfo> _detectedGamePathsCache = [];
     private readonly HashSet<Process> _processCache = new(new ProcessEqualityComparer());
 
     private bool _lastState;
 
     public GameAutoListener(InstanceStartedEventAutoAutoListener instanceStartedEventAutoAutoListener)
     {
-        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener ?? throw new ArgumentNullException(nameof(instanceStartedEventAutoAutoListener));
+        _instanceStartedEventAutoAutoListener = instanceStartedEventAutoAutoListener;
 
         _gameConfigStoreDetector = new GameConfigStoreDetector();
         _gameConfigStoreDetector.GamesDetected += GameConfigStoreDetectorGamesConfigStoreDetected;
@@ -133,7 +133,7 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
     {
         lock (Lock)
         {
-            if (_processCache.Any())
+            if (_processCache.Count != 0)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ignoring, process cache is not empty.");
@@ -196,7 +196,7 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
 
             _lastState = newState;
 
-            RaiseChanged(new ChangedEventArgs { Running = newState });
+            RaiseChanged(new ChangedEventArgs(newState));
         }
     }
 
@@ -240,7 +240,7 @@ public class GameAutoListener : AbstractAutoListener<GameAutoListener.ChangedEve
                     Log.Instance.Trace($"Removed {staleProcesses} stale processes.");
             }
 
-            if (_processCache.Any())
+            if (_processCache.Count != 0)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"More games are running...");

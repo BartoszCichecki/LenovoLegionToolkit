@@ -10,23 +10,25 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers.GodMode;
 
-public class GodModeControllerV2 : AbstractGodModeController
+public class GodModeControllerV2(
+    GodModeSettings settings,
+    VantageDisabler vantageDisabler,
+    LegionZoneDisabler legionZoneDisabler)
+    : AbstractGodModeController(settings)
 {
-    public GodModeControllerV2(GodModeSettings settings, VantageDisabler vantageDisabler, LegionZoneDisabler legionZoneDisabler) : base(settings, vantageDisabler, legionZoneDisabler) { }
-
     public override Task<bool> NeedsVantageDisabledAsync() => Task.FromResult(true);
     public override Task<bool> NeedsLegionZoneDisabledAsync() => Task.FromResult(true);
 
     public override async Task ApplyStateAsync()
     {
-        if (await VantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await vantageDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Vantage is running.");
             return;
         }
 
-        if (await LegionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
+        if (await legionZoneDisabler.GetStatusAsync().ConfigureAwait(false) == SoftwareStatus.Enabled)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Can't correctly apply state when Legion Zone is running.");
@@ -140,7 +142,7 @@ public class GodModeControllerV2 : AbstractGodModeController
 
     public override Task<FanTable> GetMinimumFanTableAsync()
     {
-        var fanTable = new FanTable(new ushort[] { 1, 1, 1, 1, 1, 1, 1, 1, 3, 5 });
+        var fanTable = new FanTable([1, 1, 1, 1, 1, 1, 1, 1, 3, 5]);
         return Task.FromResult(fanTable);
     }
 
@@ -193,7 +195,7 @@ public class GodModeControllerV2 : AbstractGodModeController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Failed to get defaults in other power modes.", ex);
 
-            return new Dictionary<PowerModeState, GodModeDefaults>();
+            return [];
         }
     }
 
@@ -221,7 +223,7 @@ public class GodModeControllerV2 : AbstractGodModeController
         foreach (var c in capabilityData)
         {
             var value = await GetValueAsync(c.Id).OrNullIfException().ConfigureAwait(false) ?? c.DefaultValue;
-            var steps = discreteData.GetValueOrDefault(c.Id) ?? Array.Empty<int>();
+            var steps = discreteData.GetValueOrDefault(c.Id) ?? [];
 
             if (c.Step == 0 && steps.Length < 1)
                 continue;
@@ -307,19 +309,16 @@ public class GodModeControllerV2 : AbstractGodModeController
 
         var fanTableData = data
             .Where(d => d.mode == (int)powerModeState + 1)
-            .Select(d => new FanTableData
+            .Select(d =>
             {
-                Type = (d.fanId, d.sensorId) switch
+                var type = (d.fanId, d.sensorId) switch
                 {
                     (1, 4) => FanTableType.CPU,
                     (1, 1) => FanTableType.CPUSensor,
                     (2, 5) => FanTableType.GPU,
                     _ => FanTableType.Unknown,
-                },
-                FanId = d.fanId,
-                SensorId = d.sensorId,
-                FanSpeeds = d.fanTableData,
-                Temps = d.sensorTableData
+                };
+                return new FanTableData(type, d.fanId, d.sensorId, d.fanTableData, d.sensorTableData);
             })
             .ToArray();
 

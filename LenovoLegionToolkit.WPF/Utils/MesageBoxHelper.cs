@@ -143,7 +143,7 @@ public static class MessageBoxHelper
         };
         messageBox.Show();
 
-        textBox.Text = text;
+        textBox.Text = text ?? string.Empty;
         textBox.SelectionStart = text?.Length ?? 0;
         textBox.SelectionLength = 0;
 

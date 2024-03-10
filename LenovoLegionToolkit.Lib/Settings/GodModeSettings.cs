@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace LenovoLegionToolkit.Lib.Settings;
 
 
-public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsStore>
+public class GodModeSettings() : AbstractSettings<GodModeSettings.GodModeSettingsStore>("godmode.json")
 {
     public class GodModeSettingsStore
     {
@@ -31,9 +31,8 @@ public class GodModeSettings : AbstractSettings<GodModeSettings.GodModeSettingsS
 
         public Guid ActivePresetId { get; set; }
 
-        public Dictionary<Guid, Preset> Presets { get; set; } = new();
+        public Dictionary<Guid, Preset> Presets { get; set; } = [];
     }
 
     // ReSharper disable once StringLiteralTypo
-    public GodModeSettings() : base("godmode.json") { }
 }

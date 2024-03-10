@@ -3,15 +3,11 @@ using System.Threading.Tasks;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class LambdaAsyncDisposable : IAsyncDisposable
+public class LambdaAsyncDisposable(Func<Task> action) : IAsyncDisposable
 {
-    private readonly Func<Task> _action;
-
-    public LambdaAsyncDisposable(Func<Task> action) => _action = action;
-
     public async ValueTask DisposeAsync()
     {
         GC.SuppressFinalize(this);
-        await _action().ConfigureAwait(false);
+        await action().ConfigureAwait(false);
     }
 }

@@ -3,13 +3,12 @@ using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public abstract class AbstractFeatureAutomationStep<T> : IAutomationStep<T> where T : struct
+public abstract class AbstractFeatureAutomationStep<T>(T state)
+    : IAutomationStep<T> where T : struct
 {
     private readonly IFeature<T> _feature = IoCContainer.Resolve<IFeature<T>>();
 
-    public T State { get; }
-
-    protected AbstractFeatureAutomationStep(T state) => State = state;
+    public T State { get; } = state;
 
     public Task<bool> IsSupportedAsync() => _feature.IsSupportedAsync();
 

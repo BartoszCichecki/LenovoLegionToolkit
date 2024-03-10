@@ -8,12 +8,8 @@ public class Badge : Wpf.Ui.Controls.Badge
 {
     protected override AutomationPeer OnCreateAutomationPeer() => new BadgeAutomationPeer(this);
 
-    private class BadgeAutomationPeer : FrameworkElementAutomationPeer
+    private class BadgeAutomationPeer(Badge owner) : FrameworkElementAutomationPeer(owner)
     {
-        private readonly Badge _owner;
-
-        public BadgeAutomationPeer(Badge owner) : base(owner) => _owner = owner;
-
         protected override string GetClassNameCore() => nameof(Badge);
 
         protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Button;
@@ -28,7 +24,7 @@ public class Badge : Wpf.Ui.Controls.Badge
 
         protected override AutomationPeer? GetLabeledByCore()
         {
-            if (_owner.Content is UIElement element)
+            if (owner.Content is UIElement element)
                 return CreatePeerForElement(element);
 
             return base.GetLabeledByCore();
@@ -39,12 +35,12 @@ public class Badge : Wpf.Ui.Controls.Badge
             var result = base.GetNameCore() ?? string.Empty;
 
             if (result == string.Empty)
-                result = AutomationProperties.GetName(_owner);
+                result = AutomationProperties.GetName(owner);
 
-            if (result == string.Empty && _owner.Content is DependencyObject d)
+            if (result == string.Empty && owner.Content is DependencyObject d)
                 result = AutomationProperties.GetName(d);
 
-            if (result == string.Empty && _owner.Content is string s)
+            if (result == string.Empty && owner.Content is string s)
                 result = s;
 
             return result;

@@ -9,12 +9,13 @@ using Timer = System.Threading.Timer;
 
 namespace LenovoLegionToolkit.Lib.AutoListeners;
 
-public class UserInactivityAutoListener : AbstractAutoListener<UserInactivityAutoListener.ChangedEventArgs>
+public class UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
+    : AbstractAutoListener<UserInactivityAutoListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(TimeSpan timerResolution, uint tickCount) : EventArgs
     {
-        public TimeSpan TimerResolution { get; init; }
-        public uint TickCount { get; init; }
+        public TimeSpan TimerResolution { get; } = timerResolution;
+        public uint TickCount { get; } = tickCount;
     }
 
     private class UserInactivityWindow : NativeWindow, IDisposable
@@ -68,20 +69,13 @@ public class UserInactivityAutoListener : AbstractAutoListener<UserInactivityAut
     private readonly TimeSpan _timerResolution = TimeSpan.FromSeconds(10);
     private readonly object _lock = new();
 
-    private readonly IMainThreadDispatcher _mainThreadDispatcher;
-
     private UserInactivityWindow? _window;
     private uint _tickCount;
     private Timer? _timer;
 
     public TimeSpan InactivityTimeSpan => _timerResolution * _tickCount;
 
-    public UserInactivityAutoListener(IMainThreadDispatcher mainThreadDispatcher)
-    {
-        _mainThreadDispatcher = mainThreadDispatcher ?? throw new ArgumentNullException(nameof(mainThreadDispatcher));
-    }
-
-    protected override Task StartAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StartAsync() => mainThreadDispatcher.DispatchAsync(() =>
     {
         lock (_lock)
         {
@@ -96,7 +90,7 @@ public class UserInactivityAutoListener : AbstractAutoListener<UserInactivityAut
         return Task.CompletedTask;
     });
 
-    protected override Task StopAsync() => _mainThreadDispatcher.DispatchAsync(() =>
+    protected override Task StopAsync() => mainThreadDispatcher.DispatchAsync(() =>
     {
         lock (_lock)
         {
@@ -125,7 +119,7 @@ public class UserInactivityAutoListener : AbstractAutoListener<UserInactivityAut
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User became active.");
 
-            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = 0 });
+            RaiseChanged(new ChangedEventArgs(_timerResolution, 0));
         }
     }
 
@@ -138,7 +132,7 @@ public class UserInactivityAutoListener : AbstractAutoListener<UserInactivityAut
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"User is not active [time={_timerResolution * _tickCount}]");
 
-            RaiseChanged(new ChangedEventArgs { TimerResolution = _timerResolution, TickCount = _tickCount });
+            RaiseChanged(new ChangedEventArgs(_timerResolution, _tickCount));
         }
     }
 }

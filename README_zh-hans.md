@@ -76,23 +76,23 @@
 
 如果拯救者工具箱安装程序没有正确安装 .NET 依赖，则请按照以下步骤手动安装：
 
-1. 打开 https://dotnet.microsoft.com/zh-cn/download/dotnet/6.0
+1. 打开 https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0
 2. 找到 “.NET 桌面运行时” 一栏；
 3. 点击安装程序下的“X64”一栏下载安装程序；
 4. 运行安装程序并按照指引进行安装。
 
-> 注意：如果你是使用 Scoop 安装了 LLT，.NET 6 依赖应该已经被自动安装。如果它没有被安装或 LLT 无法正常启动，可以使用 `scoop update` 以更新所有软件包并加上 `--force` 参数以强制重新安装 LLT。
+> 注意：如果你是使用 Scoop 安装了 LLT，.NET 8 依赖应该已经被自动安装。如果它没有被安装或 LLT 无法正常启动，可以使用 `scoop update` 以更新所有软件包并加上 `--force` 参数以强制重新安装 LLT。
 
 
 在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的.NET运行时 "部分，你应该能看到类似的内容：
 
-`Microsoft.NETCore.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
+`Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
 
 和
 
-`Microsoft.WindowsDesktop.App 6.0.15 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
+`Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
 
-确切的版本号可能不同，但只要是`6.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到.NET之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
+确切的版本号可能不同，但只要是`8.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到.NET之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
 
 #### 想要帮助我们测试？
 

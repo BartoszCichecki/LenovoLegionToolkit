@@ -6,11 +6,10 @@ using WindowsDisplayAPI.Exceptions;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class ResolutionAutomationStep : AbstractFeatureAutomationStep<Resolution>
+[method: JsonConstructor]
+public class ResolutionAutomationStep(Resolution state)
+    : AbstractFeatureAutomationStep<Resolution>(state)
 {
-    [JsonConstructor]
-    public ResolutionAutomationStep(Resolution state) : base(state) { }
-
     public override Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         return RetryHelper.RetryAsync(() => base.RunAsync(context, environment),

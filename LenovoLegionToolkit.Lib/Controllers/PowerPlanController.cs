@@ -13,7 +13,7 @@ using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class PowerPlanController
+public class PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
 {
     private static readonly Dictionary<PowerModeState, Guid> DefaultPowerModes = new()
     {
@@ -22,16 +22,6 @@ public class PowerPlanController
         { PowerModeState.Performance , Guid.Parse("52521609-efc9-4268-b9ba-67dea73f18b2")},
         { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
     };
-
-    private readonly ApplicationSettings _settings;
-
-    private readonly VantageDisabler _vantageDisabler;
-
-    public PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
-    {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-    }
 
     public IEnumerable<PowerPlan> GetPowerPlans()
     {
@@ -50,7 +40,7 @@ public class PowerPlanController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
 
-        var powerPlanId = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
+        var powerPlanId = settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
         var isDefault = false;
 
         if (powerPlanId == Guid.Empty)
@@ -111,7 +101,7 @@ public class PowerPlanController
     {
         var powerModes = new Dictionary<PowerModeState, Guid>(DefaultPowerModes);
 
-        foreach (var kv in _settings.Store.PowerPlans)
+        foreach (var kv in settings.Store.PowerPlans)
         {
             powerModes[kv.Key] = kv.Value;
         }
@@ -123,7 +113,7 @@ public class PowerPlanController
 
     private async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
     {
-        var activateWhenVantageEnabled = _settings.Store.ActivatePowerProfilesWithVantageEnabled;
+        var activateWhenVantageEnabled = settings.Store.ActivatePowerProfilesWithVantageEnabled;
         if (activateWhenVantageEnabled)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -140,7 +130,7 @@ public class PowerPlanController
             return true;
         }
 
-        var status = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+        var status = await vantageDisabler.GetStatusAsync().ConfigureAwait(false);
         if (status is SoftwareStatus.NotFound or SoftwareStatus.Disabled)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -155,7 +145,7 @@ public class PowerPlanController
         return false;
     }
 
-    private static unsafe IEnumerable<Guid> GetPowerPlansGuid()
+    private static unsafe List<Guid> GetPowerPlansGuid()
     {
         var list = new List<Guid>();
 

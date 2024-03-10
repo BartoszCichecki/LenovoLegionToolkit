@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class DpiScaleAutomationStep : AbstractFeatureAutomationStep<DpiScale>
+[method: JsonConstructor]
+public class DpiScaleAutomationStep(DpiScale state)
+    : AbstractFeatureAutomationStep<DpiScale>(state)
 {
-    [JsonConstructor]
-    public DpiScaleAutomationStep(DpiScale state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new DpiScaleAutomationStep(State);
 }

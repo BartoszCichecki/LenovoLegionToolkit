@@ -4,12 +4,11 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class DelayAutomationStep : IAutomationStep<Delay>
+[method: JsonConstructor]
+public class DelayAutomationStep(Delay state)
+    : IAutomationStep<Delay>
 {
-    public Delay State { get; }
-
-    [JsonConstructor]
-    public DelayAutomationStep(Delay state) => State = state;
+    public Delay State { get; } = state;
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 

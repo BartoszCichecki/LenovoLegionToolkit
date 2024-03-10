@@ -4,8 +4,8 @@ namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
 public class VantageDisabler : AbstractSoftwareDisabler
 {
-    protected override IEnumerable<string> ScheduledTasksPaths => new[]
-    {
+    protected override IEnumerable<string> ScheduledTasksPaths =>
+    [
         "Lenovo\\BatteryGauge",
         "Lenovo\\ImController",
         "Lenovo\\ImController\\Plugins",
@@ -13,17 +13,17 @@ public class VantageDisabler : AbstractSoftwareDisabler
         "Lenovo\\UDC",
         "Lenovo\\Vantage",
         "Lenovo\\Vantage\\Schedule"
-    };
+    ];
 
-    protected override IEnumerable<string> ServiceNames => new[]
-    {
+    protected override IEnumerable<string> ServiceNames =>
+    [
         "ImControllerService",
         "LenovoVantageService"
-    };
+    ];
 
-    protected override IEnumerable<string> ProcessNames => new[]
-    {
+    protected override IEnumerable<string> ProcessNames =>
+    [
         "LenovoVantage",
         "Lenovo.Modern.ImController"
-    };
+    ];
 }

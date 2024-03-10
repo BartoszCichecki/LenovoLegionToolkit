@@ -3,12 +3,10 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation;
 
-public readonly struct Delay : IDisplayName
+[method: JsonConstructor]
+public readonly struct Delay(int delaySeconds) : IDisplayName
 {
-    public int DelaySeconds { get; }
-
-    [JsonConstructor]
-    public Delay(int delaySeconds) => DelaySeconds = delaySeconds;
+    public int DelaySeconds { get; } = delaySeconds;
 
     public string DisplayName => string.Format(DelaySeconds == 1 ? Resource.Delay_Second : Resource.Delay_Second_Many, DelaySeconds);
 }

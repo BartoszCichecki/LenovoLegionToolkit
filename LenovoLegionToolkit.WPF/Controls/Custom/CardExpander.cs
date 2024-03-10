@@ -8,12 +8,8 @@ public class CardExpander : Wpf.Ui.Controls.CardExpander
 {
     protected override AutomationPeer OnCreateAutomationPeer() => new CardExpanderAutomationPeer(this);
 
-    private class CardExpanderAutomationPeer : FrameworkElementAutomationPeer
+    private class CardExpanderAutomationPeer(CardExpander owner) : FrameworkElementAutomationPeer(owner)
     {
-        private readonly CardExpander _owner;
-
-        public CardExpanderAutomationPeer(CardExpander owner) : base(owner) => _owner = owner;
-
         protected override string GetClassNameCore() => nameof(CardExpander);
 
         protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Pane;
@@ -28,7 +24,7 @@ public class CardExpander : Wpf.Ui.Controls.CardExpander
 
         protected override AutomationPeer? GetLabeledByCore()
         {
-            if (_owner.Header is UIElement element)
+            if (owner.Header is UIElement element)
                 return CreatePeerForElement(element);
 
             return base.GetLabeledByCore();
@@ -39,12 +35,12 @@ public class CardExpander : Wpf.Ui.Controls.CardExpander
             var result = base.GetNameCore() ?? string.Empty;
 
             if (result == string.Empty)
-                result = AutomationProperties.GetName(_owner);
+                result = AutomationProperties.GetName(owner);
 
-            if (result == string.Empty && _owner.Header is DependencyObject d)
+            if (result == string.Empty && owner.Header is DependencyObject d)
                 result = AutomationProperties.GetName(d);
 
-            if (result == string.Empty && _owner.Header is string s)
+            if (result == string.Empty && owner.Header is string s)
                 result = s;
 
             return result;

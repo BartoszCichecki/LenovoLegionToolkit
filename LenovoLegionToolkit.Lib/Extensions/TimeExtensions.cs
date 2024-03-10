@@ -9,7 +9,7 @@ public static class TimeExtensions
         get
         {
             var utcNow = DateTime.UtcNow;
-            return new() { Hour = utcNow.Hour, Minute = utcNow.Minute };
+            return new(utcNow.Hour, utcNow.Minute);
         }
     }
 }

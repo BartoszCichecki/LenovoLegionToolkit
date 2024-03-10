@@ -18,7 +18,7 @@ internal readonly struct OsPackageRule : IPackageRule
         var oses = node?.SelectNodes("OS")?
             .OfType<XmlNode>()
             .Select(n => n.InnerText)
-            .ToArray() ?? Array.Empty<string>();
+            .ToArray() ?? [];
 
         if (oses.IsEmpty())
         {

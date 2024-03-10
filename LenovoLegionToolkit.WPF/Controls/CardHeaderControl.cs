@@ -87,7 +87,7 @@ public class CardHeaderControl : UserControl
         set
         {
             _subtitleTextBlock.ToolTip = value;
-            ToolTipService.SetIsEnabled(_subtitleTextBlock, value != null);
+            ToolTipService.SetIsEnabled(_subtitleTextBlock, value is not null);
             RefreshLayout();
         }
     }
@@ -166,12 +166,8 @@ public class CardHeaderControl : UserControl
         }
     }
 
-    private class CardHeaderControlAutomationPeer : FrameworkElementAutomationPeer
+    private class CardHeaderControlAutomationPeer(CardHeaderControl owner) : FrameworkElementAutomationPeer(owner)
     {
-        private readonly CardHeaderControl _owner;
-
-        public CardHeaderControlAutomationPeer(CardHeaderControl owner) : base(owner) => _owner = owner;
-
         protected override string GetClassNameCore() => nameof(CardHeaderControl);
 
         protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Pane;
@@ -189,14 +185,14 @@ public class CardHeaderControl : UserControl
             var result = base.GetNameCore() ?? string.Empty;
 
             if (result == string.Empty)
-                result = AutomationProperties.GetName(_owner);
+                result = AutomationProperties.GetName(owner);
 
-            if (result == string.Empty && !string.IsNullOrWhiteSpace(_owner._titleTextBlock.Text))
+            if (result == string.Empty && !string.IsNullOrWhiteSpace(owner._titleTextBlock.Text))
             {
-                result = _owner._titleTextBlock.Text;
+                result = owner._titleTextBlock.Text;
 
-                if (!string.IsNullOrWhiteSpace(_owner._subtitleTextBlock.Text))
-                    result += $", {_owner._subtitleTextBlock.Text}";
+                if (!string.IsNullOrWhiteSpace(owner._subtitleTextBlock.Text))
+                    result += $", {owner._subtitleTextBlock.Text}";
             }
 
             return result;

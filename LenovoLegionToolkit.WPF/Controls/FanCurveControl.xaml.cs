@@ -15,7 +15,7 @@ namespace LenovoLegionToolkit.WPF.Controls;
 
 public partial class FanCurveControl
 {
-    private readonly List<Slider> _sliders = new();
+    private readonly List<Slider> _sliders = [];
     private readonly InfoTooltip _customToolTip = new();
 
     private FanTableData[]? _tableData;
@@ -146,10 +146,10 @@ public partial class FanCurveControl
 
     private static CustomPopupPlacement[] ToolTipCustomPopupPlacementCallback(Size size, Size targetSize, Point _)
     {
-        return new CustomPopupPlacement[]
-        {
+        return
+        [
             new(new((targetSize.Width - size.Width) * 0.5, -targetSize.Height -size.Height + 8), PopupPrimaryAxis.Vertical)
-        };
+        ];
     }
 
     private void VerifyValues(Slider currentSlider)
@@ -202,7 +202,7 @@ public partial class FanCurveControl
             Stroke = color,
             StrokeStartLineCap = PenLineCap.Round,
             StrokeEndLineCap = PenLineCap.Round,
-            Data = new PathGeometry { Figures = new PathFigureCollection { pathFigure } },
+            Data = new PathGeometry { Figures = [pathFigure] },
         };
         _canvas.Children.Add(path);
 

@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public class BalanceModeSettings : AbstractSettings<BalanceModeSettingsStore>
+public class BalanceModeSettings() : AbstractSettings<BalanceModeSettingsStore>("balancemode.json")
 {
     public class BalanceModeSettingsStore
     {
@@ -10,5 +10,4 @@ public class BalanceModeSettings : AbstractSettings<BalanceModeSettingsStore>
     }
 
     // ReSharper disable once StringLiteralTypo
-    public BalanceModeSettings() : base("balancemode.json") { }
 }

@@ -65,7 +65,7 @@ public partial class DeviceInformationWindow
 
     private async void DeviceCardControl_Click(object sender, RoutedEventArgs e)
     {
-        if (((sender as CardControl)?.Content as TextBlock)?.Text is not string str)
+        if (((sender as CardControl)?.Content as TextBlock)?.Text is not { } str)
             return;
 
         try

@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class OverDriveAutomationStep : AbstractFeatureAutomationStep<OverDriveState>
+[method: JsonConstructor]
+public class OverDriveAutomationStep(OverDriveState state)
+    : AbstractFeatureAutomationStep<OverDriveState>(state)
 {
-    [JsonConstructor]
-    public OverDriveAutomationStep(OverDriveState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new OverDriveAutomationStep(State);
 }

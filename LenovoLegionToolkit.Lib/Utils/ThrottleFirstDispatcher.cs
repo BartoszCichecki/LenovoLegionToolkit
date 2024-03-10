@@ -4,20 +4,11 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class ThrottleFirstDispatcher
+public class ThrottleFirstDispatcher(TimeSpan interval, string? tag = null)
 {
     private readonly AsyncLock _lock = new();
 
-    private readonly TimeSpan _interval;
-    private readonly string? _tag;
-
     private DateTime _lastEvent = DateTime.MinValue;
-
-    public ThrottleFirstDispatcher(TimeSpan interval, string? tag = null)
-    {
-        _interval = interval;
-        _tag = tag;
-    }
 
     public async Task DispatchAsync(Func<Task> task)
     {
@@ -25,16 +16,16 @@ public class ThrottleFirstDispatcher
         {
             var diff = DateTime.UtcNow - _lastEvent;
 
-            if (diff < _interval)
+            if (diff < interval)
             {
-                if (_tag is not null && Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Throttling... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+                if (tag is not null && Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Throttling... [tag={tag}, diff={diff.TotalMilliseconds}ms]");
 
                 return;
             }
 
-            if (_tag is not null && Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Allowing... [tag={_tag}, diff={diff.TotalMilliseconds}ms]");
+            if (tag is not null && Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Allowing... [tag={tag}, diff={diff.TotalMilliseconds}ms]");
 
             await task().ConfigureAwait(false);
 

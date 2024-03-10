@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class PortsBacklightAutomationStep : AbstractFeatureAutomationStep<PortsBacklightState>
+[method: JsonConstructor]
+public class PortsBacklightAutomationStep(PortsBacklightState state)
+    : AbstractFeatureAutomationStep<PortsBacklightState>(state)
 {
-    [JsonConstructor]
-    public PortsBacklightAutomationStep(PortsBacklightState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new PortsBacklightAutomationStep(State);
 }

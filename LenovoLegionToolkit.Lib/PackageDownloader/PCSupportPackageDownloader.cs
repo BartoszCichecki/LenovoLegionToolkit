@@ -9,11 +9,10 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public class PCSupportPackageDownloader : AbstractPackageDownloader
+public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
+    : AbstractPackageDownloader(httpClientFactory)
 {
     private const string CATALOG_BASE_URL = "https://pcsupport.lenovo.com/us/en/api/v4/downloads/drivers?productId=";
-
-    public PCSupportPackageDownloader(HttpClientFactory httpClientFactory) : base(httpClientFactory) { }
 
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
@@ -36,7 +35,7 @@ public class PCSupportPackageDownloader : AbstractPackageDownloader
         var downloadsNode = catalogJsonNode?["body"]?["DownloadItems"]?.AsArray();
 
         if (downloadsNode is null)
-            return new();
+            return [];
 
         var packages = new List<Package>();
         foreach (var downloadNode in downloadsNode)

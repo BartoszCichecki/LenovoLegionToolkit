@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
@@ -11,10 +10,13 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader.Detectors.Rules;
 
-internal readonly struct BiosPackageRule : IPackageRule
+internal readonly partial struct BiosPackageRule : IPackageRule
 {
-    private static readonly Regex PrefixRegex = new("^[A-Z0-9]{4}");
-    private static readonly Regex VersionRegex = new("[0-9]{2}");
+    [GeneratedRegex("^[A-Z0-9]{4}")]
+    private static partial Regex PrefixRegex();
+
+    [GeneratedRegex("[0-9]{2}")]
+    private static partial Regex VersionRegex();
 
     private string[] Levels { get; init; }
 
@@ -23,7 +25,7 @@ internal readonly struct BiosPackageRule : IPackageRule
         var levels = node?.SelectNodes("Level")?
             .OfType<XmlNode>()
             .Select(n => n.InnerText)
-            .ToArray() ?? Array.Empty<string>();
+            .ToArray() ?? [];
 
         if (levels.IsEmpty())
         {
@@ -40,12 +42,12 @@ internal readonly struct BiosPackageRule : IPackageRule
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         var currentBios = mi.BiosVersion;
 
-        var result = Levels.Any(level =>
+        var result = Levels.Any((global::System.Func<string, bool>)(level =>
         {
-            var levelPrefix = PrefixRegex.Match(level).Value;
-            var levelVersion = int.Parse(VersionRegex.Match(level).Value);
+            var levelPrefix = PrefixRegex().Match(level).Value;
+            var levelVersion = int.Parse(VersionRegex().Match(level).Value);
             return currentBios.HasValue && levelPrefix == currentBios.Value.Prefix && levelVersion == currentBios.Value.Version;
-        });
+        }));
 
         return result;
     }
@@ -55,12 +57,12 @@ internal readonly struct BiosPackageRule : IPackageRule
         var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
         var currentBios = mi.BiosVersion;
 
-        var result = Levels.All(level =>
+        var result = Levels.All((global::System.Func<string, bool>)(level =>
         {
-            var levelPrefix = PrefixRegex.Match(level).Value;
-            var levelVersion = int.Parse(VersionRegex.Match(level).Value);
+            var levelPrefix = PrefixRegex().Match(level).Value;
+            var levelVersion = int.Parse(VersionRegex().Match(level).Value);
             return currentBios.HasValue && levelPrefix == currentBios.Value.Prefix && levelVersion > currentBios.Value.Version;
-        });
+        }));
 
         return result;
     }

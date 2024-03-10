@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation;
@@ -11,7 +10,8 @@ using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Automation;
 
-public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAutomationStepControl<IAutomationStep<T>> where T : struct
+public abstract class AbstractComboBoxAutomationStepCardControl<T>(IAutomationStep<T> step)
+    : AbstractAutomationStepControl<IAutomationStep<T>>(step) where T : struct
 {
     private readonly ComboBox _comboBox = new()
     {
@@ -21,8 +21,6 @@ public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAut
     };
 
     private T _state;
-
-    protected AbstractComboBoxAutomationStepCardControl(IAutomationStep<T> step) : base(step) { }
 
     protected override UIElement GetCustomControl()
     {
@@ -65,7 +63,7 @@ public abstract class AbstractComboBoxAutomationStepCardControl<T> : AbstractAut
 
         _state = selectedItem;
         _comboBox.SetItems(items, selectedItem, ComboBoxItemDisplayName);
-        _comboBox.IsEnabled = items.Any();
+        _comboBox.IsEnabled = items.Length != 0;
     }
 
     protected override void OnFinishedLoading() => _comboBox.Visibility = Visibility.Visible;

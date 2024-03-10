@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class OneLevelWhiteKeyboardBacklightAutomationStep : AbstractFeatureAutomationStep<OneLevelWhiteKeyboardBacklightState>
+[method: JsonConstructor]
+public class OneLevelWhiteKeyboardBacklightAutomationStep(OneLevelWhiteKeyboardBacklightState state)
+    : AbstractFeatureAutomationStep<OneLevelWhiteKeyboardBacklightState>(state)
 {
-    [JsonConstructor]
-    public OneLevelWhiteKeyboardBacklightAutomationStep(OneLevelWhiteKeyboardBacklightState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new OneLevelWhiteKeyboardBacklightAutomationStep(State);
 }

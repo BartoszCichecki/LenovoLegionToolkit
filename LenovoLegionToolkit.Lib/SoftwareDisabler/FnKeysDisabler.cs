@@ -10,9 +10,9 @@ namespace LenovoLegionToolkit.Lib.SoftwareDisabler;
 
 public class FnKeysDisabler : AbstractSoftwareDisabler
 {
-    protected override IEnumerable<string> ScheduledTasksPaths => Array.Empty<string>();
-    protected override IEnumerable<string> ServiceNames => new[] { "LenovoFnAndFunctionKeys" };
-    protected override IEnumerable<string> ProcessNames => new[] { "LenovoUtilityUI", "LenovoUtilityService", "LenovoSmartKey" };
+    protected override IEnumerable<string> ScheduledTasksPaths => [];
+    protected override IEnumerable<string> ServiceNames => ["LenovoFnAndFunctionKeys"];
+    protected override IEnumerable<string> ProcessNames => ["LenovoUtilityUI", "LenovoUtilityService", "LenovoSmartKey"];
 
     public override async Task EnableAsync()
     {

@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class WinKeyAutomationStep : AbstractFeatureAutomationStep<WinKeyState>
+[method: JsonConstructor]
+public class WinKeyAutomationStep(WinKeyState state)
+    : AbstractFeatureAutomationStep<WinKeyState>(state)
 {
-    [JsonConstructor]
-    public WinKeyAutomationStep(WinKeyState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new WinKeyAutomationStep(State);
 }

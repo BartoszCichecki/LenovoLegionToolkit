@@ -7,12 +7,8 @@ public class NavigationItem : Wpf.Ui.Controls.NavigationItem
 {
     protected override AutomationPeer OnCreateAutomationPeer() => new NavigationItemAutomationPeer(this);
 
-    private class NavigationItemAutomationPeer : FrameworkElementAutomationPeer
+    private class NavigationItemAutomationPeer(NavigationItem owner) : FrameworkElementAutomationPeer(owner)
     {
-        private readonly NavigationItem _owner;
-
-        public NavigationItemAutomationPeer(NavigationItem owner) : base(owner) => _owner = owner;
-
         protected override string GetClassNameCore() => nameof(NavigationItem);
 
         protected override AutomationControlType GetAutomationControlTypeCore() => AutomationControlType.Pane;
@@ -30,7 +26,7 @@ public class NavigationItem : Wpf.Ui.Controls.NavigationItem
             var result = base.GetNameCore() ?? string.Empty;
 
             if (result == string.Empty)
-                result = AutomationProperties.GetName(_owner);
+                result = AutomationProperties.GetName(owner);
 
             return result;
         }

@@ -14,11 +14,17 @@ using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public static class Compatibility
+public static partial class Compatibility
 {
+    [GeneratedRegex("^[A-Z0-9]{4}")]
+    private static partial Regex BiosPrefixRegex();
+
+    [GeneratedRegex("[0-9]{2}")]
+    private static partial Regex BiosVersionRegex();
+
     private const string ALLOWED_VENDOR = "LENOVO";
 
-    private static readonly string[] AllowedModelsPrefix = {
+    private static readonly string[] AllowedModelsPrefix = [
         // Worldwide variants
         "17ACH",
         "17ARH",
@@ -61,7 +67,7 @@ public static class Compatibility
         "15IR",
         "15IC",
         "15IK"
-    };
+    ];
 
     private static MachineInformation? _machineInformation;
 
@@ -169,8 +175,8 @@ public static class Compatibility
     {
         var result = await WMI.Win32.BIOS.GetNameAsync().ConfigureAwait(false);
 
-        var prefixRegex = new Regex("^[A-Z0-9]{4}");
-        var versionRegex = new Regex("[0-9]{2}");
+        var prefixRegex = BiosPrefixRegex();
+        var versionRegex = BiosVersionRegex();
 
         var prefix = prefixRegex.Match(result).Value;
         var versionString = versionRegex.Match(result).Value;
@@ -265,7 +271,7 @@ public static class Compatibility
         }
         catch { /* Ignored. */ }
 
-        return Array.Empty<PowerModeState>();
+        return [];
     }
 
     private static async Task<int> GetSmartFanVersionAsync()
@@ -411,7 +417,7 @@ public static class Compatibility
     private static bool GetIsExcludedFromPanelLenovoLighting(string machineType, string model)
     {
         (string machineType, string model)[] excludedModels =
-        {
+        [
             ("82JH", "15ITH6H"),
             ("82JK", "15ITH6"),
             ("82JM", "17ITH6H"),
@@ -423,7 +429,7 @@ public static class Compatibility
             ("82K1", "15IHU6"),
             ("82K2", "15ACH6"),
             ("82NW", "15ACH6A")
-        };
+        ];
 
         return excludedModels.Where(m =>
         {

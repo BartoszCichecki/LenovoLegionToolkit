@@ -2,10 +2,9 @@
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class FlipToStartAutomationStep : AbstractFeatureAutomationStep<FlipToStartState>
+[method: JsonConstructor]
+public class FlipToStartAutomationStep(FlipToStartState state)
+    : AbstractFeatureAutomationStep<FlipToStartState>(state)
 {
-    [JsonConstructor]
-    public FlipToStartAutomationStep(FlipToStartState state) : base(state) { }
-
     public override IAutomationStep DeepCopy() => new FlipToStartAutomationStep(State);
 }

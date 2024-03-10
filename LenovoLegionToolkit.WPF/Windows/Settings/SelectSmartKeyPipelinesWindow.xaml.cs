@@ -58,7 +58,7 @@ public partial class SelectSmartKeyPipelinesWindow
     {
         _loader.IsLoading = true;
 
-        _showThisAppToggle.IsChecked = SettingsStoreGuid == null;
+        _showThisAppToggle.IsChecked = SettingsStoreGuid is null;
 
         var allPipelines = await _automationProcessor.GetPipelinesAsync();
         var pipelines = allPipelines.Where(p => p.Trigger is null).OrderBy(p => p.Name).ToArray();
@@ -100,7 +100,7 @@ public partial class SelectSmartKeyPipelinesWindow
         else
         {
             SettingsStoreList.AddRange(selectedPipelines);
-            SettingsStoreGuid = SettingsStoreList.Any() ? SettingsStoreList.First() : Guid.Empty;
+            SettingsStoreGuid = SettingsStoreList.FirstOrDefault();
         }
 
         _settings.SynchronizeStore();

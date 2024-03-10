@@ -11,8 +11,11 @@ using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 
-public abstract class AbstractDGPUNotify : IDGPUNotify
+public abstract partial class AbstractDGPUNotify : IDGPUNotify
 {
+    [GeneratedRegex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})")]
+    private static partial Regex HardwareIdRegex();
+
     private readonly object _lock = new();
 
     private CancellationTokenSource? _notifyLaterCancellationTokenSource;
@@ -171,14 +174,14 @@ public abstract class AbstractDGPUNotify : IDGPUNotify
     {
         try
         {
-            var matches = new Regex("pci#ven_([0-9A-Fa-f]{4})|dev_([0-9A-Fa-f]{4})").Matches(devicePath);
+            var matches = HardwareIdRegex().Matches(devicePath);
             if (matches.Count != 2)
                 return default;
 
             var vendor = matches[0].Groups[1].Value;
             var device = matches[1].Groups[2].Value;
 
-            return new HardwareId { Vendor = vendor, Device = device };
+            return new(vendor, device);
         }
         catch
         {

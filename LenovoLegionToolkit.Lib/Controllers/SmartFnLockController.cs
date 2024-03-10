@@ -10,27 +10,18 @@ using Windows.Win32.UI.WindowsAndMessaging;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class SmartFnLockController
+public class SmartFnLockController(FnLockFeature feature, ApplicationSettings settings)
 {
     private readonly AsyncLock _lock = new();
-
-    private readonly FnLockFeature _feature;
-    private readonly ApplicationSettings _settings;
 
     private bool _ctrlDepressed;
     private bool _shiftDepressed;
     private bool _altDepressed;
     private bool _restoreFnLock;
 
-    public SmartFnLockController(FnLockFeature feature, ApplicationSettings settings)
-    {
-        _feature = feature ?? throw new ArgumentNullException(nameof(feature));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
-
     public void OnKeyboardEvent(nuint wParam, KBDLLHOOKSTRUCT kbStruct)
     {
-        if (_settings.Store.SmartFnLockFlags == 0)
+        if (settings.Store.SmartFnLockFlags == 0)
             return;
 
         Task.Run(async () =>
@@ -55,14 +46,14 @@ public class SmartFnLockController
             if (_restoreFnLock)
                 return;
 
-            var state = await _feature.GetStateAsync().ConfigureAwait(false);
+            var state = await feature.GetStateAsync().ConfigureAwait(false);
             if (state == FnLockState.Off)
                 return;
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Disabling Fn Lock temporarily...");
 
-            await _feature.SetStateAsync(FnLockState.Off).ConfigureAwait(false);
+            await feature.SetStateAsync(FnLockState.Off).ConfigureAwait(false);
             _restoreFnLock = true;
         }
         else if (_restoreFnLock)
@@ -70,7 +61,7 @@ public class SmartFnLockController
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Re-enabling Fn Lock...");
 
-            await _feature.SetStateAsync(FnLockState.On).ConfigureAwait(false);
+            await feature.SetStateAsync(FnLockState.On).ConfigureAwait(false);
             _restoreFnLock = false;
         }
     }
@@ -93,7 +84,7 @@ public class SmartFnLockController
             return false;
 
         var result = false;
-        var flags = _settings.Store.SmartFnLockFlags;
+        var flags = settings.Store.SmartFnLockFlags;
 
         if (flags.HasFlag(ModifierKey.Ctrl))
             result |= _ctrlDepressed;

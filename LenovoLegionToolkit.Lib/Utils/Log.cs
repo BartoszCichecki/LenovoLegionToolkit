@@ -37,7 +37,7 @@ public class Log
     public void ErrorReport(string header, Exception ex)
     {
         var errorReportPath = Path.Combine(_folderPath, $"error_{DateTime.UtcNow:yyyy_MM_dd_HH_mm_ss}.txt");
-        File.AppendAllLines(errorReportPath, new[] { header, Serialize(ex) });
+        File.AppendAllLines(errorReportPath, [header, Serialize(ex)]);
     }
 
     public void Trace(FormattableString message,

@@ -10,17 +10,16 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.PackageDownloader;
 
-public class VantagePackageDownloader : AbstractPackageDownloader
+public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
+    : AbstractPackageDownloader(httpClientFactory)
 {
-    private readonly struct PackageDefinition
+    private readonly struct PackageDefinition(string location, string category)
     {
-        public string Location { get; init; }
-        public string Category { get; init; }
+        public string Location { get; } = location;
+        public string Category { get; } = category;
     }
 
     private const string CATALOG_BASE_URL = "https://download.lenovo.com/catalog/";
-
-    public VantagePackageDownloader(HttpClientFactory httpClientFactory) : base(httpClientFactory) { }
 
     public override async Task<List<Package>> GetPackagesAsync(string machineType, OS os, IProgress<float>? progress = null, CancellationToken token = default)
     {
@@ -69,7 +68,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
 
         var packageNodes = document.SelectNodes("/packages/package");
         if (packageNodes is null)
-            return new List<PackageDefinition>();
+            return [];
 
         var packageDefinitions = new List<PackageDefinition>();
         foreach (var packageNode in packageNodes.OfType<XmlElement>())
@@ -82,7 +81,7 @@ public class VantagePackageDownloader : AbstractPackageDownloader
             if (string.IsNullOrWhiteSpace(pLocation) || string.IsNullOrWhiteSpace(pCategory))
                 continue;
 
-            packageDefinitions.Add(new() { Location = pLocation, Category = pCategory });
+            packageDefinitions.Add(new(pLocation, pCategory));
         }
 
         return packageDefinitions;

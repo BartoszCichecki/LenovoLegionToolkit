@@ -6,11 +6,10 @@ using WindowsDisplayAPI.Exceptions;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
-public class RefreshRateAutomationStep : AbstractFeatureAutomationStep<RefreshRate>
+[method: JsonConstructor]
+public class RefreshRateAutomationStep(RefreshRate state)
+    : AbstractFeatureAutomationStep<RefreshRate>(state)
 {
-    [JsonConstructor]
-    public RefreshRateAutomationStep(RefreshRate state) : base(state) { }
-
     public override Task RunAsync(AutomationContext context, AutomationEnvironment environment)
     {
         return RetryHelper.RetryAsync(() => base.RunAsync(context, environment),

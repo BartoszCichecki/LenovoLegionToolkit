@@ -2,7 +2,7 @@
 
 namespace LenovoLegionToolkit.WPF.Settings;
 
-public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSettingsStore>
+public class DashboardSettings() : AbstractSettings<DashboardSettings.DashboardSettingsStore>("dashboard.json")
 {
     public class DashboardSettingsStore
     {
@@ -12,6 +12,4 @@ public class DashboardSettings : AbstractSettings<DashboardSettings.DashboardSet
     }
 
     protected override DashboardSettingsStore Default => new();
-
-    public DashboardSettings() : base("dashboard.json") { }
 }

@@ -6,19 +6,12 @@ using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class PowerModeListener : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>, INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
+public class PowerModeListener(PowerPlanController powerPlanController)
+    : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent.Listen), INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(PowerModeState state) : EventArgs
     {
-        public PowerModeState State { get; init; }
-    }
-
-    private readonly PowerPlanController _powerPlanController;
-
-    public PowerModeListener(PowerPlanController powerPlanController)
-        : base(WMI.LenovoGameZoneSmartFanModeEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
+        public PowerModeState State { get; } = state;
     }
 
     protected override PowerModeState GetValue(int value)
@@ -27,7 +20,7 @@ public class PowerModeListener : AbstractWMIListener<PowerModeListener.ChangedEv
         return result;
     }
 
-    protected override ChangedEventArgs GetEventArgs(PowerModeState value) => new() { State = value };
+    protected override ChangedEventArgs GetEventArgs(PowerModeState value) => new(value);
 
     protected override async Task OnChangedAsync(PowerModeState value)
     {
@@ -43,7 +36,7 @@ public class PowerModeListener : AbstractWMIListener<PowerModeListener.ChangedEv
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
-        await _powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+        await powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
     }
 
     private static void PublishNotification(PowerModeState value)

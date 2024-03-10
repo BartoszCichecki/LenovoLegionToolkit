@@ -167,7 +167,7 @@ public class EditDashboardGroupControl : UserControl
         Changed?.Invoke(this, EventArgs.Empty);
     }
 
-    private Control CreateGroupControl(DashboardItem dashboardItem)
+    private EditDashboardItemControl CreateGroupControl(DashboardItem dashboardItem)
     {
         var control = new EditDashboardItemControl(dashboardItem);
         control.MoveUp += (_, _) => MoveItemUp(control);

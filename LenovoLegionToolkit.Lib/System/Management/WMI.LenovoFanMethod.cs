@@ -19,7 +19,7 @@ public static partial class WMI
         public static Task<bool> FanGetFullSpeedAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_FAN_METHOD",
             "Fan_Get_FullSpeed",
-            new(),
+            [],
             pdc => (bool)pdc["Status"].Value);
 
         public static Task FanSetFullSpeedAsync(int status) => CallAsync("root\\WMI",

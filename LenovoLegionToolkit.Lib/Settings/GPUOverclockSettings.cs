@@ -2,13 +2,11 @@
 
 namespace LenovoLegionToolkit.Lib.Settings;
 
-public class GPUOverclockSettings : AbstractSettings<GPUOverclockSettingsStore>
+public class GPUOverclockSettings() : AbstractSettings<GPUOverclockSettingsStore>("gpu_oc.json")
 {
     public class GPUOverclockSettingsStore
     {
         public bool Enabled { get; set; }
         public GPUOverclockInfo Info { get; set; } = GPUOverclockInfo.Zero;
     }
-
-    public GPUOverclockSettings() : base("gpu_oc.json") { }
 }

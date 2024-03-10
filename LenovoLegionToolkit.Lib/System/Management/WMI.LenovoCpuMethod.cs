@@ -13,7 +13,7 @@ public static partial class WMI
         public static Task<(int longTerm, int shortTerm)> CPUGetDefaultPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Default_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var longTerm = Convert.ToInt32(pdc["DefaultLongTermPowerlimit"].Value);
@@ -24,7 +24,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step)> CPUGetLongTermPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_LongTerm_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentLongTerm_PowerLimit"].Value);
@@ -43,7 +43,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step)> CPUGetShortTermPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_ShortTerm_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentShortTerm_PowerLimit"].Value);
@@ -62,7 +62,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step, int defaultValue)> CPUGetPeakPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Peak_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentPeakPowerLimit"].Value);
@@ -82,7 +82,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step, int defaultValue)> CPUGetCrossLoadingPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Cross_Loading_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentCpuCrossLoading"].Value);
@@ -102,7 +102,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step, int defaultValue)> GetAPUSPPTPowerLimitAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "Get_APU_sPPT_PowerLimit",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrenAPUsPPTPowerLimit"].Value);
@@ -122,7 +122,7 @@ public static partial class WMI
         public static Task<(int value, int min, int max, int step, int defaultValue)> CPUGetTemperatureControlAsync() => CallAsync("root\\WMI",
             $"SELECT * FROM LENOVO_CPU_METHOD",
             "CPU_Get_Temperature_Control",
-            new(),
+            [],
             pdc =>
             {
                 var value = Convert.ToInt32(pdc["CurrentTemperatueControl"].Value);

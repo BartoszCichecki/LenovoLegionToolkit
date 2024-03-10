@@ -86,7 +86,7 @@ public class SpectrumKeyboardBacklightImportProfileAutomationStepControl : Abstr
 
     protected override Task RefreshAsync()
     {
-        _path.Text = AutomationStep.Path;
+        _path.Text = AutomationStep.Path ?? string.Empty;
         return Task.CompletedTask;
     }
 }

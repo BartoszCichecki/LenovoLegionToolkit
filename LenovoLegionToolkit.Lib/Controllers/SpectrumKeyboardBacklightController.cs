@@ -25,22 +25,14 @@ public class SpectrumKeyboardBacklightController
         void CaptureScreen(ref RGBColor[,] buffer, int width, int height, CancellationToken token);
     }
 
-    private readonly struct KeyMap
+    private readonly struct KeyMap(int width, int height, ushort[,] keyCodes, ushort[] additionalKeyCodes)
     {
-        public static readonly KeyMap Empty = new(0, 0, new ushort[0, 0], Array.Empty<ushort>());
+        public static readonly KeyMap Empty = new(0, 0, new ushort[0, 0], []);
 
-        public readonly int Width;
-        public readonly int Height;
-        public readonly ushort[,] KeyCodes;
-        public readonly ushort[] AdditionalKeyCodes;
-
-        public KeyMap(int width, int height, ushort[,] keyCodes, ushort[] additionalKeyCodes)
-        {
-            Width = width;
-            Height = height;
-            KeyCodes = keyCodes;
-            AdditionalKeyCodes = additionalKeyCodes;
-        }
+        public readonly int Width = width;
+        public readonly int Height = height;
+        public readonly ushort[,] KeyCodes = keyCodes;
+        public readonly ushort[] AdditionalKeyCodes = additionalKeyCodes;
     }
 
     private static readonly AsyncLock GetDeviceHandleLock = new();
@@ -57,26 +49,21 @@ public class SpectrumKeyboardBacklightController
     private CancellationTokenSource? _auroraRefreshCancellationTokenSource;
     private Task? _auroraRefreshTask;
 
-    private readonly JsonSerializerSettings _jsonSerializerSettings;
+    private readonly JsonSerializerSettings _jsonSerializerSettings = new()
+    {
+        Formatting = Formatting.Indented,
+        TypeNameHandling = TypeNameHandling.Auto,
+        ObjectCreationHandling = ObjectCreationHandling.Replace,
+        Converters = [new StringEnumConverter()]
+    };
 
     public bool ForceDisable { get; set; }
 
     public SpectrumKeyboardBacklightController(SpecialKeyListener listener, VantageDisabler vantageDisabler, IScreenCapture screenCapture)
     {
-        _listener = listener ?? throw new ArgumentNullException(nameof(listener));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        _screenCapture = screenCapture ?? throw new ArgumentNullException(nameof(screenCapture));
-
-        _jsonSerializerSettings = new()
-        {
-            Formatting = Formatting.Indented,
-            TypeNameHandling = TypeNameHandling.Auto,
-            ObjectCreationHandling = ObjectCreationHandling.Replace,
-            Converters =
-            {
-                new StringEnumConverter(),
-            }
-        };
+        _listener = listener;
+        _vantageDisabler = vantageDisabler;
+        _screenCapture = screenCapture;
 
         _listener.Changed += Listener_Changed;
     }
@@ -368,9 +355,12 @@ public class SpectrumKeyboardBacklightController
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping Aurora...");
 
-        _auroraRefreshCancellationTokenSource?.Cancel();
+        if (_auroraRefreshCancellationTokenSource is not null)
+            await _auroraRefreshCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+
         if (_auroraRefreshTask is not null)
             await _auroraRefreshTask.ConfigureAwait(false);
+
         _auroraRefreshTask = null;
 
         if (Log.Instance.IsTraceEnabled)
@@ -539,7 +529,7 @@ public class SpectrumKeyboardBacklightController
 
                 token.ThrowIfCancellationRequested();
 
-                SetFeature(handle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST(items.ToArray()).ToBytes());
+                SetFeature(handle, new LENOVO_SPECTRUM_AURORA_SEND_BITMAP_REQUEST([.. items]).ToBytes());
 
                 await delay.ConfigureAwait(false);
             }
@@ -748,7 +738,7 @@ public class SpectrumKeyboardBacklightController
     private static SpectrumKeyboardBacklightEffect[] Compress(SpectrumKeyboardBacklightEffect[] effects)
     {
         if (effects.Any(e => e.Type.IsAllLightsEffect()))
-            return new[] { effects.Last(e => e.Type.IsAllLightsEffect()) };
+            return [effects.Last(e => e.Type.IsAllLightsEffect())];
 
         var usedKeyCodes = new HashSet<ushort>();
         var newEffects = new List<SpectrumKeyboardBacklightEffect>();
@@ -777,7 +767,7 @@ public class SpectrumKeyboardBacklightController
         }
 
         newEffects.Reverse();
-        return newEffects.ToArray();
+        return [.. newEffects];
     }
 
     private static (int Profile, SpectrumKeyboardBacklightEffect[] Effects) Convert(LENOVO_SPECTRUM_EFFECT_DESCRIPTION description)
@@ -834,8 +824,8 @@ public class SpectrumKeyboardBacklightController
         var colors = effect.Colors.Select(c => new RGBColor(c.R, c.G, c.B)).ToArray();
 
         var keys = effect.KeyCodes;
-        if (effect.KeyCodes.Length == 1 && effect.KeyCodes[0] == 0x65)
-            keys = Array.Empty<ushort>();
+        if (effect.KeyCodes is [0x65])
+            keys = [];
 
         return new(effectType, speed, direction, clockwiseDirection, colors, keys);
     }
@@ -895,13 +885,13 @@ public class SpectrumKeyboardBacklightController
         var colorMode = effect.Type switch
         {
             SpectrumKeyboardBacklightEffectType.Always => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.ColorChange when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.ColorPulse when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.ColorWave when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.Rain when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.Smooth when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.Ripple when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
-            SpectrumKeyboardBacklightEffectType.Type when effect.Colors.Any() => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.ColorChange when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.ColorPulse when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.ColorWave when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.Rain when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.Smooth when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.Ripple when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
+            SpectrumKeyboardBacklightEffectType.Type when effect.Colors.Length != 0 => LENOVO_SPECTRUM_COLOR_MODE.ColorList,
             SpectrumKeyboardBacklightEffectType.ColorChange => LENOVO_SPECTRUM_COLOR_MODE.RandomColor,
             SpectrumKeyboardBacklightEffectType.ColorPulse => LENOVO_SPECTRUM_COLOR_MODE.RandomColor,
             SpectrumKeyboardBacklightEffectType.ColorWave => LENOVO_SPECTRUM_COLOR_MODE.RandomColor,
@@ -914,7 +904,7 @@ public class SpectrumKeyboardBacklightController
 
         var header = new LENOVO_SPECTRUM_EFFECT_HEADER(effectType, speed, direction, clockwiseDirection, colorMode);
         var colors = effect.Colors.Select(c => new LENOVO_SPECTRUM_COLOR(c.R, c.G, c.B)).ToArray();
-        var keys = effect.Type.IsAllLightsEffect() ? new ushort[] { 0x65 } : effect.Keys;
+        var keys = effect.Type.IsAllLightsEffect() ? [0x65] : effect.Keys;
         var result = new LENOVO_SPECTRUM_EFFECT(header, index + 1, colors, keys);
         return result;
     }

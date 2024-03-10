@@ -27,11 +27,10 @@ public class GPUOverclockController
         LegionZoneDisabler legionZoneDisabler,
         NativeWindowsMessageListener nativeWindowsMessageListener)
     {
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-        _vantageDisabler = vantageDisabler ?? throw new ArgumentNullException(nameof(vantageDisabler));
-        _legionZoneDisabler = legionZoneDisabler ?? throw new ArgumentNullException(nameof(legionZoneDisabler));
-        _nativeWindowsMessageListener = nativeWindowsMessageListener ?? throw new ArgumentNullException(nameof(nativeWindowsMessageListener));
-
+        _settings = settings;
+        _vantageDisabler = vantageDisabler;
+        _legionZoneDisabler = legionZoneDisabler;
+        _nativeWindowsMessageListener = nativeWindowsMessageListener;
         _nativeWindowsMessageListener.Changed += NativeWindowsMessageListenerOnChanged;
     }
 
@@ -237,6 +236,6 @@ public class GPUOverclockController
         var states = GPUApi.GetPerformanceStates20(gpu.Handle);
         var core = states.Clocks[PerformanceStateId.P0_3DPerformance][0].FrequencyDeltaInkHz.DeltaValue / 1000;
         var memory = states.Clocks[PerformanceStateId.P0_3DPerformance][1].FrequencyDeltaInkHz.DeltaValue / 1000;
-        return new() { CoreDeltaMhz = core, MemoryDeltaMhz = memory };
+        return new(core, memory);
     }
 }

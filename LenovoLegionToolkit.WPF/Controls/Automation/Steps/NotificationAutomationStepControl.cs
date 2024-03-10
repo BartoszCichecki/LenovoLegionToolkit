@@ -54,7 +54,7 @@ public class NotificationAutomationStepControl : AbstractAutomationStepControl<N
 
     protected override Task RefreshAsync()
     {
-        _scriptPath.Text = AutomationStep.Text;
+        _scriptPath.Text = AutomationStep.Text ?? string.Empty;
         return Task.CompletedTask;
     }
 }

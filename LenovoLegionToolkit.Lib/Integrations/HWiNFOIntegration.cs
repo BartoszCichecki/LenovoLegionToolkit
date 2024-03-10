@@ -9,7 +9,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Integrations;
 
-public class HWiNFOIntegration
+public class HWiNFOIntegration(SensorsController sensorController, IntegrationsSettings settings)
 {
     private const string CUSTOM_SENSOR_HIVE = "HKEY_CURRENT_USER";
     private const string CUSTOM_SENSOR_PATH = @"Software\HWiNFO64\Sensors\Custom";
@@ -22,24 +22,16 @@ public class HWiNFOIntegration
 
     private readonly TimeSpan _refreshInterval = TimeSpan.FromSeconds(1);
 
-    private readonly SensorsController _sensorController;
-    private readonly IntegrationsSettings _settings;
-
     private CancellationTokenSource? _cts;
     private Task? _refreshTask;
-
-    public HWiNFOIntegration(SensorsController sensorController, IntegrationsSettings settings)
-    {
-        _sensorController = sensorController ?? throw new ArgumentNullException(nameof(sensorController));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
 
     public async Task StartStopIfNeededAsync()
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping...");
 
-        _cts?.Cancel();
+        if (_cts is not null)
+            await _cts.CancelAsync().ConfigureAwait(false);
 
         if (_refreshTask is not null)
             await _refreshTask.ConfigureAwait(false);
@@ -49,7 +41,7 @@ public class HWiNFOIntegration
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped.");
 
-        if (!_settings.Store.HWiNFO)
+        if (!settings.Store.HWiNFO)
             return;
 
         if (Log.Instance.IsTraceEnabled)
@@ -84,7 +76,7 @@ public class HWiNFOIntegration
 
     private async Task SetSensorValuesAsync(bool firstRun = true)
     {
-        var (cpuFanSpeed, gpuFanSpeed) = await _sensorController.GetFanSpeedsAsync().ConfigureAwait(false);
+        var (cpuFanSpeed, gpuFanSpeed) = await sensorController.GetFanSpeedsAsync().ConfigureAwait(false);
         var batteryTemp = Battery.GetBatteryTemperatureC();
 
         SetValue(SENSOR_TYPE_FAN, 0, CPU_FAN_SENSOR_NAME, cpuFanSpeed, firstRun);

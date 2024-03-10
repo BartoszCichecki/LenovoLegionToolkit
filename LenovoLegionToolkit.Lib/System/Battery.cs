@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.Lib.System;
 
 public static class Battery
 {
-    private static readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private static readonly ApplicationSettings Settings = IoCContainer.Resolve<ApplicationSettings>();
 
     public static BatteryInformation GetBatteryInformation()
     {
@@ -41,22 +41,19 @@ public static class Battery
                 Log.Instance.Trace($"Failed to get temperature of battery.", ex);
         }
 
-        return new()
-        {
-            IsCharging = powerStatus.ACLineStatus == 1,
-            BatteryPercentage = powerStatus.BatteryLifePercent,
-            BatteryLifeRemaining = (int)powerStatus.BatteryLifeTime,
-            FullBatteryLifeRemaining = (int)powerStatus.BatteryFullLifeTime,
-            DischargeRate = status.Rate,
-            EstimateChargeRemaining = (int)status.Capacity,
-            DesignCapacity = (int)information.DesignedCapacity,
-            FullChargeCapacity = (int)information.FullChargedCapacity,
-            CycleCount = (int)information.CycleCount,
-            IsLowBattery = powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
-            BatteryTemperatureC = temperatureC,
-            ManufactureDate = manufactureDate,
-            FirstUseDate = firstUseDate
-        };
+        return new(powerStatus.ACLineStatus == 1,
+            powerStatus.BatteryLifePercent,
+            (int)powerStatus.BatteryLifeTime,
+            (int)powerStatus.BatteryFullLifeTime,
+            status.Rate,
+            (int)status.Capacity,
+            (int)information.DesignedCapacity,
+            (int)information.FullChargedCapacity,
+            (int)information.CycleCount,
+            powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
+            temperatureC,
+            manufactureDate,
+            firstUseDate);
     }
 
     public static double? GetBatteryTemperatureC()
@@ -78,7 +75,7 @@ public static class Battery
     {
         try
         {
-            var resetOnReboot = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
+            var resetOnReboot = Settings.Store.ResetBatteryOnSinceTimerOnReboot;
 
             var lastRebootTime = DateTime.Now - TimeSpan.FromMilliseconds(Environment.TickCount);
 
@@ -86,7 +83,7 @@ public static class Battery
 
             var query = new EventLogQuery("System", PathType.LogName, "*[System[EventID=105]]");
             using var logReader = new EventLogReader(query);
-            using var propertySelector = new EventLogPropertySelector(new[] { "Event/EventData/Data[@Name='AcOnline']" });
+            using var propertySelector = new EventLogPropertySelector(["Event/EventData/Data[@Name='AcOnline']"]);
 
             while (logReader.ReadEvent() is EventLogRecord record)
             {

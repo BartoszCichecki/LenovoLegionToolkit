@@ -8,31 +8,23 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayBrightnessListener : AbstractWMIListener<DisplayBrightnessListener.ChangedEventArgs, Brightness, byte>
+public class DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
+    : AbstractWMIListener<DisplayBrightnessListener.ChangedEventArgs, Brightness, byte>(WMI.WmiMonitorBrightnessEvent
+        .Listen)
 {
-    public class ChangedEventArgs : EventArgs
+    public class ChangedEventArgs(Brightness brightness) : EventArgs
     {
-        public Brightness Brightness { get; init; }
+        public Brightness Brightness { get; } = brightness;
     }
 
     private const string DISPLAY_SUBGROUP_GUID = "7516b95f-f776-4464-8c53-06167f40cc99";
     private const string DISPLAY_BRIGHTNESS_SETTING_GUID = "aded5e82-b909-4619-9949-f5d71dac0bcb";
 
-    private readonly PowerPlanController _powerPlanController;
-    private readonly ApplicationSettings _settings;
-
     private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(DisplayBrightnessListener));
 
-    public DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
-        : base(WMI.WmiMonitorBrightnessEvent.Listen)
-    {
-        _powerPlanController = powerPlanController ?? throw new ArgumentNullException(nameof(powerPlanController));
-        _settings = settings ?? throw new ArgumentNullException(nameof(settings));
-    }
+    protected override Brightness GetValue(byte value) => new(value);
 
-    protected override Brightness GetValue(byte value) => value;
-
-    protected override ChangedEventArgs GetEventArgs(Brightness value) => new() { Brightness = value };
+    protected override ChangedEventArgs GetEventArgs(Brightness value) => new(value);
 
     protected override async Task OnChangedAsync(Brightness value)
     {
@@ -41,7 +33,7 @@ public class DisplayBrightnessListener : AbstractWMIListener<DisplayBrightnessLi
 
     private async Task SynchronizeBrightnessAsync(Brightness value)
     {
-        if (!_settings.Store.SynchronizeBrightnessToAllPowerPlans)
+        if (!settings.Store.SynchronizeBrightnessToAllPowerPlans)
             return;
 
         await _dispatcher.DispatchAsync(() => SetBrightnessForAllPowerPlansAsync(value)).ConfigureAwait(false);
@@ -54,7 +46,7 @@ public class DisplayBrightnessListener : AbstractWMIListener<DisplayBrightnessLi
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
 
-            var powerPlans = _powerPlanController.GetPowerPlans();
+            var powerPlans = powerPlanController.GetPowerPlans();
 
             foreach (var powerPlan in powerPlans)
             {

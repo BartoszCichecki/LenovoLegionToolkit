@@ -8,28 +8,21 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
+[method: JsonConstructor]
+public class TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[]? days)
+    : ITimeAutomationPipelineTrigger
 {
-    public bool IsSunrise { get; }
+    public bool IsSunrise { get; } = isSunrise;
 
-    public bool IsSunset { get; }
+    public bool IsSunset { get; } = isSunset;
 
-    public Time? Time { get; }
+    public Time? Time { get; } = time;
 
-    public DayOfWeek[] Days { get; }
+    public DayOfWeek[] Days { get; } = days ?? [];
 
     public string DisplayName => Resource.TimeAutomationPipelineTrigger_DisplayName;
 
     private readonly SunriseSunset _sunriseSunset = IoCContainer.Resolve<SunriseSunset>();
-
-    [JsonConstructor]
-    public TimeAutomationPipelineTrigger(bool isSunrise, bool isSunset, Time? time, DayOfWeek[]? days)
-    {
-        IsSunrise = isSunrise;
-        IsSunset = isSunset;
-        Time = time;
-        Days = days ?? Array.Empty<DayOfWeek>();
-    }
 
     public async Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
@@ -42,7 +35,7 @@ public class TimeAutomationPipelineTrigger : ITimeAutomationPipelineTrigger
     public async Task<bool> IsMatchingState()
     {
         var now = DateTime.UtcNow;
-        var time = new Time { Hour = now.Hour, Minute = now.Minute };
+        var time = new Time(now.Hour, now.Minute);
         var day = now.DayOfWeek;
 
         return await IsMatching(time, day).ConfigureAwait(false);

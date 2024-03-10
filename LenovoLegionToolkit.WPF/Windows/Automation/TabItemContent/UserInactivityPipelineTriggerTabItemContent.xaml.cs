@@ -8,7 +8,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
 public partial class UserInactivityPipelineTriggerTabItemContent : IAutomationPipelineTriggerTabItemContent<IUserInactivityPipelineTrigger>
 {
     private static readonly TimeSpan[] TimeSpans =
-    {
+    [
         TimeSpan.FromSeconds(10),
         TimeSpan.FromSeconds(30),
         TimeSpan.FromMinutes(1),
@@ -18,7 +18,7 @@ public partial class UserInactivityPipelineTriggerTabItemContent : IAutomationPi
         TimeSpan.FromMinutes(10),
         TimeSpan.FromMinutes(15),
         TimeSpan.FromMinutes(30)
-    };
+    ];
 
     private readonly IUserInactivityPipelineTrigger _trigger;
 
