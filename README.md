@@ -248,7 +248,7 @@ On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Leg
 
 ## Running programs or scripts from actions
 
-You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (.exe) or a script (.bat). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
+You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (`.exe`) or a script (`.bat`). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
 
 #### Examples
 
