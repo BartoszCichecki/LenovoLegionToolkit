@@ -254,23 +254,23 @@ You can use "Run" step in Actions to start any program or script from Actions. T
 
 Here are couple of examples:
 
-**Shutdown laptop**
+_Shutdown laptop_
  - Executable path: `shutdown`
  - Arguments: `/s /t 0`
  
-**Restart laptop**
+_Restart laptop_
  - Executable path: `shutdown`
  - Arguments: `/r`
  
-**Runing a program**
+_Runing a program_
  - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
  - Arguments: ` ` (optional, for list of supported argument check the program's readme, webstie etc.)
  
-**Running a script**
+_Running a script_
  - Executable path: `C:\path\to\the\script.bat`
  - Arguments: ` ` (optional, for list of supported argument check the script's readme, webstie etc.)
  
-**Python script**
+_Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
  
