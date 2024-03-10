@@ -31,5 +31,5 @@ public class PeriodicAutomationPipelineTrigger(TimeSpan period) : IPeriodicAutom
         return Task.FromResult(isPeriod);
     }
 
-    public void UpdateEnvironment(AutomationEnvironment environment) { }
+    public void UpdateEnvironment(AutomationEnvironment environment) => environment.Period = Period;
 }
