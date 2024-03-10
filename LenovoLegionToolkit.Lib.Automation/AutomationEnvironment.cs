@@ -49,7 +49,7 @@ public class AutomationEnvironment
     {
         set
         {
-            _dictionary[POWER_MODE] = $"{(int)value}";
+            _dictionary[POWER_MODE] = $"{(int)value + 1}";
             _dictionary[POWER_MODE_NAME] = value.ToString().ToUpperInvariant();
         }
     }
