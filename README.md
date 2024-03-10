@@ -112,22 +112,22 @@ If you installed LLT on a clean Windows install, make sure to have necessary dri
 #### Problems with .NET?
 
 If for whatever reason LLT installer did not setup .NET properly:
-1. Go to https://dotnet.microsoft.com/en-us/download/dotnet68.0
+1. Go to https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 2. Find section ".NET Desktop Runtime"
 3. Download x64 Windows installer
 4. Run the installer
 
-> Note: If you installed LLT from Scoop, .NET 6 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
+> Note: If you installed LLT from Scoop, .NET 8 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
 
 After following these steps, you can open Terminal and type: `dotnet --info`. In the output look for section `.NET runtimes installed`, in this section you should see something like:
 
-`Microsoft.NETCore.App 6.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
+`Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
 
 and
 
-`Microsoft.WindowsDesktop.App 6.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
+`Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
 
-The exact version number can be different, but as long as it is `6.x.x` it should be fine. If after these steps LLT still shows an error on startup that .NET couldn't be found or similar, the problem is on your machine and not with LLT.
+The exact version number can be different, but as long as it is `8.x.x` it should be fine. If after these steps LLT still shows an error on startup that .NET couldn't be found or similar, the problem is on your machine and not with LLT.
 
 #### Want to help with testing?
 
@@ -245,6 +245,110 @@ Laptops that have S0 Low Power mode enabled, also known as Modern Standby, do no
 ### Boot Logo
 
 On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Legion" image you see at boot). Boot logo is *not* stored in UEFI - it is stored on the UEFI partition on boot drive. When setting custom boot logo, LLT conducts basic checks, like resolution, image format and calculates a checksum to ensure compatibility. However, the real verification happens on the next boot. UEFI will attempt to load the image from UEFI partition and show it. If that fails for whatever reason, default image will be used. Exact criteria, except for resolution and image format, are not known and some images might not be shown. In this case, try another image, edited with different image editor.
+
+## Running programs or scripts from actions
+
+You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (.exe) or a script (.bat). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
+
+#### Examples
+
+Here are couple of examples:
+
+** Shutdown laptop **
+ - Executable path: `shutdown`
+ - Arguments: `/s /t 0`
+ 
+** Restart laptop **
+ - Executable path: `shutdown`
+ - Arguments: `/r`
+ 
+** Runing a program **
+ - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
+ - Arguments: `` (optional, for list of supported argument check the program's readme, webstie etc.)
+ 
+** Running a script **
+ - Executable path: `C:\path\to\the\script.bat`
+ - Arguments: `` (optional, for list of supported argument check the script's readme, webstie etc.)
+ 
+** Python script **
+ - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
+ - Arguments: `C:\path\to\script.py`
+ 
+ #### Environment
+ 
+ LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
+ 
+- When AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+
+- When low wattage AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
+
+- When AC power adapter is disconnected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
+
+- When Power Mode is changed:
+	- `LLT_POWER_MODE=<value>`, where `value` is one of: `1` - Quiet, `2` - Balance, `3` - Performance, `255` - Custom
+	- `LLT_POWER_MODE_NAME=<value>`, where `value` is one of: `QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
+
+- When game is running
+	- `LLT_IS_GAME_RUNNING=TRUE`
+
+- When game closes
+	- `LLT_IS_GAME_RUNNING=FALSE`
+
+- When app starts
+	- `LLT_PROCESSES_STARTED=TRUE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+
+- When app closes
+	- `LLT_PROCESSES_STARTED=FALSE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+	
+- Lid opened
+	- `LLT_IS_LID_OPEN=TRUE`
+
+- Lid closed
+	- `LLT_IS_LID_OPEN=FALSE`
+
+- When displays turn on
+	- `LLT_IS_DISPLAY_ON=TRUE`
+
+- When displays turn off
+	- `LLT_IS_DISPLAY_ON=FALSE`
+
+- When external display is connected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
+
+- When external display is disconnected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
+
+- When WiFi is connected
+	- `LLT_WIFI_CONNECTED=TRUE`
+	- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network
+
+- When WiFi is disconnected
+	- `LLT_WIFI_CONNECTED=FALSE`
+	
+- At specified time
+	- `LLT_IS_SUNSET=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_IS_SUNRISE=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_TIME"`, where `value` is `HH:mm`, depending on configuration of the trigger
+	- `LLT_DAYS"`, where `value` is comma separated list of: `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`, depending on configuration of the trigger
+	
+- Periodic action
+	- `LLT_PERIOD=<value>`, where `value` is the interval in seconds
+	
+- On startup
+	- `LLT_STARTUP=TRUE`
+	
+- On resume
+	- `LLT_RESUME=TRUE`
+ 
+ #### Output
+ 
+ If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
 ## Donate
 
