@@ -27,13 +27,11 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
     private readonly CheckBox _checkBoxProcessRunSilently = new()
     {
         Content = Resource.RunAutomationStepControl_ProcessRunSilently,
-        IsChecked = true,
     };
 
     private readonly CheckBox _checkBoxProcessWaitUntilFinished = new()
     {
         Content = Resource.RunAutomationStepControl_ProcessWaitUntilFinished,
-        IsChecked = true,
     };
 
     private readonly StackPanel _stackPanel = new();
@@ -62,7 +60,7 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         _scriptArguments.Width = newWidth;
     }
 
-    public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text, _checkBoxProcessRunSilently.IsChecked, _checkBoxProcessWaitUntilFinished.IsChecked);
+    public override IAutomationStep CreateAutomationStep() => new RunAutomationStep(_scriptPath.Text, _scriptArguments.Text, _checkBoxProcessRunSilently.IsChecked ?? true, _checkBoxProcessWaitUntilFinished.IsChecked ?? true);
 
     protected override UIElement GetCustomControl()
     {
@@ -101,8 +99,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
     {
         _scriptPath.Text = AutomationStep.ScriptPath ?? string.Empty;
         _scriptArguments.Text = AutomationStep.ScriptArguments ?? string.Empty;
-        _checkBoxProcessRunSilently.IsChecked = AutomationStep.RunSilently ?? true;
-        _checkBoxProcessWaitUntilFinished.IsChecked = AutomationStep.WaitUntilFinished ?? true;
+        _checkBoxProcessRunSilently.IsChecked = AutomationStep.RunSilently;
+        _checkBoxProcessWaitUntilFinished.IsChecked = AutomationStep.WaitUntilFinished;
         return Task.CompletedTask;
     }
 }
