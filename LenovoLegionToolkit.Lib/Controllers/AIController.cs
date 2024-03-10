@@ -187,36 +187,52 @@ public class AIController(
 
     private static async Task EnableAsync()
     {
-        var targetSubMode = 1;
-
-        var intelligentOpList = await WMI.LenovoIntelligentOPList.ReadAsync().ConfigureAwait(false);
-        foreach (var (processName, subMode) in intelligentOpList)
+        try
         {
-            var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
-            if (process is null)
-                continue;
+            var targetSubMode = 1;
+
+            var intelligentOpList = await WMI.LenovoIntelligentOPList.ReadAsync().ConfigureAwait(false);
+            foreach (var (processName, subMode) in intelligentOpList)
+            {
+                var process = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(processName)).FirstOrDefault();
+                if (process is null)
+                    continue;
+
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
+
+                targetSubMode = subMode;
+                break;
+            }
+
+            await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
 
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Found running process {processName}. [processId={process.Id}, subMode={subMode}]");
-
-            targetSubMode = subMode;
-            break;
+                Log.Instance.Trace($"Initial sub mode set.");
         }
-
-        await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(targetSubMode).ConfigureAwait(false);
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Initial sub mode set.");
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to start.", ex);
+        }
     }
 
     private static async Task DisableAsync()
     {
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Stopping...");
+        try
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopping...");
 
-        await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(0).ConfigureAwait(false);
+            await WMI.LenovoGameZoneData.SetIntelligentSubModeAsync(0).ConfigureAwait(false);
 
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Stopped");
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Stopped");
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to stop.", ex);
+        }
     }
 }
