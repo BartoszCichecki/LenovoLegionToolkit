@@ -10,11 +10,17 @@ public class RunAutomationStep : IAutomationStep
 
     public string? ScriptArguments { get; }
 
+    public bool RunSilently { get; }
+
+    public bool WaitUntilFinished { get; }
+
     [JsonConstructor]
-    public RunAutomationStep(string? scriptPath, string? scriptArguments)
+    public RunAutomationStep(string? scriptPath, string? scriptArguments, bool runSilently, bool waitUntilFinished)
     {
         ScriptPath = scriptPath;
         ScriptArguments = scriptArguments;
+        RunSilently = runSilently;
+        WaitUntilFinished = waitUntilFinished;
     }
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
@@ -24,9 +30,9 @@ public class RunAutomationStep : IAutomationStep
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
 
-        var (_, output) = await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, environment: environment.Dictionary).ConfigureAwait(false);
+        var (_, output) = await CMD.RunAsync(ScriptPath, ScriptArguments ?? string.Empty, RunSilently, WaitUntilFinished, environment.Dictionary).ConfigureAwait(false);
         context.LastRunOutput = output.TrimEnd();
     }
 
-    IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments);
+    IAutomationStep IAutomationStep.DeepCopy() => new RunAutomationStep(ScriptPath, ScriptArguments, RunSilently, WaitUntilFinished);
 }
