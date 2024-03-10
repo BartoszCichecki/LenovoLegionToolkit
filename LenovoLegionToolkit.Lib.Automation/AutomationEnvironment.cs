@@ -8,7 +8,7 @@ public class AutomationEnvironment
 {
     private const string AC_ADAPTER_CONNECTED = "LLT_IS_AC_ADAPTER_CONNECTED";
     private const string LOW_POWER_AC_ADAPTER = "LLT_IS_AC_ADAPTER_LOW_POWER";
-    private const string DISPLAY_ON = "LLT_IS_LID_OPEN";
+    private const string DISPLAY_ON = "LLT_IS_DISPLAY_ON";
     private const string EXTERNAL_DISPLAY_CONNECTED = "LLT_IS_EXTERNAL_DISPLAY_CONNECTED";
     private const string GAME_RUNNING = "LLT_IS_GAME_RUNNING";
     private const string LID_OPEN = "LLT_IS_LID_OPEN";
