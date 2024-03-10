@@ -2035,4 +2035,20 @@ Requiere un reinicio.</value>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Eliminar</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Período (minutos)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Restablece el contador de "En batería desde" en la sección de batería al reiniciar el sistema.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Restablecer "En batería desde" al iniciar</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Apagar el WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Encender el WiFi</value>
+  </data>
 </root>

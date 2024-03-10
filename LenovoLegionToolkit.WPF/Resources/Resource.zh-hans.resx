@@ -2050,4 +2050,10 @@
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>启动时重置电池使用时间</value>
   </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>关闭 Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>打开 Wi-Fi</value>
+  </data>
 </root>

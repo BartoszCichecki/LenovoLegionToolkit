@@ -2033,4 +2033,20 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Xóa</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Chu kỳ (phút)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Đặt lại bộ đếm cho "Thời gian chạy trên pin" ở mục Pin mỗi khi khởi động lại.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Đặt lại "Thời gian chạy trên pin" khi khởi động</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Tắt WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>Bật WiFi</value>
+  </data>
 </root>

@@ -2033,4 +2033,20 @@ Desteklenen biçimler: {1}.</value>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Sil</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Süre (dakika)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Sistem yeniden başlatıldığında pil bölümündeki "Pil süresi" sayacını sıfırlar.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Başlangıçta "Pilde" ifadesini sıfırla</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>WiFi'yi kapat</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+	  <value>WiFi'yi aç</value>
+  </data>
 </root>
