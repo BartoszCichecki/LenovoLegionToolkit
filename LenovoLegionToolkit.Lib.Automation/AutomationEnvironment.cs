@@ -22,6 +22,7 @@ public class AutomationEnvironment
     private const string IS_SUNRISE = "LLT_IS_SUNRISE";
     private const string TIME = "LLT_TIME";
     private const string DAYS = "LLT_DAYS";
+    private const string PERIOD = "LLT_PERIOD";
     private const string USER_ACTIVE = "LLT_IS_USER_ACTIVE";
     private const string WIFI_CONNECTED = "LLT_WIFI_CONNECTED";
     private const string WIFI_SSID = "LLT_WIFI_SSID";
@@ -49,8 +50,22 @@ public class AutomationEnvironment
     {
         set
         {
-            _dictionary[POWER_MODE] = $"{(int)value}";
-            _dictionary[POWER_MODE_NAME] = value.ToString().ToUpperInvariant();
+            _dictionary[POWER_MODE] = value switch
+            {
+                PowerModeState.Quiet => "1",
+                PowerModeState.Balance => "2",
+                PowerModeState.Performance => "3",
+                PowerModeState.GodMode => "255",
+                _ => string.Empty
+            };
+            _dictionary[POWER_MODE_NAME] = value switch
+            {
+                PowerModeState.Quiet => "QUIET",
+                PowerModeState.Balance => "BALANCE",
+                PowerModeState.Performance => "PERFORMANCE",
+                PowerModeState.GodMode => "CUSTOM",
+                _ => string.Empty
+            };
         }
     }
 
@@ -65,6 +80,8 @@ public class AutomationEnvironment
     public Time? Time { set => _dictionary[TIME] = value is null ? null : $"{value.Value.Hour}:{value.Value.Minute}"; }
 
     public DayOfWeek[] Days { set => _dictionary[DAYS] = value.Length < 1 ? null : string.Join(",", value.Select(v => v.ToString().ToUpperInvariant())); }
+
+    public TimeSpan Period { set => _dictionary[PERIOD] = $"{(int)value.TotalSeconds}"; }
 
     public bool UserActive { set => _dictionary[USER_ACTIVE] = value ? VALUE_TRUE : VALUE_FALSE; }
 
