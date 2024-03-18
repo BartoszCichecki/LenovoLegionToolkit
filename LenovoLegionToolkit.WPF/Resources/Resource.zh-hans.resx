@@ -2008,7 +2008,7 @@
     <value>HWiNFO64</value>
   </data>
   <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
-    <value>将风扇速度，电池温度等数据和 HWiNFO64 共享。你也许需要在改变此选项的值后重启 HWiNFO64。</value>
+    <value>将风扇速度，电池温度等数据和 HWiNFO64 共享。切换此选项后也许需要重启 HWiNFO64。</value>
   </data>
   <data name="SettingsPage_Integrations_Title" xml:space="preserve">
     <value>应用集成</value>
@@ -2051,9 +2051,21 @@
     <value>启动时重置电池使用时间</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>关闭 Wi-Fi</value>
+    <value>关闭 Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>打开 Wi-Fi</value>
+    <value>打开 Wi-Fi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>静默运行</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>等待运行结束</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>在后台静默运行程序</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>等待至程序或脚本运行结束</value>
   </data>
 </root>

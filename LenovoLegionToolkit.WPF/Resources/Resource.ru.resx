@@ -2044,9 +2044,9 @@
     <value>Сбросить счетчик "На аккумуляторе" при запуске</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Выключить WiFi</value>
+    <value>Выключить WiFi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Включить WiFi</value>
+    <value>Включить WiFi</value>
   </data>
 </root>

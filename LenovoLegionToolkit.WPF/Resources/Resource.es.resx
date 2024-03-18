@@ -906,13 +906,13 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
-    <value>Aumentar la velocidad del tiempo de respuesta del monitor</value>
+    <value>Aumentar la velocidad de tiempo de respuesta del monitor (OverDrive)</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>Aumentar la velocidad del tiempo de respuesta del monitor</value>
+    <value>A toda velocidad</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} descargado(s)</value>
@@ -2046,9 +2046,21 @@ Requiere un reinicio.</value>
     <value>Restablecer "En batería desde" al iniciar</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Apagar el WiFi</value>
+    <value>Apagar el WiFi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Encender el WiFi</value>
+    <value>Encender el WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Ejecutar silenciosamente</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Esperar a que finalice</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Ejecutar un script o programa en segundo plano, sin crear una nueva ventana.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Esperar a que el programa o script termine de ejecutarse</value>
   </data>
 </root>

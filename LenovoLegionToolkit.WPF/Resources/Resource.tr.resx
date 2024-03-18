@@ -2044,9 +2044,21 @@ Desteklenen biçimler: {1}.</value>
     <value>Başlangıçta "Pilde" ifadesini sıfırla</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>WiFi'yi kapat</value>
+    <value>WiFi'yi kapat</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>WiFi'yi aç</value>
+    <value>WiFi'yi aç</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Sessizce çalış</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Bitene kadar bekle</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Yeni bir pencere oluşturmadan komut dosyasını veya programı arka planda yürütün.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
   </data>
 </root>

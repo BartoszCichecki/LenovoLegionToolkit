@@ -206,4 +206,7 @@
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi ngắt kết nối WiFi</value>
   </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Khi tạm dừng</value>
+  </data>
 </root>

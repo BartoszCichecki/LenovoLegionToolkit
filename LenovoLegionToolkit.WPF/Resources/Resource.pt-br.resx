@@ -2030,9 +2030,9 @@ Requer reinicialização.</value>
     <value>Redefinir "Na bateria desde" na inicialização</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Desativar o Wi-Fi</value>
+    <value>Desativar o Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>Ligar o Wi-Fi</value>
+    <value>Ligar o Wi-Fi</value>
   </data>
 </root>
