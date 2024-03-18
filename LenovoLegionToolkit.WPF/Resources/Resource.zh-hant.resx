@@ -2041,4 +2041,22 @@
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>啟動時，重設「電池使用時間」</value>
   </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>關閉 WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>開啟 WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>靜音地執行</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>等待直到任務完成</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>在不建立新視窗的條件下，執行腳本或程式</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>等待直到程式或腳本完成執行</value>
+  </data>
 </root>
