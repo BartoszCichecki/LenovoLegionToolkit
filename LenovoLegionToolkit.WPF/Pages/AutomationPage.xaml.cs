@@ -319,9 +319,6 @@ public partial class AutomationPage
             name,
             allowEmpty: true);
 
-        if (string.IsNullOrEmpty(newName))
-            return;
-
         control.SetName(newName);
     }
 
