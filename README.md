@@ -112,7 +112,7 @@ If you installed LLT on a clean Windows install, make sure to have necessary dri
 #### Problems with .NET?
 
 If for whatever reason LLT installer did not setup .NET properly:
-1. Go to https://dotnet.microsoft.com/en-us/download/dotnet68.0
+1. Go to [https://dotnet.microsoft.com/en-us/download/dotnet6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 2. Find section ".NET Desktop Runtime"
 3. Download x64 Windows installer
 4. Run the installer
