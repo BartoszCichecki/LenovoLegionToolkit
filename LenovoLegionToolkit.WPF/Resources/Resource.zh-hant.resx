@@ -240,7 +240,7 @@
     <value>獨佔此條件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>當此操作執行時，將不會執行其他符合條件的操作。</value>
+    <value>當此操作執行時，將不會執行其它符合條件的操作。</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻執行</value>
@@ -422,7 +422,7 @@
     <value>圖形</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>其他</value>
+    <value>其它</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
     <value>電源</value>
@@ -748,7 +748,7 @@
     <value>鍵盤背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
+    <value>由於 Lenovo Vantage 或其它服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage 或其相關服務正在執行</value>
