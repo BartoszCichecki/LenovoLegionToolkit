@@ -2062,9 +2062,6 @@
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>等待运行结束</value>
   </data>
-  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>在后台静默运行程序</value>
-  </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
 	  <value>等待至程序或脚本运行结束</value>
   </data>
