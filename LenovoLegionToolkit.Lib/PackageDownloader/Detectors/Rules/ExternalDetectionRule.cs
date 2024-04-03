@@ -84,7 +84,7 @@ internal readonly struct ExternalDetectionRule : IPackageRule
         if (!executable.Contains('\\'))
             executable = Path.Combine(packagePath, executable);
 
-        var (exitCode, _) = await CMD.RunAsync(executable, arguments).ConfigureAwait(false);
+        var (exitCode, _) = await CMD.RunAsync(executable, arguments, token: token).ConfigureAwait(false);
         var result = ReturnCodes.Contains(exitCode);
         return result;
     }

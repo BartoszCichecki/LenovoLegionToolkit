@@ -3,11 +3,9 @@ using System.Runtime.InteropServices;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public sealed class NullSafeHandle : SafeHandle
+public sealed class NullSafeHandle() : SafeHandle(IntPtr.Zero, true)
 {
     public static readonly NullSafeHandle Null = new();
-
-    private NullSafeHandle() : base(IntPtr.Zero, true) { }
 
     public override bool IsInvalid => false;
 
