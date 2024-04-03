@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Listeners;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
@@ -9,7 +10,7 @@ public class TurnOffMonitorsAutomationStep : IAutomationStep
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public Task RunAsync(AutomationContext context, AutomationEnvironment environment) => _nativeWindowsMessageListener.TurnOffMonitorAsync();
+    public Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token) => _nativeWindowsMessageListener.TurnOffMonitorAsync();
 
     public IAutomationStep DeepCopy() => new TurnOffMonitorsAutomationStep();
 }

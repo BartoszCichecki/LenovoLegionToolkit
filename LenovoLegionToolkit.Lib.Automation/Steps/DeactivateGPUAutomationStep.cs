@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 
@@ -15,7 +16,7 @@ public class DeactivateGPUAutomationStep(DeactivateGPUAutomationStepState state)
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(_controller.IsSupported());
 
-    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
         if (!_controller.IsSupported())
             return;

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using Newtonsoft.Json;
 
@@ -14,7 +15,7 @@ public class SpectrumKeyboardBacklightImportProfileAutomationStep(string? path)
 
     public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 
-    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
         if (Path is null || !await _controller.IsSupportedAsync().ConfigureAwait(false))
             return;

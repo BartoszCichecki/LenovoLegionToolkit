@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 
@@ -15,7 +16,7 @@ public class OverclockDiscreteGPUAutomationStep(OverclockDiscreteGPUAutomationSt
 
     public Task<bool> IsSupportedAsync() => _controller.IsSupportedAsync();
 
-    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
         if (!await _controller.IsSupportedAsync().ConfigureAwait(false))
             return;

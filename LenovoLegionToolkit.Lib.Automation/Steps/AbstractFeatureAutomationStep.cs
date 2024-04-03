@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
@@ -12,7 +13,8 @@ public abstract class AbstractFeatureAutomationStep<T>(T state)
 
     public Task<bool> IsSupportedAsync() => _feature.IsSupportedAsync();
 
-    public virtual async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public virtual async Task RunAsync(AutomationContext context, AutomationEnvironment environment,
+        CancellationToken token)
     {
         var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
         if (!State.Equals(currentState))
