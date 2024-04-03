@@ -459,11 +459,12 @@ public readonly struct Notification(NotificationType type, params object[] args)
     }
 }
 
-public readonly struct PowerPlan(Guid guid, string name, bool isActive)
+public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isOverlay)
 {
     public Guid Guid { get; } = guid;
     public string Name { get; } = name;
     public bool IsActive { get; } = isActive;
+    public bool IsOverlay { get; } = isOverlay;
 
     public override string ToString() => Name;
 }

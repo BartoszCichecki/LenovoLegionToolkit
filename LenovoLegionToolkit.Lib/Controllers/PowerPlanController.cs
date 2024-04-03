@@ -23,15 +23,26 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
     };
 
-    public IEnumerable<PowerPlan> GetPowerPlans()
+    public IEnumerable<PowerPlan> GetPowerPlans(bool includeOverlays = false)
     {
-        var powerPlansGuid = GetPowerPlansGuid();
+        var powerPlanGuids = GetPowerPlanGuids(false);
         var activePowerPlanGuid = GetActivePowerPlanGuid();
 
-        foreach (var powerPlanGuid in powerPlansGuid)
+        foreach (var powerPlanGuid in powerPlanGuids)
         {
             var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-            yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid);
+            yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, false);
+        }
+
+        if (!includeOverlays)
+            yield break;
+
+        var overlayGuids = GetPowerPlanGuids(true);
+
+        foreach (var powerPlanGuid in overlayGuids)
+        {
+            var powerPlaneName = GetPowerPlanName(powerPlanGuid);
+            yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, true);
         }
     }
 
@@ -97,6 +108,12 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             Log.Instance.Trace($"Power plan {powerPlanToActivate.Guid} activated. [name={powerPlanToActivate.Name}]");
     }
 
+    public void Set(PowerPlan powerPlan, Brightness brightness)
+    {
+        PInvoke.PowerWriteACValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
+        PInvoke.PowerWriteDCValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
+    }
+
     public PowerModeState[] GetMatchingPowerModes(Guid powerPlanGuid)
     {
         var powerModes = new Dictionary<PowerModeState, Guid>(DefaultPowerModes);
@@ -145,17 +162,19 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         return false;
     }
 
-    private static unsafe List<Guid> GetPowerPlansGuid()
+    private static unsafe List<Guid> GetPowerPlanGuids(bool overlay)
     {
         var list = new List<Guid>();
 
         var bufferSize = (uint)Marshal.SizeOf<Guid>();
         var buffer = new byte[bufferSize];
 
+        var flags = overlay ? POWER_DATA_ACCESSOR.ACCESS_OVERLAY_SCHEME : POWER_DATA_ACCESSOR.ACCESS_SCHEME;
+
         fixed (byte* bufferPtr = buffer)
         {
             uint index = 0;
-            while (PInvoke.PowerEnumerate(null, null, null, POWER_DATA_ACCESSOR.ACCESS_SCHEME, index, bufferPtr, ref bufferSize) == WIN32_ERROR.ERROR_SUCCESS)
+            while (PInvoke.PowerEnumerate(null, null, null, flags, index, bufferPtr, ref bufferSize) == WIN32_ERROR.ERROR_SUCCESS)
             {
                 list.Add(new Guid(buffer));
                 index++;
