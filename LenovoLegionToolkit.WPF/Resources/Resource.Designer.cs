@@ -4327,7 +4327,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Execute script or program in background, without creating a new window..
+        ///   Looks up a localized string similar to Execute console applications, without creating a console window..
         /// </summary>
         public static string RunAutomationStepControl_ProcessRunSilently_Description {
             get {
