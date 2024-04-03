@@ -2032,4 +2032,32 @@ Unterstützte Formate sind: {1}.</value>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Löschen</value>
   </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Zeitraum (Minuten)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Setzt den Zähler für "Auf Akku seit" im Akkubereich zurück, wenn das System neu gestartet wird.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Zurücksetzen von "Auf Akku seit" beim Starten</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>WLAN ausschalten</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>WLAN einschalten</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Im Hintergrund starten</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Warten bis fertig</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+  </data>
 </root>
