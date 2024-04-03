@@ -1962,6 +1962,9 @@ Requer reinicialização.</value>
   <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
     <value>Tamanho de imagem inválido.</value>
   </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Formato de imagem inválido.</value>
+  </data>
   <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
     <value>Não foi possível montar a partição EFI.</value>
   </data>
@@ -2019,6 +2022,15 @@ Requer reinicialização.</value>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
     <value>Abrir README</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+    <value>Predefinição</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+    <value>Deletar</value>
+  </data>
   <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
     <value>Período (minutos)</value>
     <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
@@ -2034,5 +2046,17 @@ Requer reinicialização.</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
     <value>Ligar o Wi-Fi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Executar silenciosamente</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Aguardar até terminar</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Execute aplicativos de console sem criar uma janela de console.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Aguarde até que o programa ou script termine de ser executado</value>
   </data>
 </root>
