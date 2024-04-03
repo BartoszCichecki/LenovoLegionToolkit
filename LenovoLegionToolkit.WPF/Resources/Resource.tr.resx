@@ -2055,9 +2055,6 @@ Desteklenen biçimler: {1}.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>Bitene kadar bekle</value>
   </data>
-  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Yeni bir pencere oluşturmadan komut dosyasını veya programı arka planda yürütün.</value>
-  </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
 	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
   </data>
