@@ -2055,9 +2055,6 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>Đợi cho đến khi hoàn thành</value>
   </data>
-  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Thực thi tập lệnh hoặc chương trình trong nền mà không tạo thêm cửa sổ mới.</value>
-  </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
 	  <value>Đợi cho đến khi chương trình hoặc tập lệnh thực thi xong</value>
   </data>

@@ -240,7 +240,7 @@
     <value>獨佔此條件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>當此操作執行時，將不會執行其他符合條件的操作。</value>
+    <value>當此操作執行時，將不會執行其它符合條件的操作。</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻執行</value>
@@ -309,7 +309,7 @@
     <value>已連接，充電中……</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>已連接，已完全充電</value>
+    <value>已連接，未繼續充電</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>目前電池溫度。</value>
@@ -351,7 +351,7 @@
     <value>初次使用日期</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>初次使用電池時間。</value>
+    <value>初次使用電池日期。</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>當電池充飽時的容量。</value>
@@ -369,7 +369,7 @@
     <value>製造日期</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>自筆記型電腦上次連接到電源供應器以來的時間。
+    <value>自筆記型電腦中斷連接電源供應器以來的時間。
 如果在關機或休眠時充電，可能導致此時間不準確。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
@@ -422,7 +422,7 @@
     <value>圖形</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>其他</value>
+    <value>其它</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
     <value>電源</value>
@@ -475,7 +475,7 @@
     <value>型號</value>
   </data>
   <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
-    <value>序列號</value>
+    <value>序號</value>
   </data>
   <data name="DeviceInformationWindow_Title" xml:space="preserve">
     <value>關於您的裝置</value>
@@ -541,7 +541,7 @@
 
 點擊下方的 PayPal 圖示或掃描 QR 條碼使用 PayPal 贊助。
 
-萬分的感謝！</value>
+萬分的感謝您！</value>
   </data>
   <data name="DonatePage_Title" xml:space="preserve">
     <value>贊助</value>
@@ -748,7 +748,7 @@
     <value>鍵盤背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
+    <value>由於 Lenovo Vantage 或其它服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage 或其相關服務正在執行</value>
@@ -1156,7 +1156,7 @@
     <value>無法停用 Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>停用 Legion Zone 服務且不需要解除安裝。
+    <value>在不解除安裝 Legion Zone 及相關服務的情況下停用它們。
 變更此選項後建議重新啟動。</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
@@ -1169,7 +1169,7 @@
     <value>無法停用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>停用 Lenovo Hotkeys 服務且不需要解除安裝。
+    <value>在不解除安裝 Lenovo Hotkeys 及相關服務的情況下停用它們。
 如果停用，此應用程式將處理 Fn 快捷方式。
 變更此選項後建議重新啟動。</value>
   </data>
@@ -2052,9 +2052,6 @@
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>等待直到任務完成</value>
-  </data>
-  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>在不建立新視窗的條件下，執行腳本或程式</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
 	  <value>等待直到程式或腳本完成執行</value>
