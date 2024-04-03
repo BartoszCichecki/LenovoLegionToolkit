@@ -27,6 +27,7 @@ public class ProcessAutoListener(
     private static readonly string[] IgnoredNames =
     [
         "backgroundTaskHost",
+        "cmd",
         "CompPkgSrv",
         "conhost",
         "dllhost",
@@ -36,6 +37,8 @@ public class ProcessAutoListener(
         "NvOAWrapperCache",
         "SearchProtocolHost",
         "svchost",
+        "taskhostw",
+        "WmiApSrv",
         "WmiPrvSE"
     ];
 
@@ -81,10 +84,15 @@ public class ProcessAutoListener(
             {
                 processPath = Process.GetProcessById(e.ProcessId).GetFileName();
             }
+            catch (ArgumentException)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Process {e.ProcessName} isn't running, ignoring... [processId={e.ProcessId}]");
+            }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't get process {e.ProcessName} details.", ex);
+                    Log.Instance.Trace($"Can't get process {e.ProcessName} details. [processId={e.ProcessId}]", ex);
             }
 
             if (!string.IsNullOrEmpty(processPath) && IgnoredPaths.Any(p => processPath.StartsWith(p, StringComparison.InvariantCultureIgnoreCase)))
@@ -92,6 +100,8 @@ public class ProcessAutoListener(
 
             var processInfo = new ProcessInfo(e.ProcessName, processPath);
             _processCache[e.ProcessId] = processInfo;
+
+            CleanUpCacheIfNecessary();
 
             RaiseChanged(new ChangedEventArgs(ProcessEventInfoType.Started, processInfo));
         }
