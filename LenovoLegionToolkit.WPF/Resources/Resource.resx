@@ -616,6 +616,9 @@ Thanks in advance!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>
   </data>

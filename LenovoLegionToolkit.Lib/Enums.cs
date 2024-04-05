@@ -89,8 +89,9 @@ public enum FanTableType
 {
     Unknown,
     CPU,
+    CPUSensor,
     GPU,
-    CPUSensor
+    GPU2
 }
 
 public enum FlipToStartState

@@ -1976,6 +1976,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GPU #2.
+        /// </summary>
+        public static string FanCurveControl_GPU2 {
+            get {
+                return ResourceManager.GetString("FanCurveControl_GPU2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter....
         /// </summary>
         public static string Filter {

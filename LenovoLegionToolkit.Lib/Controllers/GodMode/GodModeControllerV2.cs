@@ -316,13 +316,16 @@ public class GodModeControllerV2(
                     (1, 4) => FanTableType.CPU,
                     (1, 1) => FanTableType.CPUSensor,
                     (2, 5) => FanTableType.GPU,
+                    (3, 5) => FanTableType.GPU2,
                     _ => FanTableType.Unknown,
                 };
                 return new FanTableData(type, d.fanId, d.sensorId, d.fanTableData, d.sensorTableData);
             })
             .ToArray();
 
-        if (fanTableData.Length != 3)
+        var length = fanTableData.Where(ftd => ftd.Type != FanTableType.Unknown).Count();
+
+        if (fanTableData.Length != length)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Bad fan table length: {string.Join(", ", fanTableData)}");
@@ -330,7 +333,7 @@ public class GodModeControllerV2(
             return null;
         }
 
-        if (fanTableData.Count(ftd => ftd.FanSpeeds.Length == 10) != 3)
+        if (fanTableData.Count(ftd => ftd.FanSpeeds.Length == 10) != length)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Bad fan table fan speeds length: {string.Join(", ", fanTableData)}");
@@ -338,7 +341,7 @@ public class GodModeControllerV2(
             return null;
         }
 
-        if (fanTableData.Count(ftd => ftd.Temps.Length == 10) != 3)
+        if (fanTableData.Count(ftd => ftd.Temps.Length == 10) != length)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Bad fan table temps length: {string.Join(", ", fanTableData)}");
