@@ -243,17 +243,20 @@ public partial class FanCurveControl
             {
                 new() { Height = GridLength.Auto},
                 new() { Height = GridLength.Auto},
+                new() { Height = GridLength.Auto},
                 new() { Height = GridLength.Auto}
             }
         };
 
-        private readonly TextBlock _desc1 = new() { Text = Resource.FanCurveControl_CPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
-        private readonly TextBlock _desc2 = new() { Text = Resource.FanCurveControl_CPUSensor, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
-        private readonly TextBlock _desc3 = new() { Text = Resource.FanCurveControl_GPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+        private readonly TextBlock _cpuDescription = new() { Text = Resource.FanCurveControl_CPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+        private readonly TextBlock _cpuSensorDescription = new() { Text = Resource.FanCurveControl_CPUSensor, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+        private readonly TextBlock _gpuDescription = new() { Text = Resource.FanCurveControl_GPU, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
+        private readonly TextBlock _gpu2Description = new() { Text = Resource.FanCurveControl_GPU2, FontWeight = FontWeights.Medium, Margin = new(0, 0, 8, 0) };
 
-        private readonly TextBlock _value1 = new();
-        private readonly TextBlock _value2 = new();
-        private readonly TextBlock _value3 = new();
+        private readonly TextBlock _cpuValue = new();
+        private readonly TextBlock _cpuSensorValue = new();
+        private readonly TextBlock _gpuValue = new();
+        private readonly TextBlock _gpu2Value = new();
 
         public InfoTooltip()
         {
@@ -264,78 +267,74 @@ public partial class FanCurveControl
         {
             SetResourceReference(StyleProperty, typeof(ToolTip));
 
-            Grid.SetColumn(_desc1, 0);
-            Grid.SetColumn(_desc2, 0);
-            Grid.SetColumn(_desc3, 0);
-            Grid.SetColumn(_value1, 1);
-            Grid.SetColumn(_value3, 1);
-            Grid.SetColumn(_value2, 1);
+            Grid.SetColumn(_cpuDescription, 0);
+            Grid.SetColumn(_cpuSensorDescription, 0);
+            Grid.SetColumn(_gpuDescription, 0);
+            Grid.SetColumn(_gpu2Description, 0);
+            Grid.SetColumn(_cpuValue, 1);
+            Grid.SetColumn(_cpuSensorValue, 1);
+            Grid.SetColumn(_gpuValue, 1);
+            Grid.SetColumn(_gpu2Value, 1);
 
-            Grid.SetRow(_desc1, 0);
-            Grid.SetRow(_desc2, 1);
-            Grid.SetRow(_desc3, 2);
-            Grid.SetRow(_value1, 0);
-            Grid.SetRow(_value2, 1);
-            Grid.SetRow(_value3, 2);
+            Grid.SetRow(_cpuDescription, 0);
+            Grid.SetRow(_cpuSensorDescription, 1);
+            Grid.SetRow(_gpuDescription, 2);
+            Grid.SetRow(_gpu2Description, 3);
+            Grid.SetRow(_cpuValue, 0);
+            Grid.SetRow(_cpuSensorValue, 1);
+            Grid.SetRow(_gpuValue, 2);
+            Grid.SetRow(_gpu2Value, 3);
 
-            _grid.Children.Add(_desc1);
-            _grid.Children.Add(_desc2);
-            _grid.Children.Add(_desc3);
-            _grid.Children.Add(_value1);
-            _grid.Children.Add(_value2);
-            _grid.Children.Add(_value3);
+            _grid.Children.Add(_cpuDescription);
+            _grid.Children.Add(_cpuSensorDescription);
+            _grid.Children.Add(_gpuDescription);
+            _grid.Children.Add(_gpu2Description);
+            _grid.Children.Add(_cpuValue);
+            _grid.Children.Add(_cpuSensorValue);
+            _grid.Children.Add(_gpuValue);
+            _grid.Children.Add(_gpu2Value);
 
             Content = _grid;
         }
 
         public void Update(FanTableData[] tableData, int index, int value)
         {
-            try
-            {
-                _value1.Text = tableData
-                    .Where(td => td.Type == FanTableType.CPU)
-                    .Select(td => GetDescription(td, index, value))
-                    .FirstOrDefault() ?? "-";
-            }
-            catch
-            {
-                _value1.Text = "-";
-            }
-
-            try
-            {
-                _value2.Text = tableData
-                    .Where(td => td.Type == FanTableType.CPUSensor)
-                    .Select(td => GetDescription(td, index, value))
-                    .FirstOrDefault() ?? "-";
-            }
-            catch
-            {
-                _value2.Text = "-";
-            }
-
-            try
-            {
-                _value3.Text = tableData
-                    .Where(td => td.Type == FanTableType.GPU)
-                    .Select(td => GetDescription(td, index, value))
-                    .FirstOrDefault() ?? "-";
-            }
-            catch
-            {
-                _value3.Text = "-";
-            }
+            Update(tableData, index, value, FanTableType.CPU, _cpuDescription, _cpuValue);
+            Update(tableData, index, value, FanTableType.CPUSensor, _cpuSensorDescription, _cpuSensorValue);
+            Update(tableData, index, value, FanTableType.GPU, _gpuDescription, _gpuValue);
+            Update(tableData, index, value, FanTableType.GPU2, _gpu2Description, _gpu2Value);
         }
 
-        private static string? GetDescription(FanTableData tableData, int index, int value)
+        private static void Update(FanTableData[] tableData, int index, int value, FanTableType type, TextBlock descriptionTextBlock, TextBlock valueTextBlock)
         {
-            var temp = tableData.Temps[index];
+            var text = tableData
+                .Where(td => td.Type == type)
+                .Select(td => GetDescription(td, index, value))
+                .FirstOrDefault();
 
-            if (temp >= 127)
-                return null;
+            var visibility = text is null ? Visibility.Collapsed : Visibility.Visible;
 
-            var rpm = value < 0 ? 0 : tableData.FanSpeeds[value];
-            return $"{temp}{Resource.Celsius} @ {rpm} {Resource.RPM}";
+            valueTextBlock.Text = text ?? "-";
+            valueTextBlock.Visibility = visibility;
+            descriptionTextBlock.Visibility = visibility;
+        }
+
+        private static string GetDescription(FanTableData tableData, int index, int value)
+        {
+            try
+            {
+                var temp = tableData.Temps[index];
+
+                if (temp >= 127)
+                    return "-";
+
+                var rpm = value < 0 ? 0 : tableData.FanSpeeds[value];
+                return $"{temp}{Resource.Celsius} @ {rpm} {Resource.RPM}";
+            }
+            catch
+            {
+                return "-";
+            }
         }
     }
 }

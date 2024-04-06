@@ -116,8 +116,7 @@ public readonly struct FanTableData(FanTableType type, byte fanId, byte sensorId
         $" {nameof(FanId)}: {FanId}," +
         $" {nameof(SensorId)}: {SensorId}," +
         $" {nameof(FanSpeeds)}: [{string.Join(", ", FanSpeeds)}]," +
-        $" {nameof(Temps)}: [{string.Join(", ", Temps)}]," +
-        $" {nameof(Type)}: {Type}";
+        $" {nameof(Temps)}: [{string.Join(", ", Temps)}]";
 }
 
 public readonly struct FanTable
