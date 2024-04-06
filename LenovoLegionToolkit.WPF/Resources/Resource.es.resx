@@ -619,6 +619,9 @@ El sistema alternará automáticamente entre ellas, en función de sus necesidad
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>Revoluciones por minuto</value>
   </data>
@@ -912,7 +915,7 @@ Activar esta opción si tiene conflictos con las aplicaciones en pantalla comple
     <value>Mejorar el tiempo de respuesta de la pantalla integrada.</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
-    <value>A toda velocidad</value>
+    <value>Aumentar la velocidad de tiempo de respuesta del monitor (OverDrive)</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} descargado(s)</value>
