@@ -57,14 +57,11 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (!IsVisible)
-        {
-            await StopAnimationAsync();
-            _effects.Children.Clear();
+        if (IsVisible)
             return;
-        }
 
-        await StartAnimationAsync();
+        await StopAnimationAsync();
+        _effects.Children.Clear();
     }
 
     private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -295,6 +292,9 @@ public partial class SpectrumKeyboardBacklightControl
 
         await RefreshBrightnessAsync();
         await RefreshProfileAsync();
+
+        if (IsVisible)
+            await StartAnimationAsync();
     }
 
     protected override void OnFinishedLoading() { }
