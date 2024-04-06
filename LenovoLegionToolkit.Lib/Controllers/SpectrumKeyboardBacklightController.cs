@@ -367,9 +367,10 @@ public class SpectrumKeyboardBacklightController
             Log.Instance.Trace($"Aurora stopped.");
     }
 
-    public async Task<Dictionary<ushort, RGBColor>> GetStateAsync()
+    public async Task<Dictionary<ushort, RGBColor>> GetStateAsync(bool skipVantageCheck = false)
     {
-        await ThrowIfVantageEnabled().ConfigureAwait(false);
+        if (!skipVantageCheck)
+            await ThrowIfVantageEnabled().ConfigureAwait(false);
 
         var handle = await GetDeviceHandleAsync().ConfigureAwait(false);
         if (handle is null)
