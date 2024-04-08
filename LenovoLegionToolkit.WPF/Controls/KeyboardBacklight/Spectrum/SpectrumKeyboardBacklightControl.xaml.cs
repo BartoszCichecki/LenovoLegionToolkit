@@ -22,6 +22,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum;
 
 public partial class SpectrumKeyboardBacklightControl
 {
+    private readonly ThrottleLastDispatcher _changeBrightnessDispatcher = new(TimeSpan.FromMilliseconds(250), "ChangeBrightnessDispatcher");
     private readonly TimeSpan _refreshStateInterval = TimeSpan.FromMilliseconds(50);
     private readonly AsyncLock _startStopAnimationLock = new();
 
@@ -106,12 +107,15 @@ public partial class SpectrumKeyboardBacklightControl
         }
     });
 
-    private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => await _changeBrightnessDispatcher.DispatchAsync(async () =>
     {
-        var value = (int)_brightnessSlider.Value;
-        if (await _controller.GetBrightnessAsync() != value)
-            await _controller.SetBrightnessAsync(value);
-    }
+        await Dispatcher.InvokeAsync(async () =>
+        {
+            var value = (int)_brightnessSlider.Value;
+            if (await _controller.GetBrightnessAsync() != value)
+                await _controller.SetBrightnessAsync(value);
+        });
+    });
 
     private async void ProfileButton_OnClick(object sender, RoutedEventArgs e)
     {
