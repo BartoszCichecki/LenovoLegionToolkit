@@ -112,22 +112,22 @@ If you installed LLT on a clean Windows install, make sure to have necessary dri
 #### Problems with .NET?
 
 If for whatever reason LLT installer did not setup .NET properly:
-1. Go to [https://dotnet.microsoft.com/en-us/download/dotnet6](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+1. Go to https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 2. Find section ".NET Desktop Runtime"
 3. Download x64 Windows installer
 4. Run the installer
 
-> Note: If you installed LLT from Scoop, .NET 6 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
+> Note: If you installed LLT from Scoop, .NET 8 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
 
 After following these steps, you can open Terminal and type: `dotnet --info`. In the output look for section `.NET runtimes installed`, in this section you should see something like:
 
-`Microsoft.NETCore.App 6.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
+`Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
 
 and
 
-`Microsoft.WindowsDesktop.App 6.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
+`Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
 
-The exact version number can be different, but as long as it is `6.x.x` it should be fine. If after these steps LLT still shows an error on startup that .NET couldn't be found or similar, the problem is on your machine and not with LLT.
+The exact version number can be different, but as long as it is `8.x.x` it should be fine. If after these steps LLT still shows an error on startup that .NET couldn't be found or similar, the problem is on your machine and not with LLT.
 
 #### Want to help with testing?
 
@@ -248,6 +248,110 @@ Laptops that have S0 Low Power mode enabled, also known as Modern Standby, do no
 
 On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Legion" image you see at boot). Boot logo is *not* stored in UEFI - it is stored on the UEFI partition on boot drive. When setting custom boot logo, LLT conducts basic checks, like resolution, image format and calculates a checksum to ensure compatibility. However, the real verification happens on the next boot. UEFI will attempt to load the image from UEFI partition and show it. If that fails for whatever reason, default image will be used. Exact criteria, except for resolution and image format, are not known and some images might not be shown. In this case, try another image, edited with different image editor.
 
+### Running programs or scripts from actions
+
+You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (`.exe`) or a script (`.bat`). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
+
+#### Examples
+
+Here are couple of examples:
+
+_Shutdown laptop_
+ - Executable path: `shutdown`
+ - Arguments: `/s /t 0`
+ 
+_Restart laptop_
+ - Executable path: `shutdown`
+ - Arguments: `/r`
+ 
+_Runing a program_
+ - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
+ - Arguments: ` ` (optional, for list of supported argument check the program's readme, webstie etc.)
+ 
+_Running a script_
+ - Executable path: `C:\path\to\the\script.bat`
+ - Arguments: ` ` (optional, for list of supported argument check the script's readme, webstie etc.)
+ 
+_Python script_
+ - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
+ - Arguments: `C:\path\to\script.py`
+ 
+ #### Environment
+ 
+ LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
+ 
+- When AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+
+- When low wattage AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
+
+- When AC power adapter is disconnected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
+
+- When Power Mode is changed:
+	- `LLT_POWER_MODE=<value>`, where `value` is one of: `1` - Quiet, `2` - Balance, `3` - Performance, `255` - Custom
+	- `LLT_POWER_MODE_NAME=<value>`, where `value` is one of: `QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
+
+- When game is running
+	- `LLT_IS_GAME_RUNNING=TRUE`
+
+- When game closes
+	- `LLT_IS_GAME_RUNNING=FALSE`
+
+- When app starts
+	- `LLT_PROCESSES_STARTED=TRUE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+
+- When app closes
+	- `LLT_PROCESSES_STARTED=FALSE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+	
+- Lid opened
+	- `LLT_IS_LID_OPEN=TRUE`
+
+- Lid closed
+	- `LLT_IS_LID_OPEN=FALSE`
+
+- When displays turn on
+	- `LLT_IS_DISPLAY_ON=TRUE`
+
+- When displays turn off
+	- `LLT_IS_DISPLAY_ON=FALSE`
+
+- When external display is connected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
+
+- When external display is disconnected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
+
+- When WiFi is connected
+	- `LLT_WIFI_CONNECTED=TRUE`
+	- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network
+
+- When WiFi is disconnected
+	- `LLT_WIFI_CONNECTED=FALSE`
+	
+- At specified time
+	- `LLT_IS_SUNSET=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_IS_SUNRISE=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_TIME"`, where `value` is `HH:mm`, depending on configuration of the trigger
+	- `LLT_DAYS"`, where `value` is comma separated list of: `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`, depending on configuration of the trigger
+	
+- Periodic action
+	- `LLT_PERIOD=<value>`, where `value` is the interval in seconds
+	
+- On startup
+	- `LLT_STARTUP=TRUE`
+	
+- On resume
+	- `LLT_RESUME=TRUE`
+ 
+ #### Output
+ 
+ If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
+
 ## Donate
 
 If you enjoy using the Lenovo Legion Toolkit, consider donating.
@@ -291,25 +395,25 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 ## FAQ
 
-* [Why do I get a message that Vantage is still running, even though I uninstalled it?](#faq-vantage-running)
-* [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#faq-virus)
-* [Can I customize hotkeys?](#faq-custom-hotkeys)
-* [Can I customize Conservation mode threshold?](#faq-customize-conservation-mode)
-* [Can I customize fans in Quiet, Balance or Performance modes?](#faq-fan-curves)
-* [Why can't I switch to Performance or Custom Power Mode on battery?](#faq-perf-custom-battery)
-* [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#faq-ai-fnq-bug)
-* [Why am I getting incompatible message after motherboard replacement?](#faq-incompatible)
-* [Why isn't a game detected, even though Actions are configured properly?](#faq-game-detect)
-* [Can I use other RGB software while using LLT?](#faq-rgb-software)
-* [Will iCue RGB keyboards be supported?](#faq-icue)
-* [Can I have more RGB effects?](#faq-more-rgb-effects)
-* [Can you add fan control to other models?](#faq-fan-control)
-* [Why don't I see the custom tooltip when I hover LLT icon in tray?](#faq-custom-tooltip)
-* [How can I OC/UV my CPU?](#faq-cpu-oc)
-* [What if I overclocked my GPU too much?](#faq-gpu-oc)
-* [Why is my Boot Logo not applied?](#faq-boot-logo)
-* [Why do I see stuttering when using Smart Fn Lock?](#faq-smart-fn-lock-stutter)
-* [Which generation is my laptop?](#faq-which-gen)
+- [Why do I get a message that Vantage is still running, even though I uninstalled it?](#why-do-i-get-a-message-that-vantage-is-still-running-even-though-i-uninstalled-it)
+- [Why is my antivirus reporting that the installer contains a virus/trojan/malware?](#why-is-my-antivirus-reporting-that-the-installer-contains-a-virustrojanmalware)
+- [Can I customize hotkeys?](#can-i-customize-hotkeys)
+- [Can I customize Conservation mode threshold?](#can-i-customize-conservation-mode-threshold)
+- [Can I customize fans in Quiet, Balance or Performance modes?](#can-i-customize-fans-in-quiet-balance-or-performance-modes)
+- [Why can't I switch to Performance or Custom Power Mode on battery?](#why-cant-i-switch-to-performance-or-custom-power-mode-on-battery)
+- [Why does switching to Performance mode seem buggy, when AI Engine is enabled?](#why-does-switching-to-performance-mode-seem-buggy-when-ai-engine-is-enabled)
+- [Why am I getting incompatible message after motherboard replacement?](#why-am-i-getting-incompatible-message-after-motherboard-replacement)
+- [Why isn't a game detected, even though Actions are configured properly?](#why-isnt-a-game-detected-even-though-actions-are-configured-properly)
+- [Can I use other RGB software while using LLT?](#can-i-use-other-rgb-software-while-using-llt)
+- [Will iCue RGB keyboards be supported?](#will-icue-rgb-keyboards-be-supported)
+- [Can I have more RGB effects?](#can-i-have-more-rgb-effects)
+- [Can you add fan control to other models?](#can-you-add-fan-control-to-other-models)
+- [Why don't I see the custom tooltip when I hover LLT icon in tray?](#why-dont-i-see-the-custom-tooltip-when-i-hover-llt-icon-in-tray)
+- [How can I OC/UV my CPU?](#how-can-i-ocuv-my-cpu)
+- [What if I overclocked my GPU too much?](#what-if-i-overclocked-my-gpu-too-much)
+- [Why is my Boot Logo not applied?](#why-is-my-boot-logo-not-applied)
+- [Why do I see stuttering when using Smart Fn Lock?](#why-do-i-see-stuttering-when-using-smart-fn-lock)
+- [Which generation is my laptop?](#which-generation-is-my-laptop)
 
 
 
