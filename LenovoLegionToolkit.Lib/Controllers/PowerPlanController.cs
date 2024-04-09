@@ -19,10 +19,9 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
 
     public IEnumerable<PowerPlan> GetPowerPlans(bool includePowerPlans, bool includeOverlays)
     {
-        var activePowerPlanGuid = GetActivePowerPlanGuid();
-
         if (includePowerPlans)
         {
+            var activePowerPlanGuid = GetActivePowerPlanGuid();
             foreach (var powerPlanGuid in GetPowerPlanGuids(false))
             {
                 var powerPlaneName = GetPowerPlanName(powerPlanGuid);
@@ -35,7 +34,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             foreach (var powerPlanGuid in GetPowerPlanGuids(true))
             {
                 var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-                yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, true);
+                yield return new PowerPlan(powerPlanGuid, powerPlaneName, false, true);
             }
         }
     }
