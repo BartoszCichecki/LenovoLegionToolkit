@@ -46,7 +46,7 @@ public partial class PowerPlansWindow
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        var powerPlans = _powerPlanController.GetPowerPlans().OrderBy(x => x.Name).ToArray();
+        var powerPlans = _powerPlanController.GetPowerPlans(true, false).OrderBy(x => x.Name).ToArray();
         Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
         Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
         Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
