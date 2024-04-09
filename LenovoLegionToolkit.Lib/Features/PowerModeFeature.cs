@@ -87,7 +87,7 @@ public class PowerModeFeature(
     public async Task EnsureCorrectPowerPlanIsSetAsync()
     {
         var state = await GetStateAsync().ConfigureAwait(false);
-        await powerPlanController.ActivatePowerPlanAsync(state, true).ConfigureAwait(false);
+        await powerPlanController.SetPowerPlanAsync(state, true).ConfigureAwait(false);
     }
 
     public async Task EnsureGodModeStateIsAppliedAsync()
