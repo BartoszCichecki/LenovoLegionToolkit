@@ -617,6 +617,9 @@ PayPal ile bağış yapmak için aşağıdaki PayPal logosuna tıklayın veya QR
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
@@ -2044,9 +2047,21 @@ Desteklenen biçimler: {1}.</value>
     <value>Başlangıçta "Pilde" ifadesini sıfırla</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>WiFi'yi kapat</value>
+    <value>WiFi'yi kapat</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-	  <value>WiFi'yi aç</value>
+    <value>WiFi'yi aç</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Sessizce çalış</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Bitene kadar bekle</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
   </data>
 </root>

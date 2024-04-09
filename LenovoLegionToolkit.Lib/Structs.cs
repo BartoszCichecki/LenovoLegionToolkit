@@ -116,8 +116,7 @@ public readonly struct FanTableData(FanTableType type, byte fanId, byte sensorId
         $" {nameof(FanId)}: {FanId}," +
         $" {nameof(SensorId)}: {SensorId}," +
         $" {nameof(FanSpeeds)}: [{string.Join(", ", FanSpeeds)}]," +
-        $" {nameof(Temps)}: [{string.Join(", ", Temps)}]," +
-        $" {nameof(Type)}: {Type}";
+        $" {nameof(Temps)}: [{string.Join(", ", Temps)}]";
 }
 
 public readonly struct FanTable
@@ -459,11 +458,12 @@ public readonly struct Notification(NotificationType type, params object[] args)
     }
 }
 
-public readonly struct PowerPlan(Guid guid, string name, bool isActive)
+public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isOverlay)
 {
     public Guid Guid { get; } = guid;
     public string Name { get; } = name;
     public bool IsActive { get; } = isActive;
+    public bool IsOverlay { get; } = isOverlay;
 
     public override string ToString() => Name;
 }

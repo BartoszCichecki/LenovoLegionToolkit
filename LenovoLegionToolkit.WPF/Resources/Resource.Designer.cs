@@ -1976,6 +1976,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GPU #2.
+        /// </summary>
+        public static string FanCurveControl_GPU2 {
+            get {
+                return ResourceManager.GetString("FanCurveControl_GPU2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Filter....
         /// </summary>
         public static string Filter {
@@ -4327,7 +4336,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Execute script or program in background, without creating a new window..
+        ///   Looks up a localized string similar to Execute console applications, without creating a console window..
         /// </summary>
         public static string RunAutomationStepControl_ProcessRunSilently_Description {
             get {

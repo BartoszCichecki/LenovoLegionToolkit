@@ -59,6 +59,18 @@ public abstract class AbstractAutomationStepControl : UserControl
         set => _cardHeaderControl.Subtitle = value;
     }
 
+    public VerticalAlignment TitleVerticalAlignment
+    {
+        get => _cardHeaderControl.TitleVerticalAlignment;
+        set => _cardHeaderControl.TitleVerticalAlignment = value;
+    }
+
+    public VerticalAlignment SubtitleVerticalAlignment
+    {
+        get => _cardHeaderControl.SubtitleVerticalAlignment;
+        set => _cardHeaderControl.SubtitleVerticalAlignment = value;
+    }
+
     public event EventHandler? Changed;
     public event EventHandler? Delete;
 

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
@@ -14,11 +15,11 @@ public class RunAutomationStep(string? scriptPath, string? scriptArguments, bool
 
     public bool RunSilently { get; } = runSilently ?? true;
 
-    public bool WaitUntilFinished { get; } = waitUntilFinished ?? true;
+    public bool WaitUntilFinished { get; } = waitUntilFinished ?? false;
 
     public Task<bool> IsSupportedAsync() => Task.FromResult(true);
 
-    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
         if (string.IsNullOrWhiteSpace(ScriptPath))
             return;
@@ -27,7 +28,8 @@ public class RunAutomationStep(string? scriptPath, string? scriptArguments, bool
             ScriptArguments ?? string.Empty,
             RunSilently,
             WaitUntilFinished,
-            environment.Dictionary).ConfigureAwait(false);
+            environment.Dictionary,
+            token).ConfigureAwait(false);
         context.LastRunOutput = output.TrimEnd();
     }
 

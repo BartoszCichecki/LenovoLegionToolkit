@@ -74,7 +74,7 @@ public class AutomationPipeline
 
             try
             {
-                await step.RunAsync(context, environment).ConfigureAwait(false);
+                await step.RunAsync(context, environment, token).ConfigureAwait(false);
             }
             catch (Exception ex)
             {

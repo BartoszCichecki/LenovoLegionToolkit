@@ -44,6 +44,8 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
         Icon = SymbolRegular.WindowConsole20;
         Title = Resource.RunAutomationStepControl_Title;
         Subtitle = Resource.RunAutomationStepControl_Message;
+        TitleVerticalAlignment = VerticalAlignment.Bottom;
+        SubtitleVerticalAlignment = VerticalAlignment.Top;
 
         AutomationProperties.SetName(_scriptPath, Resource.RunAutomationStepControl_ExePath);
         AutomationProperties.SetName(_scriptArguments, Resource.RunAutomationStepControl_ExeArguments);
@@ -89,6 +91,16 @@ public class RunAutomationStepControl : AbstractAutomationStepControl<RunAutomat
                 RaiseChanged();
         };
         _checkBoxProcessWaitUntilFinished.Checked += (_, _) =>
+        {
+            if (_checkBoxProcessWaitUntilFinished.IsChecked != AutomationStep.WaitUntilFinished)
+                RaiseChanged();
+        };
+        _checkBoxProcessRunSilently.Unchecked += (_, _) =>
+        {
+            if (_checkBoxProcessRunSilently.IsChecked != AutomationStep.RunSilently)
+                RaiseChanged();
+        };
+        _checkBoxProcessWaitUntilFinished.Unchecked += (_, _) =>
         {
             if (_checkBoxProcessWaitUntilFinished.IsChecked != AutomationStep.WaitUntilFinished)
                 RaiseChanged();

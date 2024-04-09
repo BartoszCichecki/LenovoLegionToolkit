@@ -12,7 +12,7 @@ public class CardHeaderControl : UserControl
     {
         FontSize = 14,
         FontWeight = FontWeight.FromOpenTypeWeight(500), // Medium
-        VerticalAlignment = VerticalAlignment.Bottom,
+        VerticalAlignment = VerticalAlignment.Center,
         TextTrimming = TextTrimming.CharacterEllipsis,
     };
 
@@ -20,7 +20,6 @@ public class CardHeaderControl : UserControl
     {
         FontSize = 12,
         Margin = new(0, 4, 0, 0),
-        VerticalAlignment = VerticalAlignment.Top,
         TextWrapping = TextWrapping.Wrap,
         TextTrimming = TextTrimming.CharacterEllipsis,
     };
@@ -69,6 +68,18 @@ public class CardHeaderControl : UserControl
             _subtitleTextBlock.Text = value;
             RefreshLayout();
         }
+    }
+
+    public VerticalAlignment TitleVerticalAlignment
+    {
+        get => _titleTextBlock.VerticalAlignment;
+        set => _titleTextBlock.VerticalAlignment = value;
+    }
+
+    public VerticalAlignment SubtitleVerticalAlignment
+    {
+        get => _subtitleTextBlock.VerticalAlignment;
+        set => _subtitleTextBlock.VerticalAlignment = value;
     }
 
     public string Warning

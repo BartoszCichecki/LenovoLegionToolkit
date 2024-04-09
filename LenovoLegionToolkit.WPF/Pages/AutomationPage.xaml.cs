@@ -183,7 +183,7 @@ public partial class AutomationPage
             new RefreshRateAutomationStep(default),
             new ResolutionAutomationStep(default),
             new RGBKeyboardBacklightAutomationStep(default),
-            new RunAutomationStep(default, default, true, true),
+            new RunAutomationStep(default, default, default, default),
             new SpectrumKeyboardBacklightBrightnessAutomationStep(0),
             new SpectrumKeyboardBacklightProfileAutomationStep(1),
             new SpectrumKeyboardBacklightImportProfileAutomationStep(default),
@@ -318,9 +318,6 @@ public partial class AutomationPage
             Resource.AutomationPage_RenamePipeline_Placeholder,
             name,
             allowEmpty: true);
-
-        if (string.IsNullOrEmpty(newName))
-            return;
 
         control.SetName(newName);
     }

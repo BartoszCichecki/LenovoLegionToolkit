@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Features;
@@ -24,7 +25,7 @@ public class GodModePresetAutomationStep(Guid presetId)
 
     public Task<GodModeState> GetStateAsync() => _controller.GetStateAsync();
 
-    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment)
+    public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
         var state = await _controller.GetStateAsync().ConfigureAwait(false);
         if (!state.Presets.ContainsKey(PresetId))

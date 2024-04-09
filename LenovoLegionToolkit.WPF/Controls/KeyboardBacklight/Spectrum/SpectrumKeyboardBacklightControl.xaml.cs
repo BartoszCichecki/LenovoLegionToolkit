@@ -16,12 +16,15 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.KeyboardBacklight.Spectrum;
 using Microsoft.Win32;
+using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum;
 
 public partial class SpectrumKeyboardBacklightControl
 {
+    private readonly ThrottleLastDispatcher _changeBrightnessDispatcher = new(TimeSpan.FromMilliseconds(250), "ChangeBrightnessDispatcher");
     private readonly TimeSpan _refreshStateInterval = TimeSpan.FromMilliseconds(50);
+    private readonly AsyncLock _startStopAnimationLock = new();
 
     private readonly SpectrumKeyboardBacklightController _controller = IoCContainer.Resolve<SpectrumKeyboardBacklightController>();
     private readonly SpecialKeyListener _listener = IoCContainer.Resolve<SpecialKeyListener>();
@@ -55,14 +58,11 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async void SpectrumKeyboardBacklightControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
     {
-        if (!IsVisible)
-        {
-            await StopAnimationAsync();
-            _effects.Children.Clear();
+        if (IsVisible)
             return;
-        }
 
-        await StartAnimationAsync();
+        await StopAnimationAsync();
+        _effects.Children.Clear();
     }
 
     private void SpectrumKeyboardBacklightControl_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -107,12 +107,15 @@ public partial class SpectrumKeyboardBacklightControl
         }
     });
 
-    private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+    private async void BrightnessSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e) => await _changeBrightnessDispatcher.DispatchAsync(async () =>
     {
-        var value = (int)_brightnessSlider.Value;
-        if (await _controller.GetBrightnessAsync() != value)
-            await _controller.SetBrightnessAsync(value);
-    }
+        await Dispatcher.InvokeAsync(async () =>
+        {
+            var value = (int)_brightnessSlider.Value;
+            if (await _controller.GetBrightnessAsync() != value)
+                await _controller.SetBrightnessAsync(value);
+        });
+    });
 
     private async void ProfileButton_OnClick(object sender, RoutedEventArgs e)
     {
@@ -294,7 +297,8 @@ public partial class SpectrumKeyboardBacklightControl
         await RefreshBrightnessAsync();
         await RefreshProfileAsync();
 
-        await StartAnimationAsync();
+        if (IsVisible)
+            await StartAnimationAsync();
     }
 
     protected override void OnFinishedLoading() { }
@@ -332,27 +336,33 @@ public partial class SpectrumKeyboardBacklightControl
 
     private async Task StartAnimationAsync()
     {
-        await StopAnimationAsync();
+        using (await _startStopAnimationLock.LockAsync())
+        {
+            await StopAnimationAsync();
 
-        if (_refreshStateCancellationTokenSource is not null)
-            await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+            if (_refreshStateCancellationTokenSource is not null)
+                await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
 
-        _refreshStateCancellationTokenSource = new();
+            _refreshStateCancellationTokenSource = new();
 
-        _refreshStateTask = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
+            _refreshStateTask = RefreshStateAsync(_refreshStateCancellationTokenSource.Token);
+        }
     }
 
     private async Task StopAnimationAsync()
     {
-        if (_refreshStateCancellationTokenSource is not null)
-            await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+        using (await _startStopAnimationLock.LockAsync())
+        {
+            if (_refreshStateCancellationTokenSource is not null)
+                await _refreshStateCancellationTokenSource.CancelAsync().ConfigureAwait(false);
 
-        _refreshStateCancellationTokenSource = new();
+            _refreshStateCancellationTokenSource = new();
 
-        if (_refreshStateTask is not null)
-            await _refreshStateTask;
+            if (_refreshStateTask is not null)
+                await _refreshStateTask;
 
-        _refreshStateTask = null;
+            _refreshStateTask = null;
+        }
     }
 
     private async Task RefreshStateAsync(CancellationToken token)
@@ -362,14 +372,19 @@ public partial class SpectrumKeyboardBacklightControl
         if (buttons.Length < 1)
             return;
 
+        var firstCheck = true;
+
         try
         {
             while (true)
             {
                 token.ThrowIfCancellationRequested();
 
+                if (!IsVisible)
+                    break;
+
                 var delay = Task.Delay(_refreshStateInterval, token);
-                var state = await Task.Run(_controller.GetStateAsync, token);
+                var state = await Task.Run(() => _controller.GetStateAsync(!firstCheck), token);
 
                 foreach (var button in buttons)
                 {
@@ -389,6 +404,8 @@ public partial class SpectrumKeyboardBacklightControl
                 }
 
                 await delay;
+
+                firstCheck = false;
             }
         }
         catch (OperationCanceledException) { }

@@ -57,7 +57,7 @@ public class AutomationEnvironment
                 PowerModeState.Performance => "3",
                 PowerModeState.GodMode => "255",
                 _ => string.Empty
-            }; ;
+            };
             _dictionary[POWER_MODE_NAME] = value switch
             {
                 PowerModeState.Quiet => "QUIET",

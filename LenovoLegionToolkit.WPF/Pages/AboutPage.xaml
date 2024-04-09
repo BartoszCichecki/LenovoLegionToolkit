@@ -78,14 +78,15 @@
                 <wpfui:Hyperlink Content="Humanizer" NavigateUri="https://github.com/Humanizr/Humanizer" />
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="0,0,32,0">
+                <wpfui:Hyperlink Content="ManagedNativeWifi" NavigateUri="https://github.com/emoacht/ManagedNativeWifi" />
                 <wpfui:Hyperlink Content="Markdig" NavigateUri="https://github.com/xoofx/markdig" />
                 <wpfui:Hyperlink Content="Markdig.Wpf" NavigateUri="https://github.com/Kryptos-FR/markdig.wpf" />
                 <wpfui:Hyperlink Content="NAudio.Wasapi" NavigateUri="https://github.com/naudio/NAudio" />
                 <wpfui:Hyperlink Content="Newtonsoft.Json" NavigateUri="https://github.com/JamesNK/Newtonsoft.Json" />
                 <wpfui:Hyperlink Content="NvAPIWrapper" NavigateUri="https://github.com/falahati/NvAPIWrapper" />
-                <wpfui:Hyperlink Content="octokit" NavigateUri="https://github.com/octokit/octokit.net" />
             </StackPanel>
             <StackPanel Grid.Column="2">
+                <wpfui:Hyperlink Content="octokit" NavigateUri="https://github.com/octokit/octokit.net" />
                 <wpfui:Hyperlink Content="pubsub" NavigateUri="https://github.com/upta/pubsub" />
                 <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
                 <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />

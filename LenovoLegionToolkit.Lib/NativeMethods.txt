@@ -48,6 +48,7 @@ GUID_DEVCLASS_BATTERY
 GUID_DISPLAY_DEVICE_ARRIVAL
 GUID_DEVINTERFACE_MONITOR
 GUID_LIDSWITCH_STATE_CHANGE
+GUID_VIDEO_SUBGROUP
 
 DBT_DEVICEARRIVAL
 DBT_DEVICEREMOVECOMPLETE
@@ -155,6 +156,8 @@ PowerEnumerate
 PowerReadFriendlyName
 PowerGetActiveScheme
 PowerSetActiveScheme
+PowerWriteACValueIndex
+PowerWriteDCValueIndex
 PowerRegisterForEffectivePowerModeNotifications
 PowerUnregisterFromEffectivePowerModeNotifications
 PowerRegisterSuspendResumeNotification
