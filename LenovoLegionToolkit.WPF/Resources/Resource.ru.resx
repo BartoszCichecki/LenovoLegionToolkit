@@ -617,6 +617,9 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>Граф. процессор</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>Граф. процессор #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>об/мин</value>
   </data>
@@ -2048,5 +2051,17 @@
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
     <value>Включить WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Тихий запуск</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Ждать до завершения</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Выполнять консольные задачи, не открывая окно командной строки.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Ждать, пока задача или скрипт не завершат работу</value>
   </data>
 </root>
