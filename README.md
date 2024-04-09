@@ -236,13 +236,13 @@ The overclock option is intended for simple overclocking, similar to the one ava
 * It is not recommended to use the option while using other tools like Afterburner.
 * If you edited your Dashboard, you might need to add the control manually.
 
-### Windows Power Plans
+### Windows Power Plans & Windows Power Mode
 
-Lenovo Legion Toolkit will automatically switch Windows power plans when Power Mode changes *and* when Lenovo Vantage is disabled.
+First of all, the Power Mode you see in LLT (or toggle with Fn+Q) **is not** the same as Power Plans (that you access from Control Panel) or Power Mode (that you can change from Settings app).
 
-On some laptops though, Lenovo Vantage never switched power plans. If you have one of the laptops where Lenovo Vantage does not change Windows power plans automatically you can override this behavior in Settings. This will allow Toolkit to always change Windows power plans, even if Lenovo Vantage is running in the background.
+The more modern approach is to use only one, default,"Balanced (recommended)" power plan. If you do have other power plans, either delete them, or in LLT settings set all Power Modes to use this plan. Next, go to the Settings app and under System > Power & battery select "Best performance" when laptop is connected to AC adapter, then unplug AC adapter and set it to "Recommended". You can also configure "Battery saver" to automatically turn on "Always". This approach will utilize the modern "power plan overlays" that Microsoft introduced to replace legacy Power Plans.
 
-Laptops that have S0 Low Power mode enabled, also known as Modern Standby, do not work well with mutliple power plans, especially with performance power plans.
+The legacy approach is to use multiple Power Plans, that some devices had installed from factory. If you decide to use them, or configure your own plans, leave the settings in Windows Settings app on the default "Recommended" setting. You can configure LLT to switch Power Plans automatically whenever you change the "Legion" Power Mode in LLT settings.
 
 ### Boot Logo
 
@@ -259,27 +259,27 @@ Here are couple of examples:
 _Shutdown laptop_
  - Executable path: `shutdown`
  - Arguments: `/s /t 0`
- 
+
 _Restart laptop_
  - Executable path: `shutdown`
  - Arguments: `/r`
- 
+
 _Runing a program_
  - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
  - Arguments: ` ` (optional, for list of supported argument check the program's readme, webstie etc.)
- 
+
 _Running a script_
  - Executable path: `C:\path\to\the\script.bat`
  - Arguments: ` ` (optional, for list of supported argument check the script's readme, webstie etc.)
- 
+
 _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
- 
+
  #### Environment
- 
+
  LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
- 
+
 - When AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
 
@@ -347,9 +347,9 @@ _Python script_
 	
 - On resume
 	- `LLT_RESUME=TRUE`
- 
+
  #### Output
- 
+
  If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
 ## Donate
