@@ -84,7 +84,7 @@
 > 注意：如果你是使用 Scoop 安装了 LLT，.NET 8 依赖应该已经被自动安装。如果它没有被安装或 LLT 无法正常启动，可以使用 `scoop update` 以更新所有软件包并加上 `--force` 参数以强制重新安装 LLT。
 
 
-在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的.NET运行时 "部分，你应该能看到类似的内容：
+在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的 .NET 运行时 "部分，你应该能看到类似的内容：
 
 `Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
 
@@ -92,7 +92,7 @@
 
 `Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
 
-确切的版本号可能不同，但只要是`8.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到.NET之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
+确切的版本号可能不同，但只要是`8.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到 .NET 之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
 
 #### 想要帮助我们测试？
 
@@ -152,6 +152,8 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 * 部分 Legion 笔记本型号（尤其是 2021 年的型号）可能不显示所有控制选项或显示部分不存在的选项。这主要是由于 BIOS 中对于功能可用性的配置错误。
 
 需要 Corsair iCue 的灯光控制不会被 LLT 支持。
+
+_**注意：** 目前已知 Riot Vanguard DRM（使用它的游戏有例如：瓦罗兰特） 会造成 RGB 和灯光控制功能出现问题。如果你在安装了它之后发现了 LLT 内 RGB 设置消失的错误，请卸载它或确保它并非开机自启项。_
 
 ### 混合模式和显卡工作模式
 
@@ -215,6 +217,110 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 开机画面**并不被储存在 UEFI 内**，而是在启动盘的 UEFI 分区内。在设置开机画面时，LLT 会做一些基本的图像检查，比如分辨率、图像格式检查，并计算校验和以确保兼容性。不过，**LLT 无法保证通过检查的图像一定会正确的被 UEFI 读取**。在更改开机画面后的下一次启动时，UEFI 会尝试从 UEFI 分区中加载图像并在开机时显示出来，但若加载失败，则会沿用默认图像。具体的标准除了分辨率和格式外尚不清楚。
 
 若你设置的开机画面无法被正确显示，请尝试别的图片。
+
+### 在自动化中运行程序或脚本
+
+你可以在自动化中使用“运行”步骤执行任何程序或脚本。在配置时你需要提供程序（`.exe`）或脚本（`.bat`）的路径。你也可以提供程序或脚本的参数，就像在命令行下运行它们一样。
+
+#### 实例
+
+以下是一些实用的例子：
+
+_关闭电脑_
+ - 执行路径：`shutdown`
+ - 参数：`/s /t 0`
+
+_重启电脑_
+ - 执行路径：`shutdown`
+ - 参数：`/r`
+
+_运行程序_
+ - 执行路径：`C:\path\to\the\program.exe`（如果该程序所在文件夹已经被加入了 PATH 环境变量，你也可以直接输入程序名）
+ - 参数：` `（可选，请查阅你使用的程序的文档或网站以获取可用的参数列表）
+
+_运行脚本_
+ - 执行路径：`C:\path\to\the\script.bat`（如果该脚本所在文件夹已经被加入了 PATH 环境变量，你也可以直接输入程序名）
+ - 参数：` `（可选，请查阅你使用的程序的文档或网站以获取可用的参数列表）
+
+_运行 Python 脚本_
+ - 执行路径：`C:\path\to\python.exe`（若你已经将 Python 的安装路径加入了 PATH 环境变量，你也可以直接使用 `python`）
+ - 参数：`C:\path\to\script.py`
+
+#### 环境变量
+
+LLT 会自动在进程运行环境内添加一些可被访问的环境变量。这些环境变量对于需要执行上下文的高级脚本会十分实用。根据触发器的不同 LLT 会添加不同的环境变量：
+
+- 当电源适配器插入时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+
+- 当较低功率电源适配器插入时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
+
+- 当电源适配器断开时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
+
+- 当性能模式改变时
+	- `LLT_POWER_MODE=<value>`，`value` 的值由当前性能模式决定：`1` 为安静模式，`2` 为均衡模式，`3` 为野兽模式，`255` 为自定义模式
+	- `LLT_POWER_MODE_NAME=<value>`，`value` 的值为当前性能模式对应的英语大写名称：`QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
+
+- 当打开游戏时
+	- `LLT_IS_GAME_RUNNING=TRUE`
+
+- 当关闭游戏时
+	- `LLT_IS_GAME_RUNNING=FALSE`
+
+- 当应用程序启动时
+	- `LLT_PROCESSES_STARTED=TRUE`
+	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
+
+- 当指定的应用关闭时
+	- `LLT_PROCESSES_STARTED=FALSE`
+	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
+	
+- 打开盖子时
+	- `LLT_IS_LID_OPEN=TRUE`
+
+- 合上盖子时
+	- `LLT_IS_LID_OPEN=FALSE`
+
+- 当显示器打开时
+	- `LLT_IS_DISPLAY_ON=TRUE`
+
+- 当显示器关闭时
+	- `LLT_IS_DISPLAY_ON=FALSE`
+
+- 当连接了外置屏幕后
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
+
+- 当断开了外置屏幕后
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
+
+- 当与 Wi-Fi 连接时
+	- `LLT_WIFI_CONNECTED=TRUE`
+	- `LLT_WIFI_SSID=<value>`，`value` 的值为网络的 SSID
+
+- 当与 Wi-Fi 断开连接时
+	- `LLT_WIFI_CONNECTED=FALSE`
+	
+- 在特定的时间
+	- `LLT_IS_SUNSET=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
+	- `LLT_IS_SUNRISE=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
+	- `LLT_TIME"`，`value` 的值为 `HH:mm`，取决于触发器的设置
+	- `LLT_DAYS"`, `value` 的值为以逗号分隔的包含以下内容的列表：`MONDAY`、`TUESDAY`、`WEDNESDAY`、`THURSDAY`、`FRIDAY`、`SATURDAY`、`SUNDAY`，取决于触发器的设置
+	
+- 循环自动化
+	- `LLT_PERIOD=<value>`，`value` 的值为间隔的秒数
+	
+- 当开机时
+	- `LLT_STARTUP=TRUE`
+	
+- 当唤醒时
+	- `LLT_RESUME=TRUE`
+
+#### 程序输出
+
+当 `等待运行结束` 被启用时，LLT 会抓取被启动的进程的标准输出流内的内容。这些程序输出会被存入 `$RUN_OUTPUT$` 变量，并可在“显示提示弹窗”步骤中使用。
 
 ## 赞助
 
