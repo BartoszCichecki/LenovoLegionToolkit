@@ -214,25 +214,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activate Power Plan even when Vantage or its services are enabled.
-        ///This option is intended only for devices that didn&apos;t come with multiple power plans..
-        /// </summary>
-        public static string AlwaysActivatePowerPlans_Message {
-            get {
-                return ResourceManager.GetString("AlwaysActivatePowerPlans_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Always activate Windows Power Plan.
-        /// </summary>
-        public static string AlwaysActivatePowerPlans_Title {
-            get {
-                return ResourceManager.GetString("AlwaysActivatePowerPlans_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Charge USB devices, when the laptop is off, sleeping or hibernated..
         /// </summary>
         public static string AlwaysOnUsbAutomationStepControl_Message {

@@ -15,38 +15,31 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
 {
-    private static readonly Dictionary<PowerModeState, Guid> DefaultPowerModes = new()
-    {
-        { PowerModeState.Quiet , Guid.Parse("16edbccd-dee9-4ec4-ace5-2f0b5f2a8975")},
-        { PowerModeState.Balance , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
-        { PowerModeState.Performance , Guid.Parse("52521609-efc9-4268-b9ba-67dea73f18b2")},
-        { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
-    };
+    private static readonly Guid DefaultPowerPlan = Guid.Parse("381b4222-f694-41f0-9685-ff5bb260df2e");
 
-    public IEnumerable<PowerPlan> GetPowerPlans(bool includeOverlays = false)
+    public IEnumerable<PowerPlan> GetPowerPlans(bool includePowerPlans, bool includeOverlays)
     {
-        var powerPlanGuids = GetPowerPlanGuids(false);
-        var activePowerPlanGuid = GetActivePowerPlanGuid();
-
-        foreach (var powerPlanGuid in powerPlanGuids)
+        if (includePowerPlans)
         {
-            var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-            yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, false);
+            var activePowerPlanGuid = GetActivePowerPlanGuid();
+            foreach (var powerPlanGuid in GetPowerPlanGuids(false))
+            {
+                var powerPlaneName = GetPowerPlanName(powerPlanGuid);
+                yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, false);
+            }
         }
 
-        if (!includeOverlays)
-            yield break;
-
-        var overlayGuids = GetPowerPlanGuids(true);
-
-        foreach (var powerPlanGuid in overlayGuids)
+        if (includeOverlays)
         {
-            var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-            yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, true);
+            foreach (var powerPlanGuid in GetPowerPlanGuids(true))
+            {
+                var powerPlaneName = GetPowerPlanName(powerPlanGuid);
+                yield return new PowerPlan(powerPlanGuid, powerPlaneName, false, true);
+            }
         }
     }
 
-    public async Task ActivatePowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
+    public async Task SetPowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
@@ -59,18 +52,14 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan for power mode {powerModeState} was not found in settings");
 
-            if (DefaultPowerModes.TryGetValue(powerModeState, out var defaultPowerPlanId))
-                powerPlanId = defaultPowerPlanId;
-            else
-                throw new InvalidOperationException("Unknown state");
-
+            powerPlanId = DefaultPowerPlan;
             isDefault = true;
         }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Power plan to be activated is {powerPlanId} [isDefault={isDefault}]");
 
-        if (!await ShouldActivateAsync(alwaysActivateDefaults, isDefault).ConfigureAwait(false))
+        if (!await ShouldSetPowerPlanAsync(alwaysActivateDefaults, isDefault).ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan {powerPlanId} will not be activated [isDefault={isDefault}]");
@@ -78,16 +67,16 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             return;
         }
 
-        var powerPlans = GetPowerPlans().ToArray();
+        var powerPlans = GetPowerPlans(true, false).ToArray();
 
         if (Log.Instance.IsTraceEnabled)
         {
             Log.Instance.Trace($"Available power plans:");
             foreach (var powerPlan in powerPlans)
-                Log.Instance.Trace($" - {powerPlan.Name} [guid={powerPlan.Guid}, isActive={powerPlan.IsActive}]");
+                Log.Instance.Trace($" - {powerPlan}");
         }
 
-        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.Guid == powerPlanId);
+        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.Guid == powerPlanId && !pp.IsOverlay);
         if (powerPlanToActivate.Equals(default(PowerPlan)))
         {
             if (Log.Instance.IsTraceEnabled)
@@ -108,37 +97,14 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             Log.Instance.Trace($"Power plan {powerPlanToActivate.Guid} activated. [name={powerPlanToActivate.Name}]");
     }
 
-    public void Set(PowerPlan powerPlan, Brightness brightness)
+    public void SetPowerPlanParameter(PowerPlan powerPlan, Brightness brightness)
     {
         PInvoke.PowerWriteACValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
         PInvoke.PowerWriteDCValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
     }
 
-    public PowerModeState[] GetMatchingPowerModes(Guid powerPlanGuid)
+    private async Task<bool> ShouldSetPowerPlanAsync(bool alwaysActivateDefaults, bool isDefault)
     {
-        var powerModes = new Dictionary<PowerModeState, Guid>(DefaultPowerModes);
-
-        foreach (var kv in settings.Store.PowerPlans)
-        {
-            powerModes[kv.Key] = kv.Value;
-        }
-
-        return powerModes.Where(kv => kv.Value == powerPlanGuid)
-            .Select(kv => kv.Key)
-            .ToArray();
-    }
-
-    private async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
-    {
-        var activateWhenVantageEnabled = settings.Store.ActivatePowerProfilesWithVantageEnabled;
-        if (activateWhenVantageEnabled)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Activate power profiles with Vantage is enabled");
-
-            return true;
-        }
-
         if (isDefault && alwaysActivateDefaults)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -157,7 +123,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Criteria for activation not met [activateWhenVantageEnabled={activateWhenVantageEnabled}, isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
+            Log.Instance.Trace($"Criteria for activation not met [isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
 
         return false;
     }

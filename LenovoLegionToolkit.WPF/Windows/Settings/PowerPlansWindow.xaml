@@ -120,17 +120,6 @@
                             SelectionChanged="GodModeComboBox_SelectionChanged" />
                     </custom:CardControl>
 
-                    <custom:CardControl Margin="0,16,0,16">
-                        <custom:CardControl.Header>
-                            <controls:CardHeaderControl Title="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}" Subtitle="{x:Static resources:Resource.AlwaysActivatePowerPlans_Message}" />
-                        </custom:CardControl.Header>
-                        <wpfui:ToggleSwitch
-                            x:Name="_activatePowerProfilesWithVantageEnabledToggle"
-                            Margin="0,0,0,8"
-                            AutomationProperties.Name="{x:Static resources:Resource.AlwaysActivatePowerPlans_Title}"
-                            Click="ActivatePowerProfilesWithVantageEnabled_Click" />
-                    </custom:CardControl>
-
                 </StackPanel>
             </wpfui:DynamicScrollViewer>
 

@@ -42,14 +42,14 @@ public class DisplayBrightnessListener(PowerPlanController powerPlanController, 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
 
-            var powerPlans = powerPlanController.GetPowerPlans(true);
+            var powerPlans = powerPlanController.GetPowerPlans(true, true);
 
             foreach (var powerPlan in powerPlans)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Modifying power plan {powerPlan.Name}... [powerPlan.Guid={powerPlan.Guid}, powerPlan.IsOverlay={powerPlan.IsOverlay}, brightness={brightness.Value}]");
 
-                powerPlanController.Set(powerPlan, brightness);
+                powerPlanController.SetPowerPlanParameter(powerPlan, brightness);
             }
 
             if (Log.Instance.IsTraceEnabled)
