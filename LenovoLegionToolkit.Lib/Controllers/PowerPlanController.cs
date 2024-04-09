@@ -15,6 +15,8 @@ namespace LenovoLegionToolkit.Lib.Controllers;
 
 public class PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
 {
+    private static readonly Guid DefaultPowerPlan = Guid.Parse("381b4222-f694-41f0-9685-ff5bb260df2e");
+
     private static readonly Dictionary<PowerModeState, Guid> DefaultPowerModes = new()
     {
         { PowerModeState.Quiet , Guid.Parse("16edbccd-dee9-4ec4-ace5-2f0b5f2a8975")},
@@ -59,11 +61,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan for power mode {powerModeState} was not found in settings");
 
-            if (DefaultPowerModes.TryGetValue(powerModeState, out var defaultPowerPlanId))
-                powerPlanId = defaultPowerPlanId;
-            else
-                throw new InvalidOperationException("Unknown state");
-
+            powerPlanId = DefaultPowerPlan;
             isDefault = true;
         }
 
@@ -130,15 +128,6 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
 
     private async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
     {
-        var activateWhenVantageEnabled = settings.Store.ActivatePowerProfilesWithVantageEnabled;
-        if (activateWhenVantageEnabled)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Activate power profiles with Vantage is enabled");
-
-            return true;
-        }
-
         if (isDefault && alwaysActivateDefaults)
         {
             if (Log.Instance.IsTraceEnabled)
@@ -157,7 +146,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Criteria for activation not met [activateWhenVantageEnabled={activateWhenVantageEnabled}, isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
+            Log.Instance.Trace($"Criteria for activation not met [isDefault={isDefault}, alwaysActivateDefaults={alwaysActivateDefaults}, status={status}]");
 
         return false;
     }

@@ -30,7 +30,6 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public Dictionary<PowerModeState, Guid> PowerPlans { get; set; } = [];
         public bool MinimizeOnClose { get; set; }
         public WindowSize? WindowSize { get; set; }
-        public bool ActivatePowerProfilesWithVantageEnabled { get; set; }
         public bool DontShowNotifications { get; set; }
         public NotificationPosition NotificationPosition { get; set; } = NotificationPosition.BottomCenter;
         public NotificationDuration NotificationDuration { get; set; } = NotificationDuration.Normal;

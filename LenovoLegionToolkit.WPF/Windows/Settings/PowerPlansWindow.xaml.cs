@@ -11,7 +11,6 @@ using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
-using LenovoLegionToolkit.WPF.Utils;
 
 namespace LenovoLegionToolkit.WPF.Windows.Settings;
 
@@ -57,8 +56,6 @@ public partial class PowerPlansWindow
             Refresh(_godModeComboBox, powerPlans, PowerModeState.GodMode);
         else
             _godModeCardControl.Visibility = Visibility.Collapsed;
-
-        _activatePowerProfilesWithVantageEnabledToggle.IsChecked = _settings.Store.ActivatePowerProfilesWithVantageEnabled;
 
         await loadingTask;
 
@@ -121,26 +118,5 @@ public partial class PowerPlansWindow
             return;
 
         await PowerPlanChangedAsync(state, PowerModeState.GodMode);
-    }
-
-    private async void ActivatePowerProfilesWithVantageEnabled_Click(object sender, RoutedEventArgs e)
-    {
-        var state = _activatePowerProfilesWithVantageEnabledToggle.IsChecked;
-        if (state is null)
-            return;
-
-        if (state.Value && !await MessageBoxHelper.ShowAsync(
-                this,
-                Resource.PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title,
-                Resource.PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message))
-        {
-            _activatePowerProfilesWithVantageEnabledToggle.IsChecked = false;
-            return;
-        }
-
-        _settings.Store.ActivatePowerProfilesWithVantageEnabled = state.Value;
-        _settings.SynchronizeStore();
-
-        await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
     }
 }
