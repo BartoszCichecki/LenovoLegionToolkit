@@ -17,14 +17,6 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
 {
     private static readonly Guid DefaultPowerPlan = Guid.Parse("381b4222-f694-41f0-9685-ff5bb260df2e");
 
-    private static readonly Dictionary<PowerModeState, Guid> DefaultPowerModes = new()
-    {
-        { PowerModeState.Quiet , Guid.Parse("16edbccd-dee9-4ec4-ace5-2f0b5f2a8975")},
-        { PowerModeState.Balance , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
-        { PowerModeState.Performance , Guid.Parse("52521609-efc9-4268-b9ba-67dea73f18b2")},
-        { PowerModeState.GodMode , Guid.Parse("85d583c5-cf2e-4197-80fd-3789a227a72c")},
-    };
-
     public IEnumerable<PowerPlan> GetPowerPlans(bool includeOverlays = false)
     {
         var powerPlanGuids = GetPowerPlanGuids(false);
@@ -110,20 +102,6 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
     {
         PInvoke.PowerWriteACValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
         PInvoke.PowerWriteDCValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
-    }
-
-    public PowerModeState[] GetMatchingPowerModes(Guid powerPlanGuid)
-    {
-        var powerModes = new Dictionary<PowerModeState, Guid>(DefaultPowerModes);
-
-        foreach (var kv in settings.Store.PowerPlans)
-        {
-            powerModes[kv.Key] = kv.Value;
-        }
-
-        return powerModes.Where(kv => kv.Value == powerPlanGuid)
-            .Select(kv => kv.Key)
-            .ToArray();
     }
 
     private async Task<bool> ShouldActivateAsync(bool alwaysActivateDefaults, bool isDefault)
