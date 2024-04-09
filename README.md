@@ -266,19 +266,19 @@ _Restart laptop_
  
 _Runing a program_
  - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
- - Arguments: ` ` (optional, for list of supported argument check the program's readme, webstie etc.)
+ - Arguments: ` ` (optional, for list of supported argument check the program's readme, website etc.)
  
 _Running a script_
- - Executable path: `C:\path\to\the\script.bat`
- - Arguments: ` ` (optional, for list of supported argument check the script's readme, webstie etc.)
+ - Executable path: `C:\path\to\the\script.bat` (if the script is on your PATH variable, you can use the name only)
+ - Arguments: ` ` (optional, for list of supported argument check the script's readme, website etc.)
  
 _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
  
- #### Environment
+#### Environment
  
- LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
+LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
  
 - When AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
@@ -348,9 +348,9 @@ _Python script_
 - On resume
 	- `LLT_RESUME=TRUE`
  
- #### Output
+#### Output
  
- If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
+If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
 ## Donate
 
