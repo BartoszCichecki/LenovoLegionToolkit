@@ -462,6 +462,18 @@ public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isO
     public bool IsOverlay { get; } = isOverlay;
 
     public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}, {nameof(IsOverlay)}: {IsOverlay}";
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is PowerPlan other && Guid.Equals(other.Guid);
+
+    public override int GetHashCode() => Guid.GetHashCode();
+
+    public static bool operator ==(PowerPlan left, PowerPlan right) => left.Equals(right);
+
+    public static bool operator !=(PowerPlan left, PowerPlan right) => !left.Equals(right);
+
+    #endregion
 }
 
 [method: JsonConstructor]
