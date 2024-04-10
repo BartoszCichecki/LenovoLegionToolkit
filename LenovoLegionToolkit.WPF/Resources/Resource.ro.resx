@@ -151,9 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adăugați nou</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Activați întotdeauna planul de alimentare Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Încărcați dispozitivele USB, când computerul este oprit sau în modul de repaus sau hibernare.</value>
   </data>
