@@ -151,9 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Pridať novú</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Vždy aktivuj plán napájania Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Nabíjanie USB zariadení, aj keď je počítač vypnutý, v spánku alebo hibernuje.</value>
   </data>
