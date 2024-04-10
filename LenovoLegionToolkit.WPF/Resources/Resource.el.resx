@@ -151,9 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Προσθήκη νέας</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Πάντα ενεργό προφίλ παροχής ενέργειας</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Φορτίστε τις συσκευές USB όταν ο υπολογιστής είναι απενεργοποιημένος, σε κατάσταση αναστολής λειτουργίας ή αδρανοποίησης.</value>
   </data>
