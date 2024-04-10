@@ -271,7 +271,7 @@ public class AutomationProcessor(
 
     private async void UserInactivityAutoListener_Changed(object? sender, UserInactivityAutoListener.ChangedEventArgs args)
     {
-        var e = new UserInactivityAutomationEvent(args.TimerResolution);
+        var e = new UserInactivityAutomationEvent(args.TimerResolution * args.TickCount);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
