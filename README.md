@@ -268,20 +268,20 @@ _Restart laptop_
 
 _Runing a program_
  - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
- - Arguments: ` ` (optional, for list of supported argument check the program's readme, webstie etc.)
-
+ - Arguments: ` ` (optional, for list of supported argument check the program's readme, website etc.)
+ 
 _Running a script_
- - Executable path: `C:\path\to\the\script.bat`
- - Arguments: ` ` (optional, for list of supported argument check the script's readme, webstie etc.)
-
+ - Executable path: `C:\path\to\the\script.bat` (if the script is on your PATH variable, you can use the name only)
+ - Arguments: ` ` (optional, for list of supported argument check the script's readme, website etc.)
+ 
 _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
-
- #### Environment
-
- LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
-
+ 
+#### Environment
+ 
+LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
+ 
 - When AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
 
@@ -349,10 +349,10 @@ _Python script_
 	
 - On resume
 	- `LLT_RESUME=TRUE`
-
- #### Output
-
- If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
+ 
+#### Output
+ 
+If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
 ## Donate
 
@@ -419,7 +419,7 @@ Many thanks to everyone else, who monitors and corrects translations!
 
 
 
-####  <a id="faq-vantage-running" />Why do I get a message that Vantage is still running, even though I uninstalled it?
+#### Why do I get a message that Vantage is still running, even though I uninstalled it?
 
 Starting from version 2.14.0, LLT is much more strict about detecting leftover processes related to Vantage. Vantage installs 3 components:
 
@@ -431,25 +431,25 @@ The easiest solution is to go into LLT settings and select options to disable Le
 
 If you want to remove them instead, make sure that you uninstall all 3, otherwise some options in LLT will not be available. You can check Task Manager for any processes containing `Vantage` or `ImController`. You can also check this guide for more info: [Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070), if you have troubles getting rid of `ImController` processes.
 
-#### <a id="faq-virus" />Why is my antivirus reporting that the installer contains a virus/trojan/malware?
+#### Why is my antivirus reporting that the installer contains a virus/trojan/malware?
 
 LLT makes use of many low-level Windows APIs that can be falsely flagged by antiviruses as suspicious, resulting in a false-positive. LLT is open source and can easily be audited by anyone who has any doubts as to what this software does. All installers are built directly on GitHub with GitHub Actions, so that there is no doubt what they contain. This problem could be solved by signing all code, but I can't afford spending hundreds of dollars per year for an Extended Validation certificate.
 
 If you downloaded the installer from this projects website, you shouldn't worry - the warning is a false-positive. That said, if you can help with resolving this issue, let's get in touch.
 
-#### <a id="faq-custom-hotkeys" />Can I customize hotkeys?
+#### Can I customize hotkeys?
 
 You can customize Fn+F9 hotkey in LLT settings. Other hotkeys can't be customized.
 
-#### <a id="faq-customize-conservation-mode" />Can I customize Conservation mode threshold?
+#### Can I customize Conservation mode threshold?
 
 No. Conservation mode threshold is set in firmware to 60% (2021 and earlier) or 80% (2022 and later) and it can't be changed.
 
-#### <a id="faq-fan-curves" />Can I customize fans in Quiet, Balance or Performance modes?
+#### Can I customize fans in Quiet, Balance or Performance modes?
 
 No, it isn't possible to customize how the fan works in power modes other than Custom.
 
-#### <a id="faq-perf-custom-battery" />Why can't I switch to Performance or Custom Power Mode on battery?
+#### Why can't I switch to Performance or Custom Power Mode on battery?
 
 Starting with version 2.11.0, LLT's behavior was aligned with Vantage and Legion Zone and it does not allow using them without an appropriate power source.
 
@@ -457,60 +457,60 @@ If for whatever reason you want to use these modes on battery anyway, you can us
 
 *Note that power limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected. Therefore, no support is provided for issues related to using this argument.*
 
-#### <a id="faq-ai-fnq-bug" />Why does switching to Performance mode seem buggy, when AI Engine is enabled?
+#### Why does switching to Performance mode seem buggy, when AI Engine is enabled?
 
 It seems that some BIOS versions indeed have weird issues when using Fn+Q. Only hope is to wait for Lenovo to fix it.
 
-#### <a id="faq-incompatible" />Why am I getting incompatible message after motherboard replacement?
+#### Why am I getting incompatible message after motherboard replacement?
 
 Sometimes new motherboard does not contain correct model numbers and serial numbers. You should try [this tutorial](https://laptopwiki.eu/laptopwiki/guides/lenovo/legion_bios_lvarrecovery) to try and recover them. If that method does not succeed, you can workaround it with `--skip-compat-check` argument. Check [Arguments](#arguments) section for more details.
 
-#### <a id="faq-game-detect" />Why isn't a game detected, even though Actions are configured properly?
+#### Why isn't a game detected, even though Actions are configured properly?
 
 Game detection feature is built on top of Windows' game detection, meaning LLT will react to EXE files that Windows considers "a game". That also means that if you nuked Xbox Game Bar from your installation, there is 99.9% chance this feature will not work.
 
 Windows probably doesn't recognize all games properly, but you can mark any program as game in Xbox Game Bar settings (Win+G). You can find list of recognized games in registry: `HKEY_CURRENT_USER\System\GameConfigStore\Children`.
 
-#### <a id="faq-rgb-software" />Can I use other RGB software while using LLT?
+#### Can I use other RGB software while using LLT?
 
 In general yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts with `--force-disable-rgbkb` or `--force-disable-spectrumkb` argument. Check [Arguments](#arguments) section for more details.
 
-#### <a id="faq-icue" />Will iCue RGB keyboards be supported?
+#### Will iCue RGB keyboards be supported?
 
 No. Check out [OpenRGB](https://openrgb.org/) project.
 
-#### <a id="faq-more-rgb-effects" />Can I have more RGB effects?
+#### Can I have more RGB effects?
 
 Only options natively supported by hardware are available; adding support for custom effects is not planned. If you would like more customization check out [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/).
 
-#### <a id="faq-fan-control" />Can you add fan control to other models?
+#### Can you add fan control to other models?
 
 Fan control is available on Gen 7 and later models. Older models will not be supported due to technical limitations.
 
-#### <a id="faq-custom-tooltip" />Why don't I see the custom tooltip when I hover LLT icon in tray?
+#### Why don't I see the custom tooltip when I hover LLT icon in tray?
 
 In Windows 10 and 11, Microsoft did plenty of changes to the tray, breaking a lot of things on the way. As a results custom tooltips not always work properly. Solution? Update your Windows and keep fingers crossed.
 
-#### <a id="faq-cpu-oc" />How can I OC/UV my CPU?
+#### How can I OC/UV my CPU?
 
 There are very good tools like [Intel XTU](https://www.intel.com/content/www/us/en/download/17881/intel-extreme-tuning-utility-intel-xtu.html) (which is used by Vantage) or [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/) made just for that.
 
-#### <a id="faq-gpu-oc" />What if I overclocked my GPU too much?
+#### What if I overclocked my GPU too much?
 
 If you end up in a situation where your GPU is not stable and you can't boot into Windows, there are two things you can do:
 
 1. Go into BIOS and try to find and option similar to "Enabled GPU Overclocking" and disable it, start Windows, and toggle the BIOS option again to Enabled.
 2. Start Windows in Safe Mode, and delete `gpu_oc.json` file under LLT settings, which are located in `"%LOCALAPPDATA%\LenovoLegionToolkit`.
 
-#### <a id="faq-boot-logo" />Why is my Boot Logo not applied?
+#### Why is my Boot Logo not applied?
 
 When you change the Boot Logo, LLT verifies that it is in the format that is correct format and correct resolution. If LLT shows that boot logo is applied, it means that the setting was correctly saved to UEFI. If you don't see the custom boot logo, it means that even though UEFI is configured and custom image is saved to UEFI partition, your UEFI for some reason does not render it. In this case the best idea is to try a different image, maybe in different format, edited with different image editor etc. If the boot logo is not shown after all these steps, it's probably a problem with your BIOS version.
 
-#### <a id="faq-smart-fn-lock-stutter" />Why do I see stuttering when using Smart Fn Lock?
+#### Why do I see stuttering when using Smart Fn Lock?
 
 On some BIOS versions, toggling Fn Lock causes a brief stutter and since Smart Fn Lock is basically an automatic toggle for Fn Lock, it is also affected by this issue. Try disabling "Fool proof Fn Lock" (or similar) option in BIOS - it was reported that it fixes stutter when toggling Fn Lock.
 
-#### <a id="faq-which-gen" />Which generation is my laptop?
+#### Which generation is my laptop?
 
 Check the model number. Example model numbers are `16ACH6H` or `16IAX7`. The last number of the model number indicates generation.
 

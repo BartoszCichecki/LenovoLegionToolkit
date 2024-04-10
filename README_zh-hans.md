@@ -72,6 +72,13 @@
 
 另外，请查看下方的 [兼容性](#兼容性) 部分。
 
+#### 驱动依赖
+
+如果你是在一个纯净的 Windows 系统上安装 LLT，请确保你已经安装了必要的驱动，否则一些选项将不可用。请特别注意以下两个驱动已经被安装在你的系统上了：
+
+1. Lenovo Energy Management
+2. Lenovo Vantage Gaming Feature Driver
+
 #### 在安装 .NET 依赖时出现问题？
 
 如果拯救者工具箱安装程序没有正确安装 .NET 依赖，则请按照以下步骤手动安装：
@@ -84,7 +91,7 @@
 > 注意：如果你是使用 Scoop 安装了 LLT，.NET 8 依赖应该已经被自动安装。如果它没有被安装或 LLT 无法正常启动，可以使用 `scoop update` 以更新所有软件包并加上 `--force` 参数以强制重新安装 LLT。
 
 
-在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的.NET运行时 "部分，你应该能看到类似的内容：
+在完成这些步骤后，你可以打开终端并输入： `dotnet --info`。在输出中寻找 "已安装的 .NET 运行时 "部分，你应该能看到类似的内容：
 
 `Microsoft.NETCore.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.NETCore.App]`
 
@@ -92,7 +99,7 @@
 
 `Microsoft.WindowsDesktop.App 8.0.0 [C:\Program Files\dotnet\shared\Microsoft.WindowsDesktop.App]`
 
-确切的版本号可能不同，但只要是`8.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到.NET之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
+确切的版本号可能不同，但只要是`8.x.x`就应该没问题。如果经过上述步骤确认后，拯救者工具箱在启动时仍然报错提示找不到 .NET 之类的信息，那么就是你的机器或系统的问题，而不是拯救者工具箱的问题。
 
 #### 想要帮助我们测试？
 
@@ -153,6 +160,8 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 
 需要 Corsair iCue 的灯光控制不会被 LLT 支持。
 
+_**注意：** 目前已知 Riot Vanguard DRM（使用它的游戏有例如：瓦罗兰特） 会造成 RGB 和灯光控制功能出现问题。如果你在安装了它之后发现了 LLT 内 RGB 设置消失的错误，请卸载它或确保它并非开机自启项。_
+
 ### 混合模式和显卡工作模式
 
 你有两种主要工作模式来控制你的独立显卡工作方式：
@@ -198,15 +207,15 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 * 不建议在使用微星小飞机（Afterburner）等超频工具时使用此选项。
 * 如果你之前修改过控制台，那么你需要点击“自定义”按钮并添加此选项才能看到此选项。
 
-### Windows电源计划
+### Windows 电源计划和 Windows 性能模式
 
-当切换性能模式时，拯救者工具箱会在 Lenovo Vantage 禁用的情况下自动切换 Windows 的电源计划。
+首先，你在 LLT 中（或使用 Fn+Q）切换的性能模式和 Windows 电源计划或 Windows 性能模式**是不同的**。
 
-但在一些笔记本上，Lenovo Vantage 不会切换电源计划。如果你的电脑不会自动切换电源计划，你可以在设置中设置不同性能模式对应的电源计划。这会让拯救者工具箱总是切换Windows电源计划即使 Lenovo Vantage 在后台运行。
+更合适的方法是只使用一个默认的“平衡（推荐）”电源计划。如果你的系统中有其它的电源计划，要么删除它们，要么在 LLT 设置中将所有性能模式设置为使用该电源计划。接下来，接通外部电源，进入系统设置，在 `系统` - `电源和电池` 中选择“最佳性能”，然后断开外部电源，再选择“推荐”。你也可以将节电模式设置为自动开启，这将利用微软引入的现代的“电源计划覆盖”来取代传统的电源计划。
 
-### CPU 睿频模式
+传统的方法是使用多个“电源计划”，有些设备出厂时已经安装了这些计划。如果你决定使用这种传统的方法，请将 Windows 设置中的设置保持为默认或推荐设置，并将 LLT 设置为在切换性能模式时自动切换电源计划。
 
-启用了 S0 低功率模式（又名现代待机）的笔记本电脑，在多个电源计划的情况下会导致许多小问题，特别是性能电源计划。
+有关 Windows 中新电源模式处理的更多信息，请点击此处：[自定义 Windows 性能电源滑块](https://learn.microsoft.com/zh-cn/windows-hardware/customize/desktop/customize-power-slider)。
 
 ### 开机画面
 
@@ -215,6 +224,110 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 开机画面**并不被储存在 UEFI 内**，而是在启动盘的 UEFI 分区内。在设置开机画面时，LLT 会做一些基本的图像检查，比如分辨率、图像格式检查，并计算校验和以确保兼容性。不过，**LLT 无法保证通过检查的图像一定会正确的被 UEFI 读取**。在更改开机画面后的下一次启动时，UEFI 会尝试从 UEFI 分区中加载图像并在开机时显示出来，但若加载失败，则会沿用默认图像。具体的标准除了分辨率和格式外尚不清楚。
 
 若你设置的开机画面无法被正确显示，请尝试别的图片。
+
+### 在自动化中运行程序或脚本
+
+你可以在自动化中使用“运行”步骤执行任何程序或脚本。在配置时你需要提供程序（`.exe`）或脚本（`.bat`）的路径。你也可以提供程序或脚本的参数，就像在命令行下运行它们一样。
+
+#### 实例
+
+以下是一些实用的例子：
+
+_关闭电脑_
+ - 执行路径：`shutdown`
+ - 参数：`/s /t 0`
+
+_重启电脑_
+ - 执行路径：`shutdown`
+ - 参数：`/r`
+
+_运行程序_
+ - 执行路径：`C:\path\to\the\program.exe`（如果该程序所在文件夹已经被加入了 PATH 环境变量，你也可以直接输入程序名）
+ - 参数：` `（可选，请查阅你使用的程序的文档或网站以获取可用的参数列表）
+
+_运行脚本_
+ - 执行路径：`C:\path\to\the\script.bat`（如果该脚本所在文件夹已经被加入了 PATH 环境变量，你也可以直接输入程序名）
+ - 参数：` `（可选，请查阅你使用的程序的文档或网站以获取可用的参数列表）
+
+_运行 Python 脚本_
+ - 执行路径：`C:\path\to\python.exe`（若你已经将 Python 的安装路径加入了 PATH 环境变量，你也可以直接使用 `python`）
+ - 参数：`C:\path\to\script.py`
+
+#### 环境变量
+
+LLT 会自动在进程运行环境内添加一些可被访问的环境变量。这些环境变量对于需要执行上下文的高级脚本会十分实用。根据触发器的不同 LLT 会添加不同的环境变量：
+
+- 当电源适配器插入时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+
+- 当较低功率电源适配器插入时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
+
+- 当电源适配器断开时
+	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
+
+- 当性能模式改变时
+	- `LLT_POWER_MODE=<value>`，`value` 的值由当前性能模式决定：`1` 为安静模式，`2` 为均衡模式，`3` 为野兽模式，`255` 为自定义模式
+	- `LLT_POWER_MODE_NAME=<value>`，`value` 的值为当前性能模式对应的英语大写名称：`QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
+
+- 当打开游戏时
+	- `LLT_IS_GAME_RUNNING=TRUE`
+
+- 当关闭游戏时
+	- `LLT_IS_GAME_RUNNING=FALSE`
+
+- 当应用程序启动时
+	- `LLT_PROCESSES_STARTED=TRUE`
+	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
+
+- 当指定的应用关闭时
+	- `LLT_PROCESSES_STARTED=FALSE`
+	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
+	
+- 打开盖子时
+	- `LLT_IS_LID_OPEN=TRUE`
+
+- 合上盖子时
+	- `LLT_IS_LID_OPEN=FALSE`
+
+- 当显示器打开时
+	- `LLT_IS_DISPLAY_ON=TRUE`
+
+- 当显示器关闭时
+	- `LLT_IS_DISPLAY_ON=FALSE`
+
+- 当连接了外置屏幕后
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
+
+- 当断开了外置屏幕后
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
+
+- 当与 Wi-Fi 连接时
+	- `LLT_WIFI_CONNECTED=TRUE`
+	- `LLT_WIFI_SSID=<value>`，`value` 的值为网络的 SSID
+
+- 当与 Wi-Fi 断开连接时
+	- `LLT_WIFI_CONNECTED=FALSE`
+	
+- 在特定的时间
+	- `LLT_IS_SUNSET=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
+	- `LLT_IS_SUNRISE=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
+	- `LLT_TIME"`，`value` 的值为 `HH:mm`，取决于触发器的设置
+	- `LLT_DAYS"`, `value` 的值为以逗号分隔的包含以下内容的列表：`MONDAY`、`TUESDAY`、`WEDNESDAY`、`THURSDAY`、`FRIDAY`、`SATURDAY`、`SUNDAY`，取决于触发器的设置
+	
+- 循环自动化
+	- `LLT_PERIOD=<value>`，`value` 的值为间隔的秒数
+	
+- 当开机时
+	- `LLT_STARTUP=TRUE`
+	
+- 当唤醒时
+	- `LLT_RESUME=TRUE`
+
+#### 程序输出
+
+当 `等待运行结束` 被启用时，LLT 会抓取被启动的进程的标准输出流内的内容。这些程序输出会被存入 `$RUN_OUTPUT$` 变量，并可在“显示提示弹窗”步骤中使用。
 
 ## 赞助
 
@@ -257,26 +370,26 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 
 ## FAQ
 
-* [为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？](#faq-vantage-running)
-* [为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？](#faq-virus)
-* [我能自定义热键吗？](#faq-custom-hotkeys)
-* [我可以自定义节能模式充电阈值吗？](#faq-customize-conservation-mode)
-* [我可以更改安静，均衡及野兽模式的风扇策略吗？](#faq-fan-curves)
-* [更换主板后提示不兼容？](#faq-incompatible)
-* [为什么我无法在使用电池供电时切换到野兽与自定义模式？](#faq-perf-custom-battery)
-* [我可以在使用拯救者工具箱时使用其他RGB软件吗？](#faq-rgb-software)
-* [支持 iCue RGB 键盘吗？](#faq-icue)
-* [能不能多增加一些 RGB 效果？](#faq-more-rgb-effects)
-* [2022 款之前的机器能否自定义调节风扇曲线？](#faq-fan-control)
-* [为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？](#faq-ai-fnq-bug)
-* [为何即使自动化配置正确，游戏检测仍无法正常触发？](#faq-game-detect)
-* [为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？](#faq-custom-tooltip)
-* [我在哪里可以找到 CPU 睿频模式的设置？](#faq-cpu-oc)
-* [如果我在对 GPU 进行超频时超过了阈值，该怎么办？](#faq-gpu-oc)
-* [我的开机画面为什么没有生效？](#faq-boot-logo)
-* [为什么使用智能 Fn 锁时会出现卡顿？](#faq-smart-fn-lock-stutter)
+* [为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？](#为什么即使我已经卸载了-Vantage，我依然可以看到它正在运行？)
+* [为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？](#为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？)
+* [我能自定义热键吗？](#我能自定义热键吗？)
+* [我可以自定义节能模式充电阈值吗？](#我可以自定义节能模式充电阈值吗？)
+* [我可以更改安静，均衡及野兽模式的风扇策略吗？](#我可以更改安静，均衡及野兽模式的风扇策略吗？)
+* [更换主板后提示不兼容？](#更换主板后提示不兼容？)
+* [为什么我无法在使用电池供电时切换到野兽与自定义模式？](#为什么我无法在使用电池供电时切换到野兽与自定义模式？)
+* [我可以在使用拯救者工具箱时使用其他RGB软件吗？](#我可以在使用拯救者工具箱时使用其他RGB软件吗？)
+* [支持 iCue RGB 键盘吗？](#支持-iCue-RGB-键盘吗？)
+* [能不能多增加一些 RGB 效果？](#能不能多增加一些-RGB-效果？)
+* [2022 款之前的机器能否自定义调节风扇曲线？](#2022-款之前的机器能否自定义调节风扇曲线？)
+* [为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？](#为啥在启用-Legion-AI-引擎后切换性能模式看起来似乎有些问题？)
+* [为何即使自动化配置正确，游戏检测仍无法正常触发？](#为何即使自动化配置正确，游戏检测仍无法正常触发？)
+* [为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？](#为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？)
+* [我在哪里可以找到 CPU 睿频模式的设置？](#我在哪里可以找到-CPU-睿频模式的设置？)
+* [如果我在对 GPU 进行超频时超过了阈值，该怎么办？](#如果我在对-GPU-进行超频时超过了阈值，该怎么办？)
+* [我的开机画面为什么没有生效？](#我的开机画面为什么没有生效？)
+* [为什么使用智能 Fn 锁时会出现卡顿？](#为什么使用智能-Fn-锁时会出现卡顿？)
 
-#### <a id="faq-vantage-running" />为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？
+#### 为什么即使我已经卸载了 Vantage，我依然可以看到它正在运行？
 
 自 2.14.0 版本开始，LLT 对于 Vantage 残留进程检测更加严格。总的来说，Vantage 安装了三个组件：
 
@@ -288,83 +401,83 @@ LLT 也支持其他像一级或三级白色键盘背光，Legion Logo 背光和�
 
 如果你还是想卸载它们，请确保卸载全部三个组件，否则 LLT 的部分功能可能无法正常运行。你可以检查任务管理器中是否有名称中包含 “Vantage” 或是 “ImController” 字样的进程。如果你需要别的帮助或是在卸载 `ImController` 过程中遇到问题，可以参考：[Uninstalling System Interface Foundation V2 Device](https://support.lenovo.com/us/en/solutions/HT506070)。
 
-#### <a id="faq-virus" />为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？
+#### 为什么我的杀毒软件报告安装程序含有病毒/木马/恶意软件？
 
 拯救者工具箱使用了许多底层的 Windows API，杀毒软件可能会识别这些 API 的调用为可疑的，从而造成误报。拯救者工具箱本身是开源的，任何感觉此软件有问题的人可以很简单的审查此软件源代码。同时所有安装包都是直接在 Github 上使用 Github Actions 构建的，所以你也不需要担心安装包含有恶意内容。此问题可以通过对程序签名来解决，但此项目只是我业余时间来制作的开源项目，我无法负担每年花几百美元买一个证书。
 
 简而言之，如果你从这个项目的网站上下载了安装程序，不需要担心杀毒软件的报毒，这只是一个误报。同时如果你有能力帮助解决杀毒软件的误报问题，欢迎联系我。
 
-#### <a id="faq-custom-hotkeys" />我能自定义热键吗？
+#### 我能自定义热键吗？
 
 你可以在 LLT 的设置界面内自定义 Fn+F9 的热键功能。其余的热键是无法被自定义的。
 
-#### <a id="faq-customize-conservation-mode" />我可以自定义节能模式充电阈值吗？
+#### 我可以自定义节能模式充电阈值吗？
 
 不能，该阈值是在固件中被锁死的，无法被更改。对于 2021 年及以前的型号该阈值为 60%，对于之后的型号则为 80%。
 
-#### <a id="faq-fan-curves" />我可以更改安静，均衡及野兽模式的风扇策略吗？
+#### 我可以更改安静，均衡及野兽模式的风扇策略吗？
 
 不能。除自定义模式以外，风扇策略都是不能更改的。
 
-#### <a id="faq-incompatible" />更换主板后提示不兼容？
+#### 更换主板后提示不兼容？
 
 有时新主板内的机型和序列号信息出错，你可以尝试 [这篇教程](https://laptopwiki.eu/laptopwiki/guides/lenovo/legion_bios_lvarrecovery) 来恢复。如果这不起作用你可以尝试打开 `%LOCALAPPDATA%\LenovoLegionToolkit` 并创建一个名为 `args.txt` 的文件并打开文件后呼入 `--skip-compat-check` ，这会禁用拯救者工具箱的兼容性检查。我们建议你在无法正确恢复型号、序列号等信息的情况下再使用这个办法。
 
-#### <a id="faq-perf-custom-battery" />为什么我无法在使用电池供电时切换到野兽与自定义模式？
+#### 为什么我无法在使用电池供电时切换到野兽与自定义模式？
 
 在 2.11.0 版本后，拯救者工具箱与 Lenovo Vantage 与 Legion Zone 的行为保持一致，将不再允许在没有插入适当电源适配器的情况下启用野兽与自定义模式。
 
 如果出于某种原因，你想在电池供电的情况下使用这些模式，你可以使用`--allow-all-power-modes-on-battery`参数来启用（参见[命令行参数](#命令行参数)）。请注意，当笔记本电脑没有连接到全功率的电源适配器时，功耗限制与其他设置在大多数设备上无法正常应用，同时可能会出现一些未知的问题。
 
-#### <a id="faq-rgb-software" />我可以在使用拯救者工具箱时使用其他RGB软件吗？
+#### 我可以在使用拯救者工具箱时使用其他RGB软件吗？
 
 总的来说，可以。 当 Lenovo Vantage 运行时，拯救者工具箱将禁用 RGB 控制，以避免冲突。如果你想使用其他 RGB 软件，如 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)，你可以在拯救者工具箱中使用 `--force-disable-rgbkb` 或 `--force-disable-spectrumkb` 参数禁用 RGB 以避免冲突（参考[命令行参数](#命令行参数)）。
 
-#### <a id="faq-icue" />支持 iCue RGB 键盘吗？
+#### 支持 iCue RGB 键盘吗？
 
 不支持，我推荐你看看 [OpenRGB](https://openrgb.org/) 这个项目。
 
-#### <a id="faq-more-rgb-effects" />能不能多增加一些 RGB 效果？
+#### 能不能多增加一些 RGB 效果？
 
 只有硬件支持的选项可用，不计划支持自定义效果。如果你想要自定义效果可以看看 [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) 或 [OpenRGB](https://openrgb.org/)。
 
-#### <a id="faq-fan-control" />2022 款之前的机器能否自定义调节风扇曲线？
+#### 2022 款之前的机器能否自定义调节风扇曲线？
 
 如果你是 2022 款与更新的机型的拯救者，但不支持自定义风扇曲线的话，请提交 Issue，我们会尝试适配。2022 款之前的机型由于技术原因无法支持。
 
-#### <a id="faq-ai-fnq-bug" />为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
+#### 为啥在启用 Legion AI 引擎后切换性能模式看起来似乎有些问题？
 
 貌似有些 BIOS 版本在使用 Fn+Q 快捷键时有一个奇怪的问题，你可以试试更新 BIOS，除此之外只能等联想修复它了。
 
-#### <a id="faq-game-detect" />为何即使自动化配置正确，游戏检测仍无法正常触发？
+#### 为何即使自动化配置正确，游戏检测仍无法正常触发？
 
 拯救者工具箱的游戏检测功能是基于 Windows 游戏检测的。这意味着游戏检测功能仅能被 Windows 认为是游戏的 EXE 文件触发。同时如果你删除了 Xbox Game Bar，此功能大概率将无法正常工作。
 
 Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar (Win + G) 设置中将任何程序标记为游戏。你可以在注册表中找到可识别的游戏列表：`HKEY_CURRENT_USER\System\GameConfigStore\Children`。
 
-#### <a id="faq-custom-tooltip" />为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？
+#### 为什么将鼠标悬停在拯救者工具箱托盘图标上却看不到自定义工具提示？
 
 在 Windows 10 和 11 中，微软对托盘做了大量的修改，修改导致了很多东西产生了变化，从而导致许多东西无法正常工作。因此，自定义工具提示有时会无法正常工作。你可以试试更新你的 Windows，除此之外没什么好办法了。
 
-#### <a id="faq-cpu-oc" />我在哪里可以找到 CPU 睿频模式的设置？
+#### 我在哪里可以找到 CPU 睿频模式的设置？
 
 简而言之，在 Windows 控制面板中。此选项因很难维护已经从拯救者工具箱中删除了。在拯救者工具箱的设置中，你可以找到一个直接跳转到控制面板中电源计划设置页面的按钮，在那里你可以轻松地编辑 CPU 睿频模式设置以及 Windows 电源计划的其他设置。
 
 默认情况下，这个设置是隐藏的，但你也可以通过在终端运行`powercfg.exe -attributes sub_processor perfboostmode -attrib_hide`来重新打开这个选项。
 另外我还推荐其他一些应用程序可以轻松地管理多个电源计划设置：[PowerSettingsExplorer](https://forums.guru3d.com/threads/windows-power-plan-settings-explorer-utility.416058/) 与 [QuickCPU](https://coderbag.com/product/quickcpu)。
 
-#### <a id="faq-gpu-oc" />如果我在对 GPU 进行超频时超过了阈值，该怎么办？
+#### 如果我在对 GPU 进行超频时超过了阈值，该怎么办？
 
 如果你超频到 GPU 无法稳定运行，甚至无法启动 Windows 的情况，你可以通过以下两种方法尝试解决：
 
 1. 进入 BIOS，尝试找到类似于 “Enabled GPU Overclocking” 与“显卡超频”的选项并将其禁用，启动 Windows，修改拯救者工具箱中的超频参数，并将此选项再次启用。
 2. 在安全模式下启动 Windows，删除拯救者工具箱设置下的 `gpu_oc.json` 文件，该文件位于 `"%LOCALAPPDATA%\LenovoLegionToolkit`。
 
-#### <a id="faq-boot-logo" />我的开机画面为什么没有生效？
+#### 我的开机画面为什么没有生效？
 
 当你设置开机画面时，LLT会做一些基本的检查以确保图像的分辨率和格式符合标准。如果 LLT 显示开机画面已被设置，意味着该图像已经被写入了启动盘的 UEFI 分区。如果你在启动时没有看到开机画面，这意味着你的开机画面无法被正确显示，即使相关选项已经在 UEFI 中被成功配置。在这种情况下，你也许可以尝试使用另外的一张图片，更改图片的格式，或使用别的图像编辑软件，等等。如果你尝试了所有可能的解决方案但你的开机画面还是无法被正常显示，那这也许就是由 BIOS 造成的问题了，你可以尝试更新 BIOS 版本再重试。
 
-#### <a id="faq-smart-fn-lock-stutter" />为什么使用智能 Fn 锁时会出现卡顿？
+#### 为什么使用智能 Fn 锁时会出现卡顿？
 
 在一些版本的 BIOS 上切换 Fn 锁是会造成一定的卡顿。由于智能 Fn 锁本质上是自动的 Fn 锁切换，因此也会受到这个问题的影响。
 
@@ -447,6 +560,4 @@ Windows 可能无法正确识别所有的游戏，但你可以在 Xbox Game Bar 
 
 你提交的信息越多，随着时间的推进，拯救者工具箱就会变得越来越好！如果有什么出错的地方请准确写下问题并附上日志。(日志保存地址 `%LOCALAPPDATA%\LenovoLegionToolkit\log`). 
 
-
-
-万分感谢！
+**万分感谢！**
