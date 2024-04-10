@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Neu hinzufügen</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Aktiviere den Energiesparplan, auch wenn Vantage oder dazugehörige Dienste aktiviert sind.
-Diese Option ist nur für Geräte gedacht, die nicht mit mehreren Energiesparplänen ausgestattet sind.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Aktiviere immer Windows Energiesparplan</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Lade USB Geräte, wenn der Computer ausgeschaltet ist oder sich im Schlaf- oder Ruhezustand befindet.</value>
   </data>
