@@ -36,7 +36,7 @@ public class PowerModeListener(PowerPlanController powerPlanController)
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
-        await powerPlanController.ActivatePowerPlanAsync(value).ConfigureAwait(false);
+        await powerPlanController.SetPowerPlanAsync(value).ConfigureAwait(false);
     }
 
     private static void PublishNotification(PowerModeState value)

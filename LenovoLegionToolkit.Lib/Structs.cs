@@ -451,11 +451,7 @@ public readonly struct Notification(NotificationType type, params object[] args)
 
     public object[] Args { get; } = args;
 
-    public override string ToString()
-    {
-        return $"{nameof(Type)}: {Type}," +
-               $" {nameof(Args)}: [{string.Join(", ", Args)}]";
-    }
+    public override string ToString() => $@"{nameof(Type)}: {Type}, {nameof(Args)}: [{string.Join(", ", Args)}]";
 }
 
 public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isOverlay)
@@ -465,7 +461,19 @@ public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isO
     public bool IsActive { get; } = isActive;
     public bool IsOverlay { get; } = isOverlay;
 
-    public override string ToString() => Name;
+    public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}, {nameof(IsOverlay)}: {IsOverlay}";
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is PowerPlan other && Guid.Equals(other.Guid);
+
+    public override int GetHashCode() => Guid.GetHashCode();
+
+    public static bool operator ==(PowerPlan left, PowerPlan right) => left.Equals(right);
+
+    public static bool operator !=(PowerPlan left, PowerPlan right) => !left.Equals(right);
+
+    #endregion
 }
 
 [method: JsonConstructor]

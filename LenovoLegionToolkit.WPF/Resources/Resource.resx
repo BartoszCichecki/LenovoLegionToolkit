@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Add new</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activate Power Plan even when Vantage or its services are enabled.
-This option is intended only for devices that didn't come with multiple power plans.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Always activate Windows Power Plan</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Charge USB devices, when the laptop is off, sleeping or hibernated.</value>
   </data>

@@ -49,16 +49,16 @@ public class ThermalModeListener(PowerPlanController powerPlanController)
         switch (state)
         {
             case ThermalModeState.Quiet:
-                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
+                await powerPlanController.SetPowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
                 break;
             case ThermalModeState.Balance:
-                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
+                await powerPlanController.SetPowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
                 break;
             case ThermalModeState.Performance:
-                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
+                await powerPlanController.SetPowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
                 break;
             case ThermalModeState.GodMode:
-                await powerPlanController.ActivatePowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
+                await powerPlanController.SetPowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
                 break;
         }
     }
