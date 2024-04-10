@@ -151,12 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Adicionar novo</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Ativar o controlo dos esquemas de energia mesmo com o Vantage ou os seus serviços estão ativos. Esta opção foi desenhada para dispositivos que não vêm com vários modos de energia.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Ativar sempre o esquema de energia do Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Carregar dispositivos USB, quando o computador está suspenso ou em modo de hibernação.</value>
   </data>
