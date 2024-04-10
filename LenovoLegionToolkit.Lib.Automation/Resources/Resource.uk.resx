@@ -124,10 +124,10 @@
     <value>Коли блок живлення від'єднаний</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
-    <value>Примусово закрити застосунки</value>
+    <value>Примусово закрити додатки</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
-    <value>Перезапустити ГП</value>
+    <value>Перезапустити GPU</value>
   </data>
   <data name="Delay_Second" xml:space="preserve">
     <value>{0} секунда</value>
@@ -145,19 +145,19 @@
     <value>Коли режим потужності змінений</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>При запуску застосунку</value>
+    <value>При запуску програми</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли застосунок закрито</value>
+    <value>При закритті програми</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>У зазначений час</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли зовнішній дисплей підключений</value>
+    <value>Коли зовнішній дисплей підключено</value>
   </data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли зовнішній дисплей відключений</value>
+    <value>Коли зовнішній дисплей відключено</value>
   </data>
   <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли дисплей увімкнений</value>
@@ -184,7 +184,7 @@
     <value>Коли користувач стає неактивним</value>
   </data>
   <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
-    <value>Вимкнути графічний процесор</value>
+    <value>Вимкнути GPU</value>
     <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
   </data>
   <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">
@@ -194,6 +194,19 @@
     <value>Увімкнений</value>
   </data>
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли змінюється попереднє налаштування користувальницького режиму</value>
+    <value>При зміні користувацького режиму</value>
+  </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Регулярна дія</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли WiFi підключено</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли WiFi відключено</value>
+  </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>При відновленні</value>
   </data>
 </root>
