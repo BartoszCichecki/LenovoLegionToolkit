@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Yeni ekle</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Vantage veya hizmetleri açık olduğunda bile Güç Planını etkinleştirin.
-Bu seçenek, yalnızca birden fazla güç planıyla gelmeyen cihazlar için tasarlanmıştır.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Windows Güç Planlarını her zaman aktif et</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Bilgisayar kapalı, uyku veya hazırda bekletme modundayken USB cihazlarını şarj edin.</value>
   </data>

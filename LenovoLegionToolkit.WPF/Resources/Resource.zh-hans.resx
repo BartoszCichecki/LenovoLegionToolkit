@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>新建</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>当 Lenovo Vantage 与之相关服务运行时仍然启用此功能
-此选项仅适用于没有预附多种电源计划的设备。</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>始终启用 Windows 电源计划</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>在电脑关机、睡眠或休眠时保持 USB 接口供电。
 一般为笔记本侧面标有电池标志的 USB 接口受此项控制。</value>

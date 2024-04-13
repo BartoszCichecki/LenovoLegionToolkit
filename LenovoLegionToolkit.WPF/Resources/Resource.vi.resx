@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Thêm mới</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Kích hoạt Power Plan ngay cả khi Vantage hoặc các dịch vụ của Vantage được bật.
-Lựa chọn này chỉ dành cho thiết bị không đi kèm với nhiều Power Plan khác nhau.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Luôn kích hoạt Windows Power Plan</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Sạc các thiết bị khác qua cổng USB, khi máy tính đang Tắt, ở chế độ Ngủ hay ở chế độ Ngủ đông.</value>
   </data>

@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Ajouter une Action</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activer les modes de gestion d’alimentation même si Vantage ou ses services est activé.
-Cette option est destinée uniquement aux appareils qui ne sont pas livrés avec plusieurs modes de gestion d'alimentation.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Toujours activer les modes de gestion d'alimentation de Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Charger les périphériques USB, lorsque l'appareil est éteint ou en veille ou en veille prolongée.</value>
   </data>
