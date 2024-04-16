@@ -225,7 +225,7 @@ public partial class PackagesPage : IProgress<float>
                 return;
 
             if (_filterDebounceCancellationTokenSource is not null)
-                await _filterDebounceCancellationTokenSource.CancelAsync().ConfigureAwait(false);
+                await _filterDebounceCancellationTokenSource.CancelAsync();
 
             _filterDebounceCancellationTokenSource = new();
 

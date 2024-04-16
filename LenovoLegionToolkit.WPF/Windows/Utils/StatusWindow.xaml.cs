@@ -53,12 +53,12 @@ public partial class StatusWindow
 
         try
         {
-            if (await powerModeFeature.IsSupportedAsync().ConfigureAwait(false))
+            if (await powerModeFeature.IsSupportedAsync())
             {
-                state = await powerModeFeature.GetStateAsync().ConfigureAwait(false);
+                state = await powerModeFeature.GetStateAsync();
 
                 if (state == PowerModeState.GodMode)
-                    godModePresetName = await godModeController.GetActivePresetNameAsync().ConfigureAwait(false);
+                    godModePresetName = await godModeController.GetActivePresetNameAsync();
             }
         }
         catch { /* Ignored */ }
@@ -66,7 +66,7 @@ public partial class StatusWindow
         try
         {
             if (gpuController.IsSupported())
-                gpuStatus = await gpuController.RefreshNowAsync().ConfigureAwait(false);
+                gpuStatus = await gpuController.RefreshNowAsync();
 
         }
         catch { /* Ignored */ }
@@ -79,15 +79,15 @@ public partial class StatusWindow
 
         try
         {
-            if (await batteryFeature.IsSupportedAsync().ConfigureAwait(false))
-                batteryState = await batteryFeature.GetStateAsync().ConfigureAwait(false);
+            if (await batteryFeature.IsSupportedAsync())
+                batteryState = await batteryFeature.GetStateAsync();
 
         }
         catch { /* Ignored */ }
 
         try
         {
-            hasUpdate = await updateChecker.CheckAsync().ConfigureAwait(false) is not null;
+            hasUpdate = await updateChecker.CheckAsync() is not null;
         }
         catch { /* Ignored */ }
 

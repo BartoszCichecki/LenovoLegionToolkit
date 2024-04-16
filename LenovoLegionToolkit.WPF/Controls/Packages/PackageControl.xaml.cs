@@ -110,7 +110,7 @@ public partial class PackageControl : IProgress<float>
             _downloadingStackPanel.Visibility = Visibility.Visible;
 
             if (_downloadPackageTokenSource is not null)
-                await _downloadPackageTokenSource.CancelAsync().ConfigureAwait(false);
+                await _downloadPackageTokenSource.CancelAsync();
 
             _downloadPackageTokenSource = new();
 
