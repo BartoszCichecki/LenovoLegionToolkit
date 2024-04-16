@@ -151,9 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Nieuwe Toevoegen</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Activeer altijd de Windows Energiebeheerschema</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Laad USB-apparaten op wanneer de computer is uitgeschakeld of in de slaap- of sluimerstand staat.</value>
   </data>

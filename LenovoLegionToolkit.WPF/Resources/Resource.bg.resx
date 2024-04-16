@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Добави ново</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Активирай Планът за захранването, дори когато Vantage или неговите услуги работят.
-Тази опция е предназначена само за устройства, които не са дошли с множество планове на захранването.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Винаги активирай Планът за захранване на Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Зареждане на USB устройства при изключен компютър, в спящ режим или в режим на хибернация.</value>
   </data>

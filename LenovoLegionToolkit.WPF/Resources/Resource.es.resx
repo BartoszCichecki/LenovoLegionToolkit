@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Añadir nueva</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Activar el Plan de energía aunque Vantage o sus servicios estén activados.
-Esta opción solo está pensada para dispositivos que no vienen con varios planes de energía.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Activar siempre el plan de energía de Windows</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Cargar dispositivos USB, cuando el equipo esté apagado o en modo de suspensión/hibernación.</value>
   </data>

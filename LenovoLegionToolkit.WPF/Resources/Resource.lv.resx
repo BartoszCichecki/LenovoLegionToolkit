@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>Pievienot jaunu</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>Aktivizēt Enerģijas Plānus pat tad, kad Vantage ir iespējots.
-Šī opcija ir paredzēta tikai ierīcēm, kurām nav pievienoti vairāki Enerģijas Plāni.</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>Vienmēr aktivizēt Windows Enerģijas Plānus</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Uzlādējiet USB ierīces, kad dators ir izslēgts vai atrodas miega vai hibernācijas režīmā.</value>
   </data>

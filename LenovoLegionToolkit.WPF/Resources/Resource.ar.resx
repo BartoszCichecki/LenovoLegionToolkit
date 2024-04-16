@@ -151,9 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>أضف جديد</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>تشغيل وضع الطاقة الخاص بالويندوز</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>شحن الاجهزة عبر ال USB, حتى لو كان الحاسب مغلق او فى وضع النوم او السبات.</value>
   </data>

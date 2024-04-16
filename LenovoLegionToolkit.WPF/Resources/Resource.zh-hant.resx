@@ -151,13 +151,6 @@
   <data name="AddNew" xml:space="preserve">
     <value>新增</value>
   </data>
-  <data name="AlwaysActivatePowerPlans_Message" xml:space="preserve">
-    <value>即使 Vantage 或其服務已啟用，也要啟用電源計劃。
-此選項僅適用於沒有多個電源計劃的裝置。</value>
-  </data>
-  <data name="AlwaysActivatePowerPlans_Title" xml:space="preserve">
-    <value>保持啟用 Windows 電源計劃</value>
-  </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>標有電池標誌的 USB 受此項控制，在電腦關機、睡眠或休眠時保持 USB 供電。</value>
   </data>
@@ -615,6 +608,9 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
@@ -1003,7 +999,7 @@
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>選擇效能模式。
-您可以透過快捷鍵 Fn+Q 快速更改。</value>
+您可以透過快捷鍵 Fn+Q 快速變更。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>設定</value>
@@ -1078,7 +1074,7 @@
     <value>速度</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
-    <value>請閱讀我（Readme）</value>
+    <value>讀我檔案（Readme）</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>重新整理</value>
@@ -1322,7 +1318,7 @@
     <value>特效</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
-    <value>此效果將被套用到整個鍵盤並替換其他效果。</value>
+    <value>此效果將被套用到整個鍵盤並替換其它效果。</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
     <value>速度</value>
@@ -1861,10 +1857,10 @@
     <value>未使用筆記本電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 Lenovo Vantage 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 LegionZone 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU（獨立顯示卡）已連接</value>
@@ -2020,7 +2016,7 @@
     <value>下載</value>
   </data>
   <data name="PackageControl_OpenReadme" xml:space="preserve">
-    <value>開啟 README</value>
+    <value>開啟讀我檔案（README）</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
     <value>預設</value>
@@ -2052,6 +2048,9 @@
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>等待直到任務完成</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>在不建立控制台視窗的情況下，執行控制台應用程式。</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
 	  <value>等待直到程式或腳本完成執行</value>
