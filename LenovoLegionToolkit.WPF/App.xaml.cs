@@ -506,7 +506,7 @@ public partial class App
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring GPU overclock is applied...");
 
-                var result = await controller.EnsureOverclockIsAppliedAsync().ConfigureAwait(false);
+                var result = await controller.EnsureOverclockIsAppliedAsync();
                 if (result)
                 {
                     if (Log.Instance.IsTraceEnabled)

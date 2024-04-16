@@ -64,7 +64,7 @@ public partial class BatteryPage
                 try
                 {
                     var batteryInfo = Battery.GetBatteryInformation();
-                    var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync().ConfigureAwait(false);
+                    var powerAdapterStatus = await Power.IsPowerAdapterConnectedAsync();
                     var onBatterySince = Battery.GetOnBatterySince();
                     Dispatcher.Invoke(() => Set(batteryInfo, powerAdapterStatus, onBatterySince));
 
