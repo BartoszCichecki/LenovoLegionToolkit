@@ -13,8 +13,7 @@ public class Speaker
     {
         var enumerator = new MMDeviceEnumerator();
         MMDevice mMDevice = enumerator.EnumerateAudioEndPoints(DataFlow.Render, DeviceState.Active)
-                                      .ToArray()
-                                      .ToList()[0];
+                                      .ToArray()[0];
         mMDevice.AudioEndpointVolume.Mute = setMute;
     }
 }
