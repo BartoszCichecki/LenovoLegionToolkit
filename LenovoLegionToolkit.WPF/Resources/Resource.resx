@@ -2051,9 +2051,15 @@ Supported formats are: {1}.</value>
     <value>Wait until finished</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Execute console applications, without creating a console window.</value>
+    <value>Execute console applications, without creating a console window.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Wait until program or script finishes executing</value>
+    <value>Wait until program or script finishes executing</value>
+  </data>
+  <data name="SpeakerMuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Mute Speaker</value>
+  </data>
+  <data name="SpeakerUnmuteAutomationStepControl_Title" xml:space="preserve">
+    <value>Unmute Speaker</value>
   </data>
 </root>

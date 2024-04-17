@@ -4969,6 +4969,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mute Speaker.
+        /// </summary>
+        public static string SpeakerMuteAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpeakerMuteAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unmute Speaker.
+        /// </summary>
+        public static string SpeakerUnmuteAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("SpeakerUnmuteAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Adjust keyboard backlight brightness..
         /// </summary>
         public static string SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message {
