@@ -184,8 +184,6 @@ public partial class AutomationPage
             new ResolutionAutomationStep(default),
             new RGBKeyboardBacklightAutomationStep(default),
             new RunAutomationStep(default, default, default, default),
-            new SpeakerMuteAutomationStep(),
-            new SpeakerUnmuteAutomationStep(),
             new SpectrumKeyboardBacklightBrightnessAutomationStep(0),
             new SpectrumKeyboardBacklightProfileAutomationStep(1),
             new SpectrumKeyboardBacklightImportProfileAutomationStep(default),
