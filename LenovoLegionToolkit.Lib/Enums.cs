@@ -423,6 +423,22 @@ public enum RGBKeyboardBacklightSpeed
     Fastest
 }
 
+public enum SpeakerSystemDefaultDeviceState
+{
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_On")]
+    On
+}
+
+public enum SpeakerAllDevicesState
+{
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Off")]
+    Off,
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_On")]
+    On
+}
+
 public enum SoftwareStatus
 {
     Enabled,
