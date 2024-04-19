@@ -425,18 +425,18 @@ public enum RGBKeyboardBacklightSpeed
 
 public enum SpeakerSystemDefaultDeviceState
 {
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Off")]
-    Off,
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_On")]
-    On
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Mute")]
+    Mute,
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Unmute")]
+    Unmute
 }
 
 public enum SpeakerAllDevicesState
 {
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Off")]
-    Off,
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_On")]
-    On
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Mute")]
+    Mute,
+    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Unmute")]
+    Unmute
 }
 
 public enum SoftwareStatus

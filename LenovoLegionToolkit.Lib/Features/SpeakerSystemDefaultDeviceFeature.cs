@@ -17,13 +17,13 @@ public class SpeakerSystemDefaultDeviceFeature : IFeature<SpeakerSystemDefaultDe
     public Task<SpeakerSystemDefaultDeviceState> GetStateAsync()
     {
         var mute = DefaultAudioEndpointVolume.Mute;
-        var result = mute ? SpeakerSystemDefaultDeviceState.Off : SpeakerSystemDefaultDeviceState.On;
+        var result = mute ? SpeakerSystemDefaultDeviceState.Mute : SpeakerSystemDefaultDeviceState.Unmute;
         return Task.FromResult(result);
     }
 
     public Task SetStateAsync(SpeakerSystemDefaultDeviceState state)
     {
-        var mute = SpeakerSystemDefaultDeviceState.Off == state;
+        var mute = SpeakerSystemDefaultDeviceState.Mute == state;
         DefaultAudioEndpointVolume.Mute = mute;
         return Task.CompletedTask;
     }

@@ -4969,7 +4969,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When off, all active audio output devices will be muted..
+        ///   Looks up a localized string similar to When mute, all active audio output devices will be muted..
         /// </summary>
         public static string SpeakerAllDevicesStepControl_Message {
             get {
@@ -4987,7 +4987,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When off, the system default audio output device will be muted..
+        ///   Looks up a localized string similar to When mute, the system default audio output device will be muted..
         /// </summary>
         public static string SpeakerSystemDefaultDeviceStepControl_Message {
             get {

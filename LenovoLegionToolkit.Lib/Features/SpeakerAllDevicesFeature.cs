@@ -31,13 +31,13 @@ public class SpeakerAllDevicesFeature :IFeature<SpeakerAllDevicesState>
     public Task<SpeakerAllDevicesState> GetStateAsync()
     {
         var mute = AudioEndpointVolumes.Aggregate(true, (current, v) => current && v.Mute);
-        var result = mute ? SpeakerAllDevicesState.Off : SpeakerAllDevicesState.On;
+        var result = mute ? SpeakerAllDevicesState.Mute : SpeakerAllDevicesState.Unmute;
         return Task.FromResult(result);
     }
 
     public Task SetStateAsync(SpeakerAllDevicesState state)
     {
-        var mute = SpeakerAllDevicesState.Off == state;
+        var mute = SpeakerAllDevicesState.Mute == state;
         AudioEndpointVolumes.ForEach(v => v.Mute = mute);
         return Task.CompletedTask;
     }

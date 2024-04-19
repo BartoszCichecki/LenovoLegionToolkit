@@ -460,10 +460,10 @@
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>Off</value>
   </data>
-  <data name="SpeakerState_Off" xml:space="preserve">
-    <value>Off</value>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Mute</value>
   </data>
-  <data name="SpeakerState_On" xml:space="preserve">
-    <value>On</value>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Unmute</value>
   </data>
 </root>
