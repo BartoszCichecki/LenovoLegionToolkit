@@ -196,4 +196,17 @@
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Коли змінюється попереднє налаштування користувальницького режиму</value>
   </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Періодична дія</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли під'єднано до Wi-Fi</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли від'єднано від Wi-Fi</value>
+  </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>При поновленні</value>
+  </data>
 </root>

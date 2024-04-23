@@ -607,6 +607,9 @@
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>ГП</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>ГП #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>Об/хв</value>
   </data>
@@ -876,7 +879,7 @@
     <value>Частота оновлення</value>
   </data>
   <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
-    <value>Розумний ключ</value>
+    <value>Розумна клавіша</value>
   </data>
   <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
     <value>Сповіщення</value>
@@ -1230,7 +1233,7 @@
     <value>Призначити швидкі дії на подвійне натискання Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
-    <value>Другорядна дія смартключа</value>
+    <value>Другорядна дія розумної клавіші</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
     <value>Призначити швидкі дії на натискання Fn+F9.</value>
@@ -1434,7 +1437,7 @@
     <value>Увімкнути або вимкнути клавішу Windows.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Ключ Windows</value>
+    <value>Клавіша Windows</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Працює тільки із вбудованою клавіатурою.</value>
@@ -2021,5 +2024,33 @@
   </data>
   <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
     <value>Видалити</value>
+  </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Період (хвилини)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Скидає лічильник "На батареї відколи" у розділі батареї під час перезавантаження системи.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Скидання параметра "Від батареї з" під час запуску</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Вимкнути Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Увімкнути Wi-Fi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Тихий запуск</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Чекати закінчення</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+	  <value>Виконувати консольні програми, не створюючи консольного вікна.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Зачекайте, поки програма або скрипт завершить виконання</value>
   </data>
 </root>
