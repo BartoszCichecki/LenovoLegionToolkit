@@ -2033,4 +2033,19 @@
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Нулиране на "На батерия от" брояча при стартиране</value>
   </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Изключване на WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Включване на WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Тихо стартиране</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Изчакване до приключване на изпълнение</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+	  <value>Изчакване на програмата или скрипта да приключат изпълнението си</value>
+  </data>
 </root>
