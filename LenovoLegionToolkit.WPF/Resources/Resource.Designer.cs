@@ -4798,6 +4798,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always minimize to tray instead of taskbar..
+        /// </summary>
+        public static string SettingsPage_MinimizeToTray_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinimizeToTray_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimize to tray.
+        /// </summary>
+        public static string SettingsPage_MinimizeToTray_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_MinimizeToTray_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configure which notifications are shown..
         /// </summary>
         public static string SettingsPage_Notifications_Message {

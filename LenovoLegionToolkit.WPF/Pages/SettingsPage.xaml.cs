@@ -81,6 +81,7 @@ public partial class SettingsPage
         _accentColorSourceComboBox.SetItems(Enum.GetValues<AccentColorSource>(), _settings.Store.AccentColorSource, t => t.GetDisplayName());
 
         _autorunComboBox.SetItems(Enum.GetValues<AutorunState>(), Autorun.State, t => t.GetDisplayName());
+        _minimizeToTrayToggle.IsChecked = _settings.Store.MinimizeToTray;
         _minimizeOnCloseToggle.IsChecked = _settings.Store.MinimizeOnClose;
 
         var vantageStatus = await _vantageDisabler.GetStatusAsync();
@@ -118,6 +119,7 @@ public partial class SettingsPage
 
         _themeComboBox.Visibility = Visibility.Visible;
         _autorunComboBox.Visibility = Visibility.Visible;
+        _minimizeToTrayToggle.Visibility = Visibility.Visible;
         _minimizeOnCloseToggle.Visibility = Visibility.Visible;
         _vantageToggle.Visibility = Visibility.Visible;
         _legionZoneToggle.Visibility = Visibility.Visible;
@@ -231,6 +233,19 @@ public partial class SettingsPage
 
         var window = new SelectSmartKeyPipelinesWindow(isDoublePress: true) { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private void MinimizeToTrayToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var state = _minimizeToTrayToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.MinimizeToTray = state.Value;
+        _settings.SynchronizeStore();
     }
 
     private void MinimizeOnCloseToggle_Click(object sender, RoutedEventArgs e)
