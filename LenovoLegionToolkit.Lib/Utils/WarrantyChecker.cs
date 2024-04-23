@@ -82,12 +82,28 @@ public class WarrantyChecker(ApplicationSettings settings, HttpClientFactory htt
             return null;
 
         dataNode = node["data"];
-        var baseInfoNode = dataNode?["baseinfo"]?.AsArray() ?? [];
-        var endDate = baseInfoNode
-            .Select(n => n?["EndDate"])
+
+        var detailInfoNode = dataNode?["detailinfo"];
+        var warrantyNode = detailInfoNode?["warranty"]?.AsArray() ?? [];
+        var onsiteNode = detailInfoNode?["onsite"]?.AsArray() ?? [];
+        var otherNode = detailInfoNode?["other"]?.AsArray() ?? [];
+
+        var endDate = warrantyNode.Concat(onsiteNode).Concat(otherNode)
+            .Select(n => n?["PartEndDate"])
             .Where(n => n is not null)
             .Select(n => DateTime.Parse(n!.ToString()))
+            .DefaultIfEmpty(DateTime.MinValue)
             .Max();
+
+        if (endDate < startDate)
+        {
+            var baseInfoNode = dataNode?["baseinfo"]?.AsArray() ?? [];
+            endDate = baseInfoNode
+                .Select(n => n?["EndDate"])
+                .Where(n => n is not null)
+                .Select(n => DateTime.Parse(n!.ToString()))
+                .Max();
+        }
 
         var link = new Uri($"https://newsupport.lenovo.com.cn/deviceGuarantee.html?fromsource=deviceGuarantee&selname={machineInformation.SerialNumber}");
 
