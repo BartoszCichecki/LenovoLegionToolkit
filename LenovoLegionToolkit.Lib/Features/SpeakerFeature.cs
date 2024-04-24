@@ -7,7 +7,7 @@ using NAudio.CoreAudioApi;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class SpeakerAllDevicesFeature :IFeature<SpeakerAllDevicesState>
+public class SpeakerFeature : IFeature<SpeakerState>
 {
     private readonly MMDeviceEnumerator _enumerator = new();
 
@@ -26,18 +26,18 @@ public class SpeakerAllDevicesFeature :IFeature<SpeakerAllDevicesState>
         }
     }
 
-    public Task<SpeakerAllDevicesState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<SpeakerAllDevicesState>());
+    public Task<SpeakerState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<SpeakerState>());
 
-    public Task<SpeakerAllDevicesState> GetStateAsync()
+    public Task<SpeakerState> GetStateAsync()
     {
         var mute = AudioEndpointVolumes.Aggregate(true, (current, v) => current && v.Mute);
-        var result = mute ? SpeakerAllDevicesState.Mute : SpeakerAllDevicesState.Unmute;
+        var result = mute ? SpeakerState.Mute : SpeakerState.Unmute;
         return Task.FromResult(result);
     }
 
-    public Task SetStateAsync(SpeakerAllDevicesState state)
+    public Task SetStateAsync(SpeakerState state)
     {
-        var mute = SpeakerAllDevicesState.Mute == state;
+        var mute = SpeakerState.Mute == state;
         AudioEndpointVolumes.ForEach(v => v.Mute = mute);
         return Task.CompletedTask;
     }

@@ -68,8 +68,7 @@ public class IoCModule : Module
         builder.Register<PowerModeFeature>();
         builder.Register<RefreshRateFeature>();
         builder.Register<ResolutionFeature>();
-        builder.Register<SpeakerAllDevicesFeature>();
-        builder.Register<SpeakerSystemDefaultDeviceFeature>();
+        builder.Register<SpeakerFeature>();
         builder.Register<TouchpadLockFeature>();
         builder.Register<WhiteKeyboardBacklightFeature>();
         builder.Register<WhiteKeyboardDriverBacklightFeature>(true);

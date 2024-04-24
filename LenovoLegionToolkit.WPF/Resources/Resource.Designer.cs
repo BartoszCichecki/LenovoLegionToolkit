@@ -4971,36 +4971,18 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to When mute, all active audio output devices will be muted..
         /// </summary>
-        public static string SpeakerAllDevicesStepControl_Message {
+        public static string SpeakerAutomationStepControl_Message {
             get {
-                return ResourceManager.GetString("SpeakerAllDevicesStepControl_Message", resourceCulture);
+                return ResourceManager.GetString("SpeakerAutomationStepControl_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Speaker (All Devices).
+        ///   Looks up a localized string similar to Speaker.
         /// </summary>
-        public static string SpeakerAllDevicesStepControl_Title {
+        public static string SpeakerAutomationStepControl_Title {
             get {
-                return ResourceManager.GetString("SpeakerAllDevicesStepControl_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to When mute, the system default audio output device will be muted..
-        /// </summary>
-        public static string SpeakerSystemDefaultDeviceStepControl_Message {
-            get {
-                return ResourceManager.GetString("SpeakerSystemDefaultDeviceStepControl_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Speaker (System Default Device).
-        /// </summary>
-        public static string SpeakerSystemDefaultDeviceStepControl_Title {
-            get {
-                return ResourceManager.GetString("SpeakerSystemDefaultDeviceStepControl_Title", resourceCulture);
+                return ResourceManager.GetString("SpeakerAutomationStepControl_Title", resourceCulture);
             }
         }
         

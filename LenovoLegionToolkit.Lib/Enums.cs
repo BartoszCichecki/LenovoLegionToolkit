@@ -423,15 +423,7 @@ public enum RGBKeyboardBacklightSpeed
     Fastest
 }
 
-public enum SpeakerSystemDefaultDeviceState
-{
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Mute")]
-    Mute,
-    [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Unmute")]
-    Unmute
-}
-
-public enum SpeakerAllDevicesState
+public enum SpeakerState
 {
     [Display(ResourceType = typeof(Resource), Name = "SpeakerState_Mute")]
     Mute,

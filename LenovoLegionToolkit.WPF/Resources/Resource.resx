@@ -2056,16 +2056,10 @@ Supported formats are: {1}.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
     <value>Wait until program or script finishes executing</value>
   </data>
-  <data name="SpeakerAllDevicesStepControl_Message" xml:space="preserve">
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
     <value>When mute, all active audio output devices will be muted.</value>
   </data>
-  <data name="SpeakerAllDevicesStepControl_Title" xml:space="preserve">
-    <value>Speaker (All Devices)</value>
-  </data>
-  <data name="SpeakerSystemDefaultDeviceStepControl_Message" xml:space="preserve">
-    <value>When mute, the system default audio output device will be muted.</value>
-  </data>
-  <data name="SpeakerSystemDefaultDeviceStepControl_Title" xml:space="preserve">
-    <value>Speaker (System Default Device)</value>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Speaker</value>
   </data>
 </root>
