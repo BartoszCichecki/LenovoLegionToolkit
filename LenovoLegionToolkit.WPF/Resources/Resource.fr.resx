@@ -2048,9 +2048,9 @@ Nécessite un redémarrage.</value>
     <value>Attendre la fin</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Exécuter des applications en console, sans créer de fenêtre de console.</value>
+    <value>Exécuter des applications en console, sans créer de fenêtre de console.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Attendre la fin de l'exécution du programme ou du script</value>
+    <value>Attendre la fin de l'exécution du programme ou du script</value>
   </data>
 </root>
