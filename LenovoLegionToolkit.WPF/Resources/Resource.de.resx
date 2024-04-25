@@ -2051,9 +2051,9 @@ Unterstützte Formate sind: {1}.</value>
     <value>Warten bis fertig</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
+    <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+    <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
   </data>
 </root>
