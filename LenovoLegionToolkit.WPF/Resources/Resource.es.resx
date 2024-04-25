@@ -2054,9 +2054,9 @@ Requiere un reinicio.</value>
     <value>Esperar a que finalice</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Ejecutar aplicaciones de consola, sin crear una ventana de consola.</value>
+    <value>Ejecutar aplicaciones de consola, sin crear una ventana de consola.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Esperar a que el programa o script termine de ejecutarse</value>
+    <value>Esperar a que el programa o script termine de ejecutarse</value>
   </data>
 </root>
