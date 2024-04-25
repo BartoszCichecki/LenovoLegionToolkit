@@ -2048,9 +2048,9 @@
     <value>Чекати закінчення</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Виконувати консольні програми, не створюючи консольного вікна.</value>
+    <value>Виконувати консольні програми, не створюючи консольного вікна.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Зачекайте, поки програма або скрипт завершить виконання</value>
+    <value>Зачекайте, поки програма або скрипт завершить виконання</value>
   </data>
 </root>
