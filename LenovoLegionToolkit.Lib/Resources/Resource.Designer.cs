@@ -718,6 +718,24 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mute.
+        /// </summary>
+        public static string SpeakerState_Mute {
+            get {
+                return ResourceManager.GetString("SpeakerState_Mute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unmute.
+        /// </summary>
+        public static string SpeakerState_Unmute {
+            get {
+                return ResourceManager.GetString("SpeakerState_Unmute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to High.
         /// </summary>
         public static string SpectrumKeyboardBacklightBrightness_High {

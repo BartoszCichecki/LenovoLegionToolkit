@@ -355,6 +355,7 @@ public class AutomationPipelineControl : UserControl
             ResolutionAutomationStep s => new ResolutionAutomationStepControl(s),
             RGBKeyboardBacklightAutomationStep s => new RGBKeyboardBacklightAutomationStepControl(s),
             RunAutomationStep s => new RunAutomationStepControl(s),
+            SpeakerAutomationStep s => new SpeakerAutomationStepControl(s),
             SpectrumKeyboardBacklightBrightnessAutomationStep s => new SpectrumKeyboardBacklightBrightnessAutomationStepControl(s),
             SpectrumKeyboardBacklightImportProfileAutomationStep s => new SpectrumKeyboardBacklightImportProfileAutomationStepControl(s),
             SpectrumKeyboardBacklightProfileAutomationStep s => new SpectrumKeyboardBacklightProfileAutomationStepControl(s),
