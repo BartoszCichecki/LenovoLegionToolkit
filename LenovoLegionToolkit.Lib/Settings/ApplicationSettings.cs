@@ -28,6 +28,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public RGBColor? AccentColor { get; set; }
         public AccentColorSource AccentColorSource { get; set; }
         public Dictionary<PowerModeState, Guid> PowerPlans { get; set; } = [];
+        public bool MinimizeToTray { get; set; } = true;
         public bool MinimizeOnClose { get; set; }
         public WindowSize? WindowSize { get; set; }
         public bool DontShowNotifications { get; set; }

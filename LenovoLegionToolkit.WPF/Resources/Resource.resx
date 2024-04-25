@@ -2062,4 +2062,10 @@ Supported formats are: {1}.</value>
   <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
     <value>Speaker</value>
   </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Minimize to tray</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Always minimize to tray instead of taskbar.</value>
+  </data>
 </root>

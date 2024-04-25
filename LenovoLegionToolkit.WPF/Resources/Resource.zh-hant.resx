@@ -173,19 +173,19 @@
     <value>套用 &amp; 關閉</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>自動化操作一定要在 Lenovo Legion 工具套件執行時才可以運作。</value>
+    <value>自動化功能一定要在 Lenovo Legion 工具套件執行時才可以運作。</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>啟用</value>
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
-    <value>尚未定義操作。點擊「新增」以新增新的操作。</value>
+    <value>尚未定義功能。點擊「新增」以新增新的功能。</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>如果啟用，此操作將自動地執行。當狀態變更時，所有操作將按順序檢查各項自動化是否符合條件。</value>
+    <value>如果啟用，此功能將自動地執行。當狀態變更時，所有功能將按順序檢查各項自動化是否符合條件。</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
-    <value>操作</value>
+    <value>功能</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
     <value>名稱……</value>
@@ -194,13 +194,13 @@
     <value>新增</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>尚未定義快捷操作。點擊「新增」以建立新的快捷操作。</value>
+    <value>尚未定義快捷功能。點擊「新增」以建立新的快捷功能。</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>提供系統匣選單圖示的快捷操作。</value>
+    <value>提供系統匣選單圖示的快捷功能。</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
-    <value>快捷操作</value>
+    <value>快捷功能</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
     <value>名稱……</value>
@@ -233,7 +233,7 @@
     <value>獨佔此條件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>當此操作執行時，將不會執行其它符合條件的操作。</value>
+    <value>當此功能執行時，將不會執行其它符合條件的功能。</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻執行</value>
@@ -278,7 +278,7 @@
     <value>未命名</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
-    <value>啟用 Legion AI 引擎以自動偵測遊戲並調整 CPU/GPU 效能。可能會增加裝置溫度和風扇噪音。</value>
+    <value>啟用 Legion AI 引擎以自動偵測遊戲並調整 CPU / GPU 效能。可能會增加裝置溫度和風扇噪音。</value>
   </data>
   <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
     <value>啟用 Legion AI 引擎</value>
@@ -317,7 +317,7 @@
     <value>目前容量</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>電池充電/釋放循環次數。</value>
+    <value>電池充電 / 釋放循環次數。</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>循環次數</value>
@@ -403,7 +403,7 @@
     <value>GPU 運作模式（GPU Working Mode）</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
-    <value>快捷操作</value>
+    <value>快捷功能</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>繼續</value>
@@ -426,7 +426,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此功能將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -521,7 +521,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
 
-警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -615,13 +615,13 @@
     <value>RPM</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
-    <value>開啟上蓋後自動開啟筆記型電腦。</value>
+    <value>開啟上蓋後自動啟動筆記型電腦。</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
     <value>開蓋啟動</value>
   </data>
   <data name="FlipToStartControl_Message" xml:space="preserve">
-    <value>開啟上蓋後自動開啟筆記型電腦。</value>
+    <value>開啟上蓋後自動啟動筆記型電腦。</value>
   </data>
   <data name="FlipToStartControl_Title" xml:space="preserve">
     <value>開蓋啟動</value>
@@ -714,7 +714,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -753,7 +753,7 @@
     <value>關於</value>
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
-    <value>操作</value>
+    <value>功能</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
     <value>電池</value>
@@ -855,7 +855,7 @@
     <value>Caps Lock 和 Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>停用麥克風靜音等 Fn 鍵操作通知
+    <value>停用麥克風靜音等 Fn 鍵功能通知
 如果通知和全螢幕應用程式發生衝突，請啟用此選項。</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1082,7 +1082,7 @@
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器更新率。
 
-警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>更新率</value>
@@ -1128,7 +1128,7 @@
     <value>選擇一個或更多快捷動作來循環執行。</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
-    <value>尚未定義快捷操作。</value>
+    <value>尚未定義快捷功能。</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>顯示此應用程式</value>
@@ -1173,10 +1173,10 @@
     <value>停用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 或 ImController 可能沒有被正確地停用</value>
+    <value>Vantage 與（或）ImController 可能沒有被正確地停用</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>無法停用 Vantage 或 ImController</value>
+    <value>無法停用 Vantage 與（或）ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>在不解除安裝 Lenovo Vantage 和 ImController 的情況下停用它們。
@@ -1198,10 +1198,10 @@
     <value>無法啟用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 或 ImController 可能沒有被正確地啟用</value>
+    <value>Vantage 與（或）ImController 可能沒有被正確地啟用</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>無法啟用 Vantage 或 ImController</value>
+    <value>無法啟用 Vantage 與（或）ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
@@ -1231,13 +1231,13 @@
     <value>電源計劃</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
-    <value>指派雙重點擊 Fn+F9 的快捷操作。</value>
+    <value>指派雙重點擊 Fn+F9 的快捷功能。</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
     <value>Smart Key 次要動作</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
-    <value>指派點擊 Fn+F9 的快捷操作。</value>
+    <value>指派點擊 Fn+F9 的快捷功能。</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
     <value>Smart Key 動作</value>
@@ -1388,7 +1388,7 @@
     <value>未命名</value>
   </data>
   <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
-    <value>您可以選擇繼續，風險自負，但請記住，某些功能可能不可供使用或無法正常工作。
+    <value>您可以選擇繼續，風險自負，但請記住，某些功能可能無法使用或正常運作。
 
 如果您選擇繼續，將自動啟用記錄檔。</value>
   </data>
@@ -1473,7 +1473,7 @@
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器解析度。
 
-警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1487,7 +1487,7 @@
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器比例。
 
-警告：如果內部顯示器已關閉，則此操作將無法正確地執行。</value>
+警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>顯示</value>
@@ -1663,7 +1663,7 @@
     <value>新增條件</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-    <value>建立操作</value>
+    <value>建立功能</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>電源模式</value>
@@ -1756,7 +1756,7 @@
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
     <value>藉由對獨立 GPU 超頻以提升效能。
 
-警告：如果獨立顯示卡無法使用，則此操作將無法正確地執行。</value>
+警告：如果獨立顯示卡無法使用，則此功能將無法正確地執行。</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
     <value>介面指示燈</value>
@@ -1919,7 +1919,7 @@
     <value>客製化</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
-    <value>操作</value>
+    <value>功能</value>
   </data>
   <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
     <value>通知文字</value>

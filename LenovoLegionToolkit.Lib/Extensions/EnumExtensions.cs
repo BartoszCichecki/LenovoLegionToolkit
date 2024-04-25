@@ -25,12 +25,12 @@ public static class EnumExtensions
         return displayAttribute.Name;
     }
 
-    public static string GetFlagsDisplayName(this Enum enumValue)
+    public static string GetFlagsDisplayName(this Enum enumValue, Enum? excluding = null)
     {
-        var names = Enum.GetValues(enumValue.GetType())
-            .Cast<Enum>()
-            .Where(enumValue.HasFlag)
-            .Select(GetDisplayName);
+        var values = Enum.GetValues(enumValue.GetType()).Cast<Enum>();
+        if (excluding is not null)
+            values = values.Where(v => !v.Equals(excluding));
+        var names = values.Where(enumValue.HasFlag).Select(GetDisplayName);
         return string.Join(", ", names);
     }
 }
