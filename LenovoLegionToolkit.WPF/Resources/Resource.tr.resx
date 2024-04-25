@@ -2052,9 +2052,9 @@ Desteklenen biçimler: {1}.</value>
     <value>Bitene kadar bekle</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
+    <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
+    <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
   </data>
 </root>
