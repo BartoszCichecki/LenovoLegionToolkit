@@ -2050,9 +2050,9 @@
     <value>等待直到任務完成</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>在不建立控制台視窗的情況下，執行控制台應用程式。</value>
+    <value>在不建立控制台視窗的情況下，執行控制台應用程式。</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>等待直到程式或腳本完成執行</value>
+    <value>等待直到程式或腳本完成執行</value>
   </data>
 </root>
