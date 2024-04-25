@@ -2046,6 +2046,6 @@
     <value>Изчакване до приключване на изпълнение</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Изчакване на програмата или скрипта да приключат изпълнението си</value>
+    <value>Изчакване на програмата или скрипта да приключат изпълнението си</value>
   </data>
 </root>
