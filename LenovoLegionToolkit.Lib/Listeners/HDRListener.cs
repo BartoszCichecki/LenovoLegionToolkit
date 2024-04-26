@@ -20,6 +20,8 @@ public class HDRListener : IListener<HDRListener.ChangedEventArgs>
     
     public bool IsHDROn { get; private set; }
 
+    public bool IsOK { get; private set; }
+
     public Task StartAsync()
     {
         if (_started)
@@ -31,9 +33,13 @@ public class HDRListener : IListener<HDRListener.ChangedEventArgs>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Built in display not found");
 
-            return Task.CompletedTask;
+            IsOK = false;
         }
-        IsHDROn = display.GetAdvancedColorInfo().AdvancedColorEnabled;
+        else
+        {
+            IsHDROn = display.GetAdvancedColorInfo().AdvancedColorEnabled;
+            IsOK = true;
+        }
         SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         _started = true;
 
@@ -53,21 +59,26 @@ public class HDRListener : IListener<HDRListener.ChangedEventArgs>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Event received.");
 
-        var display = InternalDisplay.Get();
-        if (display is null)
+        Task.Delay(100).ContinueWith(_ =>
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Built in display not found");
-            return;
-        }
-        bool nowHDRState = display.GetAdvancedColorInfo().AdvancedColorEnabled;
-        if (nowHDRState != IsHDROn)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"HDR state changed [nowHDRState={nowHDRState}]");
+            var display = InternalDisplay.Get();
+            if (display is null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Built in display not found");
 
-            IsHDROn = nowHDRState;
-            Changed?.Invoke(this, new ChangedEventArgs(nowHDRState ? HDRState.On : HDRState.Off));
-        }
+                return;
+            }
+            bool nowHDRState = display.GetAdvancedColorInfo().AdvancedColorEnabled;
+            if (nowHDRState != IsHDROn || !IsOK)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"HDR state changed [nowHDRState={nowHDRState}]");
+
+                IsHDROn = nowHDRState;
+                Changed?.Invoke(this, new ChangedEventArgs(nowHDRState ? HDRState.On : HDRState.Off));
+            }
+            IsOK = true;
+        });
     }
 }

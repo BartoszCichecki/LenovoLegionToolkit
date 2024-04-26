@@ -21,7 +21,7 @@ public class HDROnAutomationPipelineTrigger : IHDRPipelineTrigger
     {
         var listener = IoCContainer.Resolve<HDRListener>();
         var result = listener.IsHDROn;
-        return Task.FromResult(result);
+        return Task.FromResult(result && listener.IsOK);
     }
 
     public void UpdateEnvironment(AutomationEnvironment environment) => environment.HDROn = true;
