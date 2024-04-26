@@ -25,6 +25,8 @@ public interface ICompositeAutomationPipelineTrigger : IAutomationPipelineTrigge
     public IAutomationPipelineTrigger[] Triggers { get; }
 }
 
+public interface IHDRPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
+
 public interface INativeWindowsMessagePipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
 
 public interface IOnStartupAutomationPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;

@@ -11,6 +11,7 @@ public class AutomationEnvironment
     private const string DISPLAY_ON = "LLT_IS_DISPLAY_ON";
     private const string EXTERNAL_DISPLAY_CONNECTED = "LLT_IS_EXTERNAL_DISPLAY_CONNECTED";
     private const string GAME_RUNNING = "LLT_IS_GAME_RUNNING";
+    private const string HDR_ON = "LLT_IS_HDR_ON";
     private const string LID_OPEN = "LLT_IS_LID_OPEN";
     private const string STARTUP = "LLT_STARTUP";
     private const string RESUME = "LLT_RESUME";
@@ -39,6 +40,8 @@ public class AutomationEnvironment
     public bool ExternalDisplayConnected { set => _dictionary[EXTERNAL_DISPLAY_CONNECTED] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public bool GameRunning { set => _dictionary[GAME_RUNNING] = value ? VALUE_TRUE : VALUE_FALSE; }
+
+    public bool HDROn { set => _dictionary[HDR_ON] = value ? VALUE_TRUE : VALUE_FALSE; }
 
     public bool LidOpen { set => _dictionary[LID_OPEN] = value ? VALUE_TRUE : VALUE_FALSE; }
 

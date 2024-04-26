@@ -28,7 +28,7 @@ public class DisplayOffAutomationPipelineTrigger : INativeWindowsMessagePipeline
 
     public IAutomationPipelineTrigger DeepCopy() => new DisplayOffAutomationPipelineTrigger();
 
-    public override bool Equals(object? obj) => obj is DisplayOnAutomationPipelineTrigger;
+    public override bool Equals(object? obj) => obj is DisplayOffAutomationPipelineTrigger;
 
     public override int GetHashCode() => HashCode.Combine(DisplayName);
 }
