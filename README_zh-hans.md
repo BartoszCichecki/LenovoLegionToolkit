@@ -303,6 +303,12 @@ LLT 会自动在进程运行环境内添加一些可被访问的环境变量。�
 - 当断开了外置屏幕后
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
 
+- 当启用 HDR 时
+	- `LLT_IS_HDR_ON=TRUE`
+
+- 当关闭 HDR 时
+	- `LLT_IS_HDR_ON=FALSE`
+
 - 当与 Wi-Fi 连接时
 	- `LLT_WIFI_CONNECTED=TRUE`
 	- `LLT_WIFI_SSID=<value>`，`value` 的值为网络的 SSID
