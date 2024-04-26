@@ -187,7 +187,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When HDR turn off.
+        ///   Looks up a localized string similar to When HDR turns off.
         /// </summary>
         public static string HDROffAutomationPipelineTrigger_DisplayName {
             get {
@@ -196,7 +196,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When HDR turn on.
+        ///   Looks up a localized string similar to When HDR turns on.
         /// </summary>
         public static string HDROnAutomationPipelineTrigger_DisplayName {
             get {

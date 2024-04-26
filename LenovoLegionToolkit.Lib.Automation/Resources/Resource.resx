@@ -210,9 +210,9 @@
     <value>On resume</value>
   </data>
   <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When HDR turn off</value>
+    <value>When HDR turns off</value>
   </data>
   <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>When HDR turn on</value>
+    <value>When HDR turns on</value>
   </data>
 </root>
