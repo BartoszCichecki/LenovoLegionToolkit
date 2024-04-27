@@ -332,7 +332,7 @@ LLT automatically adds some variables to the process environment that can be acc
 	- `LLT_IS_HDR_ON=TRUE`
 
 - When HDR is off
-	- `LLT_IS_HDR_OF=FALSE`
+	- `LLT_IS_HDR_ON=FALSE`
 
 - When WiFi is connected
 	- `LLT_WIFI_CONNECTED=TRUE`
