@@ -460,4 +460,10 @@
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>Tắt</value>
   </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Tắt tiếng</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Bật tiếng</value>
+  </data>
 </root>
