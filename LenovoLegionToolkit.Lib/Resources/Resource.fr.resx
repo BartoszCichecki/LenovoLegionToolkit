@@ -460,4 +460,10 @@
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>Désactivé</value>
   </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Muet</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Réactiver le son</value>
+  </data>
 </root>
