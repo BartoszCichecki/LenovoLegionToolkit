@@ -610,6 +610,9 @@ Xin chân thành cảm ơn!</value>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
   </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>
   </data>
@@ -2048,7 +2051,19 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>Đợi cho đến khi hoàn thành</value>
   </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+    <value>Thực thi ứng dụng mà không hiển thị cửa sổ lệnh.</value>
+  </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Đợi cho đến khi chương trình hoặc tập lệnh thực thi xong</value>
+    <value>Đợi cho đến khi chương trình hoặc tập lệnh thực thi xong</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Loa ngoài</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Thu nhỏ về khay hệ thống</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Luôn luôn thu nhỏ về khay hệ thống thay vì thanh tác vụ.</value>
   </data>
 </root>

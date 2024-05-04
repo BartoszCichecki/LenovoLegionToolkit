@@ -2059,9 +2059,21 @@
     <value>等待运行结束</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>不新建命令行窗口运行命令行应用。</value>
+    <value>不新建命令行窗口运行命令行应用。</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>等待至程序或脚本运行结束</value>
+    <value>等待至程序或脚本运行结束</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>静音此项将静音所有可用的音频输出设备。</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>扬声器</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>最小化至托盘</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>总是最小化到托盘，而非任务栏。</value>
   </data>
 </root>

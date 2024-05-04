@@ -2050,9 +2050,21 @@ Requer reinicialização.</value>
     <value>Aguardar até terminar</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Execute aplicativos de console sem criar uma janela de console.</value>
+    <value>Execute aplicativos de console sem criar uma janela de console.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Aguarde até que o programa ou script termine de ser executado</value>
+    <value>Aguarde até que o programa ou script termine de ser executado</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Quando mutado, todos os dispositivos de saída de áudio ativos serão silenciados.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Alto-falante</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Minimizar para a Bandeja do Sistema</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Sempre minimizar para a bandeja do sistema (ignorar barra de tarefas)</value>
   </data>
 </root>

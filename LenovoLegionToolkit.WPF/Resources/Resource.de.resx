@@ -2051,9 +2051,21 @@ Unterstützte Formate sind: {1}.</value>
     <value>Warten bis fertig</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
+    <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+    <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Wenn Sie die Stummschaltung aktivieren, werden alle aktiven Audioausgangsgeräte stummgeschaltet.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Lautsprecher</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>In Infobereich minimieren</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Immer zum Infobereich anstatt zur Taskleiste minimieren.</value>
   </data>
 </root>

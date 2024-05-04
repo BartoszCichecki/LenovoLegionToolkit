@@ -446,18 +446,24 @@
     <value>Curta</value>
   </data>
   <data name="ModifierKey_Shift" xml:space="preserve">
-	  <value>Shift</value>
+    <value>Shift</value>
   </data>
   <data name="ModifierKey_Ctrl" xml:space="preserve">
-	  <value>Ctrl</value>
+    <value>Ctrl</value>
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
-	  <value>Alt</value>
+    <value>Alt</value>
   </data>
   <data name="BatteryNightChargeState_On" xml:space="preserve">
-	  <value>Ativado</value>
+    <value>Ativado</value>
   </data>
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
-	  <value>Desativado</value>
+    <value>Desativado</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Mutar</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Ativar som</value>
   </data>
 </root>

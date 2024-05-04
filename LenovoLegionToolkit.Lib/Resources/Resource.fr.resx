@@ -446,18 +446,24 @@
     <value>Courte</value>
   </data>
   <data name="ModifierKey_Shift" xml:space="preserve">
-	  <value>Maj</value>
+    <value>Maj</value>
   </data>
   <data name="ModifierKey_Ctrl" xml:space="preserve">
-	  <value>Ctrl</value>
+    <value>Ctrl</value>
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
-	  <value>Alt</value>
+    <value>Alt</value>
   </data>
   <data name="BatteryNightChargeState_On" xml:space="preserve">
-	  <value>Activé</value>
+    <value>Activé</value>
   </data>
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
-	  <value>Désactivé</value>
+    <value>Désactivé</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Muet</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Réactiver le son</value>
   </data>
 </root>

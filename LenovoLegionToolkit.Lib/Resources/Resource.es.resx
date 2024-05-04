@@ -446,18 +446,24 @@
     <value>Corta</value>
   </data>
   <data name="ModifierKey_Shift" xml:space="preserve">
-	  <value>Mayúsculas</value>
+    <value>Mayúsculas</value>
   </data>
   <data name="ModifierKey_Ctrl" xml:space="preserve">
-	  <value>Ctrl</value>
+    <value>Ctrl</value>
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
-	  <value>Alt</value>
+    <value>Alt</value>
   </data>
   <data name="BatteryNightChargeState_On" xml:space="preserve">
-	  <value>Encendido</value>
+    <value>Encendido</value>
   </data>
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
-	  <value>Apagado</value>
+    <value>Apagado</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Silenciar</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Activar sonido</value>
   </data>
 </root>

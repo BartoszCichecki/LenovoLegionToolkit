@@ -2052,9 +2052,21 @@ Desteklenen biçimler: {1}.</value>
     <value>Bitene kadar bekle</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
+    <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
+    <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Sessize alındığında tüm aktif ses çıkış cihazlarının sesi kapatılacaktır.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Hoparlör</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Sistem tepsisine küçült</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Görev çubuğu yerine, her zaman sistem tepsisine küçült.</value>
   </data>
 </root>
