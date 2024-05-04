@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayBrightnessListener(PowerPlanController powerPlanController, ApplicationSettings settings)
+public class DisplayBrightnessListener(WindowsPowerPlanController windowsPowerPlanController, ApplicationSettings settings)
     : AbstractWMIListener<DisplayBrightnessListener.ChangedEventArgs, Brightness, byte>(WMI.WmiMonitorBrightnessEvent.Listen)
 {
     public class ChangedEventArgs(Brightness brightness) : EventArgs
@@ -42,14 +42,14 @@ public class DisplayBrightnessListener(PowerPlanController powerPlanController, 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting brightness to {brightness.Value}...");
 
-            var powerPlans = powerPlanController.GetPowerPlans(true, true);
+            var powerPlans = windowsPowerPlanController.GetPowerPlans();
 
             foreach (var powerPlan in powerPlans)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Modifying power plan {powerPlan.Name}... [powerPlan.Guid={powerPlan.Guid}, powerPlan.IsOverlay={powerPlan.IsOverlay}, brightness={brightness.Value}]");
+                    Log.Instance.Trace($"Modifying power plan {powerPlan.Name}... [powerPlan.Guid={powerPlan.Guid}, brightness={brightness.Value}]");
 
-                powerPlanController.SetPowerPlanParameter(powerPlan, brightness);
+                windowsPowerPlanController.SetPowerPlanParameter(powerPlan, brightness);
             }
 
             if (Log.Instance.IsTraceEnabled)

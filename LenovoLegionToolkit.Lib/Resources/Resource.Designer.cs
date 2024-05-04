@@ -547,6 +547,33 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Disabled.
+        /// </summary>
+        public static string PowerModeMappingMode_Disabled {
+            get {
+                return ResourceManager.GetString("PowerModeMappingMode_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Mode.
+        /// </summary>
+        public static string PowerModeMappingMode_WindowsPowerMode {
+            get {
+                return ResourceManager.GetString("PowerModeMappingMode_WindowsPowerMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Plan.
+        /// </summary>
+        public static string PowerModeMappingMode_WindowsPowerPlan {
+            get {
+                return ResourceManager.GetString("PowerModeMappingMode_WindowsPowerPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Balance.
         /// </summary>
         public static string PowerModeState_Balance {

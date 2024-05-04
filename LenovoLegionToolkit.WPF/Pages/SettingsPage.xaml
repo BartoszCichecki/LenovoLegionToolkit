@@ -220,18 +220,44 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Power_Title}" />
 
+        <custom:CardControl x:Name="_powerModeMappingCard" Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="Power Mode Synchronization" Subtitle="Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes." />
+            </custom:CardControl.Header>
+            <ComboBox
+                x:Name="_powerModeMappingComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="Power Mode Synchronization"
+                MaxDropDownHeight="Auto"
+                SelectionChanged="PowerModeMappingComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
         <custom:CardAction
-            x:Name="_powerPlansCard"
+            x:Name="_powerModesCard"
             Margin="0,0,0,8"
-            Click="PowerPlans_Click">
+            Click="PowerModes_Click">
             <custom:CardAction.Content>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlans_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_PowerPlans_Message}" />
+                <controls:CardHeaderControl Title="Windows Power Modes" Subtitle="Select Windows Power Mode to apply when Power Mode changes." />
             </custom:CardAction.Content>
         </custom:CardAction>
 
-        <custom:CardControl Margin="0,0,0,8" Click="PowerPlansControlPanel_Click">
+        <custom:CardAction
+            x:Name="_windowsPowerPlansCard"
+            Margin="0,0,0,8"
+            Click="WindowsPowerPlans_Click">
+            <custom:CardAction.Content>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_WindowsPowerPlans_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_WindowsPowerPlans_Message}" />
+            </custom:CardAction.Content>
+        </custom:CardAction>
+
+        <custom:CardControl
+            x:Name="_windowsPowerPlansControlPanelCard"
+            Margin="0,0,0,8"
+            Click="WindowsPowerPlansControlPanel_Click">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerPlansControlPanel_Title}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_WindowsPowerPlansControlPanel_Title}" />
             </custom:CardControl.Header>
             <wpfui:SymbolIcon
                 Margin="4,0,0,0"
@@ -239,7 +265,7 @@
                 Symbol="Open24" />
         </custom:CardControl>
 
-        <custom:CardControl Margin="0,0,0,24">
+        <custom:CardControl Margin="0,16,0,8">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_OnBatterySinceReset_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_OnBatterySinceReset_Message}" />
             </custom:CardControl.Header>

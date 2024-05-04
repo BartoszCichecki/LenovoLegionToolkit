@@ -1230,7 +1230,7 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifications</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Modes de gestion de l'alimentation</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1710,13 +1710,13 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de modes de gestion d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Sélectionnez les modes de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Alimentation</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Options du mode de gestion d'alimentation dans le panneau de configuration de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">

@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener(PowerPlanController powerPlanController)
+public class ThermalModeListener(WindowsPowerPlanController windowsPowerPlanController)
     : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>(
         WMI.LenovoGameZoneThermalModeEvent.Listen)
 {
@@ -49,16 +49,16 @@ public class ThermalModeListener(PowerPlanController powerPlanController)
         switch (state)
         {
             case ThermalModeState.Quiet:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
+                await windowsPowerPlanController.SetPowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
                 break;
             case ThermalModeState.Balance:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
+                await windowsPowerPlanController.SetPowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
                 break;
             case ThermalModeState.Performance:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
+                await windowsPowerPlanController.SetPowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
                 break;
             case ThermalModeState.GodMode:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
+                await windowsPowerPlanController.SetPowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
                 break;
         }
     }

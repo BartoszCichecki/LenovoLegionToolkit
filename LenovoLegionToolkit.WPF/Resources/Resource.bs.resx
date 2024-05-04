@@ -731,7 +731,7 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimiziraj pri zatvaranju</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Planovi napajanja</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">

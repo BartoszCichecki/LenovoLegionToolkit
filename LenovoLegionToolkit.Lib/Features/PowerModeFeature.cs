@@ -17,7 +17,7 @@ public class PowerModeUnavailableWithoutACException(PowerModeState powerMode) : 
 
 public class PowerModeFeature(
     GodModeController godModeController,
-    PowerPlanController powerPlanController,
+    WindowsPowerPlanController windowsPowerPlanController,
     ThermalModeListener thermalModeListener,
     PowerModeListener powerModeListener)
     : AbstractWmiFeature<PowerModeState>(WMI.LenovoGameZoneData.GetSmartFanModeAsync, WMI.LenovoGameZoneData.SetSmartFanModeAsync, WMI.LenovoGameZoneData.IsSupportSmartFanAsync, 1)
@@ -87,7 +87,7 @@ public class PowerModeFeature(
     public async Task EnsureCorrectPowerPlanIsSetAsync()
     {
         var state = await GetStateAsync().ConfigureAwait(false);
-        await powerPlanController.SetPowerPlanAsync(state, true).ConfigureAwait(false);
+        await windowsPowerPlanController.SetPowerPlanAsync(state, true).ConfigureAwait(false);
     }
 
     public async Task EnsureGodModeStateIsAppliedAsync()
