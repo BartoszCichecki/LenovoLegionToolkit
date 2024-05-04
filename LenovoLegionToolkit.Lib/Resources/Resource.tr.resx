@@ -460,4 +460,10 @@
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>Kapalı</value>
   </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Sustur</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Sesi aç</value>
+  </data>
 </root>
