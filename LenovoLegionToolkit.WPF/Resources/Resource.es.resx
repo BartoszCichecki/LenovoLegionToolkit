@@ -2059,4 +2059,16 @@ Requiere un reinicio.</value>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
     <value>Esperar a que el programa o script termine de ejecutarse</value>
   </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Al silenciar, se silenciarán todos los dispositivos de salida de audio activos.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Altavoz</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Minimizar en la bandeja</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Minimizar siempre en la bandeja en lugar de en la barra de tareas.</value>
+  </data>
 </root>
