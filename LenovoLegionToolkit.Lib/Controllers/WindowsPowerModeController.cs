@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class WindowsPowerModeController
+public partial class WindowsPowerModeController(ApplicationSettings settings)
 {
     private const string POWER_SCHEMES_HIVE = "HKEY_LOCAL_MACHINE";
     private const string POWER_SCHEMES_SUBKEY = "SYSTEM\\CurrentControlSet\\Control\\Power\\User\\PowerSchemes";
@@ -13,6 +17,29 @@ public class WindowsPowerModeController
 
     private static readonly Guid BestPowerEfficiency = new("961cc777-2547-4f9d-8174-7d86181b8a7a");
     private static readonly Guid BestPerformance = new("ded574b5-45a0-4f42-8737-46345c09c238");
+
+    public Task SetPowerModeAsync(PowerModeState powerModeState)
+    {
+        if (settings.Store.PowerModeMappingMode is not PowerModeMappingMode.WindowsPowerMode)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Ignoring... [powerModeMappingMode={settings.Store.PowerModeMappingMode}]");
+            return Task.CompletedTask;
+        }
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Activating... [powerModeState={powerModeState}]");
+
+        var powerMode = settings.Store.PowerModes.GetValueOrDefault(powerModeState, WindowsPowerMode.Balanced);
+        var powerModeGuid = GuidForWindowsPowerMode(powerMode);
+
+        if (!Power.IsEnergySaverEnabled())
+            _ = PowerSetActiveOverlayScheme(powerModeGuid);
+
+        UpdateRegistry(powerModeGuid);
+
+        return Task.CompletedTask;
+    }
 
     private static void UpdateRegistry(Guid guid)
     {
@@ -27,6 +54,6 @@ public class WindowsPowerModeController
         _ => Guid.Empty
     };
 
-    [DllImport("powrprof.dll", EntryPoint = "PowerSetActiveOverlayScheme")]
-    private static extern uint PowerSetActiveOverlayScheme(Guid guid);
+    [LibraryImport("powrprof.dll", EntryPoint = "PowerSetActiveOverlayScheme")]
+    private static partial uint PowerSetActiveOverlayScheme(Guid guid);
 }

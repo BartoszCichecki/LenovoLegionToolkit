@@ -6,7 +6,9 @@ using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class PowerModeListener(WindowsPowerPlanController windowsPowerPlanController)
+public class PowerModeListener(
+    WindowsPowerModeController windowsPowerModeController,
+    WindowsPowerPlanController windowsPowerPlanController)
     : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent.Listen), INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
 {
     public class ChangedEventArgs(PowerModeState state) : EventArgs
@@ -36,6 +38,7 @@ public class PowerModeListener(WindowsPowerPlanController windowsPowerPlanContro
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
+        await windowsPowerModeController.SetPowerModeAsync(value).ConfigureAwait(false);
         await windowsPowerPlanController.SetPowerPlanAsync(value).ConfigureAwait(false);
     }
 

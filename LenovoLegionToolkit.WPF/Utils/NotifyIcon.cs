@@ -15,8 +15,6 @@ using Windows.Win32.UI.Shell;
 using Windows.Win32.UI.WindowsAndMessaging;
 using Wpf.Ui.Controls;
 
-#pragma warning disable CA1416
-
 namespace LenovoLegionToolkit.WPF.Utils;
 
 public class NotifyIcon : NativeWindow, IDisposable

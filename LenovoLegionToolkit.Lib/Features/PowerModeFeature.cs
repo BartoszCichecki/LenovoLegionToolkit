@@ -17,6 +17,7 @@ public class PowerModeUnavailableWithoutACException(PowerModeState powerMode) : 
 
 public class PowerModeFeature(
     GodModeController godModeController,
+    WindowsPowerModeController windowsPowerModeController,
     WindowsPowerPlanController windowsPowerPlanController,
     ThermalModeListener thermalModeListener,
     PowerModeListener powerModeListener)
@@ -87,6 +88,7 @@ public class PowerModeFeature(
     public async Task EnsureCorrectPowerPlanIsSetAsync()
     {
         var state = await GetStateAsync().ConfigureAwait(false);
+        await windowsPowerModeController.SetPowerModeAsync(state).ConfigureAwait(false);
         await windowsPowerPlanController.SetPowerPlanAsync(state, true).ConfigureAwait(false);
     }
 
