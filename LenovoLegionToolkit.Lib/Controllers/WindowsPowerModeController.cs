@@ -36,7 +36,7 @@ public partial class WindowsPowerModeController(ApplicationSettings settings)
         if (Power.IsBatterySaverEnabled())
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Battery saver is on.");
+                Log.Instance.Trace($"Battery saver is on - will not set overlay scheme.");
         }
         else
         {
