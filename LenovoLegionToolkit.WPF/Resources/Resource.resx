@@ -2050,4 +2050,7 @@ Supported formats are: {1}.</value>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
     <value>Always minimize to tray instead of taskbar.</value>
   </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+	  <value>Windows Power Modes</value>
+  </data>
 </root>

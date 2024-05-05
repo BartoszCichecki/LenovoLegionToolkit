@@ -5697,6 +5697,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Windows Power Modes.
+        /// </summary>
+        public static string WindowsPowerModesWindow_Title {
+            get {
+                return ResourceManager.GetString("WindowsPowerModesWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Default.
         /// </summary>
         public static string WindowsPowerPlansWindow_DefaultPowerPlan {

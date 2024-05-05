@@ -9,7 +9,7 @@
     xmlns:resourcesLib="clr-namespace:LenovoLegionToolkit.Lib.Resources;assembly=LenovoLegionToolkit.Lib"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
-    Title="Windows Power Modes"
+    Title="{x:Static resources:Resource.WindowsPowerModesWindow_Title}"
     Width="600"
     MinWidth="500"
     MaxWidth="800"
@@ -46,7 +46,7 @@
                 VerticalAlignment="Center"
                 FontSize="12"
                 IsHitTestVisible="False"
-                Text="Windows Power Modes" />
+                Text="{x:Static resources:Resource.WindowsPowerModesWindow_Title}" />
 
         </Grid>
 
