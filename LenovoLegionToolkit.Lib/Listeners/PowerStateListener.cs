@@ -145,7 +145,7 @@ public class PowerStateListener : IListener<PowerStateListener.ChangedEventArgs>
 
                 if (await _powerModeFeature.IsSupportedAsync().ConfigureAwait(false))
                 {
-                    await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync().ConfigureAwait(false);
+                    await _powerModeFeature.EnsureCorrectWindowsPowerSettingsAreSetAsync().ConfigureAwait(false);
                     await _powerModeFeature.EnsureGodModeStateIsAppliedAsync().ConfigureAwait(false);
                 }
 

@@ -534,6 +534,11 @@ public partial class SettingsPage
 
     private void PowerModes_Click(object sender, RoutedEventArgs e)
     {
+        if (_isRefreshing)
+            return;
+
+        var window = new WindowsPowerModesWindow { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
     }
 
     private void WindowsPowerPlansControlPanel_Click(object sender, RoutedEventArgs e)

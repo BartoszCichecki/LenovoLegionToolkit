@@ -85,7 +85,7 @@ public class PowerModeFeature(
         await powerModeListener.NotifyAsync(state).ConfigureAwait(false);
     }
 
-    public async Task EnsureCorrectPowerPlanIsSetAsync()
+    public async Task EnsureCorrectWindowsPowerSettingsAreSetAsync()
     {
         var state = await GetStateAsync().ConfigureAwait(false);
         await windowsPowerModeController.SetPowerModeAsync(state).ConfigureAwait(false);

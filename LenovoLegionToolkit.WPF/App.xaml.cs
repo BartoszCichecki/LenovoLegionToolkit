@@ -406,7 +406,7 @@ public partial class App
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Ensuring correct power plan is set...");
 
-                await feature.EnsureCorrectPowerPlanIsSetAsync();
+                await feature.EnsureCorrectWindowsPowerSettingsAreSetAsync();
             }
         }
         catch (Exception ex)

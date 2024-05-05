@@ -74,7 +74,7 @@ public partial class WindowsPowerPlansWindow
         _settings.Store.PowerPlans[powerModeState] = windowsPowerPlan.Guid;
         _settings.SynchronizeStore();
 
-        await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
+        await _powerModeFeature.EnsureCorrectWindowsPowerSettingsAreSetAsync();
     }
 
     private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
