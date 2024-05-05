@@ -15,8 +15,8 @@ public partial class WindowsPowerModeController(ApplicationSettings settings)
     private const string ACTIVE_OVERLAY_AC_POWER_SCHEME_KEY = "ActiveOverlayAcPowerScheme";
     private const string ACTIVE_OVERLAY_DC_POWER_SCHEME_KEY = "ActiveOverlayDcPowerScheme";
 
-    private static readonly Guid BestPowerEfficiency = new("961cc777-2547-4f9d-8174-7d86181b8a7a");
-    private static readonly Guid BestPerformance = new("ded574b5-45a0-4f42-8737-46345c09c238");
+    private static readonly Guid BestPowerEfficiency = Guid.Parse("961cc777-2547-4f9d-8174-7d86181b8a7a");
+    private static readonly Guid BestPerformance = Guid.Parse("ded574b5-45a0-4f42-8737-46345c09c238");
 
     public Task SetPowerModeAsync(PowerModeState powerModeState)
     {
@@ -33,10 +33,23 @@ public partial class WindowsPowerModeController(ApplicationSettings settings)
         var powerMode = settings.Store.PowerModes.GetValueOrDefault(powerModeState, WindowsPowerMode.Balanced);
         var powerModeGuid = GuidForWindowsPowerMode(powerMode);
 
-        if (!Power.IsEnergySaverEnabled())
-            _ = PowerSetActiveOverlayScheme(powerModeGuid);
+        if (Power.IsBatterySaverEnabled())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Battery saver is on.");
+        }
+        else
+        {
+            var result = PowerSetActiveOverlayScheme(powerModeGuid);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Overlay scheme set. [result={result}]");
+        }
 
         UpdateRegistry(powerModeGuid);
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Power mode {powerMode} activated... [powerModeState={powerModeState}, powerModeGuid={powerModeGuid}]");
 
         return Task.CompletedTask;
     }

@@ -24,7 +24,7 @@ public static class Power
         };
     }
 
-    public static bool IsEnergySaverEnabled()
+    public static bool IsBatterySaverEnabled()
     {
         if (!PInvoke.GetSystemPowerStatus(out var sps))
             return false;
