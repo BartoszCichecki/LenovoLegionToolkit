@@ -1012,30 +1012,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Выбранный режим питания может работать некорректно, если блок питания не подключен.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Включение этой опции во время работы Lenovo Vantage и изменения схем питания на ноутбуке может привести к неожиданным последствиям.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Вы уверены?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Сбалансированный режим</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Пользовательский режим</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>По умолчанию</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Режим макс. производительности</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Тихий режим</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Схемы питания</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Настройть пресет подсветки клавиатуры.</value>
   </data>
@@ -1228,9 +1204,6 @@
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Уведомления</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Схемы питания</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Назначить быстрое действие на двойное нажатие Fn+F9.</value>
@@ -1709,14 +1682,8 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Выберите схемы питания Windows, которые будут применяться при изменении режима питания.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Питание</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Параметры схемы питания в панели управления Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Отключен</value>
