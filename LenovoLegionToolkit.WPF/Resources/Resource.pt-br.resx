@@ -1011,30 +1011,6 @@ Você pode alternar entre os modos pressionando Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>O modo de energia selecionado pode não funcionar corretamente sem o carregador conectado.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>A ativação dessa opção quando o Lenovo Vantage ou seus serviços estão em execução e altera os planos de energia em seu notebook pode resultar em um comportamento inesperado.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Você tem certeza?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Modo equilibrado</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Modo personalizado</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Padrão </value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Modo performance</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Modo silencioso</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Planos de Energia</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Ajustar a predefinição da luz de fundo do teclado.</value>
   </data>
@@ -1227,9 +1203,6 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notificações</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Planos de Energia</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Atribuir Função Rápida ao pressionar a tecla Fn+F9 duas vezes.</value>
@@ -1708,14 +1681,8 @@ Esta configuração somente terá efeito se o Modo Personalizado estiver ativo.<
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Esta versão do Windows suporta o modo de espera moderno. Usar planos de energia diferentes do Balanceado pode causar comportamentos inesperados.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Selecione Planos de energia do Windows a serem aplicados quando o Modo de energia for alterado.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Energia</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Opções do plano de energia no painel de controle do Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Desligado</value>
@@ -2062,9 +2029,9 @@ Requer reinicialização.</value>
     <value>Alto-falante</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>Minimizar para a Bandeja do Sistema</value>
+    <value>Minimizar para a Bandeja do Sistema</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Sempre minimizar para a bandeja do sistema (ignorar barra de tarefas)</value>
+    <value>Sempre minimizar para a bandeja do sistema (ignorar barra de tarefas)</value>
   </data>
 </root>
