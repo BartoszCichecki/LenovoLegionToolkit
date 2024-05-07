@@ -613,9 +613,6 @@ Uvijek provjerite da li instalirate ispravne pakete.</value>
   <data name="PowerModeControl_Title" xml:space="preserve">
     <value>Režim rada</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Da li ste sigurni?</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Prilagodite pozadinsko osvjetljenje tastature.</value>
   </data>
@@ -730,9 +727,6 @@ Startup is delayed by 30 seconds for compatibility reasons.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Minimiziraj pri zatvaranju</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Planovi napajanja</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Postavite svijetlu temu, tamnu tamu ili pratite sistemske postavke.</value>

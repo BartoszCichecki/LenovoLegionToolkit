@@ -1009,30 +1009,6 @@ Jūs varat režīmus mainīt ar Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Izvēlētais barošanas režīms var nedarboties pareizi, ja nav pievienots maiņstrāvas adapteris.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Iespējojot šo opciju, ja darbojas Lenovo Vantage vai tā servisi un tie maina barošanas plānus klēpjdatorā, var rasties neparedzēta darbība.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Vai esat pārliecināts?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Balancētais režīms</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Pielāgotais režīms</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Noklusējums</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Veiktspējas režīms</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Klusais režīms</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Barošanas Plāni</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Pielāgojiet tastatūras fona apgaismojuma iestatījumu.</value>
   </data>
@@ -1225,9 +1201,6 @@ Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Paziņojumi</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Barošanas Plāni</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Piešķiriet Ātro Darbību fn + F9 dubultai nospiešanai.</value>
@@ -1706,14 +1679,8 @@ Peles pārvietošana vai tastatūras nospiešana pamodinās ekrānus.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows ziņo, ka šī ierīce atbalsta Moderno Gaidstāvi. Enerģijas plānu izmantošana, kas nav Līdzsvarots, var izraisīt negaidītu rīcību.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Atlasiet Windows Barošanas Plānus, kas jālieto, mainot Barošanas Režīmu.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Jauda</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Barošanas Plāna opcijas Windows Vadības Panelī</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Izslēgts</value>

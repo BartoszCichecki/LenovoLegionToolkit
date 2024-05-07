@@ -1012,30 +1012,6 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Lenovo Vantage veya hizmetleri çalışırken ve dizüstü bilgisayarınızın güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Emin misiniz?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Denge Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Özel Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Varsayılan</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Performans Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Sessiz Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Güç planları</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Klavye ışıklarını ayarlayın.</value>
   </data>
@@ -1228,9 +1204,6 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Bildirimler</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Güç planları</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Fn+F9'a çift basışa Hızlı İşlem atayın.</value>
@@ -1709,14 +1682,8 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Güç</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Windows Denetim Masası'ndaki Güç Planı seçenekleri</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Güç Kapatıldı</value>
@@ -2064,9 +2031,9 @@ Desteklenen biçimler: {1}.</value>
     <value>Hoparlör</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>Sistem tepsisine küçült</value>
+    <value>Sistem tepsisine küçült</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Görev çubuğu yerine, her zaman sistem tepsisine küçült.</value>
+    <value>Görev çubuğu yerine, her zaman sistem tepsisine küçült.</value>
   </data>
 </root>

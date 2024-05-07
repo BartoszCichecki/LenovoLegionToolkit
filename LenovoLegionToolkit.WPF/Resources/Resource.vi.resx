@@ -1012,30 +1012,6 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Chế độ được lựa chọn có thể không hoạt động nếu không được kết nối nguồn điện ngoài.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Bật tùy chọn này khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy khiến thay đổi Power plans của Laptop và có thể gây ra lỗi.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Bạn chắc chứ?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Cân Bằng</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Tùy Chỉnh</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Mặc định</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Hiệu Suất</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Im Lặng</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Power Plans</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Thay đổi tùy chọn đèn nền bàn phím.</value>
   </data>
@@ -1228,9 +1204,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Thông báo</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Power plans</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Gán hành động nhanh khi gõ đúp tổ hợp phím Fn+F9.</value>
@@ -1709,14 +1682,8 @@ Chỉ hoạt động khi chế độ Tùy Chỉnh đang bật.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows báo rằng thiết bị này hỗ trợ Modern Standby. Dùng power plan khác ngoài Balance có thể gây ra lỗi ngoài ý muốn.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Chọn Windows Power Plan được sử dụng tương ứng khi thay đổi Chế độ hiệu năng.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Nguồn</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Tùy chỉnh Power Plan trong Windows Control Panel</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ngắt kích hoạt</value>
@@ -2061,9 +2028,9 @@ Các định dạng hỗ trợ: {1}.</value>
     <value>Loa ngoài</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>Thu nhỏ về khay hệ thống</value>
+    <value>Thu nhỏ về khay hệ thống</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Luôn luôn thu nhỏ về khay hệ thống thay vì thanh tác vụ.</value>
+    <value>Luôn luôn thu nhỏ về khay hệ thống thay vì thanh tác vụ.</value>
   </data>
 </root>
