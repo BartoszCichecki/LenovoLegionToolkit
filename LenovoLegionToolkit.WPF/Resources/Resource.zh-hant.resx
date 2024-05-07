@@ -1010,30 +1010,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>當 Lenovo Vantage 或其相關服務正在執行且變更筆記型電腦上的電源計劃時，啟用此選項可能會導致未預期的行為。</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>您確定嗎？</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>平衡模式</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>客製化模式</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>預設</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>效能模式</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>安靜模式</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>電源計劃</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>調整鍵盤背光預設。</value>
   </data>
@@ -1226,9 +1202,6 @@
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>通知</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>電源計劃</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>指派雙重點擊 Fn+F9 的快捷功能。</value>
@@ -1707,14 +1680,8 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows 回報裝置支援新式待命（Modern Standby）。使用平衡以外的電源計劃可能導致未預期的行為。</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>選擇電源模式變更時要套用的 Windows 電源計劃。</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>電源</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>開啟 Windows 控制台中的電源計劃選項</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>關閉電源</value>
