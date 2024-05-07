@@ -1005,27 +1005,6 @@ Môžete prepnúť pomocou Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Vybraný režim výkonu nemusí pracovať správne bez pripojeného sieťového adaptéra.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Ste si istý?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Vyvážený režim</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Vlastný režim</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Predvolený</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Výkonný režim</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Tichý režim</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Plány napájania</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Upraviť predvoľbu podsvietenia klávesnice.</value>
   </data>
@@ -1212,9 +1191,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Upozornenia</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Plány napájania</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Priradiť Rýchlu akciu na dve stlačenia Fn+F9.</value>
@@ -1693,14 +1669,8 @@ Nastavenia sú účinne len keď je povolený vlastný režim.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows hlási, že toto zariadenie podporuje moderný pohotovostný režim. Použitie iného ako vyváženého plánu napájania môže spôsobiť neočakávané chovanie.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Vyberte, ktoré plány napájania Windows použiť pri zmene režimu výkonu.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Napájanie</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Možnosti plánu napájanie v ovládacom paneli Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Vypnutá</value>
