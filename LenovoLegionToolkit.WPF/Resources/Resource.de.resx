@@ -1011,30 +1011,6 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Der gewählte Leistungsmodus funktioniert möglicherweise nicht richtig, wenn kein Netzteil angeschlossen ist.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Wenn Sie diese Option aktivieren, während Lenovo Vantage oder die zugehörigen Dienste ausgeführt werden und den Energiesparplan Ihres Laptops ändern, kann dies zu unerwartetem Verhalten führen.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Sind Sie sicher?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Ausgeglichener Modus</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Benutzerdefinierter Modus</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Standard</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Leistungsmodus</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Stiller Modus</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Energiesparpläne</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Vorlage der Tastaturbeleuchtung einstellen.</value>
   </data>
@@ -1227,9 +1203,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Benachrichtigungen</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Energiesparpläne</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Weise einen Kurzbefehl für zweimaliges betätigen von Fn+F9 zu.</value>
@@ -1708,14 +1681,8 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Wählen Sie Windows-Energiepläne aus, die bei einer Änderung des Energiemodus angewendet werden sollen.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Energie</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Energieplanoptionen in der Windows-Systemsteuerung</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Ausgeschaltet</value>
@@ -2063,9 +2030,9 @@ Unterstützte Formate sind: {1}.</value>
     <value>Lautsprecher</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>In Infobereich minimieren</value>
+    <value>In Infobereich minimieren</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Immer zum Infobereich anstatt zur Taskleiste minimieren.</value>
+    <value>Immer zum Infobereich anstatt zur Taskleiste minimieren.</value>
   </data>
 </root>
