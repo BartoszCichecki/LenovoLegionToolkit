@@ -1013,30 +1013,6 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Le mode d'alimentation sélectionné peut ne pas fonctionner correctement sans adaptateur secteur connecté.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>L'activation de cette option lorsque Lenovo Vantage ou ses services sont en cours d'exécution et qu'ils modifient les plans d'alimentation de votre ordinateur portable peut entraîner un comportement inattendu.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Êtes-vous sûr ?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Mode équilibré</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Mode personnalisé</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Par défaut</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Mode performance</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Mode silencieux</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Modes de gestion de l'alimentation</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Ajustez le préréglage du rétroéclairage du clavier.</value>
   </data>
@@ -1229,9 +1205,6 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifications</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Modes de gestion de l'alimentation</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assignez l'action rapide au double appui Fn+F9.</value>
@@ -1710,14 +1683,8 @@ Ce paramètre ne prend effet que lorsque le mode personnalisé est activé.</val
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows signale que ce périphérique prend en charge la mise en veille moderne. L'utilisation de modes de gestion d'alimentation autres qu'équilibré peut entraîner un comportement inattendu.</value>
   </data>
-  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
-    <value>Sélectionnez les modes de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
-  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Alimentation</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
-    <value>Options du mode de gestion d'alimentation dans le panneau de configuration de Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Désactivé</value>
@@ -2063,9 +2030,9 @@ Nécessite un redémarrage.</value>
     <value>Haut-parleur</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>Réduire dans la zone de notification</value>
+    <value>Réduire dans la zone de notification</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Toujours réduire dans la zone de notification au lieu de la barre des tâches.</value>
+    <value>Toujours réduire dans la zone de notification au lieu de la barre des tâches.</value>
   </data>
 </root>
