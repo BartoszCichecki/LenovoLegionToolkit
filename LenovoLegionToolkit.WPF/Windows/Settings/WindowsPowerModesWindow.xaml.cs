@@ -74,19 +74,19 @@ public partial class WindowsPowerModesWindow
 
     private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_quietModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
+        if (_balanceModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
             await WindowsPowerModeChangedAsync(windowsPowerMode, PowerModeState.Balance);
     }
 
     private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_quietModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
+        if (_performanceModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
             await WindowsPowerModeChangedAsync(windowsPowerMode, PowerModeState.Performance);
     }
 
     private async void GodModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_quietModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
+        if (_godModeComboBox.TryGetSelectedItem(out WindowsPowerMode windowsPowerMode))
             await WindowsPowerModeChangedAsync(windowsPowerMode, PowerModeState.GodMode);
     }
 }

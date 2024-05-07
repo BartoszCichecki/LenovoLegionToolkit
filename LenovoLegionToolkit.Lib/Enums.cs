@@ -612,10 +612,10 @@ public enum WhiteKeyboardBacklightState
 
 public enum WindowsPowerMode
 {
-    [Display(Name = "Balanced")]
-    Balanced,
     [Display(Name = "Best power efficiency")]
     BestPowerEfficiency,
+    [Display(Name = "Balanced")]
+    Balanced,
     [Display(Name = "Best performance")]
     BestPerformance
 }
