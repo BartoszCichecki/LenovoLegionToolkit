@@ -974,27 +974,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>قد لا يعمل وضع الطاقة المحدد بشكل صحيح بِدون توصيل محول التيار المتردد.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>هل أنت متأكد؟</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>وضع التوازن</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>وضع مخصص</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>الافتراضي</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>وضع الأداء</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>وضع السكون أو الهدوء</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>أوضاع أو خطط الطاقة</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>اضبط الإعداد المسبق للإضاءة الخلفية للوحة المفاتيح.</value>
   </data>
@@ -1159,9 +1138,6 @@
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>الإشعارات</value>
-  </data>
-  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>أوضاع أو خطط الطاقة</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>قم بتعيين إجراء سريع للضغط المزدوج على Fn + F9.</value>
