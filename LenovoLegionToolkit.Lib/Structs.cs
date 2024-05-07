@@ -454,24 +454,23 @@ public readonly struct Notification(NotificationType type, params object[] args)
     public override string ToString() => $@"{nameof(Type)}: {Type}, {nameof(Args)}: [{string.Join(", ", Args)}]";
 }
 
-public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isOverlay)
+public readonly struct WindowsPowerPlan(Guid guid, string name, bool isActive)
 {
     public Guid Guid { get; } = guid;
     public string Name { get; } = name;
     public bool IsActive { get; } = isActive;
-    public bool IsOverlay { get; } = isOverlay;
 
-    public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}, {nameof(IsOverlay)}: {IsOverlay}";
+    public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}";
 
     #region Equality
 
-    public override bool Equals(object? obj) => obj is PowerPlan other && Guid.Equals(other.Guid);
+    public override bool Equals(object? obj) => obj is WindowsPowerPlan other && Guid.Equals(other.Guid);
 
     public override int GetHashCode() => Guid.GetHashCode();
 
-    public static bool operator ==(PowerPlan left, PowerPlan right) => left.Equals(right);
+    public static bool operator ==(WindowsPowerPlan left, WindowsPowerPlan right) => left.Equals(right);
 
-    public static bool operator !=(PowerPlan left, PowerPlan right) => !left.Equals(right);
+    public static bool operator !=(WindowsPowerPlan left, WindowsPowerPlan right) => !left.Equals(right);
 
     #endregion
 }

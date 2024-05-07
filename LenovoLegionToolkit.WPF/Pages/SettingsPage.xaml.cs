@@ -110,7 +110,14 @@ public partial class SettingsPage
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
-        _powerPlansCard.Visibility = await _powerModeFeature.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
+        _powerModeMappingComboBox.SetItems(Enum.GetValues<PowerModeMappingMode>(), _settings.Store.PowerModeMappingMode, t => t.GetDisplayName());
+
+        var isPowerModeFeatureSupported = await _powerModeFeature.IsSupportedAsync();
+        _powerModeMappingCard.Visibility = isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+        _powerModesCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerMode && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+        _windowsPowerPlansCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerPlan && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+        _windowsPowerPlansControlPanelCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerPlan && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+
         _onBatterySinceResetToggle.Visibility = Visibility.Visible;
 
         _hwinfoIntegrationToggle.IsChecked = _integrationsSettings.Store.HWiNFO;
@@ -126,6 +133,7 @@ public partial class SettingsPage
         _fnKeysToggle.Visibility = Visibility.Visible;
         _smartFnLockComboBox.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
+        _powerModeMappingComboBox.Visibility = Visibility.Visible;
         _hwinfoIntegrationToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
@@ -499,16 +507,42 @@ public partial class SettingsPage
         window.ShowDialog();
     }
 
-    private void PowerPlans_Click(object sender, RoutedEventArgs e)
+    private async void PowerModeMappingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (_isRefreshing)
             return;
 
-        var window = new PowerPlansWindow { Owner = Window.GetWindow(this) };
+        if (!_powerModeMappingComboBox.TryGetSelectedItem(out PowerModeMappingMode powerModeMappingMode))
+            return;
+
+        _settings.Store.PowerModeMappingMode = powerModeMappingMode;
+        _settings.SynchronizeStore();
+
+        var isPowerModeFeatureSupported = await _powerModeFeature.IsSupportedAsync();
+        _powerModesCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerMode && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+        _windowsPowerPlansCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerPlan && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+        _windowsPowerPlansControlPanelCard.Visibility = _settings.Store.PowerModeMappingMode == PowerModeMappingMode.WindowsPowerPlan && isPowerModeFeatureSupported ? Visibility.Visible : Visibility.Collapsed;
+    }
+
+    private void WindowsPowerPlans_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var window = new WindowsPowerPlansWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
     }
 
-    private void PowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
+    private void PowerModes_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var window = new WindowsPowerModesWindow { Owner = Window.GetWindow(this) };
+        window.ShowDialog();
+    }
+
+    private void WindowsPowerPlansControlPanel_Click(object sender, RoutedEventArgs e)
     {
         Process.Start("control", "/name Microsoft.PowerOptions");
     }

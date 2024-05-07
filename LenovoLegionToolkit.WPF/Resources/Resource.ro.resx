@@ -1184,7 +1184,7 @@ Se recomandă repornirea după modificarea acestei opțiuni.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notificări</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Planuri de alimentare</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">

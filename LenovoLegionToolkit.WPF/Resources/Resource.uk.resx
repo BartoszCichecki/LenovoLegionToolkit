@@ -1226,7 +1226,7 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Сповіщення</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Плани живлення</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1706,13 +1706,13 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows повідомляє, що цей ноутбук підтримує Modern StandBy. Використання планів живлення, відмінних від Збалансованого, може призвести до неочікуваної поведінки.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Оберіть плани живлення Windows, які буде застосовано при зміні режиму живлення.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Потужність</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Плани живлення у панелі управління Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">

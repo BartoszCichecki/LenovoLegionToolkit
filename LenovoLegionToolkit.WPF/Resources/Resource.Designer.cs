@@ -3925,24 +3925,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabling this option when Lenovo Vantage or its services are running and it changes power plans on your laptop might result in unexpected behavior..
-        /// </summary>
-        public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Are you sure?.
-        /// </summary>
-        public static string PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Windows reports that this laptop supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior..
         /// </summary>
         public static string PowerPlansWindow_AoAcWarning_Message {
@@ -3957,60 +3939,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PowerPlansWindow_AoAcWarning_Title {
             get {
                 return ResourceManager.GetString("PowerPlansWindow_AoAcWarning_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Balance mode.
-        /// </summary>
-        public static string PowerPlansWindow_BalanceMode {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_BalanceMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Custom mode.
-        /// </summary>
-        public static string PowerPlansWindow_CustomMode {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_CustomMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default.
-        /// </summary>
-        public static string PowerPlansWindow_DefaultPowerPlan {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_DefaultPowerPlan", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Performance mode.
-        /// </summary>
-        public static string PowerPlansWindow_PerformanceMode {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_PerformanceMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quiet mode.
-        /// </summary>
-        public static string PowerPlansWindow_QuietMode {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_QuietMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power Plans.
-        /// </summary>
-        public static string PowerPlansWindow_Title {
-            get {
-                return ResourceManager.GetString("PowerPlansWindow_Title", resourceCulture);
             }
         }
         
@@ -4861,33 +4789,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Windows Power Plans to apply when Power Mode changes..
-        /// </summary>
-        public static string SettingsPage_PowerPlans_Message {
-            get {
-                return ResourceManager.GetString("SettingsPage_PowerPlans_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power plans.
-        /// </summary>
-        public static string SettingsPage_PowerPlans_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_PowerPlans_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Power Plan options in Windows Control Panel.
-        /// </summary>
-        public static string SettingsPage_PowerPlansControlPanel_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_PowerPlansControlPanel_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Fn Lock will be temporarily disabled when Alt, Ctrl or Shift key is depressed..
         /// </summary>
         public static string SettingsPage_SmartFnLock_Message {
@@ -4983,6 +4884,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Windows Power Plans to apply when Power Mode changes..
+        /// </summary>
+        public static string SettingsPage_WindowsPowerPlans_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_WindowsPowerPlans_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Plans.
+        /// </summary>
+        public static string SettingsPage_WindowsPowerPlans_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_WindowsPowerPlans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Plan options in Windows Control Panel.
+        /// </summary>
+        public static string SettingsPage_WindowsPowerPlansControlPanel_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_WindowsPowerPlansControlPanel_Title", resourceCulture);
             }
         }
         
@@ -5765,6 +5693,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string WiFiConnectedPipelineTriggerTabItemContent_NetworkName {
             get {
                 return ResourceManager.GetString("WiFiConnectedPipelineTriggerTabItemContent_NetworkName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Modes.
+        /// </summary>
+        public static string WindowsPowerModesWindow_Title {
+            get {
+                return ResourceManager.GetString("WindowsPowerModesWindow_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string WindowsPowerPlansWindow_DefaultPowerPlan {
+            get {
+                return ResourceManager.GetString("WindowsPowerPlansWindow_DefaultPowerPlan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Plans.
+        /// </summary>
+        public static string WindowsPowerPlansWindow_Title {
+            get {
+                return ResourceManager.GetString("WindowsPowerPlansWindow_Title", resourceCulture);
             }
         }
         

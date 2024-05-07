@@ -14,15 +14,15 @@ using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Windows.Settings;
 
-public partial class PowerPlansWindow
+public partial class WindowsPowerPlansWindow
 {
-    private static readonly PowerPlan DefaultValue = new(Guid.Empty, Resource.PowerPlansWindow_DefaultPowerPlan, false, false);
+    private static readonly WindowsPowerPlan DefaultValue = new(Guid.Empty, Resource.WindowsPowerPlansWindow_DefaultPowerPlan, false);
 
-    private readonly PowerPlanController _powerPlanController = IoCContainer.Resolve<PowerPlanController>();
+    private readonly WindowsPowerPlanController _windowsPowerPlanController = IoCContainer.Resolve<WindowsPowerPlanController>();
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    public PowerPlansWindow()
+    public WindowsPowerPlansWindow()
     {
         InitializeComponent();
 
@@ -46,7 +46,7 @@ public partial class PowerPlansWindow
             ? Visibility.Visible
             : Visibility.Collapsed;
 
-        var powerPlans = _powerPlanController.GetPowerPlans(true, false).OrderBy(x => x.Name).Prepend(DefaultValue).ToArray();
+        var powerPlans = _windowsPowerPlanController.GetPowerPlans().OrderBy(x => x.Name).Prepend(DefaultValue).ToArray();
         Refresh(_quietModeComboBox, powerPlans, PowerModeState.Quiet);
         Refresh(_balanceModeComboBox, powerPlans, PowerModeState.Balance);
         Refresh(_performanceModeComboBox, powerPlans, PowerModeState.Performance);
@@ -62,42 +62,42 @@ public partial class PowerPlansWindow
         _loader.IsLoading = false;
     }
 
-    private void Refresh(ComboBox comboBox, PowerPlan[] powerPlans, PowerModeState powerModeState)
+    private void Refresh(ComboBox comboBox, WindowsPowerPlan[] windowsPowerPlans, PowerModeState powerModeState)
     {
         var settingsPowerPlanGuid = _settings.Store.PowerPlans.GetValueOrDefault(powerModeState);
-        var selectedValue = powerPlans.FirstOrDefault(pp => pp.Guid == settingsPowerPlanGuid);
-        comboBox.SetItems(powerPlans, selectedValue, pp => pp.Name);
+        var selectedValue = windowsPowerPlans.FirstOrDefault(pp => pp.Guid == settingsPowerPlanGuid);
+        comboBox.SetItems(windowsPowerPlans, selectedValue, pp => pp.Name);
     }
 
-    private async Task PowerPlanChangedAsync(PowerPlan powerPlan, PowerModeState powerModeState)
+    private async Task WindowsPowerPlanChangedAsync(WindowsPowerPlan windowsPowerPlan, PowerModeState powerModeState)
     {
-        _settings.Store.PowerPlans[powerModeState] = powerPlan.Guid;
+        _settings.Store.PowerPlans[powerModeState] = windowsPowerPlan.Guid;
         _settings.SynchronizeStore();
 
-        await _powerModeFeature.EnsureCorrectPowerPlanIsSetAsync();
+        await _powerModeFeature.EnsureCorrectWindowsPowerSettingsAreSetAsync();
     }
 
     private async void QuietModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_quietModeComboBox.TryGetSelectedItem(out PowerPlan powerPlan))
-            await PowerPlanChangedAsync(powerPlan, PowerModeState.Quiet);
+        if (_quietModeComboBox.TryGetSelectedItem(out WindowsPowerPlan windowsPowerPlan))
+            await WindowsPowerPlanChangedAsync(windowsPowerPlan, PowerModeState.Quiet);
     }
 
     private async void BalanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_balanceModeComboBox.TryGetSelectedItem(out PowerPlan powerPlan))
-            await PowerPlanChangedAsync(powerPlan, PowerModeState.Balance);
+        if (_balanceModeComboBox.TryGetSelectedItem(out WindowsPowerPlan windowsPowerPlan))
+            await WindowsPowerPlanChangedAsync(windowsPowerPlan, PowerModeState.Balance);
     }
 
     private async void PerformanceModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_performanceModeComboBox.TryGetSelectedItem(out PowerPlan powerPlan))
-            await PowerPlanChangedAsync(powerPlan, PowerModeState.Performance);
+        if (_performanceModeComboBox.TryGetSelectedItem(out WindowsPowerPlan windowsPowerPlan))
+            await WindowsPowerPlanChangedAsync(windowsPowerPlan, PowerModeState.Performance);
     }
 
     private async void GodModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        if (_godModeComboBox.TryGetSelectedItem(out PowerPlan powerPlan))
-            await PowerPlanChangedAsync(powerPlan, PowerModeState.GodMode);
+        if (_godModeComboBox.TryGetSelectedItem(out WindowsPowerPlan windowsPowerPlan))
+            await WindowsPowerPlanChangedAsync(windowsPowerPlan, PowerModeState.GodMode);
     }
 }

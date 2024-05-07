@@ -13,34 +13,29 @@ using Windows.Win32.System.Power;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public class PowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
+public class WindowsPowerPlanController(ApplicationSettings settings, VantageDisabler vantageDisabler)
 {
     private static readonly Guid DefaultPowerPlan = Guid.Parse("381b4222-f694-41f0-9685-ff5bb260df2e");
 
-    public IEnumerable<PowerPlan> GetPowerPlans(bool includePowerPlans, bool includeOverlays)
+    public IEnumerable<WindowsPowerPlan> GetPowerPlans()
     {
-        if (includePowerPlans)
+        var activePowerPlanGuid = GetActivePowerPlanGuid();
+        foreach (var powerPlanGuid in GetPowerPlanGuids())
         {
-            var activePowerPlanGuid = GetActivePowerPlanGuid();
-            foreach (var powerPlanGuid in GetPowerPlanGuids(false))
-            {
-                var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-                yield return new PowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid, false);
-            }
-        }
-
-        if (includeOverlays)
-        {
-            foreach (var powerPlanGuid in GetPowerPlanGuids(true))
-            {
-                var powerPlaneName = GetPowerPlanName(powerPlanGuid);
-                yield return new PowerPlan(powerPlanGuid, powerPlaneName, false, true);
-            }
+            var powerPlaneName = GetPowerPlanName(powerPlanGuid);
+            yield return new WindowsPowerPlan(powerPlanGuid, powerPlaneName, powerPlanGuid == activePowerPlanGuid);
         }
     }
 
     public async Task SetPowerPlanAsync(PowerModeState powerModeState, bool alwaysActivateDefaults = false)
     {
+        if (settings.Store.PowerModeMappingMode is not PowerModeMappingMode.WindowsPowerPlan)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Ignoring... [powerModeMappingMode={settings.Store.PowerModeMappingMode}]");
+            return;
+        }
+
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Activating... [powerModeState={powerModeState}, alwaysActivateDefaults={alwaysActivateDefaults}]");
 
@@ -67,7 +62,7 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             return;
         }
 
-        var powerPlans = GetPowerPlans(true, false).ToArray();
+        var powerPlans = GetPowerPlans().ToArray();
 
         if (Log.Instance.IsTraceEnabled)
         {
@@ -76,8 +71,8 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
                 Log.Instance.Trace($" - {powerPlan}");
         }
 
-        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.Guid == powerPlanId && !pp.IsOverlay);
-        if (powerPlanToActivate.Equals(default(PowerPlan)))
+        var powerPlanToActivate = powerPlans.FirstOrDefault(pp => pp.Guid == powerPlanId);
+        if (powerPlanToActivate.Equals(default(WindowsPowerPlan)))
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Power plan {powerPlanId} was not found");
@@ -97,10 +92,10 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
             Log.Instance.Trace($"Power plan {powerPlanToActivate.Guid} activated. [name={powerPlanToActivate.Name}]");
     }
 
-    public void SetPowerPlanParameter(PowerPlan powerPlan, Brightness brightness)
+    public void SetPowerPlanParameter(WindowsPowerPlan windowsPowerPlan, Brightness brightness)
     {
-        PInvoke.PowerWriteACValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
-        PInvoke.PowerWriteDCValueIndex(NullSafeHandle.Null, powerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
+        PInvoke.PowerWriteACValueIndex(NullSafeHandle.Null, windowsPowerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
+        PInvoke.PowerWriteDCValueIndex(NullSafeHandle.Null, windowsPowerPlan.Guid, PInvoke.GUID_VIDEO_SUBGROUP, PInvokeExtensions.DISPLAY_BRIGTHNESS_SETTING_GUID, brightness.Value);
     }
 
     private async Task<bool> ShouldSetPowerPlanAsync(bool alwaysActivateDefaults, bool isDefault)
@@ -128,19 +123,17 @@ public class PowerPlanController(ApplicationSettings settings, VantageDisabler v
         return false;
     }
 
-    private static unsafe List<Guid> GetPowerPlanGuids(bool overlay)
+    private static unsafe List<Guid> GetPowerPlanGuids()
     {
         var list = new List<Guid>();
 
         var bufferSize = (uint)Marshal.SizeOf<Guid>();
         var buffer = new byte[bufferSize];
 
-        var flags = overlay ? POWER_DATA_ACCESSOR.ACCESS_OVERLAY_SCHEME : POWER_DATA_ACCESSOR.ACCESS_SCHEME;
-
         fixed (byte* bufferPtr = buffer)
         {
             uint index = 0;
-            while (PInvoke.PowerEnumerate(null, null, null, flags, index, bufferPtr, ref bufferSize) == WIN32_ERROR.ERROR_SUCCESS)
+            while (PInvoke.PowerEnumerate(null, null, null, POWER_DATA_ACCESSOR.ACCESS_SCHEME, index, bufferPtr, ref bufferSize) == WIN32_ERROR.ERROR_SUCCESS)
             {
                 list.Add(new Guid(buffer));
                 index++;

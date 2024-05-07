@@ -340,6 +340,16 @@ public enum PowerAdapterStatus
     Disconnected
 }
 
+public enum PowerModeMappingMode
+{
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_Disabled")]
+    Disabled,
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_WindowsPowerMode")]
+    WindowsPowerMode,
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_WindowsPowerPlan")]
+    WindowsPowerPlan,
+}
+
 public enum PowerModeState
 {
     [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Quiet")]
@@ -598,6 +608,16 @@ public enum WhiteKeyboardBacklightState
     Low,
     [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_High")]
     High
+}
+
+public enum WindowsPowerMode
+{
+    [Display(Name = "Best power efficiency")]
+    BestPowerEfficiency,
+    [Display(Name = "Balanced")]
+    Balanced,
+    [Display(Name = "Best performance")]
+    BestPerformance
 }
 
 public enum WinKeyState

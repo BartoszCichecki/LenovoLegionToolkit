@@ -1226,7 +1226,7 @@ Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Paziņojumi</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Barošanas Plāni</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1706,13 +1706,13 @@ Peles pārvietošana vai tastatūras nospiešana pamodinās ekrānus.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows ziņo, ka šī ierīce atbalsta Moderno Gaidstāvi. Enerģijas plānu izmantošana, kas nav Līdzsvarots, var izraisīt negaidītu rīcību.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Atlasiet Windows Barošanas Plānus, kas jālieto, mainot Barošanas Režīmu.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Jauda</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Barošanas Plāna opcijas Windows Vadības Panelī</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
