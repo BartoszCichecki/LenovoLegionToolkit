@@ -1139,7 +1139,7 @@
     <value>Колір акценту</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Запускати згорнутим в трей, коли ви входите у Windows.</value>
+    <value>Запускати згорнутим у лоток, коли ви входите у Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Автозапуск</value>
@@ -1215,7 +1215,7 @@
     <value>Мова</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Завжди згортати у трей. Закривайте правою кнопкою миші на іконці у треї.</value>
+    <value>Завжди згортати у лоток. Закривайте натисканням правою кнопкою миші на образець у лотку.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Згортати при закритті</value>
@@ -1689,10 +1689,10 @@
     <value>Доступне оновлення!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
-    <value>Вибрати іконку</value>
+    <value>Вибрати образець</value>
   </data>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
-    <value>Змінити іконку</value>
+    <value>Змінити образець</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Низький рівень заряду батареї</value>
@@ -1805,7 +1805,7 @@
     <value>Вентилятор</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-    <value>ГП</value>
+    <value>Графічний процесор</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
     <value>Частота пам'яті</value>
@@ -2052,5 +2052,17 @@
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
     <value>Зачекайте, поки програма або скрипт завершить виконання</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Усі активні пристрої виводу звуку будуть вимкнені.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Гучник</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+	  <value>Сховати у лоток</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+	  <value>Завжди згортати у лоток замість панелі завдань.</value>
   </data>
 </root>
