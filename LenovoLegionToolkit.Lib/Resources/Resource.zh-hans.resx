@@ -466,4 +466,13 @@
   <data name="SpeakerState_Unmute" xml:space="preserve">
     <value>解除静音</value>
   </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>禁用</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Windows 电源模式</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Windows 电源计划</value>
+  </data>
 </root>
