@@ -1379,9 +1379,6 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="UnsupportedWindow_MachineType" xml:space="preserve">
     <value>Tipo</value>
   </data>
-  <data name="UnsupportedWindow_Message" xml:space="preserve">
-    <value>Lenovo Legion Toolkit no ha sido probado con su dispositivo.</value>
-  </data>
   <data name="UnsupportedWindow_Model" xml:space="preserve">
     <value>Modelo</value>
   </data>
