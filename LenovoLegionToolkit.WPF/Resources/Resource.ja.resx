@@ -117,4 +117,764 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="AboutPage_Build" xml:space="preserve">
+    <value>Build</value>
+  </data>
+  <data name="AboutPage_LatestReleaseOnGitHub" xml:space="preserve">
+    <value>GitHubの最新リリース</value>
+  </data>
+  <data name="AboutPage_Links" xml:space="preserve">
+    <value>リンク</value>
+  </data>
+  <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
+    <value>GitHubのリポジトリ</value>
+  </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>サードパーティのライブラリ</value>
+  </data>
+  <data name="AboutPage_Title" xml:space="preserve">
+    <value>このソフトの情報</value>
+  </data>
+  <data name="AboutPage_TranslationCredit" xml:space="preserve">
+    <value>anmoti によって日本語に翻訳されました。</value>
+    <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
+  </data>
+  <data name="AboutPage_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>新しく追加</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
+    <value>ラップトップがオフ、スリープ、休止状態のときに USB デバイスを充電します。</value>
+  </data>
+  <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
+    <value>USBは常にオン</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
+    <value>ラップトップがオフ、スリープ、休止状態のときに USB デバイスを充電します。</value>
+  </data>
+  <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
+    <value>USBは常にオン</value>
+  </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="Apply" xml:space="preserve">
+    <value>適用</value>
+  </data>
+  <data name="ApplyAndClose" xml:space="preserve">
+    <value>適用して閉じる</value>
+  </data>
+  <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
+    <value>自動アクションが機能するには、Lenovo Legion Toolkit が実行されている必要があります。</value>
+  </data>
+  <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
+    <value>有効化</value>
+  </data>
+  <data name="AutomationPage_Actions_Empty" xml:space="preserve">
+    <value>アクションが定義されていません。「新しく追加」をクリックして新しいアクションを作成します。</value>
+  </data>
+  <data name="AutomationPage_Actions_Message" xml:space="preserve">
+    <value>有効にすると、これらのアクションは自動的に実行されます。状態が変化するたびに、すべてのアクションが上から下に評価されます。
+現在の状態と一致するアクションのみが実行されます。</value>
+  </data>
+  <data name="AutomationPage_Actions_Title" xml:space="preserve">
+    <value>アクション</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
+    <value>名前...</value>
+  </data>
+  <data name="AutomationPage_AddManualPipeline_Title" xml:space="preserve">
+    <value>新しく追加</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
+    <value>クイック アクションが定義されていません。「新しく追加」をクリックして、新しいクイックアクションを作成します。</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
+    <value>クイック アクションは、トレイ アイコンの右クリックメニューから実行できます。</value>
+  </data>
+  <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
+    <value>クイックアクション</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
+    <value>名前...</value>
+  </data>
+  <data name="AutomationPage_RenamePipeline_Title" xml:space="preserve">
+    <value>名前を変更</value>
+  </data>
+  <data name="AutomationPage_Reverted_Message" xml:space="preserve">
+    <value>すべての変更を元に戻しました！</value>
+  </data>
+  <data name="AutomationPage_Reverted_Title" xml:space="preserve">
+    <value>復元済</value>
+  </data>
+  <data name="AutomationPage_Saved_Message" xml:space="preserve">
+    <value>変更は正常に保存されました。</value>
+  </data>
+  <data name="AutomationPage_Saved_Title" xml:space="preserve">
+    <value>保存しました</value>
+  </data>
+  <data name="AutomationPage_Title" xml:space="preserve">
+    <value>自動化</value>
+  </data>
+  <data name="AutomationPipelineControl_AddStep" xml:space="preserve">
+    <value>ステップを追加</value>
+  </data>
+  <data name="AutomationPipelineControl_Configure" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
+    <value>このアクションの実行中は、それ以外のアクションを実行しないでください。</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
+    <value>今すぐ実行</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Message" xml:space="preserve">
+    <value>エラーありで完了</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Error_Title" xml:space="preserve">
+    <value>今すぐ実行</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Message" xml:space="preserve">
+    <value>正常に終了しました！</value>
+  </data>
+  <data name="AutomationPipelineControl_RunNow_Success_Title" xml:space="preserve">
+    <value>今すぐ実行</value>
+  </data>
+  <data name="AutomationPipelineControl_Running" xml:space="preserve">
+    <value>実行中...</value>
+  </data>
+  <data name="AutomationPipelineControl_Step" xml:space="preserve">
+    <value>{0} ステップ</value>
+  </data>
+  <data name="AutomationPipelineControl_Step_Many" xml:space="preserve">
+    <value>{0} ステップ</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Apps" xml:space="preserve">
+    <value>アプリケーション</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunrise" xml:space="preserve">
+    <value>日の出</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
+    <value>日の入り</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
+    <value>えっと {0:D2}:{1:D2}</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_PowerMode" xml:space="preserve">
+    <value>電源モード</value>
+  </data>
+  <data name="AutomationPipelineControl_Unnamed" xml:space="preserve">
+    <value>名称未設定</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Message" xml:space="preserve">
+    <value>特定のゲームの実行中を自動的に検出し、CPU と GPU のパフォーマンスを調整します。温度とファンの騒音が増加する可能性があります。</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_AIEngine_Title" xml:space="preserve">
+    <value>AIエンジンを有効化</value>
+  </data>
+  <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
+    <value>バランスモードの設定</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
+    <value>バッテリーの充電方法を選択します。</value>
+  </data>
+  <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
+    <value>バッテリー モード</value>
+  </data>
+  <data name="BatteryModeControl_Message" xml:space="preserve">
+    <value>バッテリーの充電方法を選択します。</value>
+  </data>
+  <data name="BatteryModeControl_Title" xml:space="preserve">
+    <value>バッテリー モード</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>接続済み、充電中...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>接続済み、充電していません</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>バッテリーの現在の温度</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>バッテリーの温度</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Message" xml:space="preserve">
+    <value>現在のバッテリーの容量</value>
+  </data>
+  <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
+    <value>現在の容量</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
+    <value>充電/放電サイクルの数。</value>
+  </data>
+  <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
+    <value>充電回数</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>設計時のバッテリーの最大容量</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>設計時の最大容量</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>バッテリーの充電 (+) または放電 (-) の速度</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>出力量</value>
+  </data>
+  <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
+    <value>推定残り時間: {0}</value>
+  </data>
+  <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
+    <value>残り時間を計算中...</value>
+  </data>
+  <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
+    <value>初回使用日</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>バッテリーを初めて使用したのはいつですか？</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>フル充電時のバッテリーの容量</value>
+  </data>
+  <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
+    <value>バッテリーの最大容量</value>
+  </data>
+  <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
+    <value>低出力な電源が接続されています。</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>バッテリーはいつ製造されましたか？</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>製造日</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
+    <value>ラップトップが最後に電源に接続されてからの時間。
+ラップトップがスリープ、電源オフのときに充電されていた場合、この時間は正確ではない可能性があります。</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>それ以来のバッテリー駆動</value>
+  </data>
+  <data name="BatteryPage_Title" xml:space="preserve">
+    <value>バッテリー</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>°C</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="Color_Blue" xml:space="preserve">
+    <value>青</value>
+  </data>
+  <data name="Color_Green" xml:space="preserve">
+    <value>緑</value>
+  </data>
+  <data name="Color_Red" xml:space="preserve">
+    <value>赤</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Message" xml:space="preserve">
+    <value>コンピューターの使用状況と電源状態に基づいて GPU 動作モードを選択します。
+モードを切り替えるには再起動が必要になる場合があります。</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Message" xml:space="preserve">
+    <value>{0} に変更するには再起動が必要です。今すぐ再起動しますか？</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>再起動が必要です</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>GPU動作モード</value>
+  </data>
+  <data name="ContextMenu_QuickActions" xml:space="preserve">
+    <value>クイックアクション</value>
+  </data>
+  <data name="Continue" xml:space="preserve">
+    <value>続行</value>
+  </data>
+  <data name="CopyAll" xml:space="preserve">
+    <value>すべてをコピー</value>
+  </data>
+  <data name="DashboardPage_Graphics_Title" xml:space="preserve">
+    <value>グラフィック</value>
+  </data>
+  <data name="DashboardPage_Other_Title" xml:space="preserve">
+    <value>その他</value>
+  </data>
+  <data name="DashboardPage_Power_Title" xml:space="preserve">
+    <value>電源</value>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>ディスクリート GPU が不必要にアクティブになっている場合は無効にします。
+
+警告: 内部ディスプレイがオフになっているか、ハイブリッド モードがアクティブでない場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>GPUを非アクティブ化</value>
+  </data>
+  <data name="DelayAutomationStepControl_Message" xml:space="preserve">
+    <value>次のステップを実行する前に遅延を追加する。</value>
+  </data>
+  <data name="DelayAutomationStepControl_Title" xml:space="preserve">
+    <value>遅延</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
+    <value>BIOS version</value>
+  </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>テキストをクリップボードにコピーしました。</value>
+  </data>
+  <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
+    <value>「{0}」をクリップボードにコピーしました。</value>
+  </data>
+  <data name="CopiedToClipboard_Title" xml:space="preserve">
+    <value>コピーしました！</value>
+  </data>
+  <data name="DeviceInformationWindow_Device_Title" xml:space="preserve">
+    <value>デバイス</value>
+  </data>
+  <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
+    <value>Lenovo Support</value>
+  </data>
+  <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
+    <value>デバイスの種類</value>
+  </data>
+  <data name="DeviceInformationWindow_Manufacturer_Title" xml:space="preserve">
+    <value>製造元</value>
+  </data>
+  <data name="DeviceInformationWindow_Model_Title" xml:space="preserve">
+    <value>モデル</value>
+  </data>
+  <data name="DeviceInformationWindow_SerialNumber_Title" xml:space="preserve">
+    <value>シリアルナンバー</value>
+  </data>
+  <data name="DeviceInformationWindow_Title" xml:space="preserve">
+    <value>このデバイスについて</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyEndDate_Title" xml:space="preserve">
+    <value>終了日</value>
+  </data>
+  <data name="DeviceInformationWindow_WarrantyStartDate_Title" xml:space="preserve">
+    <value>開始日</value>
+  </data>
+  <data name="DeviceInformationWindow_Warranty_Title" xml:space="preserve">
+    <value>保証</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>有効</value>
+  </data>
+  <data name="DiscreteGPUControl_Deactivate" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>無効</value>
+  </data>
+  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
+    <value>アプリの終了</value>
+  </data>
+  <data name="DiscreteGPUControl_Message" xml:space="preserve">
+    <value>ディスクリート GPU が不必要にアクティブになっている場合は無効にします。</value>
+  </data>
+  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
+    <value>モニターは Nvidia GPU に接続されています。</value>
+  </data>
+  <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
+    <value>プロセスがありません</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
+    <value>パフォーマンスの状態</value>
+  </data>
+  <data name="DiscreteGPUControl_PerformanceState_Unknown" xml:space="preserve">
+    <value>不明</value>
+  </data>
+  <data name="DiscreteGPUControl_Processes" xml:space="preserve">
+    <value>プロセス</value>
+  </data>
+  <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
+    <value>GPUを再起動</value>
+  </data>
+  <data name="DiscreteGPUControl_Title" xml:space="preserve">
+    <value>ディスクリート GPU</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの表示輝度を変更します。
+
+警告: 内部ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>ディスプレイの明るさ</value>
+  </data>
+  <data name="DonatePage_DonateWith" xml:space="preserve">
+    <value>寄付はこちら</value>
+  </data>
+  <data name="DonatePage_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit の開発とメンテナンスには多くの時間がかかります。このソフトウェアが良いと思った場合は寄付をお願いします。寄付をすることで長期的にメンテナンスされます。
+
+PayPal で寄付するには、下の PayPal ロゴをクリックするかQR コードをスキャンしてください。</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
+    <value>Fn キーを押したままにせずに、F1 ～ F12 キーの二次機能を使用します。</value>
+  </data>
+  <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="FnLockControl_Message" xml:space="preserve">
+    <value>Fn キーを押したままにせずに、F1 ～ F12 キーの二次機能を使用します。</value>
+  </data>
+  <data name="FnLockControl_Title" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
+    <value>警告！
+このオプションを長時間使用すると、ファンが劣化して寿命が短くなります。
+このオプションを使用する際は 本当に 注意してください。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Max_Title" xml:space="preserve">
+    <value>最大ファン速度</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Title" xml:space="preserve">
+    <value>ファン</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
+    <value>構成可能なTGP</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
+    <value>ダイナミックブースト</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit" xml:space="preserve">
+    <value>GPUの温度制限</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Title" xml:space="preserve">
+    <value>カスタムモード設定</value>
+  </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイでハイダイナミックレンジ（HDR）を有効にします。
+
+警告: 内部ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="HDRAutomationStepControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイでハイダイナミックレンジ（HDR）を有効にします。</value>
+  </data>
+  <data name="HDRControl_Title" xml:space="preserve">
+    <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>HDR の使用は Windows の設定によってブロックされています。</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>インポート</value>
+  </data>
+  <data name="IncompatibleDevice_Message" xml:space="preserve">
+    <value>このデバイスは Lenovo Legion Toolkit と互換性がありません。</value>
+  </data>
+  <data name="IncompatibleDevice_Title" xml:space="preserve">
+    <value>Lenovo Legion Toolkit</value>
+  </data>
+  <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
+    <value>互換性のあるキーボードが見つかりません</value>
+  </data>
+  <data name="KeyboardBacklightPage_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Vantage またはそのサービスの実行中は、ここでキーボードのバックライトを制御できません。</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Lenovo Vantage またはそのサービスが実行されています</value>
+  </data>
+  <data name="MainWindow_NavigationItem_About" xml:space="preserve">
+    <value>ヘルプ</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
+    <value>アクション</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
+    <value>バッテリー</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Dashboard" xml:space="preserve">
+    <value>ダッシュボード</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Donate" xml:space="preserve">
+    <value>寄付</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Keyboard" xml:space="preserve">
+    <value>キーボード</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Packages" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="MainWindow_UpdateAvailable" xml:space="preserve">
+    <value>更新があります！</value>
+  </data>
+  <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
+    <value>バーション {0} の更新があります！</value>
+  </data>
+  <data name="MoveDown" xml:space="preserve">
+    <value>下へ移動</value>
+  </data>
+  <data name="MoveUp" xml:space="preserve">
+    <value>上へ移動</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>いいえ</value>
+  </data>
+  <data name="Notification_ACAdapterConnected" xml:space="preserve">
+    <value>ACアダプターが接続されています</value>
+  </data>
+  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
+    <value>ACアダプター接続中（低出力）</value>
+  </data>
+  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
+    <value>ACアダプターが接続されていません</value>
+  </data>
+  <data name="Notification_CameraOff" xml:space="preserve">
+    <value>カメラが無効になっています</value>
+  </data>
+  <data name="Notification_CameraOn" xml:space="preserve">
+    <value>カメラが有効になっています</value>
+  </data>
+  <data name="Notification_CapsLockOff" xml:space="preserve">
+    <value>Caps Lock が無効になっています</value>
+  </data>
+  <data name="Notification_CapsLockOn" xml:space="preserve">
+    <value>Caps Lock が有効になっています</value>
+  </data>
+  <data name="Notification_FnLockOff" xml:space="preserve">
+    <value>Fn Lock が無効</value>
+  </data>
+  <data name="Notification_FnLockOn" xml:space="preserve">
+    <value>Fn Lock が有効</value>
+  </data>
+  <data name="Notification_MicrophoneOff" xml:space="preserve">
+    <value>マイクが無効になっています</value>
+  </data>
+  <data name="Notification_MicrophoneOn" xml:space="preserve">
+    <value>マイクが有効になっています</value>
+  </data>
+  <data name="Notification_NumLockOff" xml:space="preserve">
+    <value>Num Lock が無効になっています</value>
+  </data>
+  <data name="Notification_NumLockOn" xml:space="preserve">
+    <value>Num Lock が有効になっています</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
+    <value>バックライト {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Brightness" xml:space="preserve">
+    <value>明るさ {0}</value>
+  </data>
+  <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
+    <value>プロファイル {0}</value>
+  </data>
+  <data name="Notification_TouchpadOff" xml:space="preserve">
+    <value>タッチパッドが無効になっています</value>
+  </data>
+  <data name="Notification_TouchpadOn" xml:space="preserve">
+    <value>タッチパッドが有効になっています</value>
+  </data>
+  <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
+    <value>ACアダプタ</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Camera" xml:space="preserve">
+    <value>カメラ</value>
+  </data>
+  <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
+    <value>Caps Lock と Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>マイクのミュートなどの Fn キー操作の通知を無効にします。
+全画面アプリケーションと競合する場合は、このオプションを有効にします。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
+    <value>通知を非表示</value>
+  </data>
+  <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
+    <value>Fn Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Microphone" xml:space="preserve">
+    <value>マイク</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationPosition_Title" xml:space="preserve">
+    <value>位置</value>
+  </data>
+  <data name="NotificationsSettingsWindow_PowerMode" xml:space="preserve">
+    <value>電源モード</value>
+  </data>
+  <data name="NotificationsSettingsWindow_RefreshRate" xml:space="preserve">
+    <value>リフレッシュレート</value>
+  </data>
+  <data name="NotificationsSettingsWindow_SmartKey" xml:space="preserve">
+    <value>Smart Key</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Title" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
+    <value>Touchpad Lock</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
+    <value>電源モード</value>
+  </data>
+  <data name="PowerModeControl_Message" xml:space="preserve">
+    <value>パフォーマンスモードを変更します。
+パフォーマンスモードはFn+Qでも変更できます。</value>
+  </data>
+  <data name="PowerModeControl_Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="PowerModeControl_Title" xml:space="preserve">
+    <value>電源モード</value>
+  </data>
+  <data name="PowerModeControl_Warning" xml:space="preserve">
+    <value>AC アダプタが接続されていないと、選択した電源モードが正しく動作しない可能性があります。</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>循環する１つ以上のクイック アクションを選択します</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
+    <value>クイックアクションが定義されていません。</value>
+  </data>
+  <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
+    <value>このアプリケーションを表示する</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Description" xml:space="preserve">
+    <value>アプリのアクセントカラーを変更できます。</value>
+  </data>
+  <data name="SettingsPage_AccentColor_Title" xml:space="preserve">
+    <value>アクセントカラー</value>
+  </data>
+  <data name="SettingsPage_Autorun_Message" xml:space="preserve">
+    <value>Windowsにログオンした時にシステムトレイに最小化して起動します。</value>
+  </data>
+  <data name="SettingsPage_Autorun_Title" xml:space="preserve">
+    <value>自動起動</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys は正しく無効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
+    <value>Lenovo Hotkeys を無効にできませんでした</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys とそのサービスをアンインストールせずに無効にします。
+無効にすると、このアプリは Fn ショートカットを処理します。
+このオプションを変更した後はデバイスを再起動することをお勧めします。</value>
+  </data>
+  <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
+    <value>Lenovo Hotkeys を無効化</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Vantage または ImController が正しく無効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Vantage または ImController を無効にできませんでした</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Lenovo Vantage と ImController をアンインストールせずに無効にします。
+このオプションを変更した後はデバイスを再起動することをお勧めします。</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Lenovo Vantage と ImController を無効化</value>
+  </data>
+  <data name="SettingsPage_Language_Message" xml:space="preserve">
+    <value>このソフトウェアで表示する言語を選択できます。</value>
+  </data>
+  <data name="SettingsPage_Language_Title" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
+    <value>常にトレイに最小化します。トレイのアイコンを右クリックしてアプリケーションを閉じます。</value>
+  </data>
+  <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
+    <value>終了時に最小化</value>
+  </data>
+  <data name="SettingsPage_Notifications_Message" xml:space="preserve">
+    <value>どの通知を表示するかを設定できます。</value>
+  </data>
+  <data name="SettingsPage_Notifications_Title" xml:space="preserve">
+    <value>通知</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 の２回押しにクイック アクションを割り当てることができます。</value>
+  </data>
+  <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
+    <value>スマートキーアクション（２回押し）</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
+    <value>Fn+F9 の１回押しにクイック アクションを割り当てることができます。</value>
+  </data>
+  <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
+    <value>スマートキーアクション</value>
+  </data>
+  <data name="SettingsPage_Theme_Description" xml:space="preserve">
+    <value>テーマをライト、ダークから指定できます。システムに従うこともできます。</value>
+  </data>
+  <data name="SettingsPage_Theme_Title" xml:space="preserve">
+    <value>テーマ</value>
+  </data>
+  <data name="AboutPage_ApplicationFolders" xml:space="preserve">
+    <value>アプリケーションのフォルダ</value>
+  </data>
+  <data name="AboutPage_Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="AboutPage_Temp" xml:space="preserve">
+    <value>Temp</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+    <value>長さ</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+    <value>アクション</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>スマート Fn Lock</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Alt、Ctrl、Shift キーを押すと、Fn Lock が一時的に無効になります。</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>トレイに最小化</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>タスクバーではなく、トレイに最小化します。</value>
+  </data>
 </root>

@@ -117,4 +117,96 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ACアタブタの接続時</value>
+  </data>
+  <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ACアダプタの未接続時</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
+    <value>アプリの終了</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
+    <value>GPUを再起動</value>
+  </data>
+  <data name="Delay_Second" xml:space="preserve">
+    <value>{0} 秒</value>
+  </data>
+  <data name="Delay_Second_Many" xml:space="preserve">
+    <value>{0} 秒</value>
+  </data>
+  <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>低出力なACアダプタの接続時</value>
+  </data>
+  <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>起動時</value>
+  </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>電源モード変更時</value>
+  </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>アプリケーション起動時</value>
+  </data>
+  <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>アプリケーション終了時</value>
+  </data>
+  <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>指定時間</value>
+  </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>外部ディスプレイが接続されているとき</value>
+  </data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>外部ディスプレイが接続されていないとき</value>
+  </data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ディスプレイがオンの時</value>
+  </data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ディスプレイがオフの時</value>
+  </data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>蓋が開いている時</value>
+  </data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>蓋が閉じている時</value>
+  </data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ゲーム終了時</value>
+  </data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ゲーム起動時</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+    <value>ユーザーがアクティブになった時</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>ユーザーが非アクティブになった時</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>GPUを非アクティブ化</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
+    <value>オン</value>
+  </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>カスタムモードのプリセットが変更された時</value>
+  </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>定期的なアクション</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>WiFi 接続時</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>WiFi 未接続時</value>
+  </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>再開時</value>
+  </data>
 </root>

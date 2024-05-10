@@ -1018,6 +1018,12 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
   </data>
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows 电源计划</value>
+  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>调节键盘背光预设</value>
   </data>
@@ -1211,6 +1217,9 @@
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>提示弹窗</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Windows 电源计划</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>选择双击 Fn + F9 触发的快捷操作。</value>
@@ -1689,8 +1698,14 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
   </data>
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
+    <value>选择在电源模式改变时应用的 Windows 电源计划。</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>电源</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
+    <value>打开 Windows 控制面板中的电源计划选项</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>关闭</value>
@@ -2042,5 +2057,8 @@
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
     <value>总是最小化到托盘，而非任务栏。</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+	  <value>Windows 电源模式</value>
   </data>
 </root>
