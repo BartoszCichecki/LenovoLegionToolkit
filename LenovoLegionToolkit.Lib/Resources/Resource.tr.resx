@@ -466,4 +466,13 @@
   <data name="SpeakerState_Unmute" xml:space="preserve">
     <value>Sesi aç</value>
   </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>Devre Dışı</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Windows Güç Modu</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Windows Güç Planı</value>
+  </data>
 </root>
