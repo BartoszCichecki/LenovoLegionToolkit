@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Management;
+using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,15 @@ public static class Registry
 {
     public static IAsyncDisposable ObserveKey(string hive, string subKey, bool includeSubtreeChanges, Action handler)
     {
+        var cancellationTokenSource = new CancellationTokenSource();
+        var task = Task.Run(() => Handler(cancellationTokenSource.Token), cancellationTokenSource.Token);
+
+        return new LambdaAsyncDisposable(async () =>
+        {
+            await cancellationTokenSource.CancelAsync().ConfigureAwait(false);
+            await task.ConfigureAwait(false);
+        });
+
         void Handler(CancellationToken token)
         {
             try
@@ -55,15 +65,6 @@ public static class Registry
                     Log.Instance.Trace($"Unknown error.", ex);
             }
         }
-
-        var cancellationTokenSource = new CancellationTokenSource();
-        var task = Task.Run(() => Handler(cancellationTokenSource.Token), cancellationTokenSource.Token);
-
-        return new LambdaAsyncDisposable(async () =>
-        {
-            await cancellationTokenSource.CancelAsync().ConfigureAwait(false);
-            await task.ConfigureAwait(false);
-        });
     }
 
     public static IDisposable ObserveValue(string hive, string path, string valueName, Action handler)
@@ -74,7 +75,7 @@ public static class Registry
         var pathFormatted = @$"SELECT * FROM RegistryValueChangeEvent WHERE Hive = 'HKEY_USERS' AND KeyPath = '{hive}\\{path.Replace(@"\", @"\\")}' AND ValueName = '{valueName}'";
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Starting listener... [hive={hive}, pathFormatted ={pathFormatted}, key={valueName}]");
+            Log.Instance.Trace($"Starting listener... [hive={hive}, pathFormatted={pathFormatted}, key={valueName}]");
 
         var watcher = new ManagementEventWatcher(pathFormatted);
         watcher.EventArrived += (_, e) =>
@@ -96,7 +97,8 @@ public static class Registry
     {
         try
         {
-            using var registryKey = GetBaseKey(hive).OpenSubKey(subKey);
+            using var baseKey = GetBaseKey(hive);
+            using var registryKey = baseKey.OpenSubKey(subKey);
             return registryKey is not null;
         }
         catch
@@ -134,17 +136,28 @@ public static class Registry
         return (T)result;
     }
 
-    public static void SetValue<T>(string hive, string subKey, string valueName, T value) where T : notnull
+    public static void SetValue<T>(string hive, string subKey, string valueName, T value, bool fixPermissions = false) where T : notnull
     {
-        Microsoft.Win32.Registry.SetValue(@$"{hive}\{subKey}", valueName, value);
+        try
+        {
+            Microsoft.Win32.Registry.SetValue(@$"{hive}\{subKey}", valueName, value);
+        }
+        catch (UnauthorizedAccessException)
+        {
+            if (fixPermissions && AddPermissions(hive, subKey))
+                SetValue(hive, subKey, valueName, value);
+            else
+                throw;
+        }
     }
 
     public static void Delete(string hive, string subKey)
     {
-        using var registryKey = GetBaseKey(hive);
-        if (registryKey.OpenSubKey(subKey) is null)
+        using var baseKey = GetBaseKey(hive);
+        using var key = baseKey.OpenSubKey(subKey);
+        if (key is null)
             return;
-        registryKey.DeleteSubKeyTree(subKey);
+        baseKey.DeleteSubKeyTree(subKey);
     }
 
     private static RegistryKey GetBaseKey(string hive) => hive switch
@@ -156,4 +169,61 @@ public static class Registry
         "HKCC" or "HKEY_CURRENT_CONFIG  " => Microsoft.Win32.Registry.CurrentConfig,
         _ => throw new ArgumentException(@"Unknown hive.", nameof(hive))
     };
+
+    private static bool AddPermissions(string hive, string subKey)
+    {
+        try
+        {
+            var current = WindowsIdentity.GetCurrent();
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+            if (current is null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Could not get current user.");
+
+                return false;
+            }
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Attempting to add permissions to {hive}\\{subKey} for {current.Name}...");
+
+            var user = current.User;
+            if (user is null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Could not get current security user for {current.Name}.");
+
+                return false;
+            }
+
+            using var baseKey = GetBaseKey(hive);
+            using var key = baseKey.OpenSubKey(subKey, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.ChangePermissions | RegistryRights.ReadKey);
+            if (key is null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Attempting to add permissions to {hive}\\{subKey} for {current.Name}...");
+
+                return false;
+            }
+
+            var accessControl = key.GetAccessControl();
+
+            const RegistryRights rights = RegistryRights.FullControl;
+            const AccessControlType type = AccessControlType.Allow;
+            accessControl.AddAccessRule(new(user, rights, type));
+            key.SetAccessControl(accessControl);
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Permissions added on {hive}\\{subKey} for {current.Name}. [rights={rights}, type={type}]");
+
+            return true;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to add permissions for {hive}\\{subKey}.", ex);
+
+            throw;
+        }
+    }
 }
