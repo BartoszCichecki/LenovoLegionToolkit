@@ -22,6 +22,8 @@ public partial class WindowsPowerPlansWindow
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
+    private bool IsRefreshing => _loader.IsLoading;
+
     public WindowsPowerPlansWindow()
     {
         InitializeComponent();
@@ -71,6 +73,9 @@ public partial class WindowsPowerPlansWindow
 
     private async Task WindowsPowerPlanChangedAsync(WindowsPowerPlan windowsPowerPlan, PowerModeState powerModeState)
     {
+        if (IsRefreshing)
+            return;
+
         _settings.Store.PowerPlans[powerModeState] = windowsPowerPlan.Guid;
         _settings.SynchronizeStore();
 

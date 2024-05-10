@@ -17,6 +17,8 @@ public partial class WindowsPowerModesWindow
     private readonly PowerModeFeature _powerModeFeature = IoCContainer.Resolve<PowerModeFeature>();
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
+    private bool IsRefreshing => _loader.IsLoading;
+
     public WindowsPowerModesWindow()
     {
         InitializeComponent();
@@ -60,6 +62,9 @@ public partial class WindowsPowerModesWindow
 
     private async Task WindowsPowerModeChangedAsync(WindowsPowerMode windowsPowerMode, PowerModeState powerModeState)
     {
+        if (IsRefreshing)
+            return;
+
         _settings.Store.PowerModes[powerModeState] = windowsPowerMode;
         _settings.SynchronizeStore();
 
