@@ -466,4 +466,13 @@
   <data name="SpeakerState_Unmute" xml:space="preserve">
     <value>Réactiver le son</value>
   </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>Désactivé</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Mode de gestion de l'alimentation Windows</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Plan d'alimentation Windows</value>
+  </data>
 </root>
