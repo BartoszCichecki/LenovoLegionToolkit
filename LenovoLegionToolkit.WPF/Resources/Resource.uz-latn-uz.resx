@@ -1864,9 +1864,6 @@ ESKERTIW: Diskret GPU ámeldegi bolmasa, bul ámel tuwrı atqarılmaydı.</value
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU to CPU Dynamic Boost</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Bul protsessordan paydalanıw tiykarında GPUǵa ajratılıwı múmkin bolǵan maksimal qosımsha quwat bolıp tabıladı. Baha qánshellilik biyik bolsa, GPUdan paydalanatuǵın qosımshalardıń islewi sonshalıq jaqsı boladı.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logotip júklenip atır</value>
   </data>
