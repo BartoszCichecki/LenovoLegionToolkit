@@ -160,18 +160,10 @@ public static class Registry
         baseKey.DeleteSubKeyTree(subKey);
     }
 
-    private static RegistryKey GetBaseKey(string hive) => hive switch
-    {
-        "HKLM" or "HKEY_LOCAL_MACHINE" => Microsoft.Win32.Registry.LocalMachine,
-        "HKCU" or "HKEY_CURRENT_USER" => Microsoft.Win32.Registry.CurrentUser,
-        "HKU" or "HKEY_USERS" => Microsoft.Win32.Registry.Users,
-        "HKCR" or "HKEY_CLASSES_ROOT " => Microsoft.Win32.Registry.ClassesRoot,
-        "HKCC" or "HKEY_CURRENT_CONFIG  " => Microsoft.Win32.Registry.CurrentConfig,
-        _ => throw new ArgumentException(@"Unknown hive.", nameof(hive))
-    };
-
     private static bool AddPermissions(string hive, string subKey)
     {
+        IdentityReference? originalOwner = null;
+
         try
         {
             var current = WindowsIdentity.GetCurrent();
@@ -191,7 +183,15 @@ public static class Registry
             if (user is null)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not get current security user for {current.Name}.");
+                    Log.Instance.Trace($"Could not get current security identifier of user {current.Name}.");
+
+                return false;
+            }
+
+            if (!TakeOwnership(hive, subKey, user, out originalOwner))
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Could not take ownership of {hive}\\{subKey}. [user={user}, originalOwner={originalOwner}]");
 
                 return false;
             }
@@ -201,7 +201,7 @@ public static class Registry
             if (key is null)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Attempting to add permissions to {hive}\\{subKey} for {current.Name}...");
+                    Log.Instance.Trace($"Failed to open key {hive}\\{subKey} for {current.Name}.");
 
                 return false;
             }
@@ -225,5 +225,65 @@ public static class Registry
 
             throw;
         }
+        finally
+        {
+            if (originalOwner is not null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Restoring ownership of {hive}\\{subKey} to {originalOwner}...");
+
+                if (TakeOwnership(hive, subKey, originalOwner, out _))
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ownership of {hive}\\{subKey} restored to {originalOwner}.");
+                }
+                else
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Ownership of {hive}\\{subKey} NOT restored {originalOwner}.");
+                }
+            }
+        }
     }
+
+    private static bool TakeOwnership(string hive, string subKey, IdentityReference reference, out IdentityReference? previousIdentityReference)
+    {
+        previousIdentityReference = null;
+
+        try
+        {
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_BACKUP_PRIVILEGE, TokenManipulator.SE_RESTORE_PRIVILEGE, TokenManipulator.SE_TAKE_OWNERSHIP_PRIVILEGE))
+                return false;
+
+            using var baseKey = GetBaseKey(hive);
+            using var key = baseKey.OpenSubKey(subKey, RegistryKeyPermissionCheck.ReadWriteSubTree, RegistryRights.TakeOwnership);
+            if (key is null)
+                return false;
+
+            var accessControl = key.GetAccessControl();
+
+            previousIdentityReference = accessControl.GetOwner(typeof(NTAccount));
+            if (previousIdentityReference is null)
+                return false;
+
+            accessControl.SetOwner(reference);
+            key.SetAccessControl(accessControl);
+
+            return true;
+        }
+        finally
+        {
+            _ = TokenManipulator.RemovePrivileges(TokenManipulator.SE_BACKUP_PRIVILEGE, TokenManipulator.SE_RESTORE_PRIVILEGE, TokenManipulator.SE_TAKE_OWNERSHIP_PRIVILEGE);
+        }
+    }
+
+    private static RegistryKey GetBaseKey(string hive) => hive switch
+    {
+        "HKLM" or "HKEY_LOCAL_MACHINE" => Microsoft.Win32.Registry.LocalMachine,
+        "HKCU" or "HKEY_CURRENT_USER" => Microsoft.Win32.Registry.CurrentUser,
+        "HKU" or "HKEY_USERS" => Microsoft.Win32.Registry.Users,
+        "HKCR" or "HKEY_CLASSES_ROOT " => Microsoft.Win32.Registry.ClassesRoot,
+        "HKCC" or "HKEY_CURRENT_CONFIG  " => Microsoft.Win32.Registry.CurrentConfig,
+        _ => throw new ArgumentException(@"Unknown hive.", nameof(hive))
+    };
 }
