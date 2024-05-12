@@ -26,7 +26,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 		<NeutralLanguage>en</NeutralLanguage>
-		<SatelliteResourceLanguages>ar;bg;cs;de;en;el;es;fr;it;lv;nl;nl-nl;pt;pt-br;ro;ru;sk;uk;tr;vi;zh;zh-hans;zh-hant</SatelliteResourceLanguages>
+		<SatelliteResourceLanguages>ar;bg;cs;de;en;el;es;fr;it;ja;lv;nl;nl-nl;pt;pt-br;ro;ru;sk;uk;tr;vi;zh;zh-hans;zh-hant</SatelliteResourceLanguages>
 	</PropertyGroup>
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
 	  <DebugType>portable</DebugType>
