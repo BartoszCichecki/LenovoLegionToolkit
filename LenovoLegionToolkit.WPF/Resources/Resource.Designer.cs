@@ -2430,7 +2430,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU..
+        ///   Looks up a localized string similar to This is the maximum additional power that can be allocated to the CPU from the GPU based on CPU usage. The higher the value, the better the performance of applications that use the CPU..
         /// </summary>
         public static string GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description {
             get {
