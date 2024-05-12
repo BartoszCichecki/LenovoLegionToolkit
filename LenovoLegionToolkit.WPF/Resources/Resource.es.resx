@@ -951,7 +951,7 @@ Asegúrese de instalar siempre los paquetes correctos.</value>
     <value>Algo salió mal</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>Cambiar la clasificación, filtrar los resultados, ocultar los paquetes o actualizar la lista detendrá la descarga. ¿Desea continuar?</value>
+    <value>Modificar el orden, filtrar los resultados, ocultar paquetes o actualizar la lista detendrá la descarga. ¿Desea continuar?</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>Descarga en curso</value>

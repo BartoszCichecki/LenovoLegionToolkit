@@ -152,16 +152,16 @@
     <value>新しく追加</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
-    <value>ラップトップがオフ、スリープ、休止状態のときに USB デバイスを充電します。</value>
+    <value>デバイスの電源がオフ、スリープ、または休止状態の場合にUSB機器を充電します。</value>
   </data>
   <data name="AlwaysOnUSBControl_Title" xml:space="preserve">
-    <value>USBは常にオン</value>
+    <value>USBの常時給電</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Message" xml:space="preserve">
-    <value>ラップトップがオフ、スリープ、休止状態のときに USB デバイスを充電します。</value>
+    <value>デバイスの電源がオフ、スリープ、または休止状態の場合にUSB機器を充電します。</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>USBは常にオン</value>
+    <value>USBの常時給電</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
@@ -288,19 +288,19 @@
     <value>バッテリーの充電方法を選択します。</value>
   </data>
   <data name="BatteryAutomationStepControl_Title" xml:space="preserve">
-    <value>バッテリー モード</value>
+    <value>バッテリーモード</value>
   </data>
   <data name="BatteryModeControl_Message" xml:space="preserve">
     <value>バッテリーの充電方法を選択します。</value>
   </data>
   <data name="BatteryModeControl_Title" xml:space="preserve">
-    <value>バッテリー モード</value>
+    <value>バッテリーモード</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
-    <value>接続済み、充電中...</value>
+    <value>電源に接続済み。充電しています。</value>
   </data>
   <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
-    <value>接続済み、充電していません</value>
+    <value>電源に接続済み。充電していません。</value>
   </data>
   <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
     <value>バッテリーの現在の温度</value>
@@ -315,7 +315,7 @@
     <value>現在の容量</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>充電/放電サイクルの数。</value>
+    <value>充電/放電サイクルの数</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>充電回数</value>
@@ -342,7 +342,7 @@
     <value>初回使用日</value>
   </data>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
-    <value>バッテリーを初めて使用したのはいつですか？</value>
+    <value>バッテリーを初めて使用した年月日</value>
   </data>
   <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
     <value>フル充電時のバッテリーの容量</value>
@@ -354,17 +354,17 @@
     <value>低出力な電源が接続されています。</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
-    <value>バッテリーはいつ製造されましたか？</value>
+    <value>バッテリーが製造された年月日</value>
   </data>
   <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
     <value>製造日</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
-    <value>ラップトップが最後に電源に接続されてからの時間。
-ラップトップがスリープ、電源オフのときに充電されていた場合、この時間は正確ではない可能性があります。</value>
+    <value>デバイスが最後に電源に接続されてからの時間
+デバイスがスリープ、電源オフのときに充電されていた場合、この時間は正確ではない可能性があります。</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
-    <value>それ以来のバッテリー駆動</value>
+    <value>バッテリー駆動時間</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>バッテリー</value>
@@ -422,9 +422,9 @@
     <value>ホーム</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>ディスクリート GPU が不必要にアクティブになっている場合は無効にします。
+    <value>ディスクリートGPUが不必要にアクティブになっている場合は無効にします。
 
-警告: 内部ディスプレイがオフになっているか、ハイブリッド モードがアクティブでない場合、このアクションは正しく実行されません。</value>
+警告: 内蔵ディスプレイがオフになっているか、ハイブリッドモードがアクティブでない場合、このアクションは正しく実行されません。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>GPUを非アクティブ化</value>
@@ -439,7 +439,7 @@
     <value>削除</value>
   </data>
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
-    <value>BIOS version</value>
+    <value>BIOS バージョン</value>
   </data>
   <data name="CopiedToClipboard_Message" xml:space="preserve">
     <value>テキストをクリップボードにコピーしました。</value>
@@ -493,7 +493,7 @@
     <value>アプリの終了</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
-    <value>ディスクリート GPU が不必要にアクティブになっている場合は無効にします。</value>
+    <value>ディスクリートGPUが不必要にアクティブになっている場合は無効にします。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
     <value>モニターは Nvidia GPU に接続されています。</value>
@@ -514,12 +514,12 @@
     <value>GPUを再起動</value>
   </data>
   <data name="DiscreteGPUControl_Title" xml:space="preserve">
-    <value>ディスクリート GPU</value>
+    <value>ディスクリートGPU</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>内蔵ディスプレイの表示輝度を変更します。
 
-警告: 内部ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+警告: 内蔵ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>ディスプレイの明るさ</value>
@@ -532,6 +532,51 @@
 
 PayPal で寄付するには、下の PayPal ロゴをクリックするかQR コードをスキャンしてください。</value>
   </data>
+  <data name="DonatePage_Title" xml:space="preserve">
+    <value>寄付</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Fn+R ショートカットを使用するときに、使用しないリフレッシュレートのチェックを外します。</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
+    <value>デバイスのディスプレイがオンになっていることを確認します。Lenovo Legion Toolkitは、電源が入っていないディスプレイのリフレッシュレートをロードできません。</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
+    <value>リフレッシュレートが見つかりません</value>
+  </data>
+  <data name="ExcludeRefreshRatesWindow_Title" xml:space="preserve">
+    <value>リフレッシュレートの除外</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>終了</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>エクスポート</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>°F</value>
+  </data>
+  <data name="FanCurveControl_CPU" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="FanCurveControl_CPUSensor" xml:space="preserve">
+    <value>CPUセンサー</value>
+  </data>
+  <data name="FanCurveControl_FanSpeed" xml:space="preserve">
+    <value>ファン回転速度</value>
+  </data>
+  <data name="FanCurveControl_GPU" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
+  <data name="RPM" xml:space="preserve">
+    <value>RPM</value>
+  </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Fn キーを押したままにせずに、F1 ～ F12 キーの二次機能を使用します。</value>
   </data>
@@ -543,6 +588,53 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Fn Lock</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>警告！
+一部のデバイスは、表示されるよりも低い値を受け付ける場合がありますが、注意が必要です。このオプションにより、予測不能な動作が発生する可能性があります。これがなにかわからない場合は、0に設定してください。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>最小オフセット</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>警告！
+一部のデバイスは、表示されるよりも高い値を受け付ける場合がありますが、注意が必要です。このオプションにより、予測不能な動作が発生する可能性があります。これがなにかわからない場合は、0に設定してください。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>最大オフセット</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
+    <value>以下に示すオプションは、何を操作しているのかをよく理解している場合にのみ変更してください。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_Title" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
+    <value>Long Term Power Limit (Cross Loading)</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
+    <value>Long Term Power Limit</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_ShortTermPL" xml:space="preserve">
+    <value>Short Term Power Limit</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_TempLimit" xml:space="preserve">
+    <value>CPUの温度制限</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Apply_Title" xml:space="preserve">
+    <value>設定を適用できませんでした</value>
+  </data>
+  <data name="GodModeSettingsWindow_Error_Load_Title" xml:space="preserve">
+    <value>PWA設定を読み込めません。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Message" xml:space="preserve">
+    <value>ファンの速度は、1つの温度センサーによって厳密に決まるわけではありません。CPU、GPU、ヒートシンクの温度の最も高いセンサーに応じて速度を上げたり下げたりします。正確な値は各ステップにマウスを合わせると表示されます。</value>
+  </data>
+  <data name="GodModeSettingsWindow_Fans_Curve_Title" xml:space="preserve">
+    <value>ファンの速度</value>
   </data>
   <data name="GodModeSettingsWindow_Fans_Max_Message" xml:space="preserve">
     <value>警告！
@@ -573,7 +665,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>内蔵ディスプレイでハイダイナミックレンジ（HDR）を有効にします。
 
-警告: 内部ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+警告: 内蔵ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -585,7 +677,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>HDR</value>
   </data>
   <data name="HDRControl_Warning" xml:space="preserve">
-    <value>HDR の使用は Windows の設定によってブロックされています。</value>
+    <value>HDRの使用はWindowsの設定によってブロックされています。</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>インポート</value>
@@ -744,12 +836,33 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="NotificationsSettingsWindow_TouchpadLock" xml:space="preserve">
     <value>Touchpad Lock</value>
   </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Open" xml:space="preserve">
+    <value>開ける</value>
+  </data>
+  <data name="PackagesPage_MachineType" xml:space="preserve">
+    <value>デバイスの種類</value>
+  </data>
+  <data name="PackagesPage_OperatingSystem" xml:space="preserve">
+    <value>オペレーティングシステム</value>
+  </data>
+  <data name="PackagesPage_PrimarySource" xml:space="preserve">
+    <value>プライマリ (推奨)</value>
+  </data>
+  <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
+    <value>Lenovo Vantageと同じ</value>
+  </data>
+  <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
+    <value>パフォーマンスモードを変更します。</value>
+  </data>
   <data name="PowerModeAutomationStepControl_Title" xml:space="preserve">
     <value>電源モード</value>
   </data>
   <data name="PowerModeControl_Message" xml:space="preserve">
     <value>パフォーマンスモードを変更します。
-パフォーマンスモードはFn+Qでも変更できます。</value>
+パフォーマンスモードは Fn+Q でも変更できます。</value>
   </data>
   <data name="PowerModeControl_Settings" xml:space="preserve">
     <value>設定</value>
@@ -759,6 +872,77 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>AC アダプタが接続されていないと、選択した電源モードが正しく動作しない可能性があります。</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
+    <value>プリセット 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset2" xml:space="preserve">
+    <value>プリセット 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
+    <value>プリセット 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone1" xml:space="preserve">
+    <value>ゾーン 1</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone2" xml:space="preserve">
+    <value>ゾーン 2</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone3" xml:space="preserve">
+    <value>ゾーン 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
+    <value>ゾーン 4</value>
+  </data>
+  <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="ReadmeWindow_Title" xml:space="preserve">
+    <value>はじめに</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイのリフレッシュレートを変更します。
+
+警告: 内蔵ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
+    <value>リフレッシュレート</value>
+  </data>
+  <data name="RefreshRateControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイのリフレッシュレートを変更します。</value>
+  </data>
+  <data name="RefreshRateControl_Title" xml:space="preserve">
+    <value>リフレッシュレート</value>
+  </data>
+  <data name="Rename" xml:space="preserve">
+    <value>名前を変更</value>
+  </data>
+  <data name="RestartNow" xml:space="preserve">
+    <value>今すぐ再起動</value>
+  </data>
+  <data name="Revert" xml:space="preserve">
+    <value>元に戻す</value>
+  </data>
+  <data name="RunAutomationStepControl_ExeArguments" xml:space="preserve">
+    <value>引数</value>
+  </data>
+  <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
+    <value>実行パス</value>
+  </data>
+  <data name="RunAutomationStepControl_Title" xml:space="preserve">
+    <value>実行</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="Saving" xml:space="preserve">
+    <value>保存しています...</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
     <value>循環する１つ以上のクイック アクションを選択します</value>
@@ -808,6 +992,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage と ImController を無効化</value>
   </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
+    <value>Fn+R ショートカットをさらに便利にするために、リフレッシュレートを除外できます。</value>
+  </data>
+  <data name="SettingsPage_ExcludeRefreshRates_Title" xml:space="preserve">
+    <value>リフレッシュレートの除外</value>
+  </data>
   <data name="SettingsPage_Language_Message" xml:space="preserve">
     <value>このソフトウェアで表示する言語を選択できます。</value>
   </data>
@@ -844,6 +1034,76 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_Theme_Title" xml:space="preserve">
     <value>テーマ</value>
   </data>
+  <data name="SettingsPage_Title" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
+    <value>オフ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
+    <value>明るさ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Color_Title" xml:space="preserve">
+    <value>色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Colors_Title" xml:space="preserve">
+    <value>色</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
+    <value>方向</value>
+  </data>
+  <data name="ResolutionControl_Title" xml:space="preserve">
+    <value>解像度</value>
+  </data>
+  <data name="ResolutionControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの解像度を変更します。</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
+    <value>解像度</value>
+  </data>
+  <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの解像度を変更します。
+
+警告: 内蔵ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="DpiScaleControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイのスケールを変更します。</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>ディスプレイ</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
+    <value>ディスプレイオフ</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>ディスプレイをすべてオフにします。
+マウスを動かすかキーボードを押すと、ディスプレイが起動します。</value>
+  </data>
+  <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
+    <value>オフにする</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>カスタムモードプリセット</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>カスタムモードプリセットを有効にします。
+この設定は、カスタムモードが有効な場合にのみ有効です。</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
+    <value>プリセット名</value>
+  </data>
+  <data name="GodModeSettingsWindow_EditPreset_Message" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="GodModeSettingsWindow_ActivePreset_Title" xml:space="preserve">
+    <value>アクティブプリセット</value>
+  </data>
   <data name="AboutPage_ApplicationFolders" xml:space="preserve">
     <value>アプリケーションのフォルダ</value>
   </data>
@@ -853,20 +1113,80 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="AboutPage_Temp" xml:space="preserve">
     <value>Temp</value>
   </data>
+  <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
+    <value>ピークパワー制限</value>
+  </data>
+  <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
+    <value>APU sPPTの電力制限</value>
+  </data>
+  <data name="StatusTrayPopup_Preset" xml:space="preserve">
+    <value>プリセット</value>
+  </data>
+  <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
+    <value>ディスクリートGPU</value>
+  </data>
+  <data name="BatteryPage_LowLevel" xml:space="preserve">
+    <value>バッテリー残量が少なくなっています。</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>ディスクリートGPUをオーバークロックすることでパフォーマンスを向上させます。</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+    <value>最高: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+    <value>使用率</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+    <value>コアクロック</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+    <value>ファン</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+    <value>メモリークロック</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+    <value>更新間隔</value>
+  </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
     <value>長さ</value>
   </data>
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="RevertToDefault" xml:space="preserve">
+    <value>デフォルトに戻す</value>
+  </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
     <value>アクション</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+    <value>プリセット</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
     <value>スマート Fn Lock</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>Alt、Ctrl、Shift キーを押すと、Fn Lock が一時的に無効になります。</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+    <value>夜間のバッテリー充電</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+    <value>有効にすると、夜間にこのデバイスに電源を接続した場合80%まで充電され、翌朝このデバイスを使用するまでに100%まで充電が完了します。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+    <value>プリセット</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
     <value>更新</value>
