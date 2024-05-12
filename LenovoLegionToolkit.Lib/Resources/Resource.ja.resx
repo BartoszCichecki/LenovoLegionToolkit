@@ -126,6 +126,12 @@
   <data name="AlwaysOnUSBState_Off" xml:space="preserve">
     <value>オフ</value>
   </data>
+  <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
+    <value>常時オン</value>
+  </data>
+  <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
+    <value>スリープ時オン</value>
+  </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>無効</value>
   </data>
@@ -134,6 +140,9 @@
   </data>
   <data name="AutorunState_EnabledDelayed" xml:space="preserve">
     <value>有効（遅延）</value>
+  </data>
+  <data name="BatteryState_Conservation" xml:space="preserve">
+    <value>節電</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>通常</value>
