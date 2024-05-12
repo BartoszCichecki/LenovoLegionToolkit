@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
@@ -24,6 +25,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
     private readonly DGPUNotify _dgpuNotify;
     private readonly SmartFnLockController _smartFnLockController;
+    private readonly PowerModeFeature _powerModeFeature;
 
     private readonly HOOKPROC _kbProc;
 
@@ -34,6 +36,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     private HDEVNOTIFY _devInterfaceMonitorHandle;
     private HPOWERNOTIFY _consoleDisplayStateNotificationHandle;
     private HPOWERNOTIFY _lidSwitchStateChangeNotificationHandle;
+    private HPOWERNOTIFY _powerSavingStateChangeNotificationHandle;
     private HHOOK _kbHook;
 
     public bool IsMonitorOn { get; private set; }
@@ -41,11 +44,12 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     public event EventHandler<ChangedEventArgs>? Changed;
 
-    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify, SmartFnLockController smartFnLockController)
+    public NativeWindowsMessageListener(IMainThreadDispatcher mainThreadDispatcher, DGPUNotify dgpuNotify, SmartFnLockController smartFnLockController, PowerModeFeature powerModeFeature)
     {
         _mainThreadDispatcher = mainThreadDispatcher;
         _dgpuNotify = dgpuNotify;
         _smartFnLockController = smartFnLockController;
+        _powerModeFeature = powerModeFeature;
 
         _kbProc = LowLevelKeyboardProc;
     }
@@ -74,6 +78,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _devInterfaceMonitorHandle = RegisterDeviceNotification(Handle, PInvoke.GUID_DEVINTERFACE_MONITOR);
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
+        _powerSavingStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_POWER_SAVING_STATUS);
 
         return WaitForInit();
     });
@@ -86,6 +91,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         PInvoke.UnregisterDeviceNotification(_devInterfaceMonitorHandle);
         PInvoke.UnregisterPowerSettingNotification(_consoleDisplayStateNotificationHandle);
         PInvoke.UnregisterPowerSettingNotification(_lidSwitchStateChangeNotificationHandle);
+        PInvoke.UnregisterPowerSettingNotification(_powerSavingStateChangeNotificationHandle);
 
         _kbHook = default;
         _displayArrivalHandle = default;
@@ -185,6 +191,14 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                     OnLidClosed();
                 }
             }
+
+            if (str.PowerSetting == PInvoke.GUID_POWER_SAVING_STATUS && str.Data[0] == 0)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Event received: Battery Saver enabled");
+
+                OnBatterySaverEnabled();
+            }
         }
 
         base.WndProc(ref m);
@@ -237,6 +251,13 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         _isLidOpenTaskCompletionSource.TrySetResult();
 
         RaiseChanged(NativeWindowsMessage.LidClosed);
+    }
+
+    private void OnBatterySaverEnabled()
+    {
+        Task.Run(_powerModeFeature.EnsureCorrectWindowsPowerSettingsAreSetAsync);
+
+        RaiseChanged(NativeWindowsMessage.BatterySaverEnabled);
     }
 
     private void OnMonitorConnected()

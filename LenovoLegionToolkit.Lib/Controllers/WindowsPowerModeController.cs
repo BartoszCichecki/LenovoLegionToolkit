@@ -11,7 +11,7 @@ using Windows.Win32.Foundation;
 
 namespace LenovoLegionToolkit.Lib.Controllers;
 
-public partial class WindowsPowerModeController(ApplicationSettings settings)
+public partial class WindowsPowerModeController(ApplicationSettings settings, IMainThreadDispatcher mainThreadDispatcher)
 {
     private const string POWER_SCHEMES_HIVE = "HKEY_LOCAL_MACHINE";
     private const string POWER_SCHEMES_SUBKEY = "SYSTEM\\CurrentControlSet\\Control\\Power\\User\\PowerSchemes";
@@ -22,14 +22,16 @@ public partial class WindowsPowerModeController(ApplicationSettings settings)
     private static readonly Guid BestPowerEfficiency = Guid.Parse("961cc777-2547-4f9d-8174-7d86181b8a7a");
     private static readonly Guid BestPerformance = Guid.Parse("ded574b5-45a0-4f42-8737-46345c09c238");
 
-    public Task SetPowerModeAsync(PowerModeState powerModeState)
+    private readonly ThrottleLastDispatcher _dispatcher = new(TimeSpan.FromSeconds(2), nameof(WindowsPowerModeController));
+
+    public async Task SetPowerModeAsync(PowerModeState powerModeState)
     {
         if (settings.Store.PowerModeMappingMode is not PowerModeMappingMode.WindowsPowerMode)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Ignoring... [powerModeMappingMode={settings.Store.PowerModeMappingMode}]");
 
-            return Task.CompletedTask;
+            return;
         }
 
         if (Log.Instance.IsTraceEnabled)
@@ -42,31 +44,37 @@ public partial class WindowsPowerModeController(ApplicationSettings settings)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Battery saver is on - will not set overlay scheme.");
+
+            return;
         }
-        else
+
+        await _dispatcher.DispatchAsync(() =>
         {
             ActivateDefaultPowerPlanIfNeeded();
 
-            var result = PowerSetActiveOverlayScheme(powerModeGuid);
+            mainThreadDispatcher.Dispatch(() =>
+            {
+                var result = PowerSetActiveOverlayScheme(powerModeGuid);
 
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Overlay scheme set. [result={result}]");
-        }
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Overlay scheme set. [result={result}]");
+            });
 
-        try
-        {
-            UpdateRegistry(powerModeGuid);
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Failed to update registry.", ex);
-        }
+            try
+            {
+                UpdateRegistry(powerModeGuid);
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to update registry.", ex);
+            }
+
+            return Task.CompletedTask;
+        }).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Power mode {powerMode} activated... [powerModeState={powerModeState}, powerModeGuid={powerModeGuid}]");
-
-        return Task.CompletedTask;
     }
 
     private static void UpdateRegistry(Guid guid)

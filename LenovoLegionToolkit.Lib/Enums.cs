@@ -215,7 +215,8 @@ public enum NativeWindowsMessage
     MonitorOff,
     MonitorConnected,
     MonitorDisconnected,
-    OnDisplayDeviceArrival
+    OnDisplayDeviceArrival,
+    BatterySaverEnabled
 }
 
 public enum NotificationDuration
