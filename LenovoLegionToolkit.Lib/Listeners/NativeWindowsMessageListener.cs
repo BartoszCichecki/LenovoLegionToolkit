@@ -6,6 +6,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -121,6 +122,22 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
+                    var id = InternalDisplay.Get();
+                    var name = new string(devBroadcastDeviceInterface.dbcc_name.AsSpan(2048));
+
+                    // HACK: There seems to be an issue with cswin32 that results in the name being at an odd offset.
+                    var startPatternIndex = name.IndexOf(@"\\?\", StringComparison.Ordinal);
+                    if (startPatternIndex != -1)
+                        name = name[startPatternIndex..];
+                    var endPatternIndex = name.IndexOf('\0');
+                    if (endPatternIndex != -1)
+                        name = name[..endPatternIndex];
+
+                    var isExternal = !name.Equals(id?.DevicePath, StringComparison.Ordinal);
+
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"[HACK] isExternal={isExternal} dbcc_name={name} id?.DevicePath={id?.DevicePath}");
+
                     var state = (uint)m.WParam.ToInt32();
                     switch (state)
                     {
@@ -129,7 +146,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                                 if (Log.Instance.IsTraceEnabled)
                                     Log.Instance.Trace($"Event received: Monitor Connected");
 
-                                OnMonitorConnected();
+                                OnMonitorConnected(isExternal);
                                 break;
                             }
                         case PInvoke.DBT_DEVICEREMOVECOMPLETE:
@@ -137,7 +154,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                                 if (Log.Instance.IsTraceEnabled)
                                     Log.Instance.Trace($"Event received: Monitor Disconnected");
 
-                                OnMonitorDisconnected();
+                                OnMonitorDisconnected(isExternal);
                                 break;
                             }
                     }
@@ -260,14 +277,20 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.BatterySaverEnabled);
     }
 
-    private void OnMonitorConnected()
+    private void OnMonitorConnected(bool isExternal)
     {
         RaiseChanged(NativeWindowsMessage.MonitorConnected);
+
+        if (isExternal)
+            RaiseChanged(NativeWindowsMessage.ExternalMonitorConnected);
     }
 
-    private void OnMonitorDisconnected()
+    private void OnMonitorDisconnected(bool isExternal)
     {
         RaiseChanged(NativeWindowsMessage.MonitorDisconnected);
+
+        if (isExternal)
+            RaiseChanged(NativeWindowsMessage.ExternalMonitorConnected);
     }
 
     private void OnDisplayDeviceArrival()
