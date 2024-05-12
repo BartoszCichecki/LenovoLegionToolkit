@@ -41,12 +41,12 @@ public static class TokenManipulator
         PInvoke.LookupPrivilegeValue(null, privilegeName, out var luid);
 
         var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-        state.Privileges._0 = new LUID_AND_ATTRIBUTES
+        state.Privileges[0] = new LUID_AND_ATTRIBUTES
         {
             Luid = luid,
             Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0
         };
 
-        return PInvoke.AdjustTokenPrivileges(safeTokenHandle, false, state, 0, null, null);
+        return PInvoke.AdjustTokenPrivileges(safeTokenHandle, false, &state, 0, null, null);
     }
 }

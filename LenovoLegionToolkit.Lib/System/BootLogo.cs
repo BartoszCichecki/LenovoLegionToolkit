@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
-using Windows.Win32.Security;
 
 namespace LenovoLegionToolkit.Lib.System;
 
@@ -99,7 +98,7 @@ public static class BootLogo
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
@@ -124,7 +123,7 @@ public static class BootLogo
         {
             Marshal.FreeHGlobal(ptr);
 
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     }
 
@@ -137,7 +136,7 @@ public static class BootLogo
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
@@ -158,7 +157,7 @@ public static class BootLogo
         {
             Marshal.FreeHGlobal(ptr);
 
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     }
 
@@ -171,7 +170,7 @@ public static class BootLogo
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
@@ -196,7 +195,7 @@ public static class BootLogo
         {
             Marshal.FreeHGlobal(ptr);
 
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     }
 
@@ -210,7 +209,7 @@ public static class BootLogo
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges.");
@@ -231,7 +230,7 @@ public static class BootLogo
         {
             Marshal.FreeHGlobal(ptr);
 
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     }
 
@@ -399,53 +398,5 @@ public static class BootLogo
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"EFI partition un-mounted from {letter}:.");
-    }
-
-    private static unsafe bool SetPrivilege(bool enable)
-    {
-        try
-        {
-            using var handle = PInvoke.GetCurrentProcess_SafeHandle();
-
-            if (!PInvoke.OpenProcessToken(handle, TOKEN_ACCESS_MASK.TOKEN_QUERY | TOKEN_ACCESS_MASK.TOKEN_ADJUST_PRIVILEGES, out var token))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not open process token.");
-
-                return false;
-            }
-
-            if (!PInvoke.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", out var luid))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not look up privilege value.");
-
-                return false;
-            }
-
-            var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-            state.Privileges._0 = new LUID_AND_ATTRIBUTES
-            {
-                Luid = luid,
-                Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0
-            };
-
-            if (!PInvoke.AdjustTokenPrivileges(token, false, state, 0, null, null))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not adjust token privileges.");
-
-                return false;
-            }
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Exception while setting privilege.", ex);
-
-            return false;
-        }
     }
 }
