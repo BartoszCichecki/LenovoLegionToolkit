@@ -1858,9 +1858,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU 到 CPU Dynamic Boost</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>這是根據 CPU 使用情況可以從 CPU 分配給 GPU 的最大額外功率。該值越高，使用此 GPU 的應用程式的效能越好。</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>啟動商標</value>
   </data>

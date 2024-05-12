@@ -1860,9 +1860,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Dynamic Boost GPU на CPU</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Это максимальная дополнительная мощность, которая может быть выделена на GPU из CPU в зависимости от загрузки процессора. Чем выше это значение, тем выше производительность приложений, использующих GPU.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Логотип загрузки</value>
   </data>

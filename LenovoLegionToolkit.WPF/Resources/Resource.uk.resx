@@ -1865,9 +1865,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Динамічний прискорювач ГП до ЦП</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Це максимальне додаткове живлення, яке може бути виділене графічному процесору від центрального процесора, на основі використання центрального процесора. Чим вище значення, тим краща продуктивність програм, які використовують ГП.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Познака завантаження</value>
   </data>

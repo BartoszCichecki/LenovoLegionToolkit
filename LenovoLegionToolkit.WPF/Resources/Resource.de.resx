@@ -1868,9 +1868,6 @@ Erfordert einen Neustart.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU zu CPU Dynamischer Boost</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Dies ist die maximale zusätzliche Leistung, die der GPU von der CPU auf der Grundlage der CPU-Nutzung zugewiesen werden kann. Je höher der Wert, desto besser ist die Leistung von Anwendungen, welche die GPU nutzen.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Boot-Logo</value>
   </data>

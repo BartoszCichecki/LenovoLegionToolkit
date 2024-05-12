@@ -1875,9 +1875,6 @@ Nécessite un redémarrage.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU vers Boost Dynamique CPU</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Il s'agit de la puissance supplémentaire maximale qui peut être allouée au GPU par le CPU en fonction de l'utilisation du CPU. Plus la valeur est élevée, meilleures sont les performances des applications qui utilisent le GPU.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logo de démarrage</value>
   </data>
@@ -2051,6 +2048,6 @@ Nécessite un redémarrage.</value>
     <value>Toujours réduire dans la zone de notification au lieu de la barre des tâches.</value>
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
-	  <value>Modes de gestion de l'alimentation Windows</value>
+    <value>Modes de gestion de l'alimentation Windows</value>
   </data>
 </root>

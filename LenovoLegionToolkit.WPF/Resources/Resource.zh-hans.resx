@@ -1882,9 +1882,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU 至 CPU Dynamic Boost</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>根据 CPU 使用情况从 CPU 分配给 GPU 的最大额外功率。数值越大，使用 GPU 的应用程序性能越好。</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>自定义开机画面</value>
   </data>
@@ -2059,6 +2056,6 @@
     <value>总是最小化到托盘，而非任务栏。</value>
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
-	  <value>Windows 电源模式</value>
+    <value>Windows 电源模式</value>
   </data>
 </root>
