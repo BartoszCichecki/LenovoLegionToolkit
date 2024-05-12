@@ -1863,9 +1863,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Динамичен бууст на видео картата от процесора</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Това е максималната допълнителна мощност, която може да бъде отпусната на видео картата от процесора, в зависимост от натовареността му. Колкото по-голяма е стойността, толкова по-висока ще бъде производителността на приложенията, които изпозлват видео картата.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Лого при стартиране</value>
   </data>
