@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,14 +105,14 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         return Task.CompletedTask;
     });
 
-    protected override void WndProc(ref Message m)
+    protected override unsafe void WndProc(ref Message m)
     {
         if (m.Msg == PInvoke.WM_DEVICECHANGE && m.LParam != IntPtr.Zero)
         {
-            var devBroadcastHdr = Marshal.PtrToStructure<DEV_BROADCAST_HDR>(m.LParam);
+            ref var devBroadcastHdr = ref Unsafe.AsRef<DEV_BROADCAST_HDR>((void*)m.LParam);
             if (devBroadcastHdr.dbch_devicetype == DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE)
             {
-                var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
+                ref var devBroadcastDeviceInterface = ref Unsafe.AsRef<DEV_BROADCAST_DEVICEINTERFACE_W>((void*)m.LParam);
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                 {
                     if (Log.Instance.IsTraceEnabled)
@@ -123,20 +124,10 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
                     var id = InternalDisplay.Get();
-                    var name = new string(devBroadcastDeviceInterface.dbcc_name.AsSpan(2048));
-
-                    // HACK: There seems to be an issue with cswin32 that results in the name being at an odd offset.
-                    var startPatternIndex = name.IndexOf(@"\\?\", StringComparison.Ordinal);
-                    if (startPatternIndex != -1)
-                        name = name[startPatternIndex..];
-                    var endPatternIndex = name.IndexOf('\0');
-                    if (endPatternIndex != -1)
-                        name = name[..endPatternIndex];
+                    var length = ((int)devBroadcastDeviceInterface.dbcc_size - sizeof(DEV_BROADCAST_DEVICEINTERFACE_W)) / sizeof(char);
+                    var name = devBroadcastDeviceInterface.dbcc_name.AsSpan(length).ToString();
 
                     var isExternal = !name.Equals(id?.DevicePath, StringComparison.Ordinal);
-
-                    if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"[HACK] isExternal={isExternal} dbcc_name={name} id?.DevicePath={id?.DevicePath}");
 
                     var state = (uint)m.WParam.ToInt32();
                     switch (state)
@@ -164,7 +155,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
         if (m.Msg == PInvoke.WM_POWERBROADCAST && m.WParam == (IntPtr)PInvoke.PBT_POWERSETTINGCHANGE && m.LParam != IntPtr.Zero)
         {
-            var str = Marshal.PtrToStructure<POWERBROADCAST_SETTING>(m.LParam);
+            ref var str = ref Unsafe.AsRef<POWERBROADCAST_SETTING>((void*)m.LParam);
 
             if (str.PowerSetting == PInvoke.GUID_CONSOLE_DISPLAY_STATE)
             {
