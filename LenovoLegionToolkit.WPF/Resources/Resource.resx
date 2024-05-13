@@ -735,9 +735,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>This device is not compatible with Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>No compatible keyboards found</value>
   </data>
@@ -2070,5 +2067,8 @@ Supported formats are: {1}.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
 	  <value>Select Windows Power Mode to apply when Power Mode changes.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>Error occured when reading device information.</value>
   </data>
 </root>

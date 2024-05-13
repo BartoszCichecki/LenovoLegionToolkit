@@ -1200,6 +1200,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error occured when reading device information..
+        /// </summary>
+        public static string CompatibilityCheckError_Message {
+            get {
+                return ResourceManager.GetString("CompatibilityCheckError_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quick Actions.
         /// </summary>
         public static string ContextMenu_QuickActions {
@@ -2611,15 +2620,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string IncompatibleDevice_Message {
             get {
                 return ResourceManager.GetString("IncompatibleDevice_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Lenovo Legion Toolkit.
-        /// </summary>
-        public static string IncompatibleDevice_Title {
-            get {
-                return ResourceManager.GetString("IncompatibleDevice_Title", resourceCulture);
             }
         }
         
