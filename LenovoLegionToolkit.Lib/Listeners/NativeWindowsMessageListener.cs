@@ -281,7 +281,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.MonitorDisconnected);
 
         if (isExternal)
-            RaiseChanged(NativeWindowsMessage.ExternalMonitorConnected);
+            RaiseChanged(NativeWindowsMessage.ExternalMonitorDisconnected);
     }
 
     private void OnDisplayDeviceArrival()
