@@ -4425,6 +4425,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Allow quick switching to Custom Mode with Fn+Q..
+        /// </summary>
+        public static string Settings_GodModeFnQSwitchable_Message {
+            get {
+                return ResourceManager.GetString("Settings_GodModeFnQSwitchable_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Switch to Custom Mode with Fn+Q.
+        /// </summary>
+        public static string Settings_GodModeFnQSwitchable_Title {
+            get {
+                return ResourceManager.GetString("Settings_GodModeFnQSwitchable_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change the accent color of the app..
         /// </summary>
         public static string SettingsPage_AccentColor_Description {
@@ -4789,6 +4807,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes..
+        /// </summary>
+        public static string SettingsPage_PowerModeMapping_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_PowerModeMapping_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Power Mode Synchronization.
+        /// </summary>
+        public static string SettingsPage_PowerModeMapping_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_PowerModeMapping_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Fn Lock will be temporarily disabled when Alt, Ctrl or Shift key is depressed..
         /// </summary>
         public static string SettingsPage_SmartFnLock_Message {
@@ -4884,6 +4920,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Windows Power Mode to apply when Power Mode changes..
+        /// </summary>
+        public static string SettingsPage_WindowsPowerModes_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_WindowsPowerModes_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Windows Power Modes.
+        /// </summary>
+        public static string SettingsPage_WindowsPowerModes_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_WindowsPowerModes_Title", resourceCulture);
             }
         }
         

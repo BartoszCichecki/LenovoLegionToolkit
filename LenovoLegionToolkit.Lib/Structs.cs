@@ -378,6 +378,7 @@ public readonly struct MachineInformation
         public bool InstantBootUsbPowerDelivery { get; init; }
         public bool AMDSmartShiftMode { get; init; }
         public bool AMDSkinTemperatureTracking { get; init; }
+        public bool GodModeFnQSwitchable { get; init; }
     }
 
     public readonly struct PropertyData

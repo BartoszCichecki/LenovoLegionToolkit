@@ -206,6 +206,7 @@ public static partial class Compatibility
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
                 AMDSmartShiftMode = capabilities.Contains(CapabilityID.AMDSmartShiftMode),
                 AMDSkinTemperatureTracking = capabilities.Contains(CapabilityID.AMDSkinTemperatureTracking),
+                GodModeFnQSwitchable = capabilities.Contains(CapabilityID.GodModeFnQSwitchable)
             };
         }
         catch { /* Ignored. */ }
@@ -224,7 +225,8 @@ public static partial class Compatibility
                 InstantBootAc = featureFlags.IsBitSet(5),
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
                 AMDSmartShiftMode = featureFlags.IsBitSet(7),
-                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8)
+                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8),
+                GodModeFnQSwitchable = false
             };
         }
         catch { /* Ignored. */ }

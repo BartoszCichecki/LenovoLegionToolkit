@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class PowerModeListener(
+    GodModeController godModeController,
     WindowsPowerModeController windowsPowerModeController,
     WindowsPowerPlanController windowsPowerPlanController)
     : AbstractWMIListener<PowerModeListener.ChangedEventArgs, PowerModeState, int>(WMI.LenovoGameZoneSmartFanModeEvent.Listen), INotifyingListener<PowerModeListener.ChangedEventArgs, PowerModeState>
@@ -38,6 +40,9 @@ public class PowerModeListener(
 
     private async Task ChangeDependenciesAsync(PowerModeState value)
     {
+        if (value is PowerModeState.GodMode)
+            await godModeController.ApplyStateAsync().ConfigureAwait(false);
+
         await windowsPowerModeController.SetPowerModeAsync(value).ConfigureAwait(false);
         await windowsPowerPlanController.SetPowerPlanAsync(value).ConfigureAwait(false);
     }

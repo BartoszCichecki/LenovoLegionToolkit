@@ -79,9 +79,6 @@ public class PowerModeFeature(
         thermalModeListener.SuppressNext();
         await base.SetStateAsync(state).ConfigureAwait(false);
 
-        if (state == PowerModeState.GodMode)
-            await godModeController.ApplyStateAsync().ConfigureAwait(false);
-
         await powerModeListener.NotifyAsync(state).ConfigureAwait(false);
     }
 
