@@ -1875,6 +1875,9 @@ Yeniden başlatma gerektirir.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU Üstünden CPU Üstüne Dinamik Güç</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Bu CPU kullanımına bağlı olarak GPU üstünden CPU üstüne tahsis edilebilecek azami ek güçtür. Değer ne kadar yüksek olursa CPU kullanan uygulamaların performansı da o kadar iyi olur.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Açılış Logosu</value>
   </data>
