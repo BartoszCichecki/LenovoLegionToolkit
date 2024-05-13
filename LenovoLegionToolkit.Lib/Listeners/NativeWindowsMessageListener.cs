@@ -297,12 +297,12 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private void RaiseChanged(NativeWindowsMessage message) => Changed?.Invoke(this, new ChangedEventArgs(message));
 
-    private LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+    private unsafe LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
         if (nCode != PInvoke.HC_ACTION)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
-        var kbStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(new IntPtr(lParam.Value));
+        ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);
 
         _smartFnLockController.OnKeyboardEvent(wParam.Value, kbStruct);
 

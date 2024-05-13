@@ -170,7 +170,7 @@ public class WindowsPowerPlanController(ApplicationSettings settings, VantageDis
         if (PInvoke.PowerGetActiveScheme(null, out var guid) != WIN32_ERROR.ERROR_SUCCESS)
             PInvokeExtensions.ThrowIfWin32Error("PowerGetActiveScheme");
 
-        return Marshal.PtrToStructure<Guid>(new IntPtr(guid));
+        return *guid;
     }
 
     private static void SetActivePowerPlan(Guid powerPlanGuid)

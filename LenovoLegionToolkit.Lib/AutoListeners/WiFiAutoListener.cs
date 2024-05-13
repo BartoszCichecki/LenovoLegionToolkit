@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,12 +87,14 @@ public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEve
 
     private unsafe void WlanCallback(L2_NOTIFICATION_DATA* param0, void* param1)
     {
-        var data = Marshal.PtrToStructure<L2_NOTIFICATION_DATA>(new(param0));
+        ref var data = ref Unsafe.AsRef<L2_NOTIFICATION_DATA>(param0);
 
         switch (data.NotificationCode)
         {
             case 0x0A: /* Connected */
-                var ssid = GetSsid(data);
+                ref var notificationData = ref Unsafe.AsRef<WLAN_CONNECTION_NOTIFICATION_DATA>(data.pData);
+                var dot11Ssid = notificationData.dot11Ssid;
+                var ssid = Encoding.UTF8.GetString(dot11Ssid.ucSSID.Value, (int)dot11Ssid.uSSIDLength);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"WiFi connected. [ssid={ssid}]");
@@ -105,12 +108,5 @@ public class WiFiAutoListener : AbstractAutoListener<WiFiAutoListener.ChangedEve
                 RaiseChanged(new ChangedEventArgs(false, null));
                 break;
         }
-    }
-
-    private static unsafe string GetSsid(L2_NOTIFICATION_DATA data)
-    {
-        var notificationData = Marshal.PtrToStructure<WLAN_CONNECTION_NOTIFICATION_DATA>(new(data.pData));
-        var dot11Ssid = notificationData.dot11Ssid;
-        return Encoding.UTF8.GetString(dot11Ssid.ucSSID.Value, (int)dot11Ssid.uSSIDLength);
     }
 }
