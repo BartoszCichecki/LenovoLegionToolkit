@@ -220,15 +220,27 @@
             FontWeight="Medium"
             Text="{x:Static resources:Resource.SettingsPage_Power_Title}" />
 
+        <custom:CardControl x:Name="_godModeFnQSwitchableCard" Margin="0,0,0,24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.Settings_GodModeFnQSwitchable_Title}" Subtitle="{x:Static resources:Resource.Settings_GodModeFnQSwitchable_Message}" />
+            </custom:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_godModeFnQSwitchableToggle"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.Settings_GodModeFnQSwitchable_Title}"
+                Click="GodModeFnQSwitchableToggle_Click"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
         <custom:CardControl x:Name="_powerModeMappingCard" Margin="0,0,0,8">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="Power Mode Synchronization" Subtitle="Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_PowerModeMapping_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_PowerModeMapping_Message}" />
             </custom:CardControl.Header>
             <ComboBox
                 x:Name="_powerModeMappingComboBox"
                 MinWidth="160"
                 Margin="0,0,0,8"
-                AutomationProperties.Name="Power Mode Synchronization"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_PowerModeMapping_Title}"
                 MaxDropDownHeight="Auto"
                 SelectionChanged="PowerModeMappingComboBox_SelectionChanged"
                 Visibility="Hidden" />
@@ -239,7 +251,7 @@
             Margin="0,0,0,8"
             Click="PowerModes_Click">
             <custom:CardAction.Content>
-                <controls:CardHeaderControl Title="Windows Power Modes" Subtitle="Select Windows Power Mode to apply when Power Mode changes." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_WindowsPowerModes_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_WindowsPowerModes_Message}" />
             </custom:CardAction.Content>
         </custom:CardAction>
 

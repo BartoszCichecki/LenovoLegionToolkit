@@ -75,8 +75,22 @@ public partial class App
 
         if (!flags.SkipCompatibilityCheck)
         {
-            await CheckBasicCompatibilityAsync();
-            await CheckCompatibilityAsync();
+            try
+            {
+                if (!await CheckBasicCompatibilityAsync())
+                    return;
+                if (!await CheckCompatibilityAsync())
+                    return;
+            }
+            catch (Exception ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Failed to check device compatibility", ex);
+
+                MessageBox.Show(Resource.CompatibilityCheckError_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
+                Shutdown(200);
+                return;
+            }
         }
 
         if (Log.Instance.IsTraceEnabled)
@@ -225,7 +239,7 @@ public partial class App
             "Application Domain Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
-        Shutdown(1);
+        Shutdown(100);
     }
 
     private void Application_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
@@ -237,28 +251,29 @@ public partial class App
             "Application Error",
             MessageBoxButton.OK,
             MessageBoxImage.Error);
-        Shutdown(1);
+        Shutdown(101);
     }
 
-    private async Task CheckBasicCompatibilityAsync()
+    private async Task<bool> CheckBasicCompatibilityAsync()
     {
         var isCompatible = await Compatibility.CheckBasicCompatibilityAsync();
         if (isCompatible)
-            return;
+            return true;
 
-        MessageBox.Show(Resource.IncompatibleDevice_Message, Resource.IncompatibleDevice_Title, MessageBoxButton.OK, MessageBoxImage.Error);
+        MessageBox.Show(Resource.IncompatibleDevice_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Error);
 
-        Shutdown(99);
+        Shutdown(201);
+        return false;
     }
 
-    private async Task CheckCompatibilityAsync()
+    private async Task<bool> CheckCompatibilityAsync()
     {
         var (isCompatible, mi) = await Compatibility.IsCompatibleAsync();
         if (isCompatible)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Compatibility check passed. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, BIOS={mi.BiosVersion}]");
-            return;
+            return true;
         }
 
         if (Log.Instance.IsTraceEnabled)
@@ -274,13 +289,14 @@ public partial class App
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Compatibility check OVERRIDE. [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}, version={Assembly.GetEntryAssembly()?.GetName().Version}, build={Assembly.GetEntryAssembly()?.GetBuildDateTimeString() ?? string.Empty}]");
-            return;
+            return true;
         }
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Shutting down... [Vendor={mi.Vendor}, Model={mi.Model}, MachineType={mi.MachineType}]");
 
-        Shutdown(100);
+        Shutdown(202);
+        return false;
     }
 
     private void EnsureSingleInstance()

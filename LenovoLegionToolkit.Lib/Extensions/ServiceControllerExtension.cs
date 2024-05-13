@@ -21,7 +21,7 @@ internal static class ServiceControllerExtension
             (ENUM_SERVICE_TYPE)PInvoke.SERVICE_NO_CHANGE,
             enabled ? SERVICE_START_TYPE.SERVICE_AUTO_START : SERVICE_START_TYPE.SERVICE_DISABLED,
             SERVICE_ERROR.SERVICE_ERROR_NORMAL,
-            null as string,
+            null,
             null,
             null,
             null,

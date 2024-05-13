@@ -27,8 +27,8 @@
 		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
-		<PackageReference Include="Octokit" Version="10.0.0" />
-		<PackageReference Include="TaskScheduler" Version="2.10.1" />
+		<PackageReference Include="Octokit" Version="11.0.1" />
+		<PackageReference Include="TaskScheduler" Version="2.11.0" />
 		<PackageReference Include="WindowsDisplayAPI" Version="1.3.0.13" />
 	</ItemGroup>
 	<ItemGroup>

@@ -13,6 +13,7 @@ using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
@@ -110,6 +111,17 @@ public partial class SettingsPage
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
+        var mi = await Compatibility.GetMachineInformationAsync();
+        if (mi.Features.GodModeFnQSwitchable)
+        {
+            _godModeFnQSwitchableCard.Visibility = Visibility.Visible;
+            _godModeFnQSwitchableToggle.IsChecked = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GodModeFnQSwitchable) == 1;
+        }
+        else
+        {
+            _godModeFnQSwitchableCard.Visibility = Visibility.Collapsed;
+        }
+
         _powerModeMappingComboBox.SetItems(Enum.GetValues<PowerModeMappingMode>(), _settings.Store.PowerModeMappingMode, t => t.GetDisplayName());
 
         var isPowerModeFeatureSupported = await _powerModeFeature.IsSupportedAsync();
@@ -133,6 +145,7 @@ public partial class SettingsPage
         _fnKeysToggle.Visibility = Visibility.Visible;
         _smartFnLockComboBox.Visibility = Visibility.Visible;
         _synchronizeBrightnessToAllPowerPlansToggle.Visibility = Visibility.Visible;
+        _godModeFnQSwitchableToggle.Visibility = Visibility.Visible;
         _powerModeMappingComboBox.Visibility = Visibility.Visible;
         _hwinfoIntegrationToggle.Visibility = Visibility.Visible;
 
@@ -505,6 +518,22 @@ public partial class SettingsPage
 
         var window = new BootLogoWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        var state = _godModeFnQSwitchableToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _godModeFnQSwitchableToggle.IsEnabled = false;
+
+        await WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.GodModeFnQSwitchable, state.Value ? 1 : 0);
+
+        _godModeFnQSwitchableToggle.IsEnabled = true;
     }
 
     private async void PowerModeMappingComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

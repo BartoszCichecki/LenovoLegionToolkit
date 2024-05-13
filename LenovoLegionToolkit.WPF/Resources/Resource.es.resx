@@ -1878,6 +1878,9 @@ Requiere un reinicio.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Mejora dinámica de la GPU a la CPU</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Es la máxima potencia adicional que puede asignarse a la CPU desde la GPU, en base al uso de ésta. Cuanto mayor sea el valor, mejor será el rendimiento de las aplicaciones que utilizan la CPU.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logo de arranque</value>
   </data>

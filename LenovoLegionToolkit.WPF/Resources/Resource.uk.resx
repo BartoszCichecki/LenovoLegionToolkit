@@ -1009,6 +1009,12 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Обраний режим живлення може не працювати справно без підключеного блоку живлення.</value>
   </data>
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>За замовчуванням</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>План живлення</value>
+  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Налаштуйте шаблон підсвітки клавіатури.</value>
   </data>
@@ -1215,7 +1221,7 @@
     <value>Призначити швидкі дії на натискання Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
-    <value>Дія смартключа</value>
+    <value>Дія розумної клавіші</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Встановить білу тему, темну тему або дотримуйтесь системних налаштувань.</value>
@@ -1311,7 +1317,7 @@
     <value>Профіль яскравості підсвітки клавіатури</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
-    <value>Всі ключи</value>
+    <value>Усі клавіші</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} зон</value>
@@ -1865,6 +1871,9 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Динамічний прискорювач ГП до ЦП</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Це максимальне додаткове живлення, яке може бути виділене центральному процесору від графічного процесора, на основі використання центрального процесора. Чим вище значення, тим краща продуктивність програм, які використовують ЦП.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Познака завантаження</value>
   </data>
@@ -2037,5 +2046,8 @@
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
     <value>Завжди згортати у лоток замість панелі завдань.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Плани живлення</value>
   </data>
 </root>

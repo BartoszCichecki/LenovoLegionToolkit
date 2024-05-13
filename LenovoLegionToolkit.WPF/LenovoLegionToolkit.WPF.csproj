@@ -37,7 +37,7 @@
 	<ItemGroup>
 		<PackageReference Include="Autofac" Version="8.0.0" />
 		<PackageReference Include="Humanizer" Version="2.14.1" />
-		<PackageReference Include="Markdig" Version="0.35.0" />
+		<PackageReference Include="Markdig" Version="0.37.0" />
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
