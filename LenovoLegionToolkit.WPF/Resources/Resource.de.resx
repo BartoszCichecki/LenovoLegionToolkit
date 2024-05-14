@@ -735,9 +735,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Dieses Gerät ist nicht mit dem Lenovo Legion Toolkit kompatibel.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Keine kompatible Tastatur gefunden</value>
   </data>
