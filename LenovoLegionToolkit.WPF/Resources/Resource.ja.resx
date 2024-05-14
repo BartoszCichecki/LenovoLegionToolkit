@@ -685,9 +685,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>このデバイスは Lenovo Legion Toolkit と互換性がありません。</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>互換性のあるキーボードが見つかりません</value>
   </data>
