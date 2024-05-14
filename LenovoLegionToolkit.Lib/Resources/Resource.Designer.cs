@@ -673,6 +673,15 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset 4.
+        /// </summary>
+        public static string RGBKeyboardBacklightPreset_Four {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightPreset_Four", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
         public static string RGBKeyboardBacklightPreset_Off {

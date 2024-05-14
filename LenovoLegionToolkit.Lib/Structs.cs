@@ -527,6 +527,13 @@ public readonly struct RangeCapability(CapabilityID id, int defaultValue, int mi
 [method: JsonConstructor]
 public readonly struct RGBColor(byte r, byte g, byte b)
 {
+    public static readonly RGBColor Green = new(142, 255, 0);
+    public static readonly RGBColor Pink = new(186, 0, 255);
+    public static readonly RGBColor Purple = new(101, 0, 255);
+    public static readonly RGBColor Red = new(255, 0, 0);
+    public static readonly RGBColor Teal = new(0, 212, 255);
+    public static readonly RGBColor White = new(255, 255, 255);
+
     public byte R { get; } = r;
     public byte G { get; } = g;
     public byte B { get; } = b;
@@ -559,6 +566,8 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription(
     RGBColor zone3,
     RGBColor zone4)
 {
+    public static readonly RGBKeyboardBacklightBacklightPresetDescription Default = new(RGBKeyboardBacklightEffect.Static, RGBKeyboardBacklightSpeed.Slowest, RGBKeyboardBacklightBrightness.High, RGBColor.White, RGBColor.White, RGBColor.White, RGBColor.White);
+
     public RGBKeyboardBacklightEffect Effect { get; } = effect;
     public RGBKeyboardBacklightSpeed Speed { get; } = speed;
     public RGBKeyboardBacklightBrightness Brightness { get; } = brightness;

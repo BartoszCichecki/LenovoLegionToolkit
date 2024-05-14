@@ -4136,6 +4136,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Preset 4.
+        /// </summary>
+        public static string RGBKeyboardBacklightControl_Preset4 {
+            get {
+                return ResourceManager.GetString("RGBKeyboardBacklightControl_Preset4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Off.
         /// </summary>
         public static string RGBKeyboardBacklightControl_PresetOff {
