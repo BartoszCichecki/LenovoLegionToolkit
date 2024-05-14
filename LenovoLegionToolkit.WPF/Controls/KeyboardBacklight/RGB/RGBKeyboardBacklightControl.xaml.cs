@@ -96,11 +96,8 @@ public partial class RGBKeyboardBacklightControl
         {
             _vantageWarningInfoBar.IsOpen = true;
 
-            _offPresetButton.IsEnabled = false;
-            _preset1Button.IsEnabled = false;
-            _preset2Button.IsEnabled = false;
-            _preset3Button.IsEnabled = false;
-            _preset4Button.IsEnabled = false;
+            foreach (var presetButton in PresetButtons)
+                presetButton.IsEnabled = false;
 
             _brightnessControl.IsEnabled = false;
             _effectControl.IsEnabled = false;
@@ -132,11 +129,8 @@ public partial class RGBKeyboardBacklightControl
 
         _vantageWarningInfoBar.IsOpen = false;
 
-        _offPresetButton.IsEnabled = true;
-        _preset1Button.IsEnabled = true;
-        _preset2Button.IsEnabled = true;
-        _preset3Button.IsEnabled = true;
-        _preset4Button.IsEnabled = true;
+        foreach (var presetButton in PresetButtons)
+            presetButton.IsEnabled = true;
 
         if (state.SelectedPreset == RGBKeyboardBacklightPreset.Off)
         {
