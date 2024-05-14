@@ -422,7 +422,9 @@ public enum RGBKeyboardBacklightPreset
     [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Two")]
     Two = 1,
     [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Three")]
-    Three = 2
+    Three = 2,
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Four")]
+    Four = 3
 }
 
 public enum RGBKeyboardBacklightSpeed

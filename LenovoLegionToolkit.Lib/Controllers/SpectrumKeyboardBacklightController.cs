@@ -557,6 +557,7 @@ public class SpectrumKeyboardBacklightController
 
     private async Task<SafeFileHandle?> GetDeviceHandleAsync()
     {
+        return null;
         if (ForceDisable)
             return null;
 

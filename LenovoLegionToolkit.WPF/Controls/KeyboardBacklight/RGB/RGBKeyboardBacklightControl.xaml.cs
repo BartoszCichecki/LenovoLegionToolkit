@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,7 @@ namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.RGB;
 
 public partial class RGBKeyboardBacklightControl
 {
-    private Button[] PresetButtons => [_offPresetButton, _preset1Button, _preset2Button, _preset3Button];
+    private Button[] PresetButtons => [_offPresetButton, _preset1Button, _preset2Button, _preset3Button, _preset4Button];
 
     private ColorPickerControl[] Zones => [_zone1ColorPicker, _zone2ColorPicker, _zone3ColorPicker, _zone4ColorPicker];
 
@@ -99,6 +100,7 @@ public partial class RGBKeyboardBacklightControl
             _preset1Button.IsEnabled = false;
             _preset2Button.IsEnabled = false;
             _preset3Button.IsEnabled = false;
+            _preset4Button.IsEnabled = false;
 
             _brightnessControl.IsEnabled = false;
             _effectControl.IsEnabled = false;
@@ -134,6 +136,7 @@ public partial class RGBKeyboardBacklightControl
         _preset1Button.IsEnabled = true;
         _preset2Button.IsEnabled = true;
         _preset3Button.IsEnabled = true;
+        _preset4Button.IsEnabled = true;
 
         if (state.SelectedPreset == RGBKeyboardBacklightPreset.Off)
         {
@@ -154,10 +157,10 @@ public partial class RGBKeyboardBacklightControl
             return;
         }
 
-        var preset = state.Presets[state.SelectedPreset];
+        var preset = state.Presets.GetValueOrDefault(state.SelectedPreset, RGBKeyboardBacklightBacklightPresetDescription.Default);
 
-        var speedEnabled = preset.Effect != RGBKeyboardBacklightEffect.Static;
-        var zonesEnabled = preset.Effect == RGBKeyboardBacklightEffect.Static || preset.Effect == RGBKeyboardBacklightEffect.Breath;
+        var speedEnabled = preset.Effect is not RGBKeyboardBacklightEffect.Static;
+        var zonesEnabled = preset.Effect is RGBKeyboardBacklightEffect.Static or RGBKeyboardBacklightEffect.Breath;
 
         _brightnessControl.SetItems(Enum.GetValues<RGBKeyboardBacklightBrightness>(), preset.Brightness, v => v.GetDisplayName());
         _effectControl.SetItems(Enum.GetValues<RGBKeyboardBacklightEffect>(), preset.Effect, v => v.GetDisplayName());

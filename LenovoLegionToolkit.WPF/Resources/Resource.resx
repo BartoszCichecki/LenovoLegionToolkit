@@ -1032,6 +1032,9 @@ Performance mode can also be changed with Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Preset 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Preset 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Off</value>
   </data>
