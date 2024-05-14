@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
-using WindowsDisplayAPI;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
@@ -15,17 +12,13 @@ public class ExternalDisplayDisconnectedAutomationPipelineTrigger : INativeWindo
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.MonitorDisconnected };
+        var result = automationEvent is NativeWindowsMessageEvent { Message: NativeWindowsMessage.ExternalMonitorDisconnected };
         return Task.FromResult(result);
     }
 
     public Task<bool> IsMatchingState()
     {
-        var displays = Display.GetDisplays();
-        var internalDisplay = InternalDisplay.Get();
-        if (internalDisplay is not null)
-            displays = displays.Where(d => d.DevicePath != internalDisplay.DevicePath);
-        var result = displays.IsEmpty();
+        var result = ExternalDisplays.Get().Length < 1;
         return Task.FromResult(result);
     }
 

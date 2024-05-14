@@ -92,10 +92,10 @@ public partial class WindowsPowerModeController(ApplicationSettings settings, IM
 
     private static unsafe void ActivateDefaultPowerPlanIfNeeded()
     {
-        if (PInvoke.PowerGetActiveScheme(null, out var guidPtr) != WIN32_ERROR.ERROR_SUCCESS)
+        if (PInvoke.PowerGetActiveScheme(null, out var guid) != WIN32_ERROR.ERROR_SUCCESS)
             PInvokeExtensions.ThrowIfWin32Error("PowerGetActiveScheme");
 
-        if (DefaultPowerPlan == Marshal.PtrToStructure<Guid>(new IntPtr(guidPtr)))
+        if (DefaultPowerPlan == *guid)
             return;
 
         if (PInvoke.PowerSetActiveScheme(null, DefaultPowerPlan) != WIN32_ERROR.ERROR_SUCCESS)

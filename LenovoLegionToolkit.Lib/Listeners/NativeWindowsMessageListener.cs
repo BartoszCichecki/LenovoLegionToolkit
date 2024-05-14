@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -6,6 +7,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -103,14 +105,14 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         return Task.CompletedTask;
     });
 
-    protected override void WndProc(ref Message m)
+    protected override unsafe void WndProc(ref Message m)
     {
         if (m.Msg == PInvoke.WM_DEVICECHANGE && m.LParam != IntPtr.Zero)
         {
-            var devBroadcastHdr = Marshal.PtrToStructure<DEV_BROADCAST_HDR>(m.LParam);
+            ref var devBroadcastHdr = ref Unsafe.AsRef<DEV_BROADCAST_HDR>((void*)m.LParam);
             if (devBroadcastHdr.dbch_devicetype == DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE)
             {
-                var devBroadcastDeviceInterface = Marshal.PtrToStructure<DEV_BROADCAST_DEVICEINTERFACE_W>(m.LParam);
+                ref var devBroadcastDeviceInterface = ref Unsafe.AsRef<DEV_BROADCAST_DEVICEINTERFACE_W>((void*)m.LParam);
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                 {
                     if (Log.Instance.IsTraceEnabled)
@@ -121,6 +123,12 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
+                    var id = InternalDisplay.Get();
+                    var length = ((int)devBroadcastDeviceInterface.dbcc_size - sizeof(DEV_BROADCAST_DEVICEINTERFACE_W)) / sizeof(char);
+                    var name = devBroadcastDeviceInterface.dbcc_name.AsSpan(length).ToString();
+
+                    var isExternal = !name.Equals(id?.DevicePath, StringComparison.Ordinal);
+
                     var state = (uint)m.WParam.ToInt32();
                     switch (state)
                     {
@@ -129,7 +137,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                                 if (Log.Instance.IsTraceEnabled)
                                     Log.Instance.Trace($"Event received: Monitor Connected");
 
-                                OnMonitorConnected();
+                                OnMonitorConnected(isExternal);
                                 break;
                             }
                         case PInvoke.DBT_DEVICEREMOVECOMPLETE:
@@ -137,7 +145,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                                 if (Log.Instance.IsTraceEnabled)
                                     Log.Instance.Trace($"Event received: Monitor Disconnected");
 
-                                OnMonitorDisconnected();
+                                OnMonitorDisconnected(isExternal);
                                 break;
                             }
                     }
@@ -147,7 +155,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
         if (m.Msg == PInvoke.WM_POWERBROADCAST && m.WParam == (IntPtr)PInvoke.PBT_POWERSETTINGCHANGE && m.LParam != IntPtr.Zero)
         {
-            var str = Marshal.PtrToStructure<POWERBROADCAST_SETTING>(m.LParam);
+            ref var str = ref Unsafe.AsRef<POWERBROADCAST_SETTING>((void*)m.LParam);
 
             if (str.PowerSetting == PInvoke.GUID_CONSOLE_DISPLAY_STATE)
             {
@@ -260,14 +268,20 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.BatterySaverEnabled);
     }
 
-    private void OnMonitorConnected()
+    private void OnMonitorConnected(bool isExternal)
     {
         RaiseChanged(NativeWindowsMessage.MonitorConnected);
+
+        if (isExternal)
+            RaiseChanged(NativeWindowsMessage.ExternalMonitorConnected);
     }
 
-    private void OnMonitorDisconnected()
+    private void OnMonitorDisconnected(bool isExternal)
     {
         RaiseChanged(NativeWindowsMessage.MonitorDisconnected);
+
+        if (isExternal)
+            RaiseChanged(NativeWindowsMessage.ExternalMonitorDisconnected);
     }
 
     private void OnDisplayDeviceArrival()
@@ -283,12 +297,12 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
     private void RaiseChanged(NativeWindowsMessage message) => Changed?.Invoke(this, new ChangedEventArgs(message));
 
-    private LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
+    private unsafe LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
         if (nCode != PInvoke.HC_ACTION)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
-        var kbStruct = Marshal.PtrToStructure<KBDLLHOOKSTRUCT>(new IntPtr(lParam.Value));
+        ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);
 
         _smartFnLockController.OnKeyboardEvent(wParam.Value, kbStruct);
 
