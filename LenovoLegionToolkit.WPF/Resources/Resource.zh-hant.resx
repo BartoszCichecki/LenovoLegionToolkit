@@ -734,9 +734,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此裝置不相容於 Lenovo Legion 工具套件。</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion 工具套件</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>尚未發現相容的鍵盤</value>
   </data>
