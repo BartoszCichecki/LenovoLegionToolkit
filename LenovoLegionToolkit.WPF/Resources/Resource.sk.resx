@@ -732,9 +732,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Toto zariadenie nie je kompatibilné s Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Nenašli sa kompatibilné klávesnice</value>
   </data>
