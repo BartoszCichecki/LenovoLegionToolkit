@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
@@ -56,6 +57,10 @@ public class MacroController
         _kbHook = default;
     }
 
+    public void StartRecording() => _recorder.StartRecording();
+
+    public void StopRecording() => _recorder.StopRecording();
+
     private unsafe LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
         if (nCode != PInvoke.HC_ACTION)
@@ -66,7 +71,8 @@ public class MacroController
 
         ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);
 
-        var shouldRun = kbStruct.flags == 0;
+        var shouldRun = !_recorder.IsRecording;
+        shouldRun &= kbStruct.flags == 0;
         shouldRun &= AllowedRange.Contains(kbStruct.vkCode);
         shouldRun &= _settings.Store.Sequences.ContainsKey(kbStruct.vkCode);
 

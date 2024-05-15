@@ -28,6 +28,8 @@ internal class MacroRecorder
     private HHOOK _kbHook;
     private TimeSpan _timeFromLastEvent;
 
+    public bool IsRecording => _kbHook != HHOOK.Null;
+
     public event EventHandler<ReceivedEventArgs>? Received;
 
     public MacroRecorder()
@@ -37,7 +39,7 @@ internal class MacroRecorder
 
     public void StartRecording()
     {
-        if (_kbHook != default)
+        if (_kbHook != HHOOK.Null)
             return;
 
         _timeFromLastEvent = TimeSpan.Zero;

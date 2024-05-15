@@ -2714,6 +2714,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Macro.
+        /// </summary>
+        public static string MacroPage_Title {
+            get {
+                return ResourceManager.GetString("MacroPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainWindow_NavigationItem_About {
@@ -2764,6 +2773,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string MainWindow_NavigationItem_Keyboard {
             get {
                 return ResourceManager.GetString("MainWindow_NavigationItem_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macro.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Macro {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Macro", resourceCulture);
             }
         }
         
