@@ -40,7 +40,7 @@ public partial class MacroSequenceControl
         _stopRecordingButton.Visibility = Visibility.Collapsed;
         _clearButton.Visibility = sequence.Events?.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
 
-        _repeatComboBox.SetItems([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        _repeatComboBox.SetItems(MacroController.AllowedRepeatCounts,
             Math.Clamp(sequence.RepeatCount, 1, 10),
             v => v == 1 ? Resource.MacroSequenceControl_DontRepeat : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;

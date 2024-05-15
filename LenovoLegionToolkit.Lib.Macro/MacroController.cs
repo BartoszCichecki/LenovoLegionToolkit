@@ -18,7 +18,8 @@ public class MacroController
         public MacroEvent MacroEvent { get; init; }
     }
 
-    private static readonly uint[] AllowedRange = [0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69];
+    private static readonly uint[] AllowedKeys = [0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69];
+    public static readonly int[] AllowedRepeatCounts = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     private readonly MacroRecorder _recorder = new();
     private readonly MacroPlayer _player = new();
@@ -88,7 +89,7 @@ public class MacroController
 
         var shouldRun = !_recorder.IsRecording;
         shouldRun &= kbStruct.flags == 0;
-        shouldRun &= AllowedRange.Contains(kbStruct.vkCode);
+        shouldRun &= AllowedKeys.Contains(kbStruct.vkCode);
         shouldRun &= _settings.Store.Sequences.ContainsKey(kbStruct.vkCode);
 
         if (!shouldRun)
