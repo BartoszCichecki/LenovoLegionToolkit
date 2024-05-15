@@ -1035,6 +1035,9 @@ Puede cambiar de modo con Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Predefinido 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Predefinido 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Apagado</value>
   </data>
