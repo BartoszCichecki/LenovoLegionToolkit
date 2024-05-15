@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.System.Management;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -171,9 +172,9 @@ public static partial class Compatibility
 
     private static Task<(string, string, string, string)> GetModelDataAsync() => WMI.Win32.ComputerSystemProduct.ReadAsync();
 
-    private static async Task<(BiosVersion?, string?)> GetBIOSVersionAsync()
+    private static (BiosVersion?, string?) GetBIOSVersion()
     {
-        var result = await WMI.Win32.BIOS.GetNameAsync().ConfigureAwait(false);
+        var result = Registry.GetValue("HKEY_LOCAL_MACHINE", "HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVersion", string.Empty);
 
         var prefixRegex = BiosPrefixRegex();
         var versionRegex = BiosVersionRegex();
