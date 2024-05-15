@@ -63,6 +63,13 @@ public partial class MacroSequenceControl
 
     private void RepeatComboBox_SelectionChanged(object sender, RoutedEventArgs e) => Save();
 
+    private void ClearButton_Click(object sender, RoutedEventArgs e)
+    {
+        _macroEventsPanel.Children.Clear();
+
+        Save();
+    }
+
     private void RecordButton_Click(object sender, RoutedEventArgs e)
     {
         _macroEventsPanel.Children.Clear();
@@ -104,15 +111,6 @@ public partial class MacroSequenceControl
             RepeatCount = repeatCount,
             Events = macroEvents
         };
-        _controller.SetSequences(sequences);
-    }
-
-    private void ClearButton_Click(object sender, RoutedEventArgs e)
-    {
-        _macroEventsPanel.Children.Clear();
-
-        var sequences = _controller.GetSequences();
-        sequences.Remove(_key);
         _controller.SetSequences(sequences);
     }
 }
