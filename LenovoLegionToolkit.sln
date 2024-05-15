@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Spectru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CC081CCC-BA76-4603-8444-9F33C3DD2025}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenovoLegionToolkit.Lib.Macro", "LenovoLegionToolkit.Lib.Macro\LenovoLegionToolkit.Lib.Macro.csproj", "{AC885CE1-A229-4437-B969-266DB6516AD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -35,6 +37,11 @@ Global
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Debug|x64.Build.0 = Debug|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.ActiveCfg = Release|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.Build.0 = Release|x64
+		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.Build.0 = Release|x64
+		{AC885CE1-A229-4437-B969-266DB6516AD1}.Debug|x64.ActiveCfg = Debug|x64
+		{AC885CE1-A229-4437-B969-266DB6516AD1}.Debug|x64.Build.0 = Debug|x64
+		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.ActiveCfg = Release|x64
+		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
