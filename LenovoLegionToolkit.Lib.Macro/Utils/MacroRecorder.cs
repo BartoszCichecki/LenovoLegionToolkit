@@ -60,6 +60,7 @@ internal class MacroRecorder
         if (nCode < 0)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
+        // Returning a value greater than zero to prevent other hooks from handling the keypress
         var result = new LRESULT(69);
 
         ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);

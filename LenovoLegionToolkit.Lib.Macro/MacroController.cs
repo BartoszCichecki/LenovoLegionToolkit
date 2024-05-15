@@ -103,6 +103,7 @@ public class MacroController
 
         Play(sequence, token);
 
+        // Returning a value greater than zero to prevent other hooks from handling the keypress
         return new LRESULT(96);
 
     }

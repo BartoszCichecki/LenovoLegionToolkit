@@ -1,5 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Win32;
@@ -23,32 +22,28 @@ internal class MacroPlayer
 
                 token.ThrowIfCancellationRequested();
 
-                PInvoke.SendInput(ToInput(macroEvent), Marshal.SizeOf<INPUT>());
+                var input = ToInput(macroEvent);
+                PInvoke.SendInput(MemoryMarshal.CreateSpan(ref input, 1), Marshal.SizeOf<INPUT>());
             }
 
             token.ThrowIfCancellationRequested();
         }
     }
 
-    private static Span<INPUT> ToInput(MacroEvent macroEvent)
+    private static INPUT ToInput(MacroEvent macroEvent) => new()
     {
-        var input = new INPUT
+        type = INPUT_TYPE.INPUT_KEYBOARD,
+        Anonymous = new INPUT._Anonymous_e__Union
         {
-            type = INPUT_TYPE.INPUT_KEYBOARD,
-            Anonymous = new INPUT._Anonymous_e__Union
+            ki = new KEYBDINPUT
             {
-                ki = new KEYBDINPUT
+                wVk = (VIRTUAL_KEY)macroEvent.Key,
+                dwFlags = macroEvent.Direction switch
                 {
-                    wVk = (VIRTUAL_KEY)macroEvent.Key,
-                    dwFlags = macroEvent.Direction switch
-                    {
-                        MacroDirection.Up => KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
-                        _ => 0
-                    }
+                    MacroDirection.Up => KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+                    _ => 0
                 }
             }
-        };
-
-        return new Span<INPUT>([input]);
-    }
+        }
+    };
 }
