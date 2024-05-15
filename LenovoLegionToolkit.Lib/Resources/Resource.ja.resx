@@ -273,6 +273,9 @@
   <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
     <value>暗い</value>
   </data>
+  <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
+    <value>点滅</value>
+  </data>
   <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
     <value>平坦化</value>
   </data>
@@ -435,5 +438,17 @@
   </data>
   <data name="SpeakerState_Unmute" xml:space="preserve">
     <value>消音解除</value>
+  </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>無効</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Windows電源モード</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Windows電源プラン</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>プリセット 4</value>
   </data>
 </root>
