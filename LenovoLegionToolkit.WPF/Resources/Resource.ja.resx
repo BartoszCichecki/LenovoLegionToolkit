@@ -736,45 +736,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="No" xml:space="preserve">
     <value>いいえ</value>
   </data>
-  <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>ACアダプターが接続されています</value>
-  </data>
-  <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>ACアダプター接続中（低出力）</value>
-  </data>
-  <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>ACアダプターが接続されていません</value>
-  </data>
-  <data name="Notification_CameraOff" xml:space="preserve">
-    <value>カメラが無効になっています</value>
-  </data>
-  <data name="Notification_CameraOn" xml:space="preserve">
-    <value>カメラが有効になっています</value>
-  </data>
-  <data name="Notification_CapsLockOff" xml:space="preserve">
-    <value>Caps Lock が無効になっています</value>
-  </data>
-  <data name="Notification_CapsLockOn" xml:space="preserve">
-    <value>Caps Lock が有効になっています</value>
-  </data>
-  <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>Fn Lock が無効</value>
-  </data>
-  <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>Fn Lock が有効</value>
-  </data>
-  <data name="Notification_MicrophoneOff" xml:space="preserve">
-    <value>マイクが無効になっています</value>
-  </data>
-  <data name="Notification_MicrophoneOn" xml:space="preserve">
-    <value>マイクが有効になっています</value>
-  </data>
-  <data name="Notification_NumLockOff" xml:space="preserve">
-    <value>Num Lock が無効になっています</value>
-  </data>
-  <data name="Notification_NumLockOn" xml:space="preserve">
-    <value>Num Lock が有効になっています</value>
-  </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
     <value>バックライト {0}</value>
   </data>
@@ -783,12 +744,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Profile" xml:space="preserve">
     <value>プロファイル {0}</value>
-  </data>
-  <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>タッチパッドが無効になっています</value>
-  </data>
-  <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>タッチパッドが有効になっています</value>
   </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
     <value>ACアダプタ</value>
