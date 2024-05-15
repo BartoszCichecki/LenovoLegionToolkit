@@ -14,18 +14,22 @@
     <StackPanel Orientation="Vertical">
         <custom:CardControl Margin="0,0,0,8" Icon="ArrowRepeatAll24">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="Repeat" />
+                <controls:CardHeaderControl Title="Repeat" Subtitle="How many times this macro will be repeated after key press." />
             </custom:CardControl.Header>
-            <wpfui:ToggleSwitch Margin="0,0,0,8" AutomationProperties.Name="Enable" />
+            <ComboBox
+                x:Name="_repeatComboBox"
+                MinWidth="150"
+                SelectionChanged="RepeatComboBox_SelectionChanged" />
         </custom:CardControl>
         <custom:CardControl Margin="0,0,0,32" Icon="Clock24">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="Ignore delays" />
+                <controls:CardHeaderControl Title="Ignore delays" Subtitle="If enabled, key presses will be played as fast as possible." />
             </custom:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_ignoreDelaysToggle"
                 Margin="0,0,0,8"
-                AutomationProperties.Name="Enable" />
+                AutomationProperties.Name="Enable"
+                Click="IgnoreDelaysToggle_Click" />
         </custom:CardControl>
 
         <StackPanel

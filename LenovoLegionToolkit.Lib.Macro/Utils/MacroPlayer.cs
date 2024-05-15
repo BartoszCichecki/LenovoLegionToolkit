@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Windows.Win32;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
 
+// ReSharper disable once MemberCanBeMadeStatic.Global
 #pragma warning disable CA1822 // Mark members as static
 
 namespace LenovoLegionToolkit.Lib.Macro.Utils;

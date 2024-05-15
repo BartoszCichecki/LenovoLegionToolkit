@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Macro;
+using LenovoLegionToolkit.WPF.Extensions;
 
 namespace LenovoLegionToolkit.WPF.Controls.Macro;
 
@@ -12,6 +14,7 @@ public partial class MacroSequenceControl
     private readonly MacroController _controller = IoCContainer.Resolve<MacroController>();
 
     private ulong _key;
+    private bool _isRefreshing;
 
     public MacroSequenceControl()
     {
@@ -22,7 +25,12 @@ public partial class MacroSequenceControl
 
     public void Set(ulong key)
     {
+        _isRefreshing = true;
         _key = key;
+
+        _controller.StopRecording();
+
+        Mouse.OverrideCursor = null;
 
         var sequence = _controller.GetSequences().GetValueOrDefault(key);
 
@@ -31,9 +39,14 @@ public partial class MacroSequenceControl
         _stopRecordingButton.Visibility = Visibility.Collapsed;
         _clearButton.Visibility = sequence.Events?.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
 
+        _repeatComboBox.SetItems([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            Math.Clamp(sequence.RepeatCount, 1, 10),
+            v => v == 1 ? "Don't repeat" : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;
         foreach (var macroEvent in sequence.Events ?? [])
             CreateControl(macroEvent);
+
+        _isRefreshing = false;
     }
 
     private void CreateControl(MacroEvent macroEvent)
@@ -44,6 +57,10 @@ public partial class MacroSequenceControl
     }
 
     private void Controller_RecorderReceived(object? sender, MacroController.RecorderReceivedEventArgs e) => CreateControl(e.MacroEvent);
+
+    private void IgnoreDelaysToggle_Click(object sender, RoutedEventArgs e) => Save();
+
+    private void RepeatComboBox_SelectionChanged(object sender, RoutedEventArgs e) => Save();
 
     private void RecordButton_Click(object sender, RoutedEventArgs e)
     {
@@ -57,12 +74,18 @@ public partial class MacroSequenceControl
         _controller.StartRecording();
     }
 
-    private void StopRecordingButton_Click(object sender, RoutedEventArgs e)
+    private void StopRecordingButton_Click(object sender, RoutedEventArgs e) => Save();
+
+    private void Save()
     {
+        if (_isRefreshing)
+            return;
+
         _controller.StopRecording();
 
         Mouse.OverrideCursor = null;
 
+        var repeatCount = _repeatComboBox.TryGetSelectedItem(out int repeat) ? repeat : 1;
         var ignoreDelays = _ignoreDelaysToggle.IsChecked ?? false;
         var macroEvents = _macroEventsPanel.Children
             .OfType<MacroEventControl>()
@@ -77,7 +100,7 @@ public partial class MacroSequenceControl
         sequences[_key] = new MacroSequence
         {
             IgnoreDelays = ignoreDelays,
-            RepeatCount = 1,
+            RepeatCount = repeatCount,
             Events = macroEvents
         };
         _controller.SetSequences(sequences);
@@ -90,6 +113,5 @@ public partial class MacroSequenceControl
         var sequences = _controller.GetSequences();
         sequences.Remove(_key);
         _controller.SetSequences(sequences);
-
     }
 }
