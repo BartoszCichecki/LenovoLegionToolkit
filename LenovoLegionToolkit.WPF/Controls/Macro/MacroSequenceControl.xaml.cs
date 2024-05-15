@@ -6,6 +6,7 @@ using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Macro;
 using LenovoLegionToolkit.WPF.Extensions;
+using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF.Controls.Macro;
 
@@ -41,7 +42,7 @@ public partial class MacroSequenceControl
 
         _repeatComboBox.SetItems([1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             Math.Clamp(sequence.RepeatCount, 1, 10),
-            v => v == 1 ? "Don't repeat" : v.ToString());
+            v => v == 1 ? Resource.MacroSequenceControl_DontRepeat : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;
         foreach (var macroEvent in sequence.Events ?? [])
             CreateControl(macroEvent);

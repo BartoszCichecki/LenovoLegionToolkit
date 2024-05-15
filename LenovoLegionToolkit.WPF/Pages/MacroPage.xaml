@@ -23,16 +23,16 @@
         <TextBlock
             Margin="0,0,0,24"
             Focusable="True"
-            Text="You can record series of keypresses and invoke them using the number pad on your keyboard." />
+            Text="{x:Static resources:Resource.MacroPage_Subtitle}" />
 
         <custom:CardControl Margin="0,0,0,32">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="Enable" Subtitle="Lenovo Legion Toolkit must be running for macros to work." />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroPage_Enable_Title}" Subtitle="{x:Static resources:Resource.MacroPage_Enable_Subtitle}" />
             </custom:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_enableMacroToggle"
                 Margin="0,0,0,8"
-                AutomationProperties.Name="Enable"
+                AutomationProperties.Name="{x:Static resources:Resource.MacroPage_Enable_Title}"
                 Click="EnableMacroToggle_Click" />
         </custom:CardControl>
 
