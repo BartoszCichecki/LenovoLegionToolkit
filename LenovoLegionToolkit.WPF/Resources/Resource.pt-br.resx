@@ -735,9 +735,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Este equipamento não é compatível com o Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Nenhum teclado compatível encontrado</value>
   </data>

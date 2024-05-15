@@ -736,9 +736,6 @@ CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Thiết bị này không tương thích với Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Không tìm thấy bàn phím tương thích</value>
   </data>

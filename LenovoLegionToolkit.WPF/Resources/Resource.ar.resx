@@ -704,9 +704,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>هذا الجهاز غير متوافق مع مجموعة أدوات Lenovo Legion.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>مجموعة أدوات Lenovo Legion</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>لم يتم العثور على لوحة مفاتيح متوافقة</value>
   </data>

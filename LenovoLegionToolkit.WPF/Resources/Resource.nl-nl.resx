@@ -713,9 +713,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Dit apparaat is niet compatibel met Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Geen compatibele toetsenborden gevonden</value>
   </data>

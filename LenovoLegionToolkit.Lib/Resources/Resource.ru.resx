@@ -460,4 +460,19 @@
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>Откл.</value>
   </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Выкл. звук</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Вкл. звук</value>
+  </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>Отключен</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Схема питания Windows</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Режим питания Windows</value>
+  </data>
 </root>

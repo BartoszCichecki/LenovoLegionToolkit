@@ -556,6 +556,21 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="Export" xml:space="preserve">
     <value>エクスポート</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
+    <value>オートハイブリッドモード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
+    <value>dGPUモード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
+    <value>ハイブリッドモード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
+    <value>ハイブリッドiGPU専用モード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
+    <value>GPUの動作モードについて</value>
+  </data>
   <data name="Fahrenheit" xml:space="preserve">
     <value>°F</value>
   </data>
@@ -576,6 +591,18 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="RPM" xml:space="preserve">
     <value>RPM</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
+    <value>画面を開くとラップトップの電源が入ります。</value>
+  </data>
+  <data name="FlipToStartAutomationStepControl_Title" xml:space="preserve">
+    <value>画面を開いたら起動</value>
+  </data>
+  <data name="FlipToStartControl_Message" xml:space="preserve">
+    <value>画面を開くとラップトップの電源が入ります。</value>
+  </data>
+  <data name="FlipToStartControl_Title" xml:space="preserve">
+    <value>画面を開いたら起動</value>
   </data>
   <data name="FnLockAutomationStepControl_Message" xml:space="preserve">
     <value>Fn キーを押したままにせずに、F1 ～ F12 キーの二次機能を使用します。</value>
@@ -685,9 +712,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>このデバイスは Lenovo Legion Toolkit と互換性がありません。</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>互換性のあるキーボードが見つかりません</value>
   </data>
@@ -740,43 +764,43 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>いいえ</value>
   </data>
   <data name="Notification_ACAdapterConnected" xml:space="preserve">
-    <value>ACアダプターが接続されています</value>
+    <value>ACアダプターが接続されました</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>ACアダプター接続中（低出力）</value>
+    <value>ACアダプター（低出力）が接続されました</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
-    <value>ACアダプターが接続されていません</value>
+    <value>ACアダプターが切断されました</value>
   </data>
   <data name="Notification_CameraOff" xml:space="preserve">
-    <value>カメラが無効になっています</value>
+    <value>カメラが無効になりました</value>
   </data>
   <data name="Notification_CameraOn" xml:space="preserve">
-    <value>カメラが有効になっています</value>
+    <value>カメラが有効になりました</value>
   </data>
   <data name="Notification_CapsLockOff" xml:space="preserve">
-    <value>Caps Lock が無効になっています</value>
+    <value>Caps Lockが無効になりました</value>
   </data>
   <data name="Notification_CapsLockOn" xml:space="preserve">
-    <value>Caps Lock が有効になっています</value>
+    <value>Caps Lockが有効になりました</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>Fn Lock が無効</value>
+    <value>Fnキーが有効になりました</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>Fn Lock が有効</value>
+    <value>Fnキーが無効になりました</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
-    <value>マイクが無効になっています</value>
+    <value>マイクが無効になりました</value>
   </data>
   <data name="Notification_MicrophoneOn" xml:space="preserve">
-    <value>マイクが有効になっています</value>
+    <value>マイクが有効になりました</value>
   </data>
   <data name="Notification_NumLockOff" xml:space="preserve">
-    <value>Num Lock が無効になっています</value>
+    <value>Num Lockが無効になりました</value>
   </data>
   <data name="Notification_NumLockOn" xml:space="preserve">
-    <value>Num Lock が有効になっています</value>
+    <value>Num Lockが有効になりました</value>
   </data>
   <data name="Notification_SpectrumKeyboardBacklight_Backlight" xml:space="preserve">
     <value>バックライト {0}</value>
@@ -788,10 +812,13 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>プロファイル {0}</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>タッチパッドが無効になっています</value>
+    <value>タッチパッドが無効になりました</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>タッチパッドが有効になっています</value>
+    <value>タッチパッドが有効になりました</value>
+  </data>
+  <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
+    <value>バックライト {0}</value>
   </data>
   <data name="NotificationsSettingsWindow_ACAdapter" xml:space="preserve">
     <value>ACアダプタ</value>
@@ -842,6 +869,36 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="Open" xml:space="preserve">
     <value>開ける</value>
   </data>
+  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
+    <value>{0} 個ダウンロードしました！</value>
+  </data>
+  <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
+    <value>ダウンロードが完了しました</value>
+  </data>
+  <data name="PackageControl_GeneralError_Title" xml:space="preserve">
+    <value>エラーが発生しました</value>
+  </data>
+  <data name="PackageControl_Http404Error_Message" xml:space="preserve">
+    <value>サーバーからコード 404 が返されました。</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
+    <value>エラーが発生しました</value>
+  </data>
+  <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
+    <value>更新があります！</value>
+  </data>
+  <data name="PackageControl_Version" xml:space="preserve">
+    <value>バージョン</value>
+  </data>
+  <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
+    <value>エラーが発生しました</value>
+  </data>
+  <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
+    <value>ダウンロードが進行中です</value>
+  </data>
+  <data name="Filter" xml:space="preserve">
+    <value>フィルタ...</value>
+  </data>
   <data name="PackagesPage_MachineType" xml:space="preserve">
     <value>デバイスの種類</value>
   </data>
@@ -853,6 +910,30 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="PackagesPage_PrimarySource_Message" xml:space="preserve">
     <value>Lenovo Vantageと同じ</value>
+  </data>
+  <data name="PackagesPage_SecondarySource" xml:space="preserve">
+    <value>セカンダリ</value>
+  </data>
+  <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
+    <value>Lenovo PC Supportと同じ</value>
+  </data>
+  <data name="PackagesPage_Sort_Category" xml:space="preserve">
+    <value>カテゴリー</value>
+  </data>
+  <data name="PackagesPage_Sort_Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="PackagesPage_Sort_Name" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="PackagesPage_Source" xml:space="preserve">
+    <value>ソース</value>
+  </data>
+  <data name="PackagesPage_Title" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>貼り付け</value>
   </data>
   <data name="PowerModeAutomationStepControl_Message" xml:space="preserve">
     <value>パフォーマンスモードを変更します。</value>
@@ -873,6 +954,21 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>AC アダプタが接続されていないと、選択した電源モードが正しく動作しない可能性があります。</value>
   </data>
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>既定</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows電源プラン</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>キーボードのバックライトのプリセットを調整します。</value>
+  </data>
+  <data name="RGBKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="RGBKeyboardBacklightBrightnessCardControl_Brightness" xml:space="preserve">
+    <value>明るさ</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_Preset1" xml:space="preserve">
     <value>プリセット 1</value>
   </data>
@@ -881,6 +977,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>プリセット 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>プリセット 4</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>オフ</value>
@@ -896,6 +995,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="RGBKeyboardBacklightControl_Zone4" xml:space="preserve">
     <value>ゾーン 4</value>
+  </data>
+  <data name="RGBKeyboardBacklightEffectCardControl_Title" xml:space="preserve">
+    <value>エフェクト</value>
   </data>
   <data name="RGBKeyboardBacklightSpeedCardControl_Title" xml:space="preserve">
     <value>速度</value>
@@ -922,6 +1024,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="Rename" xml:space="preserve">
     <value>名前を変更</value>
+  </data>
+  <data name="RestartLater" xml:space="preserve">
+    <value>後で再起動</value>
   </data>
   <data name="RestartNow" xml:space="preserve">
     <value>今すぐ再起動</value>
@@ -965,6 +1070,16 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>自動起動</value>
   </data>
+  <data name="SettingsPage_DisableLegionZone_Error_Title" xml:space="preserve">
+    <value>Legion Zoneを無効にできませんでした</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
+    <value>Legion Zoneとそのサービスをアンインストールせずに無効にします。
+このオプションを変更した後はデバイスを再起動することをお勧めします。</value>
+  </data>
+  <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
+    <value>Legion Zoneを無効化</value>
+  </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys は正しく無効になっていない可能性があります</value>
   </data>
@@ -992,6 +1107,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>Lenovo Vantage と ImController を無効化</value>
   </data>
+  <data name="SettingsPage_EnableLegionZone_Error_Title" xml:space="preserve">
+    <value>Legion Zoneを有効にできませんでした</value>
+  </data>
+  <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
+    <value>Lenovo Hotkeys は正しく有効になっていない可能性があります</value>
+  </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R ショートカットをさらに便利にするために、リフレッシュレートを除外できます。</value>
   </data>
@@ -1016,6 +1137,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>通知</value>
   </data>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Windows電源プラン</value>
+  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Fn+F9 の２回押しにクイック アクションを割り当てることができます。</value>
   </data>
@@ -1037,11 +1161,50 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_Title" xml:space="preserve">
     <value>設定</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Message" xml:space="preserve">
+    <value>キーボードのバックライトの明るさを調整します。</value>
+  </data>
   <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Off" xml:space="preserve">
     <value>オフ</value>
   </data>
+  <data name="SpectrumKeyboardBacklightBrightnessAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードのバックライトの明るさ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_AddEffect" xml:space="preserve">
+    <value>エフェクトを追加</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Title" xml:space="preserve">
+    <value>プロフィールを適用できませんでした</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ApplyProfileError_Message" xml:space="preserve">
+    <value>ライティングプロファイルを適用できませんでした。</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Brightness_Title" xml:space="preserve">
     <value>明るさ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_DeselectAll_ToolTip" xml:space="preserve">
+    <value>すべてのノードの選択を解除</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
+    <value>エフェクト</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
+    <value>プロフィールをエクスポートできませんでした</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
+    <value>プロフィールをインポートできませんでした</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_NoEffects_Text" xml:space="preserve">
+    <value>何もエフェクトが追加されていません。</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ResetToDefault_Tooltip" xml:space="preserve">
+    <value>デフォルトに戻す</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SelectAll_ToolTip" xml:space="preserve">
+    <value>すべてのノードを選択</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
+    <value>キーボード レイアウトの切り替え</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>方向</value>
@@ -1054,6 +1217,33 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Direction_Title" xml:space="preserve">
     <value>方向</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
+    <value>エフェクト</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Add" xml:space="preserve">
+    <value>エフェクトを追加</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
+    <value>エフェクトを編集</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
+    <value>タッチパッドを無効にします。</value>
+  </data>
+  <data name="TouchpadLockAutomationStepControl_Title" xml:space="preserve">
+    <value>タッチパッドの無効化</value>
+  </data>
+  <data name="TouchpadLockControl_Message" xml:space="preserve">
+    <value>タッチパッドを無効にします。</value>
+  </data>
+  <data name="TouchpadLockControl_Title" xml:space="preserve">
+    <value>タッチパッドの無効化</value>
+  </data>
+  <data name="WinKeyControl_Title" xml:space="preserve">
+    <value>Windowsキーの無効化</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>解像度</value>
@@ -1113,11 +1303,17 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="AboutPage_Temp" xml:space="preserve">
     <value>Temp</value>
   </data>
+  <data name="Notification_UpdateAvailable" xml:space="preserve">
+    <value>バーション {0} の更新があります！</value>
+  </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
     <value>ピークパワー制限</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
     <value>APU sPPTの電力制限</value>
+  </data>
+  <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
+    <value>電源モード</value>
   </data>
   <data name="StatusTrayPopup_Preset" xml:space="preserve">
     <value>プリセット</value>
@@ -1125,11 +1321,29 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="StatusTrayPopup_DiscreteGPU" xml:space="preserve">
     <value>ディスクリートGPU</value>
   </data>
+  <data name="StatusTrayPopup_PowerState" xml:space="preserve">
+    <value>電源の状態</value>
+  </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>バッテリー残量が少なくなっています。</value>
   </data>
+  <data name="SettingsPage_Power_Title" xml:space="preserve">
+    <value>電源</value>
+  </data>
+  <data name="PoweredOff" xml:space="preserve">
+    <value>電源オフ</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>オーバークロックGPUの設定</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>オーバークロックGPU</value>
+  </data>
   <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
     <value>ディスクリートGPUをオーバークロックすることでパフォーマンスを向上させます。</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>オーバークロックGPU</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
     <value>最高: {0}</value>
@@ -1158,6 +1372,18 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
     <value>更新間隔</value>
   </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+    <value>インスタントブート</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+    <value>電源が接続されているときにラップトップの電源を入れます。</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+    <value>インスタントブート</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+    <value>電源が接続されているときにラップトップの電源を入れます。</value>
+  </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
     <value>長さ</value>
   </data>
@@ -1169,6 +1395,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
     <value>アクション</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>通知テキスト</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+    <value>通知を表示</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>プリセット</value>
@@ -1185,6 +1417,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
     <value>有効にすると、夜間にこのデバイスに電源を接続した場合80%まで充電され、翌朝このデバイスを使用するまでに100%まで充電が完了します。</value>
   </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>ダウンロードフォルダ</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+    <value>ダウンロードフォルダを開く</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
     <value>プリセット</value>
   </data>
@@ -1196,5 +1434,20 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
     <value>タスクバーではなく、トレイに最小化します。</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Windows電源モード</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>電源モードの同期</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>電源モードを変更するときに、Windows電源プランまたは Windows電源モードを自動的に変更します。</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Windows電源モード</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>電源モードが変更されたときに適用する、Windows電源モードを選択します。</value>
   </data>
 </root>

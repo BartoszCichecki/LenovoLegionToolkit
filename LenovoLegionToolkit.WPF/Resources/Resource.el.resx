@@ -702,9 +702,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Αυτή η συσκευή δεν είναι συμβατή με το Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Δε βρέθηκαν συμβατά πληκτρολόγια</value>
   </data>
@@ -1145,6 +1142,9 @@
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Ειδοποιήσεις</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Προφίλ παροχής ενέργειας</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Αντιστοιχίστε μια Γρήγορη Ενέργεια στο Fn+F9 με διπλό πάτημα.</value>
