@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Windows.Win32;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
 
+#pragma warning disable CA1822 // Mark members as static
+
 namespace LenovoLegionToolkit.Lib.Macro.Utils;
 
 internal class MacroPlayer
@@ -13,7 +15,7 @@ internal class MacroPlayer
     {
         for (var i = 0; i < sequence.RepeatCount; i++)
         {
-            foreach (var macroEvent in sequence.Events)
+            foreach (var macroEvent in sequence.Events ?? [])
             {
                 if (!sequence.IgnoreDelays)
                     await Task.Delay(macroEvent.Delay, token).ConfigureAwait(false);

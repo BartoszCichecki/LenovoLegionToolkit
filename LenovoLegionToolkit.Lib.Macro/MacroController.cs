@@ -1,10 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Macro.Utils;
-using NeoSmart.AsyncLock;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.UI.WindowsAndMessaging;
@@ -13,9 +13,12 @@ namespace LenovoLegionToolkit.Lib.Macro;
 
 public class MacroController
 {
-    private static readonly uint[] AllowedRange = [0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69];
+    public class RecorderReceivedEventArgs : EventArgs
+    {
+        public MacroEvent MacroEvent { get; init; }
+    }
 
-    private readonly AsyncLock _ioLock = new();
+    private static readonly uint[] AllowedRange = [0x60, 0x61, 0x62, 0x63, 0x64, 0x65, 0x66, 0x67, 0x68, 0x69];
 
     private readonly MacroRecorder _recorder = new();
     private readonly MacroPlayer _player = new();
@@ -26,23 +29,35 @@ public class MacroController
     private HHOOK _kbHook;
     private CancellationTokenSource? _cancellationTokenSource;
 
+    public event EventHandler<RecorderReceivedEventArgs>? RecorderReceived;
+
     public MacroController(MacroSettings settings)
     {
         _settings = settings;
 
         _kbProc = LowLevelKeyboardProc;
+
+        _recorder.Received += Recorder_Received;
     }
+
+    private void Recorder_Received(object? sender, MacroRecorder.ReceivedEventArgs e) => RecorderReceived?.Invoke(this, new() { MacroEvent = e.MacroEvent });
 
     public bool IsEnabled => _settings.Store.IsEnabled;
 
-    public async Task SetEnabledAsync(bool enabled)
+    public void SetEnabled(bool enabled)
     {
-        using (await _ioLock.LockAsync().ConfigureAwait(false))
-        {
-            _settings.Store.IsEnabled = enabled;
-            _settings.SynchronizeStore();
-        }
+        _settings.Store.IsEnabled = enabled;
+        _settings.SynchronizeStore();
     }
+
+    public Dictionary<ulong, MacroSequence> GetSequences() => _settings.Store.Sequences;
+
+    public void SetSequences(Dictionary<ulong, MacroSequence> sequences)
+    {
+        _settings.Store.Sequences = sequences;
+        _settings.SynchronizeStore();
+    }
+
     public void Start()
     {
         if (_kbHook != default)

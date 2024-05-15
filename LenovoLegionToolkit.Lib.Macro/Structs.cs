@@ -6,7 +6,7 @@ public readonly struct MacroSequence
 {
     public bool IgnoreDelays { get; init; }
     public int RepeatCount { get; init; }
-    public MacroEvent[] Events { get; init; }
+    public MacroEvent[]? Events { get; init; }
 }
 
 public readonly struct MacroEvent

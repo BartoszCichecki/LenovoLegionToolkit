@@ -10,9 +10,6 @@
 		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
-	</ItemGroup>
-	<ItemGroup>
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
 	</ItemGroup>
 </Project>

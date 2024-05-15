@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
+    xmlns:macro="clr-namespace:LenovoLegionToolkit.WPF.Controls.Macro"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
     xmlns:utils="clr-namespace:LenovoLegionToolkit.WPF.Utils"
     xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
@@ -13,13 +14,18 @@
 
     <StackPanel Margin="0,0,16,12">
         <TextBlock
-            Margin="0,16,0,24"
+            Margin="0,16,0,8"
             Focusable="True"
             FontSize="24"
             FontWeight="Medium"
             Text="{x:Static resources:Resource.MacroPage_Title}" />
 
-        <custom:CardControl Margin="0,0,0,24">
+        <TextBlock
+            Margin="0,0,0,24"
+            Focusable="True"
+            Text="You can record series of keypresses and invoke them using the number pad on your keyboard." />
+
+        <custom:CardControl Margin="0,0,0,32">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="Enable" Subtitle="Lenovo Legion Toolkit must be running for macros to work." />
             </custom:CardControl.Header>
@@ -30,13 +36,16 @@
                 Click="EnableMacroToggle_Click" />
         </custom:CardControl>
 
-        <Grid>
+        <Grid VerticalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
-            <Grid Grid.Column="0">
+            <Grid x:Name="_numberPad" Grid.Column="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="56" />
                     <ColumnDefinition Width="56" />
@@ -58,6 +67,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="7"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x67" />
                 <wpfui:Button
                     Grid.Row="0"
@@ -67,6 +78,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="8"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x68" />
                 <wpfui:Button
                     Grid.Row="0"
@@ -76,6 +89,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="9"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x69" />
 
                 <wpfui:Button
@@ -86,6 +101,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="4"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x64" />
                 <wpfui:Button
                     Grid.Row="1"
@@ -95,6 +112,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="5"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x65" />
                 <wpfui:Button
                     Grid.Row="1"
@@ -104,6 +123,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="6"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x66" />
 
                 <wpfui:Button
@@ -114,6 +135,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="1"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x61" />
                 <wpfui:Button
                     Grid.Row="2"
@@ -123,6 +146,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="2"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x62" />
                 <wpfui:Button
                     Grid.Row="2"
@@ -132,6 +157,8 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="3"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x63" />
 
                 <wpfui:Button
@@ -142,9 +169,17 @@
                     VerticalAlignment="Stretch"
                     Click="NumberPadButton_Click"
                     Content="0"
+                    FontSize="18"
+                    FontWeight="SemiBold"
                     Tag="0x60" />
 
             </Grid>
+
+            <macro:MacroSequenceControl
+                x:Name="_sequenceControl"
+                Grid.Column="1"
+                Margin="32,0,0,0" />
+
         </Grid>
     </StackPanel>
 </wpfui:UiPage>
