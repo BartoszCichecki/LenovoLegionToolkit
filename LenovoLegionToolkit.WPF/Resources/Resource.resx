@@ -2111,6 +2111,6 @@ Supported formats are: {1}.</value>
 	  <value>Enable</value>
   </data>
   <data name="MacroPage_Subtitle" xml:space="preserve">
-	  <value>You can record series of keypresses and invoke them using the number pad on your keyboard.</value>
+	  <value>You can record series of key presses and invoke them using the number pad on your keyboard.</value>
   </data>
 </root>

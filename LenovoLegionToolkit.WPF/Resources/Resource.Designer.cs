@@ -2741,7 +2741,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can record series of keypresses and invoke them using the number pad on your keyboard..
+        ///   Looks up a localized string similar to You can record series of key presses and invoke them using the number pad on your keyboard..
         /// </summary>
         public static string MacroPage_Subtitle {
             get {
