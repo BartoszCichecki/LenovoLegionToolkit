@@ -740,9 +740,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此设备可能与拯救者工具箱不兼容。</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>未发现兼容的键盘</value>
   </data>
@@ -2060,5 +2057,26 @@
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Windows 电源模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>使用 Fn+Q 切换至自定义模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>使用 Fn+Q 来快速切换至自定义模式。</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>电源模式同步</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>在切换性能模式时，同步自动切换 Windows 电源计划或 Windows 电源模式。</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Windows 电源模式</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>选择在电源模式改变时应用的 Windows 电源计划。</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>获取硬件信息时遇到错误。</value>
   </data>
 </root>

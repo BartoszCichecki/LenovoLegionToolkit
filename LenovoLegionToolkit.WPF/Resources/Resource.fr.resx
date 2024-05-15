@@ -737,9 +737,6 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Cet appareil n'est pas compatible avec Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Aucun clavier compatible trouvé</value>
   </data>
@@ -1875,6 +1872,9 @@ Nécessite un redémarrage.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU vers Boost Dynamique CPU</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Il s'agit de la puissance supplémentaire maximale qui peut être allouée au CPU par le GPU en fonction de l'utilisation du CPU. Plus la valeur est élevée, meilleures sont les performances des applications qui utilisent le CPU.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logo de démarrage</value>
   </data>
@@ -2049,5 +2049,23 @@ Nécessite un redémarrage.</value>
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Modes de gestion de l'alimentation Windows</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>Passer en mode personnalisé avec Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>Permettre de basculer rapidement en mode personnalisé avec Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>Synchronisation de mode d'alimentation</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>Change automatiquement entre les Plans d'Alimentation et les Modes d'Alimentation lors du changement du Mode d'Alimentation.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Plans d'Alimentation Windows</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>Sélectionnez le mode de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
   </data>
 </root>

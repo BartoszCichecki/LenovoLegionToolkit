@@ -736,9 +736,6 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Bu cihaz, Lenovo Legion Toolkit ile uyumlu değildir.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Uyumlu klavye bulunmadı</value>
   </data>
