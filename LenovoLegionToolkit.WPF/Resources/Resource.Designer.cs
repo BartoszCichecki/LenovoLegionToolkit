@@ -1108,6 +1108,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Clear.
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -2714,6 +2723,105 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lenovo Legion Toolkit must be running for macros to work..
+        /// </summary>
+        public static string MacroPage_Enable_Subtitle {
+            get {
+                return ResourceManager.GetString("MacroPage_Enable_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable.
+        /// </summary>
+        public static string MacroPage_Enable_Title {
+            get {
+                return ResourceManager.GetString("MacroPage_Enable_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can record series of keypresses and invoke them using the number pad on your keyboard..
+        /// </summary>
+        public static string MacroPage_Subtitle {
+            get {
+                return ResourceManager.GetString("MacroPage_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macro.
+        /// </summary>
+        public static string MacroPage_Title {
+            get {
+                return ResourceManager.GetString("MacroPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t repeat.
+        /// </summary>
+        public static string MacroSequenceControl_DontRepeat {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_DontRepeat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If enabled, key presses will be played as fast as possible..
+        /// </summary>
+        public static string MacroSequenceControl_IgnoreDelays_Subtitle {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_IgnoreDelays_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ignore delays.
+        /// </summary>
+        public static string MacroSequenceControl_IgnoreDelays_Title {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_IgnoreDelays_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Record.
+        /// </summary>
+        public static string MacroSequenceControl_Record {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How many times this macro will be repeated after key press..
+        /// </summary>
+        public static string MacroSequenceControl_Repeat_Subtitle {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Repeat_Subtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Repeat.
+        /// </summary>
+        public static string MacroSequenceControl_Repeat_Title {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Repeat_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stop recording.
+        /// </summary>
+        public static string MacroSequenceControl_StopRecording {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_StopRecording", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         public static string MainWindow_NavigationItem_About {
@@ -2764,6 +2872,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string MainWindow_NavigationItem_Keyboard {
             get {
                 return ResourceManager.GetString("MainWindow_NavigationItem_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macro.
+        /// </summary>
+        public static string MainWindow_NavigationItem_Macro {
+            get {
+                return ResourceManager.GetString("MainWindow_NavigationItem_Macro", resourceCulture);
             }
         }
         

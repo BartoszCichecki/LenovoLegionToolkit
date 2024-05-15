@@ -109,6 +109,11 @@
                         PageTag="automation"
                         PageType="{x:Type pages:AutomationPage}" />
                     <custom:NavigationItem
+                        Content="{x:Static resources:Resource.MainWindow_NavigationItem_Macro}"
+                        Icon="SlideText24"
+                        PageTag="macro"
+                        PageType="{x:Type pages:MacroPage}" />
+                    <custom:NavigationItem
                         Content="{x:Static resources:Resource.MainWindow_NavigationItem_Packages}"
                         Icon="Box24"
                         PageTag="packages"

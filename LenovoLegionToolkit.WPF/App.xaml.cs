@@ -22,6 +22,7 @@ using LenovoLegionToolkit.Lib.Features.PanelLogo;
 using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Macro;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -30,6 +31,8 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Utils;
+using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
 using WinFormsApp = System.Windows.Forms.Application;
 using WinFormsHighDpiMode = System.Windows.Forms.HighDpiMode;
 
@@ -102,6 +105,7 @@ public partial class App
         IoCContainer.Initialize(
             new Lib.IoCModule(),
             new Lib.Automation.IoCModule(),
+            new Lib.Macro.IoCModule(),
             new IoCModule()
         );
 
@@ -127,6 +131,7 @@ public partial class App
         await InitGpuOverclockControllerAsync();
         await InitHybridModeAsync();
         await InitAutomationProcessorAsync();
+        InitMacroController();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
@@ -545,5 +550,11 @@ public partial class App
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't overclock GPU.", ex);
         }
+    }
+
+    private static void InitMacroController()
+    {
+        var controller = IoCContainer.Resolve<MacroController>();
+        controller.Start();
     }
 }
