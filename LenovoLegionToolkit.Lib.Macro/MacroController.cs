@@ -67,12 +67,6 @@ public class MacroController
         _kbHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_KEYBOARD_LL, _kbProc, HINSTANCE.Null, 0);
     }
 
-    public void Stop()
-    {
-        PInvoke.UnhookWindowsHookEx(_kbHook);
-        _kbHook = default;
-    }
-
     public void StartRecording() => _recorder.StartRecording();
 
     public void StopRecording() => _recorder.StopRecording();
