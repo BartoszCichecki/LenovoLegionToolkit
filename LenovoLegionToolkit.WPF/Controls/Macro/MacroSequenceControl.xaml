@@ -13,7 +13,10 @@
     mc:Ignorable="d">
 
     <StackPanel Orientation="Vertical">
-        <custom:CardControl Margin="0,0,0,8" Icon="ArrowRepeatAll24">
+        <custom:CardControl
+            x:Name="_repeatCard"
+            Margin="0,0,0,8"
+            Icon="ArrowRepeatAll24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}" />
             </custom:CardControl.Header>
@@ -23,7 +26,10 @@
                 AutomationProperties.Name="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}"
                 SelectionChanged="RepeatComboBox_SelectionChanged" />
         </custom:CardControl>
-        <custom:CardControl Margin="0,0,0,32" Icon="Clock24">
+        <custom:CardControl
+            x:Name="_ignoreDelaysCard"
+            Margin="0,0,0,32"
+            Icon="Clock24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}" />
             </custom:CardControl.Header>

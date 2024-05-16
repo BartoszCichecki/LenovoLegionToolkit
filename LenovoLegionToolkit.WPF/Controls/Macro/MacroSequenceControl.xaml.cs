@@ -22,6 +22,7 @@ public partial class MacroSequenceControl
         InitializeComponent();
 
         _controller.RecorderReceived += Controller_RecorderReceived;
+        _controller.RecorderStopped += Controller_RecorderStopped;
     }
 
     public void Set(MacroIdentifier macroIdentifier)
@@ -35,16 +36,21 @@ public partial class MacroSequenceControl
         Mouse.OverrideCursor = null;
 
         var sequence = _controller.GetSequences().GetValueOrDefault(_macroIdentifier);
+        var sequenceHasEvents = sequence.Events?.Length > 0;
 
-        _macroEventsPanel.Children.Clear();
-        _recordButton.Visibility = Visibility.Visible;
-        _stopRecordingButton.Visibility = Visibility.Collapsed;
-        _clearButton.Visibility = sequence.Events?.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
+        _repeatCard.IsEnabled = sequenceHasEvents;
+        _ignoreDelaysCard.IsEnabled = sequenceHasEvents;
 
         _repeatComboBox.SetItems(MacroController.AllowedRepeatCounts,
             Math.Clamp(sequence.RepeatCount, 1, 10),
             v => v == 1 ? Resource.MacroSequenceControl_DontRepeat : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;
+
+        _recordButton.Visibility = Visibility.Visible;
+        _stopRecordingButton.Visibility = Visibility.Collapsed;
+        _clearButton.Visibility = sequenceHasEvents ? Visibility.Visible : Visibility.Collapsed;
+
+        _macroEventsPanel.Children.Clear();
         foreach (var macroEvent in sequence.Events ?? [])
             CreateControl(macroEvent);
 
@@ -60,16 +66,19 @@ public partial class MacroSequenceControl
 
     private void Controller_RecorderReceived(object? sender, MacroController.RecorderReceivedEventArgs e) => CreateControl(e.MacroEvent);
 
+    private void Controller_RecorderStopped(object? sender, MacroController.RecorderStoppedEventArgs e)
+    {
+        if (e.Interrupted)
+            Clear();
+        else
+            Save();
+    }
+
     private void IgnoreDelaysToggle_Click(object sender, RoutedEventArgs e) => Save();
 
     private void RepeatComboBox_SelectionChanged(object sender, RoutedEventArgs e) => Save();
 
-    private void ClearButton_Click(object sender, RoutedEventArgs e)
-    {
-        _macroEventsPanel.Children.Clear();
-
-        Save();
-    }
+    private void ClearButton_Click(object sender, RoutedEventArgs e) => Clear();
 
     private void RecordButton_Click(object sender, RoutedEventArgs e)
     {
@@ -83,14 +92,19 @@ public partial class MacroSequenceControl
         _controller.StartRecording();
     }
 
-    private void StopRecordingButton_Click(object sender, RoutedEventArgs e) => Save();
+    private void StopRecordingButton_Click(object sender, RoutedEventArgs e) => _controller.StopRecording();
+
+    private void Clear()
+    {
+        _macroEventsPanel.Children.Clear();
+
+        Save();
+    }
 
     private void Save()
     {
         if (_isRefreshing)
             return;
-
-        _controller.StopRecording();
 
         Mouse.OverrideCursor = null;
 
@@ -101,20 +115,15 @@ public partial class MacroSequenceControl
             .Select(c => c.MacroEvent)
             .ToArray();
 
-        _recordButton.Visibility = Visibility.Visible;
-        _stopRecordingButton.Visibility = Visibility.Collapsed;
-        _clearButton.Visibility = macroEvents.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
-
         var sequences = _controller.GetSequences();
-        if (macroEvents.Length > 0)
-            sequences[_macroIdentifier] = new MacroSequence
-            {
-                IgnoreDelays = ignoreDelays,
-                RepeatCount = repeatCount,
-                Events = macroEvents
-            };
-        else
-            sequences.Remove(_macroIdentifier);
+        sequences[_macroIdentifier] = new MacroSequence
+        {
+            IgnoreDelays = ignoreDelays,
+            RepeatCount = repeatCount,
+            Events = macroEvents
+        };
         _controller.SetSequences(sequences);
+
+        Set(_macroIdentifier);
     }
 }
