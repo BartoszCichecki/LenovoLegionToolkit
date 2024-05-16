@@ -35,7 +35,7 @@ internal class MacroPlayer
         type = INPUT_TYPE.INPUT_KEYBOARD,
         Anonymous = new INPUT._Anonymous_e__Union
         {
-            ki = new KEYBDINPUT
+            ki = macroEvent.Source is not MacroSource.Keyboard ? default : new KEYBDINPUT
             {
                 wVk = (VIRTUAL_KEY)macroEvent.Key,
                 dwFlags = macroEvent.Direction switch

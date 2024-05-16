@@ -9,7 +9,7 @@ public class MacroSettings() : AbstractSettings<MacroSettings.MacroSettingsStore
     {
         public bool IsEnabled { get; set; }
 
-        public Dictionary<ulong, MacroSequence> Sequences { get; set; } = [];
+        public Dictionary<MacroIdentifier, MacroSequence> Sequences { get; set; } = [];
     }
 
     protected override MacroSettingsStore Default => new();

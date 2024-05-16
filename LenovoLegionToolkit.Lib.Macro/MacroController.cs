@@ -51,9 +51,9 @@ public class MacroController
         _settings.SynchronizeStore();
     }
 
-    public Dictionary<ulong, MacroSequence> GetSequences() => _settings.Store.Sequences;
+    public Dictionary<MacroIdentifier, MacroSequence> GetSequences() => _settings.Store.Sequences;
 
-    public void SetSequences(Dictionary<ulong, MacroSequence> sequences)
+    public void SetSequences(Dictionary<MacroIdentifier, MacroSequence> sequences)
     {
         _settings.Store.Sequences = sequences;
         _settings.SynchronizeStore();
@@ -84,12 +84,12 @@ public class MacroController
         var shouldRun = !_recorder.IsRecording;
         shouldRun &= kbStruct.flags == 0;
         shouldRun &= AllowedKeys.Contains(kbStruct.vkCode);
-        shouldRun &= _settings.Store.Sequences.ContainsKey(kbStruct.vkCode);
+        shouldRun &= _settings.Store.Sequences.ContainsKey(new(MacroSource.Keyboard, kbStruct.vkCode));
 
         if (!shouldRun)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
-        var sequence = _settings.Store.Sequences[kbStruct.vkCode];
+        var sequence = _settings.Store.Sequences[new(MacroSource.Keyboard, kbStruct.vkCode)];
 
         _cancellationTokenSource?.Cancel();
         _cancellationTokenSource = new CancellationTokenSource();
@@ -99,7 +99,6 @@ public class MacroController
 
         // Returning a value greater than zero to prevent other hooks from handling the keypress
         return new LRESULT(96);
-
     }
 
     private void Play(MacroSequence sequence, CancellationToken token) => Task.Run(() => _player.PlayAsync(sequence, token), token);

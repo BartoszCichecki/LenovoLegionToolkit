@@ -97,6 +97,7 @@ internal class MacroRecorder
 
         var macroEvent = new MacroEvent
         {
+            Source = MacroSource.Keyboard,
             Direction = (uint)wParam switch
             {
                 PInvoke.WM_KEYUP or PInvoke.WM_SYSKEYUP => MacroDirection.Up,

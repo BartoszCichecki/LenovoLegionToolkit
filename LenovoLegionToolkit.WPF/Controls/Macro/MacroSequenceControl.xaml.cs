@@ -14,7 +14,7 @@ public partial class MacroSequenceControl
 {
     private readonly MacroController _controller = IoCContainer.Resolve<MacroController>();
 
-    private ulong _key;
+    private MacroIdentifier _macroIdentifier;
     private bool _isRefreshing;
 
     public MacroSequenceControl()
@@ -24,16 +24,17 @@ public partial class MacroSequenceControl
         _controller.RecorderReceived += Controller_RecorderReceived;
     }
 
-    public void Set(ulong key)
+    public void Set(MacroIdentifier macroIdentifier)
     {
         _isRefreshing = true;
-        _key = key;
+
+        _macroIdentifier = macroIdentifier;
 
         _controller.StopRecording();
 
         Mouse.OverrideCursor = null;
 
-        var sequence = _controller.GetSequences().GetValueOrDefault(key);
+        var sequence = _controller.GetSequences().GetValueOrDefault(_macroIdentifier);
 
         _macroEventsPanel.Children.Clear();
         _recordButton.Visibility = Visibility.Visible;
@@ -105,7 +106,7 @@ public partial class MacroSequenceControl
         _clearButton.Visibility = macroEvents.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
 
         var sequences = _controller.GetSequences();
-        sequences[_key] = new MacroSequence
+        sequences[_macroIdentifier] = new MacroSequence
         {
             IgnoreDelays = ignoreDelays,
             RepeatCount = repeatCount,

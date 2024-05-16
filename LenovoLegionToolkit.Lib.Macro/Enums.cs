@@ -6,3 +6,10 @@ public enum MacroDirection
     Down,
     Up
 }
+
+public enum MacroSource
+{
+    Unknown,
+    Keyboard,
+    Mouse,
+}

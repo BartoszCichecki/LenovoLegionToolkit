@@ -50,6 +50,6 @@ public partial class MacroPage
         button.Appearance = ControlAppearance.Primary;
 
         var key = Convert.ToUInt64((string)button.Tag, 16);
-        _sequenceControl.Set(key);
+        _sequenceControl.Set(new(MacroSource.Keyboard, key));
     }
 }
