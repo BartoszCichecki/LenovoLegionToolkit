@@ -2077,4 +2077,37 @@ Requiere un reinicio.</value>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
 	  <value>Se ha producido un error al leer la información del dispositivo.</value>
   </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>Repetir</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>Ignorar demoras</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>Borrar</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>Registro</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>Detener grabación</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>No repetir</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>Lenovo Legion Toolkit deberá estar ejecutándose para que funcionen las macros.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>Activar</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>Puede grabar series de pulsaciones de teclas e invocarlas mediante el teclado numérico.</value>
+  </data>
 </root>
