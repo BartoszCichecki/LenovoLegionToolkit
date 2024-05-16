@@ -1039,6 +1039,9 @@
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>预设 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>预设 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -2078,5 +2081,38 @@
   </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
 	  <value>获取硬件信息时遇到错误。</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>自定义宏</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>键盘宏</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>重复次数</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>忽略延时</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>清除</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>记录</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>停止记录</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>不重复</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>只有在本程序运行时，键盘宏才可生效。</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>启用键盘宏</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>你可以录制一系列按键并使用键盘上的数字小键盘调用它们。</value>
   </data>
 </root>

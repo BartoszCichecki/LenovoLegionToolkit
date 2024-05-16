@@ -475,4 +475,7 @@
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
 	  <value>Planos de Energia do Windows</value>
   </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>Perfil 4</value>
+  </data>
 </root>
