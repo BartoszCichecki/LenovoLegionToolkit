@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using LenovoLegionToolkit.Lib.Macro.Utils.TypeConverters;
 
 namespace LenovoLegionToolkit.Lib.Macro;
 
@@ -13,6 +15,8 @@ public readonly struct MacroEvent
 
     public override string ToString() => $"{nameof(Source)}:{Source}, {nameof(Direction)}: {Direction}, {nameof(Key)}: {Key}, {nameof(Delay)}: {Delay}";
 }
+
+[TypeConverter(typeof(MacroIdentifierTypeConverter))]
 public readonly struct MacroIdentifier(MacroSource source, ulong key)
 {
     public MacroSource Source { get; } = source;
@@ -31,6 +35,7 @@ public readonly struct MacroIdentifier(MacroSource source, ulong key)
 
     #endregion
 }
+
 public readonly struct MacroSequence
 {
     public bool IgnoreDelays { get; init; }
