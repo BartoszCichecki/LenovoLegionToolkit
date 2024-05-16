@@ -475,4 +475,7 @@
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
 	  <value>Windows 电源计划</value>
   </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>预设 4</value>
+  </data>
 </root>
