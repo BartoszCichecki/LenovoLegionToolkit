@@ -106,12 +106,15 @@ public partial class MacroSequenceControl
         _clearButton.Visibility = macroEvents.Length > 0 ? Visibility.Visible : Visibility.Collapsed;
 
         var sequences = _controller.GetSequences();
-        sequences[_macroIdentifier] = new MacroSequence
-        {
-            IgnoreDelays = ignoreDelays,
-            RepeatCount = repeatCount,
-            Events = macroEvents
-        };
+        if (macroEvents.Length > 0)
+            sequences[_macroIdentifier] = new MacroSequence
+            {
+                IgnoreDelays = ignoreDelays,
+                RepeatCount = repeatCount,
+                Events = macroEvents
+            };
+        else
+            sequences.Remove(_macroIdentifier);
         _controller.SetSequences(sequences);
     }
 }

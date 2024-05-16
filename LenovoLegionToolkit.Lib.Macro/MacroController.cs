@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Macro.Utils;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -84,7 +85,7 @@ public class MacroController
         var shouldRun = !_recorder.IsRecording;
         shouldRun &= kbStruct.flags == 0;
         shouldRun &= AllowedKeys.Contains(kbStruct.vkCode);
-        shouldRun &= _settings.Store.Sequences.ContainsKey(new(MacroSource.Keyboard, kbStruct.vkCode));
+        shouldRun &= _settings.Store.Sequences.GetValueOrNull(new(MacroSource.Keyboard, kbStruct.vkCode))?.Events?.Length > 0;
 
         if (!shouldRun)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
