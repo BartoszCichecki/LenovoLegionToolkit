@@ -15,7 +15,7 @@
     <StackPanel Orientation="Vertical">
         <custom:CardControl Margin="0,0,0,8" Icon="ArrowRepeatAll24">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}" Subtitle="{x:Static resources:Resource.MacroSequenceControl_Repeat_Subtitle}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}" />
             </custom:CardControl.Header>
             <ComboBox
                 x:Name="_repeatComboBox"
@@ -25,7 +25,7 @@
         </custom:CardControl>
         <custom:CardControl Margin="0,0,0,32" Icon="Clock24">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}" Subtitle="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Subtitle}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}" />
             </custom:CardControl.Header>
             <wpfui:ToggleSwitch
                 x:Name="_ignoreDelaysToggle"

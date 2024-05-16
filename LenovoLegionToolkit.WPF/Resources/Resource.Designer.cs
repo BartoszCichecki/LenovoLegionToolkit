@@ -2768,15 +2768,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If enabled, key presses will be played as fast as possible..
-        /// </summary>
-        public static string MacroSequenceControl_IgnoreDelays_Subtitle {
-            get {
-                return ResourceManager.GetString("MacroSequenceControl_IgnoreDelays_Subtitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Ignore delays.
         /// </summary>
         public static string MacroSequenceControl_IgnoreDelays_Title {
@@ -2791,15 +2782,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string MacroSequenceControl_Record {
             get {
                 return ResourceManager.GetString("MacroSequenceControl_Record", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to How many times this macro will be repeated after key press..
-        /// </summary>
-        public static string MacroSequenceControl_Repeat_Subtitle {
-            get {
-                return ResourceManager.GetString("MacroSequenceControl_Repeat_Subtitle", resourceCulture);
             }
         }
         

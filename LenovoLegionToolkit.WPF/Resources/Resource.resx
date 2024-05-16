@@ -2083,14 +2083,8 @@ Supported formats are: {1}.</value>
   <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
 	  <value>Repeat</value>
   </data>
-  <data name="MacroSequenceControl_Repeat_Subtitle" xml:space="preserve">
-	  <value>How many times this macro will be repeated after key press.</value>
-  </data>
   <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
 	  <value>Ignore delays</value>
-  </data>
-  <data name="MacroSequenceControl_IgnoreDelays_Subtitle" xml:space="preserve">
-	  <value>If enabled, key presses will be played as fast as possible.</value>
   </data>
   <data name="Clear" xml:space="preserve">
 	  <value>Clear</value>
