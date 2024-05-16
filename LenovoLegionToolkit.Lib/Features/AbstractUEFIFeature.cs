@@ -3,12 +3,10 @@ using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
-using Windows.Win32.Security;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint scopeAttribute) : IFeature<T>
-    where T : struct, Enum, IComparable
+public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint scopeAttribute) : IFeature<T> where T : struct, Enum, IComparable
 {
     public async Task<bool> IsSupportedAsync()
     {
@@ -38,7 +36,7 @@ public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges [feature={GetType().Name}]");
@@ -67,7 +65,7 @@ public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint
         finally
         {
             Marshal.FreeHGlobal(ptr);
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     });
 
@@ -77,7 +75,7 @@ public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint
 
         try
         {
-            if (!SetPrivilege(true))
+            if (!TokenManipulator.AddPrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE))
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Cannot set UEFI privileges [feature={GetType().Name}]");
@@ -103,55 +101,7 @@ public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint
         finally
         {
             Marshal.FreeHGlobal(ptr);
-            SetPrivilege(false);
+            TokenManipulator.RemovePrivileges(TokenManipulator.SE_SYSTEM_ENVIRONMENT_PRIVILEGE);
         }
     });
-
-    private unsafe bool SetPrivilege(bool enable)
-    {
-        try
-        {
-            using var handle = PInvoke.GetCurrentProcess_SafeHandle();
-
-            if (!PInvoke.OpenProcessToken(handle, TOKEN_ACCESS_MASK.TOKEN_QUERY | TOKEN_ACCESS_MASK.TOKEN_ADJUST_PRIVILEGES, out var token))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not open process token [feature={GetType().Name}]");
-
-                return false;
-            }
-
-            if (!PInvoke.LookupPrivilegeValue(null, "SeSystemEnvironmentPrivilege", out var luid))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not look up privilege value [feature={GetType().Name}]");
-
-                return false;
-            }
-
-            var state = new TOKEN_PRIVILEGES { PrivilegeCount = 1 };
-            state.Privileges._0 = new LUID_AND_ATTRIBUTES
-            {
-                Luid = luid,
-                Attributes = enable ? TOKEN_PRIVILEGES_ATTRIBUTES.SE_PRIVILEGE_ENABLED : 0
-            };
-
-            if (!PInvoke.AdjustTokenPrivileges(token, false, state, 0, null, null))
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Could not adjust token privileges [feature={GetType().Name}]");
-
-                return false;
-            }
-
-            return true;
-        }
-        catch (Exception ex)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Exception while setting privilege. [feature={GetType().Name}]", ex);
-
-            return false;
-        }
-    }
 }

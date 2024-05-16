@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -27,6 +28,7 @@ public partial class MainWindow
 {
     private readonly ApplicationSettings _applicationSettings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+    private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
 
     private TrayHelper? _trayHelper;
 
@@ -74,6 +76,12 @@ public partial class MainWindow
             _navigationStore.Items.Remove(_keyboardItem);
 
         SmartKeyHelper.Instance.BringToForeground = () => Dispatcher.Invoke(BringToForeground);
+
+        _specialKeyListener.Changed += (_, args) =>
+        {
+            if (args.SpecialKey == SpecialKey.FnN)
+                Dispatcher.Invoke(BringToForeground);
+        };
 
         _contentGrid.Visibility = Visibility.Visible;
 

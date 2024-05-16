@@ -378,6 +378,7 @@ public readonly struct MachineInformation
         public bool InstantBootUsbPowerDelivery { get; init; }
         public bool AMDSmartShiftMode { get; init; }
         public bool AMDSkinTemperatureTracking { get; init; }
+        public bool GodModeFnQSwitchable { get; init; }
     }
 
     public readonly struct PropertyData
@@ -454,24 +455,23 @@ public readonly struct Notification(NotificationType type, params object[] args)
     public override string ToString() => $@"{nameof(Type)}: {Type}, {nameof(Args)}: [{string.Join(", ", Args)}]";
 }
 
-public readonly struct PowerPlan(Guid guid, string name, bool isActive, bool isOverlay)
+public readonly struct WindowsPowerPlan(Guid guid, string name, bool isActive)
 {
     public Guid Guid { get; } = guid;
     public string Name { get; } = name;
     public bool IsActive { get; } = isActive;
-    public bool IsOverlay { get; } = isOverlay;
 
-    public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}, {nameof(IsOverlay)}: {IsOverlay}";
+    public override string ToString() => $"{nameof(Guid)}: {Guid}, {nameof(Name)}: {Name}, {nameof(IsActive)}: {IsActive}";
 
     #region Equality
 
-    public override bool Equals(object? obj) => obj is PowerPlan other && Guid.Equals(other.Guid);
+    public override bool Equals(object? obj) => obj is WindowsPowerPlan other && Guid.Equals(other.Guid);
 
     public override int GetHashCode() => Guid.GetHashCode();
 
-    public static bool operator ==(PowerPlan left, PowerPlan right) => left.Equals(right);
+    public static bool operator ==(WindowsPowerPlan left, WindowsPowerPlan right) => left.Equals(right);
 
-    public static bool operator !=(PowerPlan left, PowerPlan right) => !left.Equals(right);
+    public static bool operator !=(WindowsPowerPlan left, WindowsPowerPlan right) => !left.Equals(right);
 
     #endregion
 }
@@ -527,6 +527,13 @@ public readonly struct RangeCapability(CapabilityID id, int defaultValue, int mi
 [method: JsonConstructor]
 public readonly struct RGBColor(byte r, byte g, byte b)
 {
+    public static readonly RGBColor Green = new(142, 255, 0);
+    public static readonly RGBColor Pink = new(186, 0, 255);
+    public static readonly RGBColor Purple = new(101, 0, 255);
+    public static readonly RGBColor Red = new(255, 0, 0);
+    public static readonly RGBColor Teal = new(0, 212, 255);
+    public static readonly RGBColor White = new(255, 255, 255);
+
     public byte R { get; } = r;
     public byte G { get; } = g;
     public byte B { get; } = b;
@@ -559,6 +566,8 @@ public readonly struct RGBKeyboardBacklightBacklightPresetDescription(
     RGBColor zone3,
     RGBColor zone4)
 {
+    public static readonly RGBKeyboardBacklightBacklightPresetDescription Default = new(RGBKeyboardBacklightEffect.Static, RGBKeyboardBacklightSpeed.Slowest, RGBKeyboardBacklightBrightness.High, RGBColor.White, RGBColor.White, RGBColor.White, RGBColor.White);
+
     public RGBKeyboardBacklightEffect Effect { get; } = effect;
     public RGBKeyboardBacklightSpeed Speed { get; } = speed;
     public RGBKeyboardBacklightBrightness Brightness { get; } = brightness;

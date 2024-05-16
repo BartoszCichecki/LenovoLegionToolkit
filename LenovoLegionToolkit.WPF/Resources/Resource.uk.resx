@@ -733,9 +733,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Цей пристрій не сумісний з Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Не знайдено сумісних клавіатур</value>
   </data>
@@ -1009,29 +1006,11 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Обраний режим живлення може не працювати справно без підключеного блоку живлення.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Увімкнення цієї опції під час роботи Lenovo Vantage або його служб і зміна планів живлення вашого ноутбуку можуть призвести до неочікуваної поведінки.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Ви впевнені?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Збалансований режим</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Користувальницький режим</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>За замовчуванням</value>
   </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Режим продуктивності</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Тихий режим</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Плани живлення</value>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>План живлення</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Налаштуйте шаблон підсвітки клавіатури.</value>
@@ -1139,7 +1118,7 @@
     <value>Колір акценту</value>
   </data>
   <data name="SettingsPage_Autorun_Message" xml:space="preserve">
-    <value>Запускати згорнутим в трей, коли ви входите у Windows.</value>
+    <value>Запускати згорнутим у лоток, коли ви входите у Windows.</value>
   </data>
   <data name="SettingsPage_Autorun_Title" xml:space="preserve">
     <value>Автозапуск</value>
@@ -1215,7 +1194,7 @@
     <value>Мова</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Завжди згортати у трей. Закривайте правою кнопкою миші на іконці у треї.</value>
+    <value>Завжди згортати у лоток. Закривайте натисканням правою кнопкою миші на образець у лотку.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Згортати при закритті</value>
@@ -1226,7 +1205,7 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Сповіщення</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Плани живлення</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1239,7 +1218,7 @@
     <value>Призначити швидкі дії на натискання Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
-    <value>Дія смартключа</value>
+    <value>Дія розумної клавіші</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Встановить білу тему, темну тему або дотримуйтесь системних налаштувань.</value>
@@ -1335,7 +1314,7 @@
     <value>Профіль яскравості підсвітки клавіатури</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
-    <value>Всі ключи</value>
+    <value>Усі клавіші</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
     <value>{0} зон</value>
@@ -1689,10 +1668,10 @@
     <value>Доступне оновлення!</value>
   </data>
   <data name="SymbolRegularPicker_Title" xml:space="preserve">
-    <value>Вибрати іконку</value>
+    <value>Вибрати образець</value>
   </data>
   <data name="AutomationPage_ChangeIcon" xml:space="preserve">
-    <value>Змінити іконку</value>
+    <value>Змінити образець</value>
   </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>Низький рівень заряду батареї</value>
@@ -1706,13 +1685,13 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows повідомляє, що цей ноутбук підтримує Modern StandBy. Використання планів живлення, відмінних від Збалансованого, може призвести до неочікуваної поведінки.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Оберіть плани живлення Windows, які буде застосовано при зміні режиму живлення.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Потужність</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Плани живлення у панелі управління Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1805,7 +1784,7 @@
     <value>Вентилятор</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
-    <value>ГП</value>
+    <value>Графічний процесор</value>
   </data>
   <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
     <value>Частота пам'яті</value>
@@ -1890,7 +1869,7 @@
     <value>Динамічний прискорювач ГП до ЦП</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Це максимальне додаткове живлення, яке може бути виділене графічному процесору від центрального процесора, на основі використання центрального процесора. Чим вище значення, тим краща продуктивність програм, які використовують ГП.</value>
+    <value>Це максимальне додаткове живлення, яке може бути виділене центральному процесору від графічного процесора, на основі використання центрального процесора. Чим вище значення, тим краща продуктивність програм, які використовують ЦП.</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Познака завантаження</value>
@@ -2048,9 +2027,24 @@
     <value>Чекати закінчення</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Виконувати консольні програми, не створюючи консольного вікна.</value>
+    <value>Виконувати консольні програми, не створюючи консольного вікна.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Зачекайте, поки програма або скрипт завершить виконання</value>
+    <value>Зачекайте, поки програма або скрипт завершить виконання</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Усі активні пристрої виводу звуку будуть вимкнені.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Гучник</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>Сховати у лоток</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>Завжди згортати у лоток замість панелі завдань.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Плани живлення</value>
   </data>
 </root>

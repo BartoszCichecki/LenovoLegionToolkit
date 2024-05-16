@@ -736,9 +736,6 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Bu cihaz, Lenovo Legion Toolkit ile uyumlu değildir.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Uyumlu klavye bulunmadı</value>
   </data>
@@ -1012,29 +1009,11 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Seçilen güç modu, AC adaptörü bağlı olmadan düzgün çalışmayabilir.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Lenovo Vantage veya hizmetleri çalışırken ve dizüstü bilgisayarınızın güç planlarını değiştirirken bu seçeneğin etkinleştirilmesi, beklenmeyen davranışlara neden olabilir.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Emin misiniz?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Denge Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Özel Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>Varsayılan</value>
   </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Performans Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Sessiz Kipi</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Güç planları</value>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows Güç Planları</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Klavye ışıklarını ayarlayın.</value>
@@ -1229,8 +1208,8 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Bildirimler</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>Güç planları</value>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Windows Güç Planları</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Fn+F9'a çift basışa Hızlı İşlem atayın.</value>
@@ -1709,13 +1688,13 @@ Bu ayarlar yalnızca Özel Mod etkinleştirildiğinde etkili olur.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows, bu aygıtın Modern Beklemeyi desteklediğini bildiriyor. Dengeli dışında güç planlarının kullanılması beklenmeyen davranışlara neden olabilir.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Güç</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Windows Denetim Masası'ndaki Güç Planı seçenekleri</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1894,7 +1873,7 @@ Yeniden başlatma gerektirir.</value>
     <value>GPU Üstünden CPU Üstüne Dinamik Güç</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Bu CPU kullanımına bağlı olarak CPU üstünden GPU üstüne tahsis edilebilecek azami ek güçtür. Değer ne kadar yüksek olursa GPU kullanan uygulamaların performansı da o kadar iyi olur.</value>
+    <value>Bu CPU kullanımına bağlı olarak GPU üstünden CPU üstüne tahsis edilebilecek azami ek güçtür. Değer ne kadar yüksek olursa CPU kullanan uygulamaların performansı da o kadar iyi olur.</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Açılış Logosu</value>
@@ -2052,9 +2031,24 @@ Desteklenen biçimler: {1}.</value>
     <value>Bitene kadar bekle</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
+    <value>Konsol penceresini oluşturmadan konsol uygulamalarını yürütün.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
+    <value>Program veya betiğin yürütülmesi bitene kadar bekleyin</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Sessize alındığında tüm aktif ses çıkış cihazlarının sesi kapatılacaktır.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Hoparlör</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>Sistem tepsisine küçült</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>Görev çubuğu yerine, her zaman sistem tepsisine küçült.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Windows Güç Modları</value>
   </data>
 </root>

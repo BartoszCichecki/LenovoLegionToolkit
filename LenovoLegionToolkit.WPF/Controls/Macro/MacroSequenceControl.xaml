@@ -1,0 +1,69 @@
+﻿<UserControl
+    x:Class="LenovoLegionToolkit.WPF.Controls.Macro.MacroSequenceControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
+    xmlns:custom="clr-namespace:LenovoLegionToolkit.WPF.Controls.Custom"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
+    xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <StackPanel Orientation="Vertical">
+        <custom:CardControl Margin="0,0,0,8" Icon="ArrowRepeatAll24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}" Subtitle="{x:Static resources:Resource.MacroSequenceControl_Repeat_Subtitle}" />
+            </custom:CardControl.Header>
+            <ComboBox
+                x:Name="_repeatComboBox"
+                MinWidth="150"
+                AutomationProperties.Name="{x:Static resources:Resource.MacroSequenceControl_Repeat_Title}"
+                SelectionChanged="RepeatComboBox_SelectionChanged" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,32" Icon="Clock24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}" Subtitle="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Subtitle}" />
+            </custom:CardControl.Header>
+            <wpfui:ToggleSwitch
+                x:Name="_ignoreDelaysToggle"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}"
+                Click="IgnoreDelaysToggle_Click" />
+        </custom:CardControl>
+
+        <StackPanel
+            Margin="0,0,0,16"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+            <wpfui:Button
+                x:Name="_clearButton"
+                Margin="0,0,8,0"
+                VerticalAlignment="Stretch"
+                Appearance="Secondary"
+                Click="ClearButton_Click"
+                Icon="Dismiss24"
+                ToolTip="{x:Static resources:Resource.Clear}" />
+            <wpfui:Button
+                x:Name="_recordButton"
+                MinWidth="150"
+                Appearance="Primary"
+                Click="RecordButton_Click"
+                Content="{x:Static resources:Resource.MacroSequenceControl_Record}" />
+            <wpfui:Button
+                x:Name="_stopRecordingButton"
+                MinWidth="150"
+                Appearance="Secondary"
+                Click="StopRecordingButton_Click"
+                Content="{x:Static resources:Resource.MacroSequenceControl_StopRecording}" />
+        </StackPanel>
+
+        <StackPanel
+            x:Name="_macroEventsPanel"
+            Margin="0,0,0,8"
+            Orientation="Vertical" />
+
+    </StackPanel>
+</UserControl>

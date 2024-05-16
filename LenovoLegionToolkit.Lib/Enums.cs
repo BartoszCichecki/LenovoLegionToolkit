@@ -51,6 +51,7 @@ public enum CapabilityID
     AMDSkinTemperatureTracking = 0x00050002,
     SupportedPowerModes = 0x00070000,
     LegionZoneSupportVersion = 0x00090000,
+    GodModeFnQSwitchable = 0x00100000,
     AIChip = 0x000E0000,
     IGPUModeChangeStatus = 0x000F0000,
     CPUShortTermPowerLimit = 0x0101FF00,
@@ -215,7 +216,10 @@ public enum NativeWindowsMessage
     MonitorOff,
     MonitorConnected,
     MonitorDisconnected,
-    OnDisplayDeviceArrival
+    ExternalMonitorConnected,
+    ExternalMonitorDisconnected,
+    OnDisplayDeviceArrival,
+    BatterySaverEnabled
 }
 
 public enum NotificationDuration
@@ -340,6 +344,16 @@ public enum PowerAdapterStatus
     Disconnected
 }
 
+public enum PowerModeMappingMode
+{
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_Disabled")]
+    Disabled,
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_WindowsPowerMode")]
+    WindowsPowerMode,
+    [Display(ResourceType = typeof(Resource), Name = "PowerModeMappingMode_WindowsPowerPlan")]
+    WindowsPowerPlan,
+}
+
 public enum PowerModeState
 {
     [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Quiet")]
@@ -408,7 +422,9 @@ public enum RGBKeyboardBacklightPreset
     [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Two")]
     Two = 1,
     [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Three")]
-    Three = 2
+    Three = 2,
+    [Display(ResourceType = typeof(Resource), Name = "RGBKeyboardBacklightPreset_Four")]
+    Four = 3
 }
 
 public enum RGBKeyboardBacklightSpeed
@@ -459,6 +475,7 @@ public enum SpecialKey
     SpectrumPreset4 = 35,
     SpectrumPreset5 = 36,
     SpectrumPreset6 = 37,
+    FnN = 42,
     FnF4 = 62,
     FnF8 = 63,
     WhiteBacklightOff = 64,
@@ -598,6 +615,16 @@ public enum WhiteKeyboardBacklightState
     Low,
     [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_High")]
     High
+}
+
+public enum WindowsPowerMode
+{
+    [Display(Name = "Best power efficiency")]
+    BestPowerEfficiency,
+    [Display(Name = "Balanced")]
+    Balanced,
+    [Display(Name = "Best performance")]
+    BestPerformance
 }
 
 public enum WinKeyState

@@ -127,9 +127,7 @@ public static class InternalDisplay
             intPtr = Marshal.AllocHGlobal((int)deviceName.header.size);
             Marshal.StructureToPtr(deviceName, intPtr, false);
 
-            var ptr = (DISPLAYCONFIG_DEVICE_INFO_HEADER*)intPtr.ToPointer();
-
-            var success = PInvoke.DisplayConfigGetDeviceInfo(ptr);
+            var success = PInvoke.DisplayConfigGetDeviceInfo((DISPLAYCONFIG_DEVICE_INFO_HEADER*)intPtr.ToPointer());
             if (success != PInvokeExtensions.ERROR_SUCCESS)
                 PInvokeExtensions.ThrowIfWin32Error("DisplayConfigGetDeviceInfo");
 

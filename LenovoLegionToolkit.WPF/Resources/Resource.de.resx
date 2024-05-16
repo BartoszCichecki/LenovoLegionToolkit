@@ -735,9 +735,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Dieses Gerät ist nicht mit dem Lenovo Legion Toolkit kompatibel.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Keine kompatible Tastatur gefunden</value>
   </data>
@@ -1011,30 +1008,6 @@ Sie können den Modus mit Fn+Q wechseln.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Der gewählte Leistungsmodus funktioniert möglicherweise nicht richtig, wenn kein Netzteil angeschlossen ist.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Wenn Sie diese Option aktivieren, während Lenovo Vantage oder die zugehörigen Dienste ausgeführt werden und den Energiesparplan Ihres Laptops ändern, kann dies zu unerwartetem Verhalten führen.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Sind Sie sicher?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Ausgeglichener Modus</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Benutzerdefinierter Modus</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Standard</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Leistungsmodus</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Stiller Modus</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Energiesparpläne</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Vorlage der Tastaturbeleuchtung einstellen.</value>
   </data>
@@ -1228,7 +1201,7 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Benachrichtigungen</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Energiesparpläne</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1708,13 +1681,13 @@ Diese Einstellung wird nur wirksam, wenn der benutzerdefinierte Modus aktiviert 
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows meldet, dass dieses Gerät den modernen Standby-Modus unterstützt. Die Verwendung anderer Energiesparpläne als "Ausbalanciert" kann zu unerwartetem Verhalten führen.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Wählen Sie Windows-Energiepläne aus, die bei einer Änderung des Energiemodus angewendet werden sollen.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Energie</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Energieplanoptionen in der Windows-Systemsteuerung</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1892,9 +1865,6 @@ Erfordert einen Neustart.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU zu CPU Dynamischer Boost</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Dies ist die maximale zusätzliche Leistung, die der GPU von der CPU auf der Grundlage der CPU-Nutzung zugewiesen werden kann. Je höher der Wert, desto besser ist die Leistung von Anwendungen, welche die GPU nutzen.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Boot-Logo</value>
   </data>
@@ -2051,9 +2021,21 @@ Unterstützte Formate sind: {1}.</value>
     <value>Warten bis fertig</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
+    <value>Führen Sie Konsolenanwendungen aus, ohne ein Konsolenfenster zu erstellen.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+    <value>Warten, bis das Programm oder Skript fertig ausgeführt ist</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>Wenn Sie die Stummschaltung aktivieren, werden alle aktiven Audioausgangsgeräte stummgeschaltet.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Lautsprecher</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>In Infobereich minimieren</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>Immer zum Infobereich anstatt zur Taskleiste minimieren.</value>
   </data>
 </root>

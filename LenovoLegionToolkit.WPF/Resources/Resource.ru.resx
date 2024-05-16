@@ -736,9 +736,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Это устройство не совместимо с Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Не найдено подходящих клавиатур</value>
   </data>
@@ -1012,29 +1009,11 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Выбранный режим питания может работать некорректно, если блок питания не подключен.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Включение этой опции во время работы Lenovo Vantage и изменения схем питания на ноутбуке может привести к неожиданным последствиям.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Вы уверены?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Сбалансированный режим</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Пользовательский режим</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>По умолчанию</value>
   </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Режим макс. производительности</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Тихий режим</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Схемы питания</value>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Схемы питания Windows</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Настройть пресет подсветки клавиатуры.</value>
@@ -1229,7 +1208,7 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Уведомления</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Схемы питания</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1577,11 +1556,11 @@
     <value>Сохранить и закрыть</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
-    <value>Пресет Пользовательского режима</value>
+    <value>Пресет пользовательского режима</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
-    <value>Активирует пресет Пользовательского режима.
-Эта настройка действует только при включенном Пользовательском режиме.</value>
+    <value>Активирует пресет пользовательского режима.
+Эта настройка действует только при включенном пользовательском режиме.</value>
   </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>Название пресета</value>
@@ -1709,13 +1688,13 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows сообщает, что это устройство поддерживает Modern Standby. Применение планов питания, отличных от сбалансированного, может привести к неожиданному поведению.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Выберите схемы питания Windows, которые будут применяться при изменении режима питания.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Питание</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Параметры схемы питания в панели управления Windows</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -2052,9 +2031,45 @@
     <value>Ждать до завершения</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>Выполнять консольные задачи, не открывая окно командной строки.</value>
+    <value>Выполнять консольные задачи, не открывая окно командной строки.</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Ждать, пока задача или скрипт не завершат работу</value>
+    <value>Ждать, пока задача или скрипт не завершат работу</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>При выключении звука все активные выходные аудиоустройства будут заглушены.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Динамик</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>Свернуть в трей</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>Всегда сворачивать в трей вместо панели задач.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Режимы питания Windows</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>Переход в пользовательский режим с помощью Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>Позволяет быстро переключаться в пользовательский режим с помощью Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>Синхронизация режима питания</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>Автоматическое изменение схемы питания Windows или режима питания Windows при смене режимов питания LLT.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Режимы питания Windows</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>Укажите режим питания Windows, который будет применяться при изменении режима питания LLT.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>Произошла ошибка при чтении информации об устройстве.</value>
   </data>
 </root>

@@ -31,6 +31,7 @@ public static class LocalizationHelper
         new("es"),
         new("fr"),
         new("it"),
+        new("ja"),
         new("lv"),
         new("nl-nl"),
         new("pt"),

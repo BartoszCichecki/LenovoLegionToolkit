@@ -732,9 +732,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Това устройтво не е съвместимо с Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Не са намерени съвместими клавиатури</value>
   </data>
@@ -1008,30 +1005,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Избраният режим на захранване може да не работи правилно без свързано зарядно.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Активиране на тази настройки, когато Lenovo Vantage или неговите услуги работят и извършват промени в режима на захранване на Вашия лаптоп, може да доведе до неочаквано поведение.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Сигурни ли сте?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Балансиран режим</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Потребителски режим</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>По подразбиране</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Режим "Производителност"</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Тих режим</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Планове за захранване</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Нагласяне на предварително зададените настройки за подсветка.</value>
   </data>
@@ -1225,7 +1198,7 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Известия</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Планове за захранване</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1703,13 +1676,13 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows докладва, че това устройство поддържа модерен режим на готовност. Използвайки план на захранване различен от Балансиран може да доведе до неочаквано поведение.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Изберете план на захранване, когато режимът на работа бъде променен.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Захранване</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Настройки на Плана на захранване в контролния панел</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1887,9 +1860,6 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Динамичен бууст на видео картата от процесора</value>
   </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Това е максималната допълнителна мощност, която може да бъде отпусната на видео картата от процесора, в зависимост от натовареността му. Колкото по-голяма е стойността, толкова по-висока ще бъде производителността на приложенията, които изпозлват видео картата.</value>
-  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Лого при стартиране</value>
   </data>
@@ -2046,6 +2016,6 @@
     <value>Изчакване до приключване на изпълнение</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>Изчакване на програмата или скрипта да приключат изпълнението си</value>
+    <value>Изчакване на програмата или скрипта да приключат изпълнението си</value>
   </data>
 </root>

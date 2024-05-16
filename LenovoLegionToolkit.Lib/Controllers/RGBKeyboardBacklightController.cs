@@ -1,20 +1,18 @@
 ﻿// #define MOCK_RGB
 
 using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using Windows.Win32;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
-using NeoSmart.AsyncLock;
+using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32.SafeHandles;
-using LenovoLegionToolkit.Lib.SoftwareDisabler;
-using LenovoLegionToolkit.Lib.System.Management;
-
-#if !MOCK_RGB
-using System.Runtime.InteropServices;
-#endif
+using NeoSmart.AsyncLock;
+using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Controllers
 {
@@ -132,7 +130,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 }
                 else
                 {
-                    var presetDescription = state.Presets[selectedPreset];
+                    var presetDescription = state.Presets.GetValueOrDefault(selectedPreset, RGBKeyboardBacklightBacklightPresetDescription.Default);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Creating state: {presetDescription}");
@@ -173,7 +171,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 }
                 else
                 {
-                    var presetDescription = state.Presets[preset];
+                    var presetDescription = state.Presets.GetValueOrDefault(preset, RGBKeyboardBacklightBacklightPresetDescription.Default);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Creating state: {presetDescription}");
@@ -216,7 +214,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
                 }
                 else
                 {
-                    var presetDescription = state.Presets[newPreset];
+                    var presetDescription = state.Presets.GetValueOrDefault(newPreset, RGBKeyboardBacklightBacklightPresetDescription.Default);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Creating state: {presetDescription}");
@@ -255,7 +253,7 @@ namespace LenovoLegionToolkit.Lib.Controllers
             }
             else
             {
-                var presetDescription = state.Presets[preset];
+                var presetDescription = state.Presets.GetValueOrDefault(preset, RGBKeyboardBacklightBacklightPresetDescription.Default);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Creating state: {presetDescription}");

@@ -33,7 +33,7 @@ public static class Devices
             var deviceHandle = PInvoke.SetupDiGetClassDevs(devClassBatteryGuid,
                 null,
                 HWND.Null,
-                PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_DEVICEINTERFACE);
+                SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_PRESENT | SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_DEVICEINTERFACE);
 
             // ReSharper disable once StringLiteralTypo
             if (deviceHandle.IsInvalid)
@@ -60,7 +60,7 @@ public static class Devices
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                devicePath = new string(deviceDetailData->DevicePath.Value);
+                devicePath = new string(&deviceDetailData->DevicePath.e0);
             }
             finally
             {
@@ -133,7 +133,7 @@ public static class Devices
         var deviceHandle = PInvoke.SetupDiGetClassDevs(devClassHidGuid,
             null,
             HWND.Null,
-            PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_DEVICEINTERFACE);
+            SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_PRESENT | SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_DEVICEINTERFACE);
 
         uint index = 0;
         while (true)
@@ -174,7 +174,7 @@ public static class Devices
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                devicePath = new string(deviceDetailData->DevicePath.Value);
+                devicePath = new string(&deviceDetailData->DevicePath.e0);
             }
             finally
             {

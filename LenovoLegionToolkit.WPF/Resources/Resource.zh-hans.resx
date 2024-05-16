@@ -740,9 +740,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>此设备可能与拯救者工具箱不兼容。</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>拯救者工具箱 Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>未发现兼容的键盘</value>
   </data>
@@ -1018,29 +1015,11 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>在未插入电源适配器的情况下，性能模式可能无法正常生效。</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>当 Lenovo Vantage 与之相关服务运行时启用该选项并修改笔记本上的电源计划可能会导致意外情况。</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>你确定吗？</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>均衡模式</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>自定义模式</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>默认</value>
   </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>野兽模式</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>安静模式</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>电源计划</value>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows 电源计划</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>调节键盘背光预设</value>
@@ -1236,8 +1215,8 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>提示弹窗</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>电源计划</value>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Windows 电源计划</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>选择双击 Fn + F9 触发的快捷操作。</value>
@@ -1716,13 +1695,13 @@
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>检测到本设备支持新式待机（Modern Standby）。使用 “平衡” 以外的电源计划可能会导致意外问题。</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>选择在电源模式改变时应用的 Windows 电源计划。</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>电源</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>打开 Windows 控制面板中的电源计划选项</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1901,7 +1880,7 @@
     <value>GPU 至 CPU Dynamic Boost</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>根据 CPU 使用情况从 CPU 分配给 GPU 的最大额外功率。数值越大，使用 GPU 的应用程序性能越好。</value>
+    <value>此为根据 CPU 的使用情况，能从 GPU 借用给 CPU 的额外功率。值越大，则使用 CPU 计算较多的应用性能越好。</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>自定义开机画面</value>
@@ -2059,9 +2038,45 @@
     <value>等待运行结束</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
-	  <value>不新建命令行窗口运行命令行应用。</value>
+    <value>不新建命令行窗口运行命令行应用。</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
-	  <value>等待至程序或脚本运行结束</value>
+    <value>等待至程序或脚本运行结束</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>静音此项将静音所有可用的音频输出设备。</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>扬声器</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>最小化至托盘</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>总是最小化到托盘，而非任务栏。</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Windows 电源模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>使用 Fn+Q 切换至自定义模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>使用 Fn+Q 来快速切换至自定义模式。</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>电源模式同步</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>在切换性能模式时，同步自动切换 Windows 电源计划或 Windows 电源模式。</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Windows 电源模式</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>选择在电源模式改变时应用的 Windows 电源计划。</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>获取硬件信息时遇到错误。</value>
   </data>
 </root>

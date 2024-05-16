@@ -109,7 +109,6 @@ public class IoCModule : Module
         builder.Register<GodModeControllerV2>(true);
         builder.Register<GPUController>();
         builder.Register<GPUOverclockController>();
-        builder.Register<PowerPlanController>();
         builder.Register<RGBKeyboardBacklightController>();
         builder.Register<SensorsController>();
         builder.Register<SensorsControllerV1>(true);
@@ -117,6 +116,8 @@ public class IoCModule : Module
         builder.Register<SensorsControllerV3>(true);
         builder.Register<SmartFnLockController>();
         builder.Register<SpectrumKeyboardBacklightController>();
+        builder.Register<WindowsPowerModeController>();
+        builder.Register<WindowsPowerPlanController>();
 
         builder.Register<UpdateChecker>();
         builder.Register<WarrantyChecker>();

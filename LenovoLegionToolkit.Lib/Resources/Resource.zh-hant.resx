@@ -446,18 +446,18 @@
     <value>短</value>
   </data>
   <data name="ModifierKey_Shift" xml:space="preserve">
-	  <value>Shift</value>
+    <value>Shift</value>
   </data>
   <data name="ModifierKey_Ctrl" xml:space="preserve">
-	  <value>Ctrl</value>
+    <value>Ctrl</value>
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
-	  <value>Alt</value>
+    <value>Alt</value>
   </data>
   <data name="BatteryNightChargeState_On" xml:space="preserve">
-	  <value>開啟</value>
+    <value>開啟</value>
   </data>
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
-	  <value>關閉</value>
+    <value>關閉</value>
   </data>
 </root>

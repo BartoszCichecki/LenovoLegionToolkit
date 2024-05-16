@@ -107,7 +107,7 @@ public abstract partial class AbstractDGPUNotify : IDGPUNotify
         var deviceHandle = PInvoke.SetupDiGetClassDevs(guidDisplayDeviceArrival,
             null,
             HWND.Null,
-            PInvoke.DIGCF_DEVICEINTERFACE | PInvoke.DIGCF_PRESENT | PInvoke.DIGCF_PROFILE);
+            SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_DEVICEINTERFACE | SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_PRESENT | SETUP_DI_GET_CLASS_DEVS_FLAGS.DIGCF_PROFILE);
 
         uint index = 0;
         while (true)
@@ -145,7 +145,7 @@ public abstract partial class AbstractDGPUNotify : IDGPUNotify
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiGetDeviceInterfaceDetail");
 
-                devicePath = new string(deviceDetailData->DevicePath.Value);
+                devicePath = new string(&deviceDetailData->DevicePath.e0);
             }
             finally
             {

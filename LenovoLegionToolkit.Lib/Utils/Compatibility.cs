@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.System.Management;
 using Windows.Win32;
 using Windows.Win32.Foundation;
@@ -32,6 +33,7 @@ public static partial class Compatibility
         "17IMH",
 
         "16ACH",
+        "16AHP",
         "16APH",
         "16ARH",
         "16ARX",
@@ -96,7 +98,7 @@ public static partial class Compatibility
             return _machineInformation.Value;
 
         var (vendor, machineType, model, serialNumber) = await GetModelDataAsync().ConfigureAwait(false);
-        var (biosVersion, biosVersionRaw) = await GetBIOSVersionAsync().ConfigureAwait(false);
+        var (biosVersion, biosVersionRaw) = GetBIOSVersion();
         var supportedPowerModes = (await GetSupportedPowerModesAsync().ConfigureAwait(false)).ToArray();
         var smartFanVersion = await GetSmartFanVersionAsync().ConfigureAwait(false);
         var legionZoneVersion = await GetLegionZoneVersionAsync().ConfigureAwait(false);
@@ -151,6 +153,7 @@ public static partial class Compatibility
             Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
             Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
             Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
+            Log.Instance.Trace($"     * GodModeFnQSwitchable: '{machineInformation.Features.GodModeFnQSwitchable}'");
             Log.Instance.Trace($" * Properties:");
             Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
@@ -171,9 +174,9 @@ public static partial class Compatibility
 
     private static Task<(string, string, string, string)> GetModelDataAsync() => WMI.Win32.ComputerSystemProduct.ReadAsync();
 
-    private static async Task<(BiosVersion?, string?)> GetBIOSVersionAsync()
+    private static (BiosVersion?, string?) GetBIOSVersion()
     {
-        var result = await WMI.Win32.BIOS.GetNameAsync().ConfigureAwait(false);
+        var result = Registry.GetValue("HKEY_LOCAL_MACHINE", "HARDWARE\\DESCRIPTION\\System\\BIOS", "BIOSVersion", string.Empty).Trim();
 
         var prefixRegex = BiosPrefixRegex();
         var versionRegex = BiosVersionRegex();
@@ -205,6 +208,7 @@ public static partial class Compatibility
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
                 AMDSmartShiftMode = capabilities.Contains(CapabilityID.AMDSmartShiftMode),
                 AMDSkinTemperatureTracking = capabilities.Contains(CapabilityID.AMDSkinTemperatureTracking),
+                GodModeFnQSwitchable = capabilities.Contains(CapabilityID.GodModeFnQSwitchable)
             };
         }
         catch { /* Ignored. */ }
@@ -223,7 +227,8 @@ public static partial class Compatibility
                 InstantBootAc = featureFlags.IsBitSet(5),
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
                 AMDSmartShiftMode = featureFlags.IsBitSet(7),
-                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8)
+                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8),
+                GodModeFnQSwitchable = false
             };
         }
         catch { /* Ignored. */ }

@@ -735,9 +735,6 @@ WARNING: This action will not run correctly if the internal display is off.</val
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>This device is not compatible with Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>No compatible keyboards found</value>
   </data>
@@ -1011,29 +1008,11 @@ Performance mode can also be changed with Fn+Q.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Selected power mode may not work correctly without AC adapter connected.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Enabling this option when Lenovo Vantage or its services are running and it changes power plans on your laptop might result in unexpected behavior.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Are you sure?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Balance mode</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Custom mode</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
     <value>Default</value>
   </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Performance mode</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Quiet mode</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Power Plans</value>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows Power Plans</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Adjust keyboard backlight preset.</value>
@@ -1052,6 +1031,9 @@ Performance mode can also be changed with Fn+Q.</value>
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Preset 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Preset 4</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Off</value>
@@ -1228,8 +1210,8 @@ Restart is recommended after changing this option.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Notifications</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
-    <value>Power plans</value>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>Windows Power Plans</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Assign Quick Action to Fn+F9 double press.</value>
@@ -1708,13 +1690,13 @@ This settings takes effect only when Custom Mode is enabled.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Windows reports that this laptop supports Modern Standby. Using power plans other than Balanced may cause unexpected behavior.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Select Windows Power Plans to apply when Power Mode changes.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Power</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Power Plan options in Windows Control Panel</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1893,7 +1875,7 @@ Requires restart.</value>
     <value>GPU to CPU Dynamic Boost</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>This is the maximum additional power that can be allocated to the GPU from the CPU based on CPU usage. The higher the value, the better the performance of applications that use the GPU.</value>
+    <value>This is the maximum additional power that can be allocated to the CPU from the GPU based on CPU usage. The higher the value, the better the performance of applications that use the CPU.</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Boot Logo</value>
@@ -2063,9 +2045,72 @@ Supported formats are: {1}.</value>
     <value>Speaker</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-	  <value>Minimize to tray</value>
+    <value>Minimize to tray</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
-	  <value>Always minimize to tray instead of taskbar.</value>
+    <value>Always minimize to tray instead of taskbar.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Windows Power Modes</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>Switch to Custom Mode with Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>Allow quick switching to Custom Mode with Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>Power Mode Synchronization</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Windows Power Modes</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>Select Windows Power Mode to apply when Power Mode changes.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>Error occured when reading device information.</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>Repeat</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Subtitle" xml:space="preserve">
+	  <value>How many times this macro will be repeated after key press.</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>Ignore delays</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Subtitle" xml:space="preserve">
+	  <value>If enabled, key presses will be played as fast as possible.</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>Clear</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>Record</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>Stop recording</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>Don't repeat</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>Lenovo Legion Toolkit must be running for macros to work.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>Enable</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>You can record series of key presses and invoke them using the number pad on your keyboard.</value>
   </data>
 </root>

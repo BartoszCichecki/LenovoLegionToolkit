@@ -6,9 +6,10 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class ThermalModeListener(PowerPlanController powerPlanController)
-    : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>(
-        WMI.LenovoGameZoneThermalModeEvent.Listen)
+public class ThermalModeListener(
+    WindowsPowerModeController windowsPowerModeController,
+    WindowsPowerPlanController windowsPowerPlanController)
+    : AbstractWMIListener<ThermalModeListener.ChangedEventArgs, ThermalModeState, int>(WMI.LenovoGameZoneThermalModeEvent.Listen)
 {
     public class ChangedEventArgs(ThermalModeState state) : EventArgs
     {
@@ -46,21 +47,17 @@ public class ThermalModeListener(PowerPlanController powerPlanController)
         if (state == ThermalModeState.Unknown)
             return;
 
-        switch (state)
+        var powerModeState = state switch
         {
-            case ThermalModeState.Quiet:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Quiet).ConfigureAwait(false);
-                break;
-            case ThermalModeState.Balance:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Balance).ConfigureAwait(false);
-                break;
-            case ThermalModeState.Performance:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.Performance).ConfigureAwait(false);
-                break;
-            case ThermalModeState.GodMode:
-                await powerPlanController.SetPowerPlanAsync(PowerModeState.GodMode).ConfigureAwait(false);
-                break;
-        }
+            ThermalModeState.Quiet => PowerModeState.Quiet,
+            ThermalModeState.Balance => PowerModeState.Balance,
+            ThermalModeState.Performance => PowerModeState.Performance,
+            ThermalModeState.GodMode => PowerModeState.GodMode,
+            _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
+        };
+
+        await windowsPowerModeController.SetPowerModeAsync(powerModeState).ConfigureAwait(false);
+        await windowsPowerPlanController.SetPowerPlanAsync(powerModeState).ConfigureAwait(false);
     }
 
     public void SuppressNext()

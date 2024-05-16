@@ -24,6 +24,14 @@ public static class Power
         };
     }
 
+    public static bool IsBatterySaverEnabled()
+    {
+        if (!PInvoke.GetSystemPowerStatus(out var sps))
+            return false;
+
+        return sps.SystemStatusFlag == 1;
+    }
+
     public static async Task RestartAsync()
     {
         if (Log.Instance.IsTraceEnabled)

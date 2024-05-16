@@ -732,9 +732,6 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Bul qurılma Lenovo Legion Toolkit penen mas kelmeydi.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Mas klaviatura tabılmadı</value>
   </data>
@@ -1008,30 +1005,6 @@ Rejimdi Fn+Q járdeminde ózgerte alasız.</value>
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Quwatlaw blogı qosılmasa, saylanǵan quwatlılıq rejimi durıs islemewi múmkin.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Message" xml:space="preserve">
-    <value>Lenovo vantage yamasa onıń xızmetlerin islep atirǵan hám noutbukıńız quwat jobaların ózgertkende bul parametrdi qosıw qápelimde jaman aqıbetlerge alıp keliwi múmkin.</value>
-  </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Isenimińiz kámil me?</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Teńlestirilgen rejim</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Arnawlı rejim</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Aldınnan ornatılǵan</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Islew rejimi</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Tınısh rejimi</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Quwatlılıq jobaları</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Klaviaturnıń arqa jaqtılıǵın aldınnan sazlawdı ornatıń.</value>
   </data>
@@ -1225,7 +1198,7 @@ Bul varianttı ózgertkennen keyin qayta iske túsiriw usınıs etiledi.</value>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Xabarlamalar</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Quwatlılıq jobaları</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
@@ -1704,13 +1677,13 @@ Bul sazlaw tek arnawlı rejim qosılǵanda nátiyje beredi.</value>
   <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
     <value>Bul qurılma Modern Standbydı qollap-quwatlaytuǵının Windows xabarlaydı. Teńlestirilgen quwatlılıq jobasınan basqasın qollanıw kútilmegen háreketke alıp keliwi múmkin.</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Message" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
     <value>Quwatlılıq rejimi ózgergende qollanılatuǵın Windows quwatlılıq jobaların tańlań.</value>
   </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Quwatlılıq</value>
   </data>
-  <data name="SettingsPage_PowerPlansControlPanel_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
     <value>Windows basqarıw panelindegi quwatlılıq jobası variantları</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
@@ -1887,9 +1860,6 @@ ESKERTIW: Diskret GPU ámeldegi bolmasa, bul ámel tuwrı atqarılmaydı.</value
   </data>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU to CPU Dynamic Boost</value>
-  </data>
-  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
-    <value>Bul protsessordan paydalanıw tiykarında GPUǵa ajratılıwı múmkin bolǵan maksimal qosımsha quwat bolıp tabıladı. Baha qánshellilik biyik bolsa, GPUdan paydalanatuǵın qosımshalardıń islewi sonshalıq jaqsı boladı.</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logotip júklenip atır</value>

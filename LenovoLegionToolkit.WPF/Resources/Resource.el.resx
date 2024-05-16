@@ -702,9 +702,6 @@
   <data name="IncompatibleDevice_Message" xml:space="preserve">
     <value>Αυτή η συσκευή δεν είναι συμβατή με το Lenovo Legion Toolkit.</value>
   </data>
-  <data name="IncompatibleDevice_Title" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
-  </data>
   <data name="KeyboardBacklightPage_NoCompatibleKeyboardsFound" xml:space="preserve">
     <value>Δε βρέθηκαν συμβατά πληκτρολόγια</value>
   </data>
@@ -975,27 +972,6 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>Η επιλεγμένη κατάσταση τροφοδοσίας ενδέχεται να μη λειτουργεί σωστά χωρίς συνδεδεμένο φορτιστή.</value>
   </data>
-  <data name="PowerPlansWindow_ActivatePowerProfilesWithVantageEnabled_Confirmation_Title" xml:space="preserve">
-    <value>Είστε σίγουρος;</value>
-  </data>
-  <data name="PowerPlansWindow_BalanceMode" xml:space="preserve">
-    <value>Λειτουργία εξισορρόπησης</value>
-  </data>
-  <data name="PowerPlansWindow_CustomMode" xml:space="preserve">
-    <value>Προσαρμοσμένη λειτουργία</value>
-  </data>
-  <data name="PowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
-    <value>Προεπιλογή</value>
-  </data>
-  <data name="PowerPlansWindow_PerformanceMode" xml:space="preserve">
-    <value>Λειτουργία απόδοσης</value>
-  </data>
-  <data name="PowerPlansWindow_QuietMode" xml:space="preserve">
-    <value>Λειτουργία ηρεμίας</value>
-  </data>
-  <data name="PowerPlansWindow_Title" xml:space="preserve">
-    <value>Προφίλ παροχής ενέργειας</value>
-  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Προσαρμογή προεπιλογής φωτισμού πληκτρολογίου.</value>
   </data>
@@ -1167,7 +1143,7 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>Ειδοποιήσεις</value>
   </data>
-  <data name="SettingsPage_PowerPlans_Title" xml:space="preserve">
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
     <value>Προφίλ παροχής ενέργειας</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">

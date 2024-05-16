@@ -4,7 +4,7 @@
 		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
 		<Platforms>x64</Platforms>
 		<Nullable>enable</Nullable>
-		<Copyright>© 2023 Bartosz Cichecki</Copyright>
+		<Copyright>© 2024 Bartosz Cichecki</Copyright>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<NeutralLanguage>en</NeutralLanguage>
 		<UseWindowsForms>true</UseWindowsForms>
@@ -16,7 +16,7 @@
 		<PackageReference Include="ManagedNativeWifi" Version="2.5.0" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="8.0.0" />
-		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.49-beta">
+		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.106">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
@@ -27,8 +27,8 @@
 		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />
-		<PackageReference Include="Octokit" Version="10.0.0" />
-		<PackageReference Include="TaskScheduler" Version="2.10.1" />
+		<PackageReference Include="Octokit" Version="11.0.1" />
+		<PackageReference Include="TaskScheduler" Version="2.11.0" />
 		<PackageReference Include="WindowsDisplayAPI" Version="1.3.0.13" />
 	</ItemGroup>
 	<ItemGroup>
