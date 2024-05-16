@@ -2795,6 +2795,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Interrupt if another key was pressed.
+        /// </summary>
+        public static string MacroSequenceControl_InterruptOnOtherKey_Title {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_InterruptOnOtherKey_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string MacroSequenceControl_Record {

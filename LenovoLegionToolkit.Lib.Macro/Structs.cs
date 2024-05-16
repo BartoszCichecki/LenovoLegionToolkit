@@ -38,7 +38,8 @@ public readonly struct MacroIdentifier(MacroSource source, ulong key)
 
 public readonly struct MacroSequence
 {
-    public bool IgnoreDelays { get; init; }
     public int RepeatCount { get; init; }
+    public bool IgnoreDelays { get; init; }
+    public bool InterruptOnOtherKey { get; init; }
     public MacroEvent[]? Events { get; init; }
 }

@@ -2,11 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
 using Windows.Win32.UI.Input.KeyboardAndMouse;
-
-// ReSharper disable all MemberCanBeMadeStatic.Global
-#pragma warning disable CA1822 // Mark members as static
 
 namespace LenovoLegionToolkit.Lib.Macro.Utils;
 
@@ -14,10 +12,14 @@ internal class MacroPlayer
 {
     private const int MAGIC_NUMBER = 1337;
 
-    public bool PlayedEvent(UIntPtr dwExtraInfo) => dwExtraInfo == 1337;
+    private readonly ThreadSafeBool _isPlayingInterruptableSequence = new();
+
+    public bool IsPlaying(UIntPtr dwExtraInfo) => _isPlayingInterruptableSequence.Value || dwExtraInfo == 1337;
 
     public async Task PlayAsync(MacroSequence sequence, CancellationToken token)
     {
+        _isPlayingInterruptableSequence.Value = !sequence.InterruptOnOtherKey;
+
         for (var i = 0; i < sequence.RepeatCount; i++)
         {
             foreach (var macroEvent in sequence.Events ?? [])

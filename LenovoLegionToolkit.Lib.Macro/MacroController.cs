@@ -93,8 +93,11 @@ public class MacroController
 
         ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);
 
-        if (kbStruct.flags == 0 && !_player.PlayedEvent(kbStruct.dwExtraInfo))
+        if (kbStruct.flags == 0 && !_player.IsPlaying(kbStruct.dwExtraInfo))
+        {
             _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
+        }
 
         var shouldRun = !_recorder.IsRecording;
         shouldRun &= kbStruct.flags == 0;
@@ -111,7 +114,6 @@ public class MacroController
         var sequence = _settings.Store.Sequences[new(MacroSource.Keyboard, kbStruct.vkCode)];
         Play(sequence, token);
 
-        // Returning a value greater than zero to prevent other hooks from handling the keypress
         return new LRESULT(96);
     }
 

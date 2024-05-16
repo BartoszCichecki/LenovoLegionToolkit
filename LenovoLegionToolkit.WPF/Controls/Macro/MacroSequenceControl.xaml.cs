@@ -40,11 +40,13 @@ public partial class MacroSequenceControl
 
         _repeatCard.IsEnabled = sequenceHasEvents;
         _ignoreDelaysCard.IsEnabled = sequenceHasEvents;
+        _interruptOnOtherKeyCard.IsEnabled = sequenceHasEvents;
 
         _repeatComboBox.SetItems(MacroController.AllowedRepeatCounts,
             Math.Clamp(sequence.RepeatCount, 1, 10),
             v => v == 1 ? Resource.MacroSequenceControl_DontRepeat : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;
+        _interruptOnOtherKeyToggle.IsChecked = sequence.InterruptOnOtherKey;
 
         _recordButton.Visibility = Visibility.Visible;
         _stopRecordingButton.Visibility = Visibility.Collapsed;
@@ -74,9 +76,11 @@ public partial class MacroSequenceControl
             Save();
     }
 
+    private void RepeatComboBox_SelectionChanged(object sender, RoutedEventArgs e) => Save();
+
     private void IgnoreDelaysToggle_Click(object sender, RoutedEventArgs e) => Save();
 
-    private void RepeatComboBox_SelectionChanged(object sender, RoutedEventArgs e) => Save();
+    private void InterruptOnOtherKeyToggle_Click(object sender, RoutedEventArgs e) => Save();
 
     private void ClearButton_Click(object sender, RoutedEventArgs e) => Clear();
 
@@ -110,6 +114,7 @@ public partial class MacroSequenceControl
 
         var repeatCount = _repeatComboBox.TryGetSelectedItem(out int repeat) ? repeat : 1;
         var ignoreDelays = _ignoreDelaysToggle.IsChecked ?? false;
+        var interruptOnOtherKey = _interruptOnOtherKeyToggle.IsChecked ?? false;
         var macroEvents = _macroEventsPanel.Children
             .OfType<MacroEventControl>()
             .Select(c => c.MacroEvent)
@@ -118,8 +123,9 @@ public partial class MacroSequenceControl
         var sequences = _controller.GetSequences();
         sequences[_macroIdentifier] = new MacroSequence
         {
-            IgnoreDelays = ignoreDelays,
             RepeatCount = repeatCount,
+            IgnoreDelays = ignoreDelays,
+            InterruptOnOtherKey = interruptOnOtherKey,
             Events = macroEvents
         };
         _controller.SetSequences(sequences);
