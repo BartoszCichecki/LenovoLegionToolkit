@@ -172,6 +172,7 @@ public partial class AutomationPage
             new GodModePresetAutomationStep(default),
             new HDRAutomationStep(default),
             new InstantBootAutomationStep(default),
+            new MacroAutomationStep(default),
             new MicrophoneAutomationStep(default),
             new SpeakerAutomationStep(default),
             new NotificationAutomationStep(default),

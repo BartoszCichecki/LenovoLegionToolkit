@@ -214,6 +214,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Off.
+        /// </summary>
+        public static string MacroAutomationStepState_Off {
+            get {
+                return ResourceManager.GetString("MacroAutomationStepState_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On.
+        /// </summary>
+        public static string MacroAutomationStepState_On {
+            get {
+                return ResourceManager.GetString("MacroAutomationStepState_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to On resume.
         /// </summary>
         public static string OnResumeAutomationPipelineTrigger_DisplayName {

@@ -2723,6 +2723,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable or disable macros..
+        /// </summary>
+        public static string MacroAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("MacroAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Macro.
+        /// </summary>
+        public static string MacroAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("MacroAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lenovo Legion Toolkit must be running for macros to work..
         /// </summary>
         public static string MacroPage_Enable_Subtitle {

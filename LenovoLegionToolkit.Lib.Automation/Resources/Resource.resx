@@ -209,4 +209,10 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 	  <value>On resume</value>
   </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>Off</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>On</value>
+  </data>
 </root>

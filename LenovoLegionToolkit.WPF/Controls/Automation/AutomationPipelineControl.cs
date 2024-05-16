@@ -343,6 +343,7 @@ public class AutomationPipelineControl : UserControl
             HDRAutomationStep s => new HDRAutomationStepControl(s),
             HybridModeAutomationStep s => await HybridModeAutomationStepControlFactory.GetControlAsync(s),
             InstantBootAutomationStep s => new InstantBootAutomationStepControl(s),
+            MacroAutomationStep s => new MacroAutomationStepControl(s),
             MicrophoneAutomationStep s => new MicrophoneAutomationStepControl(s),
             NotificationAutomationStep s => new NotificationAutomationStepControl(s),
             OneLevelWhiteKeyboardBacklightAutomationStep s => new OneLevelWhiteKeyboardBacklightAutomationStepControl(s),
