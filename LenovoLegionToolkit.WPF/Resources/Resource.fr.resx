@@ -1034,6 +1034,9 @@ Vous pouvez changer de mode avec Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Préréglage 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Pré-réglage 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Éteint</value>
   </data>
@@ -2067,5 +2070,47 @@ Nécessite un redémarrage.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
 	  <value>Sélectionnez le mode de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>Une erreur s'est produite lors de la lecture des informations de l'appareil.</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>Répéter</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>Ignorer les délais</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>Effacer</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>Enregistrer</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>Arrêter d'enregistrer</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>Ne pas répéter</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>Lenovo Legion Toolkit doit être en cours d'exécution pour que les macros fonctionnent.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>Activer</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>Vous pouvez enregistrer des séries de pressions de touches et les utiliser à l'aide du pavé numérique de votre clavier.</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+	  <value>Activer ou désactiver les macros.</value>
   </data>
 </root>
