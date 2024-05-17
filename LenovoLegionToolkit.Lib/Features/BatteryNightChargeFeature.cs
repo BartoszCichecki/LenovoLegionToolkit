@@ -12,9 +12,9 @@ public class BatteryNightChargeFeature()
 
     protected override Task<uint[]> ToInternalAsync(BatteryNightChargeState state)
     {
-        var result = state switch
+        uint[] result = state switch
         {
-            BatteryNightChargeState.On => new[] { 0x80000012u },
+            BatteryNightChargeState.On => [0x80000012u],
             BatteryNightChargeState.Off => [0x12u],
             _ => throw new InvalidOperationException("Invalid state.")
         };
