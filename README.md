@@ -328,6 +328,12 @@ LLT automatically adds some variables to the process environment that can be acc
 - When external display is disconnected
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
 
+- When HDR is on
+	- `LLT_IS_HDR_ON=TRUE`
+
+- When HDR is off
+	- `LLT_IS_HDR_ON=FALSE`
+
 - When WiFi is connected
 	- `LLT_WIFI_CONNECTED=TRUE`
 	- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network

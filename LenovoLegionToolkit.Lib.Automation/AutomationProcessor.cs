@@ -16,6 +16,7 @@ namespace LenovoLegionToolkit.Lib.Automation;
 
 public class AutomationProcessor(
     AutomationSettings settings,
+    HDRListener hdrListener,
     NativeWindowsMessageListener nativeWindowsMessageListener,
     PowerStateListener powerStateListener,
     PowerModeListener powerModeListener,
@@ -42,6 +43,7 @@ public class AutomationProcessor(
     {
         using (await _ioLock.LockAsync().ConfigureAwait(false))
         {
+            hdrListener.Changed += HDRListener_Changed;
             nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
             powerStateListener.Changed += PowerStateListener_Changed;
             powerModeListener.Changed += PowerModeListener_Changed;
@@ -226,6 +228,12 @@ public class AutomationProcessor(
     #endregion
 
     #region Listeners
+
+    private async void HDRListener_Changed(object? sender, HDRListener.ChangedEventArgs args)
+    {
+        var e = new HDRAutomationEvent(args.Message);
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
 
     private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs args)
     {

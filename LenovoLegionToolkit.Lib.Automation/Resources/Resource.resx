@@ -207,7 +207,13 @@
     <value>When WiFi is disconnected</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>On resume</value>
+    <value>On resume</value>
+  </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>When HDR turns off</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>When HDR turns on</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
 	  <value>Off</value>

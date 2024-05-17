@@ -187,6 +187,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When HDR turns off.
+        /// </summary>
+        public static string HDROffAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("HDROffAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When HDR turns on.
+        /// </summary>
+        public static string HDROnAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("HDROnAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lid closed.
         /// </summary>
         public static string LidClosedAutomationPipelineTrigger_DisplayName {
