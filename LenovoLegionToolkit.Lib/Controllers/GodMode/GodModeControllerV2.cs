@@ -56,26 +56,66 @@ public class GodModeControllerV2(
             { CapabilityID.GPUToCPUDynamicBoost, preset.GPUToCPUDynamicBoost },
         };
 
+        var defaultPresets = await GetDefaultsInOtherPowerModesAsync().ConfigureAwait(false);
+        var defaultPerformancePreset = defaultPresets.GetValueOrNull(PowerModeState.Performance);
+
+        var defaultPerformanceSettings = new Dictionary<CapabilityID, int?>
+        {
+            { CapabilityID.CPULongTermPowerLimit, defaultPerformancePreset?.CPULongTermPowerLimit },
+            { CapabilityID.CPUShortTermPowerLimit, defaultPerformancePreset?.CPUShortTermPowerLimit },
+            { CapabilityID.CPUPeakPowerLimit, defaultPerformancePreset?.CPUPeakPowerLimit },
+            { CapabilityID.CPUCrossLoadingPowerLimit, defaultPerformancePreset?.CPUCrossLoadingPowerLimit },
+            { CapabilityID.CPUPL1Tau, defaultPerformancePreset?.CPUPL1Tau  },
+            { CapabilityID.APUsPPTPowerLimit, defaultPerformancePreset?.APUsPPTPowerLimit  },
+            { CapabilityID.CPUTemperatureLimit, defaultPerformancePreset?.CPUTemperatureLimit },
+            { CapabilityID.GPUPowerBoost, defaultPerformancePreset?.GPUPowerBoost  },
+            { CapabilityID.GPUConfigurableTGP, defaultPerformancePreset?.GPUConfigurableTGP  },
+            { CapabilityID.GPUTemperatureLimit, defaultPerformancePreset?.GPUTemperatureLimit  },
+            { CapabilityID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, defaultPerformancePreset?.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline },
+            { CapabilityID.GPUToCPUDynamicBoost, defaultPerformancePreset?.GPUToCPUDynamicBoost  },
+        };
+
         var fanTable = preset.FanTable ?? await GetDefaultFanTableAsync().ConfigureAwait(false);
         var fanFullSpeed = preset.FanFullSpeed ?? false;
 
         foreach (var (id, value) in settings)
         {
-            if (!value.HasValue)
-                continue;
-
-            try
+            if (value.HasValue)
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Applying {id}: {value}...");
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying {id}: {value}...");
 
-                await SetValueAsync(id, value.Value).ConfigureAwait(false);
+                    await SetValueAsync(id, value.Value).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to apply {id}. [value={value}]", ex);
+                    throw;
+                }
             }
-            catch (Exception ex)
+            else if (defaultPerformanceSettings.GetValueOrDefault(id) is { } defaultPerformanceValue)
+            {
+                try
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Applying default {id}: {defaultPerformanceValue}...");
+
+                    await SetValueAsync(id, defaultPerformanceValue).ConfigureAwait(false);
+                }
+                catch (Exception ex)
+                {
+                    if (Log.Instance.IsTraceEnabled)
+                        Log.Instance.Trace($"Failed to apply default {id}. [value={defaultPerformanceValue}]", ex);
+                    throw;
+                }
+            }
+            else
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Failed to apply {id}. [value={value}]", ex);
-                throw;
+                    Log.Instance.Trace($"Failed to apply {id}, because neither value nor default value was available.");
             }
         }
 
@@ -226,7 +266,12 @@ public class GodModeControllerV2(
             var steps = discreteData.GetValueOrDefault(c.Id) ?? [];
 
             if (c.Step == 0 && steps.Length < 1)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Skipping {c.Id}... [idRaw={(int)c.Id:X}, defaultValue={c.DefaultValue}, min={c.Min}, max={c.Max}, step={c.Step}, steps={string.Join(", ", steps)}]");
+
                 continue;
+            }
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Creating StepperValue {c.Id}... [idRaw={(int)c.Id:X}, defaultValue={c.DefaultValue}, min={c.Min}, max={c.Max}, step={c.Step}, steps={string.Join(", ", steps)}]");
@@ -290,10 +335,12 @@ public class GodModeControllerV2(
         return WMI.LenovoOtherMethod.GetFeatureValueAsync(idRaw);
     }
 
-    private static Task SetValueAsync(CapabilityID id, StepperValue value)
+    private static Task SetValueAsync(CapabilityID id, StepperValue value) => SetValueAsync(id, value.Value);
+
+    private static Task SetValueAsync(CapabilityID id, int value)
     {
         var idRaw = (uint)id & 0xFFFF00FF;
-        return WMI.LenovoOtherMethod.SetFeatureValueAsync(idRaw, value.Value);
+        return WMI.LenovoOtherMethod.SetFeatureValueAsync(idRaw, value);
     }
 
     #endregion
