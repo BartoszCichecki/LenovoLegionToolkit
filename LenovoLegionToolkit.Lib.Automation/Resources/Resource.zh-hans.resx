@@ -209,4 +209,10 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
 	  <value>当唤醒时</value>
   </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>关</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>开</value>
+  </data>
 </root>
