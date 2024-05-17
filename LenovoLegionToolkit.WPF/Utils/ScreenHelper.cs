@@ -5,8 +5,6 @@ using Windows.Win32.Graphics.Gdi;
 using Windows.Win32.UI.HiDpi;
 using Point = System.Drawing.Point;
 
-#pragma warning disable CA1416 // Validate platform compatibility
-
 namespace LenovoLegionToolkit.WPF.Utils;
 
 public static class ScreenHelper

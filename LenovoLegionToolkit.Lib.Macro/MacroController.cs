@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Macro.Utils;
@@ -34,7 +33,6 @@ public class MacroController
     private readonly MacroSettings _settings;
 
     private HHOOK _kbHook;
-    private CancellationTokenSource? _cancellationTokenSource;
 
     public event EventHandler<RecorderReceivedEventArgs>? RecorderReceived;
     public event EventHandler<RecorderStoppedEventArgs>? RecorderStopped;
@@ -93,11 +91,7 @@ public class MacroController
 
         ref var kbStruct = ref Unsafe.AsRef<KBDLLHOOKSTRUCT>((void*)lParam.Value);
 
-        if (kbStruct.flags == 0 && !_player.IsPlaying(kbStruct.dwExtraInfo))
-        {
-            _cancellationTokenSource?.Cancel();
-            _cancellationTokenSource = new CancellationTokenSource();
-        }
+        _player.InterruptIfNeeded(kbStruct);
 
         var shouldRun = !_recorder.IsRecording;
         shouldRun &= kbStruct.flags == 0;
@@ -107,17 +101,13 @@ public class MacroController
         if (!shouldRun)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
-        _cancellationTokenSource?.Cancel();
-        _cancellationTokenSource = new CancellationTokenSource();
-
-        var token = _cancellationTokenSource.Token;
         var sequence = _settings.Store.Sequences[new(MacroSource.Keyboard, kbStruct.vkCode)];
-        Play(sequence, token);
+        Play(sequence);
 
         return new LRESULT(96);
     }
 
-    private void Play(MacroSequence sequence, CancellationToken token) => Task.Run(() => _player.PlayAsync(sequence, token), token);
+    private void Play(MacroSequence sequence) => Task.Run(() => _player.StartPlayingAsync(sequence));
 
     private static void CleanUp(ref Dictionary<MacroIdentifier, MacroSequence> sequences)
     {
