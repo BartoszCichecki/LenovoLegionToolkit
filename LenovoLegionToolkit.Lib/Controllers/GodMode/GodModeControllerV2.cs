@@ -101,14 +101,14 @@ public class GodModeControllerV2(
                 try
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Applying default {id}: {value}...");
+                        Log.Instance.Trace($"Applying default {id}: {defaultPerformanceValue}...");
 
                     await SetValueAsync(id, defaultPerformanceValue).ConfigureAwait(false);
                 }
                 catch (Exception ex)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"Failed to apply default {id}. [value={value}]", ex);
+                        Log.Instance.Trace($"Failed to apply default {id}. [value={defaultPerformanceValue}]", ex);
                     throw;
                 }
             }
