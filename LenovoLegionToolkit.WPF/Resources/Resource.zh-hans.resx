@@ -2115,4 +2115,10 @@
   <data name="MacroPage_Subtitle" xml:space="preserve">
 	  <value>你可以录制一系列按键并使用键盘上的数字小键盘调用它们。</value>
   </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>宏</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+	  <value>启用或禁用宏。</value>
+  </data>
 </root>
