@@ -59,7 +59,7 @@ public abstract class AbstractGodModeController(GodModeSettings settings)
     public Task SetStateAsync(GodModeState state)
     {
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Settings state: {state}");
+            Log.Instance.Trace($"Setting state...");
 
         var activePresetId = state.ActivePresetId;
         var presets = new Dictionary<Guid, GodModeSettings.GodModeSettingsStore.Preset>();

@@ -168,7 +168,7 @@ public class SpecialKeyListener(
             if (filtered.Length < 2)
             {
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Can't switch refresh rate after Fn+R when there is less than one available.");
+                    Log.Instance.Trace($"Can't switch refresh rate after Fn+R when there is less than 2 available.");
                 return;
             }
 
