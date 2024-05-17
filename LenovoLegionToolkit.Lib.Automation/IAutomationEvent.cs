@@ -4,9 +4,9 @@ namespace LenovoLegionToolkit.Lib.Automation;
 
 public interface IAutomationEvent;
 
-public readonly struct HDRAutomationEvent(HDRState hdrState) : IAutomationEvent
+public readonly struct HDRAutomationEvent(bool? isHDROn) : IAutomationEvent
 {
-    public HDRState HDRState { get; } = hdrState;
+    public bool? IsHDROn { get; } = isHDROn;
 }
 
 public readonly struct NativeWindowsMessageEvent(NativeWindowsMessage message) : IAutomationEvent

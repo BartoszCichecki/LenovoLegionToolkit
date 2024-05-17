@@ -1,21 +1,32 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
 
-public class DisplayConfigurationListener : IListener<EventArgs>
+public class DisplayConfigurationListener : IListener<DisplayConfigurationListener.ChangedEventArgs>
 {
+    public class ChangedEventArgs : EventArgs
+    {
+        public bool? HDR { get; init; }
+    }
+
     private bool _started;
 
-    public event EventHandler<EventArgs>? Changed;
+    public bool? IsHDROn { get; private set; }
+
+    public event EventHandler<ChangedEventArgs>? Changed;
 
     public Task StartAsync()
     {
         if (_started)
             return Task.CompletedTask;
+
+        IsHDROn = GetHDRStatus();
 
         SystemEvents.DisplaySettingsChanged += SystemEvents_DisplaySettingsChanged;
         _started = true;
@@ -28,6 +39,8 @@ public class DisplayConfigurationListener : IListener<EventArgs>
         SystemEvents.DisplaySettingsChanged -= SystemEvents_DisplaySettingsChanged;
         _started = false;
 
+        IsHDROn = null;
+
         return Task.CompletedTask;
     }
 
@@ -38,6 +51,12 @@ public class DisplayConfigurationListener : IListener<EventArgs>
 
         InternalDisplay.SetNeedsRefresh();
 
-        Changed?.Invoke(this, EventArgs.Empty);
+        var previousIsHDROn = IsHDROn;
+        IsHDROn = GetHDRStatus();
+        var changed = previousIsHDROn != IsHDROn;
+
+        Changed?.Invoke(this, new() { HDR = changed ? IsHDROn : null });
     }
+
+    private static bool? GetHDRStatus() => Displays.Get().FirstOrDefault()?.GetAdvancedColorInfo().AdvancedColorEnabled;
 }

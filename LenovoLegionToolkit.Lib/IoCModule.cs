@@ -83,7 +83,6 @@ public class IoCModule : Module
         builder.Register<DisplayBrightnessListener>().AutoActivateListener();
         builder.Register<DisplayConfigurationListener>().AutoActivateListener();
         builder.Register<DriverKeyListener>().AutoActivateListener();
-        builder.Register<HDRListener>().AutoActivateListener();
         builder.Register<LightingChangeListener>().AutoActivateListener();
         builder.Register<NativeWindowsMessageListener>().AutoActivateListener();
         builder.Register<PowerModeListener>().AutoActivateListener();

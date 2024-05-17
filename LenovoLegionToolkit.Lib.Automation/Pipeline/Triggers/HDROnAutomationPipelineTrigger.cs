@@ -13,15 +13,15 @@ public class HDROnAutomationPipelineTrigger : IHDRPipelineTrigger
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
-        var result = automationEvent is HDRAutomationEvent { HDRState: HDRState.On };
+        var result = automationEvent is HDRAutomationEvent { IsHDROn: true };
         return Task.FromResult(result);
     }
 
     public Task<bool> IsMatchingState()
     {
-        var listener = IoCContainer.Resolve<HDRListener>();
+        var listener = IoCContainer.Resolve<DisplayConfigurationListener>();
         var result = listener.IsHDROn;
-        return Task.FromResult(result && listener.IsOK);
+        return Task.FromResult(result.HasValue && result.Value);
     }
 
     public void UpdateEnvironment(AutomationEnvironment environment) => environment.HDROn = true;
