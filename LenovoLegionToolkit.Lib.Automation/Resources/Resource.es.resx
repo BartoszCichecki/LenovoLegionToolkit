@@ -207,6 +207,6 @@
     <value>Si el WiFi está desconectado</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>En resumen</value>
+    <value>En resumen</value>
   </data>
 </root>
