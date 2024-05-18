@@ -207,6 +207,6 @@
     <value>Коли від'єднано від Wi-Fi</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>При поновленні</value>
+    <value>При поновленні</value>
   </data>
 </root>
