@@ -207,6 +207,6 @@
     <value>WiFi 未接続時</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>再開時</value>
+    <value>再開時</value>
   </data>
 </root>
