@@ -4,7 +4,8 @@ using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Lib.Features.FlipToStart;
 
-public class FlipToStartUEFIFeature() : AbstractUEFIFeature<FlipToStartState>("{D743491E-F484-4952-A87D-8D5DD189B70C}",
+public class FlipToStartUEFIFeature() : AbstractUEFIFeature<FlipToStartState>(
+    "{D743491E-F484-4952-A87D-8D5DD189B70C}",
     "FBSWIF",
     PInvokeExtensions.VARIABLE_ATTRIBUTE_NON_VOLATILE |
     PInvokeExtensions.VARIABLE_ATTRIBUTE_BOOTSERVICE_ACCESS |

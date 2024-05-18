@@ -5,8 +5,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractLenovoLightingFeature<T>(int lightingID, int controlInterface, int type) : IFeature<T>
-    where T : struct, Enum, IComparable
+public abstract class AbstractLenovoLightingFeature<T>(int lightingID, int controlInterface, int type) : IFeature<T> where T : struct, Enum, IComparable
 {
     public bool ForceDisable { get; set; }
 

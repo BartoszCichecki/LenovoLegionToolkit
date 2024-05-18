@@ -154,6 +154,7 @@ public static partial class Compatibility
             Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
             Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
             Log.Instance.Trace($"     * GodModeFnQSwitchable: '{machineInformation.Features.GodModeFnQSwitchable}'");
+            Log.Instance.Trace($"     * OverDrive: '{machineInformation.Features.OverDrive}'");
             Log.Instance.Trace($" * Properties:");
             Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
@@ -208,7 +209,8 @@ public static partial class Compatibility
                 InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
                 AMDSmartShiftMode = capabilities.Contains(CapabilityID.AMDSmartShiftMode),
                 AMDSkinTemperatureTracking = capabilities.Contains(CapabilityID.AMDSkinTemperatureTracking),
-                GodModeFnQSwitchable = capabilities.Contains(CapabilityID.GodModeFnQSwitchable)
+                GodModeFnQSwitchable = capabilities.Contains(CapabilityID.GodModeFnQSwitchable),
+                OverDrive = capabilities.Contains(CapabilityID.OverDrive)
             };
         }
         catch { /* Ignored. */ }
@@ -228,7 +230,8 @@ public static partial class Compatibility
                 InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
                 AMDSmartShiftMode = featureFlags.IsBitSet(7),
                 AMDSkinTemperatureTracking = featureFlags.IsBitSet(8),
-                GodModeFnQSwitchable = false
+                GodModeFnQSwitchable = false,
+                OverDrive = true
             };
         }
         catch { /* Ignored. */ }

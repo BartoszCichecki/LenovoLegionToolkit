@@ -4,11 +4,7 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
 
-public class DGPUNotify(
-    DGPUGamezoneNotify gamezoneNotify,
-    DGPUCapabilityNotify capabilityNotify,
-    DGPUFeatureFlagsNotify featureFlagsNotify)
-    : IDGPUNotify
+public class DGPUNotify(DGPUGamezoneNotify gamezoneNotify, DGPUCapabilityNotify capabilityNotify, DGPUFeatureFlagsNotify featureFlagsNotify) : IDGPUNotify
 {
     private readonly AsyncLock _lock = new();
 

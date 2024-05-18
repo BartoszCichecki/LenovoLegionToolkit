@@ -5,8 +5,7 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class AlwaysOnUSBFeature()
-    : AbstractDriverFeature<AlwaysOnUSBState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
+public class AlwaysOnUSBFeature() : AbstractDriverFeature<AlwaysOnUSBState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
 {
     protected override uint GetInBufferValue() => 0x2;
 

@@ -4,8 +4,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Features.PanelLogo;
 
-public class PanelLogoSpectrumBacklightFeature(SpectrumKeyboardBacklightController controller)
-    : IFeature<PanelLogoBacklightState>
+public class PanelLogoSpectrumBacklightFeature(SpectrumKeyboardBacklightController controller) : IFeature<PanelLogoBacklightState>
 {
     public async Task<bool> IsSupportedAsync()
     {

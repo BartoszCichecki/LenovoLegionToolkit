@@ -6,7 +6,8 @@ using Windows.Win32;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint scopeAttribute) : IFeature<T> where T : struct, Enum, IComparable
+public abstract class AbstractUEFIFeature<T>(string guid, string scopeName, uint scopeAttribute)
+    : IFeature<T> where T : struct, Enum, IComparable
 {
     public async Task<bool> IsSupportedAsync()
     {
