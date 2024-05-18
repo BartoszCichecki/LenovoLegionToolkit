@@ -207,6 +207,6 @@
     <value>При изключване на Wi-Fi мрежа</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>При възобновяване</value>
+    <value>При възобновяване</value>
   </data>
 </root>
