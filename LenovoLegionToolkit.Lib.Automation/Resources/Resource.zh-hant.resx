@@ -207,6 +207,6 @@
     <value>當與 WiFi 中斷連接時</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>當喚醒時</value>
+    <value>當喚醒時</value>
   </data>
 </root>
