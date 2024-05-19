@@ -207,6 +207,6 @@
     <value>Wi-Fi bağlantısı kesildiğinde</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Özgeçmişte</value>
+    <value>Özgeçmişte</value>
   </data>
 </root>

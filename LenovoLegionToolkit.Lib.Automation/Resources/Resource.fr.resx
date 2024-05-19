@@ -207,7 +207,7 @@
     <value>Quand le Wifi est déconnecté</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>À la reprise</value>
+    <value>À la reprise</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
 	  <value>Désactivé</value>

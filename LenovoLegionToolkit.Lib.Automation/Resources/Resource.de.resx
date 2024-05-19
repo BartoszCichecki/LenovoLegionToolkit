@@ -207,6 +207,6 @@
     <value>Wenn die WLAN-Verbindung getrennt wird</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Beim aufwachen</value>
+    <value>Beim aufwachen</value>
   </data>
 </root>
