@@ -358,7 +358,7 @@ public readonly struct HardwareId(string vendor, string device)
 
 public readonly struct MachineInformation
 {
-    public readonly struct FeatureData
+    public readonly struct FeatureData(FeatureData.SourceType sourceType, IEnumerable<CapabilityID> capabilities)
     {
         public static readonly FeatureData Unknown = new(SourceType.Unknown);
 
@@ -369,24 +369,13 @@ public readonly struct MachineInformation
             CapabilityData
         }
 
-        private readonly HashSet<CapabilityID> _capabilities = [];
+        private readonly HashSet<CapabilityID> _capabilities = [.. capabilities];
 
-        public SourceType Source { get; }
+        public SourceType Source { get; } = sourceType;
 
         public IEnumerable<CapabilityID> All => _capabilities.Order().AsEnumerable();
 
-        public FeatureData(SourceType sourceType)
-        {
-            Source = sourceType;
-        }
-
-        public FeatureData(SourceType sourceType, IEnumerable<CapabilityID> capabilities)
-        {
-            Source = sourceType;
-
-            foreach (var capability in capabilities)
-                _capabilities.Add(capability);
-        }
+        public FeatureData(SourceType sourceType) : this(sourceType, []) { }
 
         public bool this[CapabilityID key]
         {

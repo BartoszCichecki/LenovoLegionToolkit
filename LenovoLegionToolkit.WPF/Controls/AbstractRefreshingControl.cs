@@ -50,6 +50,13 @@ public abstract class AbstractRefreshingControl : UserControl
             _refreshTask ??= OnRefreshAsync();
             await _refreshTask;
         }
+        catch (NotSupportedException)
+        {
+            exceptions = true;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Unsupported. [feature={GetType().Name}]");
+        }
         catch (Exception ex)
         {
             exceptions = true;
