@@ -360,7 +360,7 @@ public readonly struct MachineInformation
 {
     public readonly struct FeatureData
     {
-        public static readonly FeatureData Unknown = new() { Source = SourceType.Unknown };
+        public static readonly FeatureData Unknown = new(SourceType.Unknown);
 
         public enum SourceType
         {
@@ -369,17 +369,36 @@ public readonly struct MachineInformation
             CapabilityData
         }
 
-        public SourceType Source { get; init; }
-        public bool IGPUMode { get; init; }
-        public bool AIChip { get; init; }
-        public bool FlipToStart { get; init; }
-        public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
-        public bool InstantBootAc { get; init; }
-        public bool InstantBootUsbPowerDelivery { get; init; }
-        public bool AMDSmartShiftMode { get; init; }
-        public bool AMDSkinTemperatureTracking { get; init; }
-        public bool GodModeFnQSwitchable { get; init; }
-        public bool OverDrive { get; init; }
+        private readonly HashSet<CapabilityID> _capabilities = [];
+
+        public SourceType Source { get; }
+
+        public IEnumerable<CapabilityID> All => _capabilities.Order().AsEnumerable();
+
+        public FeatureData(SourceType sourceType)
+        {
+            Source = sourceType;
+        }
+
+        public FeatureData(SourceType sourceType, IEnumerable<CapabilityID> capabilities)
+        {
+            Source = sourceType;
+
+            foreach (var capability in capabilities)
+                _capabilities.Add(capability);
+        }
+
+        public bool this[CapabilityID key]
+        {
+            get => _capabilities.Contains(key);
+            init
+            {
+                if (value)
+                    _capabilities.Add(key);
+                else
+                    _capabilities.Remove(key);
+            }
+        }
     }
 
     public readonly struct PropertyData

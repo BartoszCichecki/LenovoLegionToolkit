@@ -112,7 +112,7 @@ public partial class SettingsPage
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
         var mi = await Compatibility.GetMachineInformationAsync();
-        if (mi.Features.GodModeFnQSwitchable)
+        if (mi.Features[CapabilityID.GodModeFnQSwitchable])
         {
             _godModeFnQSwitchableCard.Visibility = Visibility.Visible;
             _godModeFnQSwitchableToggle.IsChecked = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GodModeFnQSwitchable) == 1;
