@@ -4,8 +4,7 @@ using NeoSmart.AsyncLock;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractCompositeFeature<T>(params IFeature<T>[] features)
-    : IFeature<T> where T : struct
+public abstract class AbstractCompositeFeature<T>(params IFeature<T>[] features) : IFeature<T> where T : struct
 {
     private readonly AsyncLock _lock = new();
 

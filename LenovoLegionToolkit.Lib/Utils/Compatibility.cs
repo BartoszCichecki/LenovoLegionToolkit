@@ -143,17 +143,7 @@ public static partial class Compatibility
             Log.Instance.Trace($" * SupportedPowerModes: '{string.Join(",", machineInformation.SupportedPowerModes)}'");
             Log.Instance.Trace($" * SmartFanVersion: '{machineInformation.SmartFanVersion}'");
             Log.Instance.Trace($" * LegionZoneVersion: '{machineInformation.LegionZoneVersion}'");
-            Log.Instance.Trace($" * Features:");
-            Log.Instance.Trace($"     * Source: '{machineInformation.Features.Source}'");
-            Log.Instance.Trace($"     * IGPUMode: '{machineInformation.Features.IGPUMode}'");
-            Log.Instance.Trace($"     * AIChip: '{machineInformation.Features.AIChip}'");
-            Log.Instance.Trace($"     * FlipToStart: '{machineInformation.Features.FlipToStart}'");
-            Log.Instance.Trace($"     * NvidiaGPUDynamicDisplaySwitching: '{machineInformation.Features.NvidiaGPUDynamicDisplaySwitching}'");
-            Log.Instance.Trace($"     * InstantBootAc: '{machineInformation.Features.InstantBootAc}'");
-            Log.Instance.Trace($"     * InstantBootUsbPowerDelivery: '{machineInformation.Features.InstantBootUsbPowerDelivery}'");
-            Log.Instance.Trace($"     * AMDSmartShiftMode: '{machineInformation.Features.AMDSmartShiftMode}'");
-            Log.Instance.Trace($"     * AMDSkinTemperatureTracking: '{machineInformation.Features.AMDSkinTemperatureTracking}'");
-            Log.Instance.Trace($"     * GodModeFnQSwitchable: '{machineInformation.Features.GodModeFnQSwitchable}'");
+            Log.Instance.Trace($" * Features: {machineInformation.Features.Source}:{string.Join(',', machineInformation.Features.All)}");
             Log.Instance.Trace($" * Properties:");
             Log.Instance.Trace($"     * SupportsAlwaysOnAc: '{machineInformation.Properties.SupportsAlwaysOnAc.status}, {machineInformation.Properties.SupportsAlwaysOnAc.connectivity}'");
             Log.Instance.Trace($"     * SupportsGodModeV1: '{machineInformation.Properties.SupportsGodModeV1}'");
@@ -195,21 +185,7 @@ public static partial class Compatibility
         try
         {
             var capabilities = await WMI.LenovoCapabilityData00.ReadAsync().ConfigureAwait(false);
-            capabilities = capabilities.ToArray();
-
-            return new()
-            {
-                Source = MachineInformation.FeatureData.SourceType.CapabilityData,
-                IGPUMode = capabilities.Contains(CapabilityID.IGPUMode),
-                AIChip = capabilities.Contains(CapabilityID.AIChip),
-                FlipToStart = capabilities.Contains(CapabilityID.FlipToStart),
-                NvidiaGPUDynamicDisplaySwitching = capabilities.Contains(CapabilityID.NvidiaGPUDynamicDisplaySwitching),
-                InstantBootAc = capabilities.Contains(CapabilityID.InstantBootAc),
-                InstantBootUsbPowerDelivery = capabilities.Contains(CapabilityID.InstantBootUsbPowerDelivery),
-                AMDSmartShiftMode = capabilities.Contains(CapabilityID.AMDSmartShiftMode),
-                AMDSkinTemperatureTracking = capabilities.Contains(CapabilityID.AMDSkinTemperatureTracking),
-                GodModeFnQSwitchable = capabilities.Contains(CapabilityID.GodModeFnQSwitchable)
-            };
+            return new(MachineInformation.FeatureData.SourceType.CapabilityData, capabilities);
         }
         catch { /* Ignored. */ }
 
@@ -217,18 +193,16 @@ public static partial class Compatibility
         {
             var featureFlags = await WMI.LenovoOtherMethod.GetLegionDeviceSupportFeatureAsync().ConfigureAwait(false);
 
-            return new()
+            return new(MachineInformation.FeatureData.SourceType.Flags)
             {
-                Source = MachineInformation.FeatureData.SourceType.Flags,
-                IGPUMode = featureFlags.IsBitSet(0),
-                AIChip = false,
-                FlipToStart = true,
-                NvidiaGPUDynamicDisplaySwitching = featureFlags.IsBitSet(4),
-                InstantBootAc = featureFlags.IsBitSet(5),
-                InstantBootUsbPowerDelivery = featureFlags.IsBitSet(6),
-                AMDSmartShiftMode = featureFlags.IsBitSet(7),
-                AMDSkinTemperatureTracking = featureFlags.IsBitSet(8),
-                GodModeFnQSwitchable = false
+                [CapabilityID.IGPUMode] = featureFlags.IsBitSet(0),
+                [CapabilityID.NvidiaGPUDynamicDisplaySwitching] = featureFlags.IsBitSet(4),
+                [CapabilityID.InstantBootAc] = featureFlags.IsBitSet(5),
+                [CapabilityID.InstantBootUsbPowerDelivery] = featureFlags.IsBitSet(6),
+                [CapabilityID.AMDSmartShiftMode] = featureFlags.IsBitSet(7),
+                [CapabilityID.AMDSkinTemperatureTracking] = featureFlags.IsBitSet(8),
+                [CapabilityID.FlipToStart] = true,
+                [CapabilityID.OverDrive] = true
             };
         }
         catch { /* Ignored. */ }

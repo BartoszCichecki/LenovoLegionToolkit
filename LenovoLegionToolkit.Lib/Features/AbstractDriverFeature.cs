@@ -7,8 +7,7 @@ using Microsoft.Win32.SafeHandles;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractDriverFeature<T>(Func<SafeFileHandle> driverHandleHandle, uint controlCode) : IFeature<T>
-    where T : struct, Enum, IComparable
+public abstract class AbstractDriverFeature<T>(Func<SafeFileHandle> driverHandleHandle, uint controlCode) : IFeature<T> where T : struct, Enum, IComparable
 {
     protected readonly uint ControlCode = controlCode;
     protected readonly Func<SafeFileHandle> DriverHandle = driverHandleHandle;

@@ -1,23 +1,26 @@
 ﻿using System;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.InstantBoot;
 
 public class InstantBootCapabilityFeature : IFeature<InstantBootState>
 {
+    private enum State
+    {
+        Off,
+        On
+    }
+
+    private class InstantBootAcFeature() : AbstractCapabilityFeature<State>(CapabilityID.InstantBootAc);
+    private class InstantBootUsbPowerDeliveryFeature() : AbstractCapabilityFeature<State>(CapabilityID.InstantBootUsbPowerDelivery);
+
+    private readonly InstantBootAcFeature _ac = new();
+    private readonly InstantBootUsbPowerDeliveryFeature _usbPowerDelivery = new();
+
     public async Task<bool> IsSupportedAsync()
     {
-        try
-        {
-            var mi = await Compatibility.GetMachineInformationAsync().ConfigureAwait(false);
-            return mi.Features is { Source: MachineInformation.FeatureData.SourceType.CapabilityData, InstantBootAc: true, InstantBootUsbPowerDelivery: true };
-        }
-        catch
-        {
-            return false;
-        }
+        return await _ac.IsSupportedAsync().ConfigureAwait(false) && await _usbPowerDelivery.IsSupportedAsync().ConfigureAwait(false);
     }
 
     public Task<InstantBootState[]> GetAllStatesAsync() => Task.FromResult(Enum.GetValues<InstantBootState>());
@@ -27,14 +30,14 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Getting state...");
 
-        var acAdapterValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootAc).ConfigureAwait(false);
-        var usbPowerDeliveryValue = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery).ConfigureAwait(false);
+        var ac = await _ac.GetStateAsync().ConfigureAwait(false);
+        var usbPowerDelivery = await _usbPowerDelivery.GetStateAsync().ConfigureAwait(false);
 
-        var result = (acAdapterValue, usbPowerDeliveryValue) switch
+        var result = (ac, usbPowerDelivery) switch
         {
-            (1, 1) => InstantBootState.AcAdapterAndUsbPowerDelivery,
-            (1, 0) => InstantBootState.AcAdapter,
-            (0, 1) => InstantBootState.UsbPowerDelivery,
+            (State.On, State.On) => InstantBootState.AcAdapterAndUsbPowerDelivery,
+            (State.On, State.Off) => InstantBootState.AcAdapter,
+            (State.Off, State.On) => InstantBootState.UsbPowerDelivery,
             _ => InstantBootState.Off
         };
 
@@ -49,16 +52,16 @@ public class InstantBootCapabilityFeature : IFeature<InstantBootState>
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting state to {state}...");
 
-        var (acAdapterValue, usbPowerDeliveryValue) = state switch
+        var (ac, usbPowerDelivery) = state switch
         {
-            InstantBootState.AcAdapterAndUsbPowerDelivery => (1, 1),
-            InstantBootState.AcAdapter => (1, 0),
-            InstantBootState.UsbPowerDelivery => (0, 1),
-            _ => (0, 0)
+            InstantBootState.AcAdapterAndUsbPowerDelivery => (State.On, State.On),
+            InstantBootState.AcAdapter => (State.On, State.Off),
+            InstantBootState.UsbPowerDelivery => (State.Off, State.On),
+            _ => (State.Off, State.Off)
         };
 
-        await WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.InstantBootAc, acAdapterValue).ConfigureAwait(false);
-        await WMI.LenovoOtherMethod.SetFeatureValueAsync(CapabilityID.InstantBootUsbPowerDelivery, usbPowerDeliveryValue).ConfigureAwait(false);
+        await _ac.SetStateAsync(ac).ConfigureAwait(false);
+        await _usbPowerDelivery.SetStateAsync(usbPowerDelivery).ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Set state to {state}");

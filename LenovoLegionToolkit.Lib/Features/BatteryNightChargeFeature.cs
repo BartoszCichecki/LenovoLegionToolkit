@@ -5,8 +5,7 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class BatteryNightChargeFeature()
-    : AbstractDriverFeature<BatteryNightChargeState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_NIGHT_CHARGE)
+public class BatteryNightChargeFeature() : AbstractDriverFeature<BatteryNightChargeState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_BATTERY_NIGHT_CHARGE)
 {
     protected override uint GetInBufferValue() => 0x11;
 

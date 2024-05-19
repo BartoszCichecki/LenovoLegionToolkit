@@ -4,13 +4,8 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public abstract class AbstractWmiFeature<T>(
-    Func<Task<int>> getValue,
-    Func<int, Task> setValue,
-    Func<Task<int>>? isSupported = null,
-    int offset = 0)
-    : IFeature<T>
-    where T : struct, Enum, IComparable
+public abstract class AbstractWmiFeature<T>(Func<Task<int>> getValue, Func<int, Task> setValue, Func<Task<int>>? isSupported = null, int offset = 0)
+    : IFeature<T> where T : struct, Enum, IComparable
 {
     public async Task<bool> IsSupportedAsync()
     {

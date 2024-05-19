@@ -6,8 +6,7 @@ using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Lib.Features.Hybrid;
 
-public class HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify)
-    : IFeature<HybridModeState>
+public class HybridModeFeature(GSyncFeature gSyncFeature, IGPUModeFeature igpuModeFeature, DGPUNotify dgpuNotify) : IFeature<HybridModeState>
 {
     private readonly CancellationTokenSource _ensureDGPUEjectedIfNeededCancellationTokenSource = new();
 

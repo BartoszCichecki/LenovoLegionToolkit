@@ -4,8 +4,7 @@ using LenovoLegionToolkit.Lib.System;
 
 namespace LenovoLegionToolkit.Lib.Features;
 
-public class OneLevelWhiteKeyboardBacklightFeature()
-    : AbstractDriverFeature<OneLevelWhiteKeyboardBacklightState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
+public class OneLevelWhiteKeyboardBacklightFeature() : AbstractDriverFeature<OneLevelWhiteKeyboardBacklightState>(Drivers.GetEnergy, Drivers.IOCTL_ENERGY_SETTINGS)
 {
     public override async Task<bool> IsSupportedAsync()
     {

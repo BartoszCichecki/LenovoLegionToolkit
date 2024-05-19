@@ -3,8 +3,7 @@ using LenovoLegionToolkit.Lib.Controllers;
 
 namespace LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 
-public class WhiteKeyboardBacklightFeature(
-    WhiteKeyboardLenovoLightingBacklightFeature feature1,
+public class WhiteKeyboardBacklightFeature(WhiteKeyboardLenovoLightingBacklightFeature feature1,
     WhiteKeyboardDriverBacklightFeature feature2,
     SpectrumKeyboardBacklightController spectrumController,
     RGBKeyboardBacklightController rgbController)

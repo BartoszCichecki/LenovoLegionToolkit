@@ -358,9 +358,9 @@ public readonly struct HardwareId(string vendor, string device)
 
 public readonly struct MachineInformation
 {
-    public readonly struct FeatureData
+    public readonly struct FeatureData(FeatureData.SourceType sourceType, IEnumerable<CapabilityID> capabilities)
     {
-        public static readonly FeatureData Unknown = new() { Source = SourceType.Unknown };
+        public static readonly FeatureData Unknown = new(SourceType.Unknown);
 
         public enum SourceType
         {
@@ -369,16 +369,25 @@ public readonly struct MachineInformation
             CapabilityData
         }
 
-        public SourceType Source { get; init; }
-        public bool IGPUMode { get; init; }
-        public bool AIChip { get; init; }
-        public bool FlipToStart { get; init; }
-        public bool NvidiaGPUDynamicDisplaySwitching { get; init; }
-        public bool InstantBootAc { get; init; }
-        public bool InstantBootUsbPowerDelivery { get; init; }
-        public bool AMDSmartShiftMode { get; init; }
-        public bool AMDSkinTemperatureTracking { get; init; }
-        public bool GodModeFnQSwitchable { get; init; }
+        private readonly HashSet<CapabilityID> _capabilities = [.. capabilities];
+
+        public SourceType Source { get; } = sourceType;
+
+        public IEnumerable<CapabilityID> All => _capabilities.Order().AsEnumerable();
+
+        public FeatureData(SourceType sourceType) : this(sourceType, []) { }
+
+        public bool this[CapabilityID key]
+        {
+            get => _capabilities.Contains(key);
+            init
+            {
+                if (value)
+                    _capabilities.Add(key);
+                else
+                    _capabilities.Remove(key);
+            }
+        }
     }
 
     public readonly struct PropertyData
