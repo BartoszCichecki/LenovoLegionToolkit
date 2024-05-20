@@ -209,4 +209,10 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Ao retomar</value>
   </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>Desativado</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>Ativado</value>
+  </data>
 </root>
