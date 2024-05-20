@@ -268,10 +268,10 @@
     <value>Найповільніша</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_High" xml:space="preserve">
-    <value>Висока</value>
+    <value>Яскрава</value>
   </data>
   <data name="RGBKeyboardBacklightBrightness_Low" xml:space="preserve">
-    <value>Низька</value>
+    <value>Тьмяна</value>
   </data>
   <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
     <value>Дихання</value>
@@ -301,10 +301,10 @@
     <value>Шаблон 2</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_High" xml:space="preserve">
-    <value>Висока</value>
+    <value>Яскрава</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_Low" xml:space="preserve">
-    <value>Низька</value>
+    <value>Тьмяна</value>
   </data>
   <data name="SpectrumKeyboardBacklightBrightness_Medium" xml:space="preserve">
     <value>Середня</value>
@@ -399,7 +399,7 @@
     <value>Висока</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
-    <value>Низька</value>
+    <value>Тьмяна</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Вимк.</value>
@@ -474,5 +474,8 @@
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
 	  <value>План живлення</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>Шаблон 4</value>
   </data>
 </root>
