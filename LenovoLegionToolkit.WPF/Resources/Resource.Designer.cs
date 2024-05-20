@@ -2551,6 +2551,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        public static string Hide {
+            get {
+                return ResourceManager.GetString("Hide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide all.
+        /// </summary>
+        public static string HideAll {
+            get {
+                return ResourceManager.GetString("HideAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Try changing the mode again in a couple of seconds, if you do not see expected result.
         ///If dGPU does not respond at all, please restart your laptop..
         /// </summary>

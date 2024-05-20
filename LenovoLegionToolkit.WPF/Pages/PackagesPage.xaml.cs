@@ -294,7 +294,7 @@ public partial class PackagesPage : IProgress<float>
         var hideMenuItem = new MenuItem
         {
             SymbolIcon = SymbolRegular.EyeOff24,
-            Header = "Hide",
+            Header = Resource.Hide,
         };
         hideMenuItem.Click += (_, _) =>
         {
@@ -307,7 +307,7 @@ public partial class PackagesPage : IProgress<float>
         var hideAllMenuItem = new MenuItem
         {
             SymbolIcon = SymbolRegular.EyeOff24,
-            Header = "Hide all",
+            Header = Resource.HideAll,
         };
         hideAllMenuItem.Click += (_, _) =>
         {
