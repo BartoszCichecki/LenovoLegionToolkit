@@ -556,14 +556,32 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="Export" xml:space="preserve">
     <value>エクスポート</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
+    <value>バッテリ使用時は内蔵GPU (iGPU) のみを使用し、ACアダプタが接続されている場合は内蔵GPUとディスクリートGPU (dGPU) の両方を使用します。低出力なアダプタが接続されている場合は、システムはHybrid-iGPU Onlyモードに切り替わります。</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>オートハイブリッドモード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Disclaimer" xml:space="preserve">
+    <value>このモードの切り替えには、再起動が必要です。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_DGPU_Message" xml:space="preserve">
+    <value>ディスクリートGPU (dGPU) のみを使用します。このモードでは、最大のグラフィック性能が得られますが、消費電力が大きくなります。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
     <value>dGPUモード</value>
   </data>
+  <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
+    <value>内蔵GPU (iGPU) とディスクリートGPU (dGPU) の両方が有効になります。システムは必要に応じて自動的に切り替わります。</value>
+  </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Title" xml:space="preserve">
     <value>ハイブリッドモード</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
+    <value>このモードは、ディスクリートGPU (dGPU) が機能していない場合にのみ有効になります。</value>
+  </data>
+  <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
+    <value>内蔵GPU (iGPU) のみを使用します。このモードでは、消費電力とノイズを最小限に抑えます。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
     <value>ハイブリッドiGPU専用モード</value>
@@ -869,6 +887,18 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="Open" xml:space="preserve">
     <value>開ける</value>
   </data>
+  <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの応答時間を改善します。</value>
+  </data>
+  <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
+  <data name="OverDriveControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの応答時間を改善します。</value>
+  </data>
+  <data name="OverDriveControl_Title" xml:space="preserve">
+    <value>Over Drive</value>
+  </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
     <value>{0} 個ダウンロードしました！</value>
   </data>
@@ -881,14 +911,27 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
     <value>サーバーからコード 404 が返されました。</value>
   </data>
+  <data name="PackageControl_Http404Error_Title" xml:space="preserve">
+    <value>ファイルが見つからないようです</value>
+  </data>
+  <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
+    <value>インターネット接続が機能していることを確認してください。</value>
+  </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
     <value>エラーが発生しました</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>更新があります！</value>
   </data>
+  <data name="PackageControl_OldPackageWarning" xml:space="preserve">
+    <value>このパッケージは１年以上前のものです。</value>
+  </data>
   <data name="PackageControl_Version" xml:space="preserve">
-    <value>バージョン</value>
+    <value>Version</value>
+  </data>
+  <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
+    <value>以下はこのデバイスと互換性があるとマークされているソフトウェアパッケージのリストです。
+常に正しいパッケージをインストールしていることを確認してください。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
     <value>エラーが発生しました</value>
@@ -1003,7 +1046,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>速度</value>
   </data>
   <data name="ReadmeWindow_Title" xml:space="preserve">
-    <value>はじめに</value>
+    <value>お読み下さい</value>
   </data>
   <data name="Refresh" xml:space="preserve">
     <value>更新</value>
@@ -1242,8 +1285,20 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>タッチパッドの無効化</value>
   </data>
+  <data name="WinKeyControl_Message" xml:space="preserve">
+    <value>この機能は内蔵キーボードでのみ動作します。</value>
+  </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>Windowsキーの無効化</value>
+  </data>
+  <data name="MicrophoneControl_Title" xml:space="preserve">
+    <value>マイク</value>
+  </data>
+  <data name="MicrophoneControl_Message" xml:space="preserve">
+    <value>オフの場合、マイクはミュートになります。</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>マイク</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>解像度</value>
@@ -1268,6 +1323,18 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>ディスプレイ</value>
   </data>
+  <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
+    <value>更新のみを表示</value>
+  </data>
+  <data name="EditDashboardWindow_Title" xml:space="preserve">
+    <value>ダッシュボードをカスタマイズ</value>
+  </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>使用しているデバイスの状態や構成によっては、一部の機能がダッシュボードに表示されない場合があります。</value>
+  </data>
+  <data name="DashboardPage_Customize" xml:space="preserve">
+    <value>カスタマイズ</value>
+  </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>ディスプレイオフ</value>
   </data>
@@ -1277,6 +1344,15 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>オフにする</value>
+  </data>
+  <data name="PackageControl_RebootRequired" xml:space="preserve">
+    <value>再起動が必要です。</value>
+  </data>
+  <data name="PackageControl_ShutdownRequired" xml:space="preserve">
+    <value>シャットダウンが必要です。</value>
+  </data>
+  <data name="PackageControl_RebootRecommended" xml:space="preserve">
+    <value>再起動を推奨します。</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>カスタムモードプリセット</value>
@@ -1312,6 +1388,15 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
     <value>APU sPPTの電力制限</value>
   </data>
+  <data name="Default" xml:space="preserve">
+    <value>デフォルト</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>作成</value>
+  </data>
+  <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
+    <value>アクションを作成</value>
+  </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>電源モード</value>
   </data>
@@ -1327,11 +1412,18 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>バッテリー残量が少なくなっています。</value>
   </data>
+  <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
+    <value>設定</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>電源</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>電源オフ</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>複数のトリガー...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
   </data>
   <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
     <value>オーバークロックGPUの設定</value>
@@ -1390,8 +1482,29 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>ブートロゴ</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+    <value>システムの起動時に表示されるブートロゴをカスタマイズできます。</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+    <value>ブートロゴ</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+    <value>既定のブートロゴが設定されています。</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+    <value>カスタムブートロゴが設定されています。</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+    <value>状態</value>
+  </data>
   <data name="RevertToDefault" xml:space="preserve">
     <value>デフォルトに戻す</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+    <value>カスタマイズ</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
     <value>アクション</value>
@@ -1411,11 +1524,42 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>Alt、Ctrl、Shift キーを押すと、Fn Lock が一時的に無効になります。</value>
   </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+    <value>カスタムブートロゴのサイズは、{0} ピクセルにする必要があります。
+サポートされるフォーマットは {1} です。</value>
+  </data>
   <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
     <value>夜間のバッテリー充電</value>
   </data>
   <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
     <value>有効にすると、夜間にこのデバイスに電源を接続した場合80%まで充電され、翌朝このデバイスを使用するまでに100%まで充電が完了します。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>無効な画像サイズです。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>無効な画像フォーマットです。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>EFI パーティションをマウントできません。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>UEFI privilegeを設定できません。</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>EFI パーティションに空き容量がありません。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>カスタムロゴを設定できませんでした: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>規定のロゴを設定できませんでした: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>既定のブートロゴが設定されました。</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>カスタムブートロゴが設定されました。</value>
   </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>ダウンロードフォルダ</value>
@@ -1423,11 +1567,21 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
     <value>ダウンロードフォルダを開く</value>
   </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+    <value>ダウンロード</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+    <value>READMEを開く</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
     <value>プリセット</value>
   </data>
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
     <value>更新</value>
+  </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>感覚（分）</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
     <value>トレイに最小化</value>
@@ -1449,5 +1603,14 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
 	  <value>電源モードが変更されたときに適用する、Windows電源モードを選択します。</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>マクロ</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>マクロ</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>マクロ</value>
   </data>
 </root>

@@ -209,4 +209,16 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>При поновленні</value>
   </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли HDR вимкнено</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Коли HDR увімкнено</value>
+  </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>Вимкнути</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>Увімкнути</value>
+  </data>
 </root>
