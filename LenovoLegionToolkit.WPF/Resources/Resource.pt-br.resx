@@ -2055,4 +2055,49 @@ Requer reinicialização.</value>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
 	  <value>Ocorreu um erro ao ler as informações do dispositivo.</value>
   </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>Macros</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>Repetir</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>Ignorar atrasos</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>Apagar</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>Gravar</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>Parar a gravação</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>Não repetir</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>O Lenovo Legion Toolkit deve estar sendo executado para rodar tarefas automatizadas.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>Habilitar</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>Você pode gravar uma série de pressionamentos de teclas e invocá-los usando o bloco de números no seu teclado.</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+	  <value>Ativar ou desativar macros.</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+	  <value>Ocultar</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+	  <value>Ocultar todos</value>
+  </data>
 </root>
