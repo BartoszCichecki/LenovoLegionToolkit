@@ -1007,6 +1007,12 @@
   <data name="PowerModeControl_Warning" xml:space="preserve">
     <value>尚未連接電源供應器時，電源模式可能無法正確地的運作。</value>
   </data>
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>預設</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Windows 電源計劃</value>
+  </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>調整鍵盤背光預設。</value>
   </data>
@@ -1024,6 +1030,9 @@
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>預設 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>預設 4</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>關閉</value>
@@ -1864,6 +1873,9 @@
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>GPU 到 CPU Dynamic Boost</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>這是根據 GPU 使用情況可以從 GPU 分配給 CPU 的最大額外功率。該值越高，使用此 CPU 的應用程式的效能越好。</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>啟動商標</value>
   </data>
@@ -2024,5 +2036,83 @@
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
     <value>等待直到程式或腳本完成執行</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>當開啟靜音後，所有活動的音訊輸出裝置都將會被靜音。</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>喇叭</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>最小化到系統匣</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>始終最小化到系統匣而不是工作列。</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Windows 電源模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>使用 Fn+Q 切換到客製化模式</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>允許使用 Fn+Q 快速切換到客製化模式。</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>電源模式同步</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>當變更電源模式時，自動地變更 Windows 電源計劃或 Windows 電源模式。</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Windows 電源模式</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>選擇電源模式變更時要套用的 Windows 電源模式。</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>讀取裝置資訊時發生錯誤。</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>巨集</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>巨集</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>重複</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>忽略延遲</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>清除</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>記錄</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>停止記錄</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>不重複</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>巨集功能一定要在 Lenovo Legion 工具套件執行時才可以運作。</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>啟用</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>您可以記錄一系列的按鍵操作並使用鍵盤上的數字鍵呼叫它們。</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>巨集</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+	  <value>啟用或停用巨集。</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+	  <value>當按下其它按鍵後中斷</value>
   </data>
 </root>
