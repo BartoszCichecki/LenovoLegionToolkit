@@ -209,4 +209,16 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當喚醒時</value>
   </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>當 HDR 關閉時</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>當 HDR 開啟時</value>
+  </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>關閉</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>開啟</value>
+  </data>
 </root>

@@ -1033,6 +1033,9 @@ Bạn có thể chuyển đổi giữa các Chế độ với Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Thiết lập 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Thiết lập 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Tắt</value>
   </data>
@@ -1872,6 +1875,9 @@ Yêu cầu khởi động lại.</value>
   <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
     <value>Công suất Dynamic Boost nhường từ GPU sang CPU</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Đây là công suất bổ sung tối đa có thể được đưa cho CPU từ GPU dựa trên mức sử dụng CPU. Giá trị càng cao thì hiệu suất của các ứng dụng sử dụng CPU càng cao.</value>
+  </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Logo khởi động</value>
   </data>
@@ -2047,5 +2053,62 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Chế độ nguồn</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+	  <value>Chế độ nguồn</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+	  <value>Chọn Windows Power Plan được sử dụng tương ứng khi thay đổi Chế độ hiệu năng.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+	  <value>Lỗi đã xảy ra khi đọc thông tin thiết bị.</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+	  <value>Lặp lại</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+	  <value>Bỏ qua thời gian chờ</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+	  <value>Xóa</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+	  <value>Bắt đầu ghi</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+	  <value>Dừng Ghi</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+	  <value>Không lặp lại</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+	  <value>Lenovo Legion Toolkit phải chạy trong nền để Macros làm việc.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+	  <value>Kích hoạt</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+	  <value>Bạn có thể ghi lại các Macro và gọi chúng qua bàn phím số.</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+	  <value>Macro</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+	  <value>Bật hoặc tắt macros.</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+	  <value>Ngắt nếu phím khác được bấm</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+	  <value>Ẩn</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+	  <value>Ẩn tất cả</value>
   </data>
 </root>
