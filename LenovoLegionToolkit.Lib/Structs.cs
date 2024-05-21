@@ -94,6 +94,15 @@ public readonly struct DisplayAdvancedColorInfo(
     public bool WideColorEnforced { get; } = wideColorEnforced;
     public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
 }
+public readonly struct Device(string name, string description, string deviceInstanceId, Guid classGuid, string className, bool isDisconnected)
+{
+    public string Name { get; } = name;
+    public string Description { get; } = description;
+    public string DeviceInstanceId { get; } = deviceInstanceId;
+    public Guid ClassGuid { get; } = classGuid;
+    public string ClassName { get; } = className;
+    public bool IsDisconnected { get; } = isDisconnected;
+}
 
 public readonly struct DriverInfo(string deviceId, string hardwareId, Version? version, DateTime? date)
 {

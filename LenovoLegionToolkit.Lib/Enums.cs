@@ -215,6 +215,8 @@ public enum NativeWindowsMessage
     LidClosed,
     MonitorOn,
     MonitorOff,
+    DeviceConnected,
+    DeviceDisconnected,
     MonitorConnected,
     MonitorDisconnected,
     ExternalMonitorConnected,
