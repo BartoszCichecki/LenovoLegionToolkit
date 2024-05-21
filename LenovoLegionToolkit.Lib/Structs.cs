@@ -94,7 +94,8 @@ public readonly struct DisplayAdvancedColorInfo(
     public bool WideColorEnforced { get; } = wideColorEnforced;
     public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
 }
-public readonly struct Device(string name, string description, string deviceInstanceId, Guid classGuid, string className, bool isDisconnected)
+
+public struct Device(string name, string description, string deviceInstanceId, Guid classGuid, string className, bool isDisconnected)
 {
     public string Name { get; } = name;
     public string Description { get; } = description;
@@ -102,6 +103,22 @@ public readonly struct Device(string name, string description, string deviceInst
     public Guid ClassGuid { get; } = classGuid;
     public string ClassName { get; } = className;
     public bool IsDisconnected { get; } = isDisconnected;
+
+    private string? _index;
+
+    public string Index
+    {
+        get
+        {
+            _index ??= new StringBuilder()
+                .Append(Name)
+                .Append(Description)
+                .Append(DeviceInstanceId)
+                .Append(ClassName)
+                .ToString();
+            return _index;
+        }
+    }
 }
 
 public readonly struct DriverInfo(string deviceId, string hardwareId, Version? version, DateTime? date)

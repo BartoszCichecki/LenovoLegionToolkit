@@ -57,6 +57,10 @@ public static class Devices
             var classGuid = GetGuidProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_ClassGuid);
             var className = GetClassName(classGuid);
             var isDisconnected = IsDisconnected(deviceInfoData);
+
+            if (deviceInstanceId == @"HTREE\ROOT\0")
+                continue;
+
             devices.Add(new(name, description, deviceInstanceId, classGuid, className, isDisconnected));
         }
 

@@ -2125,4 +2125,7 @@ Supported formats are: {1}.</value>
   <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
 	  <value>Devices</value>
   </data>
+  <data name="DeselectAll" xml:space="preserve">
+	  <value>Deselect all</value>
+  </data>
 </root>
