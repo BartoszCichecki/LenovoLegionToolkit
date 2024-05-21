@@ -2119,4 +2119,10 @@ Requiere un reinicio.</value>
   <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
 	  <value>Interrumpir si se ha pulsado otra tecla</value>
   </data>
+  <data name="Hide" xml:space="preserve">
+	  <value>Ocultar</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+	  <value>Ocultar todo(s)</value>
+  </data>
 </root>
