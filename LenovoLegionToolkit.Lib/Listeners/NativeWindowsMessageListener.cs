@@ -387,6 +387,6 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         var part1 = parts[0].TrimStart('\\', '?');
         var part2 = parts[1].Replace('#', '\\');
         var part3 = parts[2];
-        return $@"{part1}\{part2}\{part3}".ToUpper();
+        return $@"{part1}\{part2}\{part3}".ToUpperInvariant();
     }
 }
