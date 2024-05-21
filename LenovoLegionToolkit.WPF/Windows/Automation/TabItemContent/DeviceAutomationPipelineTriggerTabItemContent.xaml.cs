@@ -114,7 +114,10 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
     private List<Device> SortAndFilter(List<Device> devices)
     {
-        var result = devices.OrderBy(d => d.ClassName).ThenBy(d => d.Name).AsEnumerable();
+        var result = devices
+            .Where(d => d.IsRemovable)
+            .OrderBy(d => d.Name)
+            .AsEnumerable();
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
@@ -136,7 +139,15 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             Orientation = Orientation.Vertical
         };
 
-        private readonly TextBlock _title = new()
+        private readonly TextBlock _notConnected = new()
+        {
+            Margin = new(0, 0, 0, 2),
+            TextTrimming = TextTrimming.CharacterEllipsis,
+            FontSize = 12,
+            Text = "Not connected"
+        };
+
+        private readonly TextBlock _name = new()
         {
             Margin = new(0, 0, 0, 4),
             FontWeight = FontWeights.Medium
@@ -147,8 +158,14 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             Margin = new(0, 0, 0, 4)
         };
 
+        private readonly TextBlock _busReportedDeviceDescription = new()
+        {
+            Margin = new(0, 0, 0, 4)
+        };
+
         private readonly TextBlock _deviceInstanceId = new()
         {
+            Margin = new(0, 4, 0, 0),
             TextTrimming = TextTrimming.CharacterEllipsis,
             FontSize = 12
         };
@@ -184,20 +201,39 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
         private void InitializeComponent()
         {
-            _title.Text = _device.Name;
-            _description.Text = _device.Description;
-            _deviceInstanceId.Text = _device.DeviceInstanceId;
-            _checkBox.Tag = _device.DeviceInstanceId;
+            if (_device.IsDisconnected)
+            {
+                _notConnected.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
+                _stackPanel.Children.Add(_notConnected);
+            }
 
-            _deviceInstanceId.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
+            _name.Text = _device.Name;
+            _stackPanel.Children.Add(_name);
 
-            _stackPanel.Children.Add(_title);
-            if (_title.Text != _description.Text)
+            if (_device.Description.Length > 0 && _device.Description != _device.Name)
+            {
+                _description.Text = _device.Description;
                 _stackPanel.Children.Add(_description);
+            }
+
+            if (_device.BusReportedDeviceDescription.Length > 0 &&
+                _device.BusReportedDeviceDescription != _device.Name &&
+                _device.BusReportedDeviceDescription != _device.Description)
+            {
+                _busReportedDeviceDescription.Text = _device.BusReportedDeviceDescription;
+                _stackPanel.Children.Add(_busReportedDeviceDescription);
+            }
+
+            _deviceInstanceId.Text = _device.DeviceInstanceId;
+            _deviceInstanceId.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
             _stackPanel.Children.Add(_deviceInstanceId);
+
+            _checkBox.Tag = _device.DeviceInstanceId;
 
             _cardControl.Header = _stackPanel;
             _cardControl.Content = _checkBox;
+
+            _cardControl.Click += (sender, args) => _checkBox.IsChecked = !(_checkBox.IsChecked ?? false);
 
             Content = _cardControl;
         }

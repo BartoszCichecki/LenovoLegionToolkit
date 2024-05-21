@@ -51,17 +51,25 @@ public static class Devices
                 continue;
             }
 
+            var (removable, isDisconnected) = GetFlags(deviceInfoData);
+
+            if (isDisconnected)
+            {
+                var capabilities = (CM_DEVCAP)GetUInt32Property(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_Capabilities);
+                removable = capabilities.HasFlag(CM_DEVCAP.CM_DEVCAP_REMOVABLE);
+            }
+
             var name = GetStringProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_NAME);
             var description = GetStringProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_DeviceDesc);
+            var busReportedDeviceDescription = GetStringProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_BusReportedDeviceDesc);
             var deviceInstanceId = GetStringProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_InstanceId);
             var classGuid = GetGuidProperty(deviceInfoSet, deviceInfoData, PInvoke.DEVPKEY_Device_ClassGuid);
             var className = GetClassName(classGuid);
-            var isDisconnected = IsDisconnected(deviceInfoData);
 
-            if (deviceInstanceId == @"HTREE\ROOT\0")
+            if (deviceInstanceId.Contains("ROOT"))
                 continue;
 
-            devices.Add(new(name, description, deviceInstanceId, classGuid, className, isDisconnected));
+            devices.Add(new(name, description, busReportedDeviceDescription, deviceInstanceId, classGuid, className, removable, isDisconnected));
         }
 
         return devices;
@@ -99,6 +107,24 @@ public static class Devices
         return Encoding.Unicode.GetString(buffer).TrimEnd('\0');
     }
 
+    private static unsafe uint GetUInt32Property(SetupDiDestroyDeviceInfoListSafeHandle deviceInfoSet, SP_DEVINFO_DATA deviceInfoData, DEVPROPKEY propertyKey)
+    {
+        var requiredSize = 0u;
+        PInvoke.SetupDiGetDeviceProperty(deviceInfoSet, deviceInfoData, propertyKey, out var propertyType, null, &requiredSize, 0);
+
+        if (propertyType == DEVPROPTYPE.DEVPROP_TYPE_EMPTY)
+            return 0;
+
+        if (propertyType != DEVPROPTYPE.DEVPROP_TYPE_UINT32)
+            throw new InvalidOperationException("Device property is not a string.");
+
+        var buffer = new byte[requiredSize];
+        var propertyBuffer = new Span<byte>(buffer);
+        PInvoke.SetupDiGetDeviceProperty(deviceInfoSet, deviceInfoData, propertyKey, out _, propertyBuffer, null, 0);
+
+        return BitConverter.ToUInt32(buffer);
+    }
+
     private static unsafe Guid GetGuidProperty(SetupDiDestroyDeviceInfoListSafeHandle deviceInfoSet, SP_DEVINFO_DATA deviceInfoData, DEVPROPKEY propertyKey)
     {
         var requiredSize = 0u;
@@ -117,10 +143,10 @@ public static class Devices
         return new Guid(buffer);
     }
 
-    private static bool IsDisconnected(SP_DEVINFO_DATA deviceInfoData)
+    private static (bool noShow, bool disconnected) GetFlags(SP_DEVINFO_DATA deviceInfoData)
     {
-        var result = PInvoke.CM_Get_DevNode_Status(out _, out _, deviceInfoData.DevInst, 0);
-        return result == CONFIGRET.CR_NO_SUCH_DEVINST;
+        var result = PInvoke.CM_Get_DevNode_Status(out var flags, out _, deviceInfoData.DevInst, 0);
+        return (flags.HasFlag(CM_DEVNODE_STATUS_FLAGS.DN_REMOVABLE), result == CONFIGRET.CR_NO_SUCH_DEVINST);
     }
 
     #endregion

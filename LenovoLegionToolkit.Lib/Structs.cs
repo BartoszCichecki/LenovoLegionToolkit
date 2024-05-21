@@ -95,13 +95,23 @@ public readonly struct DisplayAdvancedColorInfo(
     public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
 }
 
-public struct Device(string name, string description, string deviceInstanceId, Guid classGuid, string className, bool isDisconnected)
+public struct Device(
+    string name,
+    string description,
+    string busReportedDeviceDescription,
+    string deviceInstanceId,
+    Guid classGuid,
+    string className,
+    bool isRemovable,
+    bool isDisconnected)
 {
     public string Name { get; } = name;
     public string Description { get; } = description;
+    public string BusReportedDeviceDescription { get; } = busReportedDeviceDescription;
     public string DeviceInstanceId { get; } = deviceInstanceId;
     public Guid ClassGuid { get; } = classGuid;
     public string ClassName { get; } = className;
+    public bool IsRemovable { get; } = isRemovable;
     public bool IsDisconnected { get; } = isDisconnected;
 
     private string? _index;
@@ -113,6 +123,7 @@ public struct Device(string name, string description, string deviceInstanceId, G
             _index ??= new StringBuilder()
                 .Append(Name)
                 .Append(Description)
+                .Append(BusReportedDeviceDescription)
                 .Append(DeviceInstanceId)
                 .Append(ClassName)
                 .ToString();
