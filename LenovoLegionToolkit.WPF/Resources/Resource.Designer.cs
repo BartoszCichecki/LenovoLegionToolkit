@@ -1508,6 +1508,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Devices.
+        /// </summary>
+        public static string DevicePipelineTriggerTabItemContent_Devices {
+            get {
+                return ResourceManager.GetString("DevicePipelineTriggerTabItemContent_Devices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to DGPU connected.
         /// </summary>
         public static string DGPU_Connected_Title {

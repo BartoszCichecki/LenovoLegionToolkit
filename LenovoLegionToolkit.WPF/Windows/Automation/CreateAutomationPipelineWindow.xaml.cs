@@ -37,6 +37,8 @@ public partial class CreateAutomationPipelineWindow
         new DisplayOffAutomationPipelineTrigger(),
         new HDROnAutomationPipelineTrigger(),
         new HDROffAutomationPipelineTrigger(),
+        new DeviceConnectedAutomationPipelineTrigger([]),
+        new DeviceDisconnectedAutomationPipelineTrigger([]),
         new ExternalDisplayConnectedAutomationPipelineTrigger(),
         new ExternalDisplayDisconnectedAutomationPipelineTrigger(),
         new WiFiConnectedAutomationPipelineTrigger([]),

@@ -2122,4 +2122,7 @@ Supported formats are: {1}.</value>
   <data name="HideAll" xml:space="preserve">
 	  <value>Hide all</value>
   </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+	  <value>Devices</value>
+  </data>
 </root>

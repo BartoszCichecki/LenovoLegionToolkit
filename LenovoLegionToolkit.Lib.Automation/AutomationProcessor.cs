@@ -237,7 +237,7 @@ public class AutomationProcessor(
 
     private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs args)
     {
-        var e = new NativeWindowsMessageEvent(args.Message);
+        var e = new NativeWindowsMessageEvent(args.Message, args.Data);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 

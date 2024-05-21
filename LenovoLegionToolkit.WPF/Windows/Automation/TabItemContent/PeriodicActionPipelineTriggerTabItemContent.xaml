@@ -8,7 +8,7 @@
     xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Initialized="PeriodTabItem_Initialized"
+    Initialized="PeriodicAutomationPipelineTriggerTabItemContent_Initialized"
     mc:Ignorable="d">
     <StackPanel>
         <Grid>
