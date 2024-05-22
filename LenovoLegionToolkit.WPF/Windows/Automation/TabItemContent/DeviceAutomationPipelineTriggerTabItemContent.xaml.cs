@@ -10,6 +10,7 @@ using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
+using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent;
@@ -24,6 +25,8 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
     private readonly List<Device> _devices = [];
 
+    private bool _onlyRemovable = true;
+
     private CancellationTokenSource? _filterDebounceCancellationTokenSource;
 
     public DeviceAutomationPipelineTriggerTabItemContent(IDeviceAutomationPipelineTrigger trigger)
@@ -34,7 +37,12 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
         InitializeComponent();
     }
 
-    private async void DeviceAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e) => await LoadAsync();
+    private async void DeviceAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
+    {
+        _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
+
+        await LoadAsync();
+    }
 
     private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs e)
     {
@@ -63,6 +71,26 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
         catch (OperationCanceledException) { }
     }
 
+    private void OnlyRemovableButton_Click(object sender, RoutedEventArgs e)
+    {
+        _onlyRemovable = !_onlyRemovable;
+        _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        Reload();
+    }
+
+    private void SelectAll_Click(object sender, RoutedEventArgs e)
+    {
+        _instanceIds.Clear();
+
+        _content.Children
+            .OfType<ListItem>()
+            .Select(li => li.Device)
+            .Select(d => d.DeviceInstanceId)
+            .ForEach(i => _instanceIds.Add(i));
+
+        Reload();
+    }
+
     private void DeselectAll_Click(object sender, RoutedEventArgs e)
     {
         if (_instanceIds.IsEmpty())
@@ -76,16 +104,10 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
     private async Task LoadAsync()
     {
         _listener.Changed -= NativeWindowsMessageListener_Changed;
-        _loader.IsLoading = true;
-
-        var delay = Task.Delay(TimeSpan.FromMicroseconds(500));
 
         _devices.Clear();
         _devices.AddRange(await Task.Run(Devices.GetAll));
 
-        await delay;
-
-        _loader.IsLoading = false;
         _listener.Changed += NativeWindowsMessageListener_Changed;
 
         Reload();
@@ -106,18 +128,18 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             {
                 IsChecked = _instanceIds.Contains(device.DeviceInstanceId)
             };
-            listItem.Checked += (sender, args) => _instanceIds.Add((string)((CheckBox)sender).Tag);
-            listItem.Unchecked += (sender, args) => _instanceIds.Remove((string)((CheckBox)sender).Tag);
+            listItem.Checked += (_, _) => _instanceIds.Add(device.DeviceInstanceId);
+            listItem.Unchecked += (_, _) => _instanceIds.Remove(device.DeviceInstanceId);
             _content.Children.Add(listItem);
         }
     }
 
     private List<Device> SortAndFilter(List<Device> devices)
     {
-        var result = devices
-            .Where(d => d.IsRemovable)
-            .OrderBy(d => d.Name)
-            .AsEnumerable();
+        var result = devices.AsEnumerable();
+        if (_onlyRemovable)
+            result = result.Where(d => d.IsRemovable);
+        result = result.OrderBy(d => d.Name);
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
@@ -172,7 +194,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
         private readonly CheckBox _checkBox = new();
 
-        private readonly Device _device;
+        public Device Device { get; }
 
         public bool? IsChecked
         {
@@ -194,46 +216,44 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
         public ListItem(Device device)
         {
-            _device = device;
+            Device = device;
 
             InitializeComponent();
         }
 
         private void InitializeComponent()
         {
-            if (_device.IsDisconnected)
+            if (Device.IsDisconnected)
             {
                 _notConnected.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
                 _stackPanel.Children.Add(_notConnected);
             }
 
-            _name.Text = _device.Name;
+            _name.Text = Device.Name;
             _stackPanel.Children.Add(_name);
 
-            if (_device.Description.Length > 0 && _device.Description != _device.Name)
+            if (Device.Description.Length > 0 && Device.Description != Device.Name)
             {
-                _description.Text = _device.Description;
+                _description.Text = Device.Description;
                 _stackPanel.Children.Add(_description);
             }
 
-            if (_device.BusReportedDeviceDescription.Length > 0 &&
-                _device.BusReportedDeviceDescription != _device.Name &&
-                _device.BusReportedDeviceDescription != _device.Description)
+            if (Device.BusReportedDeviceDescription.Length > 0 &&
+                Device.BusReportedDeviceDescription != Device.Name &&
+                Device.BusReportedDeviceDescription != Device.Description)
             {
-                _busReportedDeviceDescription.Text = _device.BusReportedDeviceDescription;
+                _busReportedDeviceDescription.Text = Device.BusReportedDeviceDescription;
                 _stackPanel.Children.Add(_busReportedDeviceDescription);
             }
 
-            _deviceInstanceId.Text = _device.DeviceInstanceId;
+            _deviceInstanceId.Text = Device.DeviceInstanceId;
             _deviceInstanceId.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
             _stackPanel.Children.Add(_deviceInstanceId);
-
-            _checkBox.Tag = _device.DeviceInstanceId;
 
             _cardControl.Header = _stackPanel;
             _cardControl.Content = _checkBox;
 
-            _cardControl.Click += (sender, args) => _checkBox.IsChecked = !(_checkBox.IsChecked ?? false);
+            _cardControl.Click += (_, _) => _checkBox.IsChecked = !(_checkBox.IsChecked ?? false);
 
             Content = _cardControl;
         }

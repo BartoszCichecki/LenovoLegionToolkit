@@ -2,7 +2,6 @@
     x:Class="LenovoLegionToolkit.WPF.Windows.Automation.TabItemContent.DeviceAutomationPipelineTriggerTabItemContent"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:LenovoLegionToolkit.WPF.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:resources="clr-namespace:LenovoLegionToolkit.WPF.Resources"
@@ -19,6 +18,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <ui:TextBox
             x:Name="_filterTextBox"
@@ -33,19 +34,34 @@
         <ui:Button
             Grid.Row="0"
             Grid.Column="1"
-            Margin="16,16,32,16"
+            Margin="16,16,0,16"
+            VerticalAlignment="Stretch"
+            Click="SelectAll_Click"
+            Icon="SelectAllOn24"
+            ToolTip="{x:Static resources:Resource.SelectAll}" />
+        <ui:Button
+            Grid.Row="0"
+            Grid.Column="2"
+            Margin="4,16,0,16"
             VerticalAlignment="Stretch"
             Click="DeselectAll_Click"
             Icon="SelectAllOff24"
             ToolTip="{x:Static resources:Resource.DeselectAll}" />
-        <controls:LoadableControl
-            x:Name="_loader"
+        <ui:Button
+            x:Name="_onlyRemovableButton"
+            Grid.Row="0"
+            Grid.Column="3"
+            Margin="16,16,32,16"
+            VerticalAlignment="Stretch"
+            Click="OnlyRemovableButton_Click"
+            Icon="ArrowEject20"
+            ToolTip="Show removable devices only" />
+        <ScrollViewer
+            x:Name="_scrollViewer"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="2">
-            <ScrollViewer x:Name="_scrollViewer">
-                <StackPanel x:Name="_content" Margin="16,0,16,16" />
-            </ScrollViewer>
-        </controls:LoadableControl>
+            Grid.ColumnSpan="4">
+            <StackPanel x:Name="_content" Margin="16,0,16,16" />
+        </ScrollViewer>
     </Grid>
 </UserControl>
