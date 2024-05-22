@@ -12,8 +12,6 @@ public static class DisplayExtensions
         var pathDisplayAdapter = display.Adapter.ToPathDisplayAdapter();
         var pathDisplayTarget = display.ToPathDisplayTarget();
 
-        pathDisplayTarget = null;
-
         if (pathDisplayTarget is null || pathDisplayAdapter is null)
             return default;
 
