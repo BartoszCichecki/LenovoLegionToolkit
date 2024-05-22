@@ -124,6 +124,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When device is connected.
+        /// </summary>
+        public static string DeviceConnectedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("DeviceConnectedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When device is disconnected.
+        /// </summary>
+        public static string DeviceDisconnectedAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("DeviceDisconnectedAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to When displays turn off.
         /// </summary>
         public static string DisplayOffAutomationPipelineTrigger_DisplayName {

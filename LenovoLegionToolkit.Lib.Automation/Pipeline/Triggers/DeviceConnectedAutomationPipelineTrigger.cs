@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Automation.Resources;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -8,7 +9,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 public class DeviceConnectedAutomationPipelineTrigger(string[] instanceIds) : IDeviceAutomationPipelineTrigger
 {
     [JsonIgnore]
-    public string DisplayName => "When device is connected";
+    public string DisplayName => Resource.DeviceConnectedAutomationPipelineTrigger_DisplayName;
 
     public string[] InstanceIds { get; } = instanceIds;
 
