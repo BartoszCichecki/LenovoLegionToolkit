@@ -7,7 +7,6 @@ using System.Windows;
 using System.Windows.Controls;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
-using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.System;
 using Wpf.Ui.Common;
@@ -25,6 +24,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
     private readonly List<Device> _devices = [];
 
+    private bool _onlySelected;
     private bool _onlyRemovable = true;
 
     private CancellationTokenSource? _filterDebounceCancellationTokenSource;
@@ -39,6 +39,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
     private async void DeviceAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
     {
+        _onlySelectedButton.Appearance = _onlySelected ? ControlAppearance.Primary : ControlAppearance.Secondary;
         _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
 
         await LoadAsync();
@@ -71,33 +72,17 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
         catch (OperationCanceledException) { }
     }
 
+    private void OnlySelected_Click(object sender, RoutedEventArgs e)
+    {
+        _onlySelected = !_onlySelected;
+        _onlySelectedButton.Appearance = _onlySelected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        Reload();
+    }
+
     private void OnlyRemovableButton_Click(object sender, RoutedEventArgs e)
     {
         _onlyRemovable = !_onlyRemovable;
         _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
-        Reload();
-    }
-
-    private void SelectAll_Click(object sender, RoutedEventArgs e)
-    {
-        _instanceIds.Clear();
-
-        _content.Children
-            .OfType<ListItem>()
-            .Select(li => li.Device)
-            .Select(d => d.DeviceInstanceId)
-            .ForEach(i => _instanceIds.Add(i));
-
-        Reload();
-    }
-
-    private void DeselectAll_Click(object sender, RoutedEventArgs e)
-    {
-        if (_instanceIds.IsEmpty())
-            return;
-
-        _instanceIds.Clear();
-
         Reload();
     }
 
@@ -128,8 +113,18 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             {
                 IsChecked = _instanceIds.Contains(device.DeviceInstanceId)
             };
-            listItem.Checked += (_, _) => _instanceIds.Add(device.DeviceInstanceId);
-            listItem.Unchecked += (_, _) => _instanceIds.Remove(device.DeviceInstanceId);
+            listItem.Checked += (_, args) =>
+            {
+                _instanceIds.Add(device.DeviceInstanceId);
+                args.Handled = true;
+            };
+            listItem.Unchecked += (_, args) =>
+            {
+                _instanceIds.Remove(device.DeviceInstanceId);
+                if (_onlySelected)
+                    Reload();
+                args.Handled = true;
+            };
             _content.Children.Add(listItem);
         }
     }
@@ -137,8 +132,11 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
     private List<Device> SortAndFilter(List<Device> devices)
     {
         var result = devices.AsEnumerable();
+        if (_onlySelected)
+            result = result.Where(d => _instanceIds.Contains(d.DeviceInstanceId));
         if (_onlyRemovable)
             result = result.Where(d => d.IsRemovable);
+
         result = result.OrderBy(d => d.Name);
 
         if (!string.IsNullOrWhiteSpace(_filterTextBox.Text))
@@ -253,7 +251,14 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             _cardControl.Header = _stackPanel;
             _cardControl.Content = _checkBox;
 
-            _cardControl.Click += (_, _) => _checkBox.IsChecked = !(_checkBox.IsChecked ?? false);
+            _cardControl.Click += (_, args) =>
+            {
+                if (args.Source is CheckBox)
+                    return;
+
+                _checkBox.IsChecked = !(_checkBox.IsChecked ?? false);
+                args.Handled = true;
+            };
 
             Content = _cardControl;
         }

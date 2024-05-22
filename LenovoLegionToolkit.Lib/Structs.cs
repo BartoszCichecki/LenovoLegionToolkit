@@ -117,11 +117,12 @@ public struct Device(
         get
         {
             _index ??= new StringBuilder()
-                .Append(Name)
-                .Append(Description)
-                .Append(BusReportedDeviceDescription)
-                .Append(DeviceInstanceId)
                 .Append(ClassName)
+                .Append(ClassGuid)
+                .Append(BusReportedDeviceDescription)
+                .Append(Description)
+                .Append(Name)
+                .Append(DeviceInstanceId)
                 .ToString();
             return _index;
         }

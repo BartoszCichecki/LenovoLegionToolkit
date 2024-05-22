@@ -19,7 +19,6 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <ui:TextBox
             x:Name="_filterTextBox"
@@ -32,26 +31,19 @@
             PlaceholderText="{x:Static resources:Resource.Filter}"
             TextChanged="FilterTextBox_TextChanged" />
         <ui:Button
+            x:Name="_onlySelectedButton"
             Grid.Row="0"
             Grid.Column="1"
             Margin="16,16,0,16"
             VerticalAlignment="Stretch"
-            Click="SelectAll_Click"
+            Click="OnlySelected_Click"
             Icon="SelectAllOn24"
-            ToolTip="{x:Static resources:Resource.SelectAll}" />
-        <ui:Button
-            Grid.Row="0"
-            Grid.Column="2"
-            Margin="4,16,0,16"
-            VerticalAlignment="Stretch"
-            Click="DeselectAll_Click"
-            Icon="SelectAllOff24"
-            ToolTip="{x:Static resources:Resource.DeselectAll}" />
+            ToolTip="Show selected devices only" />
         <ui:Button
             x:Name="_onlyRemovableButton"
             Grid.Row="0"
-            Grid.Column="3"
-            Margin="16,16,32,16"
+            Grid.Column="2"
+            Margin="8,16,32,16"
             VerticalAlignment="Stretch"
             Click="OnlyRemovableButton_Click"
             Icon="ArrowEject20"
@@ -60,7 +52,7 @@
             x:Name="_scrollViewer"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="4">
+            Grid.ColumnSpan="3">
             <StackPanel x:Name="_content" Margin="16,0,16,16" />
         </ScrollViewer>
     </Grid>
