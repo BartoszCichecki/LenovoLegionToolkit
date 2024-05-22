@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
@@ -23,7 +24,11 @@ public class DeviceConnectedAutomationPipelineTrigger(string[] instanceIds) : ID
 
     public Task<bool> IsMatchingState()
     {
-        return Task.FromResult(false);
+        var result = Devices.GetAll()
+            .Select(d => d.DeviceInstanceId)
+            .Intersect(InstanceIds)
+            .Any();
+        return Task.FromResult(result);
     }
 
     public void UpdateEnvironment(AutomationEnvironment environment) { }
