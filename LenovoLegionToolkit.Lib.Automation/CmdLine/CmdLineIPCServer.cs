@@ -13,19 +13,18 @@ public class CmdLineIPCServer
 {
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private NamedPipeServerStream _pipe = new("LenovoLegionToolkit-IPC-0", PipeDirection.InOut);
+    private readonly NamedPipeServerStream _pipe = new("LenovoLegionToolkit-IPC-0", PipeDirection.InOut);
 
-    private bool _isRunning { get; set; }
-
-    private CmdLineQuickActionRunState _state { get; set; }
-    private string? _errmsg { get; set; }
+    private bool _isRunning;
+    private CmdLineQuickActionRunState _state;
+    private string? _errmsg;
 
     public async Task StartAsync()
     {
         _isRunning = true;
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"starting IPC server...");
+            Log.Instance.Trace($"Starting IPC server...");
 
         await Task.Run(async () =>
         {
@@ -34,13 +33,13 @@ public class CmdLineIPCServer
                 _pipe.WaitForConnection();
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"connection received.");
+                    Log.Instance.Trace($"Connection received.");
 
                 var imsgpack = Serializer.DeserializeWithLengthPrefix<IPCMessagePack>(_pipe, PrefixStyle.Base128);
                 if (imsgpack is null)
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"deserialize failed.");
+                        Log.Instance.Trace($"Deserialize failed.");
 
                     var omsgpack = new IPCMessagePack()
                     {
@@ -51,7 +50,7 @@ public class CmdLineIPCServer
                 else
                 {
                     if (Log.Instance.IsTraceEnabled)
-                        Log.Instance.Trace($"running quick action \"{imsgpack.QuickActionName}\"...");
+                        Log.Instance.Trace($"Running Quick Action \"{imsgpack.QuickActionName}\"...");
 
                     await RunQuickActionAsync(imsgpack.QuickActionName ?? string.Empty);
                     var omsgpack = new IPCMessagePack()
@@ -59,11 +58,11 @@ public class CmdLineIPCServer
                         State = _state,
                         Error = _errmsg
                     };
-                    Serializer.Serialize(_pipe, omsgpack);
+                    Serializer.SerializeWithLengthPrefix(_pipe, omsgpack, PrefixStyle.Base128);
                 }
 
                 if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"disconnecting...");
+                    Log.Instance.Trace($"Disconnecting...");
 
                 _pipe.Disconnect();
             }
@@ -84,7 +83,7 @@ public class CmdLineIPCServer
         if (quickAction is null)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"quick action \"{quickActionName}\" not found.");
+                Log.Instance.Trace($"Quick Action \"{quickActionName}\" not found.");
 
             _state = CmdLineQuickActionRunState.ActionNotFound;
             return;
@@ -99,7 +98,7 @@ public class CmdLineIPCServer
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"run quick action failed.", ex);
+                Log.Instance.Trace($"Run Quick Action failed.", ex);
 
             _state = CmdLineQuickActionRunState.ActionRunFailed;
             _errmsg = ex.Message;

@@ -85,6 +85,6 @@ public class Flags
         $" {nameof(ProxyUsername)}: {ProxyUsername}," +
         $" {nameof(ProxyPassword)}: {ProxyPassword}," +
         $" {nameof(ProxyAllowAllCerts)}: {ProxyAllowAllCerts}," +
-        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}" +
+        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}," +
         $" {nameof(QuickActionRunName)}: {QuickActionRunName}";
 }

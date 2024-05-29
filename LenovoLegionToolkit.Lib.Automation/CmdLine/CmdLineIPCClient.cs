@@ -22,35 +22,39 @@ public class CmdLineIPCClient
         catch (Exception ex)
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"pipe connect failed.", ex);
+                Log.Instance.Trace($"Pipe connect failed.", ex);
 
             return;
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"pipe connected, sending quick action call: {quickActionName}...");
+            Log.Instance.Trace($"Pipe connected, sending Quick Action call: \"{quickActionName}\"...");
 
         var omsgpack = new IPCMessagePack()
         {
             QuickActionName = quickActionName
         };
-
         Serializer.SerializeWithLengthPrefix(_pipe, omsgpack, PrefixStyle.Base128);
 
-        var imsgpack = Serializer.Deserialize<IPCMessagePack>(_pipe);
+        var imsgpack = Serializer.DeserializeWithLengthPrefix<IPCMessagePack>(_pipe, PrefixStyle.Base128);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"response received");
+            Log.Instance.Trace($"Response received");
 
         if (imsgpack is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Deserialize failed.");
         }
-        else if (imsgpack.State is not CmdLineQuickActionRunState.Ok)
+        else if (imsgpack.State == CmdLineQuickActionRunState.ActionRunFailed)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run Quick Action failed due to following reason: {imsgpack.Error ?? string.Empty}");
+        }
+        else if (imsgpack.State == CmdLineQuickActionRunState.ActionNotFound)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Quick Action not found.");
         }
         else
         {
