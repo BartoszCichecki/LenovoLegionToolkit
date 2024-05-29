@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Automation.CmdLine;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
@@ -71,6 +72,14 @@ public partial class App
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Flags: {flags}");
+
+        if (flags.QuickActionRunName is not null)
+        {
+            var client = new CmdLineIPCClient();
+            client.RunQuickAction(flags.QuickActionRunName ?? string.Empty);
+            Shutdown();
+            return;
+        }
 
         EnsureSingleInstance();
 
@@ -135,6 +144,7 @@ public partial class App
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
+        var _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
 
 #if !DEBUG
         Autorun.Validate();
@@ -229,6 +239,14 @@ public partial class App
         }
         catch {  /* Ignored. */ }
 
+        try
+        {
+            if (IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
+            {
+                await cmdLineIPCServer.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
 
         Shutdown();
     }
