@@ -1,23 +1,28 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using ProtoBuf;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using System.IO;
 using System.IO.Pipes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
+using ProtoBuf;
 
 namespace LenovoLegionToolkit.Lib.Automation.CmdLine;
 
 public class CmdLineIPCClient
 {
-    private NamedPipeClientStream _pipe = new(".", "LenovoLegionToolkit-IPC-0", PipeDirection.InOut, PipeOptions.None);
+    private readonly NamedPipeClientStream _pipe = new(".", "LenovoLegionToolkit-IPC-0", PipeDirection.InOut, PipeOptions.None);
 
     public void RunQuickAction(string quickActionName)
     {
+        if (!CheckIsIPCServerStarted())
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"IPC server hasn't been started.");
+
+            return;
+        }
+
         try
         {
-            _pipe.Connect(1000);
+            _pipe.Connect();
         }
         catch (Exception ex)
         {
@@ -56,10 +61,17 @@ public class CmdLineIPCClient
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Quick Action not found.");
         }
-        else
+        else if (imsgpack.State == CmdLineQuickActionRunState.Ok)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run Quick Action successfully.");
         }
+        else
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Undefined response received");
+        }
     }
+
+    private bool CheckIsIPCServerStarted() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Length == 1;
 }

@@ -29,6 +29,7 @@ public enum OverclockDiscreteGPUAutomationStepState
 
 public enum CmdLineQuickActionRunState
 {
+    Undefined,
     Ok,
     ActionNotFound,
     ActionRunFailed,
