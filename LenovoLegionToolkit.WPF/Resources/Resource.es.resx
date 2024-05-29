@@ -324,7 +324,10 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
     <value>Contador de ciclos</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Capacidad de la batería según el diseño.</value>
+    <value>Capacidad según el diseño de la batería.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Capacidad según diseño</value>
   </data>
   <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
     <value>Velocidad de carga (+) o descarga (-) de la batería.</value>
@@ -344,6 +347,9 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
     <value>Cuando se utilizó la batería por primera vez.</value>
   </data>
+  <data name="BatteryPage_FullChargeCapacity_Message" xml:space="preserve">
+    <value>Capacidad con carga completa de la batería.</value>
+  </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Capacidad de carga total</value>
   </data>
@@ -359,6 +365,9 @@ Sólo se ejecutarán las acciones que coincidan con el estado actual.</value>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Tiempo transcurrido desde la última conexión del portátil a la corriente eléctrica.
 Esta hora puede no ser correcta si el portátil se ha cargado mientras estaba suspendido o apagado.</value>
+  </data>
+  <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
+    <value>En batería desde</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Batería</value>
