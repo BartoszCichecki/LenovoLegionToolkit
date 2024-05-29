@@ -2060,16 +2060,16 @@ Unterstützte Formate sind: {1}.</value>
 	  <value>Schnelles Umschalten in den benutzerdefinierten Modus mit Fn+Q ermöglichen.</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
-	  <value>Synchronisation mit Stromversorgungsmodus</value>
+	  <value>Synchronisation mit Leistungsmodus</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
-	  <value>Automatischer Wechsel des Windows-Energiesparplans oder des Windows-Energiemodus beim Wechsel des Stromversorgungsmodus.</value>
+	  <value>Automatischer Wechsel des Windows-Energiesparplans oder des Windows-Energiemodus beim Wechsel des Leistungsmodus.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
 	  <value>Windows Energiemodi</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
-	  <value>Wählen Sie den Windows-Energiemodus aus, der angewendet werden soll, wenn sich der Stromversorgungsmodus ändert.</value>
+	  <value>Wählen Sie den Windows-Energiemodus aus, der angewendet werden soll, wenn sich der Leistungsmodus ändert.</value>
   </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
 	  <value>Beim Lesen der Geräteinformationen ist ein Fehler aufgetreten.</value>
