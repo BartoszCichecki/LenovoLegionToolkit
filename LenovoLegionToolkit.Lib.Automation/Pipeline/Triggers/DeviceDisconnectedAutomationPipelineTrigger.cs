@@ -25,6 +25,7 @@ public class DeviceDisconnectedAutomationPipelineTrigger(string[] instanceIds) :
     public Task<bool> IsMatchingState()
     {
         var result = Devices.GetAll()
+            .Where(d => !d.IsDisconnected)
             .Select(d => d.DeviceInstanceId)
             .Intersect(InstanceIds)
             .IsEmpty();
