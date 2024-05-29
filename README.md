@@ -44,13 +44,13 @@ _If you are looking for a Vantage alternative that was made for Linux, check [Le
 | --------------------------------------- | ------------------------------------------- |
 | <img src="assets/screenshot_kb.png" />  | <img src="assets/screenshot_bat.png" />     |
 
-| **Actions**                                | **Downloads**                           |
-| ------------------------------------------ | --------------------------------------- |
-| <img src="assets/screenshot_actions.png"/> | <img src="assets/screenshot_pkg.png" /> |
+| **Actions**                                | **Macro**                                 |
+| ------------------------------------------ | ----------------------------------------- |
+| <img src="assets/screenshot_actions.png"/> | <img src="assets/screenshot_macro.png" /> |
 
-| **Custom Mode**                         | **Custom Mode**                         |
-| --------------------------------------- | ----------------------------------------|
-| <img src="assets/screenshot_cm1.png" /> | <img src="assets/screenshot_cm2.png" /> |
+| **Downloads**                           | **Custom Mode**                        |
+| --------------------------------------- | -------------------------------------- |
+| <img src="assets/screenshot_pkg.png" /> | <img src="assets/screenshot_cm.png" /> |
 
 </details>
 
@@ -101,7 +101,7 @@ You can download the program by the following ways:
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
-If you close LLT completely some functions will not work, like synchronizing power plans with current Power Mode or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
+If you close LLT completely some functions will not work, like synchronizing Windows Power Modes or Windows Power Plans with current Power Mode, Macros or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
 
 #### Required drivers
 
@@ -240,11 +240,17 @@ The overclock option is intended for simple overclocking, similar to the one ava
 
 First of all, the Power Mode you see in LLT (or toggle with Fn+Q) **is not** the same as Power Plans (that you access from Control Panel) or Power Mode (that you can change from Settings app).
 
-The more modern approach is to use only one, default, "Balanced (recommended)" power plan. If you do have other power plans, either delete them, or in LLT settings set all Power Modes to use this plan. Next, go to the Settings app and under System > Power & battery select "Best performance" when laptop is connected to AC adapter, then unplug AC adapter and set it to "Recommended". You can also configure "Battery saver" to automatically turn on "Always". This approach will utilize the modern "power plan overlays" that Microsoft introduced to replace legacy Power Plans.
+The modern (and recommended) approach is to use Windows Power Modes and only one, default, "Balanced (recommended)" power plan. You should have 3 Power Modes to choose from in Windows Settings app:
+
+* Best power efficiency
+* Balanced
+* Best performance
+
+You can assign these in LLT settings to each of Legion Power Modes: Quiet, Balance, Performance and Custom. If you choose to do so, respective Windows Power Mode will be automatically set when you change Legion Power Modes.
 
 The legacy approach is to use multiple Power Plans, that some devices had installed from factory. If you decide to use them, or configure your own plans, leave the settings in Windows Settings app on the default "Recommended" setting. You can configure LLT to switch Power Plans automatically whenever you change the "Legion" Power Mode in LLT settings.
 
-You can read more about the new Power Mode handling in Windows here: [Customize the Windows performance power slider](https://learn.microsoft.com/en-us/windows-hardware/customize/desktop/customize-power-slider).
+If you encounter issues with power mode or plan synchronization, especially when switching between the two approaches, you can reset Windows power settings to default using `powercfg -restoredefaultschemes; shutdown /r /t ` command. This command will reset all power plans to default and reboot your device. All plans except for the default "Balanced (recommended)" will be deleted, so make sure to make a copy, if you plan on using them again.
 
 ### Boot Logo
 
@@ -269,19 +275,19 @@ _Restart laptop_
 _Runing a program_
  - Executable path: `C:\path\to\the\program.exe` (if the program is on your PATH variable, you can use the name only)
  - Arguments: ` ` (optional, for list of supported argument check the program's readme, website etc.)
- 
+
 _Running a script_
  - Executable path: `C:\path\to\the\script.bat` (if the script is on your PATH variable, you can use the name only)
  - Arguments: ` ` (optional, for list of supported argument check the script's readme, website etc.)
- 
+
 _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
- 
+
 #### Environment
- 
+
 LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
- 
+
 - When AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
 
@@ -355,9 +361,9 @@ LLT automatically adds some variables to the process environment that can be acc
 	
 - On resume
 	- `LLT_RESUME=TRUE`
- 
+
 #### Output
- 
+
 If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
 ## Donate
