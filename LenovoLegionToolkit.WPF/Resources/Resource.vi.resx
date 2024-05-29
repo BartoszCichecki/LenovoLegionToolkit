@@ -2054,6 +2054,18 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Chế độ nguồn</value>
   </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+	  <value>Đổi sang Chế độ Tùy chỉnh khi Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+	  <value>Cho phép chuyển đổi nhanh sang Chế độ Tùy chỉnh khi Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+	  <value>Đồng bộ hóa Chế độ Năng lượng</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+	  <value>Tự động thay đổi Windows Power Plan hoặc Windows Power Mode khi thay đổi các chế độ năng lượng.</value>
+  </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
 	  <value>Chế độ nguồn</value>
   </data>
