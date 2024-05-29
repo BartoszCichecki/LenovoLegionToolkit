@@ -40,17 +40,29 @@ _If you are looking for a Vantage alternative that was made for Linux, check [Le
 <details>
 <summary><b><i>Click here for more screenshots...</i></b></summary>
 
-| **Keyboard**                            | **Battery**                                 |
-| --------------------------------------- | ------------------------------------------- |
-| <img src="assets/screenshot_kb.png" />  | <img src="assets/screenshot_bat.png" />     |
+| **Keyboard**                                            |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_kb.png" width="700" />      |
 
-| **Actions**                                | **Macro**                                 |
-| ------------------------------------------ | ----------------------------------------- |
-| <img src="assets/screenshot_actions.png"/> | <img src="assets/screenshot_macro.png" /> |
+| **Battery**                                             |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_bat.png" width="700" />     |
 
-| **Downloads**                           | **Custom Mode**                        |
-| --------------------------------------- | -------------------------------------- |
-| <img src="assets/screenshot_pkg.png" /> | <img src="assets/screenshot_cm.png" /> |
+| **Actions**                                             |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_actions.png" width="700" /> |
+
+| **Macro**                                               |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_macro.png" width="700" />   |
+
+| **Downloads**                                           |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_pkg.png" width="700" />     |
+
+| **Custom Mode**                                         |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_cm.png" width="400" />      |
 
 </details>
 

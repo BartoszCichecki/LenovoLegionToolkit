@@ -111,15 +111,25 @@ public partial class SettingsPage
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
 
-        var mi = await Compatibility.GetMachineInformationAsync();
-        if (mi.Features[CapabilityID.GodModeFnQSwitchable])
+        try
         {
-            _godModeFnQSwitchableCard.Visibility = Visibility.Visible;
-            _godModeFnQSwitchableToggle.IsChecked = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GodModeFnQSwitchable) == 1;
+            var mi = await Compatibility.GetMachineInformationAsync();
+            if (mi.Features[CapabilityID.GodModeFnQSwitchable])
+            {
+                _godModeFnQSwitchableCard.Visibility = Visibility.Visible;
+                _godModeFnQSwitchableToggle.IsChecked = await WMI.LenovoOtherMethod.GetFeatureValueAsync(CapabilityID.GodModeFnQSwitchable) == 1;
+            }
+            else
+            {
+                _godModeFnQSwitchableCard.Visibility = Visibility.Collapsed;
+            }
         }
-        else
+        catch (Exception ex)
         {
             _godModeFnQSwitchableCard.Visibility = Visibility.Collapsed;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get GodModeFnQSwitchable status.", ex);
         }
 
         _powerModeMappingComboBox.SetItems(Enum.GetValues<PowerModeMappingMode>(), _settings.Store.PowerModeMappingMode, t => t.GetDisplayName());
