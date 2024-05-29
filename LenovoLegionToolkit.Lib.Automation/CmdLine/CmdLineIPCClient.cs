@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Threading;
+using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using ProtoBuf;
 
@@ -10,7 +12,7 @@ public class CmdLineIPCClient
 {
     private readonly NamedPipeClientStream _pipe = new(".", "LenovoLegionToolkit-IPC-0", PipeDirection.InOut, PipeOptions.None);
 
-    public void RunQuickAction(string quickActionName)
+    public async Task RunQuickActionAsync(string quickActionName)
     {
         if (!CheckIsIPCServerStarted())
         {
@@ -22,7 +24,7 @@ public class CmdLineIPCClient
 
         try
         {
-            _pipe.Connect();
+            await ConnectToIPCServerAsync();
         }
         catch (Exception ex)
         {
@@ -74,4 +76,24 @@ public class CmdLineIPCClient
     }
 
     private bool CheckIsIPCServerStarted() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Length == 1;
+
+    private async Task ConnectToIPCServerAsync()
+    {
+        while (true)
+        {
+            try
+            {
+                await _pipe.ConnectAsync(500);
+                return;
+            }
+            catch (TimeoutException)
+            {
+                if (!CheckIsIPCServerStarted())
+                {
+                    throw new OperationCanceledException();
+                }
+            }
+        }
+        throw new OperationCanceledException();
+    }
 }
