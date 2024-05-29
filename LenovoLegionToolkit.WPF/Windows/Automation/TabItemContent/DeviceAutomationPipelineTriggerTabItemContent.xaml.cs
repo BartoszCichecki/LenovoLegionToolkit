@@ -109,10 +109,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
         foreach (var device in devices)
         {
-            var listItem = new ListItem(device)
-            {
-                IsChecked = _instanceIds.Contains(device.DeviceInstanceId)
-            };
+            var listItem = new ListItem(device, _instanceIds.Contains(device.DeviceInstanceId));
             listItem.Checked += (_, args) =>
             {
                 _instanceIds.Add(device.DeviceInstanceId);
@@ -192,13 +189,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
         private readonly CheckBox _checkBox = new();
 
-        public Device Device { get; }
-
-        public bool? IsChecked
-        {
-            get => _checkBox.IsChecked;
-            set => _checkBox.IsChecked = value;
-        }
+        private readonly Device _device;
 
         public event RoutedEventHandler Checked
         {
@@ -212,39 +203,41 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             remove => _checkBox.Unchecked -= value;
         }
 
-        public ListItem(Device device)
+        public ListItem(Device device, bool isChecked)
         {
-            Device = device;
+            _device = device;
+
+            _checkBox.IsChecked = isChecked;
 
             InitializeComponent();
         }
 
         private void InitializeComponent()
         {
-            if (Device.IsDisconnected)
+            if (_device.IsDisconnected)
             {
                 _notConnected.SetResourceReference(ForegroundProperty, "SystemFillColorCautionBrush");
                 _stackPanel.Children.Add(_notConnected);
             }
 
-            _name.Text = Device.Name;
+            _name.Text = _device.Name;
             _stackPanel.Children.Add(_name);
 
-            if (Device.Description.Length > 0 && Device.Description != Device.Name)
+            if (_device.Description.Length > 0 && _device.Description != _device.Name)
             {
-                _description.Text = Device.Description;
+                _description.Text = _device.Description;
                 _stackPanel.Children.Add(_description);
             }
 
-            if (Device.BusReportedDeviceDescription.Length > 0 &&
-                Device.BusReportedDeviceDescription != Device.Name &&
-                Device.BusReportedDeviceDescription != Device.Description)
+            if (_device.BusReportedDeviceDescription.Length > 0 &&
+                _device.BusReportedDeviceDescription != _device.Name &&
+                _device.BusReportedDeviceDescription != _device.Description)
             {
-                _busReportedDeviceDescription.Text = Device.BusReportedDeviceDescription;
+                _busReportedDeviceDescription.Text = _device.BusReportedDeviceDescription;
                 _stackPanel.Children.Add(_busReportedDeviceDescription);
             }
 
-            _deviceInstanceId.Text = Device.DeviceInstanceId;
+            _deviceInstanceId.Text = _device.DeviceInstanceId;
             _deviceInstanceId.SetResourceReference(ForegroundProperty, "TextFillColorSecondaryBrush");
             _stackPanel.Children.Add(_deviceInstanceId);
 
