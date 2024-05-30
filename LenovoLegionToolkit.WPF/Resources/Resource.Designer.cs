@@ -1400,6 +1400,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deselect all.
+        /// </summary>
+        public static string DeselectAll {
+            get {
+                return ResourceManager.GetString("DeselectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BIOS version.
         /// </summary>
         public static string DeviceInformationWindow_BiosVersion_Title {
@@ -1504,6 +1513,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_WarrantyStartDate_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_WarrantyStartDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Devices.
+        /// </summary>
+        public static string DevicePipelineTriggerTabItemContent_Devices {
+            get {
+                return ResourceManager.GetString("DevicePipelineTriggerTabItemContent_Devices", resourceCulture);
             }
         }
         
@@ -4457,6 +4475,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Saving {
             get {
                 return ResourceManager.GetString("Saving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all.
+        /// </summary>
+        public static string SelectAll {
+            get {
+                return ResourceManager.GetString("SelectAll", resourceCulture);
             }
         }
         

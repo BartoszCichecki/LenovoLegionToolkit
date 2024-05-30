@@ -61,6 +61,15 @@ SC_MANAGER_ALL_ACCESS
 SERVICE_CHANGE_CONFIG
 SERVICE_NO_CHANGE
 
+DEVPKEY_NAME
+DEVPKEY_Device_ClassGuid
+DEVPKEY_Device_DeviceDesc
+DEVPKEY_Device_InstanceId
+DEVPKEY_Device_BusReportedDeviceDesc
+DEVPKEY_Device_Capabilities
+
+CM_DEVCAP
+
 DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY 
 DISPLAYCONFIG_TARGET_DEVICE_NAME
 DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
@@ -90,6 +99,12 @@ SetupDiEnumDeviceInfo
 SetupDiEnumDeviceInterfaces
 SetupDiGetClassDevs
 SetupDiGetDeviceInterfaceDetail
+SetupDiGetDeviceProperty
+SetupDiGetDeviceInstanceId
+SetupDiGetClassDevs
+SetupDiClassNameFromGuid
+SetupDiCreateDeviceInfoList
+SetupDiOpenDeviceInterface
 
 HidD_FreePreparsedData
 HidD_GetAttributes

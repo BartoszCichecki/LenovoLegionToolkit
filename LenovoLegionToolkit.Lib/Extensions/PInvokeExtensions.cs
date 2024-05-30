@@ -66,6 +66,11 @@ public static class PInvokeExtensions
     public static void ThrowIfWin32Error(string description)
     {
         var errorCode = Marshal.GetLastWin32Error();
+        ThrowIfWin32Error(errorCode, description);
+    }
+
+    public static void ThrowIfWin32Error(int errorCode, string description)
+    {
         if (errorCode != 0)
             throw Marshal.GetExceptionForHR(errorCode) ?? throw new Exception($"Unknown Win32 error code {errorCode} in {description}.");
 

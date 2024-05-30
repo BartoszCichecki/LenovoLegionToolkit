@@ -11,7 +11,7 @@ public class CardHeaderControl : UserControl
     private readonly TextBlock _titleTextBlock = new()
     {
         FontSize = 14,
-        FontWeight = FontWeight.FromOpenTypeWeight(500), // Medium
+        FontWeight = FontWeights.Medium,
         VerticalAlignment = VerticalAlignment.Center,
         TextTrimming = TextTrimming.CharacterEllipsis,
     };

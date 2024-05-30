@@ -16,6 +16,7 @@ public static class AutomationPipelineTriggerExtensions
         IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
         IUserInactivityPipelineTrigger => SymbolRegular.ClockAlarm24,
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
+        IDeviceAutomationPipelineTrigger => SymbolRegular.UsbPlug24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,
         IOnStartupAutomationPipelineTrigger => SymbolRegular.Flash24,
         IOnResumeAutomationPipelineTrigger => SymbolRegular.Flash24,

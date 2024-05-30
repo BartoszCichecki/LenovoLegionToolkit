@@ -251,9 +251,9 @@ public class AutomationPipelineControl : UserControl
         if (AutomationPipeline.Trigger is IPowerModeAutomationPipelineTrigger pm)
             result += $" | {Resource.AutomationPipelineControl_SubtitlePart_PowerMode}: {pm.PowerModeState.GetDisplayName()}";
 
-        if (AutomationPipeline.Trigger is IGodModePresetChangedAutomationPipelineTrigger gmpt)
+        if (AutomationPipeline.Trigger is IGodModePresetChangedAutomationPipelineTrigger gpt)
         {
-            var name = _godModeSettings.Store.Presets.Where(kv => kv.Key == gmpt.PresetId)
+            var name = _godModeSettings.Store.Presets.Where(kv => kv.Key == gpt.PresetId)
                 .Select(kv => kv.Value.Name)
                 .DefaultIfEmpty("-")
                 .First();
@@ -292,6 +292,9 @@ public class AutomationPipelineControl : UserControl
 
         if (AutomationPipeline.Trigger is IPeriodicAutomationPipelineTrigger pet)
             result += $" | {Resource.PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes}: {pet.Period.TotalMinutes}";
+
+        if (AutomationPipeline.Trigger is IDeviceAutomationPipelineTrigger dt && dt.InstanceIds.Length != 0)
+            result += $" | {Resource.DevicePipelineTriggerTabItemContent_Devices}: {dt.InstanceIds.Length}";
 
         return result;
     }

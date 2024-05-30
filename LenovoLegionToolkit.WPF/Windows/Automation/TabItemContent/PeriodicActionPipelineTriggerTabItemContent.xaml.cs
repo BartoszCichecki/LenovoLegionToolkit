@@ -15,7 +15,7 @@ public partial class PeriodicAutomationPipelineTriggerTabItemContent : IAutomati
         InitializeComponent();
     }
 
-    private void PeriodTabItem_Initialized(object? sender, EventArgs e)
+    private void PeriodicAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
     {
         _periodPickerMinutes.Value = _period.TotalMinutes;
     }

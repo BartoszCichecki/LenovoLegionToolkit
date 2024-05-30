@@ -10,12 +10,12 @@ using Newtonsoft.Json;
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 [method: JsonConstructor]
-public class ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] processes)
+public class ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[]? processes)
     : IProcessesAutomationPipelineTrigger
 {
     public string DisplayName => Resource.ProcessesStopRunningAutomationPipelineTrigger_DisplayName;
 
-    public ProcessInfo[] Processes { get; } = processes;
+    public ProcessInfo[] Processes { get; } = processes ?? [];
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
@@ -62,7 +62,12 @@ public class ProcessesStopRunningAutomationPipelineTrigger(ProcessInfo[] process
         return obj is ProcessesStopRunningAutomationPipelineTrigger t && Processes.SequenceEqual(t.Processes);
     }
 
-    public override int GetHashCode() => HashCode.Combine(Processes);
+    public override int GetHashCode()
+    {
+        var hc = new HashCode();
+        Processes.ForEach(p => hc.Add(p));
+        return hc.ToHashCode();
+    }
 
     public override string ToString() => $"{nameof(Processes)}: {string.Join(", ", Processes)}";
 }

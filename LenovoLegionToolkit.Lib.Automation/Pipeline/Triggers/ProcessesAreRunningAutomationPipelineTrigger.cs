@@ -3,17 +3,18 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Utils;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
 [method: JsonConstructor]
-public class ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[] processes) : IProcessesAutomationPipelineTrigger
+public class ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[]? processes) : IProcessesAutomationPipelineTrigger
 {
     public string DisplayName => Resource.ProcessesAreRunningAutomationPipelineTrigger_DisplayName;
 
-    public ProcessInfo[] Processes { get; } = processes;
+    public ProcessInfo[] Processes { get; } = processes ?? [];
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
@@ -60,7 +61,12 @@ public class ProcessesAreRunningAutomationPipelineTrigger(ProcessInfo[] processe
         return obj is ProcessesAreRunningAutomationPipelineTrigger t && Processes.SequenceEqual(t.Processes);
     }
 
-    public override int GetHashCode() => HashCode.Combine(Processes);
+    public override int GetHashCode()
+    {
+        var hc = new HashCode();
+        Processes.ForEach(p => hc.Add(p));
+        return hc.ToHashCode();
+    }
 
     public override string ToString() => $"{nameof(Processes)}: {string.Join(", ", Processes)}";
 }

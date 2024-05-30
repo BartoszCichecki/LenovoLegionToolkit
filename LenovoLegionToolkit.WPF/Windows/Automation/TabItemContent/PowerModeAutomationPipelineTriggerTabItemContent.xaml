@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Initialized="PowerModeTabItem_Initialized"
+    Initialized="PowerModeAutomationPipelineTriggerTabItemContent_Initialized"
     mc:Ignorable="d">
     <StackPanel x:Name="_content" Margin="16" />
 </UserControl>

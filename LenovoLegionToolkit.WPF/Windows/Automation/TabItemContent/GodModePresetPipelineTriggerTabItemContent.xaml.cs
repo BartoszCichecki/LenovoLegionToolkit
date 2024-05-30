@@ -31,7 +31,7 @@ public partial class GodModePresetPipelineTriggerTabItemContent : IAutomationPip
         return _trigger.DeepCopy(state);
     }
 
-    private void GodModePresetPipelineItem_Initialized(object? sender, EventArgs e)
+    private void GodModePresetPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
     {
         foreach (var (guid, preset) in _settings.Store.Presets)
         {

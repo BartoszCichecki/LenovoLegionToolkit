@@ -34,7 +34,7 @@ public partial class PowerModeAutomationPipelineTriggerTabItemContent : IAutomat
         return _trigger.DeepCopy(state);
     }
 
-    private async void PowerModeTabItem_Initialized(object? sender, EventArgs eventArgs)
+    private async void PowerModeAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs eventArgs)
     {
         var states = await _feature.GetAllStatesAsync();
 
