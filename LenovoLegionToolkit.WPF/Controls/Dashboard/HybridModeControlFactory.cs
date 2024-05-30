@@ -68,7 +68,7 @@ public static class HybridModeControlFactory
             return stackPanel;
         }
 
-        protected override async Task OnStateChange(ComboBox comboBox, IFeature<HybridModeState> feature, HybridModeState? newValue, HybridModeState? oldValue)
+        protected override async Task OnStateChangeAsync(ComboBox comboBox, IFeature<HybridModeState> feature, HybridModeState? newValue, HybridModeState? oldValue)
         {
             if (newValue is null || oldValue is null)
                 return;
@@ -79,7 +79,7 @@ public static class HybridModeControlFactory
                     Resource.RestartNow,
                     Resource.RestartLater);
 
-            await base.OnStateChange(comboBox, feature, newValue, oldValue);
+            await base.OnStateChangeAsync(comboBox, feature, newValue, oldValue);
 
             if (reboot)
             {
