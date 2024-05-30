@@ -34,7 +34,11 @@ public class DeviceConnectedAutomationPipelineTrigger(string[]? instanceIds) : I
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(AutomationEnvironment environment) { /* Ignored */ }
+    public void UpdateEnvironment(AutomationEnvironment environment)
+    {
+        environment.DeviceConnected = true;
+        environment.DeviceInstanceIds = InstanceIds;
+    }
 
     public IAutomationPipelineTrigger DeepCopy() => new DeviceConnectedAutomationPipelineTrigger(InstanceIds);
 
