@@ -52,7 +52,7 @@ public partial class App
     private async void Application_Startup(object sender, StartupEventArgs e)
     {
 #if DEBUG
-        /*if (Debugger.IsAttached)
+        if (Debugger.IsAttached)
         {
             Process.GetProcessesByName(Process.GetCurrentProcess().ProcessName)
                 .Where(p => p.Id != Environment.ProcessId)
@@ -61,7 +61,7 @@ public partial class App
                     p.Kill();
                     p.WaitForExit();
                 });
-        }*/
+        }
 #endif
 
         var flags = new Flags(e.Args);
