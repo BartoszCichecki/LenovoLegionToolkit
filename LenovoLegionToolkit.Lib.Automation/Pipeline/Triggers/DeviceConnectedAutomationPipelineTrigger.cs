@@ -1,17 +1,19 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Automation.Resources;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.System;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
-public class DeviceConnectedAutomationPipelineTrigger(string[] instanceIds) : IDeviceAutomationPipelineTrigger
+public class DeviceConnectedAutomationPipelineTrigger(string[]? instanceIds) : IDeviceAutomationPipelineTrigger
 {
     [JsonIgnore]
     public string DisplayName => Resource.DeviceConnectedAutomationPipelineTrigger_DisplayName;
 
-    public string[] InstanceIds { get; } = instanceIds;
+    public string[] InstanceIds { get; } = instanceIds ?? [];
 
     public Task<bool> IsMatchingEvent(IAutomationEvent automationEvent)
     {
@@ -31,7 +33,7 @@ public class DeviceConnectedAutomationPipelineTrigger(string[] instanceIds) : ID
         return Task.FromResult(result);
     }
 
-    public void UpdateEnvironment(AutomationEnvironment environment) { }
+    public void UpdateEnvironment(AutomationEnvironment environment) { /* Ignored */ }
 
     public IAutomationPipelineTrigger DeepCopy() => new DeviceConnectedAutomationPipelineTrigger(InstanceIds);
 
@@ -39,5 +41,12 @@ public class DeviceConnectedAutomationPipelineTrigger(string[] instanceIds) : ID
 
     public override bool Equals(object? obj) => obj is DeviceConnectedAutomationPipelineTrigger t && InstanceIds.SequenceEqual(t.InstanceIds);
 
-    public override int GetHashCode() => InstanceIds.GetHashCode();
+    public override int GetHashCode()
+    {
+        var hc = new HashCode();
+        InstanceIds.ForEach(id => hc.Add(id));
+        return hc.ToHashCode();
+    }
+
+    public override string ToString() => $"{nameof(InstanceIds)}: {string.Join(", ", InstanceIds)}";
 }
