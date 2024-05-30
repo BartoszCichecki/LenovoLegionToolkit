@@ -40,8 +40,6 @@ public static class HybridModeControlFactory
             Margin = new(8, 0, 0, 0),
         };
 
-        protected override TimeSpan AdditionalStateChangeDelay => TimeSpan.FromSeconds(5);
-
         public ComboBoxHybridModeControl()
         {
             Icon = SymbolRegular.LeafOne24;
@@ -105,6 +103,14 @@ public static class HybridModeControlFactory
 
                 SnackbarHelper.Show(title, message, SnackbarType.Info);
             }
+        }
+
+        protected override TimeSpan AdditionalStateChangeDelay(HybridModeState? oldValue, HybridModeState? newValue)
+        {
+            if (oldValue == HybridModeState.Off || newValue == HybridModeState.Off)
+                return TimeSpan.Zero;
+
+            return TimeSpan.FromSeconds(5);
         }
 
         private void DGPUNotify_Notified(object? sender, bool e) => Dispatcher.Invoke(() =>

@@ -74,9 +74,9 @@ public class PowerModeControl : AbstractComboBoxFeatureCardControl<PowerModeStat
             Warning = string.Empty;
     }
 
-    protected override async Task OnStateChange(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
+    protected override async Task OnStateChangeAsync(ComboBox comboBox, IFeature<PowerModeState> feature, PowerModeState? newValue, PowerModeState? oldValue)
     {
-        await base.OnStateChange(comboBox, feature, newValue, oldValue);
+        await base.OnStateChangeAsync(comboBox, feature, newValue, oldValue);
 
         var mi = await Compatibility.GetMachineInformationAsync();
 
