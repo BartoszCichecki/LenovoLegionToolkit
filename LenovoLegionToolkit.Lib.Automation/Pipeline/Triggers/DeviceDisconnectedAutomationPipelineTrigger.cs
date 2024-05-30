@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Pipeline.Triggers;
 
+[method: JsonConstructor]
 public class DeviceDisconnectedAutomationPipelineTrigger(string[]? instanceIds) : IDeviceAutomationPipelineTrigger
 {
     [JsonIgnore]
