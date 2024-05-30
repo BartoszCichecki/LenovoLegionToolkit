@@ -14,14 +14,43 @@
 
 本软件不运行后台服务，使用较少的内存，几乎不使用 CPU，并且不收集用户信息。本程序仅适用于 Windows。
 
-如果你正在寻找一个 Lenovo Vantage 在 Linux 系统下的替代品，请查看 [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) 项目。
+加入 Legion Series Discord 频道: https://discord.com/invite/legionseries!
 
 **中文用户可加入[拯救者工具箱 QQ 频道](https://pd.qq.com/s/jj0737)，频道内推送正式版/测试版更新并附带国内镜像加速下载链接。**
 
-加入 Legion Series Discord: https://discord.com/invite/legionseries!
+如果你正在寻找一个 Lenovo Vantage 在 Linux 系统下的替代品，请查看 [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) 项目。
 
-<img src="assets/screenshot_zh_hans.png" width="700" alt="PayPal QR code" />
+<img src="assets/screenshot_zh_hans.png" width="700" />
 
+<details>
+
+<summary><b><i>查看更多软件截图...</i></b></summary>
+
+| **键盘背光设置**                                         |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_kb.png" width="700" />      |
+
+| **电池数据**                                             |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_bat.png" width="700" />     |
+
+| **自动化**                                               |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_actions.png" width="700" /> |
+
+| **键盘宏**                                               |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_macro.png" width="700" />   |
+
+| **驱动下载**                                             |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_pkg.png" width="700" />     |
+
+| **自定义模式**                                           |
+| ------------------------------------------------------- |
+| <img src="assets/screenshot_cm.png" width="400" />      |
+
+</details>
 
 # 目录
   - [免责声明](#免责声明)
@@ -68,7 +97,7 @@
 
 拯救者工具箱在后台运行时效果最好，所以去设置中启用_开机启动_和_关闭时最小化_。接下载就是在设置中禁用 Lenovo Vantage, Legion Zone 与 Lenovo Hotkeys，或者你也可以直接卸载他们。之后，拯救者工具箱将会在开机后自启并在后台一直保持运行，并接管 Lenovo Vantage, Legion Zone 与 Lenovo Hotkeys 的功能。
 
-另，如果你完全关闭拯救者工具箱，一些功能将无法正常工作。例如同步不同的性能模式（Fn + Q）与电源计划，自动化功能的运行。
+另，如果你完全关闭拯救者工具箱，一些功能例如同步不同的性能模式（Fn + Q）与电源计划，键盘宏以及自动化功能将无法正常工作。这是因为 LLT **不运行任何后台服务**，也就意味着其无法在被完全关闭时响应指令或执行设置同步。
 
 另外，请查看下方的 [兼容性](#兼容性) 部分。
 
@@ -211,11 +240,19 @@ _**注意：** 目前已知 Riot Vanguard DRM（使用它的游戏有例如：�
 
 首先，你在 LLT 中（或使用 Fn+Q）切换的性能模式和 Windows 电源计划或 Windows 性能模式**是不同的**。
 
-更合适的方法是只使用一个默认的“平衡（推荐）”电源计划。如果你的系统中有其它的电源计划，要么删除它们，要么在 LLT 设置中将所有性能模式设置为使用该电源计划。接下来，接通外部电源，进入系统设置，在 `系统` - `电源和电池` 中选择“最佳性能”，然后断开外部电源，再选择“推荐”。你也可以将节电模式设置为自动开启，这将利用微软引入的现代的“电源计划覆盖”来取代传统的电源计划。
+现代的（也是更推荐的）管理 Windows 电源计划及性能模式的方法是只使用一个默认的“平衡（推荐）”电源计划，同时在 Windows 设置内选择以下三种 Windows 性能模式其中之一：
+
+* 推荐的项目
+* 更好的性能
+* 最佳性能
+
+（译者注：原文此处的三种性能模式直译为：最佳效能，平衡，最佳性能，但在译者的设备上三种性能模式则是上文所写的三种。我无法确定这是系统翻译的不一致性，还是不同代设备之间的差异性造成的，故在使用译者设备上系统内的名称的同时在此注解。）
+
+你可以在 LLT 的设置中为 LLT 性能模式（安静、均衡、野兽和自定义模式）分配对应的 Windows 性能模式。在这之后，当你切换 LLT 性能模式时，LLT 会自动切换 Windows 性能模式。
 
 传统的方法是使用多个“电源计划”，有些设备出厂时已经安装了这些计划。如果你决定使用这种传统的方法，请将 Windows 设置中的设置保持为默认或推荐设置，并将 LLT 设置为在切换性能模式时自动切换电源计划。
 
-有关 Windows 中新电源模式处理的更多信息，请点击此处：[自定义 Windows 性能电源滑块](https://learn.microsoft.com/zh-cn/windows-hardware/customize/desktop/customize-power-slider)。
+如果你在同步电源模式/计划，尤其是在以上提到的两种方法之间切换时遇到问题，你可以使用 `powercfg -restoredefaultschemes; shutdown /r /t ` 命令重置 Windows 电源设置。此命令会重置**所有** Windows 电源计划回默认并重启电脑。这意味着，所有除“平衡（推荐）”以外的电源计划均将会被删除，因此如果你在这之后还希望使用这些电源计划，请务必在此之前手动备份。
 
 ### 开机画面
 
