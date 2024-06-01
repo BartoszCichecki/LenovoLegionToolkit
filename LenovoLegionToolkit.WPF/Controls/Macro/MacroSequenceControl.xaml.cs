@@ -91,7 +91,7 @@ public partial class MacroSequenceControl
         _stopRecordingButton.Visibility = Visibility.Visible;
         _clearButton.Visibility = Visibility.Collapsed;
 
-        Mouse.OverrideCursor = Cursors.AppStarting;
+        Mouse.OverrideCursor = Cursors.Wait;
 
         _controller.StartRecording();
     }

@@ -113,32 +113,29 @@ internal class MacroRecorder
 
         var macroEvent = ConvertToMacroEvent(wParam, kbStruct, _timeFromLastEvent);
 
-        if (!macroEvent.HasValue)
+        if (macroEvent.IsUndefined())
             return result;
 
-        if (macroEvent.Value.IsUndefined())
-            return result;
-
-        if (macroEvent.Value.Direction == MacroDirection.Down)
+        if (macroEvent.Direction == MacroDirection.Down)
         {
-            if (macroEvent.Value.Key == (ulong)VIRTUAL_KEY.VK_ESCAPE)
+            if (macroEvent.Key == (ulong)VIRTUAL_KEY.VK_ESCAPE)
             {
                 StopRecording();
                 return result;
             }
 
-            if (_rolloverCache.Contains(macroEvent.Value))
+            if (_rolloverCache.Contains(macroEvent))
                 return result;
         }
 
-        Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent.Value });
+        Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent });
 
         _timeFromLastEvent = TimeSpan.FromMilliseconds(kbStruct.time);
 
-        if (macroEvent.Value.Direction == MacroDirection.Down)
-            _rolloverCache.Add(macroEvent.Value);
+        if (macroEvent.Direction == MacroDirection.Down)
+            _rolloverCache.Add(macroEvent);
         else
-            _rolloverCache.Remove(macroEvent.Value);
+            _rolloverCache.Remove(macroEvent);
 
         return result;
     }
@@ -152,30 +149,30 @@ internal class MacroRecorder
 
         ref var mouseStruct = ref Unsafe.AsRef<MSLLHOOKSTRUCT>((void*)lParam.Value);
 
+        if (wParam == PInvoke.WM_MOUSEMOVE)
+            return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
+
         var macroEvent = ConvertToMacroEvent(wParam, mouseStruct, _timeFromLastEvent);
 
-        if (!macroEvent.HasValue)
+        if (macroEvent.IsUndefined())
             return result;
 
-        if (macroEvent.Value.IsUndefined())
+        if (macroEvent.Direction == MacroDirection.Down && _rolloverCache.Contains(macroEvent))
             return result;
 
-        if (macroEvent.Value.Direction == MacroDirection.Down && _rolloverCache.Contains(macroEvent.Value))
-            return result;
-
-        Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent.Value });
+        Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent });
 
         _timeFromLastEvent = TimeSpan.FromMilliseconds(mouseStruct.time);
 
-        if (macroEvent.Value.Direction == MacroDirection.Down)
-            _rolloverCache.Add(macroEvent.Value);
+        if (macroEvent.Direction == MacroDirection.Down)
+            _rolloverCache.Add(macroEvent);
         else
-            _rolloverCache.Remove(macroEvent.Value);
+            _rolloverCache.Remove(macroEvent);
 
         return result;
     }
 
-    private static MacroEvent? ConvertToMacroEvent(WPARAM wParam, KBDLLHOOKSTRUCT kbStruct, TimeSpan timeFromLastEvent)
+    private static MacroEvent ConvertToMacroEvent(WPARAM wParam, KBDLLHOOKSTRUCT kbStruct, TimeSpan timeFromLastEvent)
     {
         if (timeFromLastEvent == TimeSpan.Zero)
             timeFromLastEvent = TimeSpan.FromMilliseconds(kbStruct.time);
@@ -198,7 +195,7 @@ internal class MacroRecorder
         return macroEvent;
     }
 
-    private static MacroEvent? ConvertToMacroEvent(WPARAM wParam, MSLLHOOKSTRUCT mouseStruct, TimeSpan timeFromLastEvent)
+    private static MacroEvent ConvertToMacroEvent(WPARAM wParam, MSLLHOOKSTRUCT mouseStruct, TimeSpan timeFromLastEvent)
     {
         if (timeFromLastEvent == TimeSpan.Zero)
             timeFromLastEvent = TimeSpan.FromMilliseconds(mouseStruct.time);

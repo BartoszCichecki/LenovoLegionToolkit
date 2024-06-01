@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using Humanizer;
 using Humanizer.Localisation;
+using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Macro;
 using Wpf.Ui.Common;
 
@@ -37,6 +38,6 @@ public partial class MacroEventControl
             _ => string.Empty
         };
 
-        _header.Subtitle = macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond);
+        _header.Subtitle = $"{macroEvent.Source.GetDisplayName()} • {macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond)}";
     }
 }

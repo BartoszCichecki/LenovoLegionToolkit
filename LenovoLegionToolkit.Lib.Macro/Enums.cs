@@ -1,4 +1,7 @@
-﻿namespace LenovoLegionToolkit.Lib.Macro;
+﻿using System.ComponentModel.DataAnnotations;
+using LenovoLegionToolkit.Lib.Macro.Resources;
+
+namespace LenovoLegionToolkit.Lib.Macro;
 
 public enum MacroDirection
 {
@@ -10,6 +13,8 @@ public enum MacroDirection
 public enum MacroSource
 {
     Unknown,
+    [Display(ResourceType = typeof(Resource), Name = "MacroSource_Keyboard")]
     Keyboard,
-    Mouse,
+    [Display(ResourceType = typeof(Resource), Name = "MacroSource_Mouse")]
+    Mouse
 }
