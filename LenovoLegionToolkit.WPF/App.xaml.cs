@@ -144,7 +144,7 @@ public partial class App
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
-        var _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
+        _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
 
 #if !DEBUG
         Autorun.Validate();
