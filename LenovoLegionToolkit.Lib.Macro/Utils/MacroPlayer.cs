@@ -24,7 +24,7 @@ internal class MacroPlayer
             return;
         if (kbStruct.flags != 0)
             return;
-        if (kbStruct.dwExtraInfo == 1337)
+        if (kbStruct.dwExtraInfo == MAGIC_NUMBER)
             return;
 
         _cancellationTokenSource.Cancel();
