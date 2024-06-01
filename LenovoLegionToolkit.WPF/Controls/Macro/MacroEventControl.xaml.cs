@@ -25,7 +25,18 @@ public partial class MacroEventControl
             MacroDirection.Down => SymbolRegular.ArrowCircleDown24,
             _ => SymbolRegular.Empty
         };
-        _header.Title = KeyInterop.KeyFromVirtualKey((int)macroEvent.Key).ToString();
+
+        _header.Title = (macroEvent.Source, macroEvent.Key) switch
+        {
+            (MacroSource.Keyboard, _) => KeyInterop.KeyFromVirtualKey((int)macroEvent.Key).ToString(),
+            (MacroSource.Mouse, >= 0xFF) => "XBUTTON" + (macroEvent.Key >> 16),
+            (MacroSource.Mouse, 1) => "LBUTTON",
+            (MacroSource.Mouse, 2) => "RBUTTON",
+            (MacroSource.Mouse, 3) => "MBUTTON",
+            (MacroSource.Mouse, _) => "BUTTON" + macroEvent.Key,
+            _ => string.Empty
+        };
+
         _header.Subtitle = macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond);
     }
 }
