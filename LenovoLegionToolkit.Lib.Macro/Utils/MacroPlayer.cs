@@ -61,7 +61,13 @@ internal class MacroPlayer
 
     private static INPUT ToInput(MacroEvent macroEvent) => new()
     {
-        type = INPUT_TYPE.INPUT_KEYBOARD,
+        type = macroEvent.Source switch
+        {
+            MacroSource.Mouse => INPUT_TYPE.INPUT_MOUSE,
+            MacroSource.Keyboard => INPUT_TYPE.INPUT_KEYBOARD,
+            MacroSource.Unknown => throw new ArgumentException(null, nameof(macroEvent.Source)),
+            _ => throw new ArgumentOutOfRangeException(nameof(macroEvent.Source))
+        },
         Anonymous = new INPUT._Anonymous_e__Union
         {
             ki = macroEvent.Source is not MacroSource.Keyboard
@@ -72,6 +78,30 @@ internal class MacroPlayer
                     dwFlags = macroEvent.Direction switch
                     {
                         MacroDirection.Up => KEYBD_EVENT_FLAGS.KEYEVENTF_KEYUP,
+                        _ => 0
+                    },
+                    dwExtraInfo = MAGIC_NUMBER
+                },
+            mi = macroEvent.Source is not MacroSource.Mouse
+                ? default
+                : new MOUSEINPUT
+                {
+                    dwFlags = (macroEvent.Direction, macroEvent.Key) switch
+                    {
+                        (MacroDirection.Up, 1) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_LEFTUP,
+                        (MacroDirection.Down, 1) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_LEFTDOWN,
+                        (MacroDirection.Up, 2) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_RIGHTUP,
+                        (MacroDirection.Down, 2) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_RIGHTDOWN,
+                        (MacroDirection.Up, 3) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_MIDDLEUP,
+                        (MacroDirection.Down, 3) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_MIDDLEDOWN,
+                        (MacroDirection.Up, > 0xFF) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_XUP,
+                        (MacroDirection.Down, > 0xFF) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_XDOWN,
+                        _ => 0
+                    },
+                    mouseData = (macroEvent.Direction, macroEvent.Key) switch
+                    {
+                        (MacroDirection.Up, >= 0xFF) => (uint)(macroEvent.Key >> 16),
+                        (MacroDirection.Down, >= 0xFF) => (uint)(macroEvent.Key >> 16),
                         _ => 0
                     },
                     dwExtraInfo = MAGIC_NUMBER

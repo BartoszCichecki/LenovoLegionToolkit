@@ -11,7 +11,7 @@ public readonly struct MacroEvent
     public ulong Key { get; init; }
     public TimeSpan Delay { get; init; }
 
-    public bool IsUndefined() => Source == MacroSource.Unknown || Direction == MacroDirection.Unknown || Key < 1;
+    public bool IsUndefined() => Source == MacroSource.Unknown || Direction == MacroDirection.Unknown || Key == 0;
 
     public override string ToString() => $"{nameof(Source)}:{Source}, {nameof(Direction)}: {Direction}, {nameof(Key)}: {Key}, {nameof(Delay)}: {Delay}";
 }
