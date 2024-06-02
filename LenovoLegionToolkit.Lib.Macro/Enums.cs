@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using LenovoLegionToolkit.Lib.Macro.Resources;
 
 namespace LenovoLegionToolkit.Lib.Macro;
@@ -9,7 +10,16 @@ public enum MacroDirection
     Down,
     Up,
     Wheel,
-    HorizontalWheel
+    HorizontalWheel,
+    Move
+}
+
+[Flags]
+public enum MacroRecorderSettings
+{
+    Keyboard = 1,
+    Mouse = 2,
+    Movement = 4
 }
 
 public enum MacroSource

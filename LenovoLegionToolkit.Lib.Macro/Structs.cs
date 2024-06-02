@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using LenovoLegionToolkit.Lib.Macro.Utils.TypeConverters;
 
 namespace LenovoLegionToolkit.Lib.Macro;
@@ -9,9 +10,10 @@ public readonly struct MacroEvent
     public MacroSource Source { get; init; }
     public MacroDirection Direction { get; init; }
     public uint Key { get; init; }
+    public Point Point { get; init; }
     public TimeSpan Delay { get; init; }
 
-    public bool IsUndefined() => Source == MacroSource.Unknown || Direction == MacroDirection.Unknown || Key == 0;
+    public bool IsUndefined() => Source == MacroSource.Unknown || Direction == MacroDirection.Unknown;
 
     public override string ToString() => $"{nameof(Source)}:{Source}, {nameof(Direction)}: {Direction}, {nameof(Key)}: {Key}, {nameof(Delay)}: {Delay}";
 }

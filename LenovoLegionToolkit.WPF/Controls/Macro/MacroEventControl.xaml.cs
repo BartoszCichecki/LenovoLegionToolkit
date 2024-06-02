@@ -26,12 +26,14 @@ public partial class MacroEventControl
             MacroDirection.Down => SymbolRegular.ArrowCircleDown24,
             MacroDirection.Wheel => SymbolRegular.ArrowRotateClockwise24,
             MacroDirection.HorizontalWheel => SymbolRegular.ArrowRotateClockwise24,
+            MacroDirection.Move => SymbolRegular.ArrowMove24,
             _ => SymbolRegular.Empty
         };
 
         _header.Title = (macroEvent.Source, macroEvent.Direction, macroEvent.Key) switch
         {
             (MacroSource.Keyboard, _, _) => KeyInterop.KeyFromVirtualKey((int)macroEvent.Key).ToString(),
+            (MacroSource.Mouse, MacroDirection.Move, _) => "MOVE",
             (MacroSource.Mouse, MacroDirection.Wheel, >= 0x80000000) => "WHEEL DOWN",
             (MacroSource.Mouse, MacroDirection.Wheel, _) => "WHEEL UP",
             (MacroSource.Mouse, MacroDirection.HorizontalWheel, >= 0x80000000) => "WHEEL LEFT",
@@ -44,6 +46,9 @@ public partial class MacroEventControl
             _ => string.Empty
         };
 
-        _header.Subtitle = $"{macroEvent.Source.GetDisplayName()} • {macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond)}";
+        _header.Subtitle = macroEvent.Source.GetDisplayName();
+
+        if (macroEvent.Direction is not MacroDirection.Move)
+            _header.Subtitle += $" • {macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond)}";
     }
 }

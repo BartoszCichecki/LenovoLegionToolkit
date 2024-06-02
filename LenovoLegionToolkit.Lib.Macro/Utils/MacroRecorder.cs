@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Microsoft.Win32;
@@ -38,6 +39,7 @@ internal class MacroRecorder
     private HHOOK _mouseHook;
     private TimeSpan _timeFromLastEvent;
     private bool _interrupted;
+    private MacroRecorderSettings _settings;
 
     public bool IsRecording => _kbHook != HHOOK.Null && _mouseHook != HHOOK.Null;
 
@@ -50,13 +52,14 @@ internal class MacroRecorder
         _mouseProc = LowLevelMouseProc;
     }
 
-    public void StartRecording()
+    public void StartRecording(MacroRecorderSettings settings)
     {
         if (_kbHook != HHOOK.Null)
             return;
 
         _interrupted = false;
         _timeFromLastEvent = TimeSpan.Zero;
+        _settings = settings;
 
         _kbHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_KEYBOARD_LL, _kbProc, HINSTANCE.Null, 0);
         _mouseHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_MOUSE_LL, _mouseProc, HINSTANCE.Null, 0);
@@ -80,6 +83,7 @@ internal class MacroRecorder
 
         _interrupted = false;
         _timeFromLastEvent = TimeSpan.Zero;
+        _settings = default;
 
         Stopped?.Invoke(this, new() { Interrupted = wasInterrupted });
     }
@@ -128,6 +132,9 @@ internal class MacroRecorder
                 return result;
         }
 
+        if (!_settings.HasFlag(MacroRecorderSettings.Keyboard))
+            return result;
+
         Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent });
 
         _timeFromLastEvent = TimeSpan.FromMilliseconds(kbStruct.time);
@@ -145,20 +152,21 @@ internal class MacroRecorder
         if (nCode < 0)
             return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
-        var result = new LRESULT(96);
-
         ref var mouseStruct = ref Unsafe.AsRef<MSLLHOOKSTRUCT>((void*)lParam.Value);
-
-        if (wParam == PInvoke.WM_MOUSEMOVE)
-            return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
 
         var macroEvent = ConvertToMacroEvent(wParam, mouseStruct, _timeFromLastEvent);
 
         if (macroEvent.IsUndefined())
-            return result;
+            return Result();
 
         if (macroEvent.Direction == MacroDirection.Down && _rolloverCache.Contains(macroEvent))
-            return result;
+            return Result();
+
+        if (!_settings.HasFlag(MacroRecorderSettings.Mouse))
+            return Result();
+
+        if (macroEvent.Direction == MacroDirection.Move && !_settings.HasFlag(MacroRecorderSettings.Movement))
+            return Result();
 
         Received?.Invoke(this, new ReceivedEventArgs { MacroEvent = macroEvent });
 
@@ -169,7 +177,9 @@ internal class MacroRecorder
         else
             _rolloverCache.Remove(macroEvent);
 
-        return result;
+        return Result();
+
+        LRESULT Result() => wParam == PInvoke.WM_MOUSEMOVE ? PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam) : new LRESULT(96);
     }
 
     private static MacroEvent ConvertToMacroEvent(WPARAM wParam, KBDLLHOOKSTRUCT kbStruct, TimeSpan timeFromLastEvent)
@@ -211,6 +221,7 @@ internal class MacroRecorder
                 PInvoke.WM_LBUTTONDOWN or PInvoke.WM_RBUTTONDOWN or PInvoke.WM_MBUTTONDOWN or PInvoke.WM_XBUTTONDOWN => MacroDirection.Down,
                 PInvoke.WM_MOUSEWHEEL => MacroDirection.Wheel,
                 PInvoke.WM_MOUSEHWHEEL => MacroDirection.HorizontalWheel,
+                PInvoke.WM_MOUSEMOVE => MacroDirection.Move,
                 _ => MacroDirection.Unknown
             },
             Key = (uint)wParam switch
@@ -222,6 +233,11 @@ internal class MacroRecorder
                 PInvoke.WM_MOUSEWHEEL => (uint)((int)mouseStruct.mouseData >> 16),
                 PInvoke.WM_MOUSEHWHEEL => (uint)((int)mouseStruct.mouseData >> 16),
                 _ => 0
+            },
+            Point = (uint)wParam switch
+            {
+                PInvoke.WM_MOUSEMOVE => mouseStruct.pt,
+                _ => Point.Empty,
             },
             Delay = delay
         };
