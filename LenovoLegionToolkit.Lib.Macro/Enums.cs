@@ -7,7 +7,9 @@ public enum MacroDirection
 {
     Unknown,
     Down,
-    Up
+    Up,
+    Wheel,
+    HorizontalWheel
 }
 
 public enum MacroSource

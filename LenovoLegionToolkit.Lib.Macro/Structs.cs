@@ -8,7 +8,7 @@ public readonly struct MacroEvent
 {
     public MacroSource Source { get; init; }
     public MacroDirection Direction { get; init; }
-    public ulong Key { get; init; }
+    public uint Key { get; init; }
     public TimeSpan Delay { get; init; }
 
     public bool IsUndefined() => Source == MacroSource.Unknown || Direction == MacroDirection.Unknown || Key == 0;

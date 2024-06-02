@@ -65,8 +65,8 @@ internal class MacroPlayer
         {
             MacroSource.Mouse => INPUT_TYPE.INPUT_MOUSE,
             MacroSource.Keyboard => INPUT_TYPE.INPUT_KEYBOARD,
-            MacroSource.Unknown => throw new ArgumentException(null, nameof(macroEvent.Source)),
-            _ => throw new ArgumentOutOfRangeException(nameof(macroEvent.Source))
+            MacroSource.Unknown => throw new ArgumentException(null, nameof(macroEvent)),
+            _ => throw new ArgumentOutOfRangeException(nameof(macroEvent))
         },
         Anonymous = new INPUT._Anonymous_e__Union
         {
@@ -96,12 +96,14 @@ internal class MacroPlayer
                         (MacroDirection.Down, 3) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_MIDDLEDOWN,
                         (MacroDirection.Up, > 0xFF) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_XUP,
                         (MacroDirection.Down, > 0xFF) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_XDOWN,
+                        (MacroDirection.Wheel, _) => MOUSE_EVENT_FLAGS.MOUSEEVENTF_WHEEL,
                         _ => 0
                     },
                     mouseData = (macroEvent.Direction, macroEvent.Key) switch
                     {
-                        (MacroDirection.Up, >= 0xFF) => (uint)(macroEvent.Key >> 16),
-                        (MacroDirection.Down, >= 0xFF) => (uint)(macroEvent.Key >> 16),
+                        (MacroDirection.Up, >= 0xFF) => macroEvent.Key >> 16,
+                        (MacroDirection.Down, >= 0xFF) => macroEvent.Key >> 16,
+                        (MacroDirection.Wheel, _) => macroEvent.Key,
                         _ => 0
                     },
                     dwExtraInfo = MAGIC_NUMBER

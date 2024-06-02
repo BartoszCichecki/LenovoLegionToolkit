@@ -209,6 +209,8 @@ internal class MacroRecorder
             {
                 PInvoke.WM_LBUTTONUP or PInvoke.WM_RBUTTONUP or PInvoke.WM_MBUTTONUP or PInvoke.WM_XBUTTONUP => MacroDirection.Up,
                 PInvoke.WM_LBUTTONDOWN or PInvoke.WM_RBUTTONDOWN or PInvoke.WM_MBUTTONDOWN or PInvoke.WM_XBUTTONDOWN => MacroDirection.Down,
+                PInvoke.WM_MOUSEWHEEL => MacroDirection.Wheel,
+                PInvoke.WM_MOUSEHWHEEL => MacroDirection.HorizontalWheel,
                 _ => MacroDirection.Unknown
             },
             Key = (uint)wParam switch
@@ -217,6 +219,8 @@ internal class MacroRecorder
                 PInvoke.WM_RBUTTONUP or PInvoke.WM_RBUTTONDOWN => 2,
                 PInvoke.WM_MBUTTONUP or PInvoke.WM_MBUTTONDOWN => 3,
                 PInvoke.WM_XBUTTONUP or PInvoke.WM_XBUTTONDOWN => mouseStruct.mouseData,
+                PInvoke.WM_MOUSEWHEEL => (uint)((int)mouseStruct.mouseData >> 16),
+                PInvoke.WM_MOUSEHWHEEL => (uint)((int)mouseStruct.mouseData >> 16),
                 _ => 0
             },
             Delay = delay
