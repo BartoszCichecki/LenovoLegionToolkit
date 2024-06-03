@@ -12,7 +12,7 @@ public static class ComboBoxExtensions
         return comboBox.Items.OfType<ComboBoxItem<T>>().Select(item => item.Value);
     }
 
-    public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, object>? displayValueConverter)
+    public static void SetItems<T>(this ComboBox comboBox, IEnumerable<T> items, T selectedItem, Func<T, object>? displayValueConverter = null)
     {
         var boxedItems = items.Select(v => new ComboBoxItem<T>(v, displayValueConverter)).ToArray();
         var selectedBoxedItem = boxedItems.FirstOrDefault(bv => EqualityComparer<T>.Default.Equals(bv.Value, selectedItem));

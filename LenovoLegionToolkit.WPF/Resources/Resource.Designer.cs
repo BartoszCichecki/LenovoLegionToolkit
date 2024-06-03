@@ -2813,6 +2813,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recording will start in 3 seconds....
+        /// </summary>
+        public static string MacroRecordingWindow_Preparing_Title {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Preparing_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press ESC to stop..
+        /// </summary>
+        public static string MacroRecordingWindow_Recording_Message {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Recording_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recording....
+        /// </summary>
+        public static string MacroRecordingWindow_Recording_Title {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Recording_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t repeat.
         /// </summary>
         public static string MacroSequenceControl_DontRepeat {
@@ -2840,11 +2867,47 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Keyboard only.
+        /// </summary>
+        public static string MacroSequenceControl_Keyboard {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard keys and mouse buttons.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouse {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All inputs.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouseMovement {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouseMovement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string MacroSequenceControl_Record {
             get {
                 return ResourceManager.GetString("MacroSequenceControl_Record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recording options.
+        /// </summary>
+        public static string MacroSequenceControl_RecordingOptions {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_RecordingOptions", resourceCulture);
             }
         }
         

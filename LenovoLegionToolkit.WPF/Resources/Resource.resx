@@ -2131,4 +2131,25 @@ Supported formats are: {1}.</value>
   <data name="SelectAll" xml:space="preserve">
 	  <value>Select all</value>
   </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>Keyboard only</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>Keyboard keys and mouse buttons</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>All inputs</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+	  <value>Recording options</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+	  <value>Recording will start in 3 seconds...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+	  <value>Recording...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+	  <value>Press ESC to stop.</value>
+  </data>
 </root>

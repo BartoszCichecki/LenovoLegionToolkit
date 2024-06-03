@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Macro;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
+using LenovoLegionToolkit.WPF.Windows.Macro;
 
 namespace LenovoLegionToolkit.WPF.Controls.Macro;
 
@@ -14,6 +16,7 @@ public partial class MacroSequenceControl
 {
     private readonly MacroController _controller = IoCContainer.Resolve<MacroController>();
 
+    private MacroRecordingWindow? _recordingWindow;
     private MacroIdentifier _macroIdentifier;
     private bool _isRefreshing;
 
@@ -42,14 +45,22 @@ public partial class MacroSequenceControl
         _ignoreDelaysCard.IsEnabled = sequenceHasEvents;
         _interruptOnOtherKeyCard.IsEnabled = sequenceHasEvents;
 
+        _settingsComboBox.SetItems([MacroRecorderSettings.Keyboard, MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse, MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse | MacroRecorderSettings.Movement],
+            MacroRecorderSettings.Keyboard,
+            v => v switch
+            {
+                MacroRecorderSettings.Keyboard => Resource.MacroSequenceControl_Keyboard,
+                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse => Resource.MacroSequenceControl_KeyboardMouse,
+                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse | MacroRecorderSettings.Movement => Resource.MacroSequenceControl_KeyboardMouseMovement,
+                _ => string.Empty
+            });
         _repeatComboBox.SetItems(MacroController.AllowedRepeatCounts,
             Math.Clamp(sequence.RepeatCount, 1, 10),
             v => v == 1 ? Resource.MacroSequenceControl_DontRepeat : v.ToString());
         _ignoreDelaysToggle.IsChecked = sequence.IgnoreDelays;
         _interruptOnOtherKeyToggle.IsChecked = sequence.InterruptOnOtherKey;
 
-        _recordButton.Visibility = Visibility.Visible;
-        _stopRecordingButton.Visibility = Visibility.Collapsed;
+        _recordButton.IsEnabled = true;
         _clearButton.Visibility = sequenceHasEvents ? Visibility.Visible : Visibility.Collapsed;
 
         _macroEventsPanel.Children.Clear();
@@ -70,6 +81,9 @@ public partial class MacroSequenceControl
 
     private void Controller_RecorderStopped(object? sender, MacroController.RecorderStoppedEventArgs e)
     {
+        _recordingWindow?.Close();
+        _recordingWindow = null;
+
         if (e.Interrupted)
             Clear();
         else
@@ -84,19 +98,39 @@ public partial class MacroSequenceControl
 
     private void ClearButton_Click(object sender, RoutedEventArgs e) => Clear();
 
-    private void RecordButton_Click(object sender, RoutedEventArgs e)
+    private async void RecordButton_Click(object sender, RoutedEventArgs e)
     {
-        _macroEventsPanel.Children.Clear();
-        _recordButton.Visibility = Visibility.Collapsed;
-        _stopRecordingButton.Visibility = Visibility.Visible;
-        _clearButton.Visibility = Visibility.Collapsed;
+        if (!_settingsComboBox.TryGetSelectedItem(out MacroRecorderSettings settings))
+            return;
 
-        Mouse.OverrideCursor = Cursors.AppStarting;
-
-        _controller.StartRecording();
+        await RecordAsync(settings);
     }
 
-    private void StopRecordingButton_Click(object sender, RoutedEventArgs e) => _controller.StopRecording();
+    private async Task RecordAsync(MacroRecorderSettings settings)
+    {
+        _macroEventsPanel.Children.Clear();
+        _recordButton.IsEnabled = false;
+        _clearButton.Visibility = Visibility.Collapsed;
+
+        Mouse.OverrideCursor = Cursors.Wait;
+
+        if (settings.HasFlag(MacroRecorderSettings.Mouse) && settings.HasFlag(MacroRecorderSettings.Movement))
+        {
+            _recordingWindow = MacroRecordingWindow.CreatePreparing();
+            _recordingWindow.Owner = Window.GetWindow(this);
+            _recordingWindow.Show();
+
+            await Task.Delay(TimeSpan.FromSeconds(3));
+
+            _recordingWindow.Close();
+        }
+
+        _recordingWindow = MacroRecordingWindow.CreateRecording();
+        _recordingWindow.Owner = Window.GetWindow(this);
+        _recordingWindow.Show();
+
+        _controller.StartRecording(settings);
+    }
 
     private void Clear()
     {
