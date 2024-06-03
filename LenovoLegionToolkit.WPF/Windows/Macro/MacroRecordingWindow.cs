@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -45,9 +46,9 @@ public class MacroRecordingWindow : UiWindow
         Margin = new(0, 4, 0, 0),
     };
 
-    public static MacroRecordingWindow CreatePreparing() => new(SymbolRegular.Hourglass24, "Recording will start in 3 seconds...", null);
+    public static MacroRecordingWindow CreatePreparing() => new(SymbolRegular.HourglassHalf24, Resource.MacroRecordingWindow_Preparing_Title, null);
 
-    public static MacroRecordingWindow CreateRecording() => new(SymbolRegular.Record24, "Recording...", "Press ESC to stop.");
+    public static MacroRecordingWindow CreateRecording() => new(SymbolRegular.Record24, Resource.MacroRecordingWindow_Recording_Title, Resource.MacroRecordingWindow_Recording_Message);
 
     private MacroRecordingWindow(SymbolRegular symbol, string title, string? subtitle)
     {
