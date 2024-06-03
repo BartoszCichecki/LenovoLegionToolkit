@@ -2840,6 +2840,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Keyboard only.
+        /// </summary>
+        public static string MacroSequenceControl_Keyboard {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard keys and mouse buttons.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouse {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All inputs.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouseMovement {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouseMovement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string MacroSequenceControl_Record {

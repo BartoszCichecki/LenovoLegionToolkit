@@ -49,9 +49,9 @@ public partial class MacroSequenceControl
             MacroRecorderSettings.Keyboard,
             v => v switch
             {
-                MacroRecorderSettings.Keyboard => "Keyboard only",
-                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse => "Keyboard keys and mouse buttons",
-                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse | MacroRecorderSettings.Movement => "All inputs",
+                MacroRecorderSettings.Keyboard => Resource.MacroSequenceControl_Keyboard,
+                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse => Resource.MacroSequenceControl_KeyboardMouse,
+                MacroRecorderSettings.Keyboard | MacroRecorderSettings.Mouse | MacroRecorderSettings.Movement => Resource.MacroSequenceControl_KeyboardMouseMovement,
                 _ => string.Empty
             });
         _repeatComboBox.SetItems(MacroController.AllowedRepeatCounts,

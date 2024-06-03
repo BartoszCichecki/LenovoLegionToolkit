@@ -2131,4 +2131,13 @@ Supported formats are: {1}.</value>
   <data name="SelectAll" xml:space="preserve">
 	  <value>Select all</value>
   </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>Keyboard only</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>Keyboard keys and mouse buttons</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>All inputs</value>
+  </data>
 </root>
