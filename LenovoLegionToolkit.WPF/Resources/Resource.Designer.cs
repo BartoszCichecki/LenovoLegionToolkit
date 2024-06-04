@@ -1409,6 +1409,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show connected devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Show removable devices only.
         /// </summary>
         public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable {

@@ -2158,4 +2158,7 @@ Supported formats are: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
 	  <value>Show removable devices only</value>
   </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+	  <value>Show connected devices only</value>
+  </data>
 </root>

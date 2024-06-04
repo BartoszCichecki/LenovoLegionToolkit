@@ -25,6 +25,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
     private readonly List<Device> _devices = [];
 
     private bool _onlySelected;
+    private bool _onlyConnected;
     private bool _onlyRemovable = true;
 
     private CancellationTokenSource? _filterDebounceCancellationTokenSource;
@@ -39,9 +40,7 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
 
     private async void DeviceAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
     {
-        _onlySelectedButton.Appearance = _onlySelected ? ControlAppearance.Primary : ControlAppearance.Secondary;
-        _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
-
+        RefreshButtons();
         await LoadAsync();
     }
 
@@ -75,14 +74,21 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
     private void OnlySelected_Click(object sender, RoutedEventArgs e)
     {
         _onlySelected = !_onlySelected;
-        _onlySelectedButton.Appearance = _onlySelected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        RefreshButtons();
+        Reload();
+    }
+
+    private void OnlyConnectedButton_Click(object sender, RoutedEventArgs e)
+    {
+        _onlyConnected = !_onlyConnected;
+        RefreshButtons();
         Reload();
     }
 
     private void OnlyRemovableButton_Click(object sender, RoutedEventArgs e)
     {
         _onlyRemovable = !_onlyRemovable;
-        _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        RefreshButtons();
         Reload();
     }
 
@@ -131,6 +137,8 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
         var result = devices.AsEnumerable();
         if (_onlySelected)
             result = result.Where(d => _instanceIds.Contains(d.DeviceInstanceId));
+        if (_onlyConnected)
+            result = result.Where(d => !d.IsDisconnected);
         if (_onlyRemovable)
             result = result.Where(d => d.IsRemovable);
 
@@ -140,6 +148,13 @@ public partial class DeviceAutomationPipelineTriggerTabItemContent : IAutomation
             result = result.Where(p => p.Index.Contains(_filterTextBox.Text, StringComparison.InvariantCultureIgnoreCase));
 
         return result.ToList();
+    }
+
+    private void RefreshButtons()
+    {
+        _onlySelectedButton.Appearance = _onlySelected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        _onlyConnectedButton.Appearance = _onlyConnected ? ControlAppearance.Primary : ControlAppearance.Secondary;
+        _onlyRemovableButton.Appearance = _onlyRemovable ? ControlAppearance.Primary : ControlAppearance.Secondary;
     }
 
     public INativeWindowsMessagePipelineTrigger GetTrigger() => _trigger.DeepCopy([.. _instanceIds]);

@@ -19,6 +19,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <ui:TextBox
             x:Name="_filterTextBox"
@@ -40,9 +41,18 @@
             Icon="SelectAllOn24"
             ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlySelected}" />
         <ui:Button
-            x:Name="_onlyRemovableButton"
+            x:Name="_onlyConnectedButton"
             Grid.Row="0"
             Grid.Column="2"
+            Margin="8,16,0,16"
+            VerticalAlignment="Stretch"
+            Click="OnlyConnectedButton_Click"
+            Icon="Connected20"
+            ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected}" />
+        <ui:Button
+            x:Name="_onlyRemovableButton"
+            Grid.Row="0"
+            Grid.Column="3"
             Margin="8,16,32,16"
             VerticalAlignment="Stretch"
             Click="OnlyRemovableButton_Click"
@@ -52,7 +62,7 @@
             x:Name="_scrollViewer"
             Grid.Row="1"
             Grid.Column="0"
-            Grid.ColumnSpan="3">
+            Grid.ColumnSpan="4">
             <StackPanel x:Name="_content" Margin="16,0,16,16" />
         </ScrollViewer>
     </Grid>
