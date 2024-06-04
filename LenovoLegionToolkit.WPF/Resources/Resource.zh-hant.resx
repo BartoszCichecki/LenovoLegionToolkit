@@ -2121,4 +2121,34 @@
   <data name="HideAll" xml:space="preserve">
 	  <value>隱藏全部</value>
   </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+	  <value>裝置</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+	  <value>取消全部選擇</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+	  <value>選取全部</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>僅限鍵盤</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>鍵盤與滑鼠按鍵</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>所有輸入</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+	  <value>記錄選項</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+	  <value>將在 3 秒內進行記錄……</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+	  <value>正在記錄……</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+	  <value>按下 ESC 鍵停止記錄。</value>
+  </data>
 </root>
