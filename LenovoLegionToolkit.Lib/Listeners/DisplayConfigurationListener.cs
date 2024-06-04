@@ -58,5 +58,17 @@ public class DisplayConfigurationListener : IListener<DisplayConfigurationListen
         Changed?.Invoke(this, new() { HDR = changed ? IsHDROn : null });
     }
 
-    private static bool? GetHDRStatus() => Displays.Get().FirstOrDefault()?.GetAdvancedColorInfo().AdvancedColorEnabled;
+    private static bool? GetHDRStatus()
+    {
+        try
+        {
+            return Displays.Get().FirstOrDefault()?.GetAdvancedColorInfo().AdvancedColorEnabled;
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to get HDR status. Assuming unavailable.", ex);
+            return null;
+        }
+    }
 }
