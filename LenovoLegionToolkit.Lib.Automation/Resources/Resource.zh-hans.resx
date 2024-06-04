@@ -221,4 +221,10 @@
   <data name="MacroAutomationStepState_On" xml:space="preserve">
 	  <value>开</value>
   </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>当与设备断开连接时</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>当与设备连接时</value>
+  </data>
 </root>
