@@ -72,9 +72,25 @@ public partial class MacroSequenceControl
 
     private void CreateControl(MacroEvent macroEvent)
     {
-        var macroEventControl = new MacroEventControl();
-        macroEventControl.Set(macroEvent);
-        _macroEventsPanel.Children.Add(macroEventControl);
+        if (macroEvent.Direction is MacroDirection.Move)
+        {
+            if (_macroEventsPanel.Children.OfType<AbstractMacroEventControl>().LastOrDefault() is MultiAbstractMacroEventControl last)
+            {
+                last.Set(macroEvent);
+            }
+            else
+            {
+                var macroEventControl = new MultiAbstractMacroEventControl();
+                macroEventControl.Set(macroEvent);
+                _macroEventsPanel.Children.Add(macroEventControl);
+            }
+        }
+        else
+        {
+            var macroEventControl = new SingleAbstractMacroEventControl();
+            macroEventControl.Set(macroEvent);
+            _macroEventsPanel.Children.Add(macroEventControl);
+        }
     }
 
     private void Controller_RecorderReceived(object? sender, MacroController.RecorderReceivedEventArgs e) => CreateControl(e.MacroEvent);
@@ -150,8 +166,8 @@ public partial class MacroSequenceControl
         var ignoreDelays = _ignoreDelaysToggle.IsChecked ?? false;
         var interruptOnOtherKey = _interruptOnOtherKeyToggle.IsChecked ?? false;
         var macroEvents = _macroEventsPanel.Children
-            .OfType<MacroEventControl>()
-            .Select(c => c.MacroEvent)
+            .OfType<AbstractMacroEventControl>()
+            .SelectMany(c => c.GetEvents())
             .ToArray();
 
         var sequences = _controller.GetSequences();

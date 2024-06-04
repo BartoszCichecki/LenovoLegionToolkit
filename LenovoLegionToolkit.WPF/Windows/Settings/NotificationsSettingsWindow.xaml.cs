@@ -14,8 +14,8 @@ public partial class NotificationsSettingsWindow
 {
     private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
 
-    private IEnumerable<CardControl> Cards => new[]
-    {
+    private IEnumerable<CardControl> Cards =>
+    [
         _notificationPositionCard,
         _notificationDurationCard,
         _updateAvailableCard,
@@ -30,7 +30,7 @@ public partial class NotificationsSettingsWindow
         _acAdapterCard,
         _smartKeyCard,
         _automationCard
-    };
+    ];
 
     public NotificationsSettingsWindow()
     {

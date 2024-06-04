@@ -1,4 +1,6 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows.Input;
 using Humanizer;
 using Humanizer.Localisation;
 using LenovoLegionToolkit.Lib.Extensions;
@@ -7,19 +9,19 @@ using Wpf.Ui.Common;
 
 namespace LenovoLegionToolkit.WPF.Controls.Macro;
 
-public partial class MacroEventControl
+public abstract partial class AbstractMacroEventControl
 {
-    public MacroEvent MacroEvent { get; private set; }
-
-    public MacroEventControl()
+    protected AbstractMacroEventControl()
     {
         InitializeComponent();
     }
 
-    public void Set(MacroEvent macroEvent)
-    {
-        MacroEvent = macroEvent;
+    public abstract IEnumerable<MacroEvent> GetEvents();
 
+    protected abstract TimeSpan TotalDelay { get; }
+
+    public virtual void Set(MacroEvent macroEvent)
+    {
         _card.Icon = macroEvent.Direction switch
         {
             MacroDirection.Up => SymbolRegular.ArrowCircleUp24,
@@ -46,9 +48,6 @@ public partial class MacroEventControl
             _ => string.Empty
         };
 
-        _header.Subtitle = macroEvent.Source.GetDisplayName();
-
-        if (macroEvent.Direction is not MacroDirection.Move)
-            _header.Subtitle += $" • {macroEvent.Delay.Humanize(maxUnit: TimeUnit.Millisecond)}";
+        _header.Subtitle = macroEvent.Source.GetDisplayName() + $" • {TotalDelay.Humanize(maxUnit: TimeUnit.Millisecond)}";
     }
 }

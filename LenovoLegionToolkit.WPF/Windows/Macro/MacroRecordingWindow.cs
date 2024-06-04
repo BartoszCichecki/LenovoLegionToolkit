@@ -46,7 +46,7 @@ public class MacroRecordingWindow : UiWindow
         Margin = new(0, 4, 0, 0),
     };
 
-    public static MacroRecordingWindow CreatePreparing() => new(SymbolRegular.HourglassHalf24, Resource.MacroRecordingWindow_Preparing_Title, null);
+    public static MacroRecordingWindow CreatePreparing() => new(SymbolRegular.HourglassThreeQuarter24, Resource.MacroRecordingWindow_Preparing_Title, null);
 
     public static MacroRecordingWindow CreateRecording() => new(SymbolRegular.Record24, Resource.MacroRecordingWindow_Recording_Title, Resource.MacroRecordingWindow_Recording_Message);
 
