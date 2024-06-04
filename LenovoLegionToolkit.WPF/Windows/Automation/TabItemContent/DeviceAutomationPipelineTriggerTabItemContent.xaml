@@ -38,7 +38,7 @@
             VerticalAlignment="Stretch"
             Click="OnlySelected_Click"
             Icon="SelectAllOn24"
-            ToolTip="Show selected devices only" />
+            ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlySelected}" />
         <ui:Button
             x:Name="_onlyRemovableButton"
             Grid.Row="0"
@@ -47,7 +47,7 @@
             VerticalAlignment="Stretch"
             Click="OnlyRemovableButton_Click"
             Icon="ArrowEject20"
-            ToolTip="Show removable devices only" />
+            ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable}" />
         <ScrollViewer
             x:Name="_scrollViewer"
             Grid.Row="1"

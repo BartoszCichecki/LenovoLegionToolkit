@@ -1409,6 +1409,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show removable devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show selected devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlySelected {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BIOS version.
         /// </summary>
         public static string DeviceInformationWindow_BiosVersion_Title {

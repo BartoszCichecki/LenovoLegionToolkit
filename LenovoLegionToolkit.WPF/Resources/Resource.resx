@@ -2152,4 +2152,10 @@ Supported formats are: {1}.</value>
   <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
 	  <value>Press ESC to stop.</value>
   </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+	  <value>Show selected devices only</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable" xml:space="preserve">
+	  <value>Show removable devices only</value>
+  </data>
 </root>
