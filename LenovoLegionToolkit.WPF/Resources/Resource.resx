@@ -2155,7 +2155,7 @@ Supported formats are: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
 	  <value>Show selected devices only</value>
   </data>
-  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable" xml:space="preserve">
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
 	  <value>Show removable devices only</value>
   </data>
 </root>

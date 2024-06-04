@@ -1411,9 +1411,9 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Show removable devices only.
         /// </summary>
-        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable {
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable {
             get {
-                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable", resourceCulture);
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable", resourceCulture);
             }
         }
         

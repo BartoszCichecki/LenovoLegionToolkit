@@ -47,7 +47,7 @@
             VerticalAlignment="Stretch"
             Click="OnlyRemovableButton_Click"
             Icon="ArrowEject20"
-            ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlyRemoveable}" />
+            ToolTip="{x:Static resources:Resource.DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable}" />
         <ScrollViewer
             x:Name="_scrollViewer"
             Grid.Row="1"
