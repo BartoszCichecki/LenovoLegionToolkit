@@ -13,7 +13,7 @@ public class CmdLineIPCServer
 {
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 4096, 4096, CreatePipeSecurity());
+    private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 0, 0, CreatePipeSecurity());
 
     private bool _isRunning;
     private CmdLineQuickActionRunState _state;
