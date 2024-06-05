@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
-using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using ProtoBuf;
@@ -11,6 +10,9 @@ namespace LenovoLegionToolkit.Lib.Automation.CmdLine;
 public class CmdLineIPCClient
 {
     private readonly NamedPipeClientStream _pipe = new(".", "LenovoLegionToolkit-IPC-0", PipeDirection.InOut, PipeOptions.None);
+
+    public CmdLineQuickActionRunState State { get; private set; }
+    public string? Errmsg { get; private set; }
 
     public async Task RunQuickActionAsync(string quickActionName)
     {
@@ -46,32 +48,45 @@ public class CmdLineIPCClient
         var imsgpack = Serializer.DeserializeWithLengthPrefix<IPCMessagePack>(_pipe, PrefixStyle.Base128);
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Response received");
+            Log.Instance.Trace($"Response received.");
 
         if (imsgpack is null)
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Deserialize failed.");
-        }
-        else if (imsgpack.State == CmdLineQuickActionRunState.ActionRunFailed)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Run Quick Action failed due to following reason: {imsgpack.Error ?? string.Empty}");
-        }
-        else if (imsgpack.State == CmdLineQuickActionRunState.ActionNotFound)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Quick Action not found.");
-        }
-        else if (imsgpack.State == CmdLineQuickActionRunState.Ok)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Run Quick Action successfully.");
+
+            State = CmdLineQuickActionRunState.Undefined;
         }
         else
         {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Undefined response received");
+            State = imsgpack.State;
+            Errmsg = imsgpack.Error;
+
+            if (imsgpack.State == CmdLineQuickActionRunState.ActionRunFailed)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Run Quick Action failed due to following reason: {imsgpack.Error ?? string.Empty}");
+            }
+            else if (imsgpack.State == CmdLineQuickActionRunState.ActionNotFound)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Quick Action not found.");
+            }
+            else if (imsgpack.State == CmdLineQuickActionRunState.DeserializeFailed)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Server failed to deserialize request.");
+            }
+            else if (imsgpack.State == CmdLineQuickActionRunState.Ok)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Run Quick Action successfully.");
+            }
+            else
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Undefined response received");
+            }
         }
     }
 
