@@ -19,9 +19,10 @@ namespace LenovoLegionToolkit.Lib.Listeners;
 
 public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindowsMessageListener.ChangedEventArgs>
 {
-    public class ChangedEventArgs(NativeWindowsMessage message) : EventArgs
+    public class ChangedEventArgs(NativeWindowsMessage message, object? data = null) : EventArgs
     {
         public NativeWindowsMessage Message { get; } = message;
+        public object? Data { get; } = data;
     }
 
     private readonly IMainThreadDispatcher _mainThreadDispatcher;
@@ -34,8 +35,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     private readonly TaskCompletionSource _isMonitorOnTaskCompletionSource = new();
     private readonly TaskCompletionSource _isLidOpenTaskCompletionSource = new();
 
-    private HDEVNOTIFY _displayArrivalHandle;
-    private HDEVNOTIFY _devInterfaceMonitorHandle;
+    private HDEVNOTIFY _deviceNotificationHandle;
     private HPOWERNOTIFY _consoleDisplayStateNotificationHandle;
     private HPOWERNOTIFY _lidSwitchStateChangeNotificationHandle;
     private HPOWERNOTIFY _powerSavingStateChangeNotificationHandle;
@@ -76,8 +76,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
 
         _kbHook = PInvoke.SetWindowsHookEx(WINDOWS_HOOK_ID.WH_KEYBOARD_LL, _kbProc, HINSTANCE.Null, 0);
 
-        _displayArrivalHandle = RegisterDeviceNotification(Handle, PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL);
-        _devInterfaceMonitorHandle = RegisterDeviceNotification(Handle, PInvoke.GUID_DEVINTERFACE_MONITOR);
+        _deviceNotificationHandle = RegisterDeviceNotification(Handle);
         _consoleDisplayStateNotificationHandle = RegisterPowerNotification(PInvoke.GUID_CONSOLE_DISPLAY_STATE);
         _lidSwitchStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_LIDSWITCH_STATE_CHANGE);
         _powerSavingStateChangeNotificationHandle = RegisterPowerNotification(PInvoke.GUID_POWER_SAVING_STATUS);
@@ -89,15 +88,13 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     {
         PInvoke.UnhookWindowsHookEx(_kbHook);
 
-        PInvoke.UnregisterDeviceNotification(_displayArrivalHandle);
-        PInvoke.UnregisterDeviceNotification(_devInterfaceMonitorHandle);
+        PInvoke.UnregisterDeviceNotification(_deviceNotificationHandle);
         PInvoke.UnregisterPowerSettingNotification(_consoleDisplayStateNotificationHandle);
         PInvoke.UnregisterPowerSettingNotification(_lidSwitchStateChangeNotificationHandle);
         PInvoke.UnregisterPowerSettingNotification(_powerSavingStateChangeNotificationHandle);
 
         _kbHook = default;
-        _displayArrivalHandle = default;
-        _devInterfaceMonitorHandle = default;
+        _deviceNotificationHandle = default;
         _consoleDisplayStateNotificationHandle = default;
 
         ReleaseHandle();
@@ -113,6 +110,30 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
             if (devBroadcastHdr.dbch_devicetype == DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE)
             {
                 ref var devBroadcastDeviceInterface = ref Unsafe.AsRef<DEV_BROADCAST_DEVICEINTERFACE_W>((void*)m.LParam);
+                var length = ((int)devBroadcastDeviceInterface.dbcc_size - sizeof(DEV_BROADCAST_DEVICEINTERFACE_W)) / sizeof(char);
+                var name = devBroadcastDeviceInterface.dbcc_name.AsSpan(length).ToString();
+
+                var state = (uint)m.WParam.ToInt32();
+                switch (state)
+                {
+                    case PInvoke.DBT_DEVICEARRIVAL:
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Device Arrival [name={name}]");
+
+                            OnDeviceConnected(name);
+                            break;
+                        }
+                    case PInvoke.DBT_DEVICEREMOVECOMPLETE:
+                        {
+                            if (Log.Instance.IsTraceEnabled)
+                                Log.Instance.Trace($"Event received: Device Removal Complete [name={name}]");
+
+                            OnDeviceDisconnected(name);
+                            break;
+                        }
+                }
+
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DISPLAY_DEVICE_ARRIVAL)
                 {
                     if (Log.Instance.IsTraceEnabled)
@@ -124,12 +145,8 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
                 if (devBroadcastDeviceInterface.dbcc_classguid == PInvoke.GUID_DEVINTERFACE_MONITOR)
                 {
                     var id = InternalDisplay.Get();
-                    var length = ((int)devBroadcastDeviceInterface.dbcc_size - sizeof(DEV_BROADCAST_DEVICEINTERFACE_W)) / sizeof(char);
-                    var name = devBroadcastDeviceInterface.dbcc_name.AsSpan(length).ToString();
-
                     var isExternal = !name.Equals(id?.DevicePath, StringComparison.Ordinal);
 
-                    var state = (uint)m.WParam.ToInt32();
                     switch (state)
                     {
                         case PInvoke.DBT_DEVICEARRIVAL:
@@ -268,6 +285,16 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.BatterySaverEnabled);
     }
 
+    private void OnDeviceConnected(string name)
+    {
+        RaiseChanged(NativeWindowsMessage.DeviceConnected, ConvertDeviceNameToDeviceInstanceId(name));
+    }
+
+    private void OnDeviceDisconnected(string name)
+    {
+        RaiseChanged(NativeWindowsMessage.DeviceDisconnected, ConvertDeviceNameToDeviceInstanceId(name));
+    }
+
     private void OnMonitorConnected(bool isExternal)
     {
         RaiseChanged(NativeWindowsMessage.MonitorConnected);
@@ -295,7 +322,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         RaiseChanged(NativeWindowsMessage.OnDisplayDeviceArrival);
     }
 
-    private void RaiseChanged(NativeWindowsMessage message) => Changed?.Invoke(this, new ChangedEventArgs(message));
+    private void RaiseChanged(NativeWindowsMessage message, object? data = null) => Changed?.Invoke(this, new ChangedEventArgs(message, data));
 
     private unsafe LRESULT LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
     {
@@ -326,7 +353,7 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);
     }
 
-    private static unsafe HDEVNOTIFY RegisterDeviceNotification(IntPtr handle, Guid classGuid)
+    private static unsafe HDEVNOTIFY RegisterDeviceNotification(IntPtr handle)
     {
         var ptr = IntPtr.Zero;
         try
@@ -334,10 +361,11 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
             var str = new DEV_BROADCAST_DEVICEINTERFACE_W();
             str.dbcc_size = (uint)Marshal.SizeOf(str);
             str.dbcc_devicetype = (uint)DEV_BROADCAST_HDR_DEVICE_TYPE.DBT_DEVTYP_DEVICEINTERFACE;
-            str.dbcc_classguid = classGuid;
             ptr = Marshal.AllocHGlobal(Marshal.SizeOf(str));
             Marshal.StructureToPtr(str, ptr, true);
-            return PInvoke.RegisterDeviceNotification(new HANDLE(handle), ptr.ToPointer(), REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_WINDOW_HANDLE);
+            return PInvoke.RegisterDeviceNotification(new HANDLE(handle),
+                ptr.ToPointer(),
+                REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_WINDOW_HANDLE | REGISTER_NOTIFICATION_FLAGS.DEVICE_NOTIFY_ALL_INTERFACE_CLASSES);
         }
         finally
         {
@@ -348,5 +376,17 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
     private unsafe HPOWERNOTIFY RegisterPowerNotification(Guid guid)
     {
         return PInvoke.RegisterPowerSettingNotification(new HANDLE(Handle), &guid, 0);
+    }
+
+    private static string? ConvertDeviceNameToDeviceInstanceId(string name)
+    {
+        var parts = name.Split('#');
+        if (parts.Length < 3)
+            return null;
+
+        var part1 = parts[0].TrimStart('\\', '?');
+        var part2 = parts[1].Replace('#', '\\');
+        var part3 = parts[2];
+        return $@"{part1}\{part2}\{part3}".ToUpperInvariant();
     }
 }

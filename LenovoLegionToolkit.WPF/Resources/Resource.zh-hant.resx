@@ -2115,4 +2115,10 @@
   <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
 	  <value>當按下其它按鍵後中斷</value>
   </data>
+  <data name="Hide" xml:space="preserve">
+	  <value>隱藏</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+	  <value>隱藏全部</value>
+  </data>
 </root>

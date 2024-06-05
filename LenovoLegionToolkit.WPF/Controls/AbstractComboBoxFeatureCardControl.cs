@@ -51,8 +51,6 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         set => _cardHeaderControl.Warning = value;
     }
 
-    protected virtual TimeSpan AdditionalStateChangeDelay => TimeSpan.Zero;
-
     protected AbstractComboBoxFeatureCardControl() => InitializeComponent();
 
     private void InitializeComponent()
@@ -71,7 +69,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
 
     private async void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await OnStateChange(_comboBox, Feature, e.GetNewValue<T>(), e.GetOldValue<T>());
+        await OnStateChangeAsync(_comboBox, Feature, e.GetNewValue<T>(), e.GetOldValue<T>());
     }
 
     protected bool TryGetSelectedItem(out T value) => _comboBox.TryGetSelectedItem(out value);
@@ -105,7 +103,7 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
     }
 
-    protected virtual async Task OnStateChange(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
+    protected virtual async Task OnStateChangeAsync(ComboBox comboBox, IFeature<T> feature, T? newValue, T? oldValue)
     {
         var exceptionOccurred = false;
 
@@ -140,8 +138,9 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
         }
         finally
         {
-            if (AdditionalStateChangeDelay > TimeSpan.Zero)
-                await Task.Delay(AdditionalStateChangeDelay);
+            var delay = AdditionalStateChangeDelay(oldValue, newValue);
+            if (delay > TimeSpan.Zero)
+                await Task.Delay(delay);
 
             _comboBox.IsEnabled = true;
         }
@@ -151,4 +150,6 @@ public abstract class AbstractComboBoxFeatureCardControl<T> : AbstractRefreshing
     }
 
     protected virtual void OnStateChangeException(Exception exception) { }
+
+    protected virtual TimeSpan AdditionalStateChangeDelay(T? oldValue, T? newValue) => TimeSpan.Zero;
 }

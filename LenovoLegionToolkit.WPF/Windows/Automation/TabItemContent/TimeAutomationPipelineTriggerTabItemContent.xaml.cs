@@ -35,7 +35,7 @@ public partial class TimeAutomationPipelineTriggerTabItemContent : IAutomationPi
             checkBox.Content = Resource.Culture.DateTimeFormat.GetDayName((DayOfWeek)checkBox.Tag);
     }
 
-    private void TimeTabItem_Initialized(object? sender, EventArgs e)
+    private void TimeAutomationPipelineTriggerTabItemContent_Initialized(object? sender, EventArgs e)
     {
         _sunriseRadioButton.IsChecked = _isSunrise;
         _sunsetRadioButton.IsChecked = _isSunset;

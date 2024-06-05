@@ -83,16 +83,50 @@ public readonly struct DiscreteCapability(CapabilityID id, int value)
     public int Value { get; } = value;
 }
 
-public readonly struct DisplayAdvancedColorInfo(
-    bool advancedColorSupported,
-    bool advancedColorEnabled,
-    bool wideColorEnforced,
-    bool advancedColorForceDisabled)
+public readonly struct DisplayAdvancedColorInfo(bool advancedColorSupported, bool advancedColorEnabled, bool wideColorEnforced, bool advancedColorForceDisabled)
 {
     public bool AdvancedColorSupported { get; } = advancedColorSupported;
     public bool AdvancedColorEnabled { get; } = advancedColorEnabled;
     public bool WideColorEnforced { get; } = wideColorEnforced;
     public bool AdvancedColorForceDisabled { get; } = advancedColorForceDisabled;
+}
+
+public struct Device(
+    string name,
+    string description,
+    string busReportedDeviceDescription,
+    string deviceInstanceId,
+    Guid classGuid,
+    string className,
+    bool isRemovable,
+    bool isDisconnected)
+{
+    public string Name { get; } = name;
+    public string Description { get; } = description;
+    public string BusReportedDeviceDescription { get; } = busReportedDeviceDescription;
+    public string DeviceInstanceId { get; } = deviceInstanceId;
+    public Guid ClassGuid { get; } = classGuid;
+    public string ClassName { get; } = className;
+    public bool IsRemovable { get; } = isRemovable;
+    public bool IsDisconnected { get; } = isDisconnected;
+
+    private string? _index;
+
+    public string Index
+    {
+        get
+        {
+            _index ??= new StringBuilder()
+                .Append(ClassName)
+                .Append(ClassGuid)
+                .Append(BusReportedDeviceDescription)
+                .Append(Description)
+                .Append(Name)
+                .Append(DeviceInstanceId)
+                .ToString();
+            return _index;
+        }
+    }
 }
 
 public readonly struct DriverInfo(string deviceId, string hardwareId, Version? version, DateTime? date)

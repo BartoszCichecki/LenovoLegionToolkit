@@ -41,7 +41,7 @@
         </custom:CardControl>
         <custom:CardControl
             x:Name="_interruptOnOtherKeyCard"
-            Margin="0,0,0,32"
+            Margin="0,0,0,16"
             Icon="ArrowStepInRight24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_InterruptOnOtherKey_Title}" />
@@ -51,6 +51,15 @@
                 Margin="0,0,0,8"
                 AutomationProperties.Name="{x:Static resources:Resource.MacroSequenceControl_IgnoreDelays_Title}"
                 Click="InterruptOnOtherKeyToggle_Click" />
+        </custom:CardControl>
+        <custom:CardControl Margin="0,0,0,16" Icon="Settings24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.MacroSequenceControl_RecordingOptions}" />
+            </custom:CardControl.Header>
+            <ComboBox
+                x:Name="_settingsComboBox"
+                MinWidth="150"
+                AutomationProperties.Name="{x:Static resources:Resource.MacroSequenceControl_RecordingOptions}" />
         </custom:CardControl>
 
         <StackPanel
@@ -68,15 +77,10 @@
             <wpfui:Button
                 x:Name="_recordButton"
                 MinWidth="150"
+                Margin="0,0,4,0"
                 Appearance="Primary"
                 Click="RecordButton_Click"
                 Content="{x:Static resources:Resource.MacroSequenceControl_Record}" />
-            <wpfui:Button
-                x:Name="_stopRecordingButton"
-                MinWidth="150"
-                Appearance="Secondary"
-                Click="StopRecordingButton_Click"
-                Content="{x:Static resources:Resource.MacroSequenceControl_StopRecording}" />
         </StackPanel>
 
         <StackPanel

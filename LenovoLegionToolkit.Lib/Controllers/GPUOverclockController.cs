@@ -34,7 +34,7 @@ public class GPUOverclockController
         _nativeWindowsMessageListener.Changed += NativeWindowsMessageListenerOnChanged;
     }
 
-    public static int GetMaxCoreDeltaMhz() => 250;
+    public static int GetMaxCoreDeltaMhz() => 500;
 
     public static int GetMaxMemoryDeltaMhz()
     {
@@ -210,8 +210,8 @@ public class GPUOverclockController
 
     private static int GetMaxMemoryDeltaMhz(PhysicalGPU? gpu) => gpu?.MemoryInformation.RAMMaker switch
     {
-        GPUMemoryMaker.Samsung => 1000,
-        _ => 500
+        GPUMemoryMaker.Samsung => 1500,
+        _ => 750
     };
 
     private static void SetOverclockInfo(PhysicalGPU gpu, GPUOverclockInfo info)

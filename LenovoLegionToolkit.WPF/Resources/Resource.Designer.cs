@@ -1400,6 +1400,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Deselect all.
+        /// </summary>
+        public static string DeselectAll {
+            get {
+                return ResourceManager.GetString("DeselectAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show connected devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show removable devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show selected devices only.
+        /// </summary>
+        public static string DeviceAutomationPipelineTriggerTabItemContent_OnlySelected {
+            get {
+                return ResourceManager.GetString("DeviceAutomationPipelineTriggerTabItemContent_OnlySelected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BIOS version.
         /// </summary>
         public static string DeviceInformationWindow_BiosVersion_Title {
@@ -1504,6 +1540,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string DeviceInformationWindow_WarrantyStartDate_Title {
             get {
                 return ResourceManager.GetString("DeviceInformationWindow_WarrantyStartDate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Devices.
+        /// </summary>
+        public static string DevicePipelineTriggerTabItemContent_Devices {
+            get {
+                return ResourceManager.GetString("DevicePipelineTriggerTabItemContent_Devices", resourceCulture);
             }
         }
         
@@ -2795,6 +2840,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recording will start in 3 seconds....
+        /// </summary>
+        public static string MacroRecordingWindow_Preparing_Title {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Preparing_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press ESC to stop..
+        /// </summary>
+        public static string MacroRecordingWindow_Recording_Message {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Recording_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recording....
+        /// </summary>
+        public static string MacroRecordingWindow_Recording_Title {
+            get {
+                return ResourceManager.GetString("MacroRecordingWindow_Recording_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Don&apos;t repeat.
         /// </summary>
         public static string MacroSequenceControl_DontRepeat {
@@ -2822,11 +2894,47 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Keyboard only.
+        /// </summary>
+        public static string MacroSequenceControl_Keyboard {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_Keyboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keyboard keys and mouse buttons.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouse {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All inputs.
+        /// </summary>
+        public static string MacroSequenceControl_KeyboardMouseMovement {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_KeyboardMouseMovement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Record.
         /// </summary>
         public static string MacroSequenceControl_Record {
             get {
                 return ResourceManager.GetString("MacroSequenceControl_Record", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recording options.
+        /// </summary>
+        public static string MacroSequenceControl_RecordingOptions {
+            get {
+                return ResourceManager.GetString("MacroSequenceControl_RecordingOptions", resourceCulture);
             }
         }
         
@@ -4457,6 +4565,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string Saving {
             get {
                 return ResourceManager.GetString("Saving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select all.
+        /// </summary>
+        public static string SelectAll {
+            get {
+                return ResourceManager.GetString("SelectAll", resourceCulture);
             }
         }
         

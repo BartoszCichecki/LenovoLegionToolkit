@@ -43,7 +43,7 @@ public class AutomationProcessor(
     {
         using (await _ioLock.LockAsync().ConfigureAwait(false))
         {
-            displayConfigurationListener.Changed += DisplayConfigurationListener_Changed; ;
+            displayConfigurationListener.Changed += DisplayConfigurationListener_Changed;
             nativeWindowsMessageListener.Changed += NativeWindowsMessageListener_Changed;
             powerStateListener.Changed += PowerStateListener_Changed;
             powerModeListener.Changed += PowerModeListener_Changed;
@@ -237,7 +237,7 @@ public class AutomationProcessor(
 
     private async void NativeWindowsMessageListener_Changed(object? sender, NativeWindowsMessageListener.ChangedEventArgs args)
     {
-        var e = new NativeWindowsMessageEvent(args.Message);
+        var e = new NativeWindowsMessageEvent(args.Message, args.Data);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 

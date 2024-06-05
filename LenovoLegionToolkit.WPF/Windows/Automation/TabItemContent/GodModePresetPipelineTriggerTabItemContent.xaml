@@ -6,7 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Initialized="GodModePresetPipelineItem_Initialized"
+    Initialized="GodModePresetPipelineTriggerTabItemContent_Initialized"
     mc:Ignorable="d">
     <ScrollViewer>
         <StackPanel x:Name="_content" Margin="16" />
