@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO.Pipes;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using ProtoBuf;
@@ -11,7 +13,7 @@ public class CmdLineIPCServer
 {
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private readonly NamedPipeServerStream _pipe = new("LenovoLegionToolkit-IPC-0", PipeDirection.InOut);
+    private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 4096, 4096, CreatePipeSecurity());
 
     private bool _isRunning;
     private CmdLineQuickActionRunState _state;
@@ -71,6 +73,14 @@ public class CmdLineIPCServer
     {
         _isRunning = false;
         return Task.CompletedTask;
+    }
+
+    private static PipeSecurity CreatePipeSecurity()
+    {
+        var pipeSecurity = new PipeSecurity();
+        var sid = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
+        pipeSecurity.SetAccessRule(new PipeAccessRule(sid, PipeAccessRights.ReadWrite, AccessControlType.Allow));
+        return pipeSecurity;
     }
 
     private async Task RunQuickActionAsync(string quickActionName)
