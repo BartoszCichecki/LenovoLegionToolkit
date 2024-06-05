@@ -68,5 +68,50 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
                 return ResourceManager.GetString("Error_IllegalCommandLineArgument_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Action not found..
+        /// </summary>
+        internal static string QuickActionRun_Error_ActionNotFound_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_ActionNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run Quick Action failed due to following reason: {0}.
+        /// </summary>
+        internal static string QuickActionRun_Error_ActionRunFailed_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_ActionRunFailed_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LLT host failed to deserialize request..
+        /// </summary>
+        internal static string QuickActionRun_Error_DeserializeFailed_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_DeserializeFailed_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cannot deserialize LLT host&apos;s response..
+        /// </summary>
+        internal static string QuickActionRun_Error_Undefined_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_Undefined_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run Quick Action successfully..
+        /// </summary>
+        internal static string QuickActionRun_Ok_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Ok_Text", resourceCulture);
+            }
+        }
     }
 }

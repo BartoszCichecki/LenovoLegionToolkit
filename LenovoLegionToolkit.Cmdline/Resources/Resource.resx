@@ -120,4 +120,19 @@
   <data name="Error_IllegalCommandLineArgument_Text" xml:space="preserve">
     <value>Illegal command-line arguments. Use `--help` for help messages.</value>
   </data>
+  <data name="QuickActionRun_Error_ActionNotFound_Text" xml:space="preserve">
+    <value>Quick Action not found.</value>
+  </data>
+  <data name="QuickActionRun_Error_ActionRunFailed_Text" xml:space="preserve">
+    <value>Run Quick Action failed due to following reason: {0}</value>
+  </data>
+  <data name="QuickActionRun_Error_DeserializeFailed_Text" xml:space="preserve">
+    <value>LLT host failed to deserialize request.</value>
+  </data>
+  <data name="QuickActionRun_Error_Undefined_Text" xml:space="preserve">
+    <value>Cannot deserialize LLT host's response.</value>
+  </data>
+  <data name="QuickActionRun_Ok_Text" xml:space="preserve">
+    <value>Run Quick Action successfully.</value>
+  </data>
 </root>
