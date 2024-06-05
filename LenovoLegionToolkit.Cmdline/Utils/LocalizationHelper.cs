@@ -1,12 +1,6 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Globalization;
 using LenovoLegionToolkit.Cmdline.Resources;
+using LenovoLegionToolkit.Lib.Utils;
 
 namespace LenovoLegionToolkit.Cmdline.Utils;
 

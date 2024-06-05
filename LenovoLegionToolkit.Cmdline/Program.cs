@@ -11,7 +11,13 @@ public class Program
     {
         var flags = new Flags(args);
 
-        LocalizationHelper.SetLanguageAsync().Wait();
+        await LocalizationHelper.SetLanguageAsync();
+
+        if (flags.ShowHelp)
+        {
+            ShowHelpMessage();
+            return 0;
+        }
 
         if (flags.QuickActionRunName is not null)
         {
@@ -24,6 +30,15 @@ public class Program
             Console.WriteLine(Resource.Error_IllegalCommandLineArgument_Text);
         }
         return 1;
+    }
+
+    private static void ShowHelpMessage()
+    {
+        Console.WriteLine($"llt.exe - {Resource.HelpMessage_ExeDescription}\n");
+        Console.WriteLine($"{Resource.HelpMessage_AvailableArguments}");
+        Console.WriteLine($" * --help\t{Resource.HelpMessage_Argument_Help}");
+        Console.WriteLine($" * --silent\t{Resource.HelpMessage_Argument_Silent}");
+        Console.WriteLine($" * --run\t{Resource.HelpMessage_Argument_Run}\n");
     }
 
     private static async Task ExecuteQuickActionRunAsync(string quickAcionName, bool silent)

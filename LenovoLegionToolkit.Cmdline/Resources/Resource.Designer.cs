@@ -70,6 +70,51 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show this help message..
+        /// </summary>
+        public static string HelpMessage_Argument_Help {
+            get {
+                return ResourceManager.GetString("HelpMessage_Argument_Help", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Execute Quick Actions created in LLT..
+        /// </summary>
+        public static string HelpMessage_Argument_Run {
+            get {
+                return ResourceManager.GetString("HelpMessage_Argument_Run", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run silently, no output will be write to console..
+        /// </summary>
+        public static string HelpMessage_Argument_Silent {
+            get {
+                return ResourceManager.GetString("HelpMessage_Argument_Silent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available arguments:.
+        /// </summary>
+        public static string HelpMessage_AvailableArguments {
+            get {
+                return ResourceManager.GetString("HelpMessage_AvailableArguments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simple command-line interface for calling LLT functions..
+        /// </summary>
+        public static string HelpMessage_ExeDescription {
+            get {
+                return ResourceManager.GetString("HelpMessage_ExeDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quick Action not found..
         /// </summary>
         public static string QuickActionRun_Error_ActionNotFound_Text {

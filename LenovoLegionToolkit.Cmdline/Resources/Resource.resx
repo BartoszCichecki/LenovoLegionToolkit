@@ -141,4 +141,19 @@
   <data name="QuickActionRun_Error_PipeConnectFailed_Text" xml:space="preserve">
     <value>Failed to connect to LLT host due to the following reason: {0}</value>
   </data>
+  <data name="HelpMessage_Argument_Help" xml:space="preserve">
+    <value>Show this help message.</value>
+  </data>
+  <data name="HelpMessage_Argument_Run" xml:space="preserve">
+    <value>Execute Quick Actions created in LLT.</value>
+  </data>
+  <data name="HelpMessage_Argument_Silent" xml:space="preserve">
+    <value>Run silently, no output will be write to console.</value>
+  </data>
+  <data name="HelpMessage_AvailableArguments" xml:space="preserve">
+    <value>Available arguments:</value>
+  </data>
+  <data name="HelpMessage_ExeDescription" xml:space="preserve">
+    <value>Simple command-line interface for calling LLT functions.</value>
+  </data>
 </root>

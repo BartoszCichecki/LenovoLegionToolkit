@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LenovoLegionToolkit.Cmdline;
+﻿namespace LenovoLegionToolkit.Cmdline;
 
 public class Flags
 {
+    public bool ShowHelp { get; }
     public bool Silent { get; }
     public string? QuickActionRunName { get; }
 
@@ -15,6 +10,7 @@ public class Flags
     {
         var args = startupArgs.ToArray();
 
+        ShowHelp = BoolValue(args, "--help");
         Silent = BoolValue(args, "--silent");
         QuickActionRunName = StringValue(args, "--run");
     }
