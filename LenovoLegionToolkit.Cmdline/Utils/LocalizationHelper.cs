@@ -70,5 +70,14 @@ public class LocalizationHelper
         return cultureInfo;
     }
 
-    private static void SetLanguageInternal(CultureInfo cultureInfo) => Resource.Culture = cultureInfo;
+    private static void SetLanguageInternal(CultureInfo cultureInfo)
+    {
+        Thread.CurrentThread.CurrentCulture = new CultureInfo("en");
+        CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("en");
+
+        Thread.CurrentThread.CurrentUICulture = cultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
+
+        Resource.Culture = cultureInfo;
+    }
 }
