@@ -33,5 +33,7 @@ public enum CmdLineQuickActionRunState
     Ok,
     ActionNotFound,
     ActionRunFailed,
-    DeserializeFailed
+    DeserializeFailed,
+    ServerNotRunning,
+    PipeConnectFailed
 }

@@ -45,6 +45,14 @@ public class Program
             {
                 Console.WriteLine(Resource.QuickActionRun_Error_DeserializeFailed_Text);
             }
+            else if (client.State == CmdLineQuickActionRunState.ServerNotRunning)
+            {
+                Console.WriteLine(Resource.QuickActionRun_Error_ServerNotRunning_Text);
+            }
+            else if (client.State == CmdLineQuickActionRunState.PipeConnectFailed)
+            {
+                Console.WriteLine(Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty);
+            }    
             else if (client.State == CmdLineQuickActionRunState.Ok)
             {
                 Console.WriteLine(Resource.QuickActionRun_Ok_Text);

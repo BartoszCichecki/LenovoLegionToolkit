@@ -22,7 +22,7 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LenovoLegionToolkit.Cmdline.Resources.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Illegal command-line arguments. Use `--help` for help messages..
         /// </summary>
-        internal static string Error_IllegalCommandLineArgument_Text {
+        public static string Error_IllegalCommandLineArgument_Text {
             get {
                 return ResourceManager.GetString("Error_IllegalCommandLineArgument_Text", resourceCulture);
             }
@@ -72,16 +72,16 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Quick Action not found..
         /// </summary>
-        internal static string QuickActionRun_Error_ActionNotFound_Text {
+        public static string QuickActionRun_Error_ActionNotFound_Text {
             get {
                 return ResourceManager.GetString("QuickActionRun_Error_ActionNotFound_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Run Quick Action failed due to following reason: {0}.
+        ///   Looks up a localized string similar to Failed to run Quick Action due to the following reason: {0}.
         /// </summary>
-        internal static string QuickActionRun_Error_ActionRunFailed_Text {
+        public static string QuickActionRun_Error_ActionRunFailed_Text {
             get {
                 return ResourceManager.GetString("QuickActionRun_Error_ActionRunFailed_Text", resourceCulture);
             }
@@ -90,16 +90,34 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         /// <summary>
         ///   Looks up a localized string similar to LLT host failed to deserialize request..
         /// </summary>
-        internal static string QuickActionRun_Error_DeserializeFailed_Text {
+        public static string QuickActionRun_Error_DeserializeFailed_Text {
             get {
                 return ResourceManager.GetString("QuickActionRun_Error_DeserializeFailed_Text", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to connect to LLT host due to the following reason: {0}.
+        /// </summary>
+        public static string QuickActionRun_Error_PipeConnectFailed_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_PipeConnectFailed_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LLT host hasn&apos;t been started. Run LLT first and then try executing Quick Actions..
+        /// </summary>
+        public static string QuickActionRun_Error_ServerNotRunning_Text {
+            get {
+                return ResourceManager.GetString("QuickActionRun_Error_ServerNotRunning_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot deserialize LLT host&apos;s response..
         /// </summary>
-        internal static string QuickActionRun_Error_Undefined_Text {
+        public static string QuickActionRun_Error_Undefined_Text {
             get {
                 return ResourceManager.GetString("QuickActionRun_Error_Undefined_Text", resourceCulture);
             }
@@ -108,7 +126,7 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Run Quick Action successfully..
         /// </summary>
-        internal static string QuickActionRun_Ok_Text {
+        public static string QuickActionRun_Ok_Text {
             get {
                 return ResourceManager.GetString("QuickActionRun_Ok_Text", resourceCulture);
             }

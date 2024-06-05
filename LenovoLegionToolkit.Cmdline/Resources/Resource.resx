@@ -124,7 +124,7 @@
     <value>Quick Action not found.</value>
   </data>
   <data name="QuickActionRun_Error_ActionRunFailed_Text" xml:space="preserve">
-    <value>Run Quick Action failed due to following reason: {0}</value>
+    <value>Failed to run Quick Action due to the following reason: {0}</value>
   </data>
   <data name="QuickActionRun_Error_DeserializeFailed_Text" xml:space="preserve">
     <value>LLT host failed to deserialize request.</value>
@@ -134,5 +134,11 @@
   </data>
   <data name="QuickActionRun_Ok_Text" xml:space="preserve">
     <value>Run Quick Action successfully.</value>
+  </data>
+  <data name="QuickActionRun_Error_ServerNotRunning_Text" xml:space="preserve">
+    <value>LLT host hasn't been started. Run LLT first and then try executing Quick Actions.</value>
+  </data>
+  <data name="QuickActionRun_Error_PipeConnectFailed_Text" xml:space="preserve">
+    <value>Failed to connect to LLT host due to the following reason: {0}</value>
   </data>
 </root>

@@ -25,7 +25,7 @@
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\Resource.resx">
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-	    <Generator>ResXFileCodeGenerator</Generator>
+	    <Generator>PublicResXFileCodeGenerator</Generator>
 	  </EmbeddedResource>
 	</ItemGroup>
 

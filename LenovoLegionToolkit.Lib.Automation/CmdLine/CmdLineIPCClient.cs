@@ -21,6 +21,7 @@ public class CmdLineIPCClient
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"IPC server hasn't been started.");
 
+            State = CmdLineQuickActionRunState.ServerNotRunning;
             return;
         }
 
@@ -33,6 +34,8 @@ public class CmdLineIPCClient
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Pipe connect failed.", ex);
 
+            State = CmdLineQuickActionRunState.PipeConnectFailed;
+            Errmsg = ex.Message;
             return;
         }
 
