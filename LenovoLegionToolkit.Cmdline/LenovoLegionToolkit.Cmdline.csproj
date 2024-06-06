@@ -1,19 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net8.0-windows</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
         <Nullable>enable</Nullable>
         <AssemblyName>llt</AssemblyName>
         <Platforms>x64</Platforms>
+        <FileVersion>0.0.1</FileVersion>
+        <Version>0.0.1</Version>
+        <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
-
 	<ItemGroup>
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
 	</ItemGroup>
-
 	<ItemGroup>
 	  <Compile Update="Resources\Resource.Designer.cs">
 	    <DependentUpon>Resource.resx</DependentUpon>
@@ -21,12 +21,10 @@
 	    <AutoGen>True</AutoGen>
 	  </Compile>
 	</ItemGroup>
-
 	<ItemGroup>
 	  <EmbeddedResource Update="Resources\Resource.resx">
 	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	  </EmbeddedResource>
 	</ItemGroup>
-
 </Project>
