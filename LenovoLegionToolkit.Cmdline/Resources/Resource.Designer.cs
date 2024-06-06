@@ -115,6 +115,15 @@ namespace LenovoLegionToolkit.Cmdline.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Version.
+        /// </summary>
+        public static string HelpMessage_Version {
+            get {
+                return ResourceManager.GetString("HelpMessage_Version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quick Action not found..
         /// </summary>
         public static string QuickActionRun_Error_ActionNotFound_Text {

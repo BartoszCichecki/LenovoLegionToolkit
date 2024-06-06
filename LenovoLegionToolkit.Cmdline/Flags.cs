@@ -1,4 +1,7 @@
-﻿namespace LenovoLegionToolkit.Cmdline;
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace LenovoLegionToolkit.Cmdline;
 
 public class Flags
 {
@@ -6,13 +9,22 @@ public class Flags
     public bool Silent { get; }
     public string? QuickActionRunName { get; }
 
+    public bool Error { get; }
+
     public Flags(IEnumerable<string> startupArgs)
     {
         var args = startupArgs.ToArray();
-
-        ShowHelp = BoolValue(args, "--help");
-        Silent = BoolValue(args, "--silent");
-        QuickActionRunName = StringValue(args, "--run");
+        try
+        {
+            ShowHelp = BoolValue(args, "--help");
+            Silent = BoolValue(args, "--silent");
+            QuickActionRunName = StringValue(args, "--run");
+        }
+        catch
+        {
+            Error = true;
+        }
+        
     }
 
     private static bool BoolValue(IEnumerable<string> values, string key) => values.Contains(key);

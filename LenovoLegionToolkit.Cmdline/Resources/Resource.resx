@@ -156,4 +156,7 @@
   <data name="HelpMessage_ExeDescription" xml:space="preserve">
     <value>Simple command-line interface for calling LLT functions.</value>
   </data>
+  <data name="HelpMessage_Version" xml:space="preserve">
+    <value>Version</value>
+  </data>
 </root>

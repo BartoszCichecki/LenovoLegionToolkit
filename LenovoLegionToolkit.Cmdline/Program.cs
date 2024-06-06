@@ -1,7 +1,11 @@
-﻿using LenovoLegionToolkit.Cmdline.Resources;
+﻿using System;
+using System.Reflection;
+using System.Threading.Tasks;
+using LenovoLegionToolkit.Cmdline.Resources;
 using LenovoLegionToolkit.Cmdline.Utils;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.CmdLine;
+using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.Cmdline;
 
@@ -10,6 +14,11 @@ public class Program
     public static async Task<int> Main(string[] args)
     {
         var flags = new Flags(args);
+        if (flags.Error)
+        {
+            Console.WriteLine(Resource.Error_IllegalCommandLineArgument_Text);
+            return 1;
+        }
 
         await LocalizationHelper.SetLanguageAsync();
 
@@ -34,11 +43,29 @@ public class Program
 
     private static void ShowHelpMessage()
     {
-        Console.WriteLine($"llt.exe - {Resource.HelpMessage_ExeDescription}\n");
+        Console.WriteLine($"llt.exe - {Resource.HelpMessage_ExeDescription}");
+        Console.WriteLine($"{Resource.HelpMessage_Version} {GetVersion()}\n");
         Console.WriteLine($"{Resource.HelpMessage_AvailableArguments}");
-        Console.WriteLine($" * --help\t{Resource.HelpMessage_Argument_Help}");
-        Console.WriteLine($" * --silent\t{Resource.HelpMessage_Argument_Silent}");
-        Console.WriteLine($" * --run\t{Resource.HelpMessage_Argument_Run}\n");
+        Console.WriteLine($" * --help\t\t{Resource.HelpMessage_Argument_Help}");
+        Console.WriteLine($" * --silent\t\t{Resource.HelpMessage_Argument_Silent}");
+        Console.WriteLine($" * --run={{Quick Action}}\t{Resource.HelpMessage_Argument_Run}\n");
+    }
+
+    private static string GetVersion()
+    {
+        var version = Assembly.GetEntryAssembly()?.GetName().Version;
+        if (version is null)
+        {
+            return string.Empty;
+        }
+        else if (version.IsBeta())
+        {
+            return "BETA";
+        }
+        else
+        {
+            return version.ToString(3);
+        }
     }
 
     private static async Task ExecuteQuickActionRunAsync(string quickAcionName, bool silent)
