@@ -372,6 +372,7 @@ ShutdownBlockReasonUninstallingApp=正在解除安裝 %1。
 
 NameAndVersion=%1 版本 %2
 AdditionalIcons=附加圖示:
+AddToUserPATHVariable=新增到用戶 PATH 變數
 CreateDesktopIcon=建立桌面圖示(&D)
 CreateQuickLaunchIcon=建立快速啟動圖示(&Q)
 ProgramOnTheWeb=%1 的網站

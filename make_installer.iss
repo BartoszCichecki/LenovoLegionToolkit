@@ -1,4 +1,5 @@
 #include "InnoDependencies\install_dotnet.iss"
+#include "InnoDependencies\set_sysenv.iss"
 
 #define MyAppName "Lenovo Legion Toolkit"
 #define MyAppNameCompact "LenovoLegionToolkit"
@@ -19,6 +20,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
+ChangesEnvironment=true
 DefaultDirName={userpf}\{#MyAppNameCompact}
 DisableProgramGroupPage=yes
 LicenseFile=LICENSE
@@ -36,6 +38,18 @@ function InitializeSetup: Boolean;
 begin
   InstallDotNet6DesktopRuntime;
   Result := True;
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+    if (CurStep = ssPostInstall) and IsTaskSelected('envPath')
+    then EnvAddPath(ExpandConstant('{app}'));
+end;
+
+procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
+begin
+    if CurUninstallStep = usPostUninstall
+    then EnvRemovePath(ExpandConstant('{app}'));
 end;
 
 [Languages]
@@ -64,6 +78,7 @@ Name: "vi";      MessagesFile: "InnoDependencies\Vietnamese.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+Name: "envPath"; Description: "{cm:AddToUserPATHVariable}"
 
 [Files]
 Source: "build\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

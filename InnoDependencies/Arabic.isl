@@ -373,6 +373,7 @@ ShutdownBlockReasonUninstallingApp=جاري تثبيت %1.
 
 NameAndVersion=%1 الإصدار %2
 AdditionalIcons=اختصارات إضافية:
+AddToUserPATHVariable=إضافة إلى متغير مسار المستخدم
 CreateDesktopIcon=إنشاء اختصار في &سطح المكتب
 CreateQuickLaunchIcon=إنشاء اختصار "الت&شغيل السريع"
 ProgramOnTheWeb=%1 على الأنترنت
