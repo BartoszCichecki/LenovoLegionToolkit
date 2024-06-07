@@ -325,7 +325,7 @@ ShutdownBlockReasonUninstallingApp=Dezinstalez %1.
 
 NameAndVersion=%1 versiunea %2
 AdditionalIcons=Icoane suplimentare:
-AddToUserPATHVariable=Ad?uga?i la variabila PATH a utilizatorului
+AddToUserPATHVariable=Adãugati la variabila PATH a utilizatorului
 CreateDesktopIcon=Creeazã o icoanã pe &Birou ("Desktop")
 CreateQuickLaunchIcon=Creeazã o icoanã în Bara de &Lansare Rapidã ("Quick Launch")
 ProgramOnTheWeb=%1 pe internet
