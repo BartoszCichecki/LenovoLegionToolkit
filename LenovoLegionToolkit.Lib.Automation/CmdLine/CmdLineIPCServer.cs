@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.IO.Pipes;
 using System.Linq;
 using System.Security.AccessControl;
@@ -15,20 +16,21 @@ public class CmdLineIPCServer
 
     private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 0, 0, CreatePipeSecurity());
 
-    private bool _isRunning;
+    public bool IsRunning { get; private set; }
+
     private CmdLineQuickActionRunState _state;
     private string? _errmsg;
 
     public async Task StartAsync()
     {
-        _isRunning = true;
+        IsRunning = true;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Starting IPC server...");
 
         await Task.Run(async () =>
         {
-            while (_isRunning)
+            while (IsRunning)
             {
                 _pipe.WaitForConnection();
 
@@ -71,9 +73,11 @@ public class CmdLineIPCServer
 
     public Task StopAsync()
     {
-        _isRunning = false;
+        IsRunning = false;
         return Task.CompletedTask;
     }
+
+    public static bool CheckPipeExists() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Length == 1;
 
     private static PipeSecurity CreatePipeSecurity()
     {

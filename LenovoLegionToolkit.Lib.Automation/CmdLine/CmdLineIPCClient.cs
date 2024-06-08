@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.IO.Pipes;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
@@ -16,7 +15,7 @@ public class CmdLineIPCClient
 
     public async Task RunQuickActionAsync(string quickActionName)
     {
-        if (!CheckIsIPCServerStarted())
+        if (!CmdLineIPCServer.CheckPipeExists())
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"IPC server hasn't been started.");
@@ -93,8 +92,6 @@ public class CmdLineIPCClient
         }
     }
 
-    private bool CheckIsIPCServerStarted() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Length == 1;
-
     private async Task ConnectToIPCServerAsync()
     {
         while (true)
@@ -106,7 +103,7 @@ public class CmdLineIPCClient
             }
             catch (TimeoutException)
             {
-                if (!CheckIsIPCServerStarted())
+                if (!CmdLineIPCServer.CheckPipeExists())
                 {
                     throw new OperationCanceledException();
                 }

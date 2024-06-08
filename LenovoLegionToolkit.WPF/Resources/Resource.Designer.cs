@@ -2741,6 +2741,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Named pipe &quot;LenovoLegionToolkit-IPC-0&quot; has been blocked by other processes. Command-line interfaces are unavailable..
+        /// </summary>
+        public static string IPCPipeHasBeenBlocked_Message {
+            get {
+                return ResourceManager.GetString("IPCPipeHasBeenBlocked_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or its services are running..
         /// </summary>
         public static string Keyboard_VantageEnabledWarning_Message {

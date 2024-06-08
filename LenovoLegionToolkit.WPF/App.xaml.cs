@@ -47,6 +47,8 @@ public partial class App
     private Mutex? _singleInstanceMutex;
     private EventWaitHandle? _singleInstanceWaitHandle;
 
+    private bool _isIPCServerStarted;
+
     public new static App Current => (App)Application.Current;
 
     private async void Application_Startup(object sender, StartupEventArgs e)
@@ -141,10 +143,10 @@ public partial class App
         await InitHybridModeAsync();
         await InitAutomationProcessorAsync();
         InitMacroController();
+        InitIPCServer();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
-        _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
 
 #if !DEBUG
         Autorun.Validate();
@@ -241,7 +243,7 @@ public partial class App
 
         try
         {
-            if (IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
+            if (_isIPCServerStarted && IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
             {
                 await cmdLineIPCServer.StopAsync();
             }
@@ -574,5 +576,19 @@ public partial class App
     {
         var controller = IoCContainer.Resolve<MacroController>();
         controller.Start();
+    }
+
+    private void InitIPCServer()
+    {
+        if (CmdLineIPCServer.CheckPipeExists())
+        {
+            MessageBox.Show(Resource.IPCPipeHasBeenBlocked_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+            _isIPCServerStarted = false;
+        }
+        else
+        {
+            _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
+            _isIPCServerStarted = true;
+        }
     }
 }
