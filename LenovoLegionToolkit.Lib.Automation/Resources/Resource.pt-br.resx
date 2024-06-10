@@ -215,4 +215,10 @@
   <data name="MacroAutomationStepState_On" xml:space="preserve">
 	  <value>Ativado</value>
   </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Quando o dispositivo for desconectado</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Quando o dispositivo for conectado</value>
+  </data>
 </root>

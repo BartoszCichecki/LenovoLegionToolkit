@@ -221,4 +221,10 @@
   <data name="MacroAutomationStepState_On" xml:space="preserve">
 	  <value>Bật</value>
   </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Khi ngắt kết nối thiết bị</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Khi kết nối thiết bị</value>
+  </data>
 </root>

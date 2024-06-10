@@ -2125,4 +2125,43 @@ Requiere un reinicio.</value>
   <data name="HideAll" xml:space="preserve">
 	  <value>Ocultar todo(s)</value>
   </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+	  <value>Dispositivos</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+	  <value>Desmarcar todo(s)</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+	  <value>Seleccionar todo(s)</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>Sólo teclado</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>Teclas del teclado y botones del ratón</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>Todas las entradas</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+	  <value>Opciones de grabación</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+	  <value>La grabación comenzará en 3 segundos...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+	  <value>Grabando...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+	  <value>Pulse ESC para detener.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+	  <value>Mostrar sólo dispositivos seleccionados</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+	  <value>Mostrar sólo dispositivos extraíbles</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+	  <value>Mostrar sólo dispositivos conectados</value>
+  </data>
 </root>

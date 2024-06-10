@@ -2130,4 +2130,43 @@
   <data name="HideAll" xml:space="preserve">
 	  <value>隐藏全部</value>
   </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+	  <value>设备</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+	  <value>全不选</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+	  <value>全选</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>仅键盘</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>键盘和鼠标按键</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>所有输入</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+	  <value>录制选项</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+	  <value>录制将在三秒后开始…</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+	  <value>正在录制...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+	  <value>按 ESC 键停止录制。</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+	  <value>仅显示被选中的设备</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+	  <value>仅显示可移动设备</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+	  <value>仅显示被连接的设备</value>
+  </data>
 </root>

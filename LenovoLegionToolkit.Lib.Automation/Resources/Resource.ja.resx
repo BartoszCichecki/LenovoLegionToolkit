@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ACアタブタの接続時</value>
+    <value>ACアタブタが接続された時</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ACアダプタの未接続時</value>
+    <value>ACアダプタが切断された時</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>アプリの終了</value>
@@ -136,46 +136,46 @@
     <value>{0} 秒</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>低出力なACアダプタの接続時</value>
+    <value>低出力なACアダプタが接続された時</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>起動時</value>
+    <value>起動した時</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>電源モード変更時</value>
+    <value>電源モードが変更された時</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>アプリケーション起動時</value>
+    <value>アプリケーションが起動した時</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>アプリケーション終了時</value>
+    <value>アプリケーションが終了した時</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>指定時間</value>
+    <value>時間になったら</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>外部ディスプレイが接続されているとき</value>
+    <value>外部ディスプレイが接続された時</value>
   </data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>外部ディスプレイが接続されていないとき</value>
+    <value>外部ディスプレイが切断された時</value>
   </data>
   <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ディスプレイがオンの時</value>
+    <value>ディスプレイがオンになった時</value>
   </data>
   <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ディスプレイがオフの時</value>
+    <value>ディスプレイがオフになった時</value>
   </data>
   <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>蓋が開いている時</value>
+    <value>蓋が開いた時</value>
   </data>
   <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>蓋が閉じている時</value>
+    <value>蓋が閉じた時</value>
   </data>
   <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ゲーム終了時</value>
+    <value>ゲーム終了が終了した時</value>
   </data>
   <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>ゲーム起動時</value>
+    <value>ゲームが起動した時</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
     <value>ユーザーがアクティブになった時</value>
@@ -201,12 +201,30 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>WiFi 接続時</value>
+    <value>WiFiが接続された時</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>WiFi 未接続時</value>
+    <value>WiFiが切断された時</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>再開時</value>
+  </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>HDRがオフになった時</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>HDRがオンになった時</value>
+  </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>オフ</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>オン</value>
+  </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>デバイスが切断された時</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>デバイスが接続された時</value>
   </data>
 </root>

@@ -1379,6 +1379,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="AboutPage_Temp" xml:space="preserve">
     <value>Temp</value>
   </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
+    <value>一定なディスプレイの明るさ</value>
+  </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>オンにすると、変更するたびにすべてのWindows電源プランに同じ輝度レベルが適用されます。</value>
+  </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>バーション {0} の更新があります！</value>
   </data>
@@ -1475,6 +1481,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
     <value>電源が接続されているときにラップトップの電源を入れます。</value>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+    <value>センサー</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
     <value>長さ</value>
@@ -1580,8 +1589,14 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>更新</value>
   </data>
   <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
-    <value>感覚（分）</value>
+    <value>間隔（分）</value>
     <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>システムの再起動時に、バッテリーの「バッテリー駆動時間」をリセットします。</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>起動時に「バッテリー駆動時間」をリセットする</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
     <value>トレイに最小化</value>
