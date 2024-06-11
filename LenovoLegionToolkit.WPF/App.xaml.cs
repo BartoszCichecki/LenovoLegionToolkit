@@ -24,6 +24,7 @@ using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Macro;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -140,9 +141,9 @@ public partial class App
         await InitGpuOverclockControllerAsync();
         await InitHybridModeAsync();
         await InitAutomationProcessorAsync();
-        await InitIPCServerAsync();
         InitMacroController();
 
+        await InitIPCServerIfNeededAsync();
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
 
@@ -241,7 +242,7 @@ public partial class App
 
         try
         {
-            if (CmdLineIPCServer.IsRunning && IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
+            if (IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
             {
                 await cmdLineIPCServer.StopAsync();
             }
@@ -570,15 +571,21 @@ public partial class App
         }
     }
 
-    private static async Task InitIPCServerAsync()
+    private static async Task InitIPCServerIfNeededAsync()
     {
-        if (CmdLineIPCServer.CheckPipeExists())
+        if (IoCContainer.Resolve<IntegrationsSettings>().Store.CLI)
         {
-            MessageBox.Show(Resource.IPCPipeHasBeenBlocked_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
-        }
-        else
-        {
-            await IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
+            if (CmdLineIPCServer.CheckPipeExists())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Named pipe has been blocked, stop starting IPC server.");
+
+                MessageBox.Show(Resource.IPCPipeHasBeenBlocked_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
+                await IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
+            }
         }
     }
 

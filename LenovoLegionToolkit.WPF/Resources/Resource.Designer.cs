@@ -4776,6 +4776,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enable command line control function..
+        /// </summary>
+        public static string SettingsPage_CLI_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CLI_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Command line interface.
+        /// </summary>
+        public static string SettingsPage_CLI_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CLI_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legion Zone may have not been disabled correctly.
         /// </summary>
         public static string SettingsPage_DisableLegionZone_Error_Message {

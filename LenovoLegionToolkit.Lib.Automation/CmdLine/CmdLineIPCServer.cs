@@ -15,34 +15,47 @@ public class CmdLineIPCServer
 {
     private readonly AutomationProcessor _automationProcessor = IoCContainer.Resolve<AutomationProcessor>();
 
-    private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 0, 0, CreatePipeSecurity());
+    private NamedPipeServerStream? pipe;
 
     private CancellationTokenSource? cts;
 
-    public static bool IsRunning { get; private set; }
+    public bool IsRunning { get; private set; }
 
     private CmdLineQuickActionRunState _state;
     private string? _errmsg;
 
     public Task StartAsync()
     {
-        IsRunning = true;
+        if (IsRunning)
+            return Task.CompletedTask;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Starting IPC server...");
 
         cts = new();
+        try
+        {
+            pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 0, 0, CreatePipeSecurity());
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Create named pipe failed.", ex);
+
+            return Task.CompletedTask;
+        }
+        IsRunning = true;
 
         _ = Task.Run(async () =>
         {
             while (IsRunning)
             {
-                await _pipe.WaitForConnectionAsync(cts.Token);
+                await (pipe?.WaitForConnectionAsync(cts.Token) ?? Task.CompletedTask);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Connection received.");
 
-                var imsgpack = Serializer.DeserializeWithLengthPrefix<IPCMessagePack>(_pipe, PrefixStyle.Base128);
+                var imsgpack = Serializer.DeserializeWithLengthPrefix<IPCMessagePack>(pipe, PrefixStyle.Base128);
                 if (imsgpack is null)
                 {
                     if (Log.Instance.IsTraceEnabled)
@@ -52,7 +65,7 @@ public class CmdLineIPCServer
                     {
                         State = CmdLineQuickActionRunState.DeserializeFailed
                     };
-                    Serializer.SerializeWithLengthPrefix(_pipe, omsgpack, PrefixStyle.Base128);
+                    Serializer.SerializeWithLengthPrefix(pipe, omsgpack, PrefixStyle.Base128);
                 }
                 else
                 {
@@ -65,13 +78,13 @@ public class CmdLineIPCServer
                         State = _state,
                         Error = _errmsg
                     };
-                    Serializer.SerializeWithLengthPrefix(_pipe, omsgpack, PrefixStyle.Base128);
+                    Serializer.SerializeWithLengthPrefix(pipe, omsgpack, PrefixStyle.Base128);
                 }
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Disconnecting...");
 
-                _pipe.Disconnect();
+                pipe?.Disconnect();
             }
         });
         return Task.CompletedTask;
@@ -79,8 +92,15 @@ public class CmdLineIPCServer
 
     public Task StopAsync()
     {
+        if (!IsRunning)
+            return Task.CompletedTask;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Stopping...");
+
         IsRunning = false;
         cts?.Cancel();
+        pipe?.Dispose();
         return Task.CompletedTask;
     }
 
