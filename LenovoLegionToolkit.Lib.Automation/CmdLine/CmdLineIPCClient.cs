@@ -64,30 +64,26 @@ public class CmdLineIPCClient
             State = imsgpack.State;
             Errmsg = imsgpack.Error;
 
-            if (imsgpack.State == CmdLineQuickActionRunState.ActionRunFailed)
+            if (Log.Instance.IsTraceEnabled)
             {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Run Quick Action failed due to following reason: {imsgpack.Error ?? string.Empty}");
-            }
-            else if (imsgpack.State == CmdLineQuickActionRunState.ActionNotFound)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Quick Action not found.");
-            }
-            else if (imsgpack.State == CmdLineQuickActionRunState.DeserializeFailed)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Server failed to deserialize request.");
-            }
-            else if (imsgpack.State == CmdLineQuickActionRunState.Ok)
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Run Quick Action successfully.");
-            }
-            else
-            {
-                if (Log.Instance.IsTraceEnabled)
-                    Log.Instance.Trace($"Undefined response received");
+                switch (imsgpack.State)
+                {
+                    case CmdLineQuickActionRunState.ActionRunFailed:
+                        Log.Instance.Trace($"Run Quick Action failed due to following reason: {imsgpack.Error ?? string.Empty}");
+                        break;
+                    case CmdLineQuickActionRunState.ActionNotFound:
+                        Log.Instance.Trace($"Quick Action not found.");
+                        break;
+                    case CmdLineQuickActionRunState.DeserializeFailed:
+                        Log.Instance.Trace($"Server failed to deserialize request.");
+                        break;
+                    case CmdLineQuickActionRunState.Ok:
+                        Log.Instance.Trace($"Run Quick Action successfully.");
+                        break;
+                    default:
+                        Log.Instance.Trace($"Undefined response received");
+                        break;
+                }
             }
         }
     }

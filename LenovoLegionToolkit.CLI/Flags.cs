@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace LenovoLegionToolkit.Cmdline;
+namespace LenovoLegionToolkit.CLI;
 
 public class Flags
 {
@@ -18,7 +18,7 @@ public class Flags
         {
             ShowHelp = BoolValue(args, "--help");
             Silent = BoolValue(args, "--silent");
-            QuickActionRunName = StringValue(args, "--run");
+            QuickActionRunName = StringValue(args, "--quickAction");
         }
         catch
         {

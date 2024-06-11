@@ -7,7 +7,7 @@ using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.CmdLine;
 using LenovoLegionToolkit.Lib.Extensions;
 
-namespace LenovoLegionToolkit.Cmdline;
+namespace LenovoLegionToolkit.CLI;
 
 public class Program
 {
@@ -46,9 +46,9 @@ public class Program
         Console.WriteLine($"llt.exe - {Resource.HelpMessage_ExeDescription}");
         Console.WriteLine($"{Resource.HelpMessage_Version} {GetVersion()}\n");
         Console.WriteLine($"{Resource.HelpMessage_AvailableArguments}");
-        Console.WriteLine($" * --help\t\t{Resource.HelpMessage_Argument_Help}");
-        Console.WriteLine($" * --silent\t\t{Resource.HelpMessage_Argument_Silent}");
-        Console.WriteLine($" * --run={{Quick Action}}\t{Resource.HelpMessage_Argument_Run}\n");
+        Console.WriteLine($" * --help\t\t\t{Resource.HelpMessage_Argument_Help}");
+        Console.WriteLine($" * --silent\t\t\t{Resource.HelpMessage_Argument_Silent}");
+        Console.WriteLine($" * --quickAction={{Quick Action}}\t{Resource.HelpMessage_Argument_Run}\n");
     }
 
     private static string GetVersion()
@@ -73,36 +73,34 @@ public class Program
         var client = new CmdLineIPCClient();
         await client.RunQuickActionAsync(quickAcionName);
 
-        if (!silent)
+        if (silent)
         {
-            if (client.State == CmdLineQuickActionRunState.ActionRunFailed)
-            {
+            return;
+        }
+
+        switch (client.State)
+        {
+            case CmdLineQuickActionRunState.ActionRunFailed:
                 Console.WriteLine(Resource.QuickActionRun_Error_ActionRunFailed_Text, client.Errmsg ?? string.Empty);
-            }
-            else if (client.State == CmdLineQuickActionRunState.ActionNotFound)
-            {
+                break;
+            case CmdLineQuickActionRunState.ActionNotFound:
                 Console.WriteLine(Resource.QuickActionRun_Error_ActionNotFound_Text);
-            }
-            else if (client.State == CmdLineQuickActionRunState.DeserializeFailed)
-            {
+                break;
+            case CmdLineQuickActionRunState.DeserializeFailed:
                 Console.WriteLine(Resource.QuickActionRun_Error_DeserializeFailed_Text);
-            }
-            else if (client.State == CmdLineQuickActionRunState.ServerNotRunning)
-            {
+                break;
+            case CmdLineQuickActionRunState.ServerNotRunning:
                 Console.WriteLine(Resource.QuickActionRun_Error_ServerNotRunning_Text);
-            }
-            else if (client.State == CmdLineQuickActionRunState.PipeConnectFailed)
-            {
+                break;
+            case CmdLineQuickActionRunState.PipeConnectFailed:
                 Console.WriteLine(Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty);
-            }    
-            else if (client.State == CmdLineQuickActionRunState.Ok)
-            {
+                break;
+            case CmdLineQuickActionRunState.Ok:
                 Console.WriteLine(Resource.QuickActionRun_Ok_Text);
-            }
-            else
-            {
+                break;
+            default:
                 Console.WriteLine(Resource.QuickActionRun_Error_Undefined_Text);
-            }
+                break;
         }
     }
 }

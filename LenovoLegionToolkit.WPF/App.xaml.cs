@@ -47,8 +47,6 @@ public partial class App
     private Mutex? _singleInstanceMutex;
     private EventWaitHandle? _singleInstanceWaitHandle;
 
-    private bool _isIPCServerStarted;
-
     public new static App Current => (App)Application.Current;
 
     private async void Application_Startup(object sender, StartupEventArgs e)
@@ -142,8 +140,8 @@ public partial class App
         await InitGpuOverclockControllerAsync();
         await InitHybridModeAsync();
         await InitAutomationProcessorAsync();
+        await InitIPCServerAsync();
         InitMacroController();
-        InitIPCServer();
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
@@ -243,7 +241,7 @@ public partial class App
 
         try
         {
-            if (_isIPCServerStarted && IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
+            if (CmdLineIPCServer.IsRunning && IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
             {
                 await cmdLineIPCServer.StopAsync();
             }
@@ -572,23 +570,21 @@ public partial class App
         }
     }
 
-    private static void InitMacroController()
-    {
-        var controller = IoCContainer.Resolve<MacroController>();
-        controller.Start();
-    }
-
-    private void InitIPCServer()
+    private static async Task InitIPCServerAsync()
     {
         if (CmdLineIPCServer.CheckPipeExists())
         {
             MessageBox.Show(Resource.IPCPipeHasBeenBlocked_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
-            _isIPCServerStarted = false;
         }
         else
         {
-            _ = IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
-            _isIPCServerStarted = true;
+            await IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
         }
+    }
+
+    private static void InitMacroController()
+    {
+        var controller = IoCContainer.Resolve<MacroController>();
+        controller.Start();
     }
 }

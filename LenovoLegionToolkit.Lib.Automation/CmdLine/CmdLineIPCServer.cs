@@ -4,6 +4,7 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Utils;
 using ProtoBuf;
@@ -16,23 +17,27 @@ public class CmdLineIPCServer
 
     private readonly NamedPipeServerStream _pipe = NamedPipeServerStreamAcl.Create("LenovoLegionToolkit-IPC-0", PipeDirection.InOut, 1, PipeTransmissionMode.Byte, PipeOptions.None, 0, 0, CreatePipeSecurity());
 
-    public bool IsRunning { get; private set; }
+    private CancellationTokenSource? cts;
+
+    public static bool IsRunning { get; private set; }
 
     private CmdLineQuickActionRunState _state;
     private string? _errmsg;
 
-    public async Task StartAsync()
+    public Task StartAsync()
     {
         IsRunning = true;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Starting IPC server...");
 
-        await Task.Run(async () =>
+        cts = new();
+
+        _ = Task.Run(async () =>
         {
             while (IsRunning)
             {
-                _pipe.WaitForConnection();
+                await _pipe.WaitForConnectionAsync(cts.Token);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Connection received.");
@@ -69,15 +74,17 @@ public class CmdLineIPCServer
                 _pipe.Disconnect();
             }
         });
+        return Task.CompletedTask;
     }
 
     public Task StopAsync()
     {
         IsRunning = false;
+        cts?.Cancel();
         return Task.CompletedTask;
     }
 
-    public static bool CheckPipeExists() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Length == 1;
+    public static bool CheckPipeExists() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Any();
 
     private static PipeSecurity CreatePipeSecurity()
     {
@@ -89,9 +96,9 @@ public class CmdLineIPCServer
 
     private async Task RunQuickActionAsync(string quickActionName)
     {
-        var quickAction = _automationProcessor.GetPipelinesAsync().Result
-                                                                  .Where(p => p.Trigger is null)
-                                                                  .FirstOrDefault(p => p.Name == quickActionName);
+        var pipelines = await _automationProcessor.GetPipelinesAsync();
+        var quickAction = pipelines.Where(p => p.Trigger is null)
+                                   .FirstOrDefault(p => p.Name == quickActionName);
         if (quickAction is null)
         {
             if (Log.Instance.IsTraceEnabled)
