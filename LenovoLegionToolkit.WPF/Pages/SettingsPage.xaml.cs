@@ -619,7 +619,9 @@ public partial class SettingsPage
         if (_isRefreshing)
             return;
 
-        if ((_cliInterfaceToggle.IsChecked ?? false) && CmdLineIPCServer.CheckPipeExists())
+        bool isChecked = _cliInterfaceToggle.IsChecked ?? false;
+
+        if (isChecked && CmdLineIPCServer.CheckPipeExists())
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Named pipe has been blocked, stop starting IPC server.");
@@ -628,12 +630,20 @@ public partial class SettingsPage
             return;
         }
 
-        _integrationsSettings.Store.CLI = _cliInterfaceToggle.IsChecked ?? false;
+        _integrationsSettings.Store.CLI = isChecked;
         _integrationsSettings.SynchronizeStore();
 
         if (_integrationsSettings.Store.CLI)
             await _cmdlineIPCServer.StartAsync();
         else
             await _cmdlineIPCServer.StopAsync();
+
+        if (isChecked != _cmdlineIPCServer.IsRunning)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Reset toggle switch state");
+
+            _cliInterfaceToggle.IsChecked = !isChecked;
+        }
     }
 }
