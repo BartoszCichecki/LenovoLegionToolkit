@@ -2122,4 +2122,43 @@ Unterstützte Formate sind: {1}.</value>
   <data name="HideAll" xml:space="preserve">
 	  <value>Alle verbergen</value>
   </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+	  <value>Geräte</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+	  <value>Alle abwählen</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+	  <value>Alle auswählen</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+	  <value>Nur Tastatur</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+	  <value>Tastaturtasten und Maustasten</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+	  <value>Alle Eingaben</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+	  <value>Aufnahme-Optionen</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+	  <value>Die Aufnahme beginnt in 3 Sekunden...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+	  <value>Aufnahme...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+	  <value>Drücken Sie ESC, um zu stoppen.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+	  <value>Nur ausgewählte Geräte anzeigen</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+	  <value>Nur entfernbare Geräte anzeigen</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+	  <value>Nur verbundene Geräte anzeigen</value>
+  </data>
 </root>
