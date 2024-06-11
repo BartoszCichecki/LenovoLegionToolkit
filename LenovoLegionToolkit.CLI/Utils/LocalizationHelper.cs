@@ -4,10 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Cmdline.Resources;
+using LenovoLegionToolkit.CLI.Resources;
 using LenovoLegionToolkit.Lib.Utils;
 
-namespace LenovoLegionToolkit.Cmdline.Utils;
+namespace LenovoLegionToolkit.CLI.Utils;
 
 public class LocalizationHelper
 {

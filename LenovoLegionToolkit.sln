@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CC081CCC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.Macro", "LenovoLegionToolkit.Lib.Macro\LenovoLegionToolkit.Lib.Macro.csproj", "{AC885CE1-A229-4437-B969-266DB6516AD1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Cmdline", "LenovoLegionToolkit.Cmdline\LenovoLegionToolkit.Cmdline.csproj", "{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI", "LenovoLegionToolkit.CLI\LenovoLegionToolkit.CLI.csproj", "{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

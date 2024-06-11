@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using LenovoLegionToolkit.Cmdline.Resources;
-using LenovoLegionToolkit.Cmdline.Utils;
+using LenovoLegionToolkit.CLI.Resources;
+using LenovoLegionToolkit.CLI.Utils;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Automation.CmdLine;
 using LenovoLegionToolkit.Lib.Extensions;
