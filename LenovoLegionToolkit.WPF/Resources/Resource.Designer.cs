@@ -1117,6 +1117,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to initialise command line interface. The interface has been disabled in settings..
+        /// </summary>
+        public static string CLI_Initialise_Failed_Message {
+            get {
+                return ResourceManager.GetString("CLI_Initialise_Failed_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -2737,15 +2746,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string InstantBootControl_Title {
             get {
                 return ResourceManager.GetString("InstantBootControl_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Named pipe &quot;LenovoLegionToolkit-IPC-0&quot; has been blocked by other processes. Command-line interfaces are unavailable..
-        /// </summary>
-        public static string IPCPipeHasBeenBlocked_Message {
-            get {
-                return ResourceManager.GetString("IPCPipeHasBeenBlocked_Message", resourceCulture);
             }
         }
         

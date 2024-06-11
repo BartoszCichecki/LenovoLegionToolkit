@@ -573,18 +573,28 @@ public partial class App
 
     private static async Task InitIPCServerIfNeededAsync()
     {
-        if (IoCContainer.Resolve<IntegrationsSettings>().Store.CLI)
+        var integrationsSettings = IoCContainer.Resolve<IntegrationsSettings>();
+        if (integrationsSettings.Store.CLI)
         {
             if (CmdLineIPCServer.CheckPipeExists())
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Named pipe has been blocked, stop starting IPC server.");
 
-                MessageBox.Show(Resource.IPCPipeHasBeenBlocked_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show(Resource.CLI_Initialise_Failed_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                integrationsSettings.Store.CLI = false;
+                integrationsSettings.SynchronizeStore();
             }
             else
             {
-                await IoCContainer.Resolve<CmdLineIPCServer>().StartAsync();
+                var cmdlineIPCServer = IoCContainer.Resolve<CmdLineIPCServer>();
+                await cmdlineIPCServer.StartAsync();
+                if (!cmdlineIPCServer.IsRunning)
+                {
+                    MessageBox.Show(Resource.CLI_Initialise_Failed_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    integrationsSettings.Store.CLI = false;
+                    integrationsSettings.SynchronizeStore();
+                }
             }
         }
     }

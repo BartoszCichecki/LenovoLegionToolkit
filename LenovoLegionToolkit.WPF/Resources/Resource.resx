@@ -2161,8 +2161,8 @@ Supported formats are: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Show connected devices only</value>
   </data>
-  <data name="IPCPipeHasBeenBlocked_Message" xml:space="preserve">
-    <value>Named pipe "LenovoLegionToolkit-IPC-0" has been blocked by other processes. Command-line interfaces are unavailable.</value>
+  <data name="CLI_Initialise_Failed_Message" xml:space="preserve">
+    <value>Failed to initialise command line interface. The interface has been disabled in settings.</value>
   </data>
   <data name="SettingsPage_CLI_Title" xml:space="preserve">
     <value>Command line interface</value>
