@@ -40,18 +40,6 @@ begin
   Result := True;
 end;
 
-procedure CurStepChanged(CurStep: TSetupStep);
-begin
-    if (CurStep = ssPostInstall) and IsTaskSelected('envPath')
-    then EnvAddPath(ExpandConstant('{app}'));
-end;
-
-procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);
-begin
-    if CurUninstallStep = usPostUninstall
-    then EnvRemovePath(ExpandConstant('{app}'));
-end;
-
 [Languages]
 Name: "en";      MessagesFile: "compiler:Default.isl"
 Name: "ptbr";    MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
@@ -78,7 +66,6 @@ Name: "vi";      MessagesFile: "InnoDependencies\Vietnamese.isl"
 
 [Tasks]
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
-Name: "envPath"; Description: "{cm:AddToUserPATHVariable}"
 
 [Files]
 Source: "build\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
