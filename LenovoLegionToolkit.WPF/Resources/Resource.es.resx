@@ -2108,7 +2108,7 @@ Requiere un reinicio.</value>
 	  <value>Activar</value>
   </data>
   <data name="MacroPage_Subtitle" xml:space="preserve">
-	  <value>Puede grabar series de pulsaciones de teclas e invocarlas mediante el teclado numérico.</value>
+	  <value>Puede grabar series de pulsaciones de teclas y utilizarlas con el teclado numérico.</value>
   </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
 	  <value>Macro</value>
