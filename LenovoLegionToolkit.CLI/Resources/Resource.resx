@@ -144,7 +144,7 @@
   <data name="HelpMessage_Argument_Help" xml:space="preserve">
     <value>Show this help message.</value>
   </data>
-  <data name="HelpMessage_Argument_Run" xml:space="preserve">
+  <data name="HelpMessage_Argument_QuickAction" xml:space="preserve">
     <value>Execute Quick Actions created in LLT.</value>
   </data>
   <data name="HelpMessage_Argument_Silent" xml:space="preserve">

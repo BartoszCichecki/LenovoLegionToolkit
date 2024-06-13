@@ -48,7 +48,7 @@ public class Program
         Console.WriteLine($"{Resource.HelpMessage_AvailableArguments}");
         Console.WriteLine($" * --help\t\t\t{Resource.HelpMessage_Argument_Help}");
         Console.WriteLine($" * --silent\t\t\t{Resource.HelpMessage_Argument_Silent}");
-        Console.WriteLine($" * --quickAction={{Quick Action}}\t{Resource.HelpMessage_Argument_Run}\n");
+        Console.WriteLine($" * --quickAction={{Quick Action}}\t{Resource.HelpMessage_Argument_QuickAction}\n");
     }
 
     private static string GetVersion()

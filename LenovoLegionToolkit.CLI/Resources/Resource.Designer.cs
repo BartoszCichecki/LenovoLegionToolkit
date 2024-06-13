@@ -81,9 +81,9 @@ namespace LenovoLegionToolkit.CLI.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Execute Quick Actions created in LLT..
         /// </summary>
-        public static string HelpMessage_Argument_Run {
+        public static string HelpMessage_Argument_QuickAction {
             get {
-                return ResourceManager.GetString("HelpMessage_Argument_Run", resourceCulture);
+                return ResourceManager.GetString("HelpMessage_Argument_QuickAction", resourceCulture);
             }
         }
         
