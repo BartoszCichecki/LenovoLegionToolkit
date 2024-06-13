@@ -358,7 +358,6 @@ ShutdownBlockReasonUninstallingApp=%1 noņemšana.
 
 NameAndVersion=%1, versija %2
 AdditionalIcons=Papildu ikonas:
-AddToUserPATHVariable=Pievienot lietotāja PATH mainīgajam
 CreateDesktopIcon=Izveidot &darbvisrmas ikonu
 CreateQuickLaunchIcon=Izveidot &Quick Launch ikonu
 ProgramOnTheWeb=%1 vietne Internetā

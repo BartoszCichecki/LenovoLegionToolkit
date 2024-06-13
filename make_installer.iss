@@ -1,5 +1,4 @@
 #include "InnoDependencies\install_dotnet.iss"
-#include "InnoDependencies\set_sysenv.iss"
 
 #define MyAppName "Lenovo Legion Toolkit"
 #define MyAppNameCompact "LenovoLegionToolkit"
@@ -20,7 +19,6 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-ChangesEnvironment=true
 DefaultDirName={userpf}\{#MyAppNameCompact}
 DisableProgramGroupPage=yes
 LicenseFile=LICENSE

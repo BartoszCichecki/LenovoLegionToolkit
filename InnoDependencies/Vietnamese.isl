@@ -372,7 +372,6 @@ ShutdownBlockReasonUninstallingApp=Đang gỡ cài đặt %1.
 
 NameAndVersion=%1 phiên bản %2
 AdditionalIcons=Các lối tắt bổ sung:
-AddToUserPATHVariable=Thêm vào biến PATH của người dùng
 CreateDesktopIcon=Tạo một &lối tắt trên Desktop
 CreateQuickLaunchIcon=Tạo một lối tắt &Khởi động nhanh
 ProgramOnTheWeb=%1 trên Web

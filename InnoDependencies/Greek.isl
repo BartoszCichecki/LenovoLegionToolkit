@@ -377,7 +377,6 @@ ShutdownBlockReasonUninstallingApp=Απεγκατάσταση του %1.
 
 NameAndVersion=%1 έκδοση %2
 AdditionalIcons=Επιπλέον συντομεύσεις:
-AddToUserPATHVariable=Προσθήκη στη μεταβλητή PATH του χρήστη
 CreateDesktopIcon=Δημιουργία συντόμευσης στην &επιφάνεια εργασίας
 CreateQuickLaunchIcon=Δημιουργία συντόμευσης στη &Γρήγορη Εκκίνηση
 ProgramOnTheWeb=Το %1 στο Internet

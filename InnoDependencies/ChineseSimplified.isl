@@ -382,7 +382,6 @@ ShutdownBlockReasonUninstallingApp=正在卸载 %1。
 
 NameAndVersion=%1 版本 %2
 AdditionalIcons=附加快捷方式：
-AddToUserPATHVariable=添加到用户 PATH 环境变量
 CreateDesktopIcon=创建桌面快捷方式(&D)
 CreateQuickLaunchIcon=创建快速运行栏快捷方式(&Q)
 ProgramOnTheWeb=%1 网站
