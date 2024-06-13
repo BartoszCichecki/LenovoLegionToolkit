@@ -160,7 +160,6 @@ public partial class GodModeSettingsWindow
 
         _presetsComboBox.SetItems(state.Presets.OrderBy(kv => kv.Value.Name), new(activePresetId, preset), kv => kv.Value.Name);
 
-        _addPresetsButton.IsEnabled = state.Presets.Count < 5;
         _deletePresetsButton.IsEnabled = state.Presets.Count > 1;
 
         _cpuLongTermPowerLimitControl.Set(preset.CPULongTermPowerLimit);
@@ -379,9 +378,6 @@ public partial class GodModeSettingsWindow
     private async void AddPresetsButton_Click(object sender, RoutedEventArgs e)
     {
         if (!_state.HasValue)
-            return;
-
-        if (_state.Value.Presets.Count >= 5)
             return;
 
         var result = await MessageBoxHelper.ShowInputAsync(this, Resource.GodModeSettingsWindow_EditPreset_Title, Resource.GodModeSettingsWindow_EditPreset_Message);
