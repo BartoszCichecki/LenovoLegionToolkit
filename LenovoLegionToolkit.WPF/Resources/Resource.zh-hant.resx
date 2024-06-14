@@ -2151,4 +2151,13 @@
   <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
 	  <value>按下 ESC 鍵停止記錄。</value>
   </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+	  <value>僅顯示已選擇的裝置</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+	  <value>僅顯示可移動的裝置</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+	  <value>僅顯示已連接的裝置</value>
+  </data>
 </root>
