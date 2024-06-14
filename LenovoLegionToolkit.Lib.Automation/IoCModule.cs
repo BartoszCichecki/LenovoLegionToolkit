@@ -1,5 +1,4 @@
 ﻿using Autofac;
-using LenovoLegionToolkit.Lib.Automation.CmdLine;
 using LenovoLegionToolkit.Lib.Automation.Utils;
 using LenovoLegionToolkit.Lib.Extensions;
 
@@ -11,6 +10,5 @@ public class IoCModule : Module
     {
         builder.Register<AutomationSettings>();
         builder.Register<AutomationProcessor>();
-        builder.Register<CmdLineIPCServer>();
     }
 }

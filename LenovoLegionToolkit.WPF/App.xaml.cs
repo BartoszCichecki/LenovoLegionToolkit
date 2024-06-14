@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
-using LenovoLegionToolkit.Lib.Automation.CmdLine;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
@@ -73,14 +72,6 @@ public partial class App
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Flags: {flags}");
-
-        if (flags.QuickActionRunName is not null)
-        {
-            var client = new CmdLineIPCClient();
-            await client.RunQuickActionAsync(flags.QuickActionRunName ?? string.Empty);
-            Shutdown();
-            return;
-        }
 
         EnsureSingleInstance();
 

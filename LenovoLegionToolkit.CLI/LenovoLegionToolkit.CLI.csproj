@@ -11,8 +11,8 @@
         <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
 	<ItemGroup>
-		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
+		<ProjectReference Include="..\LenovoLegionToolkit.Lib.CLI\LenovoLegionToolkit.Lib.CLI.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Update="Resources\Resource.Designer.cs">

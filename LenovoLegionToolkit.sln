@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.Mac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI", "LenovoLegionToolkit.CLI\LenovoLegionToolkit.CLI.csproj", "{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.CLI", "LenovoLegionToolkit.Lib.CLI\LenovoLegionToolkit.Lib.CLI.csproj", "{2C7AB13C-5877-459D-98F3-F91F88CE3216}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -47,6 +49,10 @@ Global
 		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Debug|x64.Build.0 = Debug|x64
 		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Release|x64.ActiveCfg = Release|x64
 		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Release|x64.Build.0 = Release|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Debug|x64.ActiveCfg = Debug|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Debug|x64.Build.0 = Debug|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.ActiveCfg = Release|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

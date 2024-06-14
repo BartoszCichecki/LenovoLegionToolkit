@@ -25,7 +25,6 @@ public class Flags
     public string? ProxyPassword { get; }
     public bool ProxyAllowAllCerts { get; }
     public bool DisableUpdateChecker { get; }
-    public string? QuickActionRunName { get; }
 
     public Flags(IEnumerable<string> startupArgs)
     {
@@ -46,7 +45,6 @@ public class Flags
         ProxyPassword = StringValue(args, "--proxy-password");
         ProxyAllowAllCerts = BoolValue(args, "--proxy-allow-all-certs");
         DisableUpdateChecker = BoolValue(args, "--disable-update-checker");
-        QuickActionRunName = StringValue(args, "--run-quick-action");
     }
 
     private static string[] LoadExternalArgs()
@@ -85,6 +83,5 @@ public class Flags
         $" {nameof(ProxyUsername)}: {ProxyUsername}," +
         $" {nameof(ProxyPassword)}: {ProxyPassword}," +
         $" {nameof(ProxyAllowAllCerts)}: {ProxyAllowAllCerts}," +
-        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}," +
-        $" {nameof(QuickActionRunName)}: {QuickActionRunName}";
+        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}";
 }

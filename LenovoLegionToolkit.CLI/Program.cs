@@ -3,8 +3,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Resources;
 using LenovoLegionToolkit.CLI.Utils;
-using LenovoLegionToolkit.Lib.Automation;
-using LenovoLegionToolkit.Lib.Automation.CmdLine;
+using LenovoLegionToolkit.Lib.CLI;
 using LenovoLegionToolkit.Lib.Extensions;
 
 namespace LenovoLegionToolkit.CLI;
@@ -78,29 +77,15 @@ public class Program
             return;
         }
 
-        switch (client.State)
+        Console.WriteLine(client.QuickActionState switch
         {
-            case CmdLineQuickActionRunState.ActionRunFailed:
-                Console.WriteLine(Resource.QuickActionRun_Error_ActionRunFailed_Text, client.Errmsg ?? string.Empty);
-                break;
-            case CmdLineQuickActionRunState.ActionNotFound:
-                Console.WriteLine(Resource.QuickActionRun_Error_ActionNotFound_Text);
-                break;
-            case CmdLineQuickActionRunState.DeserializeFailed:
-                Console.WriteLine(Resource.QuickActionRun_Error_DeserializeFailed_Text);
-                break;
-            case CmdLineQuickActionRunState.ServerNotRunning:
-                Console.WriteLine(Resource.QuickActionRun_Error_ServerNotRunning_Text);
-                break;
-            case CmdLineQuickActionRunState.PipeConnectFailed:
-                Console.WriteLine(Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty);
-                break;
-            case CmdLineQuickActionRunState.Ok:
-                Console.WriteLine(Resource.QuickActionRun_Ok_Text);
-                break;
-            default:
-                Console.WriteLine(Resource.QuickActionRun_Error_Undefined_Text);
-                break;
-        }
+            QuickActionResponseState.Ok => Resource.QuickActionRun_Ok_Text,
+            QuickActionResponseState.ActionRunFailed => (Resource.QuickActionRun_Error_ActionRunFailed_Text, client.Errmsg ?? string.Empty),
+            QuickActionResponseState.ActionNotFound => Resource.QuickActionRun_Error_ActionNotFound_Text,
+            QuickActionResponseState.DeserializeFailed => Resource.QuickActionRun_Error_DeserializeFailed_Text,
+            QuickActionResponseState.Status_ServerNotRunning => Resource.QuickActionRun_Error_ServerNotRunning_Text,
+            QuickActionResponseState.Status_PipeConnectFailed => (Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty),
+            _ => Resource.QuickActionRun_Error_Undefined_Text
+        });
     }
 }
