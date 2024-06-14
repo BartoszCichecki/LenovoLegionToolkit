@@ -1,6 +1,6 @@
 ﻿namespace LenovoLegionToolkit.Lib.CLI;
 
-public enum QuickActionResponseState
+public enum CLIQuickActionRunState
 {
     Undefined,
     Ok,

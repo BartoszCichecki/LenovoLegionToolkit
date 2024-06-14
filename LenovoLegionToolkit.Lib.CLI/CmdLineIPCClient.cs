@@ -12,14 +12,14 @@ public class CmdLineIPCClient
 {
     private readonly NamedPipeClientStream _pipe = new(".", "LenovoLegionToolkit-IPC-0", PipeDirection.InOut, PipeOptions.None);
 
-    public QuickActionResponseState QuickActionState { get; private set; }
+    public CLIQuickActionRunState QuickActionState { get; private set; }
     public string? Errmsg { get; private set; }
 
     public async Task RunQuickActionAsync(string quickActionName)
     {
         if (!CheckPipeExists())
         {
-            QuickActionState = QuickActionResponseState.Status_ServerNotRunning;
+            QuickActionState = CLIQuickActionRunState.Status_ServerNotRunning;
             return;
         }
 
@@ -29,7 +29,7 @@ public class CmdLineIPCClient
         }
         catch (Exception ex)
         {
-            QuickActionState = QuickActionResponseState.Status_PipeConnectFailed;
+            QuickActionState = CLIQuickActionRunState.Status_PipeConnectFailed;
             Errmsg = ex.Message;
             return;
         }
@@ -44,7 +44,7 @@ public class CmdLineIPCClient
 
         if (imsgpack is null)
         {
-            QuickActionState = QuickActionResponseState.Undefined;
+            QuickActionState = CLIQuickActionRunState.Undefined;
         }
         else
         {

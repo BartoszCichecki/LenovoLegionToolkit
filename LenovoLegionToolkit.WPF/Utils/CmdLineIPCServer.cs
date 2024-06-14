@@ -25,7 +25,7 @@ public class CmdLineIPCServer
 
     public bool IsRunning { get; private set; }
 
-    private QuickActionResponseState _state;
+    private CLIQuickActionRunState _quickActionState;
     private string? _errmsg;
 
     public Task StartAsync()
@@ -67,7 +67,7 @@ public class CmdLineIPCServer
 
                     var omsgpack = new QuickActionResponse()
                     {
-                        State = QuickActionResponseState.DeserializeFailed
+                        State = CLIQuickActionRunState.DeserializeFailed
                     };
                     Serializer.SerializeWithLengthPrefix(pipe, omsgpack, PrefixStyle.Base128);
                 }
@@ -79,7 +79,7 @@ public class CmdLineIPCServer
                     await RunQuickActionAsync(imsgpack.Name ?? string.Empty);
                     var omsgpack = new QuickActionResponse()
                     {
-                        State = _state,
+                        State = _quickActionState,
                         Error = _errmsg
                     };
                     Serializer.SerializeWithLengthPrefix(pipe, omsgpack, PrefixStyle.Base128);
@@ -128,14 +128,14 @@ public class CmdLineIPCServer
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Quick Action \"{quickActionName}\" not found.");
 
-            _state = QuickActionResponseState.ActionNotFound;
+            _quickActionState = CLIQuickActionRunState.ActionNotFound;
             return;
         }
 
         try
         {
             await _automationProcessor.RunNowAsync(quickAction.Id);
-            _state = QuickActionResponseState.Ok;
+            _quickActionState = CLIQuickActionRunState.Ok;
             _errmsg = null;
         }
         catch (Exception ex)
@@ -143,7 +143,7 @@ public class CmdLineIPCServer
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run Quick Action failed.", ex);
 
-            _state = QuickActionResponseState.ActionRunFailed;
+            _quickActionState = CLIQuickActionRunState.ActionRunFailed;
             _errmsg = ex.Message;
         }
     }

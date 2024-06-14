@@ -79,12 +79,12 @@ public class Program
 
         Console.WriteLine(client.QuickActionState switch
         {
-            QuickActionResponseState.Ok => Resource.QuickActionRun_Ok_Text,
-            QuickActionResponseState.ActionRunFailed => (Resource.QuickActionRun_Error_ActionRunFailed_Text, client.Errmsg ?? string.Empty),
-            QuickActionResponseState.ActionNotFound => Resource.QuickActionRun_Error_ActionNotFound_Text,
-            QuickActionResponseState.DeserializeFailed => Resource.QuickActionRun_Error_DeserializeFailed_Text,
-            QuickActionResponseState.Status_ServerNotRunning => Resource.QuickActionRun_Error_ServerNotRunning_Text,
-            QuickActionResponseState.Status_PipeConnectFailed => (Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty),
+            CLIQuickActionRunState.Ok => Resource.QuickActionRun_Ok_Text,
+            CLIQuickActionRunState.ActionRunFailed => (Resource.QuickActionRun_Error_ActionRunFailed_Text, client.Errmsg ?? string.Empty),
+            CLIQuickActionRunState.ActionNotFound => Resource.QuickActionRun_Error_ActionNotFound_Text,
+            CLIQuickActionRunState.DeserializeFailed => Resource.QuickActionRun_Error_DeserializeFailed_Text,
+            CLIQuickActionRunState.Status_ServerNotRunning => Resource.QuickActionRun_Error_ServerNotRunning_Text,
+            CLIQuickActionRunState.Status_PipeConnectFailed => (Resource.QuickActionRun_Error_PipeConnectFailed_Text, client.Errmsg ?? string.Empty),
             _ => Resource.QuickActionRun_Error_Undefined_Text
         });
     }
