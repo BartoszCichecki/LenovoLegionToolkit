@@ -4,6 +4,7 @@ using System.IO.Pipes;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.CLI.Datapacks;
+using LenovoLegionToolkit.Lib.Settings;
 using ProtoBuf;
 
 namespace LenovoLegionToolkit.Lib.CLI;
@@ -17,7 +18,7 @@ public class CmdLineIPCClient
 
     public async Task RunQuickActionAsync(string quickActionName)
     {
-        if (!CheckPipeExists())
+        if (!CheckPipeExists() || !CheckCLIEnabled())
         {
             QuickActionState = CLIQuickActionRunState.Status_ServerNotRunning;
             return;
@@ -64,7 +65,7 @@ public class CmdLineIPCClient
             }
             catch (TimeoutException)
             {
-                if (!CheckPipeExists())
+                if (!CheckPipeExists() || !CheckCLIEnabled())
                 {
                     throw new OperationCanceledException();
                 }
@@ -74,4 +75,6 @@ public class CmdLineIPCClient
     }
 
     private static bool CheckPipeExists() => Directory.GetFiles(@"\\.\pipe\", "LenovoLegionToolkit-IPC-0").Any();
+
+    private static bool CheckCLIEnabled() => new IntegrationsSettings().Store.CLI;
 }
