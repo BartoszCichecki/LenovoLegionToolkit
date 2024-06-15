@@ -87,6 +87,7 @@
             </StackPanel>
             <StackPanel Grid.Column="2">
                 <wpfui:Hyperlink Content="octokit" NavigateUri="https://github.com/octokit/octokit.net" />
+                <wpfui:Hyperlink Content="protobuf-net" NavigateUri="https://github.com/protobuf-net/protobuf-net" />
                 <wpfui:Hyperlink Content="pubsub" NavigateUri="https://github.com/upta/pubsub" />
                 <wpfui:Hyperlink Content="TaskScheduler" NavigateUri="https://github.com/dahall/TaskScheduler" />
                 <wpfui:Hyperlink Content="WindowsDisplayAPI" NavigateUri="https://github.com/falahati/WindowsDisplayAPI" />

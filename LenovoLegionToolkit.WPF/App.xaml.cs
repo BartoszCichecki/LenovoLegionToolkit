@@ -23,6 +23,7 @@ using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Macro;
+using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -133,6 +134,7 @@ public partial class App
         await InitAutomationProcessorAsync();
         InitMacroController();
 
+        await InitIPCServerIfNeededAsync();
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
 
@@ -229,6 +231,14 @@ public partial class App
         }
         catch {  /* Ignored. */ }
 
+        try
+        {
+            if (IoCContainer.TryResolve<CmdLineIPCServer>() is { } cmdLineIPCServer)
+            {
+                await cmdLineIPCServer.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
 
         Shutdown();
     }
@@ -549,6 +559,34 @@ public partial class App
         {
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Couldn't overclock GPU.", ex);
+        }
+    }
+
+    private static async Task InitIPCServerIfNeededAsync()
+    {
+        var integrationsSettings = IoCContainer.Resolve<IntegrationsSettings>();
+        if (integrationsSettings.Store.CLI)
+        {
+            if (CmdLineIPCServer.CheckPipeExists())
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Named pipe has been blocked, stop starting IPC server.");
+
+                MessageBox.Show(Resource.CLI_Initialise_Failed_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                integrationsSettings.Store.CLI = false;
+                integrationsSettings.SynchronizeStore();
+            }
+            else
+            {
+                var cmdlineIPCServer = IoCContainer.Resolve<CmdLineIPCServer>();
+                await cmdlineIPCServer.StartAsync();
+                if (!cmdlineIPCServer.IsRunning)
+                {
+                    MessageBox.Show(Resource.CLI_Initialise_Failed_Message, Resource.AppName, MessageBoxButton.OK, MessageBoxImage.Warning);
+                    integrationsSettings.Store.CLI = false;
+                    integrationsSettings.SynchronizeStore();
+                }
+            }
         }
     }
 
