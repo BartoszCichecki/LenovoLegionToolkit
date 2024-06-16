@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.WPF", "LenovoLegionToolkit.WPF\LenovoLegionToolkit.WPF.csproj", "{DC01FDB3-CDCF-4D08-B87E-CCCAE5A24FF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3} = {656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib", "LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj", "{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}"
 EndProject
@@ -13,7 +16,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Spectru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CC081CCC-BA76-4603-8444-9F33C3DD2025}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LenovoLegionToolkit.Lib.Macro", "LenovoLegionToolkit.Lib.Macro\LenovoLegionToolkit.Lib.Macro.csproj", "{AC885CE1-A229-4437-B969-266DB6516AD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.Macro", "LenovoLegionToolkit.Lib.Macro\LenovoLegionToolkit.Lib.Macro.csproj", "{AC885CE1-A229-4437-B969-266DB6516AD1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI", "LenovoLegionToolkit.CLI\LenovoLegionToolkit.CLI.csproj", "{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI.Lib", "LenovoLegionToolkit.CLI.Lib\LenovoLegionToolkit.CLI.Lib.csproj", "{2C7AB13C-5877-459D-98F3-F91F88CE3216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLI", "CLI", "{F8070067-370A-4E50-898A-8E31A3D77569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,17 +46,26 @@ Global
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Debug|x64.Build.0 = Debug|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.ActiveCfg = Release|x64
 		{BB54FD85-CB1C-401F-A520-02396718595C}.Release|x64.Build.0 = Release|x64
-		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.Build.0 = Release|x64
 		{AC885CE1-A229-4437-B969-266DB6516AD1}.Debug|x64.ActiveCfg = Debug|x64
 		{AC885CE1-A229-4437-B969-266DB6516AD1}.Debug|x64.Build.0 = Debug|x64
 		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.ActiveCfg = Release|x64
 		{AC885CE1-A229-4437-B969-266DB6516AD1}.Release|x64.Build.0 = Release|x64
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Debug|x64.ActiveCfg = Debug|x64
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Debug|x64.Build.0 = Debug|x64
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Release|x64.ActiveCfg = Release|x64
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}.Release|x64.Build.0 = Release|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Debug|x64.ActiveCfg = Debug|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Debug|x64.Build.0 = Debug|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.ActiveCfg = Release|x64
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB54FD85-CB1C-401F-A520-02396718595C} = {CC081CCC-BA76-4603-8444-9F33C3DD2025}
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3} = {F8070067-370A-4E50-898A-8E31A3D77569}
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216} = {F8070067-370A-4E50-898A-8E31A3D77569}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA77E337-1B57-4D70-B454-BE5EA6E618D6}

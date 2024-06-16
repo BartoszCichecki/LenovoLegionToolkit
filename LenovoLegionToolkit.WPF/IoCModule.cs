@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.WPF.CLI;
 using LenovoLegionToolkit.WPF.Settings;
 using LenovoLegionToolkit.WPF.Utils;
 
@@ -17,5 +18,7 @@ public class IoCModule : Module
         builder.Register<NotificationsManager>().AutoActivate();
 
         builder.Register<DashboardSettings>();
+
+        builder.Register<IpcServer>();
     }
 }

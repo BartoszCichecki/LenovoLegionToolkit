@@ -25,6 +25,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Macro;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
+using LenovoLegionToolkit.WPF.CLI;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
 using LenovoLegionToolkit.WPF.Resources;
@@ -135,6 +136,7 @@ public partial class App
 
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
+        await IoCContainer.Resolve<IpcServer>().StartStopIfNeededAsync();
 
 #if !DEBUG
         Autorun.Validate();
@@ -229,6 +231,23 @@ public partial class App
         }
         catch {  /* Ignored. */ }
 
+        try
+        {
+            if (IoCContainer.TryResolve<HWiNFOIntegration>() is { } hwinfoIntegration)
+            {
+                await hwinfoIntegration.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
+            if (IoCContainer.TryResolve<IpcServer>() is { } ipcServer)
+            {
+                await ipcServer.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
 
         Shutdown();
     }

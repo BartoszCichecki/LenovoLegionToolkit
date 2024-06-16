@@ -27,6 +27,23 @@ public class HWiNFOIntegration(SensorsController sensorController, IntegrationsS
 
     public async Task StartStopIfNeededAsync()
     {
+        await StopAsync().ConfigureAwait(false);
+
+        if (!settings.Store.HWiNFO)
+            return;
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Starting...");
+
+        _cts = new();
+        _refreshTask = RefreshLoopAsync(_cts.Token);
+
+        if (Log.Instance.IsTraceEnabled)
+            Log.Instance.Trace($"Started.");
+    }
+
+    public async Task StopAsync()
+    {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopping...");
 
@@ -40,18 +57,6 @@ public class HWiNFOIntegration(SensorsController sensorController, IntegrationsS
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped.");
-
-        if (!settings.Store.HWiNFO)
-            return;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Starting...");
-
-        _cts = new();
-        _refreshTask = RefreshLoopAsync(_cts.Token);
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Started.");
     }
 
     private async Task RefreshLoopAsync(CancellationToken token)

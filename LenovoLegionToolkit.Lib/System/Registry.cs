@@ -127,25 +127,27 @@ public static class Registry
         return baseKey.OpenSubKey(subKey)?.GetSubKeyNames().Select(s => Path.Combine(subKey, s)).ToArray() ?? [];
     }
 
-    public static T GetValue<T>(string hive, string subKey, string valueName, T defaultValue)
+    public static T GetValue<T>(string hive, string subKey, string valueName, T defaultValue, bool doNotExpand = false)
     {
-        var keyName = Path.Combine(hive, subKey);
-        var result = Microsoft.Win32.Registry.GetValue(keyName, valueName, defaultValue);
-        if (result is null)
+        using var baseKey = GetBaseKey(hive);
+        var value = baseKey.OpenSubKey(subKey)?.GetValue(valueName, defaultValue, doNotExpand ? RegistryValueOptions.DoNotExpandEnvironmentNames : RegistryValueOptions.None);
+
+        if (value is not T t)
             return defaultValue;
-        return (T)result;
+
+        return t;
     }
 
-    public static void SetValue<T>(string hive, string subKey, string valueName, T value, bool fixPermissions = false) where T : notnull
+    public static void SetValue<T>(string hive, string subKey, string valueName, T value, bool fixPermissions = false, RegistryValueKind valueKind = RegistryValueKind.Unknown) where T : notnull
     {
         try
         {
-            Microsoft.Win32.Registry.SetValue(@$"{hive}\{subKey}", valueName, value);
+            Microsoft.Win32.Registry.SetValue(@$"{hive}\{subKey}", valueName, value, valueKind);
         }
         catch (UnauthorizedAccessException)
         {
             if (fixPermissions && AddPermissions(hive, subKey))
-                SetValue(hive, subKey, valueName, value);
+                SetValue(hive, subKey, valueName, value, false, valueKind);
             else
                 throw;
         }

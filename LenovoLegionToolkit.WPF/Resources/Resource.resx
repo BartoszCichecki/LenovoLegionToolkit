@@ -2054,111 +2054,123 @@ Supported formats are: {1}.</value>
     <value>Windows Power Modes</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
-	  <value>Switch to Custom Mode with Fn+Q</value>
+    <value>Switch to Custom Mode with Fn+Q</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
-	  <value>Allow quick switching to Custom Mode with Fn+Q.</value>
+    <value>Allow quick switching to Custom Mode with Fn+Q.</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
-	  <value>Power Mode Synchronization</value>
+    <value>Power Mode Synchronization</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
-	  <value>Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes.</value>
+    <value>Automatically change Windows Power Plan or Windows Power Mode when changing Power Modes.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
-	  <value>Windows Power Modes</value>
+    <value>Windows Power Modes</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
-	  <value>Select Windows Power Mode to apply when Power Mode changes.</value>
+    <value>Select Windows Power Mode to apply when Power Mode changes.</value>
   </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
-	  <value>Error occured when reading device information.</value>
+    <value>Error occured when reading device information.</value>
   </data>
   <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroPage_Title" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
-	  <value>Repeat</value>
+    <value>Repeat</value>
   </data>
   <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
-	  <value>Ignore delays</value>
+    <value>Ignore delays</value>
   </data>
   <data name="Clear" xml:space="preserve">
-	  <value>Clear</value>
+    <value>Clear</value>
   </data>
   <data name="MacroSequenceControl_Record" xml:space="preserve">
-	  <value>Record</value>
+    <value>Record</value>
   </data>
   <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
-	  <value>Stop recording</value>
+    <value>Stop recording</value>
   </data>
   <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
-	  <value>Don't repeat</value>
+    <value>Don't repeat</value>
   </data>
   <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
-	  <value>Lenovo Legion Toolkit must be running for macros to work.</value>
+    <value>Lenovo Legion Toolkit must be running for macros to work.</value>
   </data>
   <data name="MacroPage_Enable_Title" xml:space="preserve">
-	  <value>Enable</value>
+    <value>Enable</value>
   </data>
   <data name="MacroPage_Subtitle" xml:space="preserve">
-	  <value>You can record series of key presses and invoke them using the number pad on your keyboard.</value>
+    <value>You can record series of key presses and invoke them using the number pad on your keyboard.</value>
   </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroAutomationStepControl_Message" xml:space="preserve">
-	  <value>Enable or disable macros.</value>
+    <value>Enable or disable macros.</value>
   </data>
   <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
-	  <value>Interrupt if another key was pressed</value>
+    <value>Interrupt if another key was pressed</value>
   </data>
   <data name="Hide" xml:space="preserve">
-	  <value>Hide</value>
+    <value>Hide</value>
   </data>
   <data name="HideAll" xml:space="preserve">
-	  <value>Hide all</value>
+    <value>Hide all</value>
   </data>
   <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
-	  <value>Devices</value>
+    <value>Devices</value>
   </data>
-	<data name="DeselectAll" xml:space="preserve">
-	  <value>Deselect all</value>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Deselect all</value>
   </data>
   <data name="SelectAll" xml:space="preserve">
-	  <value>Select all</value>
+    <value>Select all</value>
   </data>
   <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
-	  <value>Keyboard only</value>
+    <value>Keyboard only</value>
   </data>
   <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
-	  <value>Keyboard keys and mouse buttons</value>
+    <value>Keyboard keys and mouse buttons</value>
   </data>
   <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
-	  <value>All inputs</value>
+    <value>All inputs</value>
   </data>
   <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
-	  <value>Recording options</value>
+    <value>Recording options</value>
   </data>
   <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
-	  <value>Recording will start in 3 seconds...</value>
+    <value>Recording will start in 3 seconds...</value>
   </data>
   <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
-	  <value>Recording...</value>
+    <value>Recording...</value>
   </data>
   <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
-	  <value>Press ESC to stop.</value>
+    <value>Press ESC to stop.</value>
   </data>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
-	  <value>Show selected devices only</value>
+    <value>Show selected devices only</value>
   </data>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
-	  <value>Show removable devices only</value>
+    <value>Show removable devices only</value>
   </data>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
-	  <value>Show connected devices only</value>
+    <value>Show connected devices only</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Enable Command Line Interface that allows control from command line.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Add CLI to PATH</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Add CLI to system PATH environment variable.</value>
   </data>
 </root>
