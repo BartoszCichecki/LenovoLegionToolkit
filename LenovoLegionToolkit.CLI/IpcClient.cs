@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.IO.Pipes;
+using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
 using ProtoBuf;
@@ -36,7 +37,7 @@ public static class IpcClient
         {
             try
             {
-                await pipe.ConnectAsync().ConfigureAwait(false);
+                await pipe.ConnectAsync(TimeSpan.FromMilliseconds(500), CancellationToken.None).ConfigureAwait(false);
                 return;
             }
             catch (TimeoutException) { }
