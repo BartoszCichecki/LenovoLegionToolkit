@@ -26,14 +26,3 @@ public enum OverclockDiscreteGPUAutomationStepState
     [Display(ResourceType = typeof(Resource), Name = "OverclockDiscreteGPUAutomationStepState_On")]
     On
 }
-
-public enum CmdLineQuickActionRunState
-{
-    Undefined,
-    Ok,
-    ActionNotFound,
-    ActionRunFailed,
-    DeserializeFailed,
-    ServerNotRunning,
-    PipeConnectFailed
-}
