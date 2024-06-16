@@ -4767,7 +4767,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable Command Line Interface that allows control using command link..
+        ///   Looks up a localized string similar to Enable Command Line Interface that allows control from command line..
         /// </summary>
         public static string SettingsPage_CLI_Message {
             get {

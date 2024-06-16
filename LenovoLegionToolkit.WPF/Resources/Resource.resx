@@ -2165,7 +2165,7 @@ Supported formats are: {1}.</value>
     <value>CLI</value>
   </data>
   <data name="SettingsPage_CLI_Message" xml:space="preserve">
-    <value>Enable Command Line Interface that allows control using command link.</value>
+    <value>Enable Command Line Interface that allows control from command line.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
 	  <value>Add CLI to PATH</value>
