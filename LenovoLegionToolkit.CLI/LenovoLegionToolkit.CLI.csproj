@@ -14,8 +14,6 @@
         <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
     </PropertyGroup>
     <PropertyGroup>
-        <ApplicationManifest>app.manifest</ApplicationManifest>
-        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
         <NeutralLanguage>en</NeutralLanguage>
         <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
     </PropertyGroup>

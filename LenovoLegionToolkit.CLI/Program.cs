@@ -42,9 +42,12 @@ public class Program
     {
         PrintLine(flags, [
             "Lenovo Legion Toolkit CLI",
-            "--quickAction=<name>, -qa=<name> - run Quick Action with specified name",
-            "--silent, -s                     - suppress output",
-            "--help, -h                       - display this help",
+            "",
+            "Usage:",
+            "  --quickAction=<name>, -qa=<name> - run Quick Action with specified name",
+            "  --silent, -s                     - suppress output",
+            "  --help, -h                       - display this help",
+            ""
         ]);
     }
 
