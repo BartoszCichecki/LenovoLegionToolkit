@@ -3,13 +3,25 @@ using System.Linq;
 
 namespace LenovoLegionToolkit.CLI;
 
-public class Flags
+public readonly struct Flags
 {
     public bool Silent { get; }
     public string? QuickActionRunName { get; }
     public bool Help { get; }
 
-    public Flags(IEnumerable<string> startupArgs)
+    public static Flags Create(IEnumerable<string> startupArgs)
+    {
+        try
+        {
+            return new(startupArgs);
+        }
+        catch
+        {
+            return default;
+        }
+    }
+
+    private Flags(IEnumerable<string> startupArgs)
     {
         var args = startupArgs.ToArray();
 

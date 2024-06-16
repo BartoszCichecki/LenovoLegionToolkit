@@ -8,7 +8,7 @@ public class Program
 {
     public static async Task<int> Main(string[] args)
     {
-        var flags = new Flags(args);
+        var flags = Flags.Create(args);
 
         try
         {

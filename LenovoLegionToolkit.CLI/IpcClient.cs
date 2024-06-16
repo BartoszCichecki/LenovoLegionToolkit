@@ -14,7 +14,7 @@ public static class IpcClient
     public static async Task RunQuickActionAsync(string name)
     {
         if (!PipeExists)
-            throw new IpcException("Pipe already exists");
+            throw new IpcException("Server unavailable");
 
         await using var pipe = new NamedPipeClientStream(Constants.PIPE_NAME);
         await ConnectAsync(pipe).ConfigureAwait(false);
@@ -43,5 +43,7 @@ public static class IpcClient
 
             retries--;
         }
+
+        throw new IpcException("Could not connect to server");
     }
 }
