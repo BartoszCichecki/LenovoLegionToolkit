@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.WPF", "LenovoLegionToolkit.WPF\LenovoLegionToolkit.WPF.csproj", "{DC01FDB3-CDCF-4D08-B87E-CCCAE5A24FF7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3} = {656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib", "LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj", "{4B902DDC-0EBE-44B3-A53B-5EA176C7522B}"
 EndProject
@@ -17,7 +20,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.Mac
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI", "LenovoLegionToolkit.CLI\LenovoLegionToolkit.CLI.csproj", "{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.Lib.CLI", "LenovoLegionToolkit.Lib.CLI\LenovoLegionToolkit.Lib.CLI.csproj", "{2C7AB13C-5877-459D-98F3-F91F88CE3216}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI.Lib", "LenovoLegionToolkit.CLI.Lib\LenovoLegionToolkit.CLI.Lib.csproj", "{2C7AB13C-5877-459D-98F3-F91F88CE3216}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLI", "CLI", "{F8070067-370A-4E50-898A-8E31A3D77569}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +64,8 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB54FD85-CB1C-401F-A520-02396718595C} = {CC081CCC-BA76-4603-8444-9F33C3DD2025}
+		{656AC74B-A298-4D0F-88CC-7CC7B5AB32C3} = {F8070067-370A-4E50-898A-8E31A3D77569}
+		{2C7AB13C-5877-459D-98F3-F91F88CE3216} = {F8070067-370A-4E50-898A-8E31A3D77569}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DA77E337-1B57-4D70-B454-BE5EA6E618D6}

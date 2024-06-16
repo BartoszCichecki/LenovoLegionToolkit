@@ -10,21 +10,22 @@
         <Version>0.0.1</Version>
         <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
-		<ProjectReference Include="..\LenovoLegionToolkit.Lib.CLI\LenovoLegionToolkit.Lib.CLI.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Compile Update="Resources\Resource.Designer.cs">
-	    <DependentUpon>Resource.resx</DependentUpon>
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	  </Compile>
-	</ItemGroup>
-	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Resource.resx">
-	    <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-	    <Generator>PublicResXFileCodeGenerator</Generator>
-	  </EmbeddedResource>
-	</ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyyMMddHHmmss"))</SourceRevisionId>
+    </PropertyGroup>
+    <PropertyGroup>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+        <NeutralLanguage>en</NeutralLanguage>
+        <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>portable</DebugType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DebugType>embedded</DebugType>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\LenovoLegionToolkit.CLI.Lib\LenovoLegionToolkit.CLI.Lib.csproj" />
+    </ItemGroup>
 </Project>

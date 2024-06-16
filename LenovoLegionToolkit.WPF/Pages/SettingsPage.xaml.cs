@@ -34,7 +34,7 @@ public partial class SettingsPage
     private readonly RGBKeyboardBacklightController _rgbKeyboardBacklightController = IoCContainer.Resolve<RGBKeyboardBacklightController>();
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
     private readonly HWiNFOIntegration _hwinfoIntegration = IoCContainer.Resolve<HWiNFOIntegration>();
-    private readonly CmdLineIPCServer _cmdlineIPCServer = IoCContainer.Resolve<CmdLineIPCServer>();
+    private readonly IpcServer _ipcServer = IoCContainer.Resolve<IpcServer>();
 
     private bool _isRefreshing;
 
@@ -618,31 +618,9 @@ public partial class SettingsPage
         if (_isRefreshing)
             return;
 
-        bool isChecked = _cliInterfaceToggle.IsChecked ?? false;
-
-        if (isChecked && CmdLineIPCServer.CheckPipeExists())
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Named pipe has been blocked, stop starting IPC server.");
-
-            _cliInterfaceToggle.IsChecked = false;
-            return;
-        }
-
-        _integrationsSettings.Store.CLI = isChecked;
+        _integrationsSettings.Store.CLI = _cliInterfaceToggle.IsChecked ?? false;
         _integrationsSettings.SynchronizeStore();
 
-        if (_integrationsSettings.Store.CLI)
-            await _cmdlineIPCServer.StartAsync();
-        else
-            await _cmdlineIPCServer.StopAsync();
-
-        if (isChecked != _cmdlineIPCServer.IsRunning)
-        {
-            if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Reset toggle switch state");
-
-            _cliInterfaceToggle.IsChecked = !isChecked;
-        }
+        await _ipcServer.StartStopIfNeededAsync();
     }
 }

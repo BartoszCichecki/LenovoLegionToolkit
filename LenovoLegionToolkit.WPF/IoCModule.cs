@@ -18,6 +18,6 @@ public class IoCModule : Module
 
         builder.Register<DashboardSettings>();
 
-        builder.Register<CmdLineIPCServer>();
+        builder.Register<IpcServer>();
     }
 }

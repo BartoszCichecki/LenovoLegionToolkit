@@ -10,7 +10,4 @@
     <ItemGroup>
         <PackageReference Include="protobuf-net" Version="3.2.30" />
     </ItemGroup>
-	<ItemGroup>
-		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
-	</ItemGroup>
 </Project>
