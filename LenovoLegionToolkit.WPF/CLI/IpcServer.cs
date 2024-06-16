@@ -92,7 +92,6 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
                     pipe.Disconnect();
                 }
             }
-
         }
         catch (OperationCanceledException) { }
         catch (Exception ex)
