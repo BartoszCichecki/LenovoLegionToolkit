@@ -41,7 +41,6 @@
 		<PackageReference Include="Markdig.Wpf" Version="0.5.0.1" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="PixiEditor.ColorPicker" Version="3.4.1" />
-		<PackageReference Include="protobuf-net" Version="3.2.30" />
 		<PackageReference Include="WPF-UI" Version="2.1.0" />
 	</ItemGroup>
 	<ItemGroup>

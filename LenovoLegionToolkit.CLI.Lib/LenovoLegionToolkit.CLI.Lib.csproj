@@ -7,7 +7,7 @@
         <Nullable>enable</Nullable>
         <NeutralLanguage>en</NeutralLanguage>
     </PropertyGroup>
-    <ItemGroup>
-        <PackageReference Include="protobuf-net" Version="3.2.30" />
-    </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+	</ItemGroup>
 </Project>

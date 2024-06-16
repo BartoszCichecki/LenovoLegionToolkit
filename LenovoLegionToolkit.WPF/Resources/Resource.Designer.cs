@@ -1117,15 +1117,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Failed to initialise command line interface. The interface has been disabled in settings..
-        /// </summary>
-        public static string CLI_Initialise_Failed_Message {
-            get {
-                return ResourceManager.GetString("CLI_Initialise_Failed_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Close.
         /// </summary>
         public static string Close {
@@ -4776,7 +4767,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable command line control function..
+        ///   Looks up a localized string similar to Enable Command Line Interface that allows control using command link..
         /// </summary>
         public static string SettingsPage_CLI_Message {
             get {
@@ -4785,7 +4776,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Command line interface.
+        ///   Looks up a localized string similar to CLI.
         /// </summary>
         public static string SettingsPage_CLI_Title {
             get {

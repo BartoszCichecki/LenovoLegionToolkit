@@ -1,22 +1,20 @@
 ﻿using System;
 using System.IO.Pipes;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
+using LenovoLegionToolkit.CLI.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
-using ProtoBuf;
 
-namespace LenovoLegionToolkit.WPF.Utils;
+namespace LenovoLegionToolkit.WPF.CLI;
 
 public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSettings settings)
 {
     private CancellationTokenSource _cancellationTokenSource = new();
-    private Task? _handler;
+    private Task _handler = Task.CompletedTask;
 
     public async Task StartStopIfNeededAsync()
     {
@@ -43,9 +41,7 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
             Log.Instance.Trace($"Stopping...");
 
         await _cancellationTokenSource.CancelAsync();
-
-        if (_handler is not null)
-            await _handler;
+        await _handler;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped");
@@ -55,21 +51,10 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
     {
         try
         {
-            var identity = new SecurityIdentifier(WellKnownSidType.WorldSid, null);
-
-            var pipeSecurity = new PipeSecurity();
-            pipeSecurity.SetAccessRule(new(identity,
-                PipeAccessRights.ReadWrite,
-                AccessControlType.Allow));
-
-            await using var pipe = NamedPipeServerStreamAcl.Create(CLI.Lib.Constants.PIPE_NAME,
+            await using var pipe = new NamedPipeServerStream(LenovoLegionToolkit.CLI.Lib.Constants.PIPE_NAME,
                 PipeDirection.InOut,
                 1,
-                PipeTransmissionMode.Byte,
-                PipeOptions.None,
-                0,
-                0,
-                pipeSecurity);
+                PipeTransmissionMode.Message);
 
             while (!token.IsCancellationRequested)
             {
@@ -80,16 +65,24 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
 
                 try
                 {
-                    var req = Serializer.DeserializeWithLengthPrefix<IpcRequest>(pipe, PrefixStyle.Base128);
+                    var req = await pipe.ReadObjectAsync<IpcRequest>(token).ConfigureAwait(false);
+
+                    if (req?.Name is null)
+                        throw new IpcException("Failed to deserialize request.");
+
                     await RunQuickActionAsync(req.Name).ConfigureAwait(false);
 
                     var res = new IpcResponse { Success = true };
-                    Serializer.SerializeWithLengthPrefix(pipe, res, PrefixStyle.Base128);
+                    await pipe.WriteObjectAsync(res, token).ConfigureAwait(false);
+                }
+                catch (OperationCanceledException)
+                {
+                    throw;
                 }
                 catch (Exception ex)
                 {
                     var res = new IpcResponse { Success = false, Message = ex.Message };
-                    Serializer.SerializeWithLengthPrefix(pipe, res, PrefixStyle.Base128);
+                    await pipe.WriteObjectAsync(res, token).ConfigureAwait(false);
                 }
                 finally
                 {
@@ -102,22 +95,19 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
 
         }
         catch (OperationCanceledException) { }
-        catch (Exception e)
+        catch (Exception ex)
         {
-            Console.WriteLine(e);
-            throw;
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Unknown failure.", ex);
         }
     }
 
     private async Task RunQuickActionAsync(string name)
     {
-        var pipelines = await automationProcessor.GetPipelinesAsync();
+        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
         var quickAction = pipelines
             .Where(p => p.Trigger is null)
-            .FirstOrDefault(p => p.Name == name);
-
-        if (quickAction is null)
-            throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
+            .FirstOrDefault(p => p.Name == name) ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
 
         await automationProcessor.RunNowAsync(quickAction.Id);
     }

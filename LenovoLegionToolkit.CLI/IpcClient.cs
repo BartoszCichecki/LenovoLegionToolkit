@@ -4,7 +4,7 @@ using System.IO.Pipes;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
-using ProtoBuf;
+using LenovoLegionToolkit.CLI.Lib.Extensions;
 
 namespace LenovoLegionToolkit.CLI;
 
@@ -18,15 +18,15 @@ public static class IpcClient
             throw new IpcException("Server unavailable");
 
         await using var pipe = new NamedPipeClientStream(Constants.PIPE_NAME);
+
         await ConnectAsync(pipe).ConfigureAwait(false);
 
         var req = new IpcRequest { Name = name };
-        Serializer.SerializeWithLengthPrefix(pipe, req, PrefixStyle.Base128);
+        await pipe.WriteObjectAsync(req).ConfigureAwait(false);
+        var res = await pipe.ReadObjectAsync<IpcResponse>().ConfigureAwait(false);
 
-        var res = Serializer.DeserializeWithLengthPrefix<IpcResponse>(pipe, PrefixStyle.Base128);
-
-        if (!res.Success)
-            throw new IpcException(res.Message ?? "Unknown failure");
+        if (res is null || !res.Success)
+            throw new IpcException(res?.Message ?? "Unknown failure");
     }
 
     private static async Task ConnectAsync(NamedPipeClientStream pipe)
@@ -38,6 +38,7 @@ public static class IpcClient
             try
             {
                 await pipe.ConnectAsync(TimeSpan.FromMilliseconds(500), CancellationToken.None).ConfigureAwait(false);
+                pipe.ReadMode = PipeTransmissionMode.Message;
                 return;
             }
             catch (TimeoutException) { }
