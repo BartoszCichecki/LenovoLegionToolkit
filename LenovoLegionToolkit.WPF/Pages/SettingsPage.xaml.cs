@@ -146,6 +146,7 @@ public partial class SettingsPage
 
         _hwinfoIntegrationToggle.IsChecked = _integrationsSettings.Store.HWiNFO;
         _cliInterfaceToggle.IsChecked = _integrationsSettings.Store.CLI;
+        _cliPathToggle.IsChecked = SystemPath.HasCLI();
 
         await loadingTask;
 
@@ -162,6 +163,7 @@ public partial class SettingsPage
         _powerModeMappingComboBox.Visibility = Visibility.Visible;
         _hwinfoIntegrationToggle.Visibility = Visibility.Visible;
         _cliInterfaceToggle.Visibility = Visibility.Visible;
+        _cliPathToggle.Visibility = Visibility.Visible;
 
         _isRefreshing = false;
     }
@@ -623,5 +625,13 @@ public partial class SettingsPage
         _integrationsSettings.SynchronizeStore();
 
         await _ipcServer.StartStopIfNeededAsync();
+    }
+
+    private void CLIPathToggle_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        SystemPath.SetCLI(_cliInterfaceToggle.IsChecked ?? false);
     }
 }

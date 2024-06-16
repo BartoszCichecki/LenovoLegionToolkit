@@ -4785,6 +4785,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add CLI to system PATH environment variable..
+        /// </summary>
+        public static string SettingsPage_CLIAddToPath_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CLIAddToPath_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add CLI to PATH.
+        /// </summary>
+        public static string SettingsPage_CLIAddToPath_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CLIAddToPath_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legion Zone may have not been disabled correctly.
         /// </summary>
         public static string SettingsPage_DisableLegionZone_Error_Message {
