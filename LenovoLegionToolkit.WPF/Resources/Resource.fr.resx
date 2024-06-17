@@ -2161,4 +2161,16 @@ Nécessite un redémarrage.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Afficher uniquement les appareils connectés</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>ILC</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Activez l'interface de ligne de commande qui permet le contrôle à partir de la ligne de commande.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Ajouter l'ILC au PATH</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Ajoutez l’ILC à la variable d’environnement PATH de l’utilisateur.</value>
+  </data>
 </root>
