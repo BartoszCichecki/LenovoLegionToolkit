@@ -4785,7 +4785,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add CLI to system PATH environment variable..
+        ///   Looks up a localized string similar to Add CLI to user&apos;s PATH environment variable..
         /// </summary>
         public static string SettingsPage_CLIAddToPath_Message {
             get {

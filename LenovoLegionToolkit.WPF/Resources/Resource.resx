@@ -2171,6 +2171,6 @@ Supported formats are: {1}.</value>
 	  <value>Add CLI to PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Add CLI to system PATH environment variable.</value>
+	  <value>Add CLI to user's PATH environment variable.</value>
   </data>
 </root>
