@@ -2139,4 +2139,13 @@ Requer reinicialização.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Exibir somente os dispositivos conectados</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>Linha de comandos</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Habilite a interface de linha de comando que permite o controle da linha de comando.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Adicionar a linha de comando ao PATH</value>
+  </data>
 </root>
