@@ -2161,4 +2161,16 @@ Unterstützte Formate sind: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Nur verbundene Geräte anzeigen</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Aktiviere die Befehlszeilenschnittstelle, die eine Steuerung über die Kommandozeile ermöglicht.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>CLI zu PATH hinzufügen</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Füge CLI zur PATH-Umgebungsvariable des Benutzers hinzu.</value>
+  </data>
 </root>
