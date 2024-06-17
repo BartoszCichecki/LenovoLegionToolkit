@@ -632,6 +632,6 @@ public partial class SettingsPage
         if (_isRefreshing)
             return;
 
-        SystemPath.SetCLI(_cliInterfaceToggle.IsChecked ?? false);
+        SystemPath.SetCLI(_cliPathToggle.IsChecked ?? false);
     }
 }
