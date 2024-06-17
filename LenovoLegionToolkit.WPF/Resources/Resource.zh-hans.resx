@@ -2178,4 +2178,7 @@
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
 	  <value>将命令行界面添加至 PATH 变量</value>
   </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>将命令行界面添加至用户 PATH 环境变量中。</value>
+  </data>
 </root>
