@@ -2054,63 +2054,123 @@ Nécessite un redémarrage.</value>
     <value>Modes de gestion de l'alimentation Windows</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
-	  <value>Passer en mode personnalisé avec Fn+Q</value>
+    <value>Passer en mode personnalisé avec Fn+Q</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
-	  <value>Permettre de basculer rapidement en mode personnalisé avec Fn+Q.</value>
+    <value>Permettre de basculer rapidement en mode personnalisé avec Fn+Q.</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
-	  <value>Synchronisation de mode d'alimentation</value>
+    <value>Synchronisation de mode d'alimentation</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
-	  <value>Change automatiquement entre les Plans d'Alimentation et les Modes d'Alimentation lors du changement du Mode d'Alimentation.</value>
+    <value>Change automatiquement entre les Plans d'Alimentation et les Modes d'Alimentation lors du changement du Mode d'Alimentation.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
-	  <value>Plans d'Alimentation Windows</value>
+    <value>Plans d'Alimentation Windows</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
-	  <value>Sélectionnez le mode de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
+    <value>Sélectionnez le mode de gestion d'alimentation Windows à appliquer lorsque le mode d'alimentation change.</value>
   </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
-	  <value>Une erreur s'est produite lors de la lecture des informations de l'appareil.</value>
+    <value>Une erreur s'est produite lors de la lecture des informations de l'appareil.</value>
   </data>
   <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroPage_Title" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
-	  <value>Répéter</value>
+    <value>Répéter</value>
   </data>
   <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
-	  <value>Ignorer les délais</value>
+    <value>Ignorer les délais</value>
   </data>
   <data name="Clear" xml:space="preserve">
-	  <value>Effacer</value>
+    <value>Effacer</value>
   </data>
   <data name="MacroSequenceControl_Record" xml:space="preserve">
-	  <value>Enregistrer</value>
+    <value>Enregistrer</value>
   </data>
   <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
-	  <value>Arrêter d'enregistrer</value>
+    <value>Arrêter d'enregistrer</value>
   </data>
   <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
-	  <value>Ne pas répéter</value>
+    <value>Ne pas répéter</value>
   </data>
   <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
-	  <value>Lenovo Legion Toolkit doit être en cours d'exécution pour que les macros fonctionnent.</value>
+    <value>Lenovo Legion Toolkit doit être en cours d'exécution pour que les macros fonctionnent.</value>
   </data>
   <data name="MacroPage_Enable_Title" xml:space="preserve">
-	  <value>Activer</value>
+    <value>Activer</value>
   </data>
   <data name="MacroPage_Subtitle" xml:space="preserve">
-	  <value>Vous pouvez enregistrer des séries de pressions de touches et les utiliser à l'aide du pavé numérique de votre clavier.</value>
+    <value>Vous pouvez enregistrer des séries de pressions de touches et les utiliser à l'aide du pavé numérique de votre clavier.</value>
   </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
-	  <value>Macro</value>
+    <value>Macro</value>
   </data>
   <data name="MacroAutomationStepControl_Message" xml:space="preserve">
-	  <value>Activer ou désactiver les macros.</value>
+    <value>Activer ou désactiver les macros.</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+    <value>Arrêter si une autre touche a été appuyée</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Cacher</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+    <value>Cacher tout</value>
+  </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+    <value>Appareils</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Tout déselectionner</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Tout sélectionner</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+    <value>Clavier uniquement</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Touches du clavier et boutons de la souris</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>Toutes les entrées</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>Options d'enregistrement</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+    <value>L'enregistrement commence dans 3 secondes...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+    <value>Enregistrement...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+    <value>Appuyez sur ÉCHAP pour arrêter.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+    <value>Afficher uniquement les appareils sélectionnés</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+    <value>Afficher uniquement les périphériques amovibles</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+    <value>Afficher uniquement les appareils connectés</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>ILC</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Activez l'interface de ligne de commande qui permet le contrôle à partir de la ligne de commande.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Ajouter l'ILC au PATH</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Ajoutez l’ILC à la variable d’environnement PATH de l’utilisateur.</value>
   </data>
 </root>
