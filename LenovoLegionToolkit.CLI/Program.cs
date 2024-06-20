@@ -29,8 +29,8 @@ public class Program
         runQuickActionCommand.SetHandler(IpcClient.RunQuickActionAsync, quickActionNameArgument);
         root.AddCommand(runQuickActionCommand);
 
-        var listFeaturesCommand = new Command("list-features", "List supported features");
-        listFeaturesCommand.AddAlias("lf");
+        var listFeaturesCommand = new Command("feature-list", "List supported features");
+        listFeaturesCommand.AddAlias("fl");
         listFeaturesCommand.SetHandler(async _ =>
         {
             var value = await IpcClient.ListFeatures();
@@ -38,8 +38,8 @@ public class Program
         });
         root.AddCommand(listFeaturesCommand);
 
-        var listFeatureValuesCommand = new Command("list-feature-values", "List values supported by a feature");
-        listFeatureValuesCommand.AddAlias("lfv");
+        var listFeatureValuesCommand = new Command("feature-list-values", "List values supported by a feature");
+        listFeatureValuesCommand.AddAlias("flv");
         listFeatureValuesCommand.SetHandler(async name =>
         {
             var value = await IpcClient.ListFeatureValues(name);
@@ -48,15 +48,15 @@ public class Program
         listFeatureValuesCommand.AddArgument(featureArgument);
         root.AddCommand(listFeatureValuesCommand);
 
-        var setFeatureCommand = new Command("set-feature-value", "Set feature with value");
-        setFeatureCommand.AddAlias("sfv");
+        var setFeatureCommand = new Command("feature-set-value", "Set feature with value");
+        setFeatureCommand.AddAlias("fsv");
         setFeatureCommand.AddArgument(featureArgument);
         setFeatureCommand.AddArgument(valueArgument);
         setFeatureCommand.SetHandler(IpcClient.SetFeature, featureArgument, valueArgument);
         root.AddCommand(setFeatureCommand);
 
-        var getFeatureCommand = new Command("get-feature-value", "Get feature value");
-        getFeatureCommand.AddAlias("gfv");
+        var getFeatureCommand = new Command("feature-get-value", "Get feature value");
+        getFeatureCommand.AddAlias("fgv");
         getFeatureCommand.AddArgument(featureArgument);
         getFeatureCommand.SetHandler(async name =>
         {
