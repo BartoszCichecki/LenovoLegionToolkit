@@ -2,5 +2,18 @@
 
 public class IpcRequest
 {
-    public string Name { get; init; } = "";
+    public enum OperationType
+    {
+        QuickAction,
+        ListFeatures,
+        ListFeatureValues,
+        SetFeature,
+        GetFeature,
+    }
+
+    public OperationType? Operation { get; init; }
+
+    public string? Name { get; init; }
+
+    public string? Value { get; init; }
 }

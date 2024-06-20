@@ -1,4 +1,9 @@
 ﻿using System;
+using System.CommandLine;
+using System.CommandLine.Builder;
+using System.CommandLine.Invocation;
+using System.CommandLine.IO;
+using System.CommandLine.Parsing;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
 
@@ -8,55 +13,75 @@ public class Program
 {
     public static async Task<int> Main(string[] args)
     {
-        var flags = Flags.Create(args);
+        var root = new RootCommand("Control LLT");
 
-        try
-        {
-            if (flags.Help)
-                PrintHelp(flags);
-            else if (flags.QuickActionRunName is { } name)
-                await IpcClient.RunQuickActionAsync(name);
-            else
-                throw new InvalidOperationException();
+        var builder = new CommandLineBuilder(root)
+            .UseDefaults()
+            .UseExceptionHandler(OnException);
 
-            return 0;
-        }
-        catch (IpcException ex)
+        var quickActionNameArgument = new Argument<string>("name", "Name of the QuickAction") { Arity = ArgumentArity.ExactlyOne };
+        var featureArgument = new Argument<string>("feature", "Name of the feature") { Arity = ArgumentArity.ExactlyOne };
+        var valueArgument = new Argument<string>("value", "Value of the feature") { Arity = ArgumentArity.ExactlyOne };
+
+        var runQuickActionCommand = new Command("quick-action", "Run Quick Action with specified name");
+        runQuickActionCommand.AddAlias("qa");
+        runQuickActionCommand.AddArgument(quickActionNameArgument);
+        runQuickActionCommand.SetHandler(IpcClient.RunQuickActionAsync, quickActionNameArgument);
+        root.AddCommand(runQuickActionCommand);
+
+        var listFeaturesCommand = new Command("list-features", "List supported features");
+        listFeaturesCommand.AddAlias("lf");
+        listFeaturesCommand.SetHandler(async _ =>
         {
-            PrintLine(flags, ex.Message);
-            return 3;
-        }
-        catch (InvalidOperationException)
+            var value = await IpcClient.ListFeatures();
+            Console.WriteLine(value);
+        });
+        root.AddCommand(listFeaturesCommand);
+
+        var listFeatureValuesCommand = new Command("list-feature-values", "List values supported by a feature");
+        listFeatureValuesCommand.AddAlias("lfv");
+        listFeatureValuesCommand.SetHandler(async name =>
         {
-            PrintHelp(flags);
-            return 2;
-        }
-        catch (Exception ex)
+            var value = await IpcClient.ListFeatureValues(name);
+            Console.WriteLine(value);
+        }, featureArgument);
+        listFeatureValuesCommand.AddArgument(featureArgument);
+        root.AddCommand(listFeatureValuesCommand);
+
+        var setFeatureCommand = new Command("set-feature-value", "Set feature with value");
+        setFeatureCommand.AddAlias("sfv");
+        setFeatureCommand.AddArgument(featureArgument);
+        setFeatureCommand.AddArgument(valueArgument);
+        setFeatureCommand.SetHandler(IpcClient.SetFeature, featureArgument, valueArgument);
+        root.AddCommand(setFeatureCommand);
+
+        var getFeatureCommand = new Command("get-feature-value", "Get feature value");
+        getFeatureCommand.AddAlias("gfv");
+        getFeatureCommand.AddArgument(featureArgument);
+        getFeatureCommand.SetHandler(async name =>
         {
-            PrintLine(flags, ex.Message);
-            return 1;
-        }
+            var value = await IpcClient.GetFeature(name);
+            Console.WriteLine(value);
+        }, featureArgument);
+        root.AddCommand(getFeatureCommand);
+
+        return await builder.Build().InvokeAsync(args);
     }
 
-    private static void PrintHelp(Flags flags)
+    private static void OnException(Exception ex, InvocationContext context)
     {
-        PrintLine(flags, [
-            "Lenovo Legion Toolkit CLI",
-            "",
-            "Usage:",
-            "  --quickAction=<name>, -qa=<name> - run Quick Action with specified name",
-            "  --silent, -s                     - suppress output",
-            "  --help, -h                       - display this help",
-            ""
-        ]);
-    }
+        var message = ex switch
+        {
+            IpcException => ex.Message,
+            _ => ex.ToString()
+        };
+        var exitCode = ex switch
+        {
+            IpcException => -1,
+            _ => -99
+        };
 
-    private static void PrintLine(Flags flags, params string[] messages)
-    {
-        if (flags.Silent)
-            return;
-
-        foreach (var message in messages)
-            Console.WriteLine(message);
+        context.Console.Error.WriteLine(message);
+        context.ExitCode = exitCode;
     }
 }
