@@ -12,7 +12,7 @@ public static class IpcClient
 {
     private static bool PipeExists => Directory.GetFiles(@"\\.\pipe\", Constants.PIPE_NAME).Length > 0;
 
-    public static async Task<string> ListFeatures()
+    public static async Task<string> ListFeaturesAsync()
     {
         var req = new IpcRequest
         {
@@ -22,7 +22,8 @@ public static class IpcClient
         return await SendRequestAsync(req).ConfigureAwait(false)
                ?? throw new IpcException("Missing return message.");
     }
-    public static async Task<string> ListFeatureValues(string name)
+
+    public static async Task<string> ListFeatureValuesAsync(string name)
     {
         var req = new IpcRequest
         {
@@ -34,11 +35,11 @@ public static class IpcClient
                ?? throw new IpcException("Missing return message.");
     }
 
-    public static Task SetFeature(string name, string value)
+    public static Task SetFeatureValueAsync(string name, string value)
     {
         var req = new IpcRequest
         {
-            Operation = IpcRequest.OperationType.SetFeature,
+            Operation = IpcRequest.OperationType.SetFeatureValue,
             Name = name,
             Value = value
         };
@@ -46,12 +47,23 @@ public static class IpcClient
         return SendRequestAsync(req);
     }
 
-    public static async Task<string> GetFeature(string name)
+    public static async Task<string> GetFeatureValueAsync(string name)
     {
         var req = new IpcRequest
         {
-            Operation = IpcRequest.OperationType.GetFeature,
+            Operation = IpcRequest.OperationType.GetFeatureValue,
             Name = name
+        };
+
+        return await SendRequestAsync(req).ConfigureAwait(false)
+               ?? throw new IpcException("Missing return message.");
+    }
+
+    public static async Task<string> ListQuickActionsAsync()
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.ListQuickActions
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)

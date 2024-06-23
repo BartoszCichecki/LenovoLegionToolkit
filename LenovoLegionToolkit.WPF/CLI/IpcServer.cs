@@ -107,35 +107,27 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
 
         switch (req.Operation)
         {
-            case IpcRequest.OperationType.QuickAction when req is { Name: not null }:
-                await RunQuickActionAsync(req.Name).ConfigureAwait(false);
-                return new IpcResponse { Success = true };
             case IpcRequest.OperationType.ListFeatures:
                 message = await ListFeaturesAsync();
                 return new IpcResponse { Success = true, Message = message };
             case IpcRequest.OperationType.ListFeatureValues when req is { Name: not null }:
                 message = await ListFeatureValuesAsync(req.Name);
                 return new IpcResponse { Success = true, Message = message };
-            case IpcRequest.OperationType.SetFeature when req is { Name: not null, Value: not null }:
-                await SetFeatureAsync(req.Name, req.Value).ConfigureAwait(false);
-                return new IpcResponse { Success = true };
-            case IpcRequest.OperationType.GetFeature when req is { Name: not null }:
-                message = await GetFeatureAsync(req.Name);
+            case IpcRequest.OperationType.GetFeatureValue when req is { Name: not null }:
+                message = await GetFeatureValueAsync(req.Name);
                 return new IpcResponse { Success = true, Message = message };
+            case IpcRequest.OperationType.SetFeatureValue when req is { Name: not null, Value: not null }:
+                await SetFeatureValueAsync(req.Name, req.Value).ConfigureAwait(false);
+                return new IpcResponse { Success = true };
+            case IpcRequest.OperationType.ListQuickActions:
+                message = await ListQuickActionsAsync().ConfigureAwait(false);
+                return new IpcResponse { Success = true, Message = message };
+            case IpcRequest.OperationType.QuickAction when req is { Name: not null }:
+                await RunQuickActionAsync(req.Name).ConfigureAwait(false);
+                return new IpcResponse { Success = true };
             default:
                 throw new IpcException("Invalid request");
         }
-    }
-
-    private async Task RunQuickActionAsync(string name)
-    {
-        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
-        var quickAction = pipelines
-            .Where(p => p.Trigger is null)
-            .FirstOrDefault(p => p.Name == name)
-                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
-
-        await automationProcessor.RunNowAsync(quickAction.Id);
     }
 
     private static async Task<string?> ListFeaturesAsync()
@@ -150,6 +142,7 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
 
         return string.Join('\n', features);
     }
+
     private static async Task<string?> ListFeatureValuesAsync(string name)
     {
         var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
@@ -158,17 +151,38 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
         return string.Join('\n', values);
     }
 
-    private static async Task SetFeatureAsync(string name, string value)
+    private static async Task<string> GetFeatureValueAsync(string name)
+    {
+        var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
+                      ?? throw new IpcException("Invalid feature.");
+        return await feature.GetValueAsync().ConfigureAwait(false);
+    }
+
+    private static async Task SetFeatureValueAsync(string name, string value)
     {
         var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
                       ?? throw new IpcException("Invalid feature.");
         await feature.SetValueAsync(value).ConfigureAwait(false);
     }
 
-    private static async Task<string> GetFeatureAsync(string name)
+    private async Task<string> ListQuickActionsAsync()
     {
-        var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
-                      ?? throw new IpcException("Invalid feature.");
-        return await feature.GetValueAsync().ConfigureAwait(false);
+        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
+        var quickActions = pipelines
+            .Where(p => p.Trigger is null)
+            .Select(p => p.Name);
+
+        return string.Join('\n', quickActions);
+    }
+
+    private async Task RunQuickActionAsync(string name)
+    {
+        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
+        var quickAction = pipelines
+                              .Where(p => p.Trigger is null)
+                              .FirstOrDefault(p => p.Name == name)
+                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
+
+        await automationProcessor.RunNowAsync(quickAction.Id);
     }
 }

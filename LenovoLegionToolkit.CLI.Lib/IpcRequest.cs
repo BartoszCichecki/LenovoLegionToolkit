@@ -4,11 +4,13 @@ public class IpcRequest
 {
     public enum OperationType
     {
-        QuickAction,
+        Unknown,
         ListFeatures,
         ListFeatureValues,
-        SetFeature,
-        GetFeature,
+        ListQuickActions,
+        GetFeatureValue,
+        SetFeatureValue,
+        QuickAction,
     }
 
     public OperationType? Operation { get; init; }

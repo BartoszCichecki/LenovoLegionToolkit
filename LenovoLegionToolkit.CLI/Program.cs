@@ -11,7 +11,9 @@ namespace LenovoLegionToolkit.CLI;
 
 public class Program
 {
-    public static async Task<int> Main(string[] args)
+    public static Task<int> Main(string[] args) => BuildCommandLine().InvokeAsync(args);
+
+    private static Parser BuildCommandLine()
     {
         var root = new RootCommand("Control LLT");
 
@@ -19,53 +21,138 @@ public class Program
             .UseDefaults()
             .UseExceptionHandler(OnException);
 
-        var quickActionNameArgument = new Argument<string>("name", "Name of the QuickAction") { Arity = ArgumentArity.ExactlyOne };
-        var featureArgument = new Argument<string>("feature", "Name of the feature") { Arity = ArgumentArity.ExactlyOne };
-        var valueArgument = new Argument<string>("value", "Value of the feature") { Arity = ArgumentArity.ExactlyOne };
+        root.AddCommand(BuildFeatureCommand());
+        root.AddCommand(BuildQuickActionsCommand());
 
-        var runQuickActionCommand = new Command("quick-action", "Run Quick Action with specified name");
-        runQuickActionCommand.AddAlias("qa");
-        runQuickActionCommand.AddArgument(quickActionNameArgument);
-        runQuickActionCommand.SetHandler(IpcClient.RunQuickActionAsync, quickActionNameArgument);
-        root.AddCommand(runQuickActionCommand);
+        return builder.Build();
+    }
 
-        var listFeaturesCommand = new Command("feature-list", "List supported features");
-        listFeaturesCommand.AddAlias("fl");
-        listFeaturesCommand.SetHandler(async _ =>
+    private static Command BuildFeatureCommand()
+    {
+        var getCmd = BuildGetFeatureCommand();
+        var setCmd = BuildSetFeatureCommand();
+
+        var listOption = new Option<bool?>("--list", "List available features") { Arity = ArgumentArity.ZeroOrOne };
+        listOption.AddAlias("-l");
+
+        var cmd = new Command("feature", "Control features");
+        cmd.AddAlias("f");
+        cmd.AddCommand(getCmd);
+        cmd.AddCommand(setCmd);
+        cmd.AddOption(listOption);
+        cmd.SetHandler(async list =>
         {
-            var value = await IpcClient.ListFeatures();
+            if (!list.HasValue || !list.Value)
+                return;
+
+            var value = await IpcClient.ListFeaturesAsync();
             Console.WriteLine(value);
+        }, listOption);
+        cmd.AddValidator(result =>
+        {
+            if (result.FindResultFor(getCmd) is not null)
+                return;
+
+            if (result.FindResultFor(setCmd) is not null)
+                return;
+
+            if (result.FindResultFor(listOption) is not null)
+                return;
+
+            result.ErrorMessage = $"{getCmd.Name}, {setCmd.Name} or --{listOption.Name} should be specified";
         });
-        root.AddCommand(listFeaturesCommand);
 
-        var listFeatureValuesCommand = new Command("feature-list-values", "List values supported by a feature");
-        listFeatureValuesCommand.AddAlias("flv");
-        listFeatureValuesCommand.SetHandler(async name =>
+        return cmd;
+    }
+
+    private static Command BuildGetFeatureCommand()
+    {
+        var nameArgument = new Argument<string>("name", "Name of the feature") { Arity = ArgumentArity.ExactlyOne };
+
+        var cmd = new Command("get", "Get value of a feature");
+        cmd.AddAlias("g");
+        cmd.AddArgument(nameArgument);
+        cmd.SetHandler(async name =>
         {
-            var value = await IpcClient.ListFeatureValues(name);
-            Console.WriteLine(value);
-        }, featureArgument);
-        listFeatureValuesCommand.AddArgument(featureArgument);
-        root.AddCommand(listFeatureValuesCommand);
+            var result = await IpcClient.GetFeatureValueAsync(name);
+            Console.WriteLine(result);
+        }, nameArgument);
 
-        var setFeatureCommand = new Command("feature-set-value", "Set feature with value");
-        setFeatureCommand.AddAlias("fsv");
-        setFeatureCommand.AddArgument(featureArgument);
-        setFeatureCommand.AddArgument(valueArgument);
-        setFeatureCommand.SetHandler(IpcClient.SetFeature, featureArgument, valueArgument);
-        root.AddCommand(setFeatureCommand);
+        return cmd;
+    }
 
-        var getFeatureCommand = new Command("feature-get-value", "Get feature value");
-        getFeatureCommand.AddAlias("fgv");
-        getFeatureCommand.AddArgument(featureArgument);
-        getFeatureCommand.SetHandler(async name =>
+    private static Command BuildSetFeatureCommand()
+    {
+        var nameArgument = new Argument<string>("name", "Name of the feature") { Arity = ArgumentArity.ExactlyOne };
+        var valueArgument = new Argument<string>("value", "Value of the feature") { Arity = ArgumentArity.ZeroOrOne };
+
+        var listOption = new Option<bool>("--list", "List available feature values") { Arity = ArgumentArity.ZeroOrOne };
+        listOption.AddAlias("-l");
+
+        var cmd = new Command("set", "Set value of a feature");
+        cmd.AddAlias("s");
+        cmd.AddArgument(nameArgument);
+        cmd.AddArgument(valueArgument);
+        cmd.AddOption(listOption);
+        cmd.SetHandler(async (name, value, list) =>
         {
-            var value = await IpcClient.GetFeature(name);
-            Console.WriteLine(value);
-        }, featureArgument);
-        root.AddCommand(getFeatureCommand);
+            if (list)
+            {
+                var result = await IpcClient.ListFeatureValuesAsync(name);
+                Console.WriteLine(result);
+                return;
+            }
 
-        return await builder.Build().InvokeAsync(args);
+            await IpcClient.SetFeatureValueAsync(name, value);
+        }, nameArgument, valueArgument, listOption);
+        cmd.AddValidator(result =>
+        {
+            if (result.FindResultFor(nameArgument) is not null)
+                return;
+
+            if (result.FindResultFor(listOption) is not null)
+                return;
+
+            result.ErrorMessage = $"{nameArgument.Name} or --{listOption.Name} should be specified";
+        });
+
+        return cmd;
+    }
+
+    private static Command BuildQuickActionsCommand()
+    {
+        var nameArgument = new Argument<string>("name", "Name of the Quick Action") { Arity = ArgumentArity.ZeroOrOne };
+
+        var listOption = new Option<bool>("--list", "List available Quick Actions") { Arity = ArgumentArity.ZeroOrOne };
+        listOption.AddAlias("-l");
+
+        var cmd = new Command("quickAction", "Run Quick Action");
+        cmd.AddAlias("qa");
+        cmd.AddArgument(nameArgument);
+        cmd.AddOption(listOption);
+        cmd.SetHandler(async (name, list) =>
+        {
+            if (list)
+            {
+                var result = await IpcClient.ListQuickActionsAsync();
+                Console.WriteLine(result);
+                return;
+            }
+
+            await IpcClient.RunQuickActionAsync(name);
+        }, nameArgument, listOption);
+        cmd.AddValidator(result =>
+        {
+            if (result.FindResultFor(nameArgument) is not null)
+                return;
+
+            if (result.FindResultFor(listOption) is not null)
+                return;
+
+            result.ErrorMessage = $"{nameArgument.Name} or --{listOption.Name} should be specified";
+        });
+
+        return cmd;
     }
 
     private static void OnException(Exception ex, InvocationContext context)
