@@ -15,7 +15,9 @@ public class Program
 
     private static Parser BuildCommandLine()
     {
-        var root = new RootCommand("Control LLT");
+        var root = new RootCommand("Utility that controls Lenovo Legion Toolkit from command line.\n\n" +
+                                   "Lenovo Legion Toolkit must be running in the background and CLI setting must be " +
+                                   "turned on for this utility to work.");
 
         var builder = new CommandLineBuilder(root)
             .UseDefaults()
