@@ -8,6 +8,6 @@ public interface IFeatureRegistration
     string Name { get; }
     Task<bool> IsSupportedAsync();
     Task<IEnumerable<string>> GetValuesAsync();
-    Task SetValueAsync(string value);
     Task<string> GetValueAsync();
+    Task SetValueAsync(string value);
 }
