@@ -10,6 +10,10 @@ public class IpcRequest
         ListQuickActions,
         GetFeatureValue,
         SetFeatureValue,
+        GetSpectrumProfile,
+        SetSpectrumProfile,
+        GetSpectrumBrightness,
+        SetSpectrumBrightness,
         QuickAction,
     }
 

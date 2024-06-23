@@ -30,7 +30,7 @@ public static class FeatureRegistry
             s =>
             {
                 var split = s.Split('x');
-                return new Resolution(Convert.ToInt32(split.FirstOrDefault()), Convert.ToInt32(split.LastOrDefault()));
+                return new(Convert.ToInt32(split.FirstOrDefault()), Convert.ToInt32(split.LastOrDefault()));
             }),
         new FeatureRegistration<SpeakerState>("speaker"),
         new FeatureRegistration<TouchpadLockState>("touchpad-lock"),

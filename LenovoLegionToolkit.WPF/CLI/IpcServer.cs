@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
 using LenovoLegionToolkit.CLI.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Automation;
+using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.CLI.Features;
 
 namespace LenovoLegionToolkit.WPF.CLI;
 
-public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSettings settings)
+public class IpcServer(
+    AutomationProcessor automationProcessor,
+    SpectrumKeyboardBacklightController spectrumKeyboardBacklightController,
+    IntegrationsSettings settings
+    )
 {
     private CancellationTokenSource _cancellationTokenSource = new();
     private Task _handler = Task.CompletedTask;
@@ -107,6 +112,12 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
 
         switch (req.Operation)
         {
+            case IpcRequest.OperationType.ListQuickActions:
+                message = await ListQuickActionsAsync().ConfigureAwait(false);
+                return new IpcResponse { Success = true, Message = message };
+            case IpcRequest.OperationType.QuickAction when req is { Name: not null }:
+                await RunQuickActionAsync(req.Name).ConfigureAwait(false);
+                return new IpcResponse { Success = true };
             case IpcRequest.OperationType.ListFeatures:
                 message = await ListFeaturesAsync();
                 return new IpcResponse { Success = true, Message = message };
@@ -119,15 +130,42 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
             case IpcRequest.OperationType.SetFeatureValue when req is { Name: not null, Value: not null }:
                 await SetFeatureValueAsync(req.Name, req.Value).ConfigureAwait(false);
                 return new IpcResponse { Success = true };
-            case IpcRequest.OperationType.ListQuickActions:
-                message = await ListQuickActionsAsync().ConfigureAwait(false);
+            case IpcRequest.OperationType.GetSpectrumProfile:
+                message = await GetSpectrumProfileAsync();
                 return new IpcResponse { Success = true, Message = message };
-            case IpcRequest.OperationType.QuickAction when req is { Name: not null }:
-                await RunQuickActionAsync(req.Name).ConfigureAwait(false);
+            case IpcRequest.OperationType.SetSpectrumProfile when req is { Value: not null }:
+                await SetSpectrumProfileAsync(req.Value);
+                return new IpcResponse { Success = true };
+            case IpcRequest.OperationType.GetSpectrumBrightness:
+                message = await GetSpectrumBrightnessAsync();
+                return new IpcResponse { Success = true, Message = message };
+            case IpcRequest.OperationType.SetSpectrumBrightness when req is { Value: not null }:
+                await SetSpectrumBrightnessAsync(req.Value);
                 return new IpcResponse { Success = true };
             default:
                 throw new IpcException("Invalid request");
         }
+    }
+
+    private async Task<string> ListQuickActionsAsync()
+    {
+        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
+        var quickActions = pipelines
+            .Where(p => p.Trigger is null)
+            .Select(p => p.Name);
+
+        return string.Join('\n', quickActions);
+    }
+
+    private async Task RunQuickActionAsync(string name)
+    {
+        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
+        var quickAction = pipelines
+                              .Where(p => p.Trigger is null)
+                              .FirstOrDefault(p => p.Name == name)
+                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
+
+        await automationProcessor.RunNowAsync(quickAction.Id);
     }
 
     private static async Task<string?> ListFeaturesAsync()
@@ -165,24 +203,37 @@ public class IpcServer(AutomationProcessor automationProcessor, IntegrationsSett
         await feature.SetValueAsync(value).ConfigureAwait(false);
     }
 
-    private async Task<string> ListQuickActionsAsync()
+    private async Task<string> GetSpectrumProfileAsync()
     {
-        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
-        var quickActions = pipelines
-            .Where(p => p.Trigger is null)
-            .Select(p => p.Name);
+        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("Spectrum is not supported");
 
-        return string.Join('\n', quickActions);
+        var profile = await spectrumKeyboardBacklightController.GetProfileAsync().ConfigureAwait(false);
+        return $"{profile}";
     }
 
-    private async Task RunQuickActionAsync(string name)
+    private async Task SetSpectrumProfileAsync(string value)
     {
-        var pipelines = await automationProcessor.GetPipelinesAsync().ConfigureAwait(false);
-        var quickAction = pipelines
-                              .Where(p => p.Trigger is null)
-                              .FirstOrDefault(p => p.Name == name)
-                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
+        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("Spectrum is not supported");
 
-        await automationProcessor.RunNowAsync(quickAction.Id);
+        await spectrumKeyboardBacklightController.SetProfileAsync(Convert.ToInt32(value)).ConfigureAwait(false);
+    }
+
+    private async Task<string> GetSpectrumBrightnessAsync()
+    {
+        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("Spectrum is not supported");
+
+        var profile = await spectrumKeyboardBacklightController.GetBrightnessAsync().ConfigureAwait(false);
+        return $"{profile}";
+    }
+
+    private async Task SetSpectrumBrightnessAsync(string value)
+    {
+        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("Spectrum is not supported");
+
+        await spectrumKeyboardBacklightController.SetBrightnessAsync(Convert.ToInt32(value)).ConfigureAwait(false);
     }
 }

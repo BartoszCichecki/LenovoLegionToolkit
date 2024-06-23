@@ -12,6 +12,27 @@ public static class IpcClient
 {
     private static bool PipeExists => Directory.GetFiles(@"\\.\pipe\", Constants.PIPE_NAME).Length > 0;
 
+    public static async Task<string> ListQuickActionsAsync()
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.ListQuickActions
+        };
+
+        return await SendRequestAsync(req).ConfigureAwait(false)
+               ?? throw new IpcException("Missing return message.");
+    }
+
+    public static Task RunQuickActionAsync(string name)
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.QuickAction,
+            Name = name
+        };
+
+        return SendRequestAsync(req);
+    }
     public static async Task<string> ListFeaturesAsync()
     {
         var req = new IpcRequest
@@ -59,23 +80,45 @@ public static class IpcClient
                ?? throw new IpcException("Missing return message.");
     }
 
-    public static async Task<string> ListQuickActionsAsync()
+    public static async Task<string> GetSpectrumProfileAsync()
     {
         var req = new IpcRequest
         {
-            Operation = IpcRequest.OperationType.ListQuickActions
+            Operation = IpcRequest.OperationType.GetSpectrumProfile
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
                ?? throw new IpcException("Missing return message.");
     }
 
-    public static Task RunQuickActionAsync(string name)
+    public static Task SetSpectrumProfileAsync(string value)
     {
         var req = new IpcRequest
         {
-            Operation = IpcRequest.OperationType.QuickAction,
-            Name = name
+            Operation = IpcRequest.OperationType.SetSpectrumProfile,
+            Value = value
+        };
+
+        return SendRequestAsync(req);
+    }
+
+    public static async Task<string> GetSpectrumBrightnessAsync()
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.GetSpectrumBrightness
+        };
+
+        return await SendRequestAsync(req).ConfigureAwait(false)
+               ?? throw new IpcException("Missing return message.");
+    }
+
+    public static Task SetSpectrumBrightnessAsync(string value)
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.SetSpectrumBrightness,
+            Value = value
         };
 
         return SendRequestAsync(req);

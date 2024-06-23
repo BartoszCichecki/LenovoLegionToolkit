@@ -21,10 +21,47 @@ public class Program
             .UseDefaults()
             .UseExceptionHandler(OnException);
 
-        root.AddCommand(BuildFeatureCommand());
         root.AddCommand(BuildQuickActionsCommand());
+        root.AddCommand(BuildFeatureCommand());
+        root.AddCommand(BuildSpectrumCommand());
 
         return builder.Build();
+    }
+
+    private static Command BuildQuickActionsCommand()
+    {
+        var nameArgument = new Argument<string>("name", "Name of the Quick Action") { Arity = ArgumentArity.ZeroOrOne };
+
+        var listOption = new Option<bool>("--list", "List available Quick Actions") { Arity = ArgumentArity.ZeroOrOne };
+        listOption.AddAlias("-l");
+
+        var cmd = new Command("quickAction", "Run Quick Action");
+        cmd.AddAlias("qa");
+        cmd.AddArgument(nameArgument);
+        cmd.AddOption(listOption);
+        cmd.SetHandler(async (name, list) =>
+        {
+            if (list)
+            {
+                var result = await IpcClient.ListQuickActionsAsync();
+                Console.WriteLine(result);
+                return;
+            }
+
+            await IpcClient.RunQuickActionAsync(name);
+        }, nameArgument, listOption);
+        cmd.AddValidator(result =>
+        {
+            if (result.FindResultFor(nameArgument) is not null)
+                return;
+
+            if (result.FindResultFor(listOption) is not null)
+                return;
+
+            result.ErrorMessage = $"{nameArgument.Name} or --{listOption.Name} should be specified";
+        });
+
+        return cmd;
     }
 
     private static Command BuildFeatureCommand()
@@ -119,38 +156,96 @@ public class Program
         return cmd;
     }
 
-    private static Command BuildQuickActionsCommand()
+    private static Command BuildSpectrumCommand()
     {
-        var nameArgument = new Argument<string>("name", "Name of the Quick Action") { Arity = ArgumentArity.ZeroOrOne };
+        var profileCommand = BuildSpectrumProfileCommand();
+        var brightnessCommand = BuildSpectrumBrightnessCommand();
 
-        var listOption = new Option<bool>("--list", "List available Quick Actions") { Arity = ArgumentArity.ZeroOrOne };
-        listOption.AddAlias("-l");
+        var cmd = new Command("spectrum", "Control Spectrum backlight");
+        cmd.AddAlias("s");
+        cmd.AddCommand(profileCommand);
+        cmd.AddCommand(brightnessCommand);
+        return cmd;
+    }
 
-        var cmd = new Command("quickAction", "Run Quick Action");
-        cmd.AddAlias("qa");
-        cmd.AddArgument(nameArgument);
-        cmd.AddOption(listOption);
-        cmd.SetHandler(async (name, list) =>
+    private static Command BuildSpectrumProfileCommand()
+    {
+        var getCmd = BuildGetSpectrumProfileCommand();
+        var setCmd = BuildSetSpectrumProfileCommand();
+
+        var cmd = new Command("profile", "Control Spectrum backlight profile");
+        cmd.AddAlias("p");
+        cmd.AddCommand(getCmd);
+        cmd.AddCommand(setCmd);
+
+        return cmd;
+    }
+
+    private static Command BuildGetSpectrumProfileCommand()
+    {
+        var cmd = new Command("get", "Get current Spectrum profile");
+        cmd.AddAlias("g");
+        cmd.SetHandler(async _ =>
         {
-            if (list)
-            {
-                var result = await IpcClient.ListQuickActionsAsync();
-                Console.WriteLine(result);
-                return;
-            }
-
-            await IpcClient.RunQuickActionAsync(name);
-        }, nameArgument, listOption);
-        cmd.AddValidator(result =>
-        {
-            if (result.FindResultFor(nameArgument) is not null)
-                return;
-
-            if (result.FindResultFor(listOption) is not null)
-                return;
-
-            result.ErrorMessage = $"{nameArgument.Name} or --{listOption.Name} should be specified";
+            var result = await IpcClient.GetSpectrumProfileAsync();
+            Console.WriteLine(result);
         });
+
+        return cmd;
+    }
+
+    private static Command BuildSetSpectrumProfileCommand()
+    {
+        var valueArgument = new Argument<int>("profile", "Profile to set") { Arity = ArgumentArity.ExactlyOne };
+
+        var cmd = new Command("set", "Set current Spectrum profile");
+        cmd.AddAlias("s");
+        cmd.AddArgument(valueArgument);
+        cmd.SetHandler(async value =>
+        {
+            await IpcClient.SetSpectrumProfileAsync($"{value}");
+        }, valueArgument);
+
+        return cmd;
+    }
+
+    private static Command BuildSpectrumBrightnessCommand()
+    {
+        var getCmd = BuildGetSpectrumBrightnessCommand();
+        var setCmd = BuildSetSpectrumBrightnessCommand();
+
+        var cmd = new Command("brightness", "Control Spectrum brightness");
+        cmd.AddAlias("b");
+        cmd.AddCommand(getCmd);
+        cmd.AddCommand(setCmd);
+
+        return cmd;
+    }
+
+    private static Command BuildGetSpectrumBrightnessCommand()
+    {
+        var cmd = new Command("get", "Get current Spectrum brightness");
+        cmd.AddAlias("g");
+        cmd.SetHandler(async _ =>
+        {
+            var result = await IpcClient.GetSpectrumBrightnessAsync();
+            Console.WriteLine(result);
+        });
+
+        return cmd;
+    }
+
+    private static Command BuildSetSpectrumBrightnessCommand()
+    {
+        var valueArgument = new Argument<int>("brightness", "Brightness to set") { Arity = ArgumentArity.ExactlyOne };
+
+        var cmd = new Command("set", "Set current Spectrum brightness");
+        cmd.AddAlias("s");
+        cmd.AddArgument(valueArgument);
+        cmd.SetHandler(async value =>
+        {
+            await IpcClient.SetSpectrumBrightnessAsync($"{value}");
+        }, valueArgument);
 
         return cmd;
     }
