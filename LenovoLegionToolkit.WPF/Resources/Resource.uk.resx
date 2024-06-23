@@ -1010,7 +1010,7 @@
     <value>За замовчуванням</value>
   </data>
   <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
-    <value>План живлення</value>
+    <value>План живлення Windows</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Налаштуйте шаблон підсвітки клавіатури.</value>
@@ -1209,7 +1209,7 @@
     <value>Сповіщення</value>
   </data>
   <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
-    <value>Плани живлення</value>
+    <value>Плани живлення Windows</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>Призначити швидкі дії на подвійне натискання Fn+F9.</value>
@@ -2118,5 +2118,56 @@
   </data>
   <data name="HideAll" xml:space="preserve">
     <value>Приховати всі</value>
+  </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+    <value>Пристрої</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Зняти виділення з усіх</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Виділити усі</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+    <value>Лише клавіатура</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Клавіші клавіатури та кнопки миші</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>Усі пристрої вводу</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>Налаштування запису</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+    <value>Запис почнеться за 3 секунди...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+    <value>Записується...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+    <value>Натисніть ESC для зупинки.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+    <value>Показати лише вибрані пристрої</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+    <value>Показати лише знімні пристрої</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+    <value>Показати лише під'єднані пристрої</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>Оболонка вказівного рядка</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Увімкнути оболонку вказівного рядка, яка дозволяє керувати з вказівного рядка.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Додати оболонку вказівного рядка до шляху</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Додати оболонку вказівного рядка до змінної шляху користувача.</value>
   </data>
 </root>

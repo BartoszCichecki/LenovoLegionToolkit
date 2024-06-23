@@ -470,10 +470,10 @@
 	  <value>Вимкнений</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>План живлення</value>
+	  <value>Режим живлення Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>План живлення</value>
+	  <value>План живлення Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
 	  <value>Шаблон 4</value>
