@@ -51,7 +51,7 @@ public static partial class WMI
         }
         catch (ManagementException ex)
         {
-            throw new ManagementException($"Read failed: {ex.Message}. [scope={scope}, query={query}]", ex);
+            throw new ManagementException($"Read failed: {ex.Message} [scope={scope}, query={query}]", ex);
         }
     }
 
@@ -73,7 +73,7 @@ public static partial class WMI
         }
         catch (ManagementException ex)
         {
-            throw new ManagementException($"Call failed: {ex.Message}. [scope={scope}, query={query}, methodName={methodName}]", ex);
+            throw new ManagementException($"Call failed: {ex.Message} [scope={scope}, query={query}, methodName={methodName}]", ex);
         }
     }
 

@@ -15,19 +15,19 @@ public class SensorsController(
 
     public async Task PrepareAsync()
     {
-        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found.");
+        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found");
         await controller.PrepareAsync().ConfigureAwait(false);
     }
 
     public async Task<SensorsData> GetDataAsync()
     {
-        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found.");
+        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found");
         return await controller.GetDataAsync().ConfigureAwait(false);
     }
 
     public async Task<(int cpuFanSpeed, int gpuFanSpeed)> GetFanSpeedsAsync()
     {
-        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found.");
+        var controller = await GetControllerAsync().ConfigureAwait(false) ?? throw new InvalidOperationException("No supported controller found");
         return await controller.GetFanSpeedsAsync().ConfigureAwait(false);
     }
 

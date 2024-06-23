@@ -183,7 +183,7 @@ public readonly struct FanTable
     {
         if (fanTable.Length != 10)
             // ReSharper disable once LocalizableElement
-            throw new ArgumentException("Fan table length must be 10.", nameof(fanTable));
+            throw new ArgumentException("Fan table length must be 10", nameof(fanTable));
 
         FSTM = 1;
         FSID = 0;
@@ -760,10 +760,10 @@ public readonly struct RefreshRate(int frequency) : IDisplayName, IEquatable<Ref
 public readonly struct Resolution(int width, int height) : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
     [JsonProperty]
-    private int Width { get; } = width;
+    public int Width { get; } = width;
 
     [JsonProperty]
-    private int Height { get; } = height;
+    public int Height { get; } = height;
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

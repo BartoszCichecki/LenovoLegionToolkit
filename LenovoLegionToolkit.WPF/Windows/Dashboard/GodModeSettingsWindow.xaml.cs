@@ -60,10 +60,10 @@ public partial class GodModeSettingsWindow
             _defaults = await _godModeController.GetDefaultsInOtherPowerModesAsync();
 
             if (_state is null)
-                throw new InvalidOperationException($"{nameof(_state)} is null.");
+                throw new InvalidOperationException($"{nameof(_state)} is null");
 
             if (_defaults is null)
-                throw new InvalidOperationException($"{nameof(_defaults)} are null.");
+                throw new InvalidOperationException($"{nameof(_defaults)} are null");
 
             await SetStateAsync(_state.Value);
 
@@ -93,7 +93,7 @@ public partial class GodModeSettingsWindow
         try
         {
             if (!_state.HasValue)
-                throw new InvalidOperationException("State is null.");
+                throw new InvalidOperationException("State is null");
 
             var activePresetId = _state.Value.ActivePresetId;
             var presets = _state.Value.Presets;

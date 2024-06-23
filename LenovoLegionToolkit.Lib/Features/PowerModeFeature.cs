@@ -37,7 +37,7 @@ public class PowerModeFeature(
     {
         var allStates = await GetAllStatesAsync().ConfigureAwait(false);
         if (!allStates.Contains(state))
-            throw new InvalidOperationException($"Unsupported power mode {state}.");
+            throw new InvalidOperationException($"Unsupported power mode {state}");
 
         if (state is PowerModeState.Performance or PowerModeState.GodMode
             && !AllowAllPowerModesOnBattery

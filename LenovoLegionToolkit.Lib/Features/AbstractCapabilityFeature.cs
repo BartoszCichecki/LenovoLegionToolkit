@@ -31,7 +31,7 @@ public abstract class AbstractCapabilityFeature<T>(CapabilityID capabilityID)
         var value = await WMI.LenovoOtherMethod.GetFeatureValueAsync(capabilityID).ConfigureAwait(false);
         var result = (T)Enum.ToObject(typeof(T), value);
         if (!Enum.IsDefined(result))
-            throw new InvalidOperationException($"Undefined value received: {result}.  [type={typeof(T)}, feature={GetType().Name}]");
+            throw new InvalidOperationException($"Undefined value received: {result} [type={typeof(T)}, feature={GetType().Name}]");
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"State is {result} [feature={GetType().Name}]");

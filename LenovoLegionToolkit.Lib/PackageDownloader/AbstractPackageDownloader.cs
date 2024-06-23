@@ -72,7 +72,7 @@ public abstract class AbstractPackageDownloader(HttpClientFactory httpClientFact
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"File checksum mismatch. [fileName={package.FileName}, fileLocation={package.FileLocation}]");
 
-        throw new InvalidDataException("File checksum mismatch.");
+        throw new InvalidDataException("File checksum mismatch");
     }
 
     protected static async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)

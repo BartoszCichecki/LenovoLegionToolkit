@@ -146,6 +146,9 @@ public class SpectrumKeyboardBacklightController
         if (handle is null)
             throw new InvalidOperationException(nameof(handle));
 
+        if (brightness is < 0 or > 9)
+            throw new InvalidOperationException("Brightness must be between 0 and 9");
+
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting keyboard brightness to: {brightness}.");
 
@@ -225,6 +228,9 @@ public class SpectrumKeyboardBacklightController
             throw new InvalidOperationException(nameof(handle));
 
         await StopAuroraIfNeededAsync().ConfigureAwait(false);
+
+        if (profile is < 0 or > 6)
+            throw new InvalidOperationException("Profile must be between 0 and 6");
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Setting keyboard profile to {profile}...");
@@ -393,7 +399,7 @@ public class SpectrumKeyboardBacklightController
     {
         var vantageStatus = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
         if (vantageStatus == SoftwareStatus.Enabled)
-            throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled.");
+            throw new InvalidOperationException("Can't manage Spectrum keyboard with Vantage enabled");
     }
 
     private async Task<(int Width, int Height, HashSet<ushort> Keys)> ReadAllKeyCodesAsync()
