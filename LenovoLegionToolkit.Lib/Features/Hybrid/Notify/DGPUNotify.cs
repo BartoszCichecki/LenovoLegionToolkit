@@ -43,19 +43,19 @@ public class DGPUNotify(DGPUGamezoneNotify gamezoneNotify, DGPUCapabilityNotify 
 
     public async Task<bool> IsDGPUAvailableAsync()
     {
-        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}]");
         return await dgpuNotify.IsDGPUAvailableAsync().ConfigureAwait(false);
     }
 
     public async Task NotifyAsync(bool publish = true)
     {
-        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}]");
         await dgpuNotify.NotifyAsync(publish).ConfigureAwait(false);
     }
 
     public async Task NotifyLaterIfNeededAsync()
     {
-        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}]");
+        var dgpuNotify = await ResolveInternalAsync().ConfigureAwait(false) ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}]");
         await dgpuNotify.NotifyLaterIfNeededAsync().ConfigureAwait(false);
     }
 

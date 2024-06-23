@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
 using LenovoLegionToolkit.CLI.Lib.Extensions;
+using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Settings;
@@ -17,6 +18,7 @@ namespace LenovoLegionToolkit.WPF.CLI;
 public class IpcServer(
     AutomationProcessor automationProcessor,
     SpectrumKeyboardBacklightController spectrumKeyboardBacklightController,
+    RGBKeyboardBacklightController rgbKeyboardBacklightController,
     IntegrationsSettings settings
     )
 {
@@ -75,7 +77,7 @@ public class IpcServer(
                     var req = await pipe.ReadObjectAsync<IpcRequest>(token).ConfigureAwait(false);
 
                     if (req?.Operation is null)
-                        throw new IpcException("Failed to deserialize request.");
+                        throw new IpcException("Failed to deserialize request");
 
                     var res = await HandleRequest(req).ConfigureAwait(false);
                     await pipe.WriteObjectAsync(res, token).ConfigureAwait(false);
@@ -142,6 +144,12 @@ public class IpcServer(
             case IpcRequest.OperationType.SetSpectrumBrightness when req is { Value: not null }:
                 await SetSpectrumBrightnessAsync(req.Value);
                 return new IpcResponse { Success = true };
+            case IpcRequest.OperationType.GetRGBPreset:
+                message = await GetRGBPresetAsync();
+                return new IpcResponse { Success = true, Message = message };
+            case IpcRequest.OperationType.SetRGBPreset when req is { Value: not null }:
+                await SetRGBPresetAsync(req.Value);
+                return new IpcResponse { Success = true };
             default:
                 throw new IpcException("Invalid request");
         }
@@ -163,7 +171,7 @@ public class IpcServer(
         var quickAction = pipelines
                               .Where(p => p.Trigger is null)
                               .FirstOrDefault(p => p.Name == name)
-                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found.");
+                          ?? throw new InvalidOperationException($"Quick Action \"{name}\" not found");
 
         await automationProcessor.RunNowAsync(quickAction.Id);
     }
@@ -184,7 +192,7 @@ public class IpcServer(
     private static async Task<string?> ListFeatureValuesAsync(string name)
     {
         var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
-                      ?? throw new IpcException("Invalid feature.");
+                      ?? throw new IpcException("Invalid feature");
         var values = await feature.GetValuesAsync().ConfigureAwait(false);
         return string.Join('\n', values);
     }
@@ -192,14 +200,14 @@ public class IpcServer(
     private static async Task<string> GetFeatureValueAsync(string name)
     {
         var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
-                      ?? throw new IpcException("Invalid feature.");
+                      ?? throw new IpcException("Invalid feature");
         return await feature.GetValueAsync().ConfigureAwait(false);
     }
 
     private static async Task SetFeatureValueAsync(string name, string value)
     {
         var feature = FeatureRegistry.All.FirstOrDefault(f => f.Name == name)
-                      ?? throw new IpcException("Invalid feature.");
+                      ?? throw new IpcException("Invalid feature");
         await feature.SetValueAsync(value).ConfigureAwait(false);
     }
 
@@ -235,5 +243,28 @@ public class IpcServer(
             throw new InvalidOperationException("Spectrum is not supported");
 
         await spectrumKeyboardBacklightController.SetBrightnessAsync(Convert.ToInt32(value)).ConfigureAwait(false);
+    }
+
+    private async Task<string> GetRGBPresetAsync()
+    {
+        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("RGB is not supported");
+
+        var state = await rgbKeyboardBacklightController.GetStateAsync().ConfigureAwait(false);
+        return $"{(int)state.SelectedPreset + 1}";
+    }
+
+    private async Task SetRGBPresetAsync(string value)
+    {
+        if (!await rgbKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+            throw new InvalidOperationException("RGB is not supported");
+
+        var preset = (RGBKeyboardBacklightPreset)(Convert.ToInt32(value) - 1);
+
+        if (!Enum.IsDefined(preset))
+            throw new InvalidOperationException("Invalid preset");
+
+        await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true).ConfigureAwait(false);
+        await rgbKeyboardBacklightController.SetPresetAsync(preset);
     }
 }

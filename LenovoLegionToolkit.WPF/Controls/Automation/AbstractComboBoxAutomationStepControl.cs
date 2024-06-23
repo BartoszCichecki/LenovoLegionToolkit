@@ -43,7 +43,7 @@ public abstract class AbstractComboBoxAutomationStepCardControl<T>(IAutomationSt
     {
         var obj = Activator.CreateInstance(AutomationStep.GetType(), _state);
         if (obj is not IAutomationStep<T> step)
-            throw new InvalidOperationException("Couldn't create automation step.");
+            throw new InvalidOperationException("Couldn't create automation step");
         return step;
     }
 

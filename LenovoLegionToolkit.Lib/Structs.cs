@@ -183,7 +183,7 @@ public readonly struct FanTable
     {
         if (fanTable.Length != 10)
             // ReSharper disable once LocalizableElement
-            throw new ArgumentException("Fan table length must be 10.", nameof(fanTable));
+            throw new ArgumentException("Fan table length must be 10", nameof(fanTable));
 
         FSTM = 1;
         FSID = 0;

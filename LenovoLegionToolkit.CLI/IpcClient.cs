@@ -20,7 +20,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static Task RunQuickActionAsync(string name)
@@ -33,6 +33,7 @@ public static class IpcClient
 
         return SendRequestAsync(req);
     }
+
     public static async Task<string> ListFeaturesAsync()
     {
         var req = new IpcRequest
@@ -41,7 +42,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static async Task<string> ListFeatureValuesAsync(string name)
@@ -53,7 +54,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static Task SetFeatureValueAsync(string name, string value)
@@ -77,7 +78,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static async Task<string> GetSpectrumProfileAsync()
@@ -88,7 +89,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static Task SetSpectrumProfileAsync(string value)
@@ -110,7 +111,7 @@ public static class IpcClient
         };
 
         return await SendRequestAsync(req).ConfigureAwait(false)
-               ?? throw new IpcException("Missing return message.");
+               ?? throw new IpcException("Missing return message");
     }
 
     public static Task SetSpectrumBrightnessAsync(string value)
@@ -118,6 +119,28 @@ public static class IpcClient
         var req = new IpcRequest
         {
             Operation = IpcRequest.OperationType.SetSpectrumBrightness,
+            Value = value
+        };
+
+        return SendRequestAsync(req);
+    }
+
+    public static async Task<string> GetRGBPresetAsync()
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.GetRGBPreset
+        };
+
+        return await SendRequestAsync(req).ConfigureAwait(false)
+               ?? throw new IpcException("Missing return message");
+    }
+
+    public static Task SetRGBPresetAsync(string value)
+    {
+        var req = new IpcRequest
+        {
+            Operation = IpcRequest.OperationType.SetRGBPreset,
             Value = value
         };
 

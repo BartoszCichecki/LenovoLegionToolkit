@@ -24,6 +24,7 @@ public class Program
         root.AddCommand(BuildQuickActionsCommand());
         root.AddCommand(BuildFeatureCommand());
         root.AddCommand(BuildSpectrumCommand());
+        root.AddCommand(BuildRGBCommand());
 
         return builder.Build();
     }
@@ -245,6 +246,47 @@ public class Program
         cmd.SetHandler(async value =>
         {
             await IpcClient.SetSpectrumBrightnessAsync($"{value}");
+        }, valueArgument);
+
+        return cmd;
+    }
+
+    private static Command BuildRGBCommand()
+    {
+        var getCmd = BuildGetRGBCommand();
+        var setCmd = BuildSetRGBCommand();
+
+        var cmd = new Command("rgb", "Control RGB backlight preset");
+        cmd.AddAlias("r");
+        cmd.AddCommand(getCmd);
+        cmd.AddCommand(setCmd);
+
+        return cmd;
+    }
+
+    private static Command BuildGetRGBCommand()
+    {
+        var cmd = new Command("get", "Get current RGB preset");
+        cmd.AddAlias("g");
+        cmd.SetHandler(async _ =>
+        {
+            var result = await IpcClient.GetRGBPresetAsync();
+            Console.WriteLine(result);
+        });
+
+        return cmd;
+    }
+
+    private static Command BuildSetRGBCommand()
+    {
+        var valueArgument = new Argument<int>("preset", "Preset to set") { Arity = ArgumentArity.ExactlyOne };
+
+        var cmd = new Command("set", "Set current RGB preset");
+        cmd.AddAlias("s");
+        cmd.AddArgument(valueArgument);
+        cmd.SetHandler(async value =>
+        {
+            await IpcClient.SetRGBPresetAsync($"{value}");
         }, valueArgument);
 
         return cmd;

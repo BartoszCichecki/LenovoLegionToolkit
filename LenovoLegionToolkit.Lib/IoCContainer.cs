@@ -30,7 +30,7 @@ public static class IoCContainer
         lock (Lock)
         {
             if (_container is null)
-                throw new InvalidOperationException($"IoCContainer must be initialized first. [type={nameof(T)}]");
+                throw new InvalidOperationException($"IoCContainer must be initialized first [type={nameof(T)}]");
             return _container.Resolve<T>();
         }
     }

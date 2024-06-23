@@ -133,7 +133,7 @@ public abstract class AbstractGodModeController(GodModeSettings settings)
         if (presets.TryGetValue(activePresetId, out var activePreset))
             return (activePresetId, activePreset);
 
-        throw new InvalidOperationException($"Preset with ID {activePresetId} not found.");
+        throw new InvalidOperationException($"Preset with ID {activePresetId} not found");
     }
 
     protected async Task<bool> IsValidFanTableAsync(FanTable fanTable)

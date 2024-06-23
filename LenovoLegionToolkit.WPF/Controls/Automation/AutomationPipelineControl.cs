@@ -369,7 +369,7 @@ public class AutomationPipelineControl : UserControl
             TouchpadLockAutomationStep s => new TouchpadLockAutomationStepControl(s),
             WhiteKeyboardBacklightAutomationStep s => new WhiteKeyboardBacklightAutomationStepControl(s),
             WinKeyAutomationStep s => new WinKeyAutomationStepControl(s),
-            _ => throw new InvalidOperationException("Unknown step type."),
+            _ => throw new InvalidOperationException("Unknown step type"),
         };
         control.MouseRightButtonUp += (_, e) =>
         {

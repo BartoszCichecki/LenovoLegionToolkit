@@ -22,21 +22,21 @@ public abstract class AbstractCompositeFeature<T>(params IFeature<T>[] features)
     public async Task<T[]> GetAllStatesAsync()
     {
         var feature = await ResolveInternalAsync().ConfigureAwait(false)
-                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+                      ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}");
         return await feature.GetAllStatesAsync().ConfigureAwait(false);
     }
 
     public async Task<T> GetStateAsync()
     {
         var feature = await ResolveInternalAsync().ConfigureAwait(false)
-                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+                      ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}");
         return await feature.GetStateAsync().ConfigureAwait(false);
     }
 
     public async Task SetStateAsync(T state)
     {
         var feature = await ResolveInternalAsync().ConfigureAwait(false)
-                      ?? throw new InvalidOperationException($"No supported feature found. [type={GetType().Name}");
+                      ?? throw new InvalidOperationException($"No supported feature found [type={GetType().Name}");
         await feature.SetStateAsync(state).ConfigureAwait(false);
     }
 

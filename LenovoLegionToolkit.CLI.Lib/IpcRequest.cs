@@ -14,6 +14,8 @@ public class IpcRequest
         SetSpectrumProfile,
         GetSpectrumBrightness,
         SetSpectrumBrightness,
+        GetRGBPreset,
+        SetRGBPreset,
         QuickAction,
     }
 

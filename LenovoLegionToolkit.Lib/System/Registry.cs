@@ -35,7 +35,7 @@ public static class Registry
             try
             {
                 using var baseKey = GetBaseKey(hive);
-                using var key = baseKey.OpenSubKey(subKey) ?? throw new InvalidOperationException($"Key {subKey} could not be opened.");
+                using var key = baseKey.OpenSubKey(subKey) ?? throw new InvalidOperationException($"Key {subKey} could not be opened");
 
                 var resetEvent = new ManualResetEvent(false);
 
