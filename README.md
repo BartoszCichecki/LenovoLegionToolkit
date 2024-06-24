@@ -275,61 +275,60 @@ _Python script_
 LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added.
 
 <details>
-    <summary>Environment variables</summary>
+<summary>Environment variables</summary>
 
-	- When AC power adapter is connected
-		- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
-	- When low wattage AC power adapter is connected
-		- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
-		- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
-	- When AC power adapter is disconnected
-		- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
-	- When Power Mode is changed:
-		- `LLT_POWER_MODE=<value>`, where `value` is one of: `1` - Quiet, `2` - Balance, `3` - Performance, `255` - Custom
-		- `LLT_POWER_MODE_NAME=<value>`, where `value` is one of: `QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
-	- When game is running
-		- `LLT_IS_GAME_RUNNING=TRUE`
-	- When game closes
-		- `LLT_IS_GAME_RUNNING=FALSE`
-	- When app starts
-		- `LLT_PROCESSES_STARTED=TRUE`
-		- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
-	- When app closes
-		- `LLT_PROCESSES_STARTED=FALSE`
-		- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
-	- Lid opened
-		- `LLT_IS_LID_OPEN=TRUE`
-	- Lid closed
-		- `LLT_IS_LID_OPEN=FALSE`
-	- When displays turn on
-		- `LLT_IS_DISPLAY_ON=TRUE`
-	- When displays turn off
-		- `LLT_IS_DISPLAY_ON=FALSE`
-	- When external display is connected
-		- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
-	- When external display is disconnected
-		- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
-	- When HDR is on
-		- `LLT_IS_HDR_ON=TRUE`
-	- When HDR is off
-		- `LLT_IS_HDR_ON=FALSE`
-	- When WiFi is connected
-		- `LLT_WIFI_CONNECTED=TRUE`
-		- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network
-	- When WiFi is disconnected
-		- `LLT_WIFI_CONNECTED=FALSE`
-	- At specified time
-		- `LLT_IS_SUNSET=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
-		- `LLT_IS_SUNRISE=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
-		- `LLT_TIME"`, where `value` is `HH:mm`, depending on configuration of the trigger
-		- `LLT_DAYS"`, where `value` is comma separated list of: `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`, depending on configuration of the trigger
-	- Periodic action
-		- `LLT_PERIOD=<value>`, where `value` is the interval in seconds
-	- On startup
-		- `LLT_STARTUP=TRUE`
-	- On resume
-		- `LLT_RESUME=TRUE`
-
+- When AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+- When low wattage AC power adapter is connected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
+	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
+- When AC power adapter is disconnected
+	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
+- When Power Mode is changed:
+	- `LLT_POWER_MODE=<value>`, where `value` is one of: `1` - Quiet, `2` - Balance, `3` - Performance, `255` - Custom
+	- `LLT_POWER_MODE_NAME=<value>`, where `value` is one of: `QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
+- When game is running
+	- `LLT_IS_GAME_RUNNING=TRUE`
+- When game closes
+	- `LLT_IS_GAME_RUNNING=FALSE`
+- When app starts
+	- `LLT_PROCESSES_STARTED=TRUE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+- When app closes
+	- `LLT_PROCESSES_STARTED=FALSE`
+	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
+- Lid opened
+	- `LLT_IS_LID_OPEN=TRUE`
+- Lid closed
+	- `LLT_IS_LID_OPEN=FALSE`
+- When displays turn on
+	- `LLT_IS_DISPLAY_ON=TRUE`
+- When displays turn off
+	- `LLT_IS_DISPLAY_ON=FALSE`
+- When external display is connected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
+- When external display is disconnected
+	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
+- When HDR is on
+	- `LLT_IS_HDR_ON=TRUE`
+- When HDR is off
+	- `LLT_IS_HDR_ON=FALSE`
+- When WiFi is connected
+	- `LLT_WIFI_CONNECTED=TRUE`
+	- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network
+- When WiFi is disconnected
+	- `LLT_WIFI_CONNECTED=FALSE`
+- At specified time
+	- `LLT_IS_SUNSET=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_IS_SUNRISE=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
+	- `LLT_TIME"`, where `value` is `HH:mm`, depending on configuration of the trigger
+	- `LLT_DAYS"`, where `value` is comma separated list of: `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`, depending on configuration of the trigger
+- Periodic action
+	- `LLT_PERIOD=<value>`, where `value` is the interval in seconds
+- On startup
+	- `LLT_STARTUP=TRUE`
+- On resume
+	- `LLT_RESUME=TRUE`
 </details>
 
 #### Output
