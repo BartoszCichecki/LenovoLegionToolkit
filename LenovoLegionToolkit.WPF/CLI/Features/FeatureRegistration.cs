@@ -76,7 +76,5 @@ public class FeatureRegistration<T>(string name, Func<T, string>? toStringConver
             throw new InvalidOperationException("State is not supported");
 
         await feature.SetStateAsync(state).ConfigureAwait(false);
-
-        MessagingCenter.Publish(state);
     }
 }

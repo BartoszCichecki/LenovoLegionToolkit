@@ -3,6 +3,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using LenovoLegionToolkit.Lib;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -26,10 +28,10 @@ public class NotificationsManager
     {
         _settings = settings;
 
-        MessagingCenter.Subscribe<Notification>(this, OnNotificationReceived);
+        MessagingCenter.Subscribe<NotificationMessage>(this, OnNotificationReceived);
     }
 
-    private void OnNotificationReceived(Notification notification)
+    private void OnNotificationReceived(NotificationMessage notification)
     {
         Dispatcher.Invoke(() =>
         {

@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Microsoft.Win32;
@@ -202,13 +204,13 @@ public class PowerStateListener : IListener<PowerStateListener.ChangedEventArgs>
         switch (newState)
         {
             case PowerAdapterStatus.Connected:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnected));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.ACAdapterConnected));
                 break;
             case PowerAdapterStatus.ConnectedLowWattage:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterConnectedLowWattage));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.ACAdapterConnectedLowWattage));
                 break;
             case PowerAdapterStatus.Disconnected:
-                MessagingCenter.Publish(new Notification(NotificationType.ACAdapterDisconnected));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.ACAdapterDisconnected));
                 break;
         }
     }

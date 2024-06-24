@@ -489,15 +489,6 @@ public struct Package
     }
 }
 
-public readonly struct Notification(NotificationType type, params object[] args)
-{
-    public NotificationType Type { get; } = type;
-
-    public object[] Args { get; } = args;
-
-    public override string ToString() => $@"{nameof(Type)}: {Type}, {nameof(Args)}: [{string.Join(", ", Args)}]";
-}
-
 public readonly struct WindowsPowerPlan(Guid guid, string name, bool isActive)
 {
     public Guid Guid { get; } = guid;

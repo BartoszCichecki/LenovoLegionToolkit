@@ -7,6 +7,8 @@ using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.Hybrid.Notify;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
 using Windows.Win32;
@@ -340,14 +342,14 @@ public class NativeWindowsMessageListener : NativeWindow, IListener<NativeWindow
         {
             var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_CAPITAL) & 0x1) != 0;
             var type = isOn ? NotificationType.CapsLockOn : NotificationType.CapsLockOff;
-            MessagingCenter.Publish(new Notification(type));
+            MessagingCenter.Publish(new NotificationMessage(type));
         }
 
         if (kbStruct.vkCode == (ulong)VIRTUAL_KEY.VK_NUMLOCK)
         {
             var isOn = (PInvoke.GetKeyState((int)VIRTUAL_KEY.VK_NUMLOCK) & 0x1) != 0;
             var type = isOn ? NotificationType.NumLockOn : NotificationType.NumLockOff;
-            MessagingCenter.Publish(new Notification(type));
+            MessagingCenter.Publish(new NotificationMessage(type));
         }
 
         return PInvoke.CallNextHookEx(HHOOK.Null, nCode, wParam, lParam);

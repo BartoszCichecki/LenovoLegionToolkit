@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
 using LenovoLegionToolkit.Lib.Utils;
@@ -113,11 +115,11 @@ public class DriverKeyListener(
                     {
                         case MicrophoneState.On:
                             await microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff));
+                            MessagingCenter.Publish(new NotificationMessage(NotificationType.MicrophoneOff));
                             break;
                         case MicrophoneState.Off:
                             await microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
-                            MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn));
+                            MessagingCenter.Publish(new NotificationMessage(NotificationType.MicrophoneOn));
                             break;
                     }
                 }
@@ -132,8 +134,8 @@ public class DriverKeyListener(
                 {
                     var status = await touchpadLockFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(status == TouchpadLockState.Off
-                        ? new Notification(NotificationType.TouchpadOn)
-                        : new Notification(NotificationType.TouchpadOff));
+                        ? new NotificationMessage(NotificationType.TouchpadOn)
+                        : new NotificationMessage(NotificationType.TouchpadOff));
                 }
             }
 
@@ -143,8 +145,8 @@ public class DriverKeyListener(
                 {
                     var state = await whiteKeyboardBacklightFeature.GetStateAsync().ConfigureAwait(false);
                     MessagingCenter.Publish(state == WhiteKeyboardBacklightState.Off
-                        ? new Notification(NotificationType.WhiteKeyboardBacklightOff, state.GetDisplayName())
-                        : new Notification(NotificationType.WhiteKeyboardBacklightChanged, state.GetDisplayName()));
+                        ? new NotificationMessage(NotificationType.WhiteKeyboardBacklightOff, state.GetDisplayName())
+                        : new NotificationMessage(NotificationType.WhiteKeyboardBacklightChanged, state.GetDisplayName()));
                 }
             }
         }

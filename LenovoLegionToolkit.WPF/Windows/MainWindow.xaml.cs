@@ -8,6 +8,8 @@ using System.Windows;
 using System.Windows.Input;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
@@ -213,7 +215,7 @@ public partial class MainWindow
                 _updateIndicator.Visibility = Visibility.Visible;
 
                 if (WindowState == WindowState.Minimized)
-                    MessagingCenter.Publish(new Notification(NotificationType.UpdateAvailable, versionNumber));
+                    MessagingCenter.Publish(new NotificationMessage(NotificationType.UpdateAvailable, versionNumber));
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 

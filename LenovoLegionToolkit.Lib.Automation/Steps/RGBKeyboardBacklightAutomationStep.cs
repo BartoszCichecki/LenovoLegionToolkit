@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
@@ -23,6 +25,8 @@ public class RGBKeyboardBacklightAutomationStep(RGBKeyboardBacklightPreset state
 
         await _controller.SetLightControlOwnerAsync(true).ConfigureAwait(false);
         await _controller.SetPresetAsync(State).ConfigureAwait(false);
+
+        MessagingCenter.Publish(new RGBKeyboardBacklightChangedMessage());
     }
 
     IAutomationStep IAutomationStep.DeepCopy() => new RGBKeyboardBacklightAutomationStep(State);

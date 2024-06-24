@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
 
@@ -37,8 +39,8 @@ public class RGBKeyboardBacklightListener(RGBKeyboardBacklightController control
             var preset = await controller.SetNextPresetAsync().ConfigureAwait(false);
 
             MessagingCenter.Publish(preset == RGBKeyboardBacklightPreset.Off
-                ? new Notification(NotificationType.RGBKeyboardBacklightOff, preset.GetDisplayName())
-                : new Notification(NotificationType.RGBKeyboardBacklightChanged, preset.GetDisplayName()));
+                ? new NotificationMessage(NotificationType.RGBKeyboardBacklightOff, preset.GetDisplayName())
+                : new NotificationMessage(NotificationType.RGBKeyboardBacklightChanged, preset.GetDisplayName()));
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Next preset set");

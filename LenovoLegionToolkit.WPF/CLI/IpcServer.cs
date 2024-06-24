@@ -9,6 +9,8 @@ using LenovoLegionToolkit.CLI.Lib.Extensions;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.CLI.Features;
@@ -226,6 +228,8 @@ public class IpcServer(
             throw new InvalidOperationException("Spectrum is not supported");
 
         await spectrumKeyboardBacklightController.SetProfileAsync(Convert.ToInt32(value)).ConfigureAwait(false);
+
+        MessagingCenter.Publish(new SpectrumBacklightChangedMessage());
     }
 
     private async Task<string> GetSpectrumBrightnessAsync()
@@ -243,6 +247,8 @@ public class IpcServer(
             throw new InvalidOperationException("Spectrum is not supported");
 
         await spectrumKeyboardBacklightController.SetBrightnessAsync(Convert.ToInt32(value)).ConfigureAwait(false);
+
+        MessagingCenter.Publish(new SpectrumBacklightChangedMessage());
     }
 
     private async Task<string> GetRGBPresetAsync()
@@ -266,5 +272,7 @@ public class IpcServer(
 
         await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true).ConfigureAwait(false);
         await rgbKeyboardBacklightController.SetPresetAsync(preset);
+
+        MessagingCenter.Publish(new RGBKeyboardBacklightChangedMessage());
     }
 }
