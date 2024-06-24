@@ -246,9 +246,8 @@ On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Leg
 
 You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (`.exe`) or a script (`.bat`). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
 
-#### Examples
-
-Here are couple of examples:
+<details>
+<summary>Examples</summary>
 
 _Shutdown laptop_
  - Executable path: `shutdown`
@@ -269,6 +268,8 @@ _Running a script_
 _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
+
+ </details>
 
 #### Environment
 
@@ -329,6 +330,7 @@ LLT automatically adds some variables to the process environment that can be acc
 	- `LLT_STARTUP=TRUE`
 - On resume
 	- `LLT_RESUME=TRUE`
+
 </details>
 
 #### Output
