@@ -37,7 +37,8 @@ _If you are looking for a Vantage alternative that was made for Linux, check [Le
 
 <img src="assets/screenshot_main.png" width="700" />
 
-
+&nbsp;
+&nbsp;
 
 # Table of Contents
   - [Disclaimer](#disclaimer)
