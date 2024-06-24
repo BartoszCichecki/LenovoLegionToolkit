@@ -271,7 +271,7 @@ public class IpcServer(
             throw new InvalidOperationException("Invalid preset");
 
         await rgbKeyboardBacklightController.SetLightControlOwnerAsync(true).ConfigureAwait(false);
-        await rgbKeyboardBacklightController.SetPresetAsync(preset);
+        await rgbKeyboardBacklightController.SetPresetAsync(preset).ConfigureAwait(false);
 
         MessagingCenter.Publish(new RGBKeyboardBacklightChangedMessage());
     }
