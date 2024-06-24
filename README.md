@@ -337,6 +337,32 @@ LLT automatically adds some variables to the process environment that can be acc
 
 If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
 
+### CLI
+
+It is possible to control some features of LLT directly from the command line. The CLI executable is called `llt.exe` and can be found in the install directory.
+
+For CLI to work properly, LLT needs to run in the background and CLI option needs to be enabled in LLT settings. You can also chose to add `llt.exe` to your PATH variable for easier access.
+
+CLI does not need to be ran as Administrator.
+
+<details>
+<summary>Features</summary>
+
+* `llt quickAction --list` - list all Quick Actions
+* `llt quickAction <name>` - run Quick Action with given <name>
+* `llt feature --list` - list all supported features
+* `llt feature get <name>` - get value of a feature with given <name>
+* `llt feature set <name> --list` - list all values for a feature with given <name>
+* `llt feature set <name> <value>` - set feature with given <name> to a specified <value>
+* `llt spectrum profile get` - get current profile Spectrum RGB is set to
+* `llt spectrum profile set <profile>` - set Spectrum RGB profile to <profile>
+* `llt spectrum brightness get` - get current brightness Spectrum RGB is set to
+* `llt spectrum brightness set <brightness>` - set Spectrum RGB brightness to <brightness>
+* `llt rgb get` - get current 4-zone RGB preset
+* `llt rgb set <profile>` - set 4-zone RGB to <preset>
+
+</details>
+
 ## Donate
 
 If you enjoy using the Lenovo Legion Toolkit, consider donating.
