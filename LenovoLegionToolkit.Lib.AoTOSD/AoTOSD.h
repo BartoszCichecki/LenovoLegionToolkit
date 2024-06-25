@@ -1,21 +1,21 @@
 #pragma once
 
-#include"LayeredWindow.h"
+#include"OSDWindow.h"
 
 namespace LenovoLegionToolkit::Lib::AoTOSD {
 
-public ref class Test {
+	public ref class Test {
 
-public:
-	Test();
-	~Test() {};
+	public:
+		Test();
+		~Test() { delete this->window; };
 
-	void Hide();
+		void Show();
 
-private:
+	private:
 
-	LayeredWindow* window;
+		OSDWindow* window;
 
-};
+	};
 
 }

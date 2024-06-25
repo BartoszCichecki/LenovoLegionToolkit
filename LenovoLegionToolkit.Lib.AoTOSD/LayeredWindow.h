@@ -7,27 +7,44 @@
 
 namespace LenovoLegionToolkit::Lib::AoTOSD {
 
-class LayeredWindow : public Window {
+	class LayeredWindow : public Window {
 
-public:
-	LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance = NULL,
-		Gdiplus::Bitmap* bitmap = NULL, DWORD exStyles = NULL);
-	~LayeredWindow() {};
+	public:
+		LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance = NULL,
+			Gdiplus::Bitmap* bitmap = NULL, DWORD exStyles = NULL);
+		virtual ~LayeredWindow() {};
 
-	void Show();
-	void Hide();
+		virtual void Show();
+		virtual void Hide();
 
-protected:
-	bool _visible;
-	POINT _location;
-	SIZE _size;
-	byte _transparency;
-	Gdiplus::Bitmap* _bitmap;
+		Gdiplus::Bitmap* GetBitmap() const noexcept;
+		virtual void SetBitmap(Gdiplus::Bitmap* bitmap);
 
-	void UpdateWindow(RECT* dirtyRect = NULL);
-	void UpdateTransparency();
-	void UpdateWindowPosition();
+		byte GetTransparency() const noexcept;
+		virtual void SetTransparency(byte transparency);
 
-}; // class LayeredWindow
+		POINT GetPosition() const noexcept;
+		int GetPositionX() const noexcept;
+		int GetPositionY() const noexcept;
+		virtual void SetPosition(POINT pos);
+		virtual void SetPositionX(int x);
+		virtual void SetPositionY(int y);
+
+		int GetSizeWidth() const noexcept;
+		int GetSizeHeight() const noexcept;
+
+	protected:
+		bool _visible;
+		POINT _pos;
+		SIZE _size;
+		byte _transparency;
+		Gdiplus::Bitmap* _bitmap;
+
+		void UpdateWindow(RECT* dirtyRect = NULL);
+		void UpdateTransparency();
+		void UpdateWindowPosition();
+		void SetWindowTopMost();
+
+	}; // class LayeredWindow
 
 } // namespace LenovoLegionToolkit::Lib::AoTOSD

@@ -70,12 +70,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Animation\BasicAnimation.h" />
+    <ClInclude Include="Animation\FadeOutAnimation.h" />
     <ClInclude Include="AoTOSD.h" />
+    <ClInclude Include="OSDWindow.h" />
     <ClInclude Include="LayeredWindow.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Animation\BasicAnimation.cpp" />
+    <ClCompile Include="Animation\FadeOutAnimation.cpp" />
     <ClCompile Include="AoTOSD.cpp" />
+    <ClCompile Include="OSDWindow.cpp" />
     <ClCompile Include="LayeredWindow.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>

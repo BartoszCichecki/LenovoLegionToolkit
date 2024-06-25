@@ -1,5 +1,7 @@
 #include"Window.h"
 
+#include<iostream>
+
 namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
 
 AoTOSD::Window::Window(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance,
@@ -40,7 +42,7 @@ AoTOSD::Window::Window(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance,
 		return;
 	}
 
-	if (_title == L"")
+	if (_title.empty())
 	{
 		_title = className;
 	}
@@ -64,8 +66,20 @@ AoTOSD::Window::~Window() {
 	return;
 }
 
-HWND AoTOSD::Window::Handle() {
+std::wstring AoTOSD::Window::GetClassName() const noexcept {
+	return this->_className;
+}
+
+std::wstring AoTOSD::Window::GetTitle() const noexcept {
+	return this->_title;
+}
+
+HWND AoTOSD::Window::GetHandle() const noexcept {
 	return this->_hWnd;
+}
+
+HINSTANCE AoTOSD::Window::GetInstanceHandle() const noexcept {
+	return this->_hInstance;
 }
 
 LRESULT CALLBACK AoTOSD::Window::StaticWndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {

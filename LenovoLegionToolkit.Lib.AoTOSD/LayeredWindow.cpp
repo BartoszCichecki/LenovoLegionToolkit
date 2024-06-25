@@ -1,7 +1,5 @@
 #include"LayeredWindow.h"
 
-// #include<dwmapi.h>
-
 namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
 
 AoTOSD::LayeredWindow::LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance,
@@ -13,19 +11,92 @@ AoTOSD::LayeredWindow::LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE
 	_visible(false),
 	_bitmap(bitmap)
 {
-	this->_size.cx = bitmap->GetWidth();
-	this->_size.cy = bitmap->GetHeight();
-	UpdateWindow();
-
-	UpdateTransparency();
-
-	this->_location.x = 128;
-	this->_location.y = 128;
-	UpdateWindowPosition();
-
-	SetWindowPos(Window::Handle(), HWND_TOPMOST, this->_location.x, this->_location.y, this->_size.cx, this->_size.cy, NULL);
-	
+    this->SetWindowTopMost();
 	return;
+}
+
+void AoTOSD::LayeredWindow::Show() {
+    if (this->_visible == true) {
+        return;
+    }
+
+    this->UpdateWindow();
+    ShowWindow(Window::GetHandle(), SW_SHOW);
+    this->_visible = true;
+    return;
+}
+
+void AoTOSD::LayeredWindow::Hide() {
+    if (this->_visible == false) {
+        return;
+    }
+
+    ShowWindow(Window::GetHandle(), SW_HIDE);
+    this->_visible = false;
+    return;
+}
+
+Gdiplus::Bitmap* AoTOSD::LayeredWindow::GetBitmap() const noexcept {
+    return this->_bitmap;
+}
+
+void AoTOSD::LayeredWindow::SetBitmap(Gdiplus::Bitmap* bitmap) {
+    if (bitmap == NULL)
+    {
+        return;
+    }
+
+    this->_bitmap = bitmap;
+    this->_size.cx = bitmap->GetWidth();
+    this->_size.cy = bitmap->GetHeight();
+    this->UpdateWindow();
+    return;
+}
+
+byte AoTOSD::LayeredWindow::GetTransparency() const noexcept {
+    return this->_transparency;
+}
+
+void AoTOSD::LayeredWindow::SetTransparency(byte transparency) {
+    this->_transparency = transparency;
+    this->UpdateTransparency();
+    return;
+}
+
+POINT AoTOSD::LayeredWindow::GetPosition() const noexcept {
+    return this->_pos;
+}
+
+int AoTOSD::LayeredWindow::GetPositionX() const noexcept {
+    return this->_pos.x;
+}
+
+int AoTOSD::LayeredWindow::GetPositionY() const noexcept {
+    return this->_pos.y;
+}
+
+void AoTOSD::LayeredWindow::SetPosition(POINT pos) {
+    this->_pos = pos;
+    this->UpdateWindowPosition();
+    return;
+}
+
+void AoTOSD::LayeredWindow::SetPositionX(int x) {
+    this->_pos.x = x;
+    return;
+}
+
+void AoTOSD::LayeredWindow::SetPositionY(int y) {
+    this->_pos.y = y;
+    return; 
+}
+
+int AoTOSD::LayeredWindow::GetSizeWidth() const noexcept {
+    return this->_size.cx;
+}
+
+int AoTOSD::LayeredWindow::GetSizeHeight() const noexcept {
+    return this->_size.cy;
 }
 
 void AoTOSD::LayeredWindow::UpdateWindow(RECT* dirtyRect) {
@@ -55,12 +126,12 @@ void AoTOSD::LayeredWindow::UpdateWindow(RECT* dirtyRect) {
     lwInfo.hdcDst = screenDc;
     lwInfo.hdcSrc = sourceDc;
     lwInfo.pblend = &bFunc;
-    lwInfo.pptDst = &(this->_location);
+    lwInfo.pptDst = &(this->_pos);
     lwInfo.pptSrc = &pt;
     lwInfo.prcDirty = dirtyRect;
     lwInfo.psize = &size;
 
-    UpdateLayeredWindowIndirect(Window::Handle(), &lwInfo);
+    UpdateLayeredWindowIndirect(Window::GetHandle(), &lwInfo);
 
     SelectObject(sourceDc, hReplaced);
     DeleteDC(sourceDc);
@@ -88,32 +159,21 @@ void AoTOSD::LayeredWindow::UpdateTransparency() {
     lwInfo.prcDirty = NULL;
     lwInfo.psize = NULL;
 
-    UpdateLayeredWindowIndirect(Window::Handle(), &lwInfo);
+    UpdateLayeredWindowIndirect(Window::GetHandle(), &lwInfo);
     return;
 }
 
 void AoTOSD::LayeredWindow::UpdateWindowPosition() {
-    MoveWindow(Window::Handle(), this->_location.x, this->_location.y, this->_size.cx, this->_size.cy, FALSE);
+    MoveWindow(Window::GetHandle(), this->_pos.x, this->_pos.y, this->_size.cx, this->_size.cy, FALSE);
     return;
 }
 
-void AoTOSD::LayeredWindow::Show() {
-    if (this->_visible == true) {
-        return;
-    }
-
-    UpdateWindow();
-    ShowWindow(Window::Handle(), SW_SHOW);
-    this->_visible = true;
-    return;
-}
-
-void AoTOSD::LayeredWindow::Hide() {
-    if (this->_visible == false) {
-        return;
-    }
-
-    ShowWindow(Window::Handle(), SW_HIDE);
-    this->_visible = false;
+void AoTOSD::LayeredWindow::SetWindowTopMost() {
+    SetWindowPos(
+        Window::GetHandle(), HWND_TOPMOST,
+        this->_pos.x, this->_pos.y,
+        this->_size.cx, this->_size.cy,
+        NULL
+    );
     return;
 }

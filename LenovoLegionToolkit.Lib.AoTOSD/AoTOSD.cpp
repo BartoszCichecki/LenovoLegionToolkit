@@ -1,4 +1,5 @@
 #include"AoTOSD.h"
+#include"Animation/FadeOutAnimation.h"
 
 #include<gdiplus.h>
 
@@ -16,15 +17,16 @@ AoTOSD::Test::Test() {
 
 	graphics->DrawImage(image, 0, 0, image->GetWidth(), image->GetHeight());
 
-	this->window = new LayeredWindow(L"AoTTest_1", L"AoTTest_1", 0, bitmap, 0);
-	this->window->Show();
+	this->window = new OSDWindow(L"LLT_AoTOSD_Test_1", L"LLT_AoTOSD_Test_1", 0);
+	this->window->SetBitmap(bitmap);
+	this->window->SetHideAnimation(new FadeOutAnimation(255));
+	this->window->SetVisibleDuration(1000);
+	this->window->SetPosition({ 128, 128 });
 
 	return;
 }
 
-void AoTOSD::Test::Hide() {
-	this->window->Hide();
-	delete this->window;
-	this->window = NULL;
+void AoTOSD::Test::Show() {
+	this->window->Show();
 	return;
 }
