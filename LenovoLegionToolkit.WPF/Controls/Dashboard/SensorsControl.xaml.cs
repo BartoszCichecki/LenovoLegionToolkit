@@ -145,17 +145,6 @@ public partial class SensorsControl
             $"{data.GPU.FanSpeed} {Resource.RPM}", $"{data.GPU.MaxFanSpeed} {Resource.RPM}");
     }
 
-    private void TemperatureLabel_Click(object sender, RoutedEventArgs e)
-    {
-        _applicationSettings.Store.TemperatureUnit = _applicationSettings.Store.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
-        _applicationSettings.SynchronizeStore();
-
-        if (_cpuTemperatureLabel.Tag is double cpuTemperature)
-            _cpuTemperatureLabel.Content = GetTemperatureText(cpuTemperature);
-        if (_gpuTemperatureLabel.Tag is double gpuTemperature)
-            _gpuTemperatureLabel.Content = GetTemperatureText(gpuTemperature);
-    }
-
     private string GetTemperatureText(double temperature)
     {
         if (_applicationSettings.Store.TemperatureUnit == TemperatureUnit.F)

@@ -5203,6 +5203,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select units for temperature sensors..
+        /// </summary>
+        public static string SettingsPage_Temperature_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Temperature_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        public static string SettingsPage_Temperature_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Temperature_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Set light theme, dark theme or follow system settings..
         /// </summary>
         public static string SettingsPage_Theme_Description {

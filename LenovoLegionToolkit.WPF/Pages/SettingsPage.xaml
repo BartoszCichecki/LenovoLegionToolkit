@@ -38,6 +38,20 @@
                 Visibility="Hidden" />
         </custom:CardControl>
 
+        <custom:CardControl Margin="0,0,0,8" Icon="Temperature24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Temperature_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Temperature_Message}" />
+            </custom:CardControl.Header>
+            <ComboBox
+                x:Name="_temperatureComboBox"
+                MinWidth="160"
+                Margin="0,0,0,8"
+                AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_Temperature_Title}"
+                MaxDropDownHeight="Auto"
+                SelectionChanged="TemperatureComboBox_SelectionChanged"
+                Visibility="Hidden" />
+        </custom:CardControl>
+
         <custom:CardControl Margin="0,0,0,8" Icon="DarkTheme24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_Theme_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_Theme_Description}" />

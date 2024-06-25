@@ -78,6 +78,12 @@ public partial class SettingsPage
             _langCardControl.Visibility = Visibility.Collapsed;
         }
 
+        _temperatureComboBox.SetItems(Enum.GetValues<TemperatureUnit>(), _settings.Store.TemperatureUnit, t => t switch
+        {
+            TemperatureUnit.C => Resource.Celsius,
+            TemperatureUnit.F => Resource.Fahrenheit,
+            _ => new ArgumentOutOfRangeException(nameof(t))
+        });
         _themeComboBox.SetItems(Enum.GetValues<Theme>(), _settings.Store.Theme, t => t.GetDisplayName());
 
         UpdateAccentColorPicker();
@@ -150,6 +156,7 @@ public partial class SettingsPage
 
         await loadingTask;
 
+        _temperatureComboBox.Visibility = Visibility.Visible;
         _themeComboBox.Visibility = Visibility.Visible;
         _autorunComboBox.Visibility = Visibility.Visible;
         _minimizeToTrayToggle.Visibility = Visibility.Visible;
@@ -179,6 +186,18 @@ public partial class SettingsPage
         await LocalizationHelper.SetLanguageAsync(cultureInfo);
 
         App.Current.RestartMainWindow();
+    }
+
+    private void TemperatureComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        if (!_temperatureComboBox.TryGetSelectedItem(out TemperatureUnit temperatureUnit))
+            return;
+
+        _settings.Store.TemperatureUnit = temperatureUnit;
+        _settings.SynchronizeStore();
     }
 
     private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
