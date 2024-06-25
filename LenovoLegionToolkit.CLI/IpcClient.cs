@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.IO.Pipes;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,8 +9,6 @@ namespace LenovoLegionToolkit.CLI;
 
 public static class IpcClient
 {
-    private static bool PipeExists => Directory.GetFiles(@"\\.\pipe\", Constants.PIPE_NAME).Length > 0;
-
     public static async Task<string> ListQuickActionsAsync()
     {
         var req = new IpcRequest
@@ -149,9 +146,6 @@ public static class IpcClient
 
     private static async Task<string?> SendRequestAsync(IpcRequest req)
     {
-        if (!PipeExists)
-            throw new IpcException("Server unavailable");
-
         await using var pipe = new NamedPipeClientStream(Constants.PIPE_NAME);
 
         await ConnectAsync(pipe).ConfigureAwait(false);

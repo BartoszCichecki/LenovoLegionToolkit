@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.CLI.Lib;
@@ -62,10 +64,18 @@ public class IpcServer(
     {
         try
         {
-            await using var pipe = new NamedPipeServerStream(LenovoLegionToolkit.CLI.Lib.Constants.PIPE_NAME,
+            var identity = new SecurityIdentifier(WellKnownSidType.AuthenticatedUserSid, null);
+            var security = new PipeSecurity();
+            security.AddAccessRule(new(identity, PipeAccessRights.ReadWrite, AccessControlType.Allow));
+
+            await using var pipe = NamedPipeServerStreamAcl.Create(LenovoLegionToolkit.CLI.Lib.Constants.PIPE_NAME,
                 PipeDirection.InOut,
                 1,
-                PipeTransmissionMode.Message);
+                PipeTransmissionMode.Message,
+                PipeOptions.None,
+                0,
+                0,
+                security);
 
             while (!token.IsCancellationRequested)
             {
