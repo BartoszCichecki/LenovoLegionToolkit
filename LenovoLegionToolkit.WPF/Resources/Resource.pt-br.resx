@@ -2148,4 +2148,7 @@ Requer reinicialização.</value>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
 	  <value>Adicionar a linha de comando ao PATH</value>
   </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Adicione a linha de comando à variável de ambiente PATH do sistema.</value>
+  </data>
 </root>
