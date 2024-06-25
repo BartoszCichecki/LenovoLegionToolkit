@@ -49,15 +49,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalUsingDirectories>$(OutDir)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>User32.lib;gdiplus.lib;dwmapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -75,6 +78,7 @@
     <ClInclude Include="AoTOSD.h" />
     <ClInclude Include="OSDWindow.h" />
     <ClInclude Include="LayeredWindow.h" />
+    <ClInclude Include="Utils\GlobalLoggerWrapper.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -83,7 +87,13 @@
     <ClCompile Include="AoTOSD.cpp" />
     <ClCompile Include="OSDWindow.cpp" />
     <ClCompile Include="LayeredWindow.cpp" />
+    <ClCompile Include="Utils\GlobalLoggerWrapper.cpp" />
     <ClCompile Include="Window.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj">
+      <Project>{4b902ddc-0ebe-44b3-a53b-5ea176c7522b}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

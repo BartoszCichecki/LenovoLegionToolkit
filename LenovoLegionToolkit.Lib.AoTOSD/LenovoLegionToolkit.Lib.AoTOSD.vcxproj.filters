@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Animation">
       <UniqueIdentifier>{f862d400-daf0-49a0-a618-a2c4c669eb11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Utils">
+      <UniqueIdentifier>{82632bdc-bc68-429d-89ca-e0fa00fd4cfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utils">
+      <UniqueIdentifier>{68b9523c-8b57-41b4-91b1-7c71109c2395}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AoTOSD.h">
@@ -39,6 +45,9 @@
     <ClInclude Include="Animation\BasicAnimation.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\GlobalLoggerWrapper.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window.cpp">
@@ -58,6 +67,9 @@
     </ClCompile>
     <ClCompile Include="Animation\BasicAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\GlobalLoggerWrapper.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
