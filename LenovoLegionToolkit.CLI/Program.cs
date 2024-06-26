@@ -311,7 +311,16 @@ public class Program
             _ => -99
         };
 
+        if (!Console.IsOutputRedirected)
+        {
+            Console.ResetColor();
+            Console.ForegroundColor = ConsoleColor.Red;
+        }
+
         context.Console.Error.WriteLine(message);
         context.ExitCode = exitCode;
+
+        if (!Console.IsOutputRedirected)
+            Console.ResetColor();
     }
 }
