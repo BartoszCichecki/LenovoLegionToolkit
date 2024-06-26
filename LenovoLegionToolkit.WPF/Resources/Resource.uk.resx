@@ -2042,7 +2042,7 @@
     <value>Гучник</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
-    <value>Сховати у лоток</value>
+    <value>Ховати у лоток</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
     <value>Завжди згортати у лоток замість панелі завдань.</value>
@@ -2169,5 +2169,11 @@
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
 	  <value>Додати оболонку вказівного рядка до змінної шляху користувача.</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>Температура</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>Виберіть одиниці виміру для чутників температури.</value>
   </data>
 </root>

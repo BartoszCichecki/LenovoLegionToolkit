@@ -2176,4 +2176,10 @@ Requiere un reinicio.</value>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
 	  <value>Añadir la INTERFAZ DE LÍNEA DE COMANDOS a la variable de entorno RUTA.</value>
   </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>Temperatura</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>Seleccionar unidades para los sensores de temperatura.</value>
+  </data>
 </root>

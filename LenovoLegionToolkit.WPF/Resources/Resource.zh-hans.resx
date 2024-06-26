@@ -2181,4 +2181,10 @@
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
 	  <value>将命令行界面添加至用户 PATH 环境变量中。</value>
   </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>温度</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>选择温度传感器使用的单位。</value>
+  </data>
 </root>
