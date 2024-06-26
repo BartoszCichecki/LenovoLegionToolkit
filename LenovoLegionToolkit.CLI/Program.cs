@@ -298,12 +298,16 @@ public class Program
     {
         var message = ex switch
         {
+            IpcConnectException => "Failed to connect. " +
+                                   "Make sure that Lenovo Legion Toolkit is running " +
+                                   "in background and CLI is enabled in Settings.",
             IpcException => ex.Message,
             _ => ex.ToString()
         };
         var exitCode = ex switch
         {
-            IpcException => -1,
+            IpcConnectException => -1,
+            IpcException => -2,
             _ => -99
         };
 

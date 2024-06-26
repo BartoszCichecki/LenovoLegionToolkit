@@ -176,6 +176,6 @@ public static class IpcClient
             retries--;
         }
 
-        throw new IpcException("Could not connect to server");
+        throw new IpcConnectException();
     }
 }
