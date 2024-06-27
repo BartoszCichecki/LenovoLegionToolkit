@@ -1,6 +1,8 @@
 #include"Window.h"
+#include"Utils/GlobalLogger.h"
 
 #include<iostream>
+#include<sstream>
 
 namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
 
@@ -38,7 +40,7 @@ AoTOSD::Window::Window(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance,
 
 	if (!RegisterClassEx(&wcex))
 	{
-		// need to do error handling
+		Log() << L"Failed to register AoT OSD window class. [LastError=" << GetLastError() << L"]";
 		return;
 	}
 
@@ -54,9 +56,11 @@ AoTOSD::Window::Window(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance,
 	);
 	if (this->_hWnd == NULL)
 	{
-		// need to do error handling
+		Log() << L"Failed to create AoT OSD window. [LastError=" << GetLastError() << L"]";
 		return;
 	}
+	
+	Log() << L"AoT OSD window has been created successfully.";
 	return;
 }
 

@@ -78,7 +78,7 @@
     <ClInclude Include="AoTOSD.h" />
     <ClInclude Include="OSDWindow.h" />
     <ClInclude Include="LayeredWindow.h" />
-    <ClInclude Include="Utils\GlobalLoggerWrapper.h" />
+    <ClInclude Include="Utils\GlobalLogger.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +87,7 @@
     <ClCompile Include="AoTOSD.cpp" />
     <ClCompile Include="OSDWindow.cpp" />
     <ClCompile Include="LayeredWindow.cpp" />
-    <ClCompile Include="Utils\GlobalLoggerWrapper.cpp" />
+    <ClCompile Include="Utils\GlobalLogger.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -45,7 +45,7 @@
     <ClInclude Include="Animation\BasicAnimation.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\GlobalLoggerWrapper.h">
+    <ClInclude Include="Utils\GlobalLogger.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <ClCompile Include="Animation\BasicAnimation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
-    <ClCompile Include="Utils\GlobalLoggerWrapper.cpp">
+    <ClCompile Include="Utils\GlobalLogger.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
