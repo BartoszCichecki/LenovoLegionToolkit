@@ -1,9 +1,9 @@
 #include"FadeOutAnimation.h"
-#include"../OSDWindow.h"
+#include"../Window/OSDWindow.h"
 
-namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
+namespace Animation = LenovoLegionToolkit::Lib::AoTOSD::Animation;
 
-AoTOSD::FadeOutAnimation::FadeOutAnimation(int speed) :
+Animation::FadeOutAnimation::FadeOutAnimation(int speed) :
 	BasicAnimation(speed)
 {
 	int bestInaccuracy = 255;
@@ -23,7 +23,7 @@ AoTOSD::FadeOutAnimation::FadeOutAnimation(int speed) :
 	return;
 }
 
-bool AoTOSD::FadeOutAnimation::Animate(AoTOSD::OSDWindow* window) {
+bool Animation::FadeOutAnimation::Animate(Window::OSDWindow* window) {
 	byte current = window->GetTransparency();
 	int newTrans = current - this->_step;
 	if (newTrans < 0)
@@ -35,11 +35,11 @@ bool AoTOSD::FadeOutAnimation::Animate(AoTOSD::OSDWindow* window) {
 	return false;
 }
 
-void AoTOSD::FadeOutAnimation::Reset(AoTOSD::OSDWindow* window) {
+void Animation::FadeOutAnimation::Reset(Window::OSDWindow* window) {
 	window->SetTransparency(255);
 	return;
 }
 
-int AoTOSD::FadeOutAnimation::GetUpdateInterval() {
+int Animation::FadeOutAnimation::GetUpdateInterval() {
 	return this->_interval;
 }

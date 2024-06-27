@@ -1,5 +1,6 @@
 #include"AoTOSD.h"
 #include"Animation/FadeOutAnimation.h"
+#include"Utils/GlobalLogger.h"
 
 #include<gdiplus.h>
 
@@ -17,9 +18,8 @@ AoTOSD::Test::Test() {
 
 	graphics->DrawImage(image, 0, 0, image->GetWidth(), image->GetHeight());
 
-	this->window = new OSDWindow(L"LLT_AoTOSD_Test_1", L"LLT_AoTOSD_Test_1", 0);
+	this->window = new Window::OSDWindow(L"LLT_AoTOSD_Test_1", L"LLT_AoTOSD_Test_1", 0);
 	this->window->SetBitmap(bitmap);
-	this->window->SetHideAnimation(new FadeOutAnimation(255));
 	this->window->SetVisibleDuration(1000);
 	this->window->SetPosition({ 128, 128 });
 
@@ -27,6 +27,10 @@ AoTOSD::Test::Test() {
 }
 
 void AoTOSD::Test::Show() {
+
+	
+
+	
 	this->window->Show();
 	return;
 }

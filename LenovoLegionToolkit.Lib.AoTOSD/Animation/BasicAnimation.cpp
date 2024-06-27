@@ -1,6 +1,6 @@
 #include"BasicAnimation.h"
 
-namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
+namespace Animation = LenovoLegionToolkit::Lib::AoTOSD::Animation;
 
-AoTOSD::BasicAnimation::BasicAnimation(int speed) :
+Animation::BasicAnimation::BasicAnimation(int speed) :
 	_speed(speed) {};

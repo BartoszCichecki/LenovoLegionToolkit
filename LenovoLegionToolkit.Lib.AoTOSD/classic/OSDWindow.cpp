@@ -8,6 +8,7 @@ AoTOSD::OSDWindow::OSDWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hInstan
 	LayeredWindow(className, title, hInstance, NULL, this->WINDOW_STYLE_FLAG) {};
 
 AoTOSD::OSDWindow::~OSDWindow() {
+	delete this->_hideAnimation;
 	this->DeleteClones();
 	return;
 }

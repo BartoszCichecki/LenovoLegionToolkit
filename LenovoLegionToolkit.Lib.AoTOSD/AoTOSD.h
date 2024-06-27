@@ -1,6 +1,6 @@
 #pragma once
 
-#include"OSDWindow.h"
+#include"Window/OSDWindow.h"
 
 namespace LenovoLegionToolkit::Lib::AoTOSD {
 
@@ -14,7 +14,7 @@ namespace LenovoLegionToolkit::Lib::AoTOSD {
 
 	private:
 
-		OSDWindow* window;
+		Window::OSDWindow* window;
 
 	};
 

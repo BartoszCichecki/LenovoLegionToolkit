@@ -25,20 +25,14 @@
     <Filter Include="Header Files\Utils">
       <UniqueIdentifier>{68b9523c-8b57-41b4-91b1-7c71109c2395}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Window">
+      <UniqueIdentifier>{dac97217-a871-4407-b4c1-8f2ecf3c16d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Window">
+      <UniqueIdentifier>{af398bed-ca7b-4d35-88d5-b36697e85765}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AoTOSD.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LayeredWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OSDWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Animation\FadeOutAnimation.h">
       <Filter>Header Files\Animation</Filter>
     </ClInclude>
@@ -48,18 +42,21 @@
     <ClInclude Include="Utils\GlobalLogger.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Window\BasicWindow.h">
+      <Filter>Header Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\LayeredWindow.h">
+      <Filter>Header Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Window\OSDWindow.h">
+      <Filter>Header Files\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="AoTOSD.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LayeredWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AoTOSD.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OSDWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Animation\FadeOutAnimation.cpp">
@@ -70,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="Utils\GlobalLogger.cpp">
       <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\BasicWindow.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\LayeredWindow.cpp">
+      <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Window\OSDWindow.cpp">
+      <Filter>Source Files\Window</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

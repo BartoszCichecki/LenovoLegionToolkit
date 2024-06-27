@@ -1,8 +1,8 @@
 #pragma once
 
-namespace LenovoLegionToolkit::Lib::AoTOSD {
+namespace LenovoLegionToolkit::Lib::AoTOSD::Window { class OSDWindow; }
 
-	class OSDWindow;
+namespace LenovoLegionToolkit::Lib::AoTOSD::Animation {
 
 	class BasicAnimation {
 
@@ -10,8 +10,8 @@ namespace LenovoLegionToolkit::Lib::AoTOSD {
 		BasicAnimation(int speed);
 		virtual ~BasicAnimation() {};
 
-		virtual bool Animate(OSDWindow* window) = 0;
-		virtual void Reset(OSDWindow* window) = 0;
+		virtual bool Animate(Window::OSDWindow* window) = 0;
+		virtual void Reset(Window::OSDWindow* window) = 0;
 
 		virtual int GetUpdateInterval() = 0;
 
@@ -20,4 +20,4 @@ namespace LenovoLegionToolkit::Lib::AoTOSD {
 
 	}; // class BasicAnimation
 
-} // namespace LenovoLegionToolkit::Lib::AoTOSD
+} // namespace LenovoLegionToolkit::Lib::AoTOSD::Animation

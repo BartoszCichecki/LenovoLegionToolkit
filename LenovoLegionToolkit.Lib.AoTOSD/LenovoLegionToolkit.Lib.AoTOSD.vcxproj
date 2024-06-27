@@ -76,19 +76,19 @@
     <ClInclude Include="Animation\BasicAnimation.h" />
     <ClInclude Include="Animation\FadeOutAnimation.h" />
     <ClInclude Include="AoTOSD.h" />
-    <ClInclude Include="OSDWindow.h" />
-    <ClInclude Include="LayeredWindow.h" />
     <ClInclude Include="Utils\GlobalLogger.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="Window\BasicWindow.h" />
+    <ClInclude Include="Window\LayeredWindow.h" />
+    <ClInclude Include="Window\OSDWindow.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation\BasicAnimation.cpp" />
     <ClCompile Include="Animation\FadeOutAnimation.cpp" />
     <ClCompile Include="AoTOSD.cpp" />
-    <ClCompile Include="OSDWindow.cpp" />
-    <ClCompile Include="LayeredWindow.cpp" />
     <ClCompile Include="Utils\GlobalLogger.cpp" />
-    <ClCompile Include="Window.cpp" />
+    <ClCompile Include="Window\BasicWindow.cpp" />
+    <ClCompile Include="Window\LayeredWindow.cpp" />
+    <ClCompile Include="Window\OSDWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj">

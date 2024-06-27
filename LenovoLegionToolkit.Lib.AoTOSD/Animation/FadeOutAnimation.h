@@ -2,7 +2,7 @@
 
 #include"BasicAnimation.h"
 
-namespace LenovoLegionToolkit::Lib::AoTOSD {
+namespace LenovoLegionToolkit::Lib::AoTOSD::Animation {
 
 	class FadeOutAnimation final : public BasicAnimation {
 
@@ -10,8 +10,8 @@ namespace LenovoLegionToolkit::Lib::AoTOSD {
 		FadeOutAnimation(int speed);
 		~FadeOutAnimation() {};
 
-		bool Animate(OSDWindow* window) override;
-		void Reset(OSDWindow* window) override;
+		bool Animate(Window::OSDWindow* window) override;
+		void Reset(Window::OSDWindow* window) override;
 
 		int GetUpdateInterval() override;
 
@@ -21,4 +21,4 @@ namespace LenovoLegionToolkit::Lib::AoTOSD {
 
 	}; // class FadeOutAnimation
 
-} // namespace LenovoLegionToolkit::Lib::AoTOSD
+} // namespace LenovoLegionToolkit::Lib::AoTOSD::Animation

@@ -1,4 +1,5 @@
 #include"LayeredWindow.h"
+#include "LayeredWindow.h"
 
 namespace AoTOSD = LenovoLegionToolkit::Lib::AoTOSD;
 
