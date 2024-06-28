@@ -57,7 +57,7 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalUsingDirectories>$(OutDir)</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
