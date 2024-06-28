@@ -57,6 +57,12 @@
     <ClInclude Include="Utils\BitmapConverter.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\DesktopInfos.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Utils\RECTCalcHelper.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AoTOSD.cpp">
@@ -81,6 +87,9 @@
       <Filter>Source Files\Window</Filter>
     </ClCompile>
     <ClCompile Include="Utils\BitmapConverter.cpp">
+      <Filter>Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\DesktopInfos.cpp">
       <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>

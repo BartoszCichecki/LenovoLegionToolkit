@@ -11,7 +11,7 @@ namespace LenovoLegionToolkit::Lib::AoTOSD::Window {
 
     public:
         LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hInstance = NULL, DWORD exStyles = NULL);
-        virtual ~LayeredWindow() {};
+        virtual ~LayeredWindow();
 
         virtual void Show();
         virtual void Hide();

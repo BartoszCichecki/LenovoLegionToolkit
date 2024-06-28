@@ -60,7 +60,7 @@
       <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>User32.lib;gdiplus.lib;Shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -77,7 +77,9 @@
     <ClInclude Include="Animation\FadeOutAnimation.h" />
     <ClInclude Include="AoTOSD.h" />
     <ClInclude Include="Utils\BitmapConverter.h" />
+    <ClInclude Include="Utils\DesktopInfos.h" />
     <ClInclude Include="Utils\GlobalLogger.h" />
+    <ClInclude Include="Utils\RECTCalcHelper.h" />
     <ClInclude Include="Window\BasicWindow.h" />
     <ClInclude Include="Window\LayeredWindow.h" />
     <ClInclude Include="Window\OSDWindow.h" />
@@ -87,6 +89,7 @@
     <ClCompile Include="Animation\FadeOutAnimation.cpp" />
     <ClCompile Include="AoTOSD.cpp" />
     <ClCompile Include="Utils\BitmapConverter.cpp" />
+    <ClCompile Include="Utils\DesktopInfos.cpp" />
     <ClCompile Include="Utils\GlobalLogger.cpp" />
     <ClCompile Include="Window\BasicWindow.cpp" />
     <ClCompile Include="Window\LayeredWindow.cpp" />

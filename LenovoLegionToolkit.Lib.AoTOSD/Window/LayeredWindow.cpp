@@ -14,6 +14,10 @@ Window::LayeredWindow::LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE
     return;
 }
 
+Window::LayeredWindow::~LayeredWindow() {
+    delete this->_bitmap;
+}
+
 void Window::LayeredWindow::Show() {
     if (this->_visible == true) {
         return;
@@ -43,6 +47,11 @@ void Window::LayeredWindow::SetBitmap(Gdiplus::Bitmap* bitmap) {
     if (bitmap == NULL)
     {
         return;
+    }
+
+    if (this->_bitmap)
+    {
+        delete this->_bitmap;
     }
 
     this->_bitmap = bitmap;

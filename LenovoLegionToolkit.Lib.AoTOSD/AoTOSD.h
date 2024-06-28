@@ -4,18 +4,21 @@
 
 namespace LenovoLegionToolkit::Lib::AoTOSD {
 
-    public ref class Test {
+    public ref class NotificationWindowAoT {
 
     public:
-        Test(::System::Drawing::Bitmap^ mbitmap);
-        ~Test() { delete this->window; };
+        NotificationWindowAoT();
+        ~NotificationWindowAoT();
 
-        void Show();
+        void Show(::System::Drawing::Bitmap^ bitmap, NotificationPosition pos, NotificationDuration duration);
 
     private:
+        Window::OSDWindow* _window;
+        static const int Margin = 16;
 
-        Window::OSDWindow* window;
+        void UpdateOSDWindowPosition(NotificationPosition pos);
+        void UpdateOSDWindowVisibleDuration(NotificationDuration duration);
 
-    };
+    }; // public ref class NotificationWindowAoT
 
-}
+} // namespace LenovoLegionToolkit::Lib::AoTOSD
