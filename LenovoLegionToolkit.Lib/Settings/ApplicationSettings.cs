@@ -34,6 +34,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool MinimizeOnClose { get; set; }
         public WindowSize? WindowSize { get; set; }
         public bool DontShowNotifications { get; set; }
+        public bool NotificationAlwaysOnTop { get; set; }
         public NotificationPosition NotificationPosition { get; set; } = NotificationPosition.BottomCenter;
         public NotificationDuration NotificationDuration { get; set; } = NotificationDuration.Normal;
         public Notifications Notifications { get; set; } = new();

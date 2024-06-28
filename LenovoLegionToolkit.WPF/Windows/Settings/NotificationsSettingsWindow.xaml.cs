@@ -77,6 +77,18 @@ public partial class NotificationsSettingsWindow
         RefreshCards();
     }
 
+    private void NotificationAlwaysOnTopToggle_Click(object sender, RoutedEventArgs e)
+    {
+        var state = _notificationAlwaysOnTopToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.NotificationAlwaysOnTop = state.Value;
+        _settings.SynchronizeStore();
+
+        RefreshCards();
+    }
+
     private void NotificationPositionComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (!_notificationPositionComboBox.TryGetSelectedItem(out NotificationPosition state))
