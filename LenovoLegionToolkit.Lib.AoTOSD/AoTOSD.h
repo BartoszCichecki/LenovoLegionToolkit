@@ -4,18 +4,18 @@
 
 namespace LenovoLegionToolkit::Lib::AoTOSD {
 
-	public ref class Test {
+    public ref class Test {
 
-	public:
-		Test();
-		~Test() { delete this->window; };
+    public:
+        Test(::System::Drawing::Bitmap^ mbitmap);
+        ~Test() { delete this->window; };
 
-		void Show();
+        void Show();
 
-	private:
+    private:
 
-		Window::OSDWindow* window;
+        Window::OSDWindow* window;
 
-	};
+    };
 
 }

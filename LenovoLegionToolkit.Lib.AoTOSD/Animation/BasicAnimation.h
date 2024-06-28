@@ -4,20 +4,20 @@ namespace LenovoLegionToolkit::Lib::AoTOSD::Window { class OSDWindow; }
 
 namespace LenovoLegionToolkit::Lib::AoTOSD::Animation {
 
-	class BasicAnimation {
+    class BasicAnimation {
 
-	public:
-		BasicAnimation(int speed);
-		virtual ~BasicAnimation() {};
+    public:
+        BasicAnimation(int speed);
+        virtual ~BasicAnimation() {};
 
-		virtual bool Animate(Window::OSDWindow* window) = 0;
-		virtual void Reset(Window::OSDWindow* window) = 0;
+        virtual bool Animate(Window::OSDWindow* window) = 0;
+        virtual void Reset(Window::OSDWindow* window) = 0;
 
-		virtual int GetUpdateInterval() = 0;
+        virtual int GetUpdateInterval() = 0;
 
-	protected:
-		int _speed;
+    protected:
+        int _speed;
 
-	}; // class BasicAnimation
+    }; // class BasicAnimation
 
 } // namespace LenovoLegionToolkit::Lib::AoTOSD::Animation
