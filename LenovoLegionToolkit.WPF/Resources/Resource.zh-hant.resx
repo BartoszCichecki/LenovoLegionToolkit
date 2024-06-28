@@ -2160,4 +2160,22 @@
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>僅顯示已連接的裝置</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>命令列介面（CLI）</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>啟用命令列介面，允許使用命令列進行控制。</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>新增命令列介面（CLI）至 PATH 變數</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>新增命令列介面（CLI）至使用者 PATH 環境變數。</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>溫度</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>選擇溫度感應器使用的單位。</value>
+  </data>
 </root>
