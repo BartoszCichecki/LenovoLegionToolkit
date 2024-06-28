@@ -1,4 +1,5 @@
 #include"LayeredWindow.h"
+#include"../Utils/GlobalLogger.h"
 
 namespace Window = LenovoLegionToolkit::Lib::AoTOSD::Window;
 
@@ -11,7 +12,6 @@ Window::LayeredWindow::LayeredWindow(LPCWSTR className, LPCWSTR title, HINSTANCE
     _bitmap(NULL)
 {
     this->SetWindowTopMost();
-    return;
 }
 
 Window::LayeredWindow::~LayeredWindow() {
@@ -26,7 +26,6 @@ void Window::LayeredWindow::Show() {
     this->UpdateWindow();
     ShowWindow(BasicWindow::GetHandle(), SW_SHOW);
     this->_visible = true;
-    return;
 }
 
 void Window::LayeredWindow::Hide() {
@@ -36,7 +35,6 @@ void Window::LayeredWindow::Hide() {
 
     ShowWindow(BasicWindow::GetHandle(), SW_HIDE);
     this->_visible = false;
-    return;
 }
 
 Gdiplus::Bitmap* Window::LayeredWindow::GetBitmap() const noexcept {
@@ -46,9 +44,9 @@ Gdiplus::Bitmap* Window::LayeredWindow::GetBitmap() const noexcept {
 void Window::LayeredWindow::SetBitmap(Gdiplus::Bitmap* bitmap) {
     if (bitmap == NULL)
     {
+        Log() << "Null bitmap given.";
         return;
     }
-
     if (this->_bitmap)
     {
         delete this->_bitmap;
@@ -58,7 +56,6 @@ void Window::LayeredWindow::SetBitmap(Gdiplus::Bitmap* bitmap) {
     this->_size.cx = bitmap->GetWidth();
     this->_size.cy = bitmap->GetHeight();
     this->UpdateWindow();
-    return;
 }
 
 byte Window::LayeredWindow::GetTransparency() const noexcept {
@@ -68,7 +65,6 @@ byte Window::LayeredWindow::GetTransparency() const noexcept {
 void Window::LayeredWindow::SetTransparency(byte transparency) {
     this->_transparency = transparency;
     this->UpdateTransparency();
-    return;
 }
 
 POINT Window::LayeredWindow::GetPosition() const noexcept {
@@ -86,17 +82,14 @@ int Window::LayeredWindow::GetPositionY() const noexcept {
 void Window::LayeredWindow::SetPosition(POINT pos) {
     this->_pos = pos;
     this->UpdateWindowPosition();
-    return;
 }
 
 void Window::LayeredWindow::SetPositionX(int x) {
     this->_pos.x = x;
-    return;
 }
 
 void Window::LayeredWindow::SetPositionY(int y) {
     this->_pos.y = y;
-    return;
 }
 
 int Window::LayeredWindow::GetSizeWidth() const noexcept {
@@ -108,6 +101,12 @@ int Window::LayeredWindow::GetSizeHeight() const noexcept {
 }
 
 void Window::LayeredWindow::UpdateWindow() {
+    if (this->_bitmap == NULL)
+    {
+        Log() << "Bitmap hasn't been set.";
+        return;
+    }
+
     BLENDFUNCTION bFunc = { 0 };
     bFunc.AlphaFormat = AC_SRC_ALPHA;
     bFunc.BlendFlags = 0;
@@ -145,7 +144,6 @@ void Window::LayeredWindow::UpdateWindow() {
     DeleteDC(sourceDc);
     DeleteObject(hBmp);
     ReleaseDC(GetDesktopWindow(), screenDc);
-    return;
 }
 
 void Window::LayeredWindow::UpdateTransparency() {

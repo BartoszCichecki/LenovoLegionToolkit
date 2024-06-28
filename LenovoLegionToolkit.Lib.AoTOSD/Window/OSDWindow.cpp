@@ -27,10 +27,7 @@ void Window::OSDWindow::Show() {
     {
         SetTimer(BasicWindow::GetHandle(), this->TIMER_HIDE_ID, this->_visibleDuration, NULL);
         KillTimer(BasicWindow::GetHandle(), this->TIMER_OUT_ID);
-        if (this->_hideAnimation)
-        {
-            this->_hideAnimation->Reset(this);
-        }
+        this->_hideAnimation->Reset(this);
     }
 }
 
@@ -40,15 +37,7 @@ void Window::OSDWindow::Hide() {
         return;
     }
 
-    if (this->_hideAnimation)
-    {
-        SetTimer(BasicWindow::GetHandle(), this->TIMER_OUT_ID, this->_hideAnimation->GetUpdateInterval(), NULL);
-    }
-    else
-    {
-        ShowWindow(BasicWindow::GetHandle(), SW_HIDE);
-        this->_visible = false;
-    }
+    SetTimer(BasicWindow::GetHandle(), this->TIMER_OUT_ID, this->_hideAnimation->GetUpdateInterval(), NULL);
 }
 
 void Window::OSDWindow::SetVisibleDuration(int duration) {

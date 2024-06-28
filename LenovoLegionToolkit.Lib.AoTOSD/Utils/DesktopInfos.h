@@ -9,6 +9,9 @@ namespace LenovoLegionToolkit::Lib::AoTOSD::Utils {
     public:
         static RECT GetPrimaryDesktopWorkingArea();
 
+    private:
+        static RECT GetSystemParameterWorkingArea();
+
     }; // class DesktopInfos
 
 } // namespace LenovoLegionToolkit::Lib::AoTOSD::Utils
