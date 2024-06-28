@@ -54,6 +54,9 @@
     <ClInclude Include="AoTOSD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Utils\BitmapConverter.h">
+      <Filter>Header Files\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AoTOSD.cpp">
@@ -76,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="Window\OSDWindow.cpp">
       <Filter>Source Files\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="Utils\BitmapConverter.cpp">
+      <Filter>Source Files\Utils</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

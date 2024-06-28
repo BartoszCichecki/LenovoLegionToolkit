@@ -76,6 +76,7 @@
     <ClInclude Include="Animation\BasicAnimation.h" />
     <ClInclude Include="Animation\FadeOutAnimation.h" />
     <ClInclude Include="AoTOSD.h" />
+    <ClInclude Include="Utils\BitmapConverter.h" />
     <ClInclude Include="Utils\GlobalLogger.h" />
     <ClInclude Include="Window\BasicWindow.h" />
     <ClInclude Include="Window\LayeredWindow.h" />
@@ -85,6 +86,7 @@
     <ClCompile Include="Animation\BasicAnimation.cpp" />
     <ClCompile Include="Animation\FadeOutAnimation.cpp" />
     <ClCompile Include="AoTOSD.cpp" />
+    <ClCompile Include="Utils\BitmapConverter.cpp" />
     <ClCompile Include="Utils\GlobalLogger.cpp" />
     <ClCompile Include="Window\BasicWindow.cpp" />
     <ClCompile Include="Window\LayeredWindow.cpp" />
