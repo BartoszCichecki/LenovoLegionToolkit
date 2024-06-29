@@ -10,8 +10,7 @@ Window::BasicWindow::BasicWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hIn
     int x, int y, int width, int height,
     UINT classStyle, DWORD style, DWORD exStyle) :
     _className(className),
-    _title(title),
-    _ok(true)
+    _title(title)
 {
     if (hInstance == NULL)
     {
@@ -35,7 +34,6 @@ Window::BasicWindow::BasicWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hIn
     if (!RegisterClassEx(&wcex))
     {
         Log() << L"Failed to register AoT OSD window class. [LastError=" << GetLastError() << L"]";
-        this->_ok = false;
         return;
     }
 
@@ -52,7 +50,6 @@ Window::BasicWindow::BasicWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hIn
     if (this->_hWnd == NULL)
     {
         Log() << L"Failed to create AoT OSD window. [LastError=" << GetLastError() << L"]";
-        this->_ok = false;
         return;
     }
 
@@ -62,10 +59,6 @@ Window::BasicWindow::BasicWindow(LPCWSTR className, LPCWSTR title, HINSTANCE hIn
 Window::BasicWindow::~BasicWindow() {
     DestroyWindow(this->_hWnd);
     UnregisterClass(this->_className.c_str(), this->_hInstance);
-}
-
-bool Window::BasicWindow::IsOk() const noexcept {
-    return this->_ok;
 }
 
 std::wstring Window::BasicWindow::GetClassName() const noexcept {

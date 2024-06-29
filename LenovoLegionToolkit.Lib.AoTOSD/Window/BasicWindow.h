@@ -13,8 +13,6 @@ namespace LenovoLegionToolkit::Lib::AoTOSD::Window {
             UINT classStyle = NULL, DWORD style = NULL, DWORD exStyle = NULL);
         virtual ~BasicWindow();
 
-        bool IsOk() const noexcept;
-
     protected:
         std::wstring GetClassName() const noexcept;
         std::wstring GetTitle() const noexcept;
@@ -29,7 +27,6 @@ namespace LenovoLegionToolkit::Lib::AoTOSD::Window {
         std::wstring _title;
         HINSTANCE _hInstance;
         HWND _hWnd;
-        bool _ok;
 
     }; // class BasicWindow
 
