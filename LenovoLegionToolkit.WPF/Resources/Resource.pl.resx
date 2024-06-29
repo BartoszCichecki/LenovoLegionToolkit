@@ -196,14 +196,47 @@
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
     <value>Konfiguruj</value>
   </data>
+  <data name="BatteryPage_ACAdapterConnectedAndCharging" xml:space="preserve">
+    <value>Podłączono, ładuje...</value>
+  </data>
+  <data name="BatteryPage_ACAdapterConnectedNotCharging" xml:space="preserve">
+    <value>Podłączono, nie ładuje</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Message" xml:space="preserve">
+    <value>Bieżąca temperatura baterii.</value>
+  </data>
+  <data name="BatteryPage_BatteryTemperature_Title" xml:space="preserve">
+    <value>Temperatura baterii</value>
+  </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Ilość cykli</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
+    <value>Pojemność baterii zadeklarowana przez producenta.</value>
+  </data>
+  <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
+    <value>Zadeklarowana pojemność</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Message" xml:space="preserve">
+    <value>Prędkość ładowania (+) lub rozładowywania (-) baterii.</value>
+  </data>
+  <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
+    <value>Prędkość rozładowywania</value>
   </data>
   <data name="BatteryPage_EstimatingBatteryLife" xml:space="preserve">
     <value>Estymowanie czasu...</value>
   </data>
   <data name="BatteryPage_FirstUseDate_Title" xml:space="preserve">
     <value>Data pierwszego użycia</value>
+  </data>
+  <data name="BatteryPage_FirstUse_Message" xml:space="preserve">
+    <value>Kiedy bateria została użyta po raz pierwszy.</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Message" xml:space="preserve">
+    <value>Kiedy bateria została wyprodukowana.</value>
+  </data>
+  <data name="BatteryPage_ManufactureDate_Title" xml:space="preserve">
+    <value>Data produkcji</value>
   </data>
   <data name="BatteryPage_Title" xml:space="preserve">
     <value>Bateria</value>
@@ -228,6 +261,9 @@
   </data>
   <data name="ComboBoxHybridModeControl_RestartRequired_Title" xml:space="preserve">
     <value>Wymagane ponowne uruchomienie</value>
+  </data>
+  <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
+    <value>Tryb pracy GPU</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Kontynuuj</value>

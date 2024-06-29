@@ -4785,7 +4785,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add CLI to system PATH environment variable..
+        ///   Looks up a localized string similar to Add CLI to user&apos;s PATH environment variable..
         /// </summary>
         public static string SettingsPage_CLIAddToPath_Message {
             get {
@@ -5199,6 +5199,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select units for temperature sensors..
+        /// </summary>
+        public static string SettingsPage_Temperature_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_Temperature_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Temperature.
+        /// </summary>
+        public static string SettingsPage_Temperature_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Temperature_Title", resourceCulture);
             }
         }
         

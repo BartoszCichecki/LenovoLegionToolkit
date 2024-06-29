@@ -183,7 +183,7 @@ public readonly struct FanTable
     {
         if (fanTable.Length != 10)
             // ReSharper disable once LocalizableElement
-            throw new ArgumentException("Fan table length must be 10.", nameof(fanTable));
+            throw new ArgumentException("Fan table length must be 10", nameof(fanTable));
 
         FSTM = 1;
         FSID = 0;
@@ -489,15 +489,6 @@ public struct Package
     }
 }
 
-public readonly struct Notification(NotificationType type, params object[] args)
-{
-    public NotificationType Type { get; } = type;
-
-    public object[] Args { get; } = args;
-
-    public override string ToString() => $@"{nameof(Type)}: {Type}, {nameof(Args)}: [{string.Join(", ", Args)}]";
-}
-
 public readonly struct WindowsPowerPlan(Guid guid, string name, bool isActive)
 {
     public Guid Guid { get; } = guid;
@@ -760,10 +751,10 @@ public readonly struct RefreshRate(int frequency) : IDisplayName, IEquatable<Ref
 public readonly struct Resolution(int width, int height) : IDisplayName, IEquatable<Resolution>, IComparable<Resolution>
 {
     [JsonProperty]
-    private int Width { get; } = width;
+    public int Width { get; } = width;
 
     [JsonProperty]
-    private int Height { get; } = height;
+    public int Height { get; } = height;
 
     [JsonIgnore]
     public string DisplayName => $"{Width} × {Height}";

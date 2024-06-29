@@ -7,6 +7,8 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
@@ -35,6 +37,14 @@ public partial class RGBKeyboardBacklightControl
         _listener.Changed += Listener_Changed;
 
         SizeChanged += RGBKeyboardBacklightControl_SizeChanged;
+
+        MessagingCenter.Subscribe<RGBKeyboardBacklightChangedMessage>(this, () => Dispatcher.InvokeTask(async () =>
+        {
+            if (!IsVisible)
+                return;
+
+            await RefreshAsync();
+        }));
     }
 
     private void Listener_Changed(object? sender, EventArgs e) => Dispatcher.Invoke(async () =>

@@ -65,10 +65,7 @@
             </StackPanel>
         </StackPanel>
 
-        <custom:CardControl
-            x:Name="_batteryTemperatureCardControl"
-            Margin="0,0,0,24"
-            Click="BatteryTemperatureCardControl_Click">
+        <custom:CardControl x:Name="_batteryTemperatureCardControl" Margin="0,0,0,24">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_BatteryTemperature_Message}" />
             </custom:CardControl.Header>

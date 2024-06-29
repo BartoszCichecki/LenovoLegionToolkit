@@ -174,13 +174,4 @@ public partial class BatteryPage
 
         return $"{temperature:0.0} {Resource.Celsius}";
     }
-
-    private void BatteryTemperatureCardControl_Click(object sender, RoutedEventArgs e)
-    {
-        _settings.Store.TemperatureUnit = _settings.Store.TemperatureUnit == TemperatureUnit.C ? TemperatureUnit.F : TemperatureUnit.C;
-        _settings.SynchronizeStore();
-
-        var temperature = (sender as FrameworkElement)?.Tag as double?;
-        _batteryTemperatureText.Text = GetTemperatureText(temperature);
-    }
 }

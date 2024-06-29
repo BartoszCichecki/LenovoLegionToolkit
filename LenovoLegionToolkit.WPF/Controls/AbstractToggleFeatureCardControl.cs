@@ -4,6 +4,8 @@ using System.Windows;
 using System.Windows.Automation;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using Wpf.Ui.Common;
@@ -93,7 +95,13 @@ public abstract class AbstractToggleFeatureCardControl<T> : AbstractRefreshingCo
 
     protected override void OnFinishedLoading()
     {
-        MessagingCenter.Subscribe<T>(this, () => Dispatcher.InvokeTask(RefreshAsync));
+        MessagingCenter.Subscribe<FeatureStateMessage<T>>(this, () => Dispatcher.InvokeTask(async () =>
+        {
+            if (!IsVisible)
+                return;
+
+            await RefreshAsync();
+        }));
     }
 
     protected virtual async Task OnStateChange(ToggleSwitch toggle, IFeature<T> feature)

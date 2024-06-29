@@ -3,6 +3,8 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
@@ -30,6 +32,8 @@ public class SpectrumKeyboardBacklightBrightnessAutomationStep(int state)
             throw new InvalidOperationException(nameof(State));
 
         await _controller.SetBrightnessAsync(State).ConfigureAwait(false);
+
+        MessagingCenter.Publish(new SpectrumBacklightChangedMessage());
     }
 
     public IAutomationStep DeepCopy() => new SpectrumKeyboardBacklightBrightnessAutomationStep(State);

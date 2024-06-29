@@ -196,4 +196,16 @@
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Gdy szablon trybu własnego ulegnie zmianie</value>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Gdy połączono z WiFi</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Gdy rozłączono z WiFi</value>
+  </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Gdy HDR jest wyłączony</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Gdy HDR jest włączony</value>
+  </data>
 </root>

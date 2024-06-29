@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using Newtonsoft.Json;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
@@ -22,6 +24,8 @@ public class SpectrumKeyboardBacklightImportProfileAutomationStep(string? path)
 
         var profile = await _controller.GetProfileAsync().ConfigureAwait(false);
         await _controller.ImportProfileDescription(profile, Path).ConfigureAwait(false);
+
+        MessagingCenter.Publish(new SpectrumBacklightChangedMessage());
     }
 
     IAutomationStep IAutomationStep.DeepCopy() => new SpectrumKeyboardBacklightImportProfileAutomationStep(Path);

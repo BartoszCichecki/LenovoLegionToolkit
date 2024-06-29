@@ -15,7 +15,7 @@ public class BatteryNightChargeFeature() : AbstractDriverFeature<BatteryNightCha
         {
             BatteryNightChargeState.On => [0x80000012u],
             BatteryNightChargeState.Off => [0x12u],
-            _ => throw new InvalidOperationException("Invalid state.")
+            _ => throw new InvalidOperationException("Invalid state")
         };
         return Task.FromResult(result);
     }

@@ -1,6 +1,8 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 
 namespace LenovoLegionToolkit.Lib.Automation.Steps;
 
@@ -19,7 +21,7 @@ public abstract class AbstractFeatureAutomationStep<T>(T state)
         var currentState = await _feature.GetStateAsync().ConfigureAwait(false);
         if (!State.Equals(currentState))
             await _feature.SetStateAsync(State).ConfigureAwait(false);
-        MessagingCenter.Publish(State);
+        MessagingCenter.Publish(new FeatureStateMessage<T>(State));
     }
 
     public Task<T[]> GetAllStatesAsync() => _feature.GetAllStatesAsync();

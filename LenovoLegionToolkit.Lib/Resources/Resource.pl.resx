@@ -454,4 +454,7 @@
   <data name="ModifierKey_Alt" xml:space="preserve">
     <value>Alt</value>
   </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>Ustawienie 4</value>
+  </data>
 </root>

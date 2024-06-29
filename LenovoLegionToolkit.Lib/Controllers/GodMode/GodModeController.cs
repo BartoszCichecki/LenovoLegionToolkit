@@ -101,6 +101,6 @@ public class GodModeController(GodModeControllerV1 controllerV1, GodModeControll
         if (mi.Properties.SupportsGodModeV2)
             return controllerV2;
 
-        throw new InvalidOperationException("No supported version found.");
+        throw new InvalidOperationException("No supported version found");
     }
 }

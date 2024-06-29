@@ -18,7 +18,7 @@ public static partial class SystemTheme
     {
         var registryValue = Registry.GetValue(REGISTRY_HIVE, PERSONALIZE_REGISTRY_PATH, APPS_USE_LIGHT_THEME_REGISTRY_KEY, -1);
         if (registryValue == -1)
-            throw new InvalidOperationException($"Couldn't read the {APPS_USE_LIGHT_THEME_REGISTRY_KEY} setting.");
+            throw new InvalidOperationException($"Couldn't read the {APPS_USE_LIGHT_THEME_REGISTRY_KEY} setting");
 
         return registryValue == 0;
     }
@@ -27,7 +27,7 @@ public static partial class SystemTheme
     {
         var registryValue = Registry.GetValue(REGISTRY_HIVE, DWM_REGISTRY_PATH, DWM_COLORIZATION_COLOR_REGISTRY_KEY, -1);
         if (registryValue == -1)
-            throw new InvalidOperationException($"Couldn't read the {DWM_COLORIZATION_COLOR_REGISTRY_KEY} setting.");
+            throw new InvalidOperationException($"Couldn't read the {DWM_COLORIZATION_COLOR_REGISTRY_KEY} setting");
 
         var bytes = BitConverter.GetBytes(registryValue);
         return new(bytes[2], bytes[1], bytes[0]);

@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System;
@@ -120,10 +122,10 @@ public class SpecialKeyListener(
         switch (value)
         {
             case SpecialKey.CameraOn:
-                MessagingCenter.Publish(new Notification(NotificationType.CameraOn));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.CameraOn));
                 break;
             case SpecialKey.CameraOff:
-                MessagingCenter.Publish(new Notification(NotificationType.CameraOff));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.CameraOff));
                 break;
         }
     }
@@ -133,10 +135,10 @@ public class SpecialKeyListener(
         switch (value)
         {
             case SpecialKey.FnLockOn:
-                MessagingCenter.Publish(new Notification(NotificationType.FnLockOn));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.FnLockOn));
                 break;
             case SpecialKey.FnLockOff:
-                MessagingCenter.Publish(new Notification(NotificationType.FnLockOff));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.FnLockOff));
                 break;
         }
     }
@@ -186,7 +188,7 @@ public class SpecialKeyListener(
 
             _ = Task.Delay(TimeSpan.FromSeconds(1)).ContinueWith(_ =>
             {
-                MessagingCenter.Publish(new Notification(NotificationType.RefreshRate, next.DisplayName));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.RefreshRate, next.DisplayName));
             });
 
             if (Log.Instance.IsTraceEnabled)
@@ -212,10 +214,10 @@ public class SpecialKeyListener(
         var type = value is SpectrumKeyboardBacklightBrightness.Off
             ? NotificationType.SpectrumBacklightOff
             : NotificationType.SpectrumBacklightChanged;
-        MessagingCenter.Publish(new Notification(type, value));
+        MessagingCenter.Publish(new NotificationMessage(type, value));
     }
 
-    private static void NotifySpectrumPreset(int value) => MessagingCenter.Publish(new Notification(NotificationType.SpectrumBacklightPresetChanged, value));
+    private static void NotifySpectrumPreset(int value) => MessagingCenter.Publish(new NotificationMessage(NotificationType.SpectrumBacklightPresetChanged, value));
 
     private async Task ToggleMicrophoneAsync()
     {
@@ -227,11 +229,11 @@ public class SpecialKeyListener(
         {
             case MicrophoneState.On:
                 await microphoneFeature.SetStateAsync(MicrophoneState.Off).ConfigureAwait(false);
-                MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOff));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.MicrophoneOff));
                 break;
             case MicrophoneState.Off:
                 await microphoneFeature.SetStateAsync(MicrophoneState.On).ConfigureAwait(false);
-                MessagingCenter.Publish(new Notification(NotificationType.MicrophoneOn));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.MicrophoneOn));
                 break;
         }
     }
@@ -243,6 +245,6 @@ public class SpecialKeyListener(
         var type = value is WhiteKeyboardBacklightState.Off
             ? NotificationType.WhiteKeyboardBacklightOff
             : NotificationType.WhiteKeyboardBacklightChanged;
-        MessagingCenter.Publish(new Notification(type, value));
+        MessagingCenter.Publish(new NotificationMessage(type, value));
     }
 }

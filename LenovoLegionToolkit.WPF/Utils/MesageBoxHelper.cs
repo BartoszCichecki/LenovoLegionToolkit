@@ -21,7 +21,7 @@ public static class MessageBoxHelper
     {
         var window = Window.GetWindow(dependencyObject)
                      ?? Application.Current.MainWindow
-                     ?? throw new InvalidOperationException("Cannot show message without window.");
+                     ?? throw new InvalidOperationException("Cannot show message without window");
         return ShowAsync(window, title, message, leftButton, rightButton);
     }
 
@@ -79,7 +79,7 @@ public static class MessageBoxHelper
     {
         var window = Window.GetWindow(dependencyObject)
                      ?? Application.Current.MainWindow
-                     ?? throw new InvalidOperationException("Cannot show message without window.");
+                     ?? throw new InvalidOperationException("Cannot show message without window");
         return ShowInputAsync(window, title, placeholder, text, primaryButton, secondaryButton, allowEmpty);
     }
 

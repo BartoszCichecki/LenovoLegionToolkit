@@ -2052,24 +2052,24 @@
     <value>Режимы питания Windows</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
-	  <value>Переход в пользовательский режим с помощью Fn+Q</value>
+    <value>Переход в пользовательский режим с помощью Fn+Q</value>
   </data>
   <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
-	  <value>Позволяет быстро переключаться в пользовательский режим с помощью Fn+Q.</value>
+    <value>Позволяет быстро переключаться в пользовательский режим с помощью Fn+Q.</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
-	  <value>Синхронизация режима питания</value>
+    <value>Синхронизация режима питания</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
-	  <value>Автоматическое изменение схемы питания Windows или режима питания Windows при смене режимов питания LLT.</value>
+    <value>Автоматическое изменение схемы питания Windows или режима питания Windows при смене режимов питания LLT.</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
-	  <value>Режимы питания Windows</value>
+    <value>Режимы питания Windows</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
-	  <value>Укажите режим питания Windows, который будет применяться при изменении режима питания LLT.</value>
+    <value>Укажите режим питания Windows, который будет применяться при изменении режима питания LLT.</value>
   </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
-	  <value>Произошла ошибка при чтении информации об устройстве.</value>
+    <value>Произошла ошибка при чтении информации об устройстве.</value>
   </data>
 </root>

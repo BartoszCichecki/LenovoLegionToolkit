@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Controllers;
 using LenovoLegionToolkit.Lib.Controllers.GodMode;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.System.Management;
 
 namespace LenovoLegionToolkit.Lib.Listeners;
@@ -52,16 +54,16 @@ public class PowerModeListener(
         switch (value)
         {
             case PowerModeState.Quiet:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeQuiet, value.GetDisplayName()));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.PowerModeQuiet, value.GetDisplayName()));
                 break;
             case PowerModeState.Balance:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeBalance, value.GetDisplayName()));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.PowerModeBalance, value.GetDisplayName()));
                 break;
             case PowerModeState.Performance:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModePerformance, value.GetDisplayName()));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.PowerModePerformance, value.GetDisplayName()));
                 break;
             case PowerModeState.GodMode:
-                MessagingCenter.Publish(new Notification(NotificationType.PowerModeGodMode, value.GetDisplayName()));
+                MessagingCenter.Publish(new NotificationMessage(NotificationType.PowerModeGodMode, value.GetDisplayName()));
                 break;
         }
     }

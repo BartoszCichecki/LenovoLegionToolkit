@@ -2,6 +2,8 @@
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Features;
 using LenovoLegionToolkit.Lib.Features.PanelLogo;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.System.Management;
 using LenovoLegionToolkit.Lib.Utils;
@@ -51,7 +53,7 @@ public class LightingChangeListener(
                             ? NotificationType.PanelLogoLightingOn
                             : NotificationType.PanelLogoLightingOff;
 
-                        MessagingCenter.Publish(new Notification(type));
+                        MessagingCenter.Publish(new NotificationMessage(type));
                         break;
                     }
                 case LightingChangeState.Ports when await portsBacklightFeature.IsSupportedAsync().ConfigureAwait(false):
@@ -60,7 +62,7 @@ public class LightingChangeListener(
                             ? NotificationType.PortLightingOn
                             : NotificationType.PortLightingOff;
 
-                        MessagingCenter.Publish(new Notification(type));
+                        MessagingCenter.Publish(new NotificationMessage(type));
                         break;
                     }
             }

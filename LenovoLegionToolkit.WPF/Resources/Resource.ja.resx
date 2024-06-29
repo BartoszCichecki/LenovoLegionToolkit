@@ -1608,24 +1608,24 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>Windows電源モード</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
-	  <value>電源モードの同期</value>
+    <value>電源モードの同期</value>
   </data>
   <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
-	  <value>電源モードを変更するときに、Windows電源プランまたは Windows電源モードを自動的に変更します。</value>
+    <value>電源モードを変更するときに、Windows電源プランまたは Windows電源モードを自動的に変更します。</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
-	  <value>Windows電源モード</value>
+    <value>Windows電源モード</value>
   </data>
   <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
-	  <value>電源モードが変更されたときに適用する、Windows電源モードを選択します。</value>
+    <value>電源モードが変更されたときに適用する、Windows電源モードを選択します。</value>
   </data>
   <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
-	  <value>マクロ</value>
+    <value>マクロ</value>
   </data>
   <data name="MacroPage_Title" xml:space="preserve">
-	  <value>マクロ</value>
+    <value>マクロ</value>
   </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
-	  <value>マクロ</value>
+    <value>マクロ</value>
   </data>
 </root>

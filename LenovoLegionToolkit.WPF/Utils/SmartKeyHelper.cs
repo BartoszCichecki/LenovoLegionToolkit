@@ -6,6 +6,8 @@ using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.Lib.Automation;
 using LenovoLegionToolkit.Lib.Extensions;
 using LenovoLegionToolkit.Lib.Listeners;
+using LenovoLegionToolkit.Lib.Messaging;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
@@ -112,7 +114,7 @@ internal class SmartKeyHelper
 
                 await _automationProcessor.RunNowAsync(pipeline.Id);
 
-                MessagingCenter.Publish(new Notification(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress, pipeline.Name ?? string.Empty));
+                MessagingCenter.Publish(new NotificationMessage(isDoublePress ? NotificationType.SmartKeyDoublePress : NotificationType.SmartKeySinglePress, pipeline.Name ?? string.Empty));
             }
         }
         catch (Exception ex)

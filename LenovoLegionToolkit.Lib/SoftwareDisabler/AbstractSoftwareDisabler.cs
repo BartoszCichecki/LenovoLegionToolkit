@@ -163,7 +163,7 @@ public abstract class AbstractSoftwareDisabler
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Failed to register changes on task {task.Name} in {task.Path}.", ex);
 
-                throw new SoftwareDisablerException($"Failed to register changes on task {task.Name} in {task.Path}. [type={GetType().Name}]", ex);
+                throw new SoftwareDisablerException($"Failed to register changes on task {task.Name} in {task.Path} [type={GetType().Name}]", ex);
             }
         }
     }

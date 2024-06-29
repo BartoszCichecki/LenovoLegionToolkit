@@ -23,7 +23,7 @@ public class BatteryFeature() : AbstractDriverFeature<BatteryState>(Drivers.GetE
             BatteryState.Conservation => LastState == BatteryState.RapidCharge ? new uint[] { 0x8, 0x3 } : [0x3],
             BatteryState.Normal => LastState == BatteryState.Conservation ? [0x5] : [0x8],
             BatteryState.RapidCharge => LastState == BatteryState.Conservation ? [0x5, 0x7] : [0x7],
-            _ => throw new InvalidOperationException("Invalid state.")
+            _ => throw new InvalidOperationException("Invalid state")
         };
         return Task.FromResult(result);
     }
