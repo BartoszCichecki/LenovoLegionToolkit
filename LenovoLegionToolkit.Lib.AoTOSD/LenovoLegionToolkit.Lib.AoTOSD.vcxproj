@@ -60,7 +60,7 @@
       <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>User32.lib;gdiplus.lib;Shcore.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -79,7 +79,6 @@
     <ClInclude Include="Utils\BitmapConverter.h" />
     <ClInclude Include="Utils\DesktopInfos.h" />
     <ClInclude Include="Utils\GlobalLogger.h" />
-    <ClInclude Include="Utils\RECTCalcHelper.h" />
     <ClInclude Include="Window\BasicWindow.h" />
     <ClInclude Include="Window\LayeredWindow.h" />
     <ClInclude Include="Window\OSDWindow.h" />

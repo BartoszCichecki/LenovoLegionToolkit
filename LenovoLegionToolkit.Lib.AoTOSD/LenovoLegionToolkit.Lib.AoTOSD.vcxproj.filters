@@ -60,9 +60,6 @@
     <ClInclude Include="Utils\DesktopInfos.h">
       <Filter>Header Files\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Utils\RECTCalcHelper.h">
-      <Filter>Header Files\Utils</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AoTOSD.cpp">
