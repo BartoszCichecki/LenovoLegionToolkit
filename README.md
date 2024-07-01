@@ -37,34 +37,8 @@ _If you are looking for a Vantage alternative that was made for Linux, check [Le
 
 <img src="assets/screenshot_main.png" width="700" />
 
-<details>
-<summary><b><i>Click here for more screenshots...</i></b></summary>
-
-| **Keyboard**                                            |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_kb.png" width="700" />      |
-
-| **Battery**                                             |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_bat.png" width="700" />     |
-
-| **Actions**                                             |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_actions.png" width="700" /> |
-
-| **Macro**                                               |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_macro.png" width="700" />   |
-
-| **Downloads**                                           |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_pkg.png" width="700" />     |
-
-| **Custom Mode**                                         |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_cm.png" width="400" />      |
-
-</details>
+&nbsp;
+&nbsp;
 
 # Table of Contents
   - [Disclaimer](#disclaimer)
@@ -169,11 +143,12 @@ The app allows to:
 
 - Change settings like power mode, battery charging mode, etc. that are available only through Vantage.
 - Spectrum RGB, 4-zone RGB and White backlight keyboards support.
-- Deactivate discrete GPU (NVIDIA only).
+- Monitor dGPU activity (NVIDIA only).
+- Define Actions that will run when the laptop is i.e. connected to AC power.
 - View battery statistics.
+- Control laptop features from command line
 - Check for driver and software updates.
 - Check warranty status.
-- Define Actions that will run when the laptop is i.e. connected to AC power.
 - Disable/enable Lenovo Vantage, Legion Zone and Lenovo Hotkeys service without uninstalling them.
 - ... and more!
 
@@ -272,9 +247,8 @@ On Gen 6 and 7 laptops, it is possible to change the boot logo (the default "Leg
 
 You can use "Run" step in Actions to start any program or script from Actions. To configure it, you need to provide path to the executable (`.exe`) or a script (`.bat`). Optionally, you can also provide arguments that the script or program supports - just like running anything from command line.
 
-#### Examples
-
-Here are couple of examples:
+<details>
+<summary>Examples</summary>
 
 _Shutdown laptop_
  - Executable path: `shutdown`
@@ -296,87 +270,99 @@ _Python script_
  - Executable path: `C:\path\to\python.exe` (or just `python`, if it is on your PATH variable)
  - Arguments: `C:\path\to\script.py`
 
+ </details>
+
 #### Environment
 
-LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added:
+LLT automatically adds some variables to the process environment that can be accessed, from within the script. They are useful for more advanced scripts, where context is needed. Depending on what was the trigger, different variables are added.
+
+<details>
+<summary>Environment variables</summary>
 
 - When AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
-
 - When low wattage AC power adapter is connected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
 	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
-
 - When AC power adapter is disconnected
 	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
-
 - When Power Mode is changed:
 	- `LLT_POWER_MODE=<value>`, where `value` is one of: `1` - Quiet, `2` - Balance, `3` - Performance, `255` - Custom
 	- `LLT_POWER_MODE_NAME=<value>`, where `value` is one of: `QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
-
 - When game is running
 	- `LLT_IS_GAME_RUNNING=TRUE`
-
 - When game closes
 	- `LLT_IS_GAME_RUNNING=FALSE`
-
 - When app starts
 	- `LLT_PROCESSES_STARTED=TRUE`
 	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
-
 - When app closes
 	- `LLT_PROCESSES_STARTED=FALSE`
 	- `LLT_PROCESSES=<value>`, where `value` is comma separated list of process names
-	
 - Lid opened
 	- `LLT_IS_LID_OPEN=TRUE`
-
 - Lid closed
 	- `LLT_IS_LID_OPEN=FALSE`
-
 - When displays turn on
 	- `LLT_IS_DISPLAY_ON=TRUE`
-
 - When displays turn off
 	- `LLT_IS_DISPLAY_ON=FALSE`
-
 - When external display is connected
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
-
 - When external display is disconnected
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
-
 - When HDR is on
 	- `LLT_IS_HDR_ON=TRUE`
-
 - When HDR is off
 	- `LLT_IS_HDR_ON=FALSE`
-
 - When WiFi is connected
 	- `LLT_WIFI_CONNECTED=TRUE`
 	- `LLT_WIFI_SSID=<value>`, where `value` is the SSID of the network
-
 - When WiFi is disconnected
 	- `LLT_WIFI_CONNECTED=FALSE`
-	
 - At specified time
 	- `LLT_IS_SUNSET=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
 	- `LLT_IS_SUNRISE=<value>`, where `value` is `TRUE` or `FALSE`, depending on configuration of the trigger
 	- `LLT_TIME"`, where `value` is `HH:mm`, depending on configuration of the trigger
 	- `LLT_DAYS"`, where `value` is comma separated list of: `MONDAY`, `TUESDAY`, `WEDNESDAY`, `THURSDAY`, `FRIDAY`, `SATURDAY`, `SUNDAY`, depending on configuration of the trigger
-	
 - Periodic action
 	- `LLT_PERIOD=<value>`, where `value` is the interval in seconds
-	
 - On startup
 	- `LLT_STARTUP=TRUE`
-	
 - On resume
 	- `LLT_RESUME=TRUE`
+
+</details>
 
 #### Output
 
 If "Wait for exit" is checked, LLT will capture the output from standard output of the launched process. This output is stored in `$RUN_OUTPUT$` variable and can be displayed in Show notification step.
+
+### CLI
+
+It is possible to control some features of LLT directly from the command line. The CLI executable is called `llt.exe` and can be found in the install directory.
+
+For CLI to work properly, LLT needs to run in the background and CLI option needs to be enabled in LLT settings. You can also chose to add `llt.exe` to your PATH variable for easier access.
+
+CLI does not need to be ran as Administrator.
+
+<details>
+<summary>Features</summary>
+
+* `llt quickAction --list` - list all Quick Actions
+* `llt quickAction <name>` - run Quick Action with given <name>
+* `llt feature --list` - list all supported features
+* `llt feature get <name>` - get value of a feature with given <name>
+* `llt feature set <name> --list` - list all values for a feature with given <name>
+* `llt feature set <name> <value>` - set feature with given <name> to a specified <value>
+* `llt spectrum profile get` - get current profile Spectrum RGB is set to
+* `llt spectrum profile set <profile>` - set Spectrum RGB profile to <profile>
+* `llt spectrum brightness get` - get current brightness Spectrum RGB is set to
+* `llt spectrum brightness set <brightness>` - set Spectrum RGB brightness to <brightness>
+* `llt rgb get` - get current 4-zone RGB preset
+* `llt rgb set <profile>` - set 4-zone RGB to <preset>
+
+</details>
 
 ## Donate
 
