@@ -380,6 +380,7 @@ Special thanks to:
 * [falahati](https://github.com/falahati), for creating [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) and [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
 * [SmokelessCPU](https://github.com/SmokelessCPU), for help with 4-zone RGB and Sprectrum keyboard support
 * [Mario Bălănică](https://github.com/mariobalanica), for all contributions
+* [Ace-Radom](https://github.com/Ace-Radom), for all contributions
 
 Translations provided by:
 * Bulgarian - [Ekscentricitet](https://github.com/Ekscentricitet)
