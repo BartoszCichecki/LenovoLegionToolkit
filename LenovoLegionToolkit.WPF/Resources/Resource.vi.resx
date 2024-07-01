@@ -2153,4 +2153,10 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Chỉ hiển thị các thiết bị đang kết nối</value>
   </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>Nhiệt độ</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>Chọn đơn vị đo cho cảm biến nhiệt độ.</value>
+  </data>
 </root>
