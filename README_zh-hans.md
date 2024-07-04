@@ -22,35 +22,8 @@
 
 <img src="assets/screenshot_zh_hans.png" width="700" />
 
-<details>
-
-<summary><b><i>查看更多软件截图...</i></b></summary>
-
-| **键盘背光设置**                                         |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_kb.png" width="700" />      |
-
-| **电池数据**                                             |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_bat.png" width="700" />     |
-
-| **自动化**                                               |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_actions.png" width="700" /> |
-
-| **键盘宏**                                               |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_macro.png" width="700" />   |
-
-| **驱动下载**                                             |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_pkg.png" width="700" />     |
-
-| **自定义模式**                                           |
-| ------------------------------------------------------- |
-| <img src="assets/screenshot_cm.png" width="400" />      |
-
-</details>
+&nbsp;
+&nbsp;
 
 # 目录
   - [免责声明](#免责声明)
@@ -161,10 +134,11 @@
 - 改变诸如性能模式、充电模式等只有通过 Lenovo Vantage、联想电脑管家才能更改的设置。
 - 使用并修改自定义模式，包括 2022 款及更新的机型的调节风扇曲线功能。
 - 支持调节 Spectrum RGB 键盘、4 分区 RGB 键盘和白色背光的键盘。
-- 强制休眠独立显卡（仅限英伟达显卡）。
+- 监控独立显卡活动（仅限英伟达显卡）。
+- 设置当电脑接通电源时自动运行的操作。
 - 查看电池统计数据。
+- 从命令行控制设备。
 - 下载、更新驱动。
-- 通过自动化实现插入/拔出充电器的自动操作。
 - 无需卸载即可禁用 Lenovo Vantage、Legion Zone 和 Lenovo Hotkeys 服务。
 
 ### 自定义模式
@@ -266,9 +240,8 @@ _**注意：** 目前已知 Riot Vanguard DRM（使用它的游戏有例如：�
 
 你可以在自动化中使用“运行”步骤执行任何程序或脚本。在配置时你需要提供程序（`.exe`）或脚本（`.bat`）的路径。你也可以提供程序或脚本的参数，就像在命令行下运行它们一样。
 
-#### 实例
-
-以下是一些实用的例子：
+<details>
+<summary>实例</summary>
 
 _关闭电脑_
  - 执行路径：`shutdown`
@@ -290,87 +263,99 @@ _运行 Python 脚本_
  - 执行路径：`C:\path\to\python.exe`（若你已经将 Python 的安装路径加入了 PATH 环境变量，你也可以直接使用 `python`）
  - 参数：`C:\path\to\script.py`
 
+ </details>
+
 #### 环境变量
 
-LLT 会自动在进程运行环境内添加一些可被访问的环境变量。这些环境变量对于需要执行上下文的高级脚本会十分实用。根据触发器的不同 LLT 会添加不同的环境变量：
+LLT 会自动在进程运行环境内添加一些可被访问的环境变量。这些环境变量对于需要执行上下文的高级脚本会十分实用。根据触发器的不同 LLT 会添加不同的环境变量。
+
+<details>
+<summary>环境变量</summary>
 
 - 当电源适配器插入时
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
-
 - 当较低功率电源适配器插入时
 	- `LLT_IS_AC_ADAPTER_CONNECTED=TRUE`
 	- `LLT_IS_AC_ADAPTER_LOW_POWER=TRUE`
-
 - 当电源适配器断开时
 	- `LLT_IS_AC_ADAPTER_CONNECTED=FALSE`
-
 - 当性能模式改变时
 	- `LLT_POWER_MODE=<value>`，`value` 的值由当前性能模式决定：`1` 为安静模式，`2` 为均衡模式，`3` 为野兽模式，`255` 为自定义模式
 	- `LLT_POWER_MODE_NAME=<value>`，`value` 的值为当前性能模式对应的英语大写名称：`QUIET`, `BALANCE`, `PERFORMANCE`, `CUSTOM`
-
 - 当打开游戏时
 	- `LLT_IS_GAME_RUNNING=TRUE`
-
 - 当关闭游戏时
 	- `LLT_IS_GAME_RUNNING=FALSE`
-
 - 当应用程序启动时
 	- `LLT_PROCESSES_STARTED=TRUE`
 	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
-
 - 当指定的应用关闭时
 	- `LLT_PROCESSES_STARTED=FALSE`
-	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名
-	
+	- `LLT_PROCESSES=<value>`，`value` 的值为以逗号分隔的进程名	
 - 打开盖子时
 	- `LLT_IS_LID_OPEN=TRUE`
-
 - 合上盖子时
 	- `LLT_IS_LID_OPEN=FALSE`
-
 - 当显示器打开时
 	- `LLT_IS_DISPLAY_ON=TRUE`
-
 - 当显示器关闭时
 	- `LLT_IS_DISPLAY_ON=FALSE`
-
 - 当连接了外置屏幕后
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=TRUE`
-
 - 当断开了外置屏幕后
 	- `LLT_IS_EXTERNAL_DISPLAY_CONNECTED=FALSE`
-
 - 当启用 HDR 时
 	- `LLT_IS_HDR_ON=TRUE`
-
 - 当关闭 HDR 时
 	- `LLT_IS_HDR_ON=FALSE`
-
 - 当与 Wi-Fi 连接时
 	- `LLT_WIFI_CONNECTED=TRUE`
 	- `LLT_WIFI_SSID=<value>`，`value` 的值为网络的 SSID
-
 - 当与 Wi-Fi 断开连接时
-	- `LLT_WIFI_CONNECTED=FALSE`
-	
+	- `LLT_WIFI_CONNECTED=FALSE`	
 - 在特定的时间
 	- `LLT_IS_SUNSET=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
 	- `LLT_IS_SUNRISE=<value>`，`value` 的值为 `TRUE` 或 `FALSE`，取决于触发器的设置
 	- `LLT_TIME"`，`value` 的值为 `HH:mm`，取决于触发器的设置
 	- `LLT_DAYS"`, `value` 的值为以逗号分隔的包含以下内容的列表：`MONDAY`、`TUESDAY`、`WEDNESDAY`、`THURSDAY`、`FRIDAY`、`SATURDAY`、`SUNDAY`，取决于触发器的设置
-	
 - 循环自动化
 	- `LLT_PERIOD=<value>`，`value` 的值为间隔的秒数
-	
 - 当开机时
 	- `LLT_STARTUP=TRUE`
-	
 - 当唤醒时
 	- `LLT_RESUME=TRUE`
+
+</details>
 
 #### 程序输出
 
 当 `等待运行结束` 被启用时，LLT 会抓取被启动的进程的标准输出流内的内容。这些程序输出会被存入 `$RUN_OUTPUT$` 变量，并可在“显示提示弹窗”步骤中使用。
+
+### 命令行界面
+
+你可以在命令行内直接控制 LLT 的部分功能。LLT 命令行界面的可执行文件位于安装文件夹下，名为 `llt.exe`。
+
+命令行界面需要 LLT 在后台运行并且在设置内启用命令行界面，否则其无法正常工作。你也可以选择将命令行界面添加至你的用户 `PATH` 环境变量。
+
+使用命令行界面无需管理员权限。
+
+<details>
+<summary>功能</summary>
+
+* `llt quickAction --list` - 列出所有快捷操作
+* `llt quickAction <name>` - 执行快捷操作 `<name>`
+* `llt feature --list` - 列出所有可用功能
+* `llt feature get <name>` - 打印功能 `<name>` 当前的值
+* `llt feature set <name> --list` - 列出功能 `<name>` 所有可设定的值
+* `llt feature set <name> <value>` - 将功能 `<name>` 的值设定为 `<value>`
+* `llt spectrum profile get` - 打印当前 Spectrum RGB 预设
+* `llt spectrum profile set <profile>` - 将 Spectrum RGB 预设设定为 `<profile>`
+* `llt spectrum brightness get` - 打印当前 Spectrum RGB 的亮度
+* `llt spectrum brightness set <brightness>` - 将 Spectrum RGB 的亮度设定为 `<brightness>`
+* `llt rgb get` - 打印当前四分区 RGB 预设
+* `llt rgb set <profile>` - 将四分区 RGB 预设设定为 `<preset>`
+
+</details>
 
 ## 赞助
 
@@ -388,6 +373,7 @@ LLT 会自动在进程运行环境内添加一些可被访问的环境变量。�
 * [falahati](https://github.com/falahati) 创建了 [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper) 和 [WindowsDisplayAPI](https://github.com/falahati/WindowsDisplayAPI)
 * [SmokelessCPU](https://github.com/SmokelessCPU) 帮助我适配了四分区 RGB 键盘背光。
 * [Mario Bălănică](https://github.com/mariobalanica) 的所有贡献。
+* [Ace-Radom](https://github.com/Ace-Radom) 的所有贡献。
 
 翻译贡献者：
 * 保加利亚语 - [Ekscentricitet](https://github.com/Ekscentricitet)
