@@ -350,17 +350,17 @@ CLI does not need to be ran as Administrator.
 <summary>Features</summary>
 
 * `llt quickAction --list` - list all Quick Actions
-* `llt quickAction <name>` - run Quick Action with given <name>
+* `llt quickAction <name>` - run Quick Action with given `<name>`
 * `llt feature --list` - list all supported features
-* `llt feature get <name>` - get value of a feature with given <name>
-* `llt feature set <name> --list` - list all values for a feature with given <name>
-* `llt feature set <name> <value>` - set feature with given <name> to a specified <value>
+* `llt feature get <name>` - get value of a feature with given `<name>`
+* `llt feature set <name> --list` - list all values for a feature with given `<name>`
+* `llt feature set <name> <value>` - set feature with given `<name>` to a specified `<value>`
 * `llt spectrum profile get` - get current profile Spectrum RGB is set to
-* `llt spectrum profile set <profile>` - set Spectrum RGB profile to <profile>
+* `llt spectrum profile set <profile>` - set Spectrum RGB profile to `<profile>`
 * `llt spectrum brightness get` - get current brightness Spectrum RGB is set to
-* `llt spectrum brightness set <brightness>` - set Spectrum RGB brightness to <brightness>
+* `llt spectrum brightness set <brightness>` - set Spectrum RGB brightness to `<brightness>`
 * `llt rgb get` - get current 4-zone RGB preset
-* `llt rgb set <profile>` - set 4-zone RGB to <preset>
+* `llt rgb set <profile>` - set 4-zone RGB to `<preset>`
 
 </details>
 
