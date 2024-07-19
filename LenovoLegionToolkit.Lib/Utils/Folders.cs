@@ -5,13 +5,7 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public static class Folders
 {
-    public static string Program
-    {
-        get
-        {
-            return AppDomain.CurrentDomain.SetupInformation.ApplicationBase ?? string.Empty;
-        }
-    }
+    public static string Program => AppDomain.CurrentDomain.SetupInformation.ApplicationBase ?? string.Empty;
 
     public static string AppData
     {
