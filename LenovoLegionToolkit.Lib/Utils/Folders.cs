@@ -9,10 +9,7 @@ public static class Folders
     {
         get
         {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var folderPath = Path.Combine(appData, "Programs", "LenovoLegionToolkit");
-            Directory.CreateDirectory(folderPath);
-            return folderPath;
+            return AppDomain.CurrentDomain.SetupInformation.ApplicationBase ?? string.Empty;
         }
     }
 
