@@ -1695,6 +1695,12 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="PoweredOff" xml:space="preserve">
     <value>Uitgeschakeld</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Pad</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Na {0}</value>
+  </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Overklokken</value>
   </data>
@@ -1707,8 +1713,32 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+    <value>Gebruik</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+    <value>Ventilatie</value>
+  </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
     <value>GPU</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+    <value>Vernieuwingsfrequentie</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+    <value>Snel Opstarten</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+    <value>Start de laptop op wanneer een oplader wordt aangesloten.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+    <value>Snel Opstarten</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+    <value>Start de laptop op wanneer een oplader wordt aangesloten.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+    <value>Kan de energiemodus niet wijzigen</value>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
     <value>Sensoren</value>
@@ -1721,6 +1751,9 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Modus</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>Opstartlogo</value>
   </data>
   <data name="BootLogoWindow_Title" xml:space="preserve">
     <value>Opstartlogo</value>
@@ -1743,6 +1776,9 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
     <value>Acties</value>
   </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>Melding tekst</value>
+  </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
     <value>Meldingen weergeven</value>
   </data>
@@ -1757,6 +1793,9 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   </data>
   <data name="Off" xml:space="preserve">
     <value>Uit</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+    <value>Deel ventilatorsnelheid, batterijtemperatuur, etc. met HWiNFO64. De laptop moet mogelijk opnieuw opgestart worden na het wijzigen van deze optie.</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Instellingen</value>

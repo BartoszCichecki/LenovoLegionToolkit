@@ -2173,4 +2173,10 @@ Unterstützte Formate sind: {1}.</value>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
 	  <value>Füge CLI zur PATH-Umgebungsvariable des Benutzers hinzu.</value>
   </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>Temperatur</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>Wählen Sie die Einheiten für die Temperatursensoren.</value>
+  </data>
 </root>
