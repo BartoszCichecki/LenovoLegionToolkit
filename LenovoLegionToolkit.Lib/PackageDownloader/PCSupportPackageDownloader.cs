@@ -70,7 +70,7 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
             return null;
 
         var fileLocation = mainFileNode["URL"]!.ToString();
-        var fileName = fileLocation[(fileLocation.LastIndexOf('/') + 1)..];
+        var fileName = new Uri(fileLocation).Segments.LastOrDefault("file");// fileLocation[(fileLocation.LastIndexOf('/') + 1)..];
         var fileSize = mainFileNode["Size"]!.ToString();
         var fileCrc = mainFileNode["SHA256"]?.ToString();
         var releaseDateUnix = long.Parse(mainFileNode["Date"]!["Unix"]!.ToString());
