@@ -383,6 +383,13 @@ public enum ProcessEventInfoType
     Stopped
 }
 
+public enum ReadmeType
+{
+    Unknown,
+    Text,
+    Html,
+}
+
 public enum RebootType
 {
     NotRequired = 0,

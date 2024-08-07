@@ -136,6 +136,7 @@ public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
             FileSize = fileSize,
             FileCrc = fileCrc,
             ReleaseDate = releaseDate,
+            ReadmeType = ReadmeType.Text,
             Readme = readme,
             FileLocation = fileLocation,
             IsUpdate = isUpdate,

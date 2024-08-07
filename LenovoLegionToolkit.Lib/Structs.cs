@@ -466,6 +466,7 @@ public struct Package
     public string FileSize { get; init; }
     public string? FileCrc { get; init; }
     public DateTime ReleaseDate { get; init; }
+    public ReadmeType ReadmeType { get; init; }
     public string? Readme { get; init; }
     public string FileLocation { get; init; }
     public bool IsUpdate { get; init; }

@@ -62,7 +62,9 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
         var version = downloadNode["SummaryInfo"]!["Version"]!.ToString();
 
         var filesNode = downloadNode["Files"]!.AsArray();
-        var mainFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString() == "EXE") ?? filesNode.FirstOrDefault();
+        var mainFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "exe")
+                           ?? filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "zip")
+                           ?? filesNode.FirstOrDefault();
 
         if (mainFileNode is null)
             return null;
@@ -74,12 +76,23 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
         var releaseDateUnix = long.Parse(mainFileNode["Date"]!["Unix"]!.ToString());
         var releaseDate = DateTimeOffset.FromUnixTimeMilliseconds(releaseDateUnix).DateTime;
 
+        var readmeType = ReadmeType.Unknown;
         string? readme = null;
-        var readmeFileNode = downloadNode["Files"]!.AsArray().FirstOrDefault(n => n!["TypeString"]!.ToString() == "TXT README");
+
+        var readmeFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "txt readme");
         if (readmeFileNode is not null)
         {
             var readmeLocation = readmeFileNode["URL"]!.ToString();
+
+            readmeType = ReadmeType.Text;
             readme = await GetReadmeAsync(httpClient, readmeLocation, token).ConfigureAwait(false);
+        }
+
+        readmeFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "html");
+        if (readmeFileNode is not null)
+        {
+            readmeType = ReadmeType.Html;
+            readme = readmeFileNode["URL"]!.ToString();
         }
 
         return new()
@@ -93,6 +106,7 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
             FileSize = fileSize,
             FileCrc = fileCrc,
             ReleaseDate = releaseDate,
+            ReadmeType = readmeType,
             Readme = readme,
             FileLocation = fileLocation,
         };
