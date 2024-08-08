@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <EnableManagedPackageReferenceSupport>true</EnableManagedPackageReferenceSupport>
+    <ProjectGuid>{39D4480D-8241-4249-BA0B-5CD4F1D8E433}</ProjectGuid>
+    <Keyword>NetCoreCProj</Keyword>
+    <RootNamespace>LenovoLegionToolkitLibAoTOSD</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <TargetFramework>net8.0</TargetFramework>
+    <WindowsTargetPlatformMinVersion>7.0</WindowsTargetPlatformMinVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>NetCore</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CLRSupport>NetCore</CLRSupport>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
+    <CopyLocalProjectReference>true</CopyLocalProjectReference>
+    <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\</AdditionalUsingDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies />
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Animation\BasicAnimation.h" />
+    <ClInclude Include="Animation\FadeOutAnimation.h" />
+    <ClInclude Include="AoTOSD.h" />
+    <ClInclude Include="Utils\BitmapConverter.h" />
+    <ClInclude Include="Utils\DesktopInfos.h" />
+    <ClInclude Include="Utils\GlobalLogger.h" />
+    <ClInclude Include="Window\BasicWindow.h" />
+    <ClInclude Include="Window\LayeredWindow.h" />
+    <ClInclude Include="Window\OSDWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animation\BasicAnimation.cpp" />
+    <ClCompile Include="Animation\FadeOutAnimation.cpp" />
+    <ClCompile Include="AoTOSD.cpp" />
+    <ClCompile Include="Utils\BitmapConverter.cpp" />
+    <ClCompile Include="Utils\DesktopInfos.cpp" />
+    <ClCompile Include="Utils\GlobalLogger.cpp" />
+    <ClCompile Include="Window\BasicWindow.cpp" />
+    <ClCompile Include="Window\LayeredWindow.cpp" />
+    <ClCompile Include="Window\OSDWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj">
+      <Project>{4b902ddc-0ebe-44b3-a53b-5ea176c7522b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
