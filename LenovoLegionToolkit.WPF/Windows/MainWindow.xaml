@@ -191,7 +191,7 @@
                 <TextBlock
                     Focusable="True"
                     Foreground="Black"
-                    Text="Lenovo Vantage and/or ImController is running in the background." />
+                    Text="{x:Static resources:Resource.MainWindows_VantageRunning}" />
             </StackPanel>
         </Border>
 
@@ -209,7 +209,7 @@
                 <TextBlock
                     Focusable="True"
                     Foreground="Black"
-                    Text="Legion Zone is running in the background." />
+                    Text="{x:Static resources:Resource.MainWindow_LegionZoneRunning}" />
             </StackPanel>
         </Border>
 
@@ -227,7 +227,7 @@
                 <TextBlock
                     Focusable="True"
                     Foreground="Black"
-                    Text="Lenovo Hotkeys is running in the background." />
+                    Text="{x:Static resources:Resource.MainWindows_FnKeysRunning}" />
             </StackPanel>
         </Border>
 
