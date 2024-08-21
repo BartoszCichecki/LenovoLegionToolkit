@@ -11,6 +11,7 @@ using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Messaging;
 using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
+using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Pages;
@@ -29,13 +30,16 @@ namespace LenovoLegionToolkit.WPF.Windows;
 public partial class MainWindow
 {
     private readonly ApplicationSettings _applicationSettings = IoCContainer.Resolve<ApplicationSettings>();
-    private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
     private readonly SpecialKeyListener _specialKeyListener = IoCContainer.Resolve<SpecialKeyListener>();
+    private readonly VantageDisabler _vantageDisabler = IoCContainer.Resolve<VantageDisabler>();
+    private readonly LegionZoneDisabler _legionZoneDisabler = IoCContainer.Resolve<LegionZoneDisabler>();
+    private readonly FnKeysDisabler _fnKeysDisabler = IoCContainer.Resolve<FnKeysDisabler>();
+    private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
     private TrayHelper? _trayHelper;
 
     public bool TrayTooltipEnabled { get; init; } = true;
-
+    public bool DisableConflictingSoftwareWarning { get; set; }
     public bool SuppressClosingEventHandler { get; set; }
 
     public Snackbar Snackbar => _snackbar;
@@ -88,6 +92,7 @@ public partial class MainWindow
         _contentGrid.Visibility = Visibility.Visible;
 
         LoadDeviceInfo();
+        UpdateIndicators();
         CheckForUpdates();
 
         InputBindings.Add(new KeyBinding(new ActionCommand(_navigationStore.NavigateToNext), Key.Tab, ModifierKeys.Control));
@@ -195,6 +200,34 @@ public partial class MainWindow
                 _deviceInfoIndicator.Content = mi.Result.Model;
                 _deviceInfoIndicator.Visibility = Visibility.Visible;
             }, TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
+    private void UpdateIndicators()
+    {
+        if (DisableConflictingSoftwareWarning)
+            return;
+
+        _vantageDisabler.OnRefreshed += (_, e) => Dispatcher.Invoke(() =>
+        {
+            _vantageIndicator.Visibility = e.Status == SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+        });
+
+        _legionZoneDisabler.OnRefreshed += (_, e) => Dispatcher.Invoke(() =>
+        {
+            _legionZoneIndicator.Visibility = e.Status == SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+        });
+
+        _fnKeysDisabler.OnRefreshed += (_, e) => Dispatcher.Invoke(() =>
+        {
+            _fnKeysIndicator.Visibility = e.Status == SoftwareStatus.Enabled ? Visibility.Visible : Visibility.Collapsed;
+        });
+
+        Task.Run(async () =>
+        {
+            _ = await _vantageDisabler.GetStatusAsync().ConfigureAwait(false);
+            _ = await _legionZoneDisabler.GetStatusAsync().ConfigureAwait(false);
+            _ = await _fnKeysDisabler.GetStatusAsync().ConfigureAwait(false);
+        });
     }
 
     private void CheckForUpdates()

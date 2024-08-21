@@ -544,6 +544,7 @@ Some, less frequently needed, features or options can be enabled by using additi
 * `--proxy-password=some_password` - if applicable, specifies proxy server password to use
 * `--proxy-allow-all-certs` - if needed relaxes criteria needed to establish HTTPS/SSL connections via proxy server
 * `--disable-update-checker` - disable update checks in LLT, in case you want to rely on winget, scoop etc.
+* `--disable-conflicting-software-warning` - disables warning banners when conflicting software is running
 
 If you decide to use the arguments with `args.txt` file:
 1. Go to `%LOCALAPPDATA%\LenovoLegionToolkit`

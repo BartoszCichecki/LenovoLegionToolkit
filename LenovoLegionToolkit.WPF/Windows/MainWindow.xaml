@@ -20,6 +20,9 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
         <wpfui:TitleBar Grid.Row="0" />
@@ -175,9 +178,63 @@
         </Grid>
 
         <Border
-            x:Name="_updateIndicator"
+            x:Name="_vantageIndicator"
             Grid.Row="2"
-            Padding="8,4,8,4"
+            Padding="8,4,8,6"
+            Background="Orange"
+            Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <wpfui:SymbolIcon
+                    Margin="0,0,4,0"
+                    Foreground="Black"
+                    Symbol="Warning24" />
+                <TextBlock
+                    Focusable="True"
+                    Foreground="Black"
+                    Text="Lenovo Vantage and/or ImController is running in the background." />
+            </StackPanel>
+        </Border>
+
+        <Border
+            x:Name="_legionZoneIndicator"
+            Grid.Row="3"
+            Padding="8,4,8,6"
+            Background="Orange"
+            Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <wpfui:SymbolIcon
+                    Margin="0,0,4,0"
+                    Foreground="Black"
+                    Symbol="Warning24" />
+                <TextBlock
+                    Focusable="True"
+                    Foreground="Black"
+                    Text="Legion Zone is running in the background." />
+            </StackPanel>
+        </Border>
+
+        <Border
+            x:Name="_fnKeysIndicator"
+            Grid.Row="4"
+            Padding="8,4,8,6"
+            Background="Orange"
+            Visibility="Collapsed">
+            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                <wpfui:SymbolIcon
+                    Margin="0,0,4,0"
+                    Foreground="Black"
+                    Symbol="Warning24" />
+                <TextBlock
+                    Focusable="True"
+                    Foreground="Black"
+                    Text="Lenovo Hotkeys is running in the background." />
+            </StackPanel>
+        </Border>
+
+        <Border
+            x:Name="_updateIndicator"
+            Grid.Row="5"
+            Padding="8,4,8,6"
             Background="{DynamicResource SystemFillColorSuccessBrush}"
             Cursor="Hand"
             MouseLeftButtonDown="UpdateIndicator_Click"
