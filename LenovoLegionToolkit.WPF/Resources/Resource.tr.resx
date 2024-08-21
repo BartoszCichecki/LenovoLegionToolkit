@@ -1033,6 +1033,9 @@ Fn+Q ile modu değiştirebilirsiniz.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Ön ayar 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Ön ayar 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Kapalı</value>
   </data>
@@ -2050,5 +2053,23 @@ Desteklenen biçimler: {1}.</value>
   </data>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Windows Güç Modları</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Gizle</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+    <value>Tümünü gizle</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Tüm seçimi kaldır</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Tümünü seç</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>Kayıt seçenekleri</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+    <value>Kaydediliyor...</value>
   </data>
 </root>
