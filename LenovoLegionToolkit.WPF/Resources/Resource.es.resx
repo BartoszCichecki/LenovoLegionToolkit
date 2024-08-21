@@ -2137,6 +2137,9 @@ Requiere un reinicio.</value>
   <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
     <value>Sólo teclado</value>
   </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Teclado y botones del ratón</value>
+  </data>
   <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
     <value>Todas las entradas</value>
   </data>
