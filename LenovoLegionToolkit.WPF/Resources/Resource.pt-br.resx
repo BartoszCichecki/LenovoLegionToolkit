@@ -2052,6 +2052,24 @@ Requer reinicialização.</value>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Planos de Energia do Windows</value>
   </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+    <value>Alterne para o modo Custom pressionando as teclas Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+    <value>Permitir a troca rápida para o modo Custom pressionando as teclas Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+    <value>Sincronização do modo de potência</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+    <value>Altere automaticamente os Planos de Energia do Windows ou o Modo de Energia do Windows ao alterar os Modos de Energia.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+    <value>Modos de Desempenho do Windows</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+    <value>Selecione o Plano de Desempenho do Windows que será aplicado quando um Modo de Desempenho mudar.</value>
+  </data>
   <data name="CompatibilityCheckError_Message" xml:space="preserve">
     <value>Ocorreu um erro ao ler as informações do dispositivo.</value>
   </data>
@@ -2093,6 +2111,9 @@ Requer reinicialização.</value>
   </data>
   <data name="MacroAutomationStepControl_Message" xml:space="preserve">
     <value>Ativar ou desativar macros.</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+    <value>Interrompa se outra tecla foi pressionada</value>
   </data>
   <data name="Hide" xml:space="preserve">
     <value>Ocultar</value>
@@ -2150,5 +2171,20 @@ Requer reinicialização.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
 	  <value>Adicione a linha de comando à variável de ambiente PATH do sistema.</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+	  <value>Temperatura</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+	  <value>Selecione unidades para sensores de temperatura.</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>O Lenovo Hotkeys está sendo executado em segundo plano.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>O Legion Zone está sendo executado em segundo plano.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>O Lenovo Vantage e/ou o ImController estão sendo executados em segundo plano.</value>
   </data>
 </root>

@@ -139,7 +139,7 @@
     <value>關於</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>翻譯由 flandretw 提供，社區校正。</value>
+    <value>翻譯多數由 flandretw 提供，開源社區校正。</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -1699,7 +1699,7 @@
     <value>開啟 Windows 控制台中的電源計劃選項</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>關閉電源</value>
+    <value>已關閉</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
     <value>匯入鍵盤背光設定檔</value>
@@ -2177,5 +2177,14 @@
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
 	  <value>選擇溫度感應器使用的單位。</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>Lenovo Hotkeys 正在背景執行。</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>Legion Zone 正在背景執行。</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>Lenovo Vantage 與（或）ImController 正在背景執行。</value>
   </data>
 </root>
