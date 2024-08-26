@@ -396,7 +396,7 @@
     <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
   </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
-    <value>Висока</value>
+    <value>Яскрава</value>
   </data>
   <data name="WhiteKeyboardBacklightState_Low" xml:space="preserve">
     <value>Тьмяна</value>
