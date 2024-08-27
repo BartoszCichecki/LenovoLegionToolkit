@@ -2176,4 +2176,13 @@
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
 	  <value>Виберіть одиниці виміру для чутників температури.</value>
   </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>Гарячі клавіші Lenovo працюють у фоні.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>Legion Zone працює у фоні.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>Lenovo Vantage та/або ImController працює у фоні.</value>
+  </data>
 </root>

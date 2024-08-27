@@ -2187,4 +2187,13 @@
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
 	  <value>选择温度传感器使用的单位。</value>
   </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>Lenovo Hotkeys 正在后台运行。</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>Legion Zone 正在后台运行。</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>Lenovo Vantage 和 / 或 ImController 正在后台运行。</value>
+  </data>
 </root>

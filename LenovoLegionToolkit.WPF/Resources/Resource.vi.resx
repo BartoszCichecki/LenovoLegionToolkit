@@ -2135,6 +2135,15 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
     <value>Chỉ bàn phím</value>
   </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Bàn phím và chuột</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>Tất cả đầu vào</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>Tùy chọn ghi</value>
+  </data>
   <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
     <value>Quá trình ghi macro sẽ bắt đầu sau 3 giây...</value>
   </data>
@@ -2153,10 +2162,31 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Chỉ hiển thị các thiết bị đang kết nối</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Cho phép điều khiển chương trình qua dòng lệnh với Giao diện dòng lệnh.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+	  <value>Thêm CLI vào PATH</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+	  <value>Thêm CLI vào biến môi trường PATH của người dùng.</value>
+  </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
 	  <value>Nhiệt độ</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
 	  <value>Chọn đơn vị đo cho cảm biến nhiệt độ.</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>Lenovo Hotkeys đang chạy ngầm.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>Legion Zone đang chạy ngầm.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>Lenovo Vantage và/hoặc ImController đang chạy ngầm trong hệ thống.</value>
   </data>
 </root>
