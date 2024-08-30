@@ -426,7 +426,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器或未啟用混合模式（Hybrid Mode），則此功能將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -521,7 +521,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -714,7 +714,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
