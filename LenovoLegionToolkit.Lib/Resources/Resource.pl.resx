@@ -142,7 +142,7 @@
     <value>Włączone (z opóźnieniem)</value>
   </data>
   <data name="BatteryState_Conservation" xml:space="preserve">
-    <value>Konserwacja</value>
+    <value>Oszczędzanie żywotności</value>
   </data>
   <data name="BatteryState_Normal" xml:space="preserve">
     <value>Normalny</value>
@@ -453,6 +453,12 @@
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
     <value>Alt</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+	  <value>Tryb zasilania systemu Windows</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+	  <value>Plan zasilania systemu Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
 	  <value>Ustawienie 4</value>
