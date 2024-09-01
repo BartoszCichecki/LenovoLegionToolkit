@@ -426,7 +426,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器或未啟用混合模式（Hybrid Mode），則此功能將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -521,7 +521,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -714,7 +714,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -892,13 +892,13 @@
     <value>開啟</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內建顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內建顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -1062,15 +1062,15 @@
     <value>重新整理</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內部顯示器更新率。
+    <value>變更內建顯示器更新率。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>更新率</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>變更內部顯示器更新率。</value>
+    <value>變更內建顯示器更新率。</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>更新率</value>
@@ -1423,7 +1423,7 @@
     <value>Windows 鍵</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>僅在內部鍵盤上作用。</value>
+    <value>僅在內建鍵盤生效。</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>鎖定 Windows 鍵</value>
@@ -1447,29 +1447,29 @@
     <value>解析度</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-    <value>變更內部顯示器解析度。</value>
+    <value>變更內建顯示器解析度。</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
     <value>解析度</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內部顯示器解析度。
+    <value>變更內建顯示器解析度。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-    <value>變更內部顯示器比例。</value>
+    <value>變更內建顯示器比例。</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內部顯示器比例。
+    <value>變更內建顯示器比例。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>顯示</value>
