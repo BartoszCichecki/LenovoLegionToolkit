@@ -139,7 +139,7 @@
     <value>Gdy jest podłączony zasilacz o słabej mocy</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Przy włączeniu</value>
+    <value>Przy uruchomieniu</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Gdy tryb zasilania ulegnie zmianie</value>
