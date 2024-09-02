@@ -250,7 +250,7 @@
     <value>Niestandardowy</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Wydajność</value>
+    <value>Wydajny</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Cichy</value>
