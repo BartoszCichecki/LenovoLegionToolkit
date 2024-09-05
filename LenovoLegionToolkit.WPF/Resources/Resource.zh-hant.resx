@@ -233,7 +233,7 @@
     <value>獨佔此條件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>當此功能執行時，將不會執行其它符合條件的功能。</value>
+    <value>當此功能執行時，將不會執行其他符合條件的功能。</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻執行</value>
@@ -415,7 +415,7 @@
     <value>圖形</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>其它</value>
+    <value>其他</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
     <value>電源</value>
@@ -426,7 +426,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果已關閉內建顯示器或未啟用混合模式（Hybrid Mode），則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器或未啟用混合模式（Hybrid Mode），則此功能將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -521,7 +521,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
 
-警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -714,7 +714,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -741,7 +741,7 @@
     <value>鍵盤背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由於 Lenovo Vantage 或其它服務正在執行，所以無法在此控制鍵盤背光。</value>
+    <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage 或其相關服務正在執行</value>
@@ -892,13 +892,13 @@
     <value>開啟</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內建顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內建顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -1062,15 +1062,15 @@
     <value>重新整理</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內建顯示器更新率。
+    <value>變更內部顯示器更新率。
 
-警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>更新率</value>
   </data>
   <data name="RefreshRateControl_Message" xml:space="preserve">
-    <value>變更內建顯示器更新率。</value>
+    <value>變更內部顯示器更新率。</value>
   </data>
   <data name="RefreshRateControl_Title" xml:space="preserve">
     <value>更新率</value>
@@ -1300,7 +1300,7 @@
     <value>特效</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
-    <value>此效果將被套用到整個鍵盤並替換其它效果。</value>
+    <value>此效果將被套用到整個鍵盤並替換其他效果。</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
     <value>速度</value>
@@ -1447,29 +1447,29 @@
     <value>解析度</value>
   </data>
   <data name="ResolutionControl_Message" xml:space="preserve">
-    <value>變更內建顯示器解析度。</value>
+    <value>變更內部顯示器解析度。</value>
   </data>
   <data name="ResolutionAutomationStepControl_Title" xml:space="preserve">
     <value>解析度</value>
   </data>
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內建顯示器解析度。
+    <value>變更內部顯示器解析度。
 
-警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-    <value>變更內建顯示器比例。</value>
+    <value>變更內部顯示器比例。</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
     <value>DPI</value>
   </data>
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
-    <value>變更內建顯示器比例。
+    <value>變更內部顯示器比例。
 
-警告：如果已關閉內建顯示器，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>顯示</value>
@@ -1839,10 +1839,10 @@
     <value>未使用筆記本電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>當 Lenovo Vantage 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>當 LegionZone 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU（獨立顯示卡）已連接</value>
@@ -2113,7 +2113,7 @@
     <value>啟用或停用巨集。</value>
   </data>
   <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
-    <value>當按下其它按鍵後中斷</value>
+    <value>當按下其他按鍵後中斷</value>
   </data>
   <data name="Hide" xml:space="preserve">
     <value>隱藏</value>

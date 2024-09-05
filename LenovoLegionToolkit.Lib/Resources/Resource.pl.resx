@@ -250,7 +250,7 @@
     <value>Niestandardowy</value>
   </data>
   <data name="PowerModeState_Performance" xml:space="preserve">
-    <value>Wydajność</value>
+    <value>Wydajny</value>
   </data>
   <data name="PowerModeState_Quiet" xml:space="preserve">
     <value>Cichy</value>
@@ -453,6 +453,21 @@
   </data>
   <data name="ModifierKey_Alt" xml:space="preserve">
     <value>Alt</value>
+  </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+    <value>Włączone</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+    <value>Wyłączone</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Wyciszenie</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Wyłącz wyciszenie</value>
+  </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+	  <value>Wyłączone</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
 	  <value>Tryb zasilania systemu Windows</value>
