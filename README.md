@@ -398,6 +398,7 @@ Translations provided by:
 * Romanian - [Mario Bălănică](https://github.com/mariobalanica)
 * Slovak - Mitschud, Newbie414
 * Spanish - M.A.G.
+* Polish - Mariusz Dziemianowicz
 * Portugese - dvsilva
 * Portuguese (Brasil) - Vernon
 * Russian - [Edward Johan](https://github.com/younyokel)
