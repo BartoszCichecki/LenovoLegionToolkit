@@ -2180,4 +2180,13 @@
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
 	  <value>Выбрать единицы измерения сенсоров температуры.</value>
   </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+	  <value>Lenovo Hotkeys запущен в фоновом режиме.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+	  <value>Legion Zone запущен в фоновом режиме.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+	  <value>Lenovo Vantage и/или ImController запущены в фоновом режиме.</value>
+  </data>
 </root>
