@@ -1418,7 +1418,7 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>Keyboard backlight</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Lock Windows key on built-in keyboard.</value>
+    <value>Disable Windows key on built-in keyboard.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
     <value>Windows Key Lock</value>
