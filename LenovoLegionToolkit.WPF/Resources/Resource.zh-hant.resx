@@ -227,7 +227,7 @@
     <value>新增條件</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
-    <value>配置</value>
+    <value>組態設定</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
     <value>獨佔此條件</value>
@@ -630,13 +630,13 @@
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>警告！
@@ -697,7 +697,7 @@
     <value>風扇</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
-    <value>可配置 TGP</value>
+    <value>可設定 TGP</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
     <value>動態加速</value>
@@ -807,10 +807,10 @@
     <value>開啟 Caps Lock</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>關閉固定 Fn 鍵</value>
+    <value>關閉鎖定 Fn 鍵</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>開啟固定 Fn 鍵</value>
+    <value>開啟鎖定 Fn 鍵</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>關閉麥克風</value>
@@ -859,7 +859,7 @@
     <value>不要顯示通知</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>鍵盤背光</value>
@@ -1204,7 +1204,7 @@
     <value>關閉時最小化</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>配置顯示通知。</value>
+    <value>設定哪些通知要顯示。</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>通知</value>
@@ -1505,7 +1505,7 @@
     <value>名稱</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
+    <value>根據裝置的狀態和組態設定，某些功能可能不會出現在控制面板上。</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>客製化</value>
@@ -1681,7 +1681,7 @@
     <value>電池低電量</value>
   </data>
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
-    <value>配置檔案</value>
+    <value>組態設定</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>偵測到 S0 Lower Power Model</value>
@@ -1705,7 +1705,7 @@
     <value>匯入鍵盤背光設定檔</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-    <value>匯入並套用背光配置檔案到目前的設定檔。</value>
+    <value>匯入並套用背光組態設定到目前的設定檔。</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>路徑</value>
@@ -1913,10 +1913,10 @@
     <value>預設</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
-    <value>智慧固定 Fn 鍵</value>
+    <value>智慧鎖定 Fn 鍵</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
-    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除固定。</value>
+    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除鎖定。</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>關閉</value>
