@@ -6129,7 +6129,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enabled or disable Windows key..
+        ///   Looks up a localized string similar to Lock Windows key on built-in keyboard..
         /// </summary>
         public static string WinKeyAutomationStepControl_Message {
             get {
@@ -6138,7 +6138,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Key.
+        ///   Looks up a localized string similar to Windows Key Lock.
         /// </summary>
         public static string WinKeyAutomationStepControl_Title {
             get {

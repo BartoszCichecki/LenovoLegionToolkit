@@ -1418,10 +1418,10 @@ Logging will be enabled automatically, if you choose to continue.</value>
     <value>Keyboard backlight</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Enabled or disable Windows key.</value>
+    <value>Disable Windows key on built-in keyboard.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows Key</value>
+    <value>Windows Key Lock</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Only works on built-in keyboard.</value>
@@ -2168,24 +2168,24 @@ Supported formats are: {1}.</value>
     <value>Enable Command Line Interface that allows control from command line.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>Add CLI to PATH</value>
+    <value>Add CLI to PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Add CLI to user's PATH environment variable.</value>
+    <value>Add CLI to user's PATH environment variable.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>Temperature</value>
+    <value>Temperature</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>Select units for temperature sensors.</value>
+    <value>Select units for temperature sensors.</value>
   </data>
   <data name="MainWindows_FnKeysRunning" xml:space="preserve">
-	  <value>Lenovo Hotkeys is running in the background.</value>
+    <value>Lenovo Hotkeys is running in the background.</value>
   </data>
   <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
-	  <value>Legion Zone is running in the background.</value>
+    <value>Legion Zone is running in the background.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
-	  <value>Lenovo Vantage and/or ImController is running in the background.</value>
+    <value>Lenovo Vantage and/or ImController is running in the background.</value>
   </data>
 </root>
