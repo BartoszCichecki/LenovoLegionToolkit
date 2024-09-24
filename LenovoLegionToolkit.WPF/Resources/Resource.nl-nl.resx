@@ -1419,12 +1419,6 @@ Logboekregistratie wordt automatisch ingeschakeld als u ervoor kiest om door te 
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Toetsenbordverlichting</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Windows-toets in- of uitschakelen.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows-toets</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Werkt alleen op ingebouwd toetsenbord.</value>
   </data>
