@@ -1419,12 +1419,6 @@ La journalisation sera activée automatiquement si vous choisissez de continuer.
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Rétroéclairage du clavier</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Activer ou Désactiver la touche Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Touche Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Fonctionne uniquement sur le clavier intégré.</value>
   </data>
@@ -2168,9 +2162,9 @@ Nécessite un redémarrage.</value>
     <value>Activez l'interface de ligne de commande qui permet le contrôle à partir de la ligne de commande.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>Ajouter l'ILC au PATH</value>
+    <value>Ajouter l'ILC au PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Ajoutez l’ILC à la variable d’environnement PATH de l’utilisateur.</value>
+    <value>Ajoutez l’ILC à la variable d’environnement PATH de l’utilisateur.</value>
   </data>
 </root>
