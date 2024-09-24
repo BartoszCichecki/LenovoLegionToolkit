@@ -128,7 +128,7 @@ public partial class SettingsPage
         }
         else
         {
-            _checkUpdatesBotton.Visibility = Visibility.Visible;
+            _checkUpdatesButton.Visibility = Visibility.Visible;
         }
 
         try

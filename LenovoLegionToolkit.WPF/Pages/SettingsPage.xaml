@@ -239,7 +239,7 @@
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_CheckUpdates_Message}" />
             </custom:CardControl.Header>
             <wpfui:Button
-                x:Name="_checkUpdatesBotton"
+                x:Name="_checkUpdatesButton"
                 Margin="0,0,0,8"
                 MinWidth="100"
                 AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}"
