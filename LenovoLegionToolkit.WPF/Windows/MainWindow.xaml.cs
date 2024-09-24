@@ -230,7 +230,7 @@ public partial class MainWindow
         });
     }
 
-    private void CheckForUpdates()
+    public void CheckForUpdates()
     {
         Task.Run(_updateChecker.CheckAsync)
             .ContinueWith(updatesAvailable =>

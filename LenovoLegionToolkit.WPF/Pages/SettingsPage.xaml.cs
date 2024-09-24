@@ -19,6 +19,7 @@ using LenovoLegionToolkit.WPF.CLI;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Settings;
 
 namespace LenovoLegionToolkit.WPF.Pages;
@@ -36,6 +37,7 @@ public partial class SettingsPage
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
     private readonly HWiNFOIntegration _hwinfoIntegration = IoCContainer.Resolve<HWiNFOIntegration>();
     private readonly IpcServer _ipcServer = IoCContainer.Resolve<IpcServer>();
+    private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
 
     private bool _isRefreshing;
 
@@ -118,6 +120,16 @@ public partial class SettingsPage
         _onBatterySinceResetToggle.IsChecked = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
+
+        if (_updateChecker.Disable)
+        {
+            _updateTextBlock.Visibility = Visibility.Hidden;
+            _checkUpdatesCard.Visibility = Visibility.Hidden;
+        }
+        else
+        {
+            _checkUpdatesBotton.Visibility = Visibility.Visible;
+        }
 
         try
         {
@@ -553,6 +565,18 @@ public partial class SettingsPage
 
         var window = new BootLogoWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private void CheckUpdates_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        if (App.Current.MainWindow is not MainWindow mainWindow)
+            return;
+
+        mainWindow.CheckForUpdates();
+        SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
     }
 
     private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)

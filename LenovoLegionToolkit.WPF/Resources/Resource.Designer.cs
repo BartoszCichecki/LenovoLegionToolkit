@@ -4794,6 +4794,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check the latest version of LLT..
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updates check has been started successfully..
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Started_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Started_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Started_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Started_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check Updates.
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check.
+        /// </summary>
+        public static string SettingsPage_CheckUpdatesBotton_Content {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdatesBotton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable Command Line Interface that allows control from command line..
         /// </summary>
         public static string SettingsPage_CLI_Message {
@@ -5271,6 +5316,15 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string SettingsPage_Update_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Update_Title", resourceCulture);
             }
         }
         
