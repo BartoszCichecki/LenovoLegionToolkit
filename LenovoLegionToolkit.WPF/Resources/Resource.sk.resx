@@ -1396,12 +1396,6 @@ Ak sa rozhodnete pokračovať záznam chýb bude automaticky zapnutý.</value>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Povoliť alebo zakázať klávesu Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Tlačidlo Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Funguje len na zabudovanej klávesnici.</value>
   </data>
