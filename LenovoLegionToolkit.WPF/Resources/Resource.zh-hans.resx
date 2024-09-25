@@ -1425,6 +1425,12 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>键盘背光</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>禁用内置键盘上的 Win 键。</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>禁用 Win 键</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>仅在内置键盘上生效。开启后 Win 键按下不再有反应。</value>
   </data>
