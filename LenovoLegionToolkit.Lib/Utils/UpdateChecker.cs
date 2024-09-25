@@ -21,7 +21,7 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
 
     public bool Disable { get; set; }
 
-    public async Task<Version?> CheckAsync()
+    public async Task<Version?> CheckAsync(bool forceCheck)
     {
         using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
         {
@@ -37,7 +37,7 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 var timeSpanSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
                 var shouldCheck = timeSpanSinceLastUpdate > _minimumTimeSpanForRefresh;
 
-                if (!shouldCheck)
+                if (!forceCheck && !shouldCheck)
                     return _updates.Length != 0 ? _updates.First().Version : null;
 
                 if (Log.Instance.IsTraceEnabled)

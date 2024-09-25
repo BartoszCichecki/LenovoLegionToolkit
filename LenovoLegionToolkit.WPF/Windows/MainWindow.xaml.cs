@@ -230,9 +230,9 @@ public partial class MainWindow
         });
     }
 
-    public void CheckForUpdates()
+    public void CheckForUpdates(bool forceCheck = false)
     {
-        Task.Run(_updateChecker.CheckAsync)
+        Task.Run(() => _updateChecker.CheckAsync(forceCheck))
             .ContinueWith(updatesAvailable =>
             {
                 var result = updatesAvailable.Result;

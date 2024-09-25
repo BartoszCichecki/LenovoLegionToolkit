@@ -575,7 +575,7 @@ public partial class SettingsPage
         if (App.Current.MainWindow is not MainWindow mainWindow)
             return;
 
-        mainWindow.CheckForUpdates();
+        mainWindow.CheckForUpdates(true);
         SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
     }
 

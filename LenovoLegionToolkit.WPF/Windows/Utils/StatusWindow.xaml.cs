@@ -87,7 +87,7 @@ public partial class StatusWindow
 
         try
         {
-            hasUpdate = await updateChecker.CheckAsync() is not null;
+            hasUpdate = await updateChecker.CheckAsync(false) is not null;
         }
         catch { /* Ignored */ }
 
