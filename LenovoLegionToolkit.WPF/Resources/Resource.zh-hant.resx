@@ -1416,6 +1416,12 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>鍵盤背光</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>啟用或停用 Windows 鍵。</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Windows 鍵</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>僅在內建鍵盤生效。</value>
   </data>
