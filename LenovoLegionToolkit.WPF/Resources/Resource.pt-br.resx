@@ -1417,6 +1417,12 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Desativar a tecla Windows no teclado embutido.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Bloqueio da tecla Windows</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Somente funciona no teclado padrão do Notebook.</value>
   </data>
