@@ -125,10 +125,17 @@ public partial class SettingsPage
         {
             _updateTextBlock.Visibility = Visibility.Hidden;
             _checkUpdatesCard.Visibility = Visibility.Hidden;
+            _updateCheckMiniumTimeSpanCard.Visibility = Visibility.Hidden;
         }
         else
         {
             _checkUpdatesButton.Visibility = Visibility.Visible;
+            _updateCheckMiniumTimeSpanPickerHours.Visibility = Visibility.Visible;
+            _updateCheckMiniumTimeSpanPickerHours.Value = _settings.Store.UpdateCheckMiniumTimeSpanHours;
+            _updateCheckMiniumTimeSpanPickerMinutes.Visibility = Visibility.Visible;
+            _updateCheckMiniumTimeSpanPickerMinutes.Value = _settings.Store.UpdateCheckMiniumTimeSpanMinutes;
+            _updateCheckMiniumTimeSpanPickerSeconds.Visibility = Visibility.Visible;
+            _updateCheckMiniumTimeSpanPickerSeconds.Value = _settings.Store.UpdateCheckMiniumTimeSpanSeconds;
         }
 
         try
@@ -261,6 +268,12 @@ public partial class SettingsPage
         _accentColorPicker.Visibility = _settings.Store.AccentColorSource == AccentColorSource.Custom ? Visibility.Visible : Visibility.Collapsed;
         _accentColorPicker.SelectedColor = _themeManager.GetAccentColor().ToColor();
     }
+
+    private void RefreshUpdateCheckMiniumTimeSpan() => _updateChecker.SetMinimumTimeSpanForRefresh(
+        (int)(_updateCheckMiniumTimeSpanPickerHours.Value ?? 3),
+        (int)(_updateCheckMiniumTimeSpanPickerMinutes.Value ?? 0),
+        (int)(_updateCheckMiniumTimeSpanPickerSeconds.Value ?? 0)
+    );
 
     private void AutorunComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -577,6 +590,36 @@ public partial class SettingsPage
 
         mainWindow.CheckForUpdates(true);
         SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
+    }
+
+    private void UpdateCheckMiniumTimeSpanPickerHours_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        _settings.Store.UpdateCheckMiniumTimeSpanHours = (int)(_updateCheckMiniumTimeSpanPickerHours.Value ?? 3);
+        _settings.SynchronizeStore();
+        RefreshUpdateCheckMiniumTimeSpan();
+    }
+
+    private void UpdateCheckMiniumTimeSpanPickerMinutes_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        _settings.Store.UpdateCheckMiniumTimeSpanMinutes = (int)(_updateCheckMiniumTimeSpanPickerMinutes.Value ?? 0);
+        _settings.SynchronizeStore();
+        RefreshUpdateCheckMiniumTimeSpan();
+    }
+
+    private void UpdateCheckMiniumTimeSpanPickerSeconds_ValueChanged(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        _settings.Store.UpdateCheckMiniumTimeSpanSeconds = (int)(_updateCheckMiniumTimeSpanPickerSeconds.Value ?? 0);
+        _settings.SynchronizeStore();
+        RefreshUpdateCheckMiniumTimeSpan();
     }
 
     private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)

@@ -5,21 +5,40 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Settings;
 using NeoSmart.AsyncLock;
 using Octokit;
 using Octokit.Internal;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class UpdateChecker(HttpClientFactory httpClientFactory)
+public class UpdateChecker
 {
-    private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
+    private readonly HttpClientFactory _httpClientFactory;
+    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
     private readonly AsyncLock _updateSemaphore = new();
 
     private DateTime _lastUpdate = DateTime.MinValue;
+    private TimeSpan _minimumTimeSpanForRefresh;
     private Update[] _updates = [];
 
     public bool Disable { get; set; }
+    public bool ReachedRateLimit { get; private set; }
+
+    public UpdateChecker(HttpClientFactory httpClientFactory)
+    {
+        _httpClientFactory = httpClientFactory;
+
+        if (_settings.Store.UpdateCheckMiniumTimeSpanHours < 3)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanHours = 3;
+            _settings.SynchronizeStore();
+        }
+
+        _minimumTimeSpanForRefresh = new(hours: _settings.Store.UpdateCheckMiniumTimeSpanHours,
+                                         minutes: _settings.Store.UpdateCheckMiniumTimeSpanMinutes,
+                                         seconds: _settings.Store.UpdateCheckMiniumTimeSpanSeconds);
+    }
 
     public async Task<Version?> CheckAsync(bool forceCheck)
     {
@@ -43,7 +62,7 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Checking...");
 
-                var adapter = new HttpClientAdapter(httpClientFactory.CreateHandler);
+                var adapter = new HttpClientAdapter(_httpClientFactory.CreateHandler);
                 var productInformation = new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker");
                 var connection = new Connection(productInformation, adapter);
                 var githubClient = new GitHubClient(connection);
@@ -68,10 +87,21 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
 
                 return _updates.Length != 0 ? _updates.First().Version : null;
             }
+            catch (RateLimitExceededException ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Reached API Rate Limitation.", ex);
+
+                ReachedRateLimit = true;
+                return null;
+            }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error checking for updates.", ex);
+
+                ReachedRateLimit = false;
+
                 return null;
             }
             finally
@@ -101,10 +131,18 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 throw new InvalidOperationException("Setup file URL could not be found");
 
             await using var fileStream = File.OpenWrite(tempPath);
-            using var httpClient = httpClientFactory.Create();
+            using var httpClient = _httpClientFactory.Create();
             await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
             return tempPath;
         }
+    }
+
+    public void SetMinimumTimeSpanForRefresh(int hours, int minutes, int seconds)
+    {
+        if (hours < 3)
+            hours = 3;
+
+        _minimumTimeSpanForRefresh = new(hours: hours, minutes: minutes, seconds: seconds);
     }
 }

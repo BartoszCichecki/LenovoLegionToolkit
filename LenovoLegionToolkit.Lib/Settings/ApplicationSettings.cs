@@ -47,6 +47,9 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool SynchronizeBrightnessToAllPowerPlans { get; set; }
         public ModifierKey SmartFnLockFlags { get; set; }
         public bool ResetBatteryOnSinceTimerOnReboot { get; set; }
+        public int UpdateCheckMiniumTimeSpanHours { get; set; }
+        public int UpdateCheckMiniumTimeSpanMinutes { get; set; }
+        public int UpdateCheckMiniumTimeSpanSeconds { get; set; }
     }
 
     public ApplicationSettings() : base("settings.json")

@@ -2188,7 +2188,7 @@ Supported formats are: {1}.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage and/or ImController is running in the background.</value>
   </data>
-  <data name="SettingsPage_CheckUpdatesBotton_Content" xml:space="preserve">
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Check</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
@@ -2205,5 +2205,20 @@ Supported formats are: {1}.</value>
   </data>
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Title" xml:space="preserve">
+    <value>Minium Time Span for Update Check</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Message" xml:space="preserve">
+    <value>The minium time span LLT checks its updates. The time span cannot be less than 3 hours.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours" xml:space="preserve">
+    <value>Hours:</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes" xml:space="preserve">
+    <value>Minutes:</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds" xml:space="preserve">
+    <value>Seconds:</value>
   </data>
 </root>

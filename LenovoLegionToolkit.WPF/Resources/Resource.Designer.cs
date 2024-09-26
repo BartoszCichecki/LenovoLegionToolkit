@@ -4832,9 +4832,9 @@ namespace LenovoLegionToolkit.WPF.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Check.
         /// </summary>
-        public static string SettingsPage_CheckUpdatesBotton_Content {
+        public static string SettingsPage_CheckUpdatesButton_Content {
             get {
-                return ResourceManager.GetString("SettingsPage_CheckUpdatesBotton_Content", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_CheckUpdatesButton_Content", resourceCulture);
             }
         }
         
@@ -5325,6 +5325,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Update_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Update_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The minium time span LLT checks its updates. The time span cannot be less than 3 hours..
+        /// </summary>
+        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hours:.
+        /// </summary>
+        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minutes:.
+        /// </summary>
+        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seconds:.
+        /// </summary>
+        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minium Time Span for Update Check.
+        /// </summary>
+        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Title", resourceCulture);
             }
         }
         

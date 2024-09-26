@@ -244,8 +244,69 @@
                 MinWidth="100"
                 AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}"
                 Click="CheckUpdates_Click"
-                Content="{x:Static resources:Resource.SettingsPage_CheckUpdatesBotton_Content}"
+                Content="{x:Static resources:Resource.SettingsPage_CheckUpdatesButton_Content}"
                 Visibility="Hidden" />
+        </custom:CardControl>
+
+        <custom:CardControl x:Name="_updateCheckMiniumTimeSpanCard" Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_UpdateCheckMiniumTimeSpan_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_UpdateCheckMiniumTimeSpan_Message}" />
+            </custom:CardControl.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock 
+                    Grid.Column="0"
+                    Margin="0,0,0,8"
+                    VerticalAlignment="Center"
+                    Text="{x:Static resources:Resource.SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours}" />
+                <wpfui:NumberBox
+                    Grid.Column="1"
+                    x:Name="_updateCheckMiniumTimeSpanPickerHours"
+                    Margin="8,0,0,8"
+                    ClearButtonEnabled="False"
+                    MaxDecimalPlaces="0"
+                    Maximum="1440"
+                    Minimum="3"
+                    ValueChanged="UpdateCheckMiniumTimeSpanPickerHours_ValueChanged"
+                    Visibility="Hidden" />
+                <TextBlock
+                    Grid.Column="2"
+                    Margin="8,0,0,8"
+                    VerticalAlignment="Center"
+                    Text="{x:Static resources:Resource.SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes}" />
+                <wpfui:NumberBox
+                    Grid.Column="3"
+                    x:Name="_updateCheckMiniumTimeSpanPickerMinutes"
+                    Margin="8,0,0,8"
+                    ClearButtonEnabled="False"
+                    MaxDecimalPlaces="0"
+                    Maximum="59"
+                    Minimum="0"
+                    ValueChanged="UpdateCheckMiniumTimeSpanPickerMinutes_ValueChanged"
+                    Visibility="Hidden" />
+                <TextBlock
+                    Grid.Column="4"
+                    Margin="8,0,0,8"
+                    VerticalAlignment="Center"
+                    Text="{x:Static resources:Resource.SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds}" />
+                <wpfui:NumberBox
+                    Grid.Column="5"
+                    x:Name="_updateCheckMiniumTimeSpanPickerSeconds"
+                    Margin="8,0,0,8"
+                    ClearButtonEnabled="False"
+                    MaxDecimalPlaces="0"
+                    Maximum="59"
+                    Minimum="0"
+                    ValueChanged="UpdateCheckMiniumTimeSpanPickerSeconds_ValueChanged"
+                    Visibility="Hidden" />
+            </Grid>
         </custom:CardControl>
 
         <TextBlock
