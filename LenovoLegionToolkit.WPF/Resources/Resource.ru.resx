@@ -1418,6 +1418,12 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Подсветка клавиатуры</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Отключить клавишу Windows на встроенной клавиатуре.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Блокировка клавиши Windows</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Действует только на встроенной клавиатуре.</value>
   </data>
