@@ -123,9 +123,9 @@ public partial class SettingsPage
 
         if (_updateChecker.Disable)
         {
-            _updateTextBlock.Visibility = Visibility.Hidden;
-            _checkUpdatesCard.Visibility = Visibility.Hidden;
-            _updateCheckMiniumTimeSpanCard.Visibility = Visibility.Hidden;
+            _updateTextBlock.Visibility = Visibility.Collapsed;
+            _checkUpdatesCard.Visibility = Visibility.Collapsed;
+            _updateCheckMiniumTimeSpanCard.Visibility = Visibility.Collapsed;
         }
         else
         {
