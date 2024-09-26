@@ -1421,6 +1421,12 @@ El registro de sucesos se activará automáticamente, si decide continuar.</valu
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Desactivar la tecla Windows del teclado integrado.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Bloqueo de la tecla Windows</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Sólo funciona en el teclado integrado.</value>
   </data>
