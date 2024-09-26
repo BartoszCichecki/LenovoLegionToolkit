@@ -1426,10 +1426,10 @@
     <value>键盘背光</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>启用或禁用 Win 键。</value>
+    <value>禁用内置键盘上的 Win 键。</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Win 键开关</value>
+    <value>禁用 Win 键</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>仅在内置键盘上生效。开启后 Win 键按下不再有反应。</value>
@@ -2176,24 +2176,24 @@
     <value>启用命令行界面，允许使用命令行进行控制。</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>将命令行界面添加至 PATH 变量</value>
+    <value>将命令行界面添加至 PATH 变量</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>将命令行界面添加至用户 PATH 环境变量中。</value>
+    <value>将命令行界面添加至用户 PATH 环境变量中。</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>温度</value>
+    <value>温度</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>选择温度传感器使用的单位。</value>
+    <value>选择温度传感器使用的单位。</value>
   </data>
   <data name="MainWindows_FnKeysRunning" xml:space="preserve">
-	  <value>Lenovo Hotkeys 正在后台运行。</value>
+    <value>Lenovo Hotkeys 正在后台运行。</value>
   </data>
   <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
-	  <value>Legion Zone 正在后台运行。</value>
+    <value>Legion Zone 正在后台运行。</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
-	  <value>Lenovo Vantage 和 / 或 ImController 正在后台运行。</value>
+    <value>Lenovo Vantage 和 / 或 ImController 正在后台运行。</value>
   </data>
 </root>

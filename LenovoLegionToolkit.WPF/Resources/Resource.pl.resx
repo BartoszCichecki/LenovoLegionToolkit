@@ -1418,12 +1418,6 @@ Jeśli zdecydujesz się kontynuować, logowanie zostanie włączone automatyczni
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Podświetlenie klawiatury</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Włącz lub wyłącz klawisz Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Klawisz Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Działa wyłącznie z wbudowaną klawiaturą.</value>
   </data>
@@ -2169,24 +2163,24 @@ Obsługiwane formaty obrazka: {1}.</value>
     <value>Włącz interfejs pozwalający na sterowanie za pomocą wiersza poleceń.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>Dodaj CLI do PATH</value>
+    <value>Dodaj CLI do PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Dodaj CLI do zmiennej środowiskowej PATH użytkownika.</value>
+    <value>Dodaj CLI do zmiennej środowiskowej PATH użytkownika.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>Temperatura</value>
+    <value>Temperatura</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>Wybierz jednostkę temperatury dla sensorów.</value>
+    <value>Wybierz jednostkę temperatury dla sensorów.</value>
   </data>
   <data name="MainWindows_FnKeysRunning" xml:space="preserve">
-	  <value>Lenovo Hotkeys pracuje w tle.</value>
+    <value>Lenovo Hotkeys pracuje w tle.</value>
   </data>
   <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
-	  <value>Legion Zone pracuje w tle.</value>
+    <value>Legion Zone pracuje w tle.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
-	  <value>Lenovo Vantage i/lub ImController pracuje w tle.</value>
+    <value>Lenovo Vantage i/lub ImController pracuje w tle.</value>
   </data>
 </root>

@@ -1419,12 +1419,6 @@ Logboekregistratie wordt automatisch ingeschakeld als u ervoor kiest om door te 
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Toetsenbordverlichting</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Windows-toets in- of uitschakelen.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows-toets</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Werkt alleen op ingebouwd toetsenbord.</value>
   </data>
@@ -1617,6 +1611,15 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
     <value>De maximale temperatuur die door de CPU bereikt kan worden voordat de frequentie en het vermogen verminderd worden.</value>
   </data>
+  <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
+    <value>Het aanvullend maximum wattage dat naar de videokaart toegewezen kan worden, gebaseerd op het verbruik van de CPU.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
+    <value>Het aanvullend wattage dat naar de videokaart toegewezen kan worden.</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
+    <value>De maximale temperatuur die door de CPU bereikt kan worden voordat de frequentie en het vermogen verminderd worden.</value>
+  </data>
   <data name="Default" xml:space="preserve">
     <value>Standaard</value>
   </data>
@@ -1695,14 +1698,68 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="PoweredOff" xml:space="preserve">
     <value>Uitgeschakeld</value>
   </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Importeer een achtergrondverlichtingsprofiel van het toetsenbord.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Importeer en pas een achtergrondverlichtingsconfiguratie toe aan het huidige profiel.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>Pad</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
     <value>Na {0}</value>
   </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Meerdere triggers...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Videokaart overklok instellingen</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Kernfrequentie afwijking</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Geheugenfrequentie afwijking</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Videokaart overklokken</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Verbeter prestaties door de discrete videokaart te overklokken.</value>
+  </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Overklokken</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Verbeter prestaties door de discrete videokaart te overklokken.
+
+WAARSCHUWING: Deze actie zal niet correct uitgevoerd worden als de externe videokaart niet beschikbaar is.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+    <value>Achtergrondverlichting van de poorten</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+    <value>Zet de achtergrondverlichting van de poorten aan, of uit.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Achtergrondverlichting van de poorten</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Zet de achtergrondverlichting van de poorten aan, of uit.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+    <value>Achtergrondverlichting van het deksellogo</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+    <value>Zet de achtergrondverlichting van het deksellogo aan of uit.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Achtergrondverlichting van het deksellogo</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Zet de achtergrondverlichting van het deksellogo aan of uit.</value>
   </data>
   <data name="GHz" xml:space="preserve">
     <value>Ghz</value>
@@ -1710,17 +1767,29 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="MHz" xml:space="preserve">
     <value>Mhz</value>
   </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+    <value>Maximum: {0}</value>
+  </data>
   <data name="SensorsControl_CPU_Title" xml:space="preserve">
     <value>CPU</value>
   </data>
   <data name="SensorsControl_Utilization_Title" xml:space="preserve">
     <value>Gebruik</value>
   </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+    <value>Kernfrequentie</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+    <value>Temperatuur</value>
+  </data>
   <data name="SensorsControl_Fan_Title" xml:space="preserve">
     <value>Ventilatie</value>
   </data>
   <data name="SensorsControl_GPU_Title" xml:space="preserve">
     <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+    <value>Geheugenfrequentie</value>
   </data>
   <data name="SensorsControl_RefreshInterval" xml:space="preserve">
     <value>Vernieuwingsfrequentie</value>
@@ -1740,8 +1809,36 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
     <value>Kan de energiemodus niet wijzigen</value>
   </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+    <value>{0} energiemodus is niet beschikbaar zonder een oplader.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
     <value>Sensoren</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+    <value>Kon modus van de videokaart niet wijzigen</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Probeer de modus opnieuw te veranderen over een paar seconden, als je het verwachte resultaat niet ziet. Als de videokaart helemaal niet reageert, herstart dan je laptop.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+    <value>dGPU momenteel in gebruik</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+    <value>dGPU zal automatisch ontkoppelen wanneer niet in gebruik.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+    <value>dGPU is momenteel in gebruik, of de laptop is niet op batterijstroom</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+    <value>dGPU zal automatisch ontkoppelen wanneer deze niet in gebruik is en wanneer de laptop op batterijstroom werkt.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als Lenovo Vantage of diens services actief zijn.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als LegionZone of diens services actief zijn.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU verbonden</value>
@@ -1751,6 +1848,20 @@ Deze instelling is alleen van kracht wanneer de Aangepaste modus ingeschakeld is
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Modus</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Selecteer de GPU-bedieningsmodus op basis van het gebruik en de stroomvoorziening van uw computer.
+Voor het wisselen van modi is mogelijk opnieuw opstarten vereist.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Hybride modus</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Sta het schakelen tussen de geïntegreerde en de discrete videokaart toe. 
+Dit vereist een herstart.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+    <value>Duur</value>
   </data>
   <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
     <value>Opstartlogo</value>

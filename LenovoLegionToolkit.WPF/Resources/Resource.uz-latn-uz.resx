@@ -1404,12 +1404,6 @@ Eger siz dawam etiwdi tańlasańız, jurnaldı júrgiziw avtomatikalıq qosılad
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Klaviaturanıń arqa jaqtılıǵı</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Windows túymesin jaǵıw yamasa óshiriw.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows túymesi</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Tek ǵana ornatılǵan klaviaturada isleydi.</value>
   </data>

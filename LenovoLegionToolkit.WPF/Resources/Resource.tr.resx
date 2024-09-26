@@ -1418,12 +1418,6 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Klavye ışığı</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Windows tuşunu etkinleştirin veya devre dışı bırakın.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows tuşu</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Sadece yerleşik klavyede çalışır.</value>
   </data>

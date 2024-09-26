@@ -1418,12 +1418,6 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Đèn nền bàn phím</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Bật hoặc tắt phím Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Phím Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Chỉ hoạt động với bàn phím laptop.</value>
   </data>
@@ -2169,24 +2163,24 @@ Các định dạng hỗ trợ: {1}.</value>
     <value>Cho phép điều khiển chương trình qua dòng lệnh với Giao diện dòng lệnh.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>Thêm CLI vào PATH</value>
+    <value>Thêm CLI vào PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Thêm CLI vào biến môi trường PATH của người dùng.</value>
+    <value>Thêm CLI vào biến môi trường PATH của người dùng.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>Nhiệt độ</value>
+    <value>Nhiệt độ</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>Chọn đơn vị đo cho cảm biến nhiệt độ.</value>
+    <value>Chọn đơn vị đo cho cảm biến nhiệt độ.</value>
   </data>
   <data name="MainWindows_FnKeysRunning" xml:space="preserve">
-	  <value>Lenovo Hotkeys đang chạy ngầm.</value>
+    <value>Lenovo Hotkeys đang chạy ngầm.</value>
   </data>
   <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
-	  <value>Legion Zone đang chạy ngầm.</value>
+    <value>Legion Zone đang chạy ngầm.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
-	  <value>Lenovo Vantage và/hoặc ImController đang chạy ngầm trong hệ thống.</value>
+    <value>Lenovo Vantage và/hoặc ImController đang chạy ngầm trong hệ thống.</value>
   </data>
 </root>
