@@ -23,7 +23,7 @@ public class UpdateChecker
     private Update[] _updates = [];
 
     public bool Disable { get; set; }
-    public bool ReachedRateLimit { get; private set; }
+    public UpdateCheckStatus Status { get; set; }
 
     public UpdateChecker(HttpClientFactory httpClientFactory)
     {
@@ -84,6 +84,7 @@ public class UpdateChecker
                     Log.Instance.Trace($"Checked [updates.Length={updates.Length}]");
 
                 _updates = updates;
+                Status = UpdateCheckStatus.Success;
 
                 return _updates.Length != 0 ? _updates.First().Version : null;
             }
@@ -92,7 +93,7 @@ public class UpdateChecker
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Reached API Rate Limitation.", ex);
 
-                ReachedRateLimit = true;
+                Status = UpdateCheckStatus.RateLimitReached;
                 return null;
             }
             catch (Exception ex)
@@ -100,8 +101,7 @@ public class UpdateChecker
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error checking for updates.", ex);
 
-                ReachedRateLimit = false;
-
+                Status = UpdateCheckStatus.Error;
                 return null;
             }
             finally

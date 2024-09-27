@@ -646,3 +646,10 @@ public enum WinKeyState
 }
 
 public enum WinKeyChanged;
+
+public enum UpdateCheckStatus
+{
+    Success,
+    RateLimitReached,
+    Error
+}

@@ -2957,6 +2957,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API rate limit reached, please try again later..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update check failed.
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some error occured, please try again later..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_Unknown_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_Unknown_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No new update was found..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_NoUpdates_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_NoUpdates_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update check success.
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Success_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Success_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legion Zone is running in the background..
         /// </summary>
         public static string MainWindow_LegionZoneRunning {
@@ -4794,7 +4839,9 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check the latest version of LLT..
+        ///   Looks up a localized string similar to Check the latest version of LLT.
+        ///Last update check: {0}
+        ///NOTE: update check has an API rate limit, please don&apos;t check updates too frequently..
         /// </summary>
         public static string SettingsPage_CheckUpdates_Message {
             get {

@@ -2192,7 +2192,9 @@ Supported formats are: {1}.</value>
     <value>Check</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
-    <value>Check the latest version of LLT.</value>
+    <value>Check the latest version of LLT.
+Last update check: {0}
+NOTE: update check has an API rate limit, please don't check updates too frequently.</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
     <value>Updates check has been started successfully.</value>
@@ -2220,5 +2222,20 @@ Supported formats are: {1}.</value>
   </data>
   <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds" xml:space="preserve">
     <value>Seconds:</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>API rate limit reached, please try again later.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Update check failed</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Some error occured, please try again later.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>No new update was found.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Update check success</value>
   </data>
 </root>
