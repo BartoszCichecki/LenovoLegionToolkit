@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Messaging.Messages;
 using LenovoLegionToolkit.Lib.Settings;
 using NeoSmart.AsyncLock;
 using Octokit;
@@ -29,15 +30,11 @@ public class UpdateChecker
     {
         _httpClientFactory = httpClientFactory;
 
-        if (_settings.Store.UpdateCheckMiniumTimeSpanHours < 3)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanHours = 3;
-            _settings.SynchronizeStore();
-        }
+        CheckUpdateCheckMiniumTimeSpanSettings();
 
-        _minimumTimeSpanForRefresh = new(hours: _settings.Store.UpdateCheckMiniumTimeSpanHours,
-                                         minutes: _settings.Store.UpdateCheckMiniumTimeSpanMinutes,
-                                         seconds: _settings.Store.UpdateCheckMiniumTimeSpanSeconds);
+        _minimumTimeSpanForRefresh = new(_settings.Store.UpdateCheckMiniumTimeSpanHours,
+                                         _settings.Store.UpdateCheckMiniumTimeSpanMinutes,
+                                         _settings.Store.UpdateCheckMiniumTimeSpanSeconds);
     }
 
     public async Task<Version?> CheckAsync(bool forceCheck)
@@ -138,11 +135,37 @@ public class UpdateChecker
         }
     }
 
-    public void SetMinimumTimeSpanForRefresh(int hours, int minutes, int seconds)
-    {
-        if (hours < 3)
-            hours = 3;
+    public void SetMinimumTimeSpanForRefresh(int hours, int minutes, int seconds) => _minimumTimeSpanForRefresh = new(hours, minutes, seconds);
 
-        _minimumTimeSpanForRefresh = new(hours: hours, minutes: minutes, seconds: seconds);
+    private void CheckUpdateCheckMiniumTimeSpanSettings()
+    {
+        bool changed = false;
+        if (_settings.Store.UpdateCheckMiniumTimeSpanHours < 3)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanHours = 3;
+            changed = true;
+        }
+        if (_settings.Store.UpdateCheckMiniumTimeSpanMinutes < 0)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanMinutes = 0;
+            changed = true;
+        }
+        if (_settings.Store.UpdateCheckMiniumTimeSpanMinutes > 59)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanMinutes = 59;
+            changed = true;
+        }
+        if (_settings.Store.UpdateCheckMiniumTimeSpanSeconds < 0)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanSeconds = 0;
+            changed = true;
+        }
+        if (_settings.Store.UpdateCheckMiniumTimeSpanSeconds > 59)
+        {
+            _settings.Store.UpdateCheckMiniumTimeSpanSeconds = 59;
+            changed = true;
+        }
+        if (changed)
+            _settings.SynchronizeStore();
     }
 }

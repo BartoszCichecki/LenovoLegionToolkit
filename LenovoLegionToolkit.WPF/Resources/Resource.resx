@@ -2193,7 +2193,6 @@ Supported formats are: {1}.</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
     <value>Check the latest version of LLT.
-Last update check: {0}
 NOTE: update check has an API rate limit, please don't check updates too frequently.</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">

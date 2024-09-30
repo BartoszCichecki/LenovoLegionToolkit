@@ -4840,7 +4840,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Check the latest version of LLT.
-        ///Last update check: {0}
         ///NOTE: update check has an API rate limit, please don&apos;t check updates too frequently..
         /// </summary>
         public static string SettingsPage_CheckUpdates_Message {
