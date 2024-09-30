@@ -67,9 +67,12 @@ internal readonly struct RegistryKeyValuePackageRule : IPackageRule
 
         var keyExists = Registry.ValueExists(hive, path, KeyName);
         if (!keyExists)
-            return Task.FromResult(true);
+            return Task.FromResult(false);
 
         var versionString = Registry.GetValue(hive, path, KeyName, string.Empty);
+
+        if (versionString.Any(char.IsWhiteSpace))
+            versionString = versionString.Split(null).FirstOrDefault(versionString);
 
         if (!Version.TryParse(versionString, out var version))
             return Task.FromResult(false);

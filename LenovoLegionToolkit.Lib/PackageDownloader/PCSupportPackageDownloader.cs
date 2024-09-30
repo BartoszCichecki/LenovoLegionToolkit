@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 using System.Text.Json.Nodes;
 using System.Threading;
 using System.Threading.Tasks;
@@ -43,7 +42,7 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
             if (!IsCompatible(downloadNode, osString))
                 continue;
 
-            var package = await ParsePackageAsync(httpClient, downloadNode!, token).ConfigureAwait(false);
+            var package = ParsePackage(downloadNode!);
             if (package is null)
                 continue;
 
@@ -53,7 +52,7 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
         return packages;
     }
 
-    private static async Task<Package?> ParsePackageAsync(HttpClient httpClient, JsonNode downloadNode, CancellationToken token)
+    private static Package? ParsePackage(JsonNode downloadNode)
     {
         var id = downloadNode["ID"]!.ToJsonString();
         var category = downloadNode["Category"]!["Name"]!.ToString();
@@ -62,51 +61,36 @@ public class PCSupportPackageDownloader(HttpClientFactory httpClientFactory)
         var version = downloadNode["SummaryInfo"]!["Version"]!.ToString();
 
         var filesNode = downloadNode["Files"]!.AsArray();
-        var mainFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "exe")
-                           ?? filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "zip")
+        var mainFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().Equals("exe", StringComparison.InvariantCultureIgnoreCase))
+                           ?? filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().Equals("zip", StringComparison.InvariantCultureIgnoreCase))
                            ?? filesNode.FirstOrDefault();
 
         if (mainFileNode is null)
             return null;
 
         var fileLocation = mainFileNode["URL"]!.ToString();
-        var fileName = new Uri(fileLocation).Segments.LastOrDefault("file");// fileLocation[(fileLocation.LastIndexOf('/') + 1)..];
+        var fileName = new Uri(fileLocation).Segments.LastOrDefault("file");
         var fileSize = mainFileNode["Size"]!.ToString();
         var fileCrc = mainFileNode["SHA256"]?.ToString();
         var releaseDateUnix = long.Parse(mainFileNode["Date"]!["Unix"]!.ToString());
         var releaseDate = DateTimeOffset.FromUnixTimeMilliseconds(releaseDateUnix).DateTime;
 
-        var readmeType = ReadmeType.Unknown;
-        string? readme = null;
+        var readmeFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().Equals("txt readme", StringComparison.InvariantCultureIgnoreCase))
+                              ?? filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().Equals("html", StringComparison.InvariantCultureIgnoreCase));
 
-        var readmeFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "txt readme");
-        if (readmeFileNode is not null)
-        {
-            var readmeLocation = readmeFileNode["URL"]!.ToString();
-
-            readmeType = ReadmeType.Text;
-            readme = await GetReadmeAsync(httpClient, readmeLocation, token).ConfigureAwait(false);
-        }
-
-        readmeFileNode = filesNode.FirstOrDefault(n => n!["TypeString"]!.ToString().ToLowerInvariant() == "html");
-        if (readmeFileNode is not null)
-        {
-            readmeType = ReadmeType.Html;
-            readme = readmeFileNode["URL"]!.ToString();
-        }
+        var readme = readmeFileNode?["URL"]?.ToString();
 
         return new()
         {
             Id = id,
             Title = title,
-            Description = (title == description) ? string.Empty : description,
+            Description = title == description ? string.Empty : description,
             Version = version,
             Category = category,
             FileName = fileName,
             FileSize = fileSize,
             FileCrc = fileCrc,
             ReleaseDate = releaseDate,
-            ReadmeType = readmeType,
             Readme = readme,
             FileLocation = fileLocation,
         };

@@ -11,7 +11,6 @@ using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
-using LenovoLegionToolkit.WPF.Windows.Packages;
 
 namespace LenovoLegionToolkit.WPF.Controls.Packages;
 
@@ -42,7 +41,7 @@ public partial class PackageControl : IProgress<float>
         _categoryTextBlock.Text = package.Category;
         _detailTextBlock.Text = $"{Resource.PackageControl_Version} {package.Version}  |  {package.FileSize}  |  {package.FileName}";
 
-        _readmeButton.Visibility = package.ReadmeType is ReadmeType.Unknown ? Visibility.Collapsed : Visibility.Visible;
+        _readmeButton.Visibility = package.Readme is null ? Visibility.Collapsed : Visibility.Visible;
         _updateRebootStackPanel.Visibility = _isUpdateStackPanel.Visibility = package.IsUpdate ? Visibility.Visible : Visibility.Collapsed;
 
         _rebootStackPanel.Visibility = package is { IsUpdate: true, Reboot: RebootType.Delayed or RebootType.Requested or RebootType.Forced or RebootType.ForcedPowerOff }
@@ -95,20 +94,7 @@ public partial class PackageControl : IProgress<float>
         if (_package.Readme is null)
             return;
 
-        switch (_package.ReadmeType)
-        {
-            case ReadmeType.Text:
-                var window = new ReadmeWindow(_package.Readme) { Owner = Window.GetWindow(this) };
-                window.ShowDialog();
-                break;
-            case ReadmeType.Html:
-                new Uri(_package.Readme).Open();
-                break;
-            case ReadmeType.Unknown:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(_package.ReadmeType));
-        }
+        new Uri(_package.Readme).Open();
     }
 
     private async void DownloadButton_Click(object sender, RoutedEventArgs e)

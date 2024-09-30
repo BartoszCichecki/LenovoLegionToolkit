@@ -1418,10 +1418,10 @@ O registro será ativado automaticamente, se você optar por continuar.</value>
     <value>Iluminação do teclado</value>
   </data>
   <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Habilitar ou desabilitar a tecla Windows.</value>
+    <value>Desativar a tecla Windows no teclado embutido.</value>
   </data>
   <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Teclado Windows</value>
+    <value>Bloqueio da tecla Windows</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Somente funciona no teclado padrão do Notebook.</value>
@@ -2167,24 +2167,24 @@ Requer reinicialização.</value>
     <value>Habilite a interface de linha de comando que permite o controle da linha de comando.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>Adicionar a linha de comando ao PATH</value>
+    <value>Adicionar a linha de comando ao PATH</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>Adicione a linha de comando à variável de ambiente PATH do sistema.</value>
+    <value>Adicione a linha de comando à variável de ambiente PATH do sistema.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>Temperatura</value>
+    <value>Temperatura</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>Selecione unidades para sensores de temperatura.</value>
+    <value>Selecione unidades para sensores de temperatura.</value>
   </data>
   <data name="MainWindows_FnKeysRunning" xml:space="preserve">
-	  <value>O Lenovo Hotkeys está sendo executado em segundo plano.</value>
+    <value>O Lenovo Hotkeys está sendo executado em segundo plano.</value>
   </data>
   <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
-	  <value>O Legion Zone está sendo executado em segundo plano.</value>
+    <value>O Legion Zone está sendo executado em segundo plano.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
-	  <value>O Lenovo Vantage e/ou o ImController estão sendo executados em segundo plano.</value>
+    <value>O Lenovo Vantage e/ou o ImController estão sendo executados em segundo plano.</value>
   </data>
 </root>
