@@ -17,8 +17,8 @@
     <Keyword>NetCoreCProj</Keyword>
     <RootNamespace>LenovoLegionToolkitLibAoTOSD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <TargetFramework>net8.0</TargetFramework>
     <WindowsTargetPlatformMinVersion>7.0</WindowsTargetPlatformMinVersion>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -51,13 +51,14 @@
     <CopyCppRuntimeToOutputDir>true</CopyCppRuntimeToOutputDir>
     <CopyLocalProjectReference>true</CopyLocalProjectReference>
     <CopyLocalDebugSymbols>true</CopyLocalDebugSymbols>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(TargetFramework)\$(PlatformTarget)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\</AdditionalUsingDirectories>
+      <AdditionalUsingDirectories>$(SolutionDir)\LenovoLegionToolkit.Lib\bin\$(Platform)\$(Configuration)\net8.0-windows\win-x64\;$(ProjectDir)bin</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>User32.lib;gdiplus.lib;%(AdditionalDependencies)</AdditionalDependencies>

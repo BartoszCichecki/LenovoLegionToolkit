@@ -45,6 +45,7 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib\LenovoLegionToolkit.Lib.csproj" />
+		<ProjectReference Include="..\LenovoLegionToolkit.Lib.AoTOSD\LenovoLegionToolkit.Lib.AoTOSD.vcxproj" />
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Automation\LenovoLegionToolkit.Lib.Automation.csproj" />
 		<ProjectReference Include="..\LenovoLegionToolkit.Lib.Macro\LenovoLegionToolkit.Lib.Macro.csproj" />
 		<ProjectReference Include="..\LenovoLegionToolkit.CLI.Lib\LenovoLegionToolkit.CLI.Lib.csproj" />
