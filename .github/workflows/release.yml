@@ -5,6 +5,9 @@ on:
     tags:
       - "[0-9]*.[0-9]*.[0-9]*"
 
+env:
+  MSBuild_Path: C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\MSBuild.exe
+
 jobs:
   build:
 
@@ -13,14 +16,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 8.0.x
-    - name: Restore
-      run: dotnet restore
+    - name: Clean up
+      run: "${{env.MSBuild_Path}}" ${{github.workspace}}/LenovoLegionToolkit.sln -clean /p:Configuration=Release
     - name: Build
-      run: .\make.bat ${{ github.ref_name }}
+      run: .\make.bat "${{env.MSBuild_Path}}" ${{github.ref_name}}
     - name: Release
       uses: softprops/action-gh-release@v0.1.13
       with:
