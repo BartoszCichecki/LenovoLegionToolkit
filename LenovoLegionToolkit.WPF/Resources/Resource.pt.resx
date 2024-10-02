@@ -1406,12 +1406,6 @@ Logs serão guardados automaticamente, se escolheres continuar.</value>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Luz do teclado</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Ativa ou desativa a tecla Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Tecla Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Só funciona no teclado interno.</value>
   </data>

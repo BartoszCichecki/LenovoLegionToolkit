@@ -209,6 +209,12 @@
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Ao retomar</value>
   </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quando o HDR for desligado</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Quando o HDR for ligado</value>
+  </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
 	  <value>Desativado</value>
   </data>

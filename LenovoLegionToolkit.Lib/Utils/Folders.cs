@@ -5,16 +5,7 @@ namespace LenovoLegionToolkit.Lib.Utils;
 
 public static class Folders
 {
-    public static string Program
-    {
-        get
-        {
-            var appData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-            var folderPath = Path.Combine(appData, "Programs", "LenovoLegionToolkit");
-            Directory.CreateDirectory(folderPath);
-            return folderPath;
-        }
-    }
+    public static string Program => AppDomain.CurrentDomain.SetupInformation.ApplicationBase ?? string.Empty;
 
     public static string AppData
     {
