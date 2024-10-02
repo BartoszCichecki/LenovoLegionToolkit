@@ -17,7 +17,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Clean up
-      run: "${{env.MSBuild_Path}}" ${{github.workspace}}/LenovoLegionToolkit.sln -clean /p:Configuration=Release
+      run: |
+        "${{env.MSBuild_Path}}" ${{github.workspace}}/LenovoLegionToolkit.sln /t:Clean /p:Configuration=Release
     - name: Build
       run: .\make.bat "${{env.MSBuild_Path}}" ${{github.ref_name}}
     - name: Release
