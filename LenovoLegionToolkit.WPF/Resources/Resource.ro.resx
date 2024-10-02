@@ -1364,12 +1364,6 @@ Salvarea logurilor va fi activată automat dacă alegeți să continuați.</valu
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Iluminare tastatură</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Activați sau dezactivați tasta Windows.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Tasta Windows</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Funcționează doar pe tastatura încorporată.</value>
   </data>

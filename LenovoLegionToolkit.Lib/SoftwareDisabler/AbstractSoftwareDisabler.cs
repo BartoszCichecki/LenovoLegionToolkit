@@ -15,9 +15,16 @@ public class SoftwareDisablerException(string message, Exception innerException)
 
 public abstract class AbstractSoftwareDisabler
 {
+    public class AbstractSoftwareDisablerEventArgs : EventArgs
+    {
+        public SoftwareStatus Status { get; init; }
+    }
+
     protected abstract IEnumerable<string> ScheduledTasksPaths { get; }
     protected abstract IEnumerable<string> ServiceNames { get; }
     protected abstract IEnumerable<string> ProcessNames { get; }
+
+    public event EventHandler<AbstractSoftwareDisablerEventArgs>? OnRefreshed;
 
     public Task<SoftwareStatus> GetStatusAsync() => Task.Run(() =>
     {
@@ -50,22 +57,29 @@ public abstract class AbstractSoftwareDisabler
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Status: {isEnabled},{isInstalled} [type={GetType().Name}]");
 
+        SoftwareStatus status;
+
         if (isEnabled)
-            return SoftwareStatus.Enabled;
+            status = SoftwareStatus.Enabled;
+        else if (!isInstalled)
+            status = SoftwareStatus.NotFound;
+        else
+            status = SoftwareStatus.Disabled;
 
-        if (!isInstalled)
-            return SoftwareStatus.NotFound;
+        OnRefreshed?.Invoke(this, new() { Status = status });
 
-        return SoftwareStatus.Disabled;
+        return status;
     });
 
-    public virtual Task EnableAsync() => Task.Run(() =>
+    public virtual Task EnableAsync() => Task.Run(async () =>
     {
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Enabling... [type={GetType().Name}]");
 
         SetScheduledTasksEnabled(true);
         SetServicesEnabled(true);
+
+        _ = await GetStatusAsync().ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Enabled [type={GetType().Name}]");
@@ -79,6 +93,8 @@ public abstract class AbstractSoftwareDisabler
         SetScheduledTasksEnabled(false);
         SetServicesEnabled(false);
         await KillProcessesAsync().ConfigureAwait(false);
+
+        _ = await GetStatusAsync().ConfigureAwait(false);
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Disabled [type={GetType().Name}]");
@@ -252,7 +268,7 @@ public abstract class AbstractSoftwareDisabler
                 {
                     if (process.ProcessName.StartsWith(processName, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        process.Kill();
+                        process.Kill(true);
                         await process.WaitForExitAsync().ConfigureAwait(false);
                     }
                 }

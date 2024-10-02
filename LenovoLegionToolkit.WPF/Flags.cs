@@ -25,6 +25,7 @@ public class Flags
     public string? ProxyPassword { get; }
     public bool ProxyAllowAllCerts { get; }
     public bool DisableUpdateChecker { get; }
+    public bool DisableConflictingSoftwareWarning { get; }
 
     public Flags(IEnumerable<string> startupArgs)
     {
@@ -45,6 +46,7 @@ public class Flags
         ProxyPassword = StringValue(args, "--proxy-password");
         ProxyAllowAllCerts = BoolValue(args, "--proxy-allow-all-certs");
         DisableUpdateChecker = BoolValue(args, "--disable-update-checker");
+        DisableConflictingSoftwareWarning = BoolValue(args, "--disable-conflicting-software-warning");
     }
 
     private static string[] LoadExternalArgs()
@@ -83,5 +85,6 @@ public class Flags
         $" {nameof(ProxyUsername)}: {ProxyUsername}," +
         $" {nameof(ProxyPassword)}: {ProxyPassword}," +
         $" {nameof(ProxyAllowAllCerts)}: {ProxyAllowAllCerts}," +
-        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}";
+        $" {nameof(DisableUpdateChecker)}: {DisableUpdateChecker}, " +
+        $" {nameof(DisableConflictingSoftwareWarning)}: {DisableConflictingSoftwareWarning}";
 }

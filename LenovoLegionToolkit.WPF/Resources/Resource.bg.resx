@@ -1405,12 +1405,6 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Подсветка на клавиатурата</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Активирайте или деактивирайте Windows клавиша.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows клавиш</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Работи само на вградената клавиатура.</value>
   </data>

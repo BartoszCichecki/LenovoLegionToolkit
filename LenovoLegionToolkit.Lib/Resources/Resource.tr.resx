@@ -475,4 +475,7 @@
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
 	  <value>Windows Güç Planı</value>
   </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+	  <value>Ön ayar 4</value>
+  </data>
 </root>
