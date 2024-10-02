@@ -24,6 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LenovoLegionToolkit.CLI.Lib
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CLI", "CLI", "{F8070067-370A-4E50-898A-8E31A3D77569}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LenovoLegionToolkit.Lib.AoTOSD", "LenovoLegionToolkit.Lib.AoTOSD\LenovoLegionToolkit.Lib.AoTOSD.vcxproj", "{39D4480D-8241-4249-BA0B-5CD4F1D8E433}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -58,6 +60,10 @@ Global
 		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Debug|x64.Build.0 = Debug|x64
 		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.ActiveCfg = Release|x64
 		{2C7AB13C-5877-459D-98F3-F91F88CE3216}.Release|x64.Build.0 = Release|x64
+		{39D4480D-8241-4249-BA0B-5CD4F1D8E433}.Debug|x64.ActiveCfg = Debug|x64
+		{39D4480D-8241-4249-BA0B-5CD4F1D8E433}.Debug|x64.Build.0 = Debug|x64
+		{39D4480D-8241-4249-BA0B-5CD4F1D8E433}.Release|x64.ActiveCfg = Release|x64
+		{39D4480D-8241-4249-BA0B-5CD4F1D8E433}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
