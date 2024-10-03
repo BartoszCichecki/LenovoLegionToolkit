@@ -2957,6 +2957,51 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to API rate limit reached, please try again later..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update check failed.
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some error occured, please try again later..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Error_Unknown_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Error_Unknown_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No new update was found..
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_NoUpdates_Message {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_NoUpdates_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update check success.
+        /// </summary>
+        public static string MainWindow_CheckForUpdates_Success_Title {
+            get {
+                return ResourceManager.GetString("MainWindow_CheckForUpdates_Success_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Legion Zone is running in the background..
         /// </summary>
         public static string MainWindow_LegionZoneRunning {
@@ -4794,6 +4839,52 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check the latest version of LLT.
+        ///NOTE: update check has an API rate limit, please don&apos;t check updates too frequently..
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updates check has been started successfully..
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Started_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Started_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Started.
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Started_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Started_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check Updates.
+        /// </summary>
+        public static string SettingsPage_CheckUpdates_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdates_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Check.
+        /// </summary>
+        public static string SettingsPage_CheckUpdatesButton_Content {
+            get {
+                return ResourceManager.GetString("SettingsPage_CheckUpdatesButton_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enable Command Line Interface that allows control from command line..
         /// </summary>
         public static string SettingsPage_CLI_Message {
@@ -5271,6 +5362,33 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string SettingsPage_Title {
             get {
                 return ResourceManager.GetString("SettingsPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        public static string SettingsPage_Update_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_Update_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The frequency LLT checks its updates..
+        /// </summary>
+        public static string SettingsPage_UpdateCheckFrequency_Message {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckFrequency_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Check Frequency.
+        /// </summary>
+        public static string SettingsPage_UpdateCheckFrequency_Title {
+            get {
+                return ResourceManager.GetString("SettingsPage_UpdateCheckFrequency_Title", resourceCulture);
             }
         }
         
@@ -6129,7 +6247,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lock Windows key on built-in keyboard..
+        ///   Looks up a localized string similar to Disable Windows key on built-in keyboard..
         /// </summary>
         public static string WinKeyAutomationStepControl_Message {
             get {

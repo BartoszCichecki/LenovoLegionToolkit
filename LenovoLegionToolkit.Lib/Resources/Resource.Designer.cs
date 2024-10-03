@@ -1051,6 +1051,60 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Once per day.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerDay {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerDay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once per hour.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerHour {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerHour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once per month.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerMonth {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once per 3 hours.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerThreeHours {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerThreeHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once per 12 hours.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerTwelveHours {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerTwelveHours", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Once per week.
+        /// </summary>
+        public static string UpdateCheckFrequency_PerWeek {
+            get {
+                return ResourceManager.GetString("UpdateCheckFrequency_PerWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to High.
         /// </summary>
         public static string WhiteKeyboardBacklightState_High {
