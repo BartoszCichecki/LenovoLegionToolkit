@@ -42,12 +42,12 @@ public class NotificationWindow : UiWindow
         VerticalContentAlignment = VerticalAlignment.Center,
     };
 
-    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, NotificationPosition position)
+    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, Rect desktopWorkingArea, NotificationPosition position)
     {
         InitializeStyle();
         InitializeContent(symbol, overlaySymbol, symbolTransform, text);
 
-        SourceInitialized += (_, _) => InitializePosition(position);
+        SourceInitialized += (_, _) => InitializePosition(desktopWorkingArea, position);
         MouseDown += (_, _) =>
         {
             Close();
@@ -80,10 +80,8 @@ public class NotificationWindow : UiWindow
         _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
     }
 
-    private void InitializePosition(NotificationPosition position)
+    private void InitializePosition(Rect desktopWorkingArea, NotificationPosition position)
     {
-        var desktopWorkingArea = ScreenHelper.GetPrimaryDesktopWorkingArea();
-
         _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
 
         Width = MaxWidth = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);

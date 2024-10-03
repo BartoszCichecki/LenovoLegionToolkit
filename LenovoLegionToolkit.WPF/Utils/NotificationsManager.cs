@@ -235,7 +235,8 @@ public class NotificationsManager
             _window.Close();
         }
 
-        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, _settings.Store.NotificationPosition) { Owner = mainWindow };
+        ScreenHelper.UpdateScreenInfos();
+        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, ScreenHelper.PrimaryScreen.WorkArea, _settings.Store.NotificationPosition) { Owner = mainWindow };
         nw.Show(_settings.Store.NotificationDuration switch
         {
             NotificationDuration.Short => 500,

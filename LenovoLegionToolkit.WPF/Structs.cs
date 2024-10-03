@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using LenovoLegionToolkit.WPF.Resources;
 
 namespace LenovoLegionToolkit.WPF;
@@ -55,4 +56,12 @@ public readonly struct DashboardGroup(DashboardGroupType type, string? customNam
         $"{nameof(Type)}: {Type}," +
         $" {nameof(CustomName)}: {CustomName}," +
         $" {nameof(Items)}: {string.Join(",", Items)}";
+}
+
+public readonly struct ScreenInfo(Rect workArea, uint dpiX, uint dpiY, bool isPrimary)
+{
+    public Rect WorkArea { get; } = workArea;
+    public uint DpiX { get; } = dpiX;
+    public uint DpiY { get; } = dpiY;
+    public bool IsPrimary { get; } = isPrimary;
 }

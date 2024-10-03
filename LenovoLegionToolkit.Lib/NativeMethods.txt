@@ -199,3 +199,5 @@ RegisterWindowMessage
 WlanOpenHandle
 WlanCloseHandle
 WlanRegisterNotification
+
+MONITORINFOF_PRIMARY
