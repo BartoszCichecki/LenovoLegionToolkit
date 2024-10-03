@@ -15,10 +15,10 @@ namespace LenovoLegionToolkit.Lib.Utils;
 public class UpdateChecker
 {
     private readonly HttpClientFactory _httpClientFactory;
-    private readonly ApplicationSettings _settings = IoCContainer.Resolve<ApplicationSettings>();
+    private readonly UpdateCheckSettings _updateCheckSettings = IoCContainer.Resolve<UpdateCheckSettings>();
     private readonly AsyncLock _updateSemaphore = new();
 
-    private DateTime _lastUpdate = DateTime.MinValue;
+    private DateTime _lastUpdate;
     private TimeSpan _minimumTimeSpanForRefresh;
     private Update[] _updates = [];
 
@@ -29,11 +29,8 @@ public class UpdateChecker
     {
         _httpClientFactory = httpClientFactory;
 
-        CheckUpdateCheckMiniumTimeSpanSettings();
-
-        _minimumTimeSpanForRefresh = new(_settings.Store.UpdateCheckMiniumTimeSpanHours,
-                                         _settings.Store.UpdateCheckMiniumTimeSpanMinutes,
-                                         _settings.Store.UpdateCheckMiniumTimeSpanSeconds);
+        UpdateMiniumTimeSpanForRefresh();
+        _lastUpdate = _updateCheckSettings.Store.LastUpdateCheckDateTime ?? DateTime.MinValue;
     }
 
     public async Task<Version?> CheckAsync(bool forceCheck)
@@ -103,6 +100,8 @@ public class UpdateChecker
             finally
             {
                 _lastUpdate = DateTime.UtcNow;
+                _updateCheckSettings.Store.LastUpdateCheckDateTime = _lastUpdate;
+                _updateCheckSettings.SynchronizeStore();
             }
         }
     }
@@ -134,37 +133,14 @@ public class UpdateChecker
         }
     }
 
-    public void SetMinimumTimeSpanForRefresh(int hours, int minutes, int seconds) => _minimumTimeSpanForRefresh = new(hours, minutes, seconds);
-
-    private void CheckUpdateCheckMiniumTimeSpanSettings()
+    public void UpdateMiniumTimeSpanForRefresh() => _minimumTimeSpanForRefresh = _updateCheckSettings.Store.UpdateCheckFrequency switch
     {
-        bool changed = false;
-        if (_settings.Store.UpdateCheckMiniumTimeSpanHours < 3)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanHours = 3;
-            changed = true;
-        }
-        if (_settings.Store.UpdateCheckMiniumTimeSpanMinutes < 0)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanMinutes = 0;
-            changed = true;
-        }
-        if (_settings.Store.UpdateCheckMiniumTimeSpanMinutes > 59)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanMinutes = 59;
-            changed = true;
-        }
-        if (_settings.Store.UpdateCheckMiniumTimeSpanSeconds < 0)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanSeconds = 0;
-            changed = true;
-        }
-        if (_settings.Store.UpdateCheckMiniumTimeSpanSeconds > 59)
-        {
-            _settings.Store.UpdateCheckMiniumTimeSpanSeconds = 59;
-            changed = true;
-        }
-        if (changed)
-            _settings.SynchronizeStore();
-    }
+        UpdateCheckFrequency.PerHour => new(hours: 1, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerThreeHours => new(hours: 3, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerTwelveHours => new(hours: 2, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerDay => new(days: 1, hours: 0, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerWeek => new(days: 7, hours: 0, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerMonth => new(days: 30, hours: 0, minutes: 0, seconds: 0),
+        _ => throw new ArgumentException(nameof(_updateCheckSettings.Store.UpdateCheckFrequency))
+    };
 }

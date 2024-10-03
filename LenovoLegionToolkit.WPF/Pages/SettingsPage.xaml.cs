@@ -38,6 +38,7 @@ public partial class SettingsPage
     private readonly HWiNFOIntegration _hwinfoIntegration = IoCContainer.Resolve<HWiNFOIntegration>();
     private readonly IpcServer _ipcServer = IoCContainer.Resolve<IpcServer>();
     private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+    private readonly UpdateCheckSettings _updateCheckSettings = IoCContainer.Resolve<UpdateCheckSettings>();
 
     private bool _isRefreshing;
 
@@ -125,17 +126,13 @@ public partial class SettingsPage
         {
             _updateTextBlock.Visibility = Visibility.Collapsed;
             _checkUpdatesCard.Visibility = Visibility.Collapsed;
-            _updateCheckMiniumTimeSpanCard.Visibility = Visibility.Collapsed;
+            _updateCheckFrequencyCard.Visibility = Visibility.Collapsed;
         }
         else
         {
             _checkUpdatesButton.Visibility = Visibility.Visible;
-            _updateCheckMiniumTimeSpanPickerHours.Visibility = Visibility.Visible;
-            _updateCheckMiniumTimeSpanPickerHours.Value = _settings.Store.UpdateCheckMiniumTimeSpanHours;
-            _updateCheckMiniumTimeSpanPickerMinutes.Visibility = Visibility.Visible;
-            _updateCheckMiniumTimeSpanPickerMinutes.Value = _settings.Store.UpdateCheckMiniumTimeSpanMinutes;
-            _updateCheckMiniumTimeSpanPickerSeconds.Visibility = Visibility.Visible;
-            _updateCheckMiniumTimeSpanPickerSeconds.Value = _settings.Store.UpdateCheckMiniumTimeSpanSeconds;
+            _updateCheckFrequencyComboBox.Visibility = Visibility.Visible;
+            _updateCheckFrequencyComboBox.SetItems(Enum.GetValues<UpdateCheckFrequency>(), _updateCheckSettings.Store.UpdateCheckFrequency, t => t.GetDisplayName());
         }
 
         try
@@ -268,12 +265,6 @@ public partial class SettingsPage
         _accentColorPicker.Visibility = _settings.Store.AccentColorSource == AccentColorSource.Custom ? Visibility.Visible : Visibility.Collapsed;
         _accentColorPicker.SelectedColor = _themeManager.GetAccentColor().ToColor();
     }
-
-    private void RefreshUpdateCheckMiniumTimeSpan() => _updateChecker.SetMinimumTimeSpanForRefresh(
-        (int)(_updateCheckMiniumTimeSpanPickerHours.Value ?? 3),
-        (int)(_updateCheckMiniumTimeSpanPickerMinutes.Value ?? 0),
-        (int)(_updateCheckMiniumTimeSpanPickerSeconds.Value ?? 0)
-    );
 
     private void AutorunComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -592,34 +583,17 @@ public partial class SettingsPage
         SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
     }
 
-    private void UpdateCheckMiniumTimeSpanPickerHours_ValueChanged(object sender, RoutedEventArgs e)
+    private void UpdateCheckFrequencyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (_isRefreshing)
             return;
 
-        _settings.Store.UpdateCheckMiniumTimeSpanHours = (int)(_updateCheckMiniumTimeSpanPickerHours.Value ?? 3);
-        _settings.SynchronizeStore();
-        RefreshUpdateCheckMiniumTimeSpan();
-    }
-
-    private void UpdateCheckMiniumTimeSpanPickerMinutes_ValueChanged(object sender, RoutedEventArgs e)
-    {
-        if (_isRefreshing)
+        if (!_updateCheckFrequencyComboBox.TryGetSelectedItem(out UpdateCheckFrequency frequency))
             return;
 
-        _settings.Store.UpdateCheckMiniumTimeSpanMinutes = (int)(_updateCheckMiniumTimeSpanPickerMinutes.Value ?? 0);
-        _settings.SynchronizeStore();
-        RefreshUpdateCheckMiniumTimeSpan();
-    }
-
-    private void UpdateCheckMiniumTimeSpanPickerSeconds_ValueChanged(object sender, RoutedEventArgs e)
-    {
-        if (_isRefreshing)
-            return;
-
-        _settings.Store.UpdateCheckMiniumTimeSpanSeconds = (int)(_updateCheckMiniumTimeSpanPickerSeconds.Value ?? 0);
-        _settings.SynchronizeStore();
-        RefreshUpdateCheckMiniumTimeSpan();
+        _updateCheckSettings.Store.UpdateCheckFrequency = frequency;
+        _updateCheckSettings.SynchronizeStore();
+        _updateChecker.UpdateMiniumTimeSpanForRefresh();
     }
 
     private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)

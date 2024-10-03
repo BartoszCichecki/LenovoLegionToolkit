@@ -5375,47 +5375,20 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The minium time span LLT checks its updates. The time span cannot be less than 3 hours..
+        ///   Looks up a localized string similar to The frequency LLT checks its updates..
         /// </summary>
-        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Message {
+        public static string SettingsPage_UpdateCheckFrequency_Message {
             get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Message", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_UpdateCheckFrequency_Message", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hours:.
+        ///   Looks up a localized string similar to Update Check Frequency.
         /// </summary>
-        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours {
+        public static string SettingsPage_UpdateCheckFrequency_Title {
             get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minutes:.
-        /// </summary>
-        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes {
-            get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Seconds:.
-        /// </summary>
-        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds {
-            get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Minium Time Span for Update Check.
-        /// </summary>
-        public static string SettingsPage_UpdateCheckMiniumTimeSpan_Title {
-            get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckMiniumTimeSpan_Title", resourceCulture);
+                return ResourceManager.GetString("SettingsPage_UpdateCheckFrequency_Title", resourceCulture);
             }
         }
         
@@ -6274,7 +6247,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lock Windows key on built-in keyboard..
+        ///   Looks up a localized string similar to Disable Windows key on built-in keyboard..
         /// </summary>
         public static string WinKeyAutomationStepControl_Message {
             get {

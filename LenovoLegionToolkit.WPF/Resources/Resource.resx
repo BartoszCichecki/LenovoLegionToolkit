@@ -2207,21 +2207,6 @@ NOTE: update check has an API rate limit, please don't check updates too frequen
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Update</value>
   </data>
-  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Title" xml:space="preserve">
-    <value>Minium Time Span for Update Check</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Message" xml:space="preserve">
-    <value>The minium time span LLT checks its updates. The time span cannot be less than 3 hours.</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Hours" xml:space="preserve">
-    <value>Hours:</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Minutes" xml:space="preserve">
-    <value>Minutes:</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckMiniumTimeSpan_Picker_Seconds" xml:space="preserve">
-    <value>Seconds:</value>
-  </data>
   <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
     <value>API rate limit reached, please try again later.</value>
   </data>
@@ -2236,5 +2221,11 @@ NOTE: update check has an API rate limit, please don't check updates too frequen
   </data>
   <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
     <value>Update check success</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>The frequency LLT checks its updates.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Update Check Frequency</value>
   </data>
 </root>
