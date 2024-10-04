@@ -276,9 +276,6 @@
   <data name="RGBKeyboardBacklightEffect_Breath" xml:space="preserve">
     <value>点滅</value>
   </data>
-  <data name="RGBKeyboardBacklightEffect_Smooth" xml:space="preserve">
-    <value>平坦化</value>
-  </data>
   <data name="RGBKeyboardBacklightEffect_Static" xml:space="preserve">
     <value>静的</value>
   </data>
@@ -432,12 +429,6 @@
   </data>
   <data name="BatteryNightChargeState_Off" xml:space="preserve">
     <value>オフ</value>
-  </data>
-  <data name="SpeakerState_Mute" xml:space="preserve">
-    <value>消音</value>
-  </data>
-  <data name="SpeakerState_Unmute" xml:space="preserve">
-    <value>消音解除</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
 	  <value>無効</value>

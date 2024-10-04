@@ -489,14 +489,8 @@
   <data name="Inactive" xml:space="preserve">
     <value>無効</value>
   </data>
-  <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>アプリの終了</value>
-  </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
     <value>ディスクリートGPUが不必要にアクティブになっている場合は無効にします。</value>
-  </data>
-  <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>モニターは Nvidia GPU に接続されています。</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>プロセスがありません</value>
@@ -555,9 +549,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="Export" xml:space="preserve">
     <value>エクスポート</value>
-  </data>
-  <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>バッテリ使用時は内蔵GPU (iGPU) のみを使用し、ACアダプタが接続されている場合は内蔵GPUとディスクリートGPU (dGPU) の両方を使用します。低出力なアダプタが接続されている場合は、システムはHybrid-iGPU Onlyモードに切り替わります。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>オートハイブリッドモード</value>
@@ -899,9 +890,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
-  <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
-    <value>{0} 個ダウンロードしました！</value>
-  </data>
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
     <value>ダウンロードが完了しました</value>
   </data>
@@ -1137,12 +1125,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys を無効化</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage または ImController が正しく無効になっていない可能性があります</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage または ImController を無効にできませんでした</value>
-  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo Vantage と ImController をアンインストールせずに無効にします。
 このオプションを変更した後はデバイスを再起動することをお勧めします。</value>
@@ -1316,9 +1298,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
-  </data>
-  <data name="DpiScaleControl_Message" xml:space="preserve">
-    <value>内蔵ディスプレイのスケールを変更します。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>ディスプレイ</value>
@@ -1517,9 +1496,6 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
     <value>アクション</value>
-  </data>
-  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
-    <value>通知テキスト</value>
   </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
     <value>通知を表示</value>
