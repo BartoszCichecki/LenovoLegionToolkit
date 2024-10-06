@@ -1406,12 +1406,6 @@ Ja izvēlaties turpināt, reģistrēšana tiks iespējota automātiski.</value>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Tastatūras izgaismojums</value>
   </data>
-  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
-    <value>Iespējots vai atspējots Windows taustiņš.</value>
-  </data>
-  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
-    <value>Windows Taustiņš</value>
-  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Strādā tikai ar iebūvēto taustatūru.</value>
   </data>

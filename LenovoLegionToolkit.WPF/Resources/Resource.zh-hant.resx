@@ -139,7 +139,7 @@
     <value>關於</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>翻譯由 flandretw 提供，社區校正。</value>
+    <value>翻譯多數由 flandretw 提供，開源社區校正。</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -227,13 +227,13 @@
     <value>新增條件</value>
   </data>
   <data name="AutomationPipelineControl_Configure" xml:space="preserve">
-    <value>配置</value>
+    <value>組態設定</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive" xml:space="preserve">
     <value>獨佔此條件</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>當此功能執行時，將不會執行其它符合條件的功能。</value>
+    <value>當此功能執行時，將不會執行其他符合條件的功能。</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>立刻執行</value>
@@ -415,7 +415,7 @@
     <value>圖形</value>
   </data>
   <data name="DashboardPage_Other_Title" xml:space="preserve">
-    <value>其它</value>
+    <value>其他</value>
   </data>
   <data name="DashboardPage_Power_Title" xml:space="preserve">
     <value>電源</value>
@@ -426,7 +426,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>如果 GPU 不需要活動時，停用顯示卡。
 
-警告：如果內部顯示器關閉或混合模式（Hybrid Mode）未啟用，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器或未啟用混合模式（Hybrid Mode），則此功能將無法正確地執行。</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>休眠 GPU</value>
@@ -521,7 +521,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器顯示亮度。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>顯示亮度</value>
@@ -630,13 +630,13 @@
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockAutomationStepControl_Title" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="FnLockControl_Message" xml:space="preserve">
     <value>不需要按住 Fn 鍵即可使用 F1-F12 功能鍵。</value>
   </data>
   <data name="FnLockControl_Title" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
     <value>警告！
@@ -697,7 +697,7 @@
     <value>風扇</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP" xml:space="preserve">
-    <value>可配置 TGP</value>
+    <value>可設定 TGP</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost" xml:space="preserve">
     <value>動態加速</value>
@@ -714,7 +714,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>啟用高動態範圍（HDR）顯示。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -741,7 +741,7 @@
     <value>鍵盤背光</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>由於 Lenovo Vantage 或其它服務正在執行，所以無法在此控制鍵盤背光。</value>
+    <value>由於 Lenovo Vantage 或其他服務正在執行，所以無法在此控制鍵盤背光。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage 或其相關服務正在執行</value>
@@ -807,10 +807,10 @@
     <value>開啟 Caps Lock</value>
   </data>
   <data name="Notification_FnLockOff" xml:space="preserve">
-    <value>關閉固定 Fn 鍵</value>
+    <value>關閉鎖定 Fn 鍵</value>
   </data>
   <data name="Notification_FnLockOn" xml:space="preserve">
-    <value>開啟固定 Fn 鍵</value>
+    <value>開啟鎖定 Fn 鍵</value>
   </data>
   <data name="Notification_MicrophoneOff" xml:space="preserve">
     <value>關閉麥克風</value>
@@ -859,7 +859,7 @@
     <value>不要顯示通知</value>
   </data>
   <data name="NotificationsSettingsWindow_FnLock" xml:space="preserve">
-    <value>固定 Fn 鍵</value>
+    <value>鎖定 Fn 鍵</value>
   </data>
   <data name="NotificationsSettingsWindow_KeyboardBacklight" xml:space="preserve">
     <value>鍵盤背光</value>
@@ -892,13 +892,13 @@
     <value>開啟</value>
   </data>
   <data name="OverDriveAutomationStepControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveAutomationStepControl_Title" xml:space="preserve">
     <value>Over Drive</value>
   </data>
   <data name="OverDriveControl_Message" xml:space="preserve">
-    <value>透過增加電壓超頻以提升內部顯示器反應速度，可能會導致顯示器過衝產生鬼影。</value>
+    <value>透過增加電壓超頻以提升內部顯示器反應速度。（可能會導致顯示器過衝產生鬼影）</value>
   </data>
   <data name="OverDriveControl_Title" xml:space="preserve">
     <value>Over Drive</value>
@@ -1064,7 +1064,7 @@
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器更新率。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>更新率</value>
@@ -1204,7 +1204,7 @@
     <value>關閉時最小化</value>
   </data>
   <data name="SettingsPage_Notifications_Message" xml:space="preserve">
-    <value>配置顯示通知。</value>
+    <value>設定哪些通知要顯示。</value>
   </data>
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>通知</value>
@@ -1300,7 +1300,7 @@
     <value>特效</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
-    <value>此效果將被套用到整個鍵盤並替換其它效果。</value>
+    <value>此效果將被套用到整個鍵盤並替換其他效果。</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
     <value>速度</value>
@@ -1423,7 +1423,7 @@
     <value>Windows 鍵</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
-    <value>僅在內部鍵盤上作用。</value>
+    <value>僅在內建鍵盤生效。</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>鎖定 Windows 鍵</value>
@@ -1455,7 +1455,7 @@
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器解析度。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1469,7 +1469,7 @@
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>變更內部顯示器比例。
 
-警告：如果內部顯示器已關閉，則此功能將無法正確地執行。</value>
+警告：如果已關閉內部顯示器，則此功能將無法正確地執行。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>顯示</value>
@@ -1505,7 +1505,7 @@
     <value>名稱</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
-    <value>根據裝置的狀態和配置，某些功能可能不會出現在控制面板上。</value>
+    <value>根據裝置的狀態和組態設定，某些功能可能不會出現在控制面板上。</value>
   </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>客製化</value>
@@ -1681,7 +1681,7 @@
     <value>電池低電量</value>
   </data>
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
-    <value>配置檔案</value>
+    <value>組態設定</value>
   </data>
   <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
     <value>偵測到 S0 Lower Power Model</value>
@@ -1699,13 +1699,13 @@
     <value>開啟 Windows 控制台中的電源計劃選項</value>
   </data>
   <data name="PoweredOff" xml:space="preserve">
-    <value>關閉電源</value>
+    <value>已關閉</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
     <value>匯入鍵盤背光設定檔</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
-    <value>匯入並套用背光配置檔案到目前的設定檔。</value>
+    <value>匯入並套用背光組態設定到目前的設定檔。</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>路徑</value>
@@ -1839,10 +1839,10 @@
     <value>未使用筆記本電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>當 Lenovo Vantage 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>當 LegionZone 或其它服務正在執行時，客製化模式設定將無法被正確地套用。</value>
+    <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU（獨立顯示卡）已連接</value>
@@ -1913,10 +1913,10 @@
     <value>預設</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
-    <value>智慧固定 Fn 鍵</value>
+    <value>智慧鎖定 Fn 鍵</value>
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
-    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除固定。</value>
+    <value>按下 Alt、Ctrl 或 Shift 鍵時，Fn 將會暫時解除鎖定。</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>關閉</value>
@@ -2113,7 +2113,7 @@
     <value>啟用或停用巨集。</value>
   </data>
   <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
-    <value>當按下其它按鍵後中斷</value>
+    <value>當按下其他按鍵後中斷</value>
   </data>
   <data name="Hide" xml:space="preserve">
     <value>隱藏</value>
@@ -2167,15 +2167,24 @@
     <value>啟用命令列介面，允許使用命令列進行控制。</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-	  <value>新增命令列介面（CLI）至 PATH 變數</value>
+    <value>新增命令列介面（CLI）至 PATH 變數</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-	  <value>新增命令列介面（CLI）至使用者 PATH 環境變數。</value>
+    <value>新增命令列介面（CLI）至使用者 PATH 環境變數。</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
-	  <value>溫度</value>
+    <value>溫度</value>
   </data>
   <data name="SettingsPage_Temperature_Message" xml:space="preserve">
-	  <value>選擇溫度感應器使用的單位。</value>
+    <value>選擇溫度感應器使用的單位。</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+    <value>Lenovo Hotkeys 正在背景執行。</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+    <value>Legion Zone 正在背景執行。</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+    <value>Lenovo Vantage 與（或）ImController 正在背景執行。</value>
   </data>
 </root>

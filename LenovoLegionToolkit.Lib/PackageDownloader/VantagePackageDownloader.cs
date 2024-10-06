@@ -107,7 +107,7 @@ public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
         var releaseDateString = document.SelectSingleNode("/Package/ReleaseDate")!.InnerText;
         var releaseDate = DateTime.Parse(releaseDateString);
         var readmeName = document.SelectSingleNode("/Package/Files/Readme/File/Name")?.InnerText;
-        var readme = await GetReadmeAsync(httpClient, $"{baseLocation}/{readmeName}", token).ConfigureAwait(false);
+        var readme = $"{baseLocation}/{readmeName}";
         var fileLocation = $"{baseLocation}/{fileName}";
         var rebootString = document.SelectSingleNode("/Package/Reboot/@type")!.InnerText;
         var reboot = int.TryParse(rebootString, out var rebootInt) ? (RebootType)rebootInt : RebootType.NotRequired;
@@ -136,7 +136,6 @@ public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
             FileSize = fileSize,
             FileCrc = fileCrc,
             ReleaseDate = releaseDate,
-            ReadmeType = ReadmeType.Text,
             Readme = readme,
             FileLocation = fileLocation,
             IsUpdate = isUpdate,
