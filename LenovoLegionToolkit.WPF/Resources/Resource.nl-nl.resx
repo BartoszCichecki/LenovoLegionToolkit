@@ -149,7 +149,7 @@
     <value>Toevoegen</value>
   </data>
   <data name="AddNew" xml:space="preserve">
-    <value>Nieuwe Toevoegen</value>
+    <value>Toevoegen</value>
   </data>
   <data name="AlwaysOnUSBControl_Message" xml:space="preserve">
     <value>Laad USB-apparaten op wanneer de computer is uitgeschakeld of in de slaap- of sluimerstand staat.</value>
