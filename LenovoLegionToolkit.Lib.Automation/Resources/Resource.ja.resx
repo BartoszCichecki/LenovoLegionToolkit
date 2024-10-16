@@ -123,6 +123,9 @@
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>ACアダプタが切断された時</value>
   </data>
+  <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
+    <value>アプリを強制終了</value>
+  </data>
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
     <value>GPUを再起動</value>
   </data>
