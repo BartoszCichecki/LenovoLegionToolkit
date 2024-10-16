@@ -579,22 +579,14 @@ To collect logs:
 I appreciate any feedback that you have, so please do not hesitate to report issues.
 Pull Requests are also welcome, but make sure to check out [CONTRIBUTING.md](CONTRIBUTING.md) first!
 
-#### Translation
-
-Crowdin has been selected as the tool for handling translations. If you want to contribute, go to https://crowdin.com/project/llt and request access.
-
-#### Bugs
-
-If you find any bugs in the app, please report them. **Always** attach logs to your issues. You can find logs in `%LOCALAPPDATA%\LenovoLegionToolkit\log`.
-
 #### Compatibility
+
+> [!IMPORTANT]
+> If your laptop is not part of Legion, IdeaPad Gaming or LOQ series, this software is not for you. Do not open compatibility requests for other devices.
 
 It would be great to expand the list of compatible devices, but to do it your help is needed!
 
 If you are willing to check if this app works correctly on your device that is currently unsupported, click _Continue_ on the popup you saw on startup. Lenovo Legion Toolkit will start logging automatically so you can submit them if anything goes wrong.
-
-> [!IMPORTANT]
-> If your laptop is not part of Legion, IdeaPad Gaming or LOQ series, this software is not for you. Please do NOT open compatibility requests for other devices.**
 
 *Remember that some functions may not function properly.*
 
