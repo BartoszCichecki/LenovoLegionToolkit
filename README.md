@@ -28,17 +28,10 @@ Lenovo Legion Toolkit (LLT) is a utility created for Lenovo Legion (and similar)
 
 It runs no background services, uses less memory, uses virtually no CPU, and contains no telemetry. Just like Lenovo Vantage, this application is Windows only.
 
-&nbsp;
-
 _Join the Legion Series Discord: https://discord.com/invite/legionseries!_
-
-_If you are looking for a Vantage alternative that was made for Linux, check [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) project._
-
-&nbsp;
 
 <img src="assets/screenshot_main.png" width="700" />
 
-&nbsp;
 &nbsp;
 
 # Table of Contents
@@ -83,12 +76,15 @@ You can download the program by the following ways:
   ```sh
   scoop install extras/lenovolegiontoolkit
   ```
+  
+> [!TIP]
+> If you are looking for a Vantage alternative for Linux, check [LenovoLegionLinux](https://github.com/johnfanv2/LenovoLegionLinux) project out.
 
 #### Next steps
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
-> [!NOTE]
+> [!WARNING]
 > If you close LLT completely some functions will not work, like synchronizing Windows Power Modes or Windows Power Plans with current Power Mode, Macros or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
 
 #### Required drivers
@@ -135,6 +131,9 @@ If you are getting an incompatible message on startup, you can check the *Contri
 ### Lenovo's software
 
 Overall the recommendation is to disable or uninstall Vantage, Hotkeys and Legion Zone while using LLT. There are some functions that cause conflicts or may not work properly when LLT is working along side other Lenovo apps.
+
+> [!TIP]
+> Using the disable option in LLT is often the easiest option.
 
 ### Other remarks
 
@@ -184,6 +183,9 @@ Lighting that required Corsair iCue is not supported by LLT.
 
 ### Hybrid Mode and GPU Working Modes
 
+> [!NOTE]
+> Hybrid Mode/GPU Working Mode options _are not_ Advanced Optimus and work separately from it.
+
 There are two main way you can use your dGPU:
 
 1. Hybrid mode on - internal laptop display is connected to integrated GPU, discrete GPU will work when needed and power off when not in use, giving better battery life
@@ -203,9 +205,7 @@ All above settings are using built in functions of the EC and how well they work
 If you encounter issues, you might try to try alternative, experimental method of handling GPU Working Mode - see [Arguments](#arguments) section for more details.
 
 > [!WARNING]
-> Disabling dGPU via Device Manager DOES NOT disconnect the device and will cause high power consumption!**
-
-These options _are not_ Advanced Optimus and work separately from it.
+> Disabling dGPU via Device Manager DOES NOT disconnect the device and will cause high power consumption!
 
 ### Deactivate discrete NVIDIA GPU
 
@@ -218,7 +218,8 @@ There are two ways to help the GPU deactivate:
 
 Deactivate button will be enabled when dGPU is active, you have Hybrid mode enabled and there are no screens connected to dGPU. If you hover over the button, you will see the current P state of dGPU and the list of processes running on it.
 
-Keep in mind that some apps may not like this feature and crash when you deactivate dGPU.
+> [!NOTE]
+> Some apps may not like this feature and crash when you use deactivate dGPU option.
 
 ### Overclock discrete NVIDIA GPUs
 
@@ -472,7 +473,8 @@ Starting with version 2.11.0, LLT's behavior was aligned with Vantage and Legion
 
 If for whatever reason you want to use these modes on battery anyway, you can use `--allow-all-power-modes-on-battery` argument. Check [Arguments](#arguments) section for more details.
 
-*Note that power limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected. Therefore, no support is provided for issues related to using this argument.*
+> [!WARNING]
+> Power limits and other settings are not applied correctly on most devices when laptop is not connected to full power AC adapter and unpredictable and weird behavior is expected. Therefore, no support is provided for issues related to using this argument.*
 
 #### Why does switching to Performance mode seem buggy, when AI Engine is enabled?
 
@@ -490,7 +492,7 @@ Windows probably doesn't recognize all games properly, but you can mark any prog
 
 #### Can I use other RGB software while using LLT?
 
-In general yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts with `--force-disable-rgbkb` or `--force-disable-spectrumkb` argument. Check [Arguments](#arguments) section for more details.
+In general, yes. LLT will disable RGB controls when Vantage is running to avoid conflicts. If you use other RGB software like [L5P-Keyboard-RGB](https://github.com/4JX/L5P-Keyboard-RGB) or [OpenRGB](https://openrgb.org/), you can disable RGB in LLT to avoid conflicts with `--force-disable-rgbkb` or `--force-disable-spectrumkb` argument. Check [Arguments](#arguments) section for more details.
 
 #### Will iCue RGB keyboards be supported?
 
