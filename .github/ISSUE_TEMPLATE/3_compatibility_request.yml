@@ -5,7 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        [ ] I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
+        ### Before you start
+        
+        Read [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
   
   - type: input
     id: version
