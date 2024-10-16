@@ -12,8 +12,7 @@ body:
     attributes:
       label: Rules
       options:
-        - label: I made myself familiar with the README.
-        - label: I understand that requests should not be placed for devices that are not part of Legion, Ideapad Gaming and LOQ line ups.
+        - label: I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
     validations:
       required: true      
   - type: input
