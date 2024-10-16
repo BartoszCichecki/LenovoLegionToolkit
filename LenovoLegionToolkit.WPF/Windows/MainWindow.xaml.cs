@@ -230,15 +230,32 @@ public partial class MainWindow
         });
     }
 
-    private void CheckForUpdates()
+    public void CheckForUpdates(bool manualCheck = false)
     {
-        Task.Run(_updateChecker.CheckAsync)
+        Task.Run(() => _updateChecker.CheckAsync(manualCheck))
             .ContinueWith(updatesAvailable =>
             {
                 var result = updatesAvailable.Result;
                 if (result is null)
                 {
                     _updateIndicator.Visibility = Visibility.Collapsed;
+                    
+                    if (manualCheck && WindowState != WindowState.Minimized)
+                    {
+                        if (_updateChecker.Status == UpdateCheckStatus.Success)
+                        {
+                            SnackbarHelper.Show(Resource.MainWindow_CheckForUpdates_Success_Title, Resource.MainWindow_CheckForUpdates_NoUpdates_Message);
+                        }
+                        else if (_updateChecker.Status == UpdateCheckStatus.RateLimitReached)
+                        {
+                            SnackbarHelper.Show(Resource.MainWindow_CheckForUpdates_Error_Title, Resource.MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message, SnackbarType.Error);
+                        }
+                        else
+                        {
+                            SnackbarHelper.Show(Resource.MainWindow_CheckForUpdates_Error_Title, Resource.MainWindow_CheckForUpdates_Error_Unknown_Message, SnackbarType.Error);
+                        }
+                    }
+
                     return;
                 }
 

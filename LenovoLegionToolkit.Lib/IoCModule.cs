@@ -40,6 +40,7 @@ public class IoCModule : Module
         builder.Register<RGBKeyboardSettings>();
         builder.Register<SpectrumKeyboardSettings>();
         builder.Register<SunriseSunsetSettings>();
+        builder.Register<UpdateCheckSettings>();
 
         builder.Register<AlwaysOnUSBFeature>();
         builder.Register<BatteryFeature>();
