@@ -5,16 +5,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible.
-
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: Rules
-      options:
-        - label: I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
-    validations:
-      required: true      
+        [ ] I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
+  
   - type: input
     id: version
     attributes:
