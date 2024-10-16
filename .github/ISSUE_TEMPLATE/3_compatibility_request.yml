@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         > [!IMPORTANT]
-        > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
+        > Before you start, read [the rules](CONTRIBUTING.md) for contributing.
   
   - type: input
     id: version
