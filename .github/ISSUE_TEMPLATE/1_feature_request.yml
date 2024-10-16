@@ -11,9 +11,7 @@ body:
     attributes:
       label: Rules
       options:
-        - label: I made myself familiar with the README.
-        - label: I checked closed issues for similar ones and did not find a similar feature request mentioned before.
-        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
+        - label: I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
     validations:
       required: true
   - type: input
