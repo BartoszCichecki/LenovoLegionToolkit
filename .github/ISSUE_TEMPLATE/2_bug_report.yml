@@ -8,14 +8,6 @@ body:
         > [!IMPORTANT]
         > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
   
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: Rules
-      options:
-        - label: I have read and understood [the rules for contributing](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md).
-    validations:
-      required: true
   - type: input
     id: version
     attributes:
