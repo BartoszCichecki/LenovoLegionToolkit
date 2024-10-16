@@ -88,7 +88,8 @@ You can download the program by the following ways:
 
 LLT works best when it's running in the background, so go to Settings and enable _Autorun_ and _Minimize on close_. Next thing is to either disable Vantage and Hotkeys or just uninstall them. After that LLT will always run on startup and will take over all functions that were handled by Vantage and Hotkeys.
 
-If you close LLT completely some functions will not work, like synchronizing Windows Power Modes or Windows Power Plans with current Power Mode, Macros or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
+> [!NOTE]
+> If you close LLT completely some functions will not work, like synchronizing Windows Power Modes or Windows Power Plans with current Power Mode, Macros or Actions. This is due to the fact that LLT does not run any background services and won't be able to respond to changes.
 
 #### Required drivers
 
@@ -104,7 +105,8 @@ If for whatever reason LLT installer did not setup .NET properly:
 3. Download x64 Windows installer
 4. Run the installer
 
-> Note: If you installed LLT from Scoop, .NET 8 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
+> [!NOTE]
+> If you installed LLT from Scoop, .NET 8 should have been installed automatically as a dependency. If anything fails, use `scoop update` to update all packages and try to reinstall LLT with `--force` argument.
 
 After following these steps, you can open Terminal and type: `dotnet --info`. In the output look for section `.NET runtimes installed`, in this section you should see something like:
 
@@ -177,7 +179,8 @@ Other lighting features like both 1 and 3 level white keyboard backlight, panel 
 
 Lighting that required Corsair iCue is not supported by LLT.
 
-_**Important:** Riot Vanguard DRM (used in Valorant for example) is known to cause issues with RGB controls. If you don't see RGB settings and have it installed, make sure it doesn't run on startup or uninstall it._
+> [!IMPORTANT]
+> Riot Vanguard DRM (used in Valorant for example) is known to cause issues with RGB controls. If you don't see RGB settings and have it installed, make sure it doesn't run on startup or uninstall it._
 
 ### Hybrid Mode and GPU Working Modes
 
@@ -199,7 +202,8 @@ All above settings are using built in functions of the EC and how well they work
 
 If you encounter issues, you might try to try alternative, experimental method of handling GPU Working Mode - see [Arguments](#arguments) section for more details.
 
-**Disabling dGPU via Device Manager DOES NOT disconnect the device and will cause high power consumption!**
+> [!WARNING]
+> Disabling dGPU via Device Manager DOES NOT disconnect the device and will cause high power consumption!**
 
 These options _are not_ Advanced Optimus and work separately from it.
 
@@ -589,7 +593,8 @@ It would be great to expand the list of compatible devices, but to do it your he
 
 If you are willing to check if this app works correctly on your device that is currently unsupported, click _Continue_ on the popup you saw on startup. Lenovo Legion Toolkit will start logging automatically so you can submit them if anything goes wrong.
 
-**If your laptop is not part of Legion, IdeaPad Gaming or LOQ series, this software is not for you. Please do NOT open compatibility requests for other devices.**
+> [!IMPORTANT]
+> If your laptop is not part of Legion, IdeaPad Gaming or LOQ series, this software is not for you. Please do NOT open compatibility requests for other devices.**
 
 *Remember that some functions may not function properly.*
 
