@@ -5,10 +5,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
-
-        <br/>
-        <br/>
+        > [!IMPORTANT]
+        > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
   
   - type: input
     id: version
