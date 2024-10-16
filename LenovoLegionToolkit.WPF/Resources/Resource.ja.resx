@@ -490,13 +490,13 @@
     <value>無効</value>
   </data>
   <data name="DiscreteGPUControl_KillApps" xml:space="preserve">
-    <value>アプリの終了</value>
+    <value>アプリを強制終了</value>
   </data>
   <data name="DiscreteGPUControl_Message" xml:space="preserve">
     <value>ディスクリートGPUが不必要にアクティブになっている場合は無効にします。</value>
   </data>
   <data name="DiscreteGPUControl_MonitorConnected" xml:space="preserve">
-    <value>モニターは Nvidia GPU に接続されています。</value>
+    <value>モニターは NVIDIA GPU に接続されています。</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
     <value>プロセスがありません</value>
@@ -557,7 +557,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>エクスポート</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
-    <value>バッテリ使用時は内蔵GPU (iGPU) のみを使用し、ACアダプタが接続されている場合は内蔵GPUとディスクリートGPU (dGPU) の両方を使用します。低出力なアダプタが接続されている場合は、システムはHybrid-iGPU Onlyモードに切り替わります。</value>
+    <value>バッテリ使用時は内蔵GPU (iGPU) のみを使用し、ACアダプタが接続されている場合は内蔵GPUとディスクリートGPU (dGPU) の両方を使用します。低出力なアダプタが接続されている場合は、システムは「ハイブリッドiGPU専用モード」に切り替わります。</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Title" xml:space="preserve">
     <value>オートハイブリッドモード</value>
@@ -900,7 +900,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>Over Drive</value>
   </data>
   <data name="PackageControl_DownloadComplete_Message" xml:space="preserve">
-    <value>{0} 個ダウンロードしました！</value>
+    <value>{0} をダウンロードしました！</value>
   </data>
   <data name="PackageControl_DownloadComplete_Title" xml:space="preserve">
     <value>ダウンロードが完了しました</value>
@@ -1083,6 +1083,10 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="RunAutomationStepControl_ExePath" xml:space="preserve">
     <value>実行パス</value>
   </data>
+  <data name="RunAutomationStepControl_Message" xml:space="preserve">
+    <value>スクリプトまたはプログラムを実行します。
+この項目を設定する前に、スクリプトが正しく実行されることを確認してください。</value>
+  </data>
   <data name="RunAutomationStepControl_Title" xml:space="preserve">
     <value>実行</value>
   </data>
@@ -1138,10 +1142,10 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>Lenovo Hotkeys を無効化</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage または ImController が正しく無効になっていない可能性があります</value>
+    <value>VantageとImControllerの両方またはいずれか一方が正しく無効になっていない可能性があります</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage または ImController を無効にできませんでした</value>
+    <value>VantageとImControllerの両方またはいずれか一方を無効にできませんでした</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo Vantage と ImController をアンインストールせずに無効にします。
@@ -1155,6 +1159,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys は正しく有効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>VantageとImControllerの両方またはいずれか一方が正しく有効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>VantageとImControllerの両方またはいずれか一方を有効にできませんでした</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R ショートカットをさらに便利にするために、リフレッシュレートを除外できます。</value>
@@ -1273,6 +1283,24 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
     <value>エフェクトを編集</value>
   </data>
+  <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
+    <value>すべてのキー</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
+    <value>日の出</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
+    <value>日没</value>
+  </data>
+  <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
+    <value>時間</value>
+  </data>
+  <data name="ToggleHybridModeControl_RestartRequired_Title" xml:space="preserve">
+    <value>再起動が必要です</value>
+  </data>
+  <data name="ToggleHybridModeControl_Title" xml:space="preserve">
+    <value>ハイブリッドモード</value>
+  </data>
   <data name="TouchpadLockAutomationStepControl_Message" xml:space="preserve">
     <value>タッチパッドを無効にします。</value>
   </data>
@@ -1285,11 +1313,49 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="TouchpadLockControl_Title" xml:space="preserve">
     <value>タッチパッドの無効化</value>
   </data>
+  <data name="TryAgain" xml:space="preserve">
+    <value>もう一度試してください</value>
+  </data>
+  <data name="Unnamed" xml:space="preserve">
+    <value>名前なし</value>
+  </data>
+  <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
+    <value>ご自身の責任で続行することもできますが、一部の機能が利用できなくなったり、正しく動作しない可能性があることに注意してください。
+
+続行することを選択すると、ログは自動的に有効になります。</value>
+  </data>
+  <data name="UnsupportedWindow_Title" xml:space="preserve">
+    <value>サポートされていないデバイス</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="UpdateWindow_Title" xml:space="preserve">
+    <value>アップデートがあります</value>
+  </data>
+  <data name="UpdateWindow_WhatsNew" xml:space="preserve">
+    <value>新着情報</value>
+  </data>
+  <data name="WhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵キーボードの Windows キーを無効にします。</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Windowsキーの無効化</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>この機能は内蔵キーボードでのみ動作します。</value>
   </data>
   <data name="WinKeyControl_Title" xml:space="preserve">
     <value>Windowsキーの無効化</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>はい</value>
   </data>
   <data name="MicrophoneControl_Title" xml:space="preserve">
     <value>マイク</value>
@@ -1299,6 +1365,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
     <value>マイク</value>
+  </data>
+  <data name="MicrophoneAutomationStepControl_Message" xml:space="preserve">
+    <value>オフの場合、マイクはミュートになります。</value>
   </data>
   <data name="ResolutionControl_Title" xml:space="preserve">
     <value>解像度</value>
@@ -1318,16 +1387,39 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>DPI</value>
   </data>
   <data name="DpiScaleControl_Message" xml:space="preserve">
-    <value>内蔵ディスプレイのスケールを変更します。</value>
+    <value>内蔵ディスプレイの表示の大きさを変更します。</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Title" xml:space="preserve">
+    <value>DPI</value>
+  </data>
+  <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
+    <value>内蔵ディスプレイの表示の大きさを変更します。
+
+警告: 内蔵ディスプレイがオフの場合、このアクションは正しく実行されません。</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>ディスプレイ</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードバックライト</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>更新のみを表示</value>
   </data>
   <data name="EditDashboardWindow_Title" xml:space="preserve">
     <value>ダッシュボードをカスタマイズ</value>
+  </data>
+  <data name="Load" xml:space="preserve">
+    <value>読み込み</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Title" xml:space="preserve">
+    <value>グループを作成</value>
+  </data>
+  <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
+    <value>名前</value>
   </data>
   <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
     <value>使用しているデバイスの状態や構成によっては、一部の機能がダッシュボードに表示されない場合があります。</value>
@@ -1345,6 +1437,30 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>オフにする</value>
   </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Title" xml:space="preserve">
+    <value>ディスプレイをオフにする</value>
+  </data>
+  <data name="TurnOffMonitorsAutomationStepControl_Message" xml:space="preserve">
+    <value>利用可能なディスプレイをすべてオフにします。</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Title" xml:space="preserve">
+    <value>グループの名前を編集</value>
+  </data>
+  <data name="EditDashboardGroupControl_EditGroup_Message" xml:space="preserve">
+    <value>名前</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOn" xml:space="preserve">
+    <value>Legionのロゴが有効になりました</value>
+  </data>
+  <data name="Notification_PanelLogoLightingOff" xml:space="preserve">
+    <value>Legionのロゴが無効になりました</value>
+  </data>
+  <data name="Notification_PortLightingOn" xml:space="preserve">
+    <value>ポートのバックライトが有効になりました</value>
+  </data>
+  <data name="Notification_PortLightingOff" xml:space="preserve">
+    <value>ポートのバックライトが無効になりました</value>
+  </data>
   <data name="PackageControl_RebootRequired" xml:space="preserve">
     <value>再起動が必要です。</value>
   </data>
@@ -1353,6 +1469,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="PackageControl_RebootRecommended" xml:space="preserve">
     <value>再起動を推奨します。</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>保存して閉じる</value>
   </data>
   <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
     <value>カスタムモードプリセット</value>
@@ -1400,6 +1519,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="Create" xml:space="preserve">
     <value>作成</value>
   </data>
+  <data name="AddAutomationStepWindow_Title" xml:space="preserve">
+    <value>ステップを追加</value>
+  </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
     <value>アクションを作成</value>
   </data>
@@ -1415,6 +1537,24 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
     <value>電源の状態</value>
   </data>
+  <data name="StatusTrayPopup_Battery" xml:space="preserve">
+    <value>バッテリー</value>
+  </data>
+  <data name="StatusTrayPopup_Mode" xml:space="preserve">
+    <value>モード</value>
+  </data>
+  <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
+    <value>出力量</value>
+  </data>
+  <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
+    <value>更新があります！</value>
+  </data>
+  <data name="SymbolRegularPicker_Title" xml:space="preserve">
+    <value>アイコンの選択</value>
+  </data>
+  <data name="AutomationPage_ChangeIcon" xml:space="preserve">
+    <value>アイコンの変更</value>
+  </data>
   <data name="BatteryPage_LowLevel" xml:space="preserve">
     <value>バッテリー残量が少なくなっています。</value>
   </data>
@@ -1426,6 +1566,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>電源オフ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>パス</value>
   </data>
   <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>複数のトリガー...</value>
@@ -1442,6 +1585,35 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
     <value>オーバークロックGPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>ディスクリートGPU をオーバークロックすることでパフォーマンスを向上させます。
+
+警告: ディスクリートGPUが利用できない場合、このアクションは正しく実行されません。</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+    <value>ポートのバックライト</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>ポートのバックライト</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+    <value>パネルのロゴのバックライト</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+    <value>ラップトップのカバーのバックライトをオンまたはオフにします。</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>パネルのロゴのバックライト</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>ラップトップのカバーのバックライトをオンまたはオフにします。</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
   </data>
   <data name="SensorsControl_Maximum" xml:space="preserve">
     <value>最高: {0}</value>
@@ -1482,8 +1654,23 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
     <value>電源が接続されているときにラップトップの電源を入れます。</value>
   </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+    <value>電源モードを変更できません</value>
+  </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
     <value>センサー</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+    <value>dGPUは現在使用中です</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPUが接続されました</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPUが切断されました</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>ハイブリッドモード</value>
   </data>
   <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
     <value>長さ</value>
@@ -1519,7 +1706,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>アクション</value>
   </data>
   <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
-    <value>通知テキスト</value>
+    <value>通知するテキスト</value>
   </data>
   <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
     <value>通知を表示</value>
@@ -1532,6 +1719,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
     <value>Alt、Ctrl、Shift キーを押すと、Fn Lock が一時的に無効になります。</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>オフ</value>
   </data>
   <data name="BootLogoWindow_Description" xml:space="preserve">
     <value>カスタムブートロゴのサイズは、{0} ピクセルにする必要があります。
@@ -1570,6 +1760,21 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
     <value>カスタムブートロゴが設定されました。</value>
   </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+    <value>ネットワーク名 (SSID)</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+    <value>HWiNFO64</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+    <value>統合</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>情報</value>
+  </data>
   <data name="PackagesPage_DownloadTo" xml:space="preserve">
     <value>ダウンロードフォルダ</value>
   </data>
@@ -1588,6 +1793,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
     <value>更新</value>
   </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
   <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
     <value>間隔（分）</value>
     <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
@@ -1597,6 +1805,30 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>起動時に「バッテリー駆動時間」をリセットする</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fiをオフにする</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fiをオンにする</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>バックグラウンドで実行</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>終了するまで待つ</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+    <value>コンソールウィンドウを表示せずに、コンソールアプリケーションを実行します。</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+    <value>プログラムまたはスクリプトの実行が終了するまで待ちます</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>ミュートすると、アクティブなオーディオ出力デバイスがすべてミュートされます。</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>スピーカー</value>
   </data>
   <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
     <value>トレイに最小化</value>
@@ -1625,7 +1857,52 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="MacroPage_Title" xml:space="preserve">
     <value>マクロ</value>
   </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+    <value>繰り返し</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+    <value>遅延を無視</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+    <value>記録</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+    <value>記録を停止</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+    <value>繰り返さない</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+    <value>マクロが機能するには、Lenovo Legion Toolkit が実行されている必要があります。</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+    <value>有効化</value>
+  </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
     <value>マクロ</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+    <value>マクロを有効または無効にします。</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+    <value>CLIをPATHに追加</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+    <value>ユーザーのPATH環境変数にCLIを追加します。</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+    <value>温度</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+    <value>温度センサーの単位を選択します。</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方がバックグラウンドで実行されています。</value>
   </data>
 </root>
