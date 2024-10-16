@@ -5,7 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
+        > [!IMPORTANT]
+        > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
+  
   - type: checkboxes
     id: rules
     attributes:
