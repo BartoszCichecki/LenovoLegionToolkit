@@ -43,9 +43,17 @@ body:
   - type: textarea
     id: description
     attributes:
-      label: What's wrong?
+      label: What is wrong?
       description: Provide detailed description of what is wrong or does not work as expected.
       placeholder: Provide detailed description of what is wrong or does not work as expected.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What did you try already?
+      description: Provide detailed description of how did you troubleshoot the issue and what have you tried already.
+      placeholder: Provide detailed description of how did you troubleshoot the issue and what have you tried already.
     validations:
       required: true
   - type: textarea
