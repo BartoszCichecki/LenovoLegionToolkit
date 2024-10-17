@@ -41,7 +41,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: description
+    id: troubleshoot
     attributes:
       label: What is wrong?
       description: Provide detailed description of what is wrong or does not work as expected.
