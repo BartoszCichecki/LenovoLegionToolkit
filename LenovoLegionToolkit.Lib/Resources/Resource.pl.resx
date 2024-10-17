@@ -467,15 +467,15 @@
     <value>Wyłącz wyciszenie</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Wyłączone</value>
+    <value>Wyłączone</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Tryb zasilania systemu Windows</value>
+    <value>Tryb zasilania systemu Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Plan zasilania systemu Windows</value>
+    <value>Plan zasilania systemu Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Ustawienie 4</value>
+    <value>Ustawienie 4</value>
   </data>
 </root>
