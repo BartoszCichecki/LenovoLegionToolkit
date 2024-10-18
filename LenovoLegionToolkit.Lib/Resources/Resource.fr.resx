@@ -467,15 +467,15 @@
     <value>Réactiver le son</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Désactivé</value>
+    <value>Désactivé</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Mode de gestion de l'alimentation Windows</value>
+    <value>Mode de gestion de l'alimentation Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Plan d'alimentation Windows</value>
+    <value>Plan d'alimentation Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Pré-réglage 4</value>
+    <value>Pré-réglage 4</value>
   </data>
 </root>

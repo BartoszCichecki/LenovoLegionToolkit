@@ -467,15 +467,15 @@
     <value>解除静音</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>禁用</value>
+    <value>禁用</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Windows 电源模式</value>
+    <value>Windows 电源模式</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Windows 电源计划</value>
+    <value>Windows 电源计划</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>预设 4</value>
+    <value>预设 4</value>
   </data>
 </root>
