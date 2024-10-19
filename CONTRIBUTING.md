@@ -1,5 +1,8 @@
 ## Welcome to Lenvo Legion Toolkit contributing guide!
 
+### Other language versions of this contributing guide:
+* [简体中文版开发者指南](CONTRIBUTING_zh-hans.md)
+
 Thanks for investing your time in contributing to this project! Giving the growing popularity of LLT, here are a few rules to follow to ensure that your contribution goes smoothly.
 
 <br/>
