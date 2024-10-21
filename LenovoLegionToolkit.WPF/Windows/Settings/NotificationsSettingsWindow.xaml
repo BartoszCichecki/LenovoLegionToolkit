@@ -62,6 +62,17 @@
                         Click="DontShowNotificationsToggle_Click" />
                 </custom:CardControl>
 
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="Notification Window Always on Top" Subtitle="Position Notification Window always on top" />
+                    </custom:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_notificationAlwaysOnTopToggle"
+                        Margin="0,0,0,8"
+                        AutomationProperties.Name="Notification Window Always on Top"
+                        Click="NotificationAlwaysOnTopToggle_Click" />
+                </custom:CardControl>
+
                 <custom:CardControl x:Name="_notificationPositionCard" Margin="0,0,0,8">
                     <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}" />
