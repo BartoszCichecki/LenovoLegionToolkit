@@ -467,15 +467,15 @@
     <value>Вкл. звук</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Отключен</value>
+    <value>Отключен</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Схема питания Windows</value>
+    <value>Схема питания Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Режим питания Windows</value>
+    <value>Режим питания Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Пресет 4</value>
+    <value>Пресет 4</value>
   </data>
 </root>

@@ -467,15 +467,15 @@
     <value>Увімкнути звук</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Вимкнений</value>
+    <value>Вимкнений</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Режим живлення Windows</value>
+    <value>Режим живлення Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>План живлення Windows</value>
+    <value>План живлення Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Шаблон 4</value>
+    <value>Шаблон 4</value>
   </data>
 </root>

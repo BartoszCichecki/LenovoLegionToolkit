@@ -443,15 +443,15 @@
     <value>ミュート解除</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>無効</value>
+    <value>無効</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Windows電源モード</value>
+    <value>Windows電源モード</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Windows電源プラン</value>
+    <value>Windows電源プラン</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>プリセット 4</value>
+    <value>プリセット 4</value>
   </data>
 </root>

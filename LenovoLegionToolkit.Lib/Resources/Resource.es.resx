@@ -467,15 +467,15 @@
     <value>Activar sonido</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Deshabilitado</value>
+    <value>Deshabilitado</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Modo de energía de Windows</value>
+    <value>Modo de energía de Windows</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Plan de energía de Windows</value>
+    <value>Plan de energía de Windows</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Predefinido 4</value>
+    <value>Predefinido 4</value>
   </data>
 </root>

@@ -469,15 +469,15 @@
     <value>Dempen van volume opheffen</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Uitgeschakeld</value>
+    <value>Uitgeschakeld</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Windows Energiemodus</value>
+    <value>Windows Energiemodus</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Windows Energiebeheerschema</value>
+    <value>Windows Energiebeheerschema</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Voorinstelling 4</value>
+    <value>Voorinstelling 4</value>
   </data>
 </root>
