@@ -5,23 +5,35 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using LenovoLegionToolkit.Lib.Extensions;
+using LenovoLegionToolkit.Lib.Settings;
 using NeoSmart.AsyncLock;
 using Octokit;
 using Octokit.Internal;
 
 namespace LenovoLegionToolkit.Lib.Utils;
 
-public class UpdateChecker(HttpClientFactory httpClientFactory)
+public class UpdateChecker
 {
-    private readonly TimeSpan _minimumTimeSpanForRefresh = new(hours: 3, minutes: 0, seconds: 0);
+    private readonly HttpClientFactory _httpClientFactory;
+    private readonly UpdateCheckSettings _updateCheckSettings = IoCContainer.Resolve<UpdateCheckSettings>();
     private readonly AsyncLock _updateSemaphore = new();
 
-    private DateTime _lastUpdate = DateTime.MinValue;
+    private DateTime _lastUpdate;
+    private TimeSpan _minimumTimeSpanForRefresh;
     private Update[] _updates = [];
 
     public bool Disable { get; set; }
+    public UpdateCheckStatus Status { get; set; }
 
-    public async Task<Version?> CheckAsync()
+    public UpdateChecker(HttpClientFactory httpClientFactory)
+    {
+        _httpClientFactory = httpClientFactory;
+
+        UpdateMiniumTimeSpanForRefresh();
+        _lastUpdate = _updateCheckSettings.Store.LastUpdateCheckDateTime ?? DateTime.MinValue;
+    }
+
+    public async Task<Version?> CheckAsync(bool forceCheck)
     {
         using (await _updateSemaphore.LockAsync().ConfigureAwait(false))
         {
@@ -37,13 +49,13 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 var timeSpanSinceLastUpdate = DateTime.UtcNow - _lastUpdate;
                 var shouldCheck = timeSpanSinceLastUpdate > _minimumTimeSpanForRefresh;
 
-                if (!shouldCheck)
+                if (!forceCheck && !shouldCheck)
                     return _updates.Length != 0 ? _updates.First().Version : null;
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Checking...");
 
-                var adapter = new HttpClientAdapter(httpClientFactory.CreateHandler);
+                var adapter = new HttpClientAdapter(_httpClientFactory.CreateHandler);
                 var productInformation = new ProductHeaderValue("LenovoLegionToolkit-UpdateChecker");
                 var connection = new Connection(productInformation, adapter);
                 var githubClient = new GitHubClient(connection);
@@ -65,18 +77,31 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                     Log.Instance.Trace($"Checked [updates.Length={updates.Length}]");
 
                 _updates = updates;
+                Status = UpdateCheckStatus.Success;
 
                 return _updates.Length != 0 ? _updates.First().Version : null;
+            }
+            catch (RateLimitExceededException ex)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Reached API Rate Limitation.", ex);
+
+                Status = UpdateCheckStatus.RateLimitReached;
+                return null;
             }
             catch (Exception ex)
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Error checking for updates.", ex);
+
+                Status = UpdateCheckStatus.Error;
                 return null;
             }
             finally
             {
                 _lastUpdate = DateTime.UtcNow;
+                _updateCheckSettings.Store.LastUpdateCheckDateTime = _lastUpdate;
+                _updateCheckSettings.SynchronizeStore();
             }
         }
     }
@@ -101,10 +126,21 @@ public class UpdateChecker(HttpClientFactory httpClientFactory)
                 throw new InvalidOperationException("Setup file URL could not be found");
 
             await using var fileStream = File.OpenWrite(tempPath);
-            using var httpClient = httpClientFactory.Create();
+            using var httpClient = _httpClientFactory.Create();
             await httpClient.DownloadAsync(latestUpdate.Url, fileStream, progress, cancellationToken).ConfigureAwait(false);
 
             return tempPath;
         }
     }
+
+    public void UpdateMiniumTimeSpanForRefresh() => _minimumTimeSpanForRefresh = _updateCheckSettings.Store.UpdateCheckFrequency switch
+    {
+        UpdateCheckFrequency.PerHour => new(hours: 1, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerThreeHours => new(hours: 3, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerTwelveHours => new(hours: 2, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerDay => new(days: 1, hours: 0, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerWeek => new(days: 7, hours: 0, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerMonth => new(days: 30, hours: 0, minutes: 0, seconds: 0),
+        _ => throw new ArgumentException(nameof(_updateCheckSettings.Store.UpdateCheckFrequency))
+    };
 }

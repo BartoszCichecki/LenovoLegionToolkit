@@ -5,17 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this compatibility request. Please provide as much information as possible.
-
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: Rules
-      options:
-        - label: I made myself familiar with the README.
-        - label: I understand that requests should not be placed for devices that are not part of Legion, Ideapad Gaming and LOQ line ups.
-    validations:
-      required: true      
+        > [!IMPORTANT]
+        > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
+  
   - type: input
     id: version
     attributes:

@@ -19,6 +19,7 @@ using LenovoLegionToolkit.WPF.CLI;
 using LenovoLegionToolkit.WPF.Extensions;
 using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
+using LenovoLegionToolkit.WPF.Windows;
 using LenovoLegionToolkit.WPF.Windows.Settings;
 
 namespace LenovoLegionToolkit.WPF.Pages;
@@ -36,6 +37,8 @@ public partial class SettingsPage
     private readonly ThemeManager _themeManager = IoCContainer.Resolve<ThemeManager>();
     private readonly HWiNFOIntegration _hwinfoIntegration = IoCContainer.Resolve<HWiNFOIntegration>();
     private readonly IpcServer _ipcServer = IoCContainer.Resolve<IpcServer>();
+    private readonly UpdateChecker _updateChecker = IoCContainer.Resolve<UpdateChecker>();
+    private readonly UpdateCheckSettings _updateCheckSettings = IoCContainer.Resolve<UpdateCheckSettings>();
 
     private bool _isRefreshing;
 
@@ -118,6 +121,19 @@ public partial class SettingsPage
         _onBatterySinceResetToggle.IsChecked = _settings.Store.ResetBatteryOnSinceTimerOnReboot;
 
         _bootLogoCard.Visibility = await BootLogo.IsSupportedAsync() ? Visibility.Visible : Visibility.Collapsed;
+
+        if (_updateChecker.Disable)
+        {
+            _updateTextBlock.Visibility = Visibility.Collapsed;
+            _checkUpdatesCard.Visibility = Visibility.Collapsed;
+            _updateCheckFrequencyCard.Visibility = Visibility.Collapsed;
+        }
+        else
+        {
+            _checkUpdatesButton.Visibility = Visibility.Visible;
+            _updateCheckFrequencyComboBox.Visibility = Visibility.Visible;
+            _updateCheckFrequencyComboBox.SetItems(Enum.GetValues<UpdateCheckFrequency>(), _updateCheckSettings.Store.UpdateCheckFrequency, t => t.GetDisplayName());
+        }
 
         try
         {
@@ -553,6 +569,31 @@ public partial class SettingsPage
 
         var window = new BootLogoWindow { Owner = Window.GetWindow(this) };
         window.ShowDialog();
+    }
+
+    private void CheckUpdates_Click(object sender, RoutedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        if (App.Current.MainWindow is not MainWindow mainWindow)
+            return;
+
+        mainWindow.CheckForUpdates(true);
+        SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
+    }
+
+    private void UpdateCheckFrequencyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        if (_isRefreshing)
+            return;
+
+        if (!_updateCheckFrequencyComboBox.TryGetSelectedItem(out UpdateCheckFrequency frequency))
+            return;
+
+        _updateCheckSettings.Store.UpdateCheckFrequency = frequency;
+        _updateCheckSettings.SynchronizeStore();
+        _updateChecker.UpdateMiniumTimeSpanForRefresh();
     }
 
     private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)
