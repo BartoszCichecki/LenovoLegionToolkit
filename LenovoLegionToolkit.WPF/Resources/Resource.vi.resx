@@ -1418,6 +1418,12 @@ Logging sẽ được tự động bật, nếu bạn chọn tiếp tục.</valu
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Đèn nền bàn phím</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Tắt phím Win trên bàn phím laptop.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Khoá phím Win</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Chỉ hoạt động với bàn phím laptop.</value>
   </data>
@@ -2182,5 +2188,45 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage và/hoặc ImController đang chạy ngầm trong hệ thống.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Kiểm tra</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
+    <value>Kiểm tra cập nhật cho LLT.
+Lưu ý: API dùng cho kiểm tra cập nhật có rate limit, xin đừng kiểm tra cập nhật quá thường xuyên.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
+    <value>Việc kiểm tra cập nhật đã được thực hiện thành công.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Đã bắt đầu</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Kiểm tra cập nhật</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Cập nhật</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>API đã đạt rate limit, xin vui lòng kiểm tra cập nhật sau.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Kiểm tra cập nhật thất bại</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Có lỗi đã xảy ra, xin thử lại sau.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>Không tìm thấy cập nhật mới nào.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Kiểm tra cập nhật thành công</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>Tần xuất LLT kiểm tra cập nhật.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Tần suất kiểm tra cập nhật</value>
   </data>
 </root>
