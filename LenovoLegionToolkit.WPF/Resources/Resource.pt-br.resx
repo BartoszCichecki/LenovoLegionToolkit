@@ -2187,4 +2187,44 @@ Requer reinicialização.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>O Lenovo Vantage e/ou o ImController estão sendo executados em segundo plano.</value>
   </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Verificar</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
+    <value>Verifique a versão mais recente do LLT.
+NOTA: a verificação de atualização tem um limite de taxa de API, por favor, não verifique as atualizações com muita frequência.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
+    <value>A verificação de atualizações foi iniciada com sucesso.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Iniciado</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Verificar atualizações</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Atualizar</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>Limite de taxa de API atingido, por favor, tente novamente mais tarde.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Falha ao verificar atualizações</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Ocorreu um erro. Por favor, tente novamente mais tarde.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>Nenhuma nova atualização foi encontrada.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Falha ao verificar atualizações</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>A frequência que o LLT verifica suas atualizações.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Frequência de verificação de atualizações</value>
+  </data>
 </root>
