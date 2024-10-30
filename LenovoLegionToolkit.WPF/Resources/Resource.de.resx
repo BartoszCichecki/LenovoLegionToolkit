@@ -2188,4 +2188,44 @@ Unterstützte Formate sind: {1}.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage und/oder ImController wird im Hintergrund ausgeführt.</value>
   </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Überprüfe</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
+    <value>Überprüfe die neueste Version von LLT.
+HINWEIS: Die Aktualisierungsprüfung hat ein API-Ratenlimit, bitte prüfen Sie die Aktualisierungen nicht zu häufig.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
+    <value>Die Update-Prüfung wurde erfolgreich gestartet.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Gestartet</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Auf Updates prüfen</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>API-Ratenlimit erreicht, bitte versuchen Sie es später noch einmal.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Update-Prüfung fehlgeschlagen</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Es ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>Es wurde kein neues Update gefunden.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Update-Prüfung erfolgreich</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>Die Häufigkeit, mit der LLT auf Updates prüft.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Häufigkeit der Update-Prüfung</value>
+  </data>
 </root>

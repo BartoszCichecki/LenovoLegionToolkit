@@ -2196,4 +2196,44 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage 和 / 或 ImController 正在后台运行。</value>
   </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>检查</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
+    <value>检查拯救者工具箱是否有更新。
+注意：更新检查受到 API 访问频率限制，请不要过于频繁地检查更新。</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
+    <value>已成功开始检查更新。</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>已开始</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>更新检查</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>已达到 API 访问频率上限，请稍后再试。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>更新检查失败</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>出现错误，请稍后再试。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>没有找到更新。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>更新检查成功</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>拯救者工具箱检查更新的频率</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>更新检查频率</value>
+  </data>
 </root>

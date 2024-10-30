@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AppName" xml:space="preserve">
-    <value>Lenovo Legion Toolkit</value>
+    <value>Lenovo Legion Toolkit (LLT)</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
     <value>Revisión</value>
@@ -2190,5 +2190,45 @@ Requiere un reinicio.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage y/o ImController se está(n) ejecutando en segundo plano.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Comprobar</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
+    <value>Buscar la última versión LLT. 
+NOTA: la búsqueda de actualizaciones tiene un límite de velocidad API, no busque actualizaciones frecuentemente.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
+    <value>La búsqueda de actualizaciones se ha iniciado correctamente.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>En curso</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Buscar actualizaciones</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Actualización</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>Se ha alcanzado el límite de velocidad API, inténtelo más tarde.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Error en la búsqueda de actualizaciones</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Se ha producido un error, inténtelo más tarde.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
+    <value>No se ha encontrado ninguna actualización.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Búsqueda de actualizaciones éxitosa</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
+    <value>La frecuencia con la que LLT busca actualizaciones.</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Frecuencia de búsqueda de actualizaciones</value>
   </data>
 </root>
