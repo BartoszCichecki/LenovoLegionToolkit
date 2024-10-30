@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -61,7 +62,16 @@ public class VantagePackageDownloader(HttpClientFactory httpClientFactory)
 
     private static async Task<List<PackageDefinition>> GetPackageDefinitionsAsync(HttpClient httpClient, string location, CancellationToken token)
     {
-        var catalogString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
+        string catalogString;
+
+        try
+        {
+            catalogString = await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
+        }
+        catch (HttpRequestException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new UpdateCatalogNotFoundException(ex.Message, ex);
+        }
 
         var document = new XmlDocument();
         document.LoadXml(catalogString);

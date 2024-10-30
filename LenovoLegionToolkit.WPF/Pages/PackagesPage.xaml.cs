@@ -136,9 +136,11 @@ public partial class PackagesPage : IProgress<float>
 
             var machineType = _machineTypeTextBox.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || !_osComboBox.TryGetSelectedItem(out OS os))
+            if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 ||
+                !_osComboBox.TryGetSelectedItem(out OS os))
             {
-                await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title, Resource.PackagesPage_DownloadFailed_Message);
+                await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title,
+                    Resource.PackagesPage_DownloadFailed_Message);
                 return;
             }
 
@@ -172,6 +174,15 @@ public partial class PackagesPage : IProgress<float>
             _packages = packages;
 
             Reload();
+        }
+        catch (UpdateCatalogNotFoundException ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Update catalog not found.", ex);
+
+            await SnackbarHelper.ShowAsync("Update catalog not found", "Try getting updates from the other source.", SnackbarType.Info);
+
+            errorOccurred = true;
         }
         catch (OperationCanceledException)
         {
