@@ -2215,4 +2215,16 @@ Supported formats are: {1}.</value>
   <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
     <value>Automatically check for updates</value>
   </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>Update catalog not found</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>Try getting updates from the other source.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>Something went wrong</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>Check if your internet connection is up and running.</value>
+  </data>
 </root>

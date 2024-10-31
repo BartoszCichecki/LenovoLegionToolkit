@@ -3942,6 +3942,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check if your internet connection is up and running..
+        /// </summary>
+        public static string PackagesPage_Error_CheckInternet_Message {
+            get {
+                return ResourceManager.GetString("PackagesPage_Error_CheckInternet_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        /// </summary>
+        public static string PackagesPage_Error_Title {
+            get {
+                return ResourceManager.GetString("PackagesPage_Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Machine Type.
         /// </summary>
         public static string PackagesPage_MachineType {
@@ -4064,6 +4082,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PackagesPage_Title {
             get {
                 return ResourceManager.GetString("PackagesPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try getting updates from the other source..
+        /// </summary>
+        public static string PackagesPage_UpdateCatalogNotFound_Message {
+            get {
+                return ResourceManager.GetString("PackagesPage_UpdateCatalogNotFound_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update catalog not found.
+        /// </summary>
+        public static string PackagesPage_UpdateCatalogNotFound_Title {
+            get {
+                return ResourceManager.GetString("PackagesPage_UpdateCatalogNotFound_Title", resourceCulture);
             }
         }
         

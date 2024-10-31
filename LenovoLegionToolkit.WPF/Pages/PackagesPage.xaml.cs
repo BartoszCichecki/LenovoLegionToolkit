@@ -180,7 +180,7 @@ public partial class PackagesPage : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Update catalog not found.", ex);
 
-            await SnackbarHelper.ShowAsync("Update catalog not found", "Try getting updates from the other source.", SnackbarType.Info);
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_UpdateCatalogNotFound_Title, Resource.PackagesPage_UpdateCatalogNotFound_Message, SnackbarType.Info);
 
             errorOccurred = true;
         }
@@ -193,7 +193,7 @@ public partial class PackagesPage : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
-            await SnackbarHelper.ShowAsync("Something went wrong", "Check if your internet connection is up and running.", SnackbarType.Error);
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_Error_Title, Resource.PackagesPage_Error_CheckInternet_Message, SnackbarType.Error);
 
             errorOccurred = true;
         }
@@ -202,7 +202,7 @@ public partial class PackagesPage : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
-            await SnackbarHelper.ShowAsync("Something went wrong", ex.Message, SnackbarType.Error);
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_Error_Title, ex.Message, SnackbarType.Error);
 
             errorOccurred = true;
         }
