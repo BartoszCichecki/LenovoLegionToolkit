@@ -20,6 +20,7 @@ public static class SnackbarHelper
 
         SetupSnackbarAppearance(snackBar, title, message, type);
         SetTitleAndMessage(snackBar, title, message);
+        await snackBar.HideAsync();
         await snackBar.ShowAsync();
     }
 

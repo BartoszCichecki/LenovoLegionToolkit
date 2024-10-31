@@ -226,7 +226,8 @@
             </custom:CardAction.Content>
         </custom:CardAction>
 
-        <TextBlock x:Name="_updateTextBlock"
+        <TextBlock
+            x:Name="_updateTextBlock"
             Margin="0,16,0,24"
             AutomationProperties.Name="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
             Focusable="True"
@@ -236,12 +237,12 @@
 
         <custom:CardControl x:Name="_checkUpdatesCard" Margin="0,0,0,8">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_CheckUpdates_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}" />
             </custom:CardControl.Header>
             <wpfui:Button
                 x:Name="_checkUpdatesButton"
+                MinWidth="160"
                 Margin="0,0,0,8"
-                MinWidth="100"
                 AutomationProperties.Name="{x:Static resources:Resource.SettingsPage_CheckUpdates_Title}"
                 Click="CheckUpdates_Click"
                 Content="{x:Static resources:Resource.SettingsPage_CheckUpdatesButton_Content}"
@@ -250,7 +251,7 @@
 
         <custom:CardControl x:Name="_updateCheckFrequencyCard" Margin="0,0,0,8">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_UpdateCheckFrequency_Title}" Subtitle="{x:Static resources:Resource.SettingsPage_UpdateCheckFrequency_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.SettingsPage_UpdateCheckFrequency_Title}" />
             </custom:CardControl.Header>
             <ComboBox
                 x:Name="_updateCheckFrequencyComboBox"

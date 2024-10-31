@@ -2191,18 +2191,11 @@ Supported formats are: {1}.</value>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Check</value>
   </data>
-  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
-    <value>Check the latest version of LLT.
-NOTE: update check has an API rate limit, please don't check updates too frequently.</value>
-  </data>
-  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
-    <value>Updates check has been started successfully.</value>
-  </data>
   <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
-    <value>Started</value>
+    <value>Checking for updates...</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
-    <value>Check Updates</value>
+    <value>Check for updates</value>
   </data>
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Update</value>
@@ -2211,21 +2204,15 @@ NOTE: update check has an API rate limit, please don't check updates too frequen
     <value>API rate limit reached, please try again later.</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
-    <value>Update check failed</value>
+    <value>Failed to check for updates</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
-    <value>Some error occured, please try again later.</value>
-  </data>
-  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
-    <value>No new update was found.</value>
+    <value>Something went wrong, please try again later.</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
-    <value>Update check success</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
-    <value>The frequency LLT checks its updates.</value>
+    <value>No updates found</value>
   </data>
   <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
-    <value>Update Check Frequency</value>
+    <value>Automatically check for updates</value>
   </data>
 </root>

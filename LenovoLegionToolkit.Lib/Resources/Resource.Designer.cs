@@ -1051,7 +1051,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per day.
+        ///   Looks up a localized string similar to Daily.
         /// </summary>
         public static string UpdateCheckFrequency_PerDay {
             get {
@@ -1060,7 +1060,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per hour.
+        ///   Looks up a localized string similar to Every hour.
         /// </summary>
         public static string UpdateCheckFrequency_PerHour {
             get {
@@ -1069,7 +1069,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per month.
+        ///   Looks up a localized string similar to Monthly.
         /// </summary>
         public static string UpdateCheckFrequency_PerMonth {
             get {
@@ -1078,7 +1078,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per 3 hours.
+        ///   Looks up a localized string similar to Every 3 hours.
         /// </summary>
         public static string UpdateCheckFrequency_PerThreeHours {
             get {
@@ -1087,7 +1087,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per 12 hours.
+        ///   Looks up a localized string similar to Every 12 hours.
         /// </summary>
         public static string UpdateCheckFrequency_PerTwelveHours {
             get {
@@ -1096,7 +1096,7 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Once per week.
+        ///   Looks up a localized string similar to Weekly.
         /// </summary>
         public static string UpdateCheckFrequency_PerWeek {
             get {

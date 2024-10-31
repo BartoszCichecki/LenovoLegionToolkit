@@ -571,7 +571,7 @@ public partial class SettingsPage
         window.ShowDialog();
     }
 
-    private void CheckUpdates_Click(object sender, RoutedEventArgs e)
+    private async void CheckUpdates_Click(object sender, RoutedEventArgs e)
     {
         if (_isRefreshing)
             return;
@@ -580,7 +580,7 @@ public partial class SettingsPage
             return;
 
         mainWindow.CheckForUpdates(true);
-        SnackbarHelper.Show(Resource.SettingsPage_CheckUpdates_Started_Title, Resource.SettingsPage_CheckUpdates_Started_Message);
+        await SnackbarHelper.ShowAsync(Resource.SettingsPage_CheckUpdates_Started_Title, type: SnackbarType.Info);
     }
 
     private void UpdateCheckFrequencyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -593,7 +593,7 @@ public partial class SettingsPage
 
         _updateCheckSettings.Store.UpdateCheckFrequency = frequency;
         _updateCheckSettings.SynchronizeStore();
-        _updateChecker.UpdateMiniumTimeSpanForRefresh();
+        _updateChecker.UpdateMinimumTimeSpanForRefresh();
     }
 
     private async void GodModeFnQSwitchableToggle_Click(object sender, RoutedEventArgs e)

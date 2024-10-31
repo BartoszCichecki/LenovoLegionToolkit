@@ -479,21 +479,21 @@
     <value>Preset 4</value>
   </data>
   <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>Once per day</value>
+    <value>Daily</value>
   </data>
   <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>Once per hour</value>
+    <value>Every hour</value>
   </data>
   <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>Once per month</value>
+    <value>Monthly</value>
   </data>
   <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>Once per 3 hours</value>
+    <value>Every 3 hours</value>
   </data>
   <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>Once per 12 hours</value>
+    <value>Every 12 hours</value>
   </data>
   <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>Once per week</value>
+    <value>Weekly</value>
   </data>
 </root>

@@ -2966,7 +2966,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Update check failed.
+        ///   Looks up a localized string similar to Failed to check for updates.
         /// </summary>
         public static string MainWindow_CheckForUpdates_Error_Title {
             get {
@@ -2975,7 +2975,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Some error occured, please try again later..
+        ///   Looks up a localized string similar to Something went wrong, please try again later..
         /// </summary>
         public static string MainWindow_CheckForUpdates_Error_Unknown_Message {
             get {
@@ -2984,16 +2984,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No new update was found..
-        /// </summary>
-        public static string MainWindow_CheckForUpdates_NoUpdates_Message {
-            get {
-                return ResourceManager.GetString("MainWindow_CheckForUpdates_NoUpdates_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update check success.
+        ///   Looks up a localized string similar to No updates found.
         /// </summary>
         public static string MainWindow_CheckForUpdates_Success_Title {
             get {
@@ -4839,26 +4830,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check the latest version of LLT.
-        ///NOTE: update check has an API rate limit, please don&apos;t check updates too frequently..
-        /// </summary>
-        public static string SettingsPage_CheckUpdates_Message {
-            get {
-                return ResourceManager.GetString("SettingsPage_CheckUpdates_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Updates check has been started successfully..
-        /// </summary>
-        public static string SettingsPage_CheckUpdates_Started_Message {
-            get {
-                return ResourceManager.GetString("SettingsPage_CheckUpdates_Started_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Started.
+        ///   Looks up a localized string similar to Checking for updates....
         /// </summary>
         public static string SettingsPage_CheckUpdates_Started_Title {
             get {
@@ -4867,7 +4839,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Check Updates.
+        ///   Looks up a localized string similar to Check for updates.
         /// </summary>
         public static string SettingsPage_CheckUpdates_Title {
             get {
@@ -5375,16 +5347,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The frequency LLT checks its updates..
-        /// </summary>
-        public static string SettingsPage_UpdateCheckFrequency_Message {
-            get {
-                return ResourceManager.GetString("SettingsPage_UpdateCheckFrequency_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Update Check Frequency.
+        ///   Looks up a localized string similar to Automatically check for updates.
         /// </summary>
         public static string SettingsPage_UpdateCheckFrequency_Title {
             get {

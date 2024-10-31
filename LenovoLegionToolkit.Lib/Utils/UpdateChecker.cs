@@ -29,7 +29,7 @@ public class UpdateChecker
     {
         _httpClientFactory = httpClientFactory;
 
-        UpdateMiniumTimeSpanForRefresh();
+        UpdateMinimumTimeSpanForRefresh();
         _lastUpdate = _updateCheckSettings.Store.LastUpdateCheckDateTime ?? DateTime.MinValue;
     }
 
@@ -119,7 +119,7 @@ public class UpdateChecker
             var tempPath = Path.Combine(Folders.Temp, $"LenovoLegionToolkitSetup_{Guid.NewGuid()}.exe");
             var latestUpdate = _updates.OrderByDescending(u => u.Version).FirstOrDefault();
 
-            if (latestUpdate.Equals(default(Update)))
+            if (latestUpdate.Equals(default))
                 throw new InvalidOperationException("No updates available");
 
             if (latestUpdate.Url is null)
@@ -133,14 +133,14 @@ public class UpdateChecker
         }
     }
 
-    public void UpdateMiniumTimeSpanForRefresh() => _minimumTimeSpanForRefresh = _updateCheckSettings.Store.UpdateCheckFrequency switch
+    public void UpdateMinimumTimeSpanForRefresh() => _minimumTimeSpanForRefresh = _updateCheckSettings.Store.UpdateCheckFrequency switch
     {
-        UpdateCheckFrequency.PerHour => new(hours: 1, minutes: 0, seconds: 0),
-        UpdateCheckFrequency.PerThreeHours => new(hours: 3, minutes: 0, seconds: 0),
-        UpdateCheckFrequency.PerTwelveHours => new(hours: 2, minutes: 0, seconds: 0),
-        UpdateCheckFrequency.PerDay => new(days: 1, hours: 0, minutes: 0, seconds: 0),
-        UpdateCheckFrequency.PerWeek => new(days: 7, hours: 0, minutes: 0, seconds: 0),
-        UpdateCheckFrequency.PerMonth => new(days: 30, hours: 0, minutes: 0, seconds: 0),
+        UpdateCheckFrequency.PerHour => TimeSpan.FromHours(1),
+        UpdateCheckFrequency.PerThreeHours => TimeSpan.FromHours(3),
+        UpdateCheckFrequency.PerTwelveHours => TimeSpan.FromHours(13),
+        UpdateCheckFrequency.PerDay => TimeSpan.FromDays(1),
+        UpdateCheckFrequency.PerWeek => TimeSpan.FromDays(7),
+        UpdateCheckFrequency.PerMonth => TimeSpan.FromDays(30),
         _ => throw new ArgumentException(nameof(_updateCheckSettings.Store.UpdateCheckFrequency))
     };
 }
