@@ -10,7 +10,7 @@
 		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="8.0.0" />
+		<PackageReference Include="Autofac" Version="8.1.1" />
 		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
 		<PackageReference Include="CoordinateSharp" Version="2.24.2.1" />
 		<PackageReference Include="ManagedNativeWifi" Version="2.6.0" />
