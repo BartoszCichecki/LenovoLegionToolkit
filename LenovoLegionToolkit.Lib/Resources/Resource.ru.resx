@@ -478,22 +478,4 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Пресет 4</value>
   </data>
-  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>Раз в день</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>Раз в час</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>Раз в месяц</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>Раз в 3 часа</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>Раз в 12 часов</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>Раз в неделю</value>
-  </data>
 </root>
