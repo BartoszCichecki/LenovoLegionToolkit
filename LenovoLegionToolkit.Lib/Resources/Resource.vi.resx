@@ -478,22 +478,4 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Thiết lập 4</value>
   </data>
-  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>Hằng ngày</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>Hằng giờ</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>Hằng tháng</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>Mỗi 3 giờ</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>Mỗi 12 giờ</value>
-  </data>
-  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>Hằng tuần</value>
-  </data>
 </root>
