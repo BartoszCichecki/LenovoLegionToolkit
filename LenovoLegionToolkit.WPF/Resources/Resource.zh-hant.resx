@@ -910,7 +910,7 @@
     <value>下載完成</value>
   </data>
   <data name="PackageControl_GeneralError_Title" xml:space="preserve">
-    <value>發生了億些錯誤</value>
+    <value>發生了一些錯誤</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
     <value>伺服器返回代碼 404。</value>
@@ -922,7 +922,7 @@
     <value>檢查您的網路連接是否正常。</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
-    <value>發生了億些錯誤</value>
+    <value>發生了一些錯誤</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>已有可供使用的更新！</value>
@@ -941,7 +941,7 @@
     <value>檢查裝置類型和系統設定是否正確。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-    <value>發生了億些錯誤</value>
+    <value>發生了一些錯誤</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
     <value>變更排序、篩選結果、隱藏套件或重新整理列表將停止下載。您確定嗎？</value>
@@ -2186,5 +2186,44 @@
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage 與（或）ImController 正在背景執行。</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>檢查</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>正在檢查更新⋯⋯</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>檢查更新</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>已達到 API 訪問頻率上限，請稍後再試。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>無法檢查更新。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>發生錯誤，請稍後再試一次。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>沒有找到更新</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>自動檢查更新</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>沒有找到更新目錄</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>嘗試從其他資源獲得更新</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>發生了一些錯誤</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>檢查您的網路連接是否正常。</value>
   </data>
 </root>
