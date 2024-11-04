@@ -479,21 +479,21 @@
     <value>Predefinido 4</value>
   </data>
   <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>Una vez al día</value>
+    <value>Diariamente</value>
   </data>
   <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>Una vez cada hora</value>
+    <value>Cada hora</value>
   </data>
   <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>Una vez al mes</value>
+    <value>Mensualmente</value>
   </data>
   <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>Una vez cada 3 horas</value>
+    <value>Cada 3 horas</value>
   </data>
   <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>Una vez cada 12 horas</value>
+    <value>Cada 12 horas</value>
   </data>
   <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>Una vez a la semana</value>
+    <value>Semanalmente</value>
   </data>
 </root>

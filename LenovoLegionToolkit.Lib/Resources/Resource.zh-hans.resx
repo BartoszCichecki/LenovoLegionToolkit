@@ -479,21 +479,21 @@
     <value>预设 4</value>
   </data>
   <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>每日一次</value>
+    <value>每日</value>
   </data>
   <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>每小时一次</value>
+    <value>每小时</value>
   </data>
   <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>每月一次</value>
+    <value>每月</value>
   </data>
   <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>每三小时一次</value>
+    <value>每三小时</value>
   </data>
   <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>每十二小时一次</value>
+    <value>每十二小时</value>
   </data>
   <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>每周一次</value>
+    <value>每周</value>
   </data>
 </root>

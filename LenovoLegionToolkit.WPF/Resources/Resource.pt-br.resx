@@ -2190,18 +2190,11 @@ Requer reinicialização.</value>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Verificar</value>
   </data>
-  <data name="SettingsPage_CheckUpdates_Message" xml:space="preserve">
-    <value>Verifique a versão mais recente do LLT.
-NOTA: a verificação de atualização tem um limite de taxa de API, por favor, não verifique as atualizações com muita frequência.</value>
-  </data>
-  <data name="SettingsPage_CheckUpdates_Started_Message" xml:space="preserve">
-    <value>A verificação de atualizações foi iniciada com sucesso.</value>
-  </data>
   <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
-    <value>Iniciado</value>
+    <value>Verificando atualizações...</value>
   </data>
   <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
-    <value>Verificar atualizações</value>
+    <value>Checar atualizações</value>
   </data>
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Atualizar</value>
@@ -2210,21 +2203,27 @@ NOTA: a verificação de atualização tem um limite de taxa de API, por favor, 
     <value>Limite de taxa de API atingido, por favor, tente novamente mais tarde.</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
-    <value>Falha ao verificar atualizações</value>
+    <value>Não foi possível verificar se há atualizações</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
-    <value>Ocorreu um erro. Por favor, tente novamente mais tarde.</value>
-  </data>
-  <data name="MainWindow_CheckForUpdates_NoUpdates_Message" xml:space="preserve">
-    <value>Nenhuma nova atualização foi encontrada.</value>
+    <value>Algo deu errado, tente novamente mais tarde.</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
-    <value>Falha ao verificar atualizações</value>
-  </data>
-  <data name="SettingsPage_UpdateCheckFrequency_Message" xml:space="preserve">
-    <value>A frequência que o LLT verifica suas atualizações.</value>
+    <value>Nenhuma atualização encontrada</value>
   </data>
   <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
-    <value>Frequência de verificação de atualizações</value>
+    <value>Verificar atualizações automaticamente</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>Catálogo de atualizações não encontrado</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>Tente obter atualizações da outra fonte.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>Alguma coisa deu errado</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>Verifique se sua conexão com a internet está em ok.</value>
   </data>
 </root>

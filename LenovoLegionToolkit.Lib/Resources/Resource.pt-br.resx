@@ -479,21 +479,21 @@
     <value>Perfil 4</value>
   </data>
   <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
-    <value>Uma vez por dia</value>
+    <value>Diariamente</value>
   </data>
   <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
-    <value>Uma vez por hora</value>
+    <value>A cada hora</value>
   </data>
   <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
-    <value>Uma vez por mês</value>
+    <value>Mensalmente</value>
   </data>
   <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
-    <value>Uma vez a cada 3 horas</value>
+    <value>A cada 3 horas</value>
   </data>
   <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
-    <value>Uma vez a cada 12 horas</value>
+    <value>A cada 12 horas</value>
   </data>
   <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
-    <value>Uma vez por semana</value>
+    <value>Semanalmente</value>
   </data>
 </root>
