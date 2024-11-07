@@ -127,10 +127,10 @@
     <value>Вимкнено</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>Увімкнено, завжди</value>
+    <value>Завжди</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Увімкнено під час сну</value>
+    <value>Під час сну</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Вимкнено</value>
@@ -477,5 +477,23 @@
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Шаблон 4</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>Щоденно</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>Щогодини</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>Щомісяця</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>Що 3 години</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>Що 12 годин</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>Щотижня</value>
   </data>
 </root>
