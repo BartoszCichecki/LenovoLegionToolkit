@@ -127,10 +127,10 @@
     <value>Вимкнено</value>
   </data>
   <data name="AlwaysOnUSBState_OnAlways" xml:space="preserve">
-    <value>Увімкнено, завжди</value>
+    <value>Завжди</value>
   </data>
   <data name="AlwaysOnUSBState_OnWhenSleeping" xml:space="preserve">
-    <value>Увімкнено під час сну</value>
+    <value>Під час сну</value>
   </data>
   <data name="AutorunState_Disabled" xml:space="preserve">
     <value>Вимкнено</value>
