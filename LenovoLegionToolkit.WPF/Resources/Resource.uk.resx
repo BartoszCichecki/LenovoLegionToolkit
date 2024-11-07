@@ -161,7 +161,7 @@
     <value>Заряджати USB-пристрої, коли комп'ютер вимкнений або у режимі сну та режимі гібернації.</value>
   </data>
   <data name="AlwaysOnUsbAutomationStepControl_Title" xml:space="preserve">
-    <value>Завжди умімкнені USB</value>
+    <value>Завжди увімкнені USB</value>
   </data>
   <data name="AppName" xml:space="preserve">
     <value>Lenovo Legion Toolkit</value>
