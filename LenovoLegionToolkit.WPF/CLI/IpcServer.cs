@@ -263,7 +263,7 @@ public class IpcServer(
 
     private async Task<string> GetRGBPresetAsync()
     {
-        if (!await spectrumKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
+        if (!await rgbKeyboardBacklightController.IsSupportedAsync().ConfigureAwait(false))
             throw new InvalidOperationException("RGB is not supported");
 
         var state = await rgbKeyboardBacklightController.GetStateAsync().ConfigureAwait(false);
