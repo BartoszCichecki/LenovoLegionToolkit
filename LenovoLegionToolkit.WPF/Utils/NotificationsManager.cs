@@ -248,7 +248,7 @@ public class NotificationsManager
         {
             foreach (var screen in ScreenHelper.Screens)
             {
-                var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, screen.WorkArea, _settings.Store.NotificationPosition) { Owner = mainWindow };
+                var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, screen, _settings.Store.NotificationPosition) { Owner = mainWindow };
                 nw.Show(_settings.Store.NotificationDuration switch
                 {
                     NotificationDuration.Short => 500,
@@ -261,7 +261,7 @@ public class NotificationsManager
         }
         else
         {
-            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, ScreenHelper.PrimaryScreen.WorkArea, _settings.Store.NotificationPosition) { Owner = mainWindow };
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, ScreenHelper.PrimaryScreen, _settings.Store.NotificationPosition) { Owner = mainWindow };
             nw.Show(_settings.Store.NotificationDuration switch
             {
                 NotificationDuration.Short => 500,

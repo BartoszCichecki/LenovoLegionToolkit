@@ -201,3 +201,5 @@ WlanCloseHandle
 WlanRegisterNotification
 
 MONITORINFOF_PRIMARY
+
+SetWindowPos
