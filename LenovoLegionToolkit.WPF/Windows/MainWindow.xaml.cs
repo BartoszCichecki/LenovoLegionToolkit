@@ -230,25 +230,43 @@ public partial class MainWindow
         });
     }
 
-    private void CheckForUpdates()
+    public void CheckForUpdates(bool manualCheck = false)
     {
-        Task.Run(_updateChecker.CheckAsync)
-            .ContinueWith(updatesAvailable =>
+        Task.Run(() => _updateChecker.CheckAsync(manualCheck))
+            .ContinueWith(async updatesAvailable =>
             {
                 var result = updatesAvailable.Result;
                 if (result is null)
                 {
                     _updateIndicator.Visibility = Visibility.Collapsed;
-                    return;
+
+                    if (manualCheck && WindowState != WindowState.Minimized)
+                    {
+                        switch (_updateChecker.Status)
+                        {
+                            case UpdateCheckStatus.Success:
+                                await SnackbarHelper.ShowAsync(Resource.MainWindow_CheckForUpdates_Success_Title);
+                                break;
+                            case UpdateCheckStatus.RateLimitReached:
+                                await SnackbarHelper.ShowAsync(Resource.MainWindow_CheckForUpdates_Error_Title, Resource.MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message, SnackbarType.Error);
+                                break;
+                            case UpdateCheckStatus.Error:
+                                await SnackbarHelper.ShowAsync(Resource.MainWindow_CheckForUpdates_Error_Title, Resource.MainWindow_CheckForUpdates_Error_Unknown_Message, SnackbarType.Error);
+                                break;
+                        }
+                    }
                 }
+                else
+                {
+                    var versionNumber = result.ToString(3);
 
-                var versionNumber = result.ToString(3);
+                    _updateIndicatorText.Text =
+                        string.Format(Resource.MainWindow_UpdateAvailableWithVersion, versionNumber);
+                    _updateIndicator.Visibility = Visibility.Visible;
 
-                _updateIndicatorText.Text = string.Format(Resource.MainWindow_UpdateAvailableWithVersion, versionNumber);
-                _updateIndicator.Visibility = Visibility.Visible;
-
-                if (WindowState == WindowState.Minimized)
-                    MessagingCenter.Publish(new NotificationMessage(NotificationType.UpdateAvailable, versionNumber));
+                    if (WindowState == WindowState.Minimized)
+                        MessagingCenter.Publish(new NotificationMessage(NotificationType.UpdateAvailable, versionNumber));
+                }
             }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 

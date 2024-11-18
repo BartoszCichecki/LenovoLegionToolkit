@@ -610,6 +610,29 @@ public enum TouchpadLockState
     On
 }
 
+public enum UpdateCheckFrequency
+{
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerHour")]
+    PerHour,
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerThreeHours")]
+    PerThreeHours,
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerTwelveHours")]
+    PerTwelveHours,
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerDay")]
+    PerDay,
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerWeek")]
+    PerWeek,
+    [Display(ResourceType = typeof(Resource), Name = "UpdateCheckFrequency_PerMonth")]
+    PerMonth
+}
+
+public enum UpdateCheckStatus
+{
+    Success,
+    RateLimitReached,
+    Error
+}
+
 public enum WhiteKeyboardBacklightState
 {
     [Display(ResourceType = typeof(Resource), Name = "WhiteKeyboardBacklightState_Off")]

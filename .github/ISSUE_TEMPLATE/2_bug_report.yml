@@ -5,17 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report. The more information you provide, the easier it will be for me to fix it!
-  - type: checkboxes
-    id: rules
-    attributes:
-      label: Rules
-      options:
-        - label: I made myself familiar with the README.
-        - label: I checked closed issues for similar ones and did not find a similar problem mentioned before.
-        - label: I understand that, if insufficient information was provided, my issue will be closed without an answer.
-    validations:
-      required: true
+        > [!IMPORTANT]
+        > Before you start, read [the rules](https://github.com/BartoszCichecki/LenovoLegionToolkit/blob/master/CONTRIBUTING.md) for contributing.
+  
   - type: input
     id: version
     attributes:
@@ -49,11 +41,19 @@ body:
     validations:
       required: true
   - type: textarea
-    id: description
+    id: troubleshoot
     attributes:
-      label: What's wrong?
+      label: What is wrong?
       description: Provide detailed description of what is wrong or does not work as expected.
       placeholder: Provide detailed description of what is wrong or does not work as expected.
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What did you try already?
+      description: Provide detailed description of how did you troubleshoot the issue and what have you tried already.
+      placeholder: Provide detailed description of how did you troubleshoot the issue and what have you tried already.
     validations:
       required: true
   - type: textarea

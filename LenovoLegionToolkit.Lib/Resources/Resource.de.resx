@@ -467,15 +467,15 @@
     <value>Stummschaltung aufheben</value>
   </data>
   <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
-	  <value>Deaktiviert</value>
+    <value>Deaktiviert</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
-	  <value>Windows Leistungsmodus</value>
+    <value>Windows Leistungsmodus</value>
   </data>
   <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
-	  <value>Windows Energiesparplan</value>
+    <value>Windows Energiesparplan</value>
   </data>
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
-	  <value>Vorlage 4</value>
+    <value>Vorlage 4</value>
   </data>
 </root>

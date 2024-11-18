@@ -2188,4 +2188,13 @@ Unterstützte Formate sind: {1}.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage und/oder ImController wird im Hintergrund ausgeführt.</value>
   </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Überprüfe</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>API-Ratenlimit erreicht, bitte versuchen Sie es später noch einmal.</value>
+  </data>
 </root>

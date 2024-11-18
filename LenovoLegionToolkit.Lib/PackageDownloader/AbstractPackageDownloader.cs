@@ -74,18 +74,6 @@ public abstract class AbstractPackageDownloader(HttpClientFactory httpClientFact
         throw new InvalidDataException("File checksum mismatch");
     }
 
-    protected static async Task<string?> GetReadmeAsync(HttpClient httpClient, string location, CancellationToken token)
-    {
-        try
-        {
-            return await httpClient.GetStringAsync(location, token).ConfigureAwait(false);
-        }
-        catch
-        {
-            return null;
-        }
-    }
-
     private static string SanitizeFileName(string name)
     {
         var invalidChars = Regex.Escape(new string(Path.GetInvalidFileNameChars()));

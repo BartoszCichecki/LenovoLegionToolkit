@@ -859,6 +859,18 @@ public readonly struct Update(Release release)
         .Where(ra => ra.Name.EndsWith("setup.exe", StringComparison.InvariantCultureIgnoreCase))
         .Select(ra => ra.BrowserDownloadUrl)
         .FirstOrDefault();
+
+    #region Equality
+
+    public override bool Equals(object? obj) => obj is Update other && Version.Equals(other.Version);
+
+    public override int GetHashCode() => Version.GetHashCode();
+
+    public static bool operator ==(Update left, Update right) => left.Equals(right);
+
+    public static bool operator !=(Update left, Update right) => !left.Equals(right);
+
+    #endregion
 }
 
 public readonly struct WarrantyInfo(DateTime? start, DateTime? end, Uri? link)

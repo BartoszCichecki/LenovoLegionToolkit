@@ -136,9 +136,11 @@ public partial class PackagesPage : IProgress<float>
 
             var machineType = _machineTypeTextBox.Text.Trim();
 
-            if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 || !_osComboBox.TryGetSelectedItem(out OS os))
+            if (string.IsNullOrWhiteSpace(machineType) || machineType.Length != 4 ||
+                !_osComboBox.TryGetSelectedItem(out OS os))
             {
-                await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title, Resource.PackagesPage_DownloadFailed_Message);
+                await SnackbarHelper.ShowAsync(Resource.PackagesPage_DownloadFailed_Title,
+                    Resource.PackagesPage_DownloadFailed_Message);
                 return;
             }
 
@@ -173,6 +175,15 @@ public partial class PackagesPage : IProgress<float>
 
             Reload();
         }
+        catch (UpdateCatalogNotFoundException ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Update catalog not found.", ex);
+
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_UpdateCatalogNotFound_Title, Resource.PackagesPage_UpdateCatalogNotFound_Message, SnackbarType.Info);
+
+            errorOccurred = true;
+        }
         catch (OperationCanceledException)
         {
             errorOccurred = true;
@@ -182,7 +193,7 @@ public partial class PackagesPage : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
-            await SnackbarHelper.ShowAsync("Something went wrong", "Check if your internet connection is up and running.", SnackbarType.Error);
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_Error_Title, Resource.PackagesPage_Error_CheckInternet_Message, SnackbarType.Error);
 
             errorOccurred = true;
         }
@@ -191,7 +202,7 @@ public partial class PackagesPage : IProgress<float>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Error occurred when downloading packages.", ex);
 
-            await SnackbarHelper.ShowAsync("Something went wrong", ex.Message, SnackbarType.Error);
+            await SnackbarHelper.ShowAsync(Resource.PackagesPage_Error_Title, ex.Message, SnackbarType.Error);
 
             errorOccurred = true;
         }
