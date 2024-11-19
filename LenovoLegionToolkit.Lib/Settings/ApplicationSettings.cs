@@ -36,6 +36,7 @@ public class ApplicationSettings : AbstractSettings<ApplicationSettings.Applicat
         public bool DontShowNotifications { get; set; }
         public NotificationPosition NotificationPosition { get; set; } = NotificationPosition.BottomCenter;
         public NotificationDuration NotificationDuration { get; set; } = NotificationDuration.Normal;
+        public bool NotificationOnAllScreens { get; set; }
         public Notifications Notifications { get; set; } = new();
         public TemperatureUnit TemperatureUnit { get; set; }
         public List<RefreshRate> ExcludedRefreshRates { get; set; } = [];
