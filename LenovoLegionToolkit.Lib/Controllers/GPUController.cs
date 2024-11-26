@@ -25,6 +25,7 @@ public class GPUController
     private string? _performanceState;
 
     public event EventHandler<GPUStatus>? Refreshed;
+    public bool Started { get; private set; } = false;
 
     public bool IsSupported()
     {
@@ -72,6 +73,7 @@ public class GPUController
         _refreshCancellationTokenSource = new CancellationTokenSource();
         var token = _refreshCancellationTokenSource.Token;
         _refreshTask = Task.Run(() => RefreshLoopAsync(delay, interval, token), token);
+        Started = true;
     }
 
     public async Task StopAsync(bool waitForFinish = false)
@@ -102,6 +104,7 @@ public class GPUController
 
         _refreshCancellationTokenSource = null;
         _refreshTask = null;
+        Started = false;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Stopped");
