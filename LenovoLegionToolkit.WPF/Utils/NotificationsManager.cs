@@ -46,7 +46,7 @@ public class NotificationsManager
                 return;
             }
 
-            if (FullscreenHelper.IsAnyApplicationFullscreen())
+            if (!_settings.Store.NotificationAlwaysOnTop && FullscreenHelper.IsAnyApplicationFullscreen())
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Some application is in fullscreen.");
