@@ -159,7 +159,6 @@ public class GodModeControllerV1(
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Apply failed. [setting=gpuPowerBoost]", ex);
-                throw;
             }
         }
 
@@ -176,7 +175,6 @@ public class GodModeControllerV1(
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Apply failed. [setting=gpuConfigurableTgp]", ex);
-                throw;
             }
         }
 
@@ -193,7 +191,6 @@ public class GodModeControllerV1(
             {
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Apply failed. [setting=gpuTemperatureLimit]", ex);
-                throw;
             }
         }
 
