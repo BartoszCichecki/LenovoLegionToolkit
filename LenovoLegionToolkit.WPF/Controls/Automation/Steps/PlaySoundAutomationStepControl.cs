@@ -45,9 +45,8 @@ public class PlaySoundAutomationStepControl : AbstractAutomationStepControl<Play
         return new PlaySoundAutomationStep(_path);
     }
 
-    protected override UIElement? GetCustomControl()
+    protected override UIElement GetCustomControl()
     {
-
         _openButton.Click += (_, _) =>
         {
             var ofd = new OpenFileDialog
