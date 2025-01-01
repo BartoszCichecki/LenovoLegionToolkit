@@ -2164,17 +2164,8 @@ Requiere un reinicio.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Mostrar sólo dispositivos conectados</value>
   </data>
-  <data name="SettingsPage_CLI_Title" xml:space="preserve">
-    <value>INTERFAZ DE LÍNEA DE COMANDOS (CLI)</value>
-  </data>
   <data name="SettingsPage_CLI_Message" xml:space="preserve">
     <value>Activar la interfaz que permite el control desde la línea de comandos.</value>
-  </data>
-  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
-    <value>Añadir la INTERFAZ DE LÍNEA DE COMANDOS a la RUTA</value>
-  </data>
-  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
-    <value>Añadir la INTERFAZ DE LÍNEA DE COMANDOS a la variable de entorno RUTA.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
     <value>Temperatura</value>
