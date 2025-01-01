@@ -39,7 +39,6 @@ public partial class DeviceInformationWindow
             _warrantyLinkCardAction.IsEnabled = false;
 
             var warrantyInfo = await _warrantyChecker.GetWarrantyInfo(mi, forceRefresh);
-            _warrantyLinkCardAction.IsEnabled = false;
 
             if (!warrantyInfo.HasValue)
                 return;
@@ -47,8 +46,8 @@ public partial class DeviceInformationWindow
             _warrantyStartLabel.Text = warrantyInfo.Value.Start is not null ? warrantyInfo.Value.Start?.ToString(LocalizationHelper.ShortDateFormat) : "-";
             _warrantyEndLabel.Text = warrantyInfo.Value.End is not null ? warrantyInfo.Value.End?.ToString(LocalizationHelper.ShortDateFormat) : "-";
             _warrantyLinkCardAction.Tag = warrantyInfo.Value.Link;
-
             _warrantyLinkCardAction.IsEnabled = true;
+            _warrantyInfo.Visibility = Visibility.Visible;
         }
         catch (Exception ex)
         {
