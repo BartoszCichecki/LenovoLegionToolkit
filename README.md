@@ -529,6 +529,10 @@ When you change the Boot Logo, LLT verifies that it is in the format that is cor
 
 On some BIOS versions, toggling Fn Lock causes a brief stutter and since Smart Fn Lock is basically an automatic toggle for Fn Lock, it is also affected by this issue. Try disabling "Fool proof Fn Lock" (or similar) option in BIOS - it was reported that it fixes stutter when toggling Fn Lock.
 
+#### Why don't I see warranty infos in device information?
+
+In latest version LLT removes this feature for Chinese models due to increasing unreliability. If you got warranty infos before it should be displayed normally, but after manually refreshing or deleting stored datas the infos will disappear. This change only affects users with a Chinese Legion laptop.
+
 #### Which generation is my laptop?
 
 Check the model number. Example model numbers are `16ACH6H` or `16IAX7`. The last number of the model number indicates generation.
