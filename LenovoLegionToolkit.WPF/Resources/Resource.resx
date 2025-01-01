@@ -2227,4 +2227,10 @@ Supported formats are: {1}.</value>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>Check if your internet connection is up and running.</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Play sound</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Common music formats like wav or mp3 are supported.</value>
+  </data>
 </root>

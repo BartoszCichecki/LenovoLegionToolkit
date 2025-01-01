@@ -4158,6 +4158,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Common music formats like wav or mp3 are supported..
+        /// </summary>
+        public static string PlaySoundAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("PlaySoundAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Play sound.
+        /// </summary>
+        public static string PlaySoundAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("PlaySoundAutomationStepControl_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Turn on or off the backlight of the ports on the back of the laptop..
         /// </summary>
         public static string PortsBacklightAutomationStepControl_Message {

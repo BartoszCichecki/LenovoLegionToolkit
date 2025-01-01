@@ -178,6 +178,7 @@ public partial class AutomationPage
             new OverclockDiscreteGPUAutomationStep(default),
             new OverDriveAutomationStep(default),
             new PanelLogoBacklightAutomationStep(default),
+            new PlaySoundAutomationStep(default),
             new PortsBacklightAutomationStep(default),
             new PowerModeAutomationStep(default),
             new RefreshRateAutomationStep(default),
