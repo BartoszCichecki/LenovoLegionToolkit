@@ -7,6 +7,7 @@ namespace LenovoLegionToolkit.Lib;
 
 // ReSharper disable InconsistentNaming
 // ReSharper disable PrivateFieldCanBeConvertedToLocalVariable
+// ReSharper disable CollectionNeverQueried.Local
 
 #region Battery
 
