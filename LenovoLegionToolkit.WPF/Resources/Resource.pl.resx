@@ -1418,6 +1418,12 @@ Jeśli zdecydujesz się kontynuować, logowanie zostanie włączone automatyczni
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Podświetlenie klawiatury</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Wyłącz klawisz Windows w klawiaturze laptopa.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Blokada klawisza Windows</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Działa wyłącznie z wbudowaną klawiaturą.</value>
   </data>
@@ -2182,5 +2188,44 @@ Obsługiwane formaty obrazka: {1}.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage i/lub ImController pracuje w tle.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Sprawdź</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Sprawdzanie aktualizacji...</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Sprawdź aktualizacje</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Aktualizacja</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>Przekroczono limit żądań API, spróbuj ponownie później.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Nie udało się sprawdzić aktualizacji</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Coś poszło nie tak, spróbuj ponownie później.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Nie znaleziono żadnych aktualizacji</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Automatycznie sprawdzaj aktualizacje</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>Nie znaleziono katalogu aktualizacji</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>Spróbuj pobrać aktualizacje z innego źródła.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>Coś poszło nie tak</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>Sprawdź połączenie z Internetem.</value>
   </data>
 </root>
