@@ -5,9 +5,6 @@ using Windows.Win32.Graphics.Gdi;
 using Windows.Win32.UI.HiDpi;
 using Point = System.Drawing.Point;
 
-
-#pragma warning disable CA1416
-
 namespace LenovoLegionToolkit.WPF.Utils;
 
 public static class ScreenHelper
@@ -20,7 +17,9 @@ public static class ScreenHelper
         if (!PInvoke.GetMonitorInfo(screen, ref monitorInfo))
             return SystemParameters.WorkArea;
 
+#pragma warning disable CA1416
         if (!PInvoke.GetDpiForMonitor(screen, MONITOR_DPI_TYPE.MDT_EFFECTIVE_DPI, out var dpiX, out var dpiY).Succeeded)
+#pragma warning restore CA1416
             return SystemParameters.WorkArea;
 
         var workArea = monitorInfo.rcWork;

@@ -10,20 +10,20 @@
 		<UseWindowsForms>true</UseWindowsForms>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Autofac" Version="8.1.1" />
+		<PackageReference Include="Autofac" Version="8.2.0" />
 		<PackageReference Include="Ben.Demystifier" Version="0.4.1" />
-		<PackageReference Include="CoordinateSharp" Version="2.24.2.1" />
+		<PackageReference Include="CoordinateSharp" Version="3.1.1.1" />
 		<PackageReference Include="ManagedNativeWifi" Version="2.6.0" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
-		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Win32.SystemEvents" Version="9.0.0" />
 		<PackageReference Include="Microsoft.Windows.CsWin32" Version="0.3.106">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="NAudio.Wasapi" Version="2.2.1" />
 		<PackageReference Include="PubSub" Version="4.0.2" />
-		<PackageReference Include="System.Management" Version="8.0.0" />
-		<PackageReference Include="System.ServiceProcess.ServiceController" Version="8.0.0" />
+		<PackageReference Include="System.Management" Version="9.0.0" />
+		<PackageReference Include="System.ServiceProcess.ServiceController" Version="9.0.0" />
 		<PackageReference Include="NeoSmart.AsyncLock" Version="3.2.1" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="NvAPIWrapper.Net" Version="0.8.1.101" />

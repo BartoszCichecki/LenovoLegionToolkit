@@ -172,7 +172,7 @@ public abstract class AbstractSensorsController(GPUController gpuController) : I
     private async Task<GPUInfo> GetGPUInfoAsync()
     {
         if (gpuController.IsSupported())
-            await gpuController.StartAsync();
+            await gpuController.StartAsync().ConfigureAwait(false);
 
         if (await gpuController.GetLastKnownStateAsync().ConfigureAwait(false) is GPUState.PoweredOff or GPUState.Unknown)
             return GPUInfo.Empty;

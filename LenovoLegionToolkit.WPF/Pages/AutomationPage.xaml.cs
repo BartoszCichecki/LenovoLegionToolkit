@@ -19,8 +19,6 @@ using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
-#pragma warning disable CA2211
-
 namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class AutomationPage

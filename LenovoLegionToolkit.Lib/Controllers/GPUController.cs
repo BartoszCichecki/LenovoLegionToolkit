@@ -65,7 +65,7 @@ public class GPUController
 
     public Task StartAsync(int delay = 1_000, int interval = 5_000)
     {
-       if (IsStarted)
+        if (IsStarted)
             return Task.CompletedTask;
 
         if (Log.Instance.IsTraceEnabled)
