@@ -454,4 +454,22 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>プリセット 4</value>
   </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>毎日</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>毎時</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>毎月</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>3時間毎</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>12時間毎</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>毎週</value>
+  </data>
 </root>
