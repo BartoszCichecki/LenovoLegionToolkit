@@ -2230,4 +2230,10 @@ Requiere un reinicio.</value>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>Comprobar si funciona su conexión a internet.</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Reproducir sonido</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Se admiten formatos habituales de música como WAV o MP3.</value>
+  </data>
 </root>
