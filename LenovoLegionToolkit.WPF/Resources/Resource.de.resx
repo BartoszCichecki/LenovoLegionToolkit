@@ -2191,10 +2191,46 @@ Unterstützte Formate sind: {1}.</value>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Überprüfe</value>
   </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Nach Updates suchen...</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Nach Updates suchen</value>
+  </data>
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Update</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
     <value>API-Ratenlimit erreicht, bitte versuchen Sie es später noch einmal.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Prüfung auf Updates fehlgeschlagen</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Es ist ein Fehler aufgetreten, bitte versuchen Sie es später noch einmal.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Keine Updates gefunden</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Automatisch auf Updates prüfen</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>Update-Katalog nicht gefunden</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>Versuche Updates von der anderen Quelle zu erhalten.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>Etwas ist schiefgelaufen</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>Prüfen Sie, ob Ihre Internetverbindung funktioniert.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Ton abspielen</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Gängige Musikformate wie wav oder mp3 werden unterstützt.</value>
   </data>
 </root>
