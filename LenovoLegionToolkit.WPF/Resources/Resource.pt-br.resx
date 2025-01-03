@@ -2226,4 +2226,10 @@ Requer reinicialização.</value>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>Verifique se sua conexão com a internet está em ok.</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Reproduzir som</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Formatos de música comuns como WAV ou MP3 são suportados.</value>
+  </data>
 </root>

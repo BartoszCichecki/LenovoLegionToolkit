@@ -2164,8 +2164,17 @@ Requiere un reinicio.</value>
   <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
     <value>Mostrar sólo dispositivos conectados</value>
   </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>Interfaz de línea de comandos (CLI)</value>
+  </data>
   <data name="SettingsPage_CLI_Message" xml:space="preserve">
     <value>Activar la interfaz que permite el control desde la línea de comandos.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+    <value>Añadir la interfaz de línea de comandos a la ruta</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+    <value>Añadir la interfaz de línea de comandos a la variable de entorno ruta.</value>
   </data>
   <data name="SettingsPage_Temperature_Title" xml:space="preserve">
     <value>Temperatura</value>
@@ -2220,5 +2229,11 @@ Requiere un reinicio.</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>Comprobar si funciona su conexión a internet.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Reproducir sonido</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Se admiten formatos habituales de música como WAV o MP3.</value>
   </data>
 </root>
