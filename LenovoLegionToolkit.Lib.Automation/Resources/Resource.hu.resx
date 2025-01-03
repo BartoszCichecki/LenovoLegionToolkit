@@ -117,4 +117,114 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a töltőadapter csatlakoztatva van</value>
+  </data>
+  <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a töltőadapter nincs csatlakoztatva</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
+    <value>Alkalmazások kilövése</value>
+  </data>
+  <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
+    <value>Videókártya újraindítása</value>
+  </data>
+  <data name="Delay_Second" xml:space="preserve">
+    <value>{0} másodperc</value>
+  </data>
+  <data name="Delay_Second_Many" xml:space="preserve">
+    <value>{0} másodperc</value>
+  </data>
+  <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha alacsony teljesítményű töltőadapter van csatlakoztatva</value>
+  </data>
+  <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Indításkor</value>
+  </data>
+  <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Amikor a Teljesítmény üzemmód változik</value>
+  </data>
+  <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Alkalmazás indításakor</value>
+  </data>
+  <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Alkalmazás bezárásakor</value>
+  </data>
+  <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Megadott időben</value>
+  </data>
+  <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha külső kijelző csatlakoztatásra kerül</value>
+  </data>
+  <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha külső kijelző lecsatlakoztatásra kerül</value>
+  </data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a kijelző bekapcsol</value>
+  </data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a kijelző kikapcsol</value>
+  </data>
+  <data name="LidOpenedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Fedél felnyitva</value>
+  </data>
+  <data name="LidClosedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Fedél lehajtva</value>
+  </data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Játék bezárásánál</value>
+  </data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Játék futtatásánál</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+    <value>Amikor a felhasználó aktívvá válik</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Amikor a felhasználó inaktívvá válik</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>Videókártya kikapcsolása</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">
+    <value>Ki</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
+    <value>Be</value>
+  </data>
+  <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Amikor az Egyéni üzemmód beállításai megváltoznak</value>
+  </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Rendszeres művelet</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a WiFi csatlakoztatva van</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Ha a WiFi nincs csatlakoztatva</value>
+  </data>
+  <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Folytatásnál</value>
+  </data>
+  <data name="HDROffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Amikor a HDR kikapcsol</value>
+  </data>
+  <data name="HDROnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Amikor a HDR bekapcsol</value>
+  </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+	  <value>Ki</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+	  <value>Be</value>
+  </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Ha a készüléket leválasztották</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+	  <value>Ha a készülék csatlakoztatva van</value>
+  </data>
 </root>
