@@ -187,7 +187,7 @@
     <value>Hibrid</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Automata-hibrid</value>
+    <value>Hibrid-Automata</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Hibrid-Integrált videókártya</value>

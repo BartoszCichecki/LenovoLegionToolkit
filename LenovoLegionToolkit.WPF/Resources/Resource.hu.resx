@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_AppName" xml:space="preserve">
-    <value>Lenovo Legion eszköztár</value>
+    <value>Lenovo Legion Eszköztár</value>
   </data>
   <data name="AboutPage_Build" xml:space="preserve">
     <value>Verzió</value>
@@ -164,16 +164,16 @@
     <value>Állandó USB</value>
   </data>
   <data name="AppName" xml:space="preserve">
-    <value>Lenovo Legion eszköztár</value>
+    <value>Lenovo Legion Eszköztár</value>
   </data>
   <data name="Apply" xml:space="preserve">
-    <value>Alkamaz</value>
+    <value>Alkalmaz</value>
   </data>
   <data name="ApplyAndClose" xml:space="preserve">
     <value>Alkalmazás és bezárás</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>A Lenovo Legion eszköztárnak futnia kell az automatikus műveletek működéséhez.</value>
+    <value>A Lenovo Legion Eszköztárnak futnia kell az automatikus műveletek működéséhez.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Engedélyezés</value>
@@ -315,7 +315,7 @@ Csak az aktuális állapotnak megfelelő műveletek fognak futni.</value>
     <value>Aktuális akkumulátor töltöttség.</value>
   </data>
   <data name="BatteryPage_CurrentCapacity_Title" xml:space="preserve">
-    <value>Aktuális tölöttség</value>
+    <value>Aktuális töltöttség</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
     <value>A töltések/kisülések száma.</value>
@@ -324,7 +324,7 @@ Csak az aktuális állapotnak megfelelő műveletek fognak futni.</value>
     <value>Ciklusszám</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Message" xml:space="preserve">
-    <value>Az akkumulátor kapacitása a tervezés szerint.</value>
+    <value>Az akkumulátor tervezett kapacitása.</value>
   </data>
   <data name="BatteryPage_DesignCapacity_Title" xml:space="preserve">
     <value>Tervezési kapacitás</value>
@@ -457,7 +457,7 @@ FIGYELMEZTETÉS: Ez a művelet nem fog helyesen futni, ha a belső kijelző ki v
     <value>Eszköz</value>
   </data>
   <data name="DeviceInformationWindow_LenovoSupport" xml:space="preserve">
-    <value>Lenovo ügyfélszolgálat</value>
+    <value>Lenovo Ügyfélszolgálat</value>
   </data>
   <data name="DeviceInformationWindow_MachineType_Title" xml:space="preserve">
     <value>Számítógép típusa</value>
@@ -917,7 +917,7 @@ Engedélyezze ezt az opciót, ha konfliktusok vannak a teljes képernyős alkalm
     <value>A szerver 404-es kódot küldött vissza.</value>
   </data>
   <data name="PackageControl_Http404Error_Title" xml:space="preserve">
-    <value>Úgy tűnik, a fájl eltűnt</value>
+    <value>Úgy tűnik a fájl eltűnt</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
     <value>Ellenőrizze, hogy az internetkapcsolata működik-e.</value>
@@ -1828,16 +1828,16 @@ FIGYELMEZTETÉS: Ez a művelet nem fog megfelelően futni, ha nem áll rendelkez
 Ha a dGPU egyáltalán nem reagál, kérjük, indítsa újra a laptopját.</value>
   </data>
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
-    <value>a dGPU jelenleg használatban van</value>
+    <value>A dGPU jelenleg használatban van</value>
   </data>
   <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
-    <value>a dGPU automatikusan kikapcsol, ha nincs használatban.</value>
+    <value>A dGPU automatikusan kikapcsol, ha nincs használatban.</value>
   </data>
   <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
-    <value>a dGPU jelenleg használatban van, vagy a laptop nem akkumulátorról működik</value>
+    <value>A dGPU jelenleg használatban van, vagy a laptop nem akkumulátorról működik</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-    <value>a dGPU automatikusan kikapcsol, ha nincs használatban, és a laptop akkumulátorral működik.</value>
+    <value>A dGPU automatikusan kikapcsol, ha nincs használatban, és a laptop akkumulátorral működik.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>Az Egyéni mód beállításai nem lesznek megfelelően alkalmazva, ha a Lenovo Vantage vagy annak szolgáltatásai futnak.</value>
@@ -1966,10 +1966,10 @@ A támogatott formátumok a következők: {1}.</value>
     <value>Az testreszabott boot logó beállításra került.</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
-    <value>Hálózati név (SSID)</value>
+    <value>Hálózat neve (SSID)</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
-    <value>Jelenlegi hálózati név másolása</value>
+    <value>Jelenlegi hálózat nevének másolása</value>
   </data>
   <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
     <value>Hagyja üresen bármilyen Wi-Fi hálózat esetén.</value>
@@ -2021,7 +2021,7 @@ A támogatott formátumok a következők: {1}.</value>
     <value>„Akkumulátoron ennyi ideje” visszaállítása indításkor</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Wifi kikapcsolása</value>
+    <value>Wi-Fi kikapcsolása</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
     <value>Wi-Fi bekapcsolása</value>
