@@ -2226,4 +2226,10 @@
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>檢查您的網路連線是否正常。</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>播放聲音</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>支援像 wav 或 mp3 等音訊格式。</value>
+  </data>
 </root>
