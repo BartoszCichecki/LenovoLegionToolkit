@@ -1840,6 +1840,12 @@ Se dGPU não estiver a responder, reinicie o seu laptop.</value>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>dGPU desconectará automaticamente quando não estiver em uso e o laptop estiver com bateria.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Configurações de Modo Personalizado não serão aplicadas de modo correto quando o Lenovo Vantage ou os seus serviços estiverem a ser executados.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Configurações de Modo Personalizado não serão aplicados corretamente quando o Legion Zone ou os seus serviços estiverem a ser executados.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU conectado</value>
   </data>
