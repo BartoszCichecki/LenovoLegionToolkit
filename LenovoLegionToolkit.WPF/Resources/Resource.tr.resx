@@ -1834,6 +1834,12 @@ GPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlat
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>dGPU kullanılmadığında ve dizüstü pil gücünde çalıştığında otomatik olarak kapanacaktır.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Özel Mod ayarları, Lenovo Vantage veya hizmetleri çalışırken doğru şekilde uygulanmayacaktır.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Legion Zone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU bağlı</value>
   </data>
