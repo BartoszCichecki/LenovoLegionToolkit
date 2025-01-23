@@ -1839,6 +1839,12 @@ Ha a dGPU egyáltalán nem reagál, kérjük, indítsa újra a laptopját.</valu
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>A dGPU automatikusan kikapcsol, ha nincs használatban, és a laptop akkumulátorral működik.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Az Egyéni mód beállításai nem lesznek megfelelően alkalmazva, ha a Lenovo Vantage vagy annak szolgáltatásai futnak.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Az Egyéni mód beállításai nem lesznek megfelelően alkalmazva, ha a Legion Zone vagy annak szolgáltatásai futnak.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU csatlakoztatva</value>
   </data>
