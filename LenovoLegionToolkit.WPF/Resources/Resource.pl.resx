@@ -1840,6 +1840,12 @@ Jeśli dedykowana karta graficzna nie odpowiada, uruchom laptop ponownie.</value
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>Dedykowana karta graficzna odłączy się automatycznie, jeśli nie będzie używana oraz gdy laptop jest na zasilaniu bateryjnym.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Ustawienia trybu własnego mogą nie zostać zastosowane prawidłowo, jeśli Lenovo Vantage lub jego usługi pracują w tle.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Ustawienia trybu własnego mogą nie zostać zastosowane prawidłowo, jeśli Legion Zone lub jego usługi pracują w tle.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Dedykowana karta graficzna podłączona</value>
   </data>
