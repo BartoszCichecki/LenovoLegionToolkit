@@ -1844,7 +1844,7 @@ WAARSCHUWING: Deze actie zal niet correct uitgevoerd worden als de externe video
     <value>De instellingen van de aangepaste modus wordt niet correct toegepast als Lenovo Vantage of diens services actief zijn.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als LegionZone of diens services actief zijn.</value>
+    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als Legion Zone of diens services actief zijn.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU verbonden</value>

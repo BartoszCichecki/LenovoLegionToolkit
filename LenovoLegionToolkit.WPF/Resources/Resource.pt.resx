@@ -1844,7 +1844,7 @@ Se dGPU não estiver a responder, reinicie o seu laptop.</value>
     <value>Configurações de Modo Personalizado não serão aplicadas de modo correto quando o Lenovo Vantage ou os seus serviços estiverem a ser executados.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Configurações de Modo Personalizado não serão aplicados corretamente quando o LegionZone ou os seus serviços estiverem a ser executados.</value>
+    <value>Configurações de Modo Personalizado não serão aplicados corretamente quando o Legion Zone ou os seus serviços estiverem a ser executados.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU conectado</value>

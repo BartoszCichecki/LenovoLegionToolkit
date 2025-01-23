@@ -1844,7 +1844,7 @@ Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy 
     <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi LegionZone hoặc các dịch vụ của nó đang chạy.</value>
+    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Legion Zone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Đã kết nối với GPU rời</value>

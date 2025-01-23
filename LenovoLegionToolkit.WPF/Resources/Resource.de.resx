@@ -1843,7 +1843,7 @@ Wenn die dGPU überhaupt nicht reagiert, starten Sie bitte Ihren Laptop neu.</va
     <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn Lenovo Vantage oder dessen Dienste ausgeführt werden.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn LegionZone oder dessen Dienste ausgeführt werden.</value>
+    <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn Legion Zone oder dessen Dienste ausgeführt werden.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU verbunden</value>

@@ -1844,7 +1844,7 @@
     <value>Параметры пользовательского режима будут неправильно применены, если запущен Lenovo Vantage или его службы.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Параметры пользовательского режима будут неправильно применены, если запущен LegionZone или его службы.</value>
+    <value>Параметры пользовательского режима будут неправильно применены, если запущен Legion Zone или его службы.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Графический процессор подключен</value>
