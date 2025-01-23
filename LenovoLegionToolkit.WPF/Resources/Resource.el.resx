@@ -198,7 +198,7 @@
     <value>Δεν έχουν οριστεί Γρήγορες Ενέργειες. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα Γρήγορη Ενέργεια.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>Οι γρήγορες ενέργειες είναι διαθέσιμες στο μενού του δεξί κλικ στου εικονίδιο της γραμμής εικονιδίων.</value>
+    <value>Οι γρήγορες ενέργειες είναι διαθέσιμες στο μενού του δεξί κλικ στου εικονίδιο του δίσκου εικονιδίων.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
     <value>Γρήγορες Ενέργειες</value>
@@ -285,7 +285,7 @@
     <value>Ενεργοποίηση Μηχανής AI</value>
   </data>
   <data name="BalanceModeSettingsWindow_Title" xml:space="preserve">
-    <value>Ρυθμίσεις Κατάσταση Εξισορρόπησης</value>
+    <value>Ρυθμίσεις Ισορροπημένης Κατάστασης</value>
   </data>
   <data name="BatteryAutomationStepControl_Message" xml:space="preserve">
     <value>Επιλέξτε τον τρόπο φόρτισης της μπαταρίας.</value>
@@ -318,7 +318,7 @@
     <value>Τρέχουσα μέγιστη χωρητικότητα</value>
   </data>
   <data name="BatteryPage_CycleCount_Message" xml:space="preserve">
-    <value>Αριθμός κύκλων φόρτισης/εκφόρτισης.</value>
+    <value>Αριθμός κύκλων φόρτισης/αποφόρτισης.</value>
   </data>
   <data name="BatteryPage_CycleCount_Title" xml:space="preserve">
     <value>Κύκλοι φόρτισης</value>
@@ -364,7 +364,7 @@
   </data>
   <data name="BatteryPage_OnBatterySince_Message" xml:space="preserve">
     <value>Χρόνος από την τελευταία φορά που ο υπολογιστής φόρτιζε.
-Αυτή η ώρα μπορεί να μην είναι ανακριβής εάν ο υπολογιστής φόρτιζε ενώ ήταν σε αδράνεια.</value>
+Αυτός ο χρόνος μπορεί να μην είναι ακριβής εάν ο υπολογιστής φόρτιζε ενώ ήταν σε αδράνεια.</value>
   </data>
   <data name="BatteryPage_OnBatterySince_Title" xml:space="preserve">
     <value>Λειτουργία με την μπαταρία από</value>
@@ -544,8 +544,11 @@
   <data name="Edit" xml:space="preserve">
     <value>Επεξεργασία</value>
   </data>
+  <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
+    <value>Καταργήστε επιλογές ρυθμού ανανέωσης που δε θέλετε να χρησιμοποιήσετε μέσω της συντόμευσης Fn+R.</value>
+  </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
-    <value>Βεβαιωθείτε ότι η οθόνη του υπολογιστή είναι ενεργοποιημένη. Το Lenovo Legion Toolkit δεν μπορεί να του φορτώσει ρυθμούς ανανέωσης αν η οθόνη είναι απενεργοποιημένη.</value>
+    <value>Βεβαιωθείτε ότι η οθόνη του υπολογιστή είναι ενεργοποιημένη. Το Lenovo Legion Toolkit δεν μπορεί να φορτώσει ρυθμούς ανανέωσης σε απενεργοποιημένη οθόνη.</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Title" xml:space="preserve">
     <value>Δεν βρέθηκαν ρυθμοί ανανέωσης</value>
@@ -572,7 +575,7 @@
     <value>Χρήση μόνο της διακριτής GPU. Αυτή η λειτουργία παρέχει την καλύτερη απόδοση γραφικών, αλλά αυξάνει την κατανάλωση ενέργειας.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_DGPU_Title" xml:space="preserve">
-    <value>Κατάσταση dGPU</value>
+    <value>Λειτουργία dGPU</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Hybrid_Message" xml:space="preserve">
     <value>Τόσο η ενσωματωμένη όσο και η διακριτή GPU είναι ενεργοποιημένες. Το σύστημα θα εναλλάσσεται αυτόματα μεταξύ τους ανάλογα με τις ανάγκες του.</value>
@@ -587,7 +590,7 @@
     <value>Χρήση μόνο της ενσωματωμένης GPU. Αυτή η λειτουργία ελαχιστοποιεί την κατανάλωση ενέργειας και τον θόρυβο.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Title" xml:space="preserve">
-    <value>Κατάσταση Υβριδική-iGPU Μόνο</value>
+    <value>Λειτουργία Υβριδική-iGPU Μόνο</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Title" xml:space="preserve">
     <value>Σχετικά με τις καταστάσεις λειτουργίας GPU</value>
@@ -606,6 +609,12 @@
   </data>
   <data name="FanCurveControl_GPU" xml:space="preserve">
     <value>GPU</value>
+  </data>
+  <data name="FanCurveControl_GPU2" xml:space="preserve">
+    <value>GPU #2</value>
+  </data>
+  <data name="RPM" xml:space="preserve">
+    <value>σ.α.λ.</value>
   </data>
   <data name="FlipToStartAutomationStepControl_Message" xml:space="preserve">
     <value>Ενεργοποιήστε τον υπολογιστή όταν σηκώνετε την οθόνη.</value>
@@ -631,6 +640,20 @@
   <data name="FnLockControl_Title" xml:space="preserve">
     <value>Κλείδωμα Fn</value>
   </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Message" xml:space="preserve">
+    <value>ΠΡΟΕΙΔΟΠΟΙΗΣΗ:
+Μερικοί υπολογιστές μπορεί να αποδέχονται χαμηλότερες τιμές από αυτές που υποδεικνύουν, αλλά να είστε προσεκτικοί. Αυτή η επιλογή μπορεί να οδηγήσει σε απρόβλεπτη συμπεριφορά. Αν δεν είστε βέβαιοι για το τι κάνετε, αφήστε τη στο 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MinOffset_Title" xml:space="preserve">
+    <value>Ελάχιστο αντιστάθμισμα</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Message" xml:space="preserve">
+    <value>ΠΡΟΕΙΔΟΠΟΙΗΣΗ:
+Μερικοί υπολογιστές μπορεί να αποδέχονται υψηλότερες τιμές από αυτές που υποδεικνύουν, αλλά να είστε προσεκτικοί. Αυτή η επιλογή μπορεί να οδηγήσει σε απρόβλεπτη συμπεριφορά. Αν δεν είστε βέβαιοι για το τι κάνετε, αφήστε τη στο 0.</value>
+  </data>
+  <data name="GodModeSettingsWindow_Advanced_MaxOffset_Title" xml:space="preserve">
+    <value>Μέγιστο αντιστάθμισμα</value>
+  </data>
   <data name="GodModeSettingsWindow_Advanced_Message" xml:space="preserve">
     <value>Μην αλλάξετε τις παρακάτω επιλογές εκτός και αν γνωρίζετε πραγματικά τι κάνετε.</value>
   </data>
@@ -638,7 +661,7 @@
     <value>Για προχωρημένους</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading" xml:space="preserve">
-    <value>Μακροπρόθεσμο Όριο Ισχύος (Διασταυρούμενη Φόρτωση)</value>
+    <value>Μακροπρόθεσμο Όριο Ισχύος (Διασταυρούμενη Επιβάρυνση)</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL" xml:space="preserve">
     <value>Μακροπρόθεσμο Όριο Ισχύος</value>
@@ -690,11 +713,22 @@
   <data name="GodModeSettingsWindow_Title" xml:space="preserve">
     <value>Ρυθμίσεις Προσαρμοσμένης Λειτουργίας</value>
   </data>
+  <data name="HDRAutomationStepControl_Message" xml:space="preserve">
+    <value>Ενεργοποίηση υψηλού δυναμικού εύρους (HDR) στην ενσωματωμένη οθόνη.
+
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά αν η ενσωματωμένη οθόνη είναι ανενεργή.</value>
+  </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
   </data>
+  <data name="HDRControl_Message" xml:space="preserve">
+    <value>Ενεργοποίηση υψηλού δυναμικού εύρους (HDR) στην ενσωματωμένη οθόνη.</value>
+  </data>
   <data name="HDRControl_Title" xml:space="preserve">
     <value>HDR</value>
+  </data>
+  <data name="HDRControl_Warning" xml:space="preserve">
+    <value>Η χρήση HDR εμποδίζεται από ρυθμίσεις των Windows.</value>
   </data>
   <data name="Import" xml:space="preserve">
     <value>Εισαγωγή</value>
@@ -710,6 +744,9 @@
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
     <value>Ο φωτισμός του πληκτρολογίου δεν μπορεί να ρυθμιστεί όταν εκτελείται το Vantage ή οι υπηρεσίες του.</value>
+  </data>
+  <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
+    <value>Το Lenovo Vantage ή οι υπηρεσίες του εκτελούνται.</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Σχετικά με</value>
@@ -739,7 +776,7 @@
     <value>Διαθέσιμη ενημέρωση!</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>{0} διαθέσιμες ενημερώσεις!</value>
+    <value>Ενημέρωση {0} διαθέσιμη!</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>Μετακίνηση κάτω</value>
@@ -754,7 +791,7 @@
     <value>Ο φορτιστής συνδέθηκε</value>
   </data>
   <data name="Notification_ACAdapterConnectedLowWattage" xml:space="preserve">
-    <value>Ο φορτιστής συνδέθηκε (Χαμηλής ισχύς)</value>
+    <value>Ο φορτιστής συνδέθηκε (Χαμηλή ισχύς)</value>
   </data>
   <data name="Notification_ACAdapterDisconnected" xml:space="preserve">
     <value>Ο φορτιστής αποσυνδέθηκε</value>
@@ -799,10 +836,10 @@
     <value>Προφίλ {0}</value>
   </data>
   <data name="Notification_TouchpadOff" xml:space="preserve">
-    <value>Επιφάνειας αφής ανενεργή</value>
+    <value>Επιφάνεια αφής ανενεργή</value>
   </data>
   <data name="Notification_TouchpadOn" xml:space="preserve">
-    <value>Επιφάνειας αφής ενεργή</value>
+    <value>Επιφάνεια αφής ενεργή</value>
   </data>
   <data name="Notification_WhiteKeyboardBacklight" xml:space="preserve">
     <value>Φωτισμός {0}</value>
@@ -930,7 +967,7 @@
     <value>Ίδιο με το Lenovo Vantage</value>
   </data>
   <data name="PackagesPage_SecondarySource" xml:space="preserve">
-    <value>Δευτερεύων</value>
+    <value>Δευτερεύουσα</value>
   </data>
   <data name="PackagesPage_SecondarySource_Message" xml:space="preserve">
     <value>Ίδιο με την Υποστήριξη Υπολογιστών Lenovo</value>
@@ -970,7 +1007,13 @@
     <value>Λειτουργία Ισχύος</value>
   </data>
   <data name="PowerModeControl_Warning" xml:space="preserve">
-    <value>Η επιλεγμένη κατάσταση τροφοδοσίας ενδέχεται να μη λειτουργεί σωστά χωρίς συνδεδεμένο φορτιστή.</value>
+    <value>Η επιλεγμένη λειτουργία ισχύος ενδέχεται να μη λειτουργεί σωστά χωρίς συνδεδεμένο φορτιστή.</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_DefaultPowerPlan" xml:space="preserve">
+    <value>Προεπιλογή</value>
+  </data>
+  <data name="WindowsPowerPlansWindow_Title" xml:space="preserve">
+    <value>Πλάνα Τροφοδοσίας Windows</value>
   </data>
   <data name="RGBKeyboardBacklightAutomationStepControl_Message" xml:space="preserve">
     <value>Προσαρμογή προεπιλογής φωτισμού πληκτρολογίου.</value>
@@ -989,6 +1032,9 @@
   </data>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Προεπιλογή 3</value>
+  </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Προεπιλογή 4</value>
   </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Ανενεργό</value>
@@ -1062,6 +1108,9 @@
   <data name="Saving" xml:space="preserve">
     <value>Αποθήκευση...</value>
   </data>
+  <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
+    <value>Επίλεξε μία ή περισσότερες γρήγορες ενέργειες για κυκλική εναλλαγή</value>
+  </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
     <value>Δεν έχουν οριστεί Γρήγορες Ενέργειες.</value>
   </data>
@@ -1087,25 +1136,38 @@
     <value>Δεν ήταν δυνατή η απενεργοποίηση του Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Message" xml:space="preserve">
-    <value>Απενεργοποιήστε το Legion Zone και τη διεργασία τους χωρίς να το απεγκαταστήσετε.
-Συνιστάται επανεκκίνηση αφού αλλάξετε αυτήν τη επιλογή.</value>
+    <value>Απενεργοποιήστε το Legion Zone και την υπηρεσία του χωρίς να το απεγκαταστήσετε.
+Συνιστάται επανεκκίνηση αφού αλλάξετε αυτήν την επιλογή.</value>
   </data>
   <data name="SettingsPage_DisableLegionZone_Title" xml:space="preserve">
     <value>Απενεργοποίηση Legion Zone</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>Τα πλήκτρα πρόσβασης της Lenovo μπορεί να μην απενεργοποιήθηκαν σωστά</value>
+    <value>Το Lenovo Hotkeys μπορεί να μην απενεργοποιήθηκε σωστά</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Δεν ήταν δυνατή η απενεργοποίηση των πλήκτρων πρόσβασης της Lenovo</value>
+    <value>Δεν ήταν δυνατή η απενεργοποίηση του Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
-    <value>Απενεργοποιήστε τα πλήκτρα πρόσβασης της Lenovo και τη διεργασία τους χωρίς να τα απεγκαταστήσετε.
-Όταν είναι απενεργοποιημένα, αυτή η εφαρμογή θα χειρίζεται τις συντομεύσεις Fn.
+    <value>Απενεργοποιήστε το Lenovo Hotkeys και την υπηρεσία του χωρίς να το απεγκαταστήσετε.
+Όταν είναι απενεργοποιημένο, αυτή η εφαρμογή θα χειρίζεται τις συντομεύσεις Fn.
 Συνιστάται επανεκκίνηση αφού αλλάξετε αυτήν την επιλογή.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
-    <value>Απενεργοποίηση των πλήκτρων πρόσβασης της Lenovo</value>
+    <value>Απενεργοποίηση του Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Το Vantage ή/και το ImController ενδέχεται να μην έχουν απενεργοποιηθεί σωστά</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Αδυναμία απενεργοποίησης του Vantage ή/και του ImController</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
+    <value>Απενεργοποίηση των Lenovo Vantage και ImController χωρίς να το απεγκαταστήσετε.
+Συνιστάται επανεκκίνηση κατόπιν αλλαγής αυτής της επιλογής.</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
+    <value>Απενεργοποίηση των Lenovo Vantage και ImController</value>
   </data>
   <data name="SettingsPage_EnableLegionZone_Error_Message" xml:space="preserve">
     <value>Το Legion Zone μπορεί να μην ενεργοποιήθηκε σωστά</value>
@@ -1114,10 +1176,16 @@
     <value>Δεν ήταν δυνατή η ενεργοποίηση του Legion Zone</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
-    <value>Τα πλήκτρα πρόσβασης της Lenovo μπορεί να μην ενεργοποιήθηκαν σωστά</value>
+    <value>Το Lenovo Hotkeys μπορεί να μην ενεργοποιήθηκε σωστά</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
-    <value>Δεν ήταν δυνατή η ενεργοποίηση των πλήκτρων πρόσβασης της Lenovo</value>
+    <value>Δεν ήταν δυνατή η ενεργοποίηση των πλήκτρων του Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Το Vantage ή/και το ImController ενδέχεται να μην έχουν ενεργοποιηθεί σωστά</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Αδυναμία ενεργοποίησης του Vantage ή/και του ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Μπορείτε να εξαιρέσετε ρυθμούς ανανέωσης, για να κάνετε τη συντόμευση Fn+R πιο χρήσιμη.</value>
@@ -1132,7 +1200,7 @@
     <value>Γλώσσα</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Message" xml:space="preserve">
-    <value>Πάντα ελαχιστοποίηση στη γραμμή εικονιδίων. Κλείστε με δεξί κλικ στο εικονίδιο της γραμμής.</value>
+    <value>Πάντα ελαχιστοποίηση στο δίσκο εικονιδίων. Κλείστε με δεξί κλικ στο εικονίδιο στο δίσκο.</value>
   </data>
   <data name="SettingsPage_MinimizeOnClose_Title" xml:space="preserve">
     <value>Ελαχιστοποίηση κατά το κλείσιμο</value>
@@ -1233,6 +1301,9 @@
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Title" xml:space="preserve">
     <value>Εφέ</value>
   </data>
+  <data name="SpectrumKeyboardBacklightEditEffectWindow_Effect_Warning" xml:space="preserve">
+    <value>Αυτό το εφέ θα εφαρμοστεί σε όλο το πληκτρολόγιο και θα αντικαταστήσει όλα τα άλλα εφέ.</value>
+  </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Speed_Title" xml:space="preserve">
     <value>Ταχύτητα</value>
   </data>
@@ -1252,13 +1323,13 @@
     <value>Όλα τα πλήκτρα</value>
   </data>
   <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
-    <value>Ζώνη {0}</value>
+    <value>{0} ζώνες</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>Ανατολή ηλίου</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunset" xml:space="preserve">
-    <value>Ηλιοβασίλεμα</value>
+    <value>Δύση ηλίου</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Time" xml:space="preserve">
     <value>Ώρα</value>
@@ -1347,6 +1418,12 @@
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Φωτισμός πληκτρολογίου</value>
   </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Απενεργοποίηση πλήκτρου Windows στο ενσωματωμένο πληκτρολόγιο.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Κλείδωμα Πλήκτρου Windows</value>
+  </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Λειτουργεί μόνο στο ενσωματωμένο πληκτρολόγιο.</value>
   </data>
@@ -1402,6 +1479,9 @@
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Φωτισμός πληκτρολογίου</value>
   </data>
+  <data name="OneLevelWhiteKeyboardBacklightControl_Message" xml:space="preserve">
+    <value>Μπορείτε να ανάψετε ή να σβήσετε τον φωτισμό πληκτρολογίου με Fn+Space.</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>Φωτισμός πληκτρολογίου</value>
   </data>
@@ -1426,11 +1506,18 @@
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>Όνομα</value>
   </data>
+  <data name="EditDashboardWindow_Disclaimer_Message" xml:space="preserve">
+    <value>Μερικές δυνατότητες ενδέχεται να μην εμφανίζονται στον Πίνακα Επισκόπησης αναλόγως της κατάστασης και της διαρρύθμισης του υπολογιστή σας.</value>
+  </data>
   <data name="DashboardPage_Customize" xml:space="preserve">
     <value>Προσαρμογή</value>
   </data>
   <data name="TurnOffMonitorsControl_Title" xml:space="preserve">
     <value>Απενεργοποίηση οθονών</value>
+  </data>
+  <data name="TurnOffMonitorsControl_Message" xml:space="preserve">
+    <value>Απενεργοποιήστε όλες τις διαθέσιμες οθόνες.
+Κινήσεις του ποντικιού ή πληκτρολογήσεις θα ξυπνήσουν τις οθόνες.</value>
   </data>
   <data name="TurnOffMonitorsControl_TurnOff" xml:space="preserve">
     <value>Απενεργοποίηση</value>
@@ -1471,6 +1558,13 @@
   <data name="SaveAndClose" xml:space="preserve">
     <value>Αποθήκευση &amp; Κλείσιμο</value>
   </data>
+  <data name="GodModePresetAutomationStepControl_Title" xml:space="preserve">
+    <value>Προεπιλογή Προσαρμοσμένης Λειτουργίας</value>
+  </data>
+  <data name="GodModePresetAutomationStepControl_Message" xml:space="preserve">
+    <value>Ενεργοποίηση προεπιλογής Προσαρμοσμένης Λειτουργίας.
+Αυτή η ρύθμιση τίθεται σε ισχύ μόνο όταν η Προσαρμοσμένη Λειτουργία είναι ενεργοποιημένη.</value>
+  </data>
   <data name="GodModeSettingsWindow_EditPreset_Title" xml:space="preserve">
     <value>Όνομα προφίλ</value>
   </data>
@@ -1492,56 +1586,59 @@
   <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Title" xml:space="preserve">
     <value>Φωτεινότητα Οθόνης</value>
   </data>
+  <data name="SettingsPage_SynchronizeBrightnessToAllPowerPlans_Message" xml:space="preserve">
+    <value>Όταν ενεργοποιείται, το ίδιο επίπεδο φωτεινότητας θα εφαρμοστεί σε όλα τα πλάνα τροφοδοσίας Windows όποτε το αλλάζετε.</value>
+  </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>Η ενημέρωση {0} είναι διαθέσιμη!</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
-    <value>Όριο Μέγιστης Ισχύος</value>
+    <value>Όριο Κορυφαίας Ισχύος</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL" xml:space="preserve">
-    <value>APU sPPT Όριο Ισχύος</value>
+    <value>Όριο Ισχύος APU sPPT</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_LongTermPL_Description" xml:space="preserve">
-    <value>Η συνεχής κατανάλωση ενέργειας που μπορεί να φτάσει ο επεξεργαστής.</value>
+    <value>Η συνεχής κατανάλωση ενέργειας που μπορεί να φτάσει η CPU.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_ShortTermPL_Description" xml:space="preserve">
-    <value>Η μέγιστη κατανάλωση ενέργειας που μπορεί να φτάσει ο επεξεργαστείς μέσα σε σύντομο χρονικό διάστημα.</value>
+    <value>Η κορυφαία κατανάλωση ενέργειας που μπορεί να φτάσει η CPU μέσα σε σύντομο χρονικό διάστημα.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL_Description" xml:space="preserve">
-    <value>Η μέγιστη στιγμιαία κατανάλωση ενέργειας που μπορεί να φτάσει ο επεξεργαστής.</value>
+    <value>Η μέγιστη στιγμιαία κατανάλωση ενέργειας που μπορεί να φτάσει η CPU.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_CrossLoading_Description" xml:space="preserve">
-    <value>Η μέγιστη κατανάλωση ενέργειας που μπορεί να επιτευχθεί από τον επεξεργαστή όταν χρησιμοποιούνται πλήρως τόσο ο επεξεργαστής όσο και η κάρτα γραφικών.</value>
+    <value>Η μέγιστη κατανάλωση ισχύος που μπορεί να επιτευχθεί από τη CPU όταν χρησιμοποιούνται πλήρως τόσο η CPU όσο και η GPU.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_APUsPPT_PL_Description" xml:space="preserve">
-    <value>Η μέγιστη κατανάλωση ενέργειας που μπορεί να φτάσει ο επεξεργαστής με μικρή καθυστέρηση.</value>
+    <value>Η κορυφαία κατανάλωση ισχύος που μπορεί να φτάσει η CPU με μικρή καθυστέρηση.</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_TempLimit_Description" xml:space="preserve">
-    <value>Η μέγιστη θερμοκρασία που μπορεί να φτάσει ο επεξεργαστής πριν μειωθεί η συχνότητα και η ισχύς της.</value>
+    <value>Η μέγιστη θερμοκρασία που μπορεί να φτάσει η CPU πριν μειωθεί η συχνότητα και η ισχύς της.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_DynamicBoost_Description" xml:space="preserve">
-    <value>Η πρόσθετη μέγιστη ισχύς που μπορεί να κατανεμηθεί στην κάρτα γραφικών με βάση την κατανάλωση ενέργειας του επεξεργαστή.</value>
+    <value>Η επιπρόσθετη μέγιστη ισχύς που μπορεί να κατανεμηθεί στην GPU με βάση την κατανάλωση ισχύος της CPU.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_CTGP_Description" xml:space="preserve">
-    <value>Η πρόσθετη ποσότητα ενέργειας που μπορεί να κατανεμηθεί στην κάρτα γραφικών πέρα από τη βασική κατανάλωση ενέργειας.</value>
+    <value>Η επιπρόσθετη ποσότητα ισχύος που μπορεί να κατανεμηθεί στην GPU πέρα από τη βασική κατανάλωση ισχύος.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TempLimit_Description" xml:space="preserve">
-    <value>Η μέγιστη θερμοκρασία που μπορεί να φτάσει η κάρτα γραφικών πριν μειωθεί η συχνότητα και η ισχύς της.</value>
+    <value>Η μέγιστη θερμοκρασία που μπορεί να φτάσει η GPU πριν μειωθεί η συχνότητα και η ισχύς της.</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Προεπιλογή</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau" xml:space="preserve">
-    <value>Σύντομη Διάρκεια Ορίου Ισχύος</value>
+    <value>Διάρκεια Βραχυπρόθεσμου Ορίου Ισχύος</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PL1Tau_Description" xml:space="preserve">
-    <value>Το χρονικό διάστημα για το οποίο επιτρέπεται στον επεξεργαστή να ενεργοποιήσει το boost και να χρησιμοποιήσει το βραχυπρόθεσμο όριο ισχύος. Όταν λήξει το Tau, θα χρησιμοποιηθεί το μακροπρόθεσμο όριο ισχύος.</value>
+    <value>Το χρονικό διάστημα για το οποίο επιτρέπεται στη CPU να χρησιμοποιήσει το Βραχυπρόθεσμο Όριο Ισχύος για ώθηση. Όταν λήξει το Tau, θα χρησιμοποιηθεί το Μακροπρόθεσμο Όριο Ισχύος.</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl" xml:space="preserve">
     <value>Στόχος Συνολικής Ισχύος Επεξεργαστή Κατά Τη Φόρτιση</value>
   </data>
   <data name="GodModeSettingsWindow_GPU_TotalProcessingPowerTargetOnAcOffsetFromBaselineControl_Description" xml:space="preserve">
-    <value>Το σημείο στο οποίο η CPU ενεργοποιεί τη δυναμική προσαρμογή κατανάλωσης ενέργειας για τη GPU.</value>
+    <value>Το σημείο στο οποίο η CPU ενεργοποιεί τη δυναμική προσαρμογή κατανάλωσης ισχύος για την GPU.</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Δημιουργία</value>
@@ -1562,7 +1659,7 @@
     <value>Διακριτή GPU</value>
   </data>
   <data name="StatusTrayPopup_PowerState" xml:space="preserve">
-    <value>Κατάσταση ισχύος</value>
+    <value>Κατάσταση Ισχύος</value>
   </data>
   <data name="StatusTrayPopup_Battery" xml:space="preserve">
     <value>Μπαταρία</value>
@@ -1588,10 +1685,554 @@
   <data name="AutomationPipelineTriggerConfigurationWindow_Title" xml:space="preserve">
     <value>Ρύθμιση</value>
   </data>
+  <data name="PowerPlansWindow_AoAcWarning_Title" xml:space="preserve">
+    <value>Εντοπίστηκε Μοντέλο Χαμηλότερης Τροφοδοσίας S0</value>
+  </data>
+  <data name="PowerPlansWindow_AoAcWarning_Message" xml:space="preserve">
+    <value>Τα Windows αναφέρουν ότι αυτός ο υπολογιστής υποστηρίζει Μοντέρνα Αναμονή. Η χρήση πλάνων τροφοδοσίας εκτός του Ισορροπημένου ενδέχεται να προκαλέσει απρόοπτη συμπεριφορά.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerPlans_Message" xml:space="preserve">
+    <value>Επιλέξτε ποια Πλάνα Τροφοδοσίας Windows να εφαρμοστούν όταν αλλάζει η Λειτουργία Ισχύος.</value>
+  </data>
   <data name="SettingsPage_Power_Title" xml:space="preserve">
     <value>Ισχύς</value>
   </data>
+  <data name="SettingsPage_WindowsPowerPlansControlPanel_Title" xml:space="preserve">
+    <value>Επιλογές Πλάνου Τροφοδοσίας στον Πίνακα Ελέγχου Windows</value>
+  </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>Απενεργοποίηση</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>Εισαγωγή προφίλ φωτισμού πληκτρολογίου</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Message" xml:space="preserve">
+    <value>Εισαγωγή και εφαρμογή ρυθμίσεων φωτισμού πληκτρολογίου στο παρόν προφίλ.</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
+    <value>Διαδρομή</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_After" xml:space="preserve">
+    <value>Μετά από {0}</value>
+  </data>
+  <data name="MultipleTriggersAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Πολλαπλές ενεργοποιήσεις...</value>
+    <comment>Allows the user to merge multiple triggers for the execution of selected actions.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_Title" xml:space="preserve">
+    <value>Ρυθμίσεις Υπερχρονισμού GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_CoreFrequencyOffset_Title" xml:space="preserve">
+    <value>Αντιστάθμισμα Βασικής Συχνότητας</value>
+  </data>
+  <data name="OverclockDiscreteGPUSettingsWindow_MemoryFrequencyOffset_Title" xml:space="preserve">
+    <value>Αντιστάθμισμα Συχνότητας Μνήμης</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Title" xml:space="preserve">
+    <value>Υπερχρονισμός GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUControl_Message" xml:space="preserve">
+    <value>Αύξηση απόδοσης με υπερχρονισμό της διακριτής GPU.</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Title" xml:space="preserve">
+    <value>Υπερχρονισμός GPU</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Αύξηση απόδοσης με υπερχρονισμό της διακριτής GPU.
+
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά, αν η διακριτή GPU δεν είναι διαθέσιμη.</value>
+  </data>
+  <data name="PortsBacklightControl_Title" xml:space="preserve">
+    <value>Φωτισμός θυρών</value>
+  </data>
+  <data name="PortsBacklightControl_Message" xml:space="preserve">
+    <value>Άναμμα ή σβήσιμο των φωτεινών ενδείξεων των θυρών στην πίσω πλευρά του υπολογιστή.</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Φωτισμός θυρών</value>
+  </data>
+  <data name="PortsBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Άναμμα ή σβήσιμο των φωτεινών ενδείξεων των θυρών στην πίσω πλευρά του υπολογιστή.</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Title" xml:space="preserve">
+    <value>Φωτισμός λογότυπου καπακιού</value>
+  </data>
+  <data name="PanelLogoBacklightControl_Message" xml:space="preserve">
+    <value>Άναμμα ή σβήσιμο του φωτισμού στο καπάκι του υπολογιστή.</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Title" xml:space="preserve">
+    <value>Φωτισμός λογότυπου καπακιού</value>
+  </data>
+  <data name="PanelLogoBacklightAutomationStepControl_Message" xml:space="preserve">
+    <value>Άναμμα ή σβήσιμο του φωτισμού στο καπάκι του υπολογιστή.</value>
+  </data>
+  <data name="GHz" xml:space="preserve">
+    <value>GHz</value>
+  </data>
+  <data name="MHz" xml:space="preserve">
+    <value>MHz</value>
+  </data>
+  <data name="SensorsControl_Maximum" xml:space="preserve">
+    <value>Μέγιστο: {0}</value>
+  </data>
+  <data name="SensorsControl_CPU_Title" xml:space="preserve">
+    <value>CPU</value>
+  </data>
+  <data name="SensorsControl_Utilization_Title" xml:space="preserve">
+    <value>Χρησιμοποίηση</value>
+  </data>
+  <data name="SensorsControl_CoreClock_Title" xml:space="preserve">
+    <value>Βασικό Ρολόι</value>
+  </data>
+  <data name="SensorsControl_Temperature_Title" xml:space="preserve">
+    <value>Θερμοκρασία</value>
+  </data>
+  <data name="SensorsControl_Fan_Title" xml:space="preserve">
+    <value>Ανεμιστήρας</value>
+  </data>
+  <data name="SensorsControl_GPU_Title" xml:space="preserve">
+    <value>GPU</value>
+  </data>
+  <data name="SensorsControl_MemoryClock_Title" xml:space="preserve">
+    <value>Ρολόι Μνήμης</value>
+  </data>
+  <data name="SensorsControl_RefreshInterval" xml:space="preserve">
+    <value>Διάστημα ανανέωσης</value>
+  </data>
+  <data name="InstantBootControl_Title" xml:space="preserve">
+    <value>Στιγμιαία Εκκίνηση</value>
+  </data>
+  <data name="InstantBootControl_Message" xml:space="preserve">
+    <value>Εκκίνηση του υπολογιστή όταν συνδεθεί φορτιστής.</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Title" xml:space="preserve">
+    <value>Στιγμιαία Εκκίνηση</value>
+  </data>
+  <data name="InstantBootAutomationStepControl_Message" xml:space="preserve">
+    <value>Εκκίνηση του υπολογιστή όταν συνδεθεί φορτιστής.</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Title" xml:space="preserve">
+    <value>Αδυναμία αλλαγής Λειτουργίας Ισχύος</value>
+  </data>
+  <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
+    <value>Η λειτουργία ισχύος {0} δεν είναι διαθέσιμη χωρίς τροφοδοσία ρεύματος.</value>
+    <comment>For example: "{Performance} power mode is not available without AC power."</comment>
+  </data>
+  <data name="EditDashboardWindow_Sensors" xml:space="preserve">
+    <value>Αισθητήρες</value>
+  </data>
+  <data name="IGPUModeChangeException_Title" xml:space="preserve">
+    <value>Δεν ήταν δυνατή η αλλαγή Κατάστασης Λειτουργίας GPU</value>
+  </data>
+  <data name="IGPUModeChangeException_Message" xml:space="preserve">
+    <value>Δοκιμάστε να αλλάξετε την κατάσταση ξανά σε λίγα δευτερόλεπτα, αν δε δείτε το αναμενόμενο αποτέλεσμα.
+Αν η dGPU δεν ανταποκρίνεται καθόλου, παρακαλούμε να κάνετε επανεκκίνηση του υπολογιστή σας.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
+    <value>Η dGPU είναι απασχολημένη</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_IGPUOnly" xml:space="preserve">
+    <value>Η dGPU θα αποσυνδεθεί αυτόματα όταν δεν είναι απασχολημένη.</value>
+  </data>
+  <data name="IGPUModeChangeException_Title_Auto" xml:space="preserve">
+    <value>Η dGPU είναι απασχολημένη ή ο υπολογιστής δεν τροφοδοτείται από μπαταρία</value>
+  </data>
+  <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
+    <value>Η dGPU θα αποσυνδεθεί αυτόματα όταν δεν είναι απασχολημένη και ο υπολογιστής τροφοδοτείται από μπαταρία.</value>
+  </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Οι ρυθμίσεις της Προσαρμοσμένης Λειτουργίας δε θα εφαρμοστούν σωστά όταν εκτελείται το Vantage ή οι υπηρεσίες του.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Οι ρυθμίσεις της Προσαρμοσμένης Λειτουργίας δε θα εφαρμοστούν σωστά όταν εκτελείται το Legion Zone ή οι υπηρεσίες του.</value>
+  </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>DGPU συνδεδεμένη</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>DGPU αποσυνδεδεμένη</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Κατάσταση Λειτουργίας GPU</value>
+  </data>
+  <data name="ComboBoxHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Επιλέξτε την κατάσταση λειτουργίας της GPU με βάση τη χρήση και τις συνθήκες τροφοδοσίας του υπολογιστή σας.
+Η εναλλαγή λειτουργιών ενδέχεται να απαιτεί επανεκκίνηση.</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
+    <value>Υβριδική Λειτουργία</value>
+  </data>
+  <data name="ToggleHybridModeAutomationStepControl_Message" xml:space="preserve">
+    <value>Επιτρέπει την εναλλαγή μεταξύ ενσωματωμένης και διακριτής GPU.
+Απαιτεί επανεκκίνηση.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationDuration_Title" xml:space="preserve">
+    <value>Διάρκεια</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Updates_Title" xml:space="preserve">
+    <value>Ενημερώσεις</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl" xml:space="preserve">
+    <value>Δυναμική Ώθηση GPU προς CPU</value>
+  </data>
+  <data name="GodModeSettingsWindow_GPU_ToCpuDynamicBoostControl_Description" xml:space="preserve">
+    <value>Αυτή είναι η μέγιστη επιπρόσθετη ισχύς που μπορεί να κατανεμηθεί στη CPU από την GPU με βάση τη χρήση CPU. Όσο υψηλότερη η τιμή, τόσο καλύτερη η απόδοση εφαρμογών που χρησιμοποιούν τη CPU.</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Title" xml:space="preserve">
+    <value>Λογότυπο Εκκίνησης</value>
+  </data>
+  <data name="SettingsPage_BootLogo_Message" xml:space="preserve">
+    <value>Προσαρμογή της εικόνας του Λογότυπου Εκκίνησης, που είναι ορατή κατά την εκκίνηση του συστήματος.</value>
+  </data>
+  <data name="BootLogoWindow_Title" xml:space="preserve">
+    <value>Λογότυπο Εκκίνησης</value>
+  </data>
+  <data name="BootLogoWindow_DefaultLogoSet" xml:space="preserve">
+    <value>Το προκαθορισμένο Λογότυπο Εκκίνησης είναι ρυθμισμένο</value>
+  </data>
+  <data name="BootLogoWindow_CustomLogoSet" xml:space="preserve">
+    <value>Έχει οριστεί προσαρμοσμένο Λογότυπο Εκκίνησης</value>
+  </data>
+  <data name="BootLogoWindow_Status" xml:space="preserve">
+    <value>Κατάσταση</value>
+  </data>
+  <data name="RevertToDefault" xml:space="preserve">
+    <value>Επαναφορά στην προεπιλογή</value>
+  </data>
+  <data name="BootLogoWindow_Customize" xml:space="preserve">
+    <value>Προσαρμογή</value>
+  </data>
+  <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
+    <value>Ενέργειες</value>
+  </data>
+  <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
+    <value>Κείμενο Ειδοποίησης</value>
+  </data>
+  <data name="NotificationAutomationStepControl_Title" xml:space="preserve">
+    <value>Εμφάνιση ειδοποίησης</value>
+  </data>
+  <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
+    <value>Προεπιλογή</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Έξυπνο Κλείδωμα Fn</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Message" xml:space="preserve">
+    <value>Το Κλείδωμα Fn θα απενεργοποιηθεί προσωρινά όταν πατήσετε τα πλήκτρα Alt, Ctrl ή Shift.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+  </data>
+  <data name="BootLogoWindow_Description" xml:space="preserve">
+    <value>Το προσαρμοσμένο λογότυπο εκκίνησης πρέπει να έχει διαστάσεις ακριβώς {0} pixels.
+Οι υποστηριζόμενες μορφές εικόνων είναι: {1}.</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Title" xml:space="preserve">
+    <value>Φόρτιση Μπαταρίας Ολονυκτί</value>
+  </data>
+  <data name="BatteryNightChargeModeControl_Message" xml:space="preserve">
+    <value>Όταν είναι ενεργοποιημένο, αυτή η συσκευή θα φορτίσει μέχρι 80% κατά τη διάρκεια της νύχτας και θα ολοκληρώσει τη φόρτιση ως το 100% μέχρις ότου να ξεκινήσετε τη χρήση της συσκευής το πρωί.</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Title" xml:space="preserve">
+    <value>Φόρτιση Μπαταρίας Ολονυκτί</value>
+  </data>
+  <data name="BatteryNightChargeAutomationStepControl_Message" xml:space="preserve">
+    <value>Όταν είναι ενεργοποιημένο, αυτή η συσκευή θα φορτίσει μέχρι 80% κατά τη διάρκεια της νύχτας και θα ολοκληρώσει τη φόρτιση ως το 100% μέχρις ότου να ξεκινήσετε τη χρήση της συσκευής το πρωί.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Size" xml:space="preserve">
+    <value>Άκυρο μέγεθος εικόνας.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Invalid_Image_Format" xml:space="preserve">
+    <value>Άκυρη μορφή εικόνας.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Mount_EFI_Partition" xml:space="preserve">
+    <value>Δεν είναι δυνατή η προσάρτηση διαμερίσματος EFI.elect
+</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Cannot_Set_UEFI_Privilege" xml:space="preserve">
+    <value>Δεν είναι δυνατός ο ορισμός προνομίου UEFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetError_Not_Enough_Free_Space_On_EFI_Partition" xml:space="preserve">
+    <value>Ανεπαρκής ελεύθερος χώρος στο διαμέρισμα EFI.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomFailed" xml:space="preserve">
+    <value>Αδυναμία ορισμού προσαρμοσμένου λογότυπου: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultFailed" xml:space="preserve">
+    <value>Το προκαθορισμένο λογότυπο δεν μπόρεσε να ρυθμιστεί: {0}</value>
+  </data>
+  <data name="BootLogoWindow_SetDefaultSuccess" xml:space="preserve">
+    <value>Το προκαθορισμένο λογότυπο εκκίνησης ορίστηκε.</value>
+  </data>
+  <data name="BootLogoWindow_SetCustomSuccess" xml:space="preserve">
+    <value>Το προσαρμοσμένο λογότυπο εκκίνησης ορίστηκε.</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_NetworkName" xml:space="preserve">
+    <value>Όνομα δικτύου (SSID)</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_CopyCurrentNetworkName" xml:space="preserve">
+    <value>Αντιγραφή παρόντος ονόματος δικτύου</value>
+  </data>
+  <data name="WiFiConnectedPipelineTriggerTabItemContent_LeaveEmptyForAnyNetwork" xml:space="preserve">
+    <value>Παραμονή κενού για κάθε δίκτυο Wi-Fi.</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Title" xml:space="preserve">
+    <value>HWINFO64</value>
+  </data>
+  <data name="SettingsPage_HWiNFO_Message" xml:space="preserve">
+    <value>Μοιράζεται την ταχύτητα ανεμιστήρων, τη θερμοκρασία της μπαταρίας κλπ., με το HWINFO64. Ενδέχεται να χρειαστεί επανεκκίνηση του HWINFO64 μετά την αλλαγή αυτής της επιλογής.</value>
+  </data>
+  <data name="SettingsPage_Integrations_Title" xml:space="preserve">
+    <value>Ενσωματώσεις</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ρυθμίσεις</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Πληροφορίες</value>
+  </data>
+  <data name="PackagesPage_DownloadTo" xml:space="preserve">
+    <value>Φάκελος Λήψεων</value>
+  </data>
+  <data name="PackagesPage_OpenDownloadTo" xml:space="preserve">
+    <value>Άνοιγμα φακέλου Λήψεων</value>
+  </data>
+  <data name="PackageControl_Download" xml:space="preserve">
+    <value>Λήψη</value>
+  </data>
+  <data name="PackageControl_OpenReadme" xml:space="preserve">
+    <value>Άνοιγμα README</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_Preset" xml:space="preserve">
+    <value>Προεπιλογή</value>
+  </data>
+  <data name="DeviceInformationWindow_Refresh" xml:space="preserve">
+    <value>Ανανέωση</value>
+  </data>
+  <data name="AbstractAutomationStepControl_Delete" xml:space="preserve">
+    <value>Διαγραφή</value>
+  </data>
+  <data name="PeriodicActionPipelineTriggerTabItemContent_PeriodMinutes" xml:space="preserve">
+    <value>Περίοδος (λεπτά)</value>
+    <comment>A prompt that is used both to ask the user to input an integer, representing the number of minutes between two periodic actions are triggered, and to inform the user what have they set once they are done configuring the action.</comment>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Message" xml:space="preserve">
+    <value>Μηδενίζει τον μετρητή "Λειτουργία με την μπαταρία από" στον τομέα της μπαταρίας όταν το σύστημα κάνει επανεκκίνηση.</value>
+  </data>
+  <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
+    <value>Μηδενισμός "Λειτουργία με την μπαταρία από" στην εκκίνηση</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Κλείσιμο WiFi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Άνοιγμα WiFi</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
+    <value>Εκτέλεση ήσυχα</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
+    <value>Αναμονή μέχρι να τελειώσει</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessRunSilently_Description" xml:space="preserve">
+    <value>Εκτελεί εφαρμογές κονσόλας, χωρίς τη δημιουργία παραθύρου κονσόλας.</value>
+  </data>
+  <data name="RunAutomationStepControl_ProcessWaitUntilFinished_Description" xml:space="preserve">
+    <value>Αναμένει μέχρι το πρόγραμμα ή το script τελειώσει την εκτέλεσή του</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Message" xml:space="preserve">
+    <value>'Όταν είναι σε σίγαση, όλες οι ενεργές συσκευές εξόδου ήχου θα σιγήσουν.</value>
+  </data>
+  <data name="SpeakerAutomationStepControl_Title" xml:space="preserve">
+    <value>Ηχείο</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Title" xml:space="preserve">
+    <value>Ελαχιστοποίηση στο δίσκο εικονιδίων</value>
+  </data>
+  <data name="SettingsPage_MinimizeToTray_Message" xml:space="preserve">
+    <value>Πάντα ελαχιστοποιεί στο δίσκο εικονιδίων αντί στην μπάρα εργασίας.</value>
+  </data>
+  <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
+    <value>Λειτουργίες Ισχύος Windows</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+    <value>Εναλλαγή στην Προσαρμοσμένη Λειτουργία με Fn+Q</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+    <value>Επιτρέπει γρήγορη εναλλαγή στην Προσαρμοσμένη Λειτουργία με Fn+Q.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+    <value>Συγχρονισμός Λειτουργίας Ισχύος</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+    <value>Αυτόματη αλλαγή Πλάνου Τροφοδοσίας Windows ή Λειτουργίας Ισχύος Windows όταν αλλάζει η Λειτουργία Ισχύος.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+    <value>Λειτουργίες Ισχύος Windows</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+    <value>Επιλέξτε Λειτουργία Ισχύος Windows για εφαρμογή όταν αλλάζει η Λειτουργία Ισχύος.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+    <value>Σφάλμα κατά την ανάγνωση πληροφοριών συσκευής.</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+    <value>Μακροεντολή</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+    <value>Μακροεντολή</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+    <value>Επανάληψη</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+    <value>Αγνόηση καθυστερήσεων</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Εκκαθάριση</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+    <value>Εγγραφή</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+    <value>Τέλος εγγραφής</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+    <value>Χωρίς επανάληψη</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+    <value>Το Lenovo Legion Toolkit πρέπει να εκτελείται για να λειτουργήσουν οι μακροεντολές.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+    <value>Ενεργοποίηση</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+    <value>Μπορείτε να εγγράψετε μια σειρά από πατήματα πλήκτρων και να τα επικαλεστείτε μέσω του αριθμητικού πληκτρολογίου σας.</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+    <value>Μακροεντολή</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+    <value>Ενεργοποίηση ή απενεργοποίηση μακροεντολών.</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+    <value>Διακοπή αν πατήθηκε άλλο πλήκτρο</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Απόκρυψη</value>
+  </data>
+  <data name="HideAll" xml:space="preserve">
+    <value>Απόκρυψη όλων</value>
+  </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+    <value>Συσκευές</value>
+  </data>
+  <data name="DeselectAll" xml:space="preserve">
+    <value>Αποεπιλογή όλων</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Επιλογή όλων</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+    <value>Μόνο πληκτρολόγιο</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Πλήκτρα πληκτρολογίου και ποντικιού</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>Όλες οι είσοδοι</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>Επιλογές εγγραφής</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+    <value>Η εγγραφή θα ξεκινήσει σε 3 δευτερόλεπτα...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+    <value>Εγγραφή...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+    <value>Πατήστε ESC για τέλος.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+    <value>Εμφάνιση μόνο επιλεγμένων συσκευών</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+    <value>Εμφάνιση μόνο αφαιρούμενων συσκευών</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+    <value>Εμφάνιση μόνο συνδεδεμένων συσκευών</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Ενεργοποίηση Διεπαφής Γραμμής Εντολών που επιτρέπει έλεγχο από τη γραμμή εντολών.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+    <value>Προσθήκη CLI στο PATH</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+    <value>Προσθήκη CLI στη μεταβλητή περιβάλλοντος PATH του χρήστη.</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+    <value>Θερμοκρασία</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+    <value>Επιλέξτε μονάδες για τους αισθητήρες θερμοκρασίας.</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+    <value>Το Lenovo Hotkeys εκτελείται στο παρασκήνιο.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+    <value>Το Legion Zone εκτελείται στο παρασκήνιο.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+    <value>Το Vantage ή/και το ImController εκτελούνται στο παρασκήνιο.</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Έλεγχος</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Έλεγχος για ενημερώσεις...</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>'Έλεγχος για ενημερώσεις</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Ενημέρωση</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>Φτάσατε στο όριο χρήσης API, παρακαλούμε προσπαθήστε ξανά αργότερα.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Αποτυχία ελέγχου για ενημερώσεις</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Κάτι πήγε στραβά, παρακαλούμε προσπαθήστε ξανά αργότερα.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Δε βρέθηκαν ενημερώσεις</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Αυτόματος έλεγχος για ενημερώσεις</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>Δε βρέθηκε ο κατάλογος ενημερώσεων</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>Δοκιμάστε να βρείτε ενημερώσεις από την άλλη πηγή.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+	  <value>Κάτι πήγε στραβά</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+	  <value>Ελέγξτε εάν η σύνδεσή σας στο διαδίκτυο λειτουργεί.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>Αναπαραγωγή ήχου</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>Υποστηρίζονται κοινές μορφές μουσικής όπως wav ή mp3.</value>
   </data>
 </root>
