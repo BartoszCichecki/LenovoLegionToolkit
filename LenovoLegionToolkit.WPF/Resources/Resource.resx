@@ -1840,10 +1840,10 @@ If dGPU does not respond at all, please restart your laptop.</value>
     <value>dGPU will disconnect automatically when not in use and laptop is on battery power.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>Custom Mode settings will not be applied correctly when Lenovo Vantage or it's services are running.</value>
+    <value>Custom Mode settings will not be applied correctly when Lenovo Vantage or its services are running.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Custom Mode settings will not be applied correctly when LegionZone or it's services are running.</value>
+    <value>Custom Mode settings will not be applied correctly when Legion Zone or its services are running.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU connected</value>
