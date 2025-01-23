@@ -1818,6 +1818,12 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>dGPU tiks atvienots automātiski kad tas netiek izmantots vai portatīvais dators izmanto akumulatoru.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Pielāgotā Režīma iestatījumi netiks pielietoti pareizi kamēr Lenovo Vantage un tā servisi ir ieslēgti.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Pielāgotā Režīma iestatījumi netiks pielietoti pareizi kamēr Legion Zone un tā servisi ir ieslēgti.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU pieslēdzies</value>
   </data>
