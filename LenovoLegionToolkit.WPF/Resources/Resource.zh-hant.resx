@@ -1838,12 +1838,6 @@
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>未使用筆記型電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
-  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
-  </data>
-  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
-  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU（獨立顯示卡）已連接</value>
   </data>
