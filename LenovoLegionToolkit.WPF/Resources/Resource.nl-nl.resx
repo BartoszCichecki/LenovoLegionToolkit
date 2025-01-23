@@ -1840,12 +1840,6 @@ WAARSCHUWING: Deze actie zal niet correct uitgevoerd worden als de externe video
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>dGPU zal automatisch ontkoppelen wanneer deze niet in gebruik is en wanneer de laptop op batterijstroom werkt.</value>
   </data>
-  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als Lenovo Vantage of diens services actief zijn.</value>
-  </data>
-  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>De instellingen van de aangepaste modus wordt niet correct toegepast als LegionZone of diens services actief zijn.</value>
-  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU verbonden</value>
   </data>
