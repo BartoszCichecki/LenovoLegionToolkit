@@ -1840,6 +1840,12 @@ Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy 
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>GPU rời sẽ tự động ngắt kết nối khi không sử dụng và laptop đang chạy bằng pin.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Lenovo Vantage hoặc các dịch vụ của nó đang chạy.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Legion Zone hoặc các dịch vụ của nó đang chạy.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Đã kết nối với GPU rời</value>
   </data>
