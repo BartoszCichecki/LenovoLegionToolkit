@@ -1840,6 +1840,12 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>Le dGPU va se déconnecter automatiquement lorsqu'il ne sera plus utilisé et l'ordinateur alimenté sur batterie.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Lenovo Vantage ou ses services sont en cours d'exécution.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Legion Zone ou ses services sont en cours d'exécution.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU connecté</value>
   </data>
