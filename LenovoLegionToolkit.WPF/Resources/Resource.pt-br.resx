@@ -1838,12 +1838,6 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>A GPU dedicada será desconectada automaticamente quando não estiver em uso e o notebook estiver funcionando na bateria.</value>
   </data>
-  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>As configurações do modo personalizado não serão aplicadas corretamente quando o Lenovo Vantage ou seus serviços estiverem em execução.</value>
-  </data>
-  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>As configurações do modo personalizado não serão aplicadas corretamente quando o LegionZone ou seus serviços estiverem em execução.</value>
-  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>GPU dedicada conectada</value>
   </data>
