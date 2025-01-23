@@ -1836,12 +1836,6 @@
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>Дискретний ГП автоматично вимикатиметься, коли не використовується і ноутбук працює від батареї.</value>
   </data>
-  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>Налаштування користувальницького режиму не застосовуватимуться правильно, коли запущено Lenovo Vantage або його служби.</value>
-  </data>
-  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Налаштування користувальницького режиму не буде застосовано правильно, коли запущено Legion Zone або його служби.</value>
-  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Під'єднано дискретний ГП</value>
   </data>
