@@ -1840,6 +1840,12 @@
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>Дискретная видеокарта будет автоматически отключаться, если ноутбук не используется и работает от акумулятора.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Параметры пользовательского режима будут неправильно применены, если запущен Lenovo Vantage или его службы.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Параметры пользовательского режима будут неправильно применены, если запущен Legion Zone или его службы.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Графический процессор подключен</value>
   </data>
