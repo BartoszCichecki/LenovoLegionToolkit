@@ -1819,6 +1819,12 @@
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
     <value>Допълнителната видеокарта ще бъде деактивирана, когато не се използва или лаптопът черпи енергия от батерията.</value>
   </data>
+  <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
+    <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато Lenovo Vantage или неговите услуги работят.</value>
+  </data>
+  <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
+    <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато LegionZone или неговите услуги работят.</value>
+  </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>Допълнителна видеокарта активирана</value>
   </data>
