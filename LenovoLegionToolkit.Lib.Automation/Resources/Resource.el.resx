@@ -142,7 +142,7 @@
     <value>Κατά την εκκίνηση</value>
   </data>
   <data name="PowerModeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν αλλάξει η κατάσταση τροφοδοσίας</value>
+    <value>Όταν αλλάξει η Λειτουργία Ισχύος</value>
   </data>
   <data name="ProcessesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν ξεκινά η εφαρμογή</value>

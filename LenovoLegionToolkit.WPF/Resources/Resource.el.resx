@@ -1841,7 +1841,7 @@
     <value>Η dGPU θα αποσυνδεθεί αυτόματα όταν δεν είναι απασχολημένη και ο υπολογιστής τροφοδοτείται από μπαταρία.</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
-    <value>Οι ρυθμίσεις της Προσαρμοσμένης Λειτουργίας δε θα εφαρμοστούν σωστά όταν εκτελείται το Vantage ή οι υπηρεσίες του.</value>
+    <value>Οι ρυθμίσεις της Προσαρμοσμένης Λειτουργίας δε θα εφαρμοστούν σωστά όταν εκτελείται το Lenovo Vantage ή οι υπηρεσίες του.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Οι ρυθμίσεις της Προσαρμοσμένης Λειτουργίας δε θα εφαρμοστούν σωστά όταν εκτελείται το Legion Zone ή οι υπηρεσίες του.</value>
