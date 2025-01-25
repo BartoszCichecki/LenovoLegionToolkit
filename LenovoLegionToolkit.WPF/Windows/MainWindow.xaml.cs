@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -19,11 +20,15 @@ using LenovoLegionToolkit.WPF.Resources;
 using LenovoLegionToolkit.WPF.Utils;
 using LenovoLegionToolkit.WPF.Windows.Utils;
 using Microsoft.Xaml.Behaviors.Core;
+using Windows.Win32;
+using Windows.Win32.System.Threading;
 using Wpf.Ui.Controls;
 #if !DEBUG
 using System.Reflection;
 using LenovoLegionToolkit.Lib.Extensions;
 #endif
+
+#pragma warning disable CA1416
 
 namespace LenovoLegionToolkit.WPF.Windows;
 
@@ -146,9 +151,11 @@ public partial class MainWindow
         switch (WindowState)
         {
             case WindowState.Minimized:
+                SetEfficiencyMode(true);
                 SendToTray();
                 break;
             case WindowState.Normal:
+                SetEfficiencyMode(false);
                 BringToForeground();
                 break;
         }
@@ -327,7 +334,41 @@ public partial class MainWindow
         if (!_applicationSettings.Store.MinimizeToTray)
             return;
 
+        SetEfficiencyMode(true);
         Hide();
         ShowInTaskbar = true;
+    }
+
+    private static unsafe void SetEfficiencyMode(bool enabled)
+    {
+        var ptr = IntPtr.Zero;
+
+        try
+        {
+            var priorityClass = enabled
+                ? PROCESS_CREATION_FLAGS.IDLE_PRIORITY_CLASS
+                : PROCESS_CREATION_FLAGS.NORMAL_PRIORITY_CLASS;
+            PInvoke.SetPriorityClass(PInvoke.GetCurrentProcess(), priorityClass);
+
+            var state = new PROCESS_POWER_THROTTLING_STATE
+            {
+                Version = PInvoke.PROCESS_POWER_THROTTLING_CURRENT_VERSION,
+                ControlMask = PInvoke.PROCESS_POWER_THROTTLING_EXECUTION_SPEED,
+                StateMask = enabled ? PInvoke.PROCESS_POWER_THROTTLING_EXECUTION_SPEED : 0,
+            };
+
+            var size = Marshal.SizeOf<PROCESS_POWER_THROTTLING_STATE>();
+            ptr = Marshal.AllocHGlobal(size);
+            Marshal.StructureToPtr(state, ptr, false);
+
+            PInvoke.SetProcessInformation(PInvoke.GetCurrentProcess(),
+                PROCESS_INFORMATION_CLASS.ProcessPowerThrottling,
+                ptr.ToPointer(),
+                (uint)size);
+        }
+        finally
+        {
+            Marshal.FreeHGlobal(ptr);
+        }
     }
 }
