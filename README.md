@@ -11,6 +11,7 @@
 
 #### Other language versions of this README file:
 * [简体中文版简介](README_zh-hans.md)
+* [日本語版のREADME](README_ja-JP.md)
 
 ---
 
