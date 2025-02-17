@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
@@ -22,7 +23,7 @@ public class NotificationsManager
 
     private readonly ApplicationSettings _settings;
 
-    private NotificationWindow? _window;
+    private List<NotificationWindow?> _windows = [];
 
     public NotificationsManager(ApplicationSettings settings)
     {
@@ -229,22 +230,47 @@ public class NotificationsManager
         if (App.Current.MainWindow is not MainWindow mainWindow)
             return;
 
-        if (_window is not null)
+        if (_windows.Count != 0)
         {
-            _window.WindowStyle = WindowStyle.None;
-            _window.Close();
+            foreach (var window in _windows)
+            {
+                if (window is not null)
+                {
+                    window.WindowStyle = WindowStyle.None;
+                    window.Close();
+                }
+            }
+            _windows.Clear();
         }
 
-        var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, _settings.Store.NotificationPosition) { Owner = mainWindow };
-        nw.Show(_settings.Store.NotificationDuration switch
+        ScreenHelper.UpdateScreenInfos();
+        if (_settings.Store.NotificationOnAllScreens)
         {
-            NotificationDuration.Short => 500,
-            NotificationDuration.Long => 2500,
-            NotificationDuration.Normal => 1000,
-            _ => throw new ArgumentException(nameof(_settings.Store.NotificationDuration))
-        });
-
-        _window = nw;
+            foreach (var screen in ScreenHelper.Screens)
+            {
+                var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, screen, _settings.Store.NotificationPosition) { Owner = mainWindow };
+                nw.Show(_settings.Store.NotificationDuration switch
+                {
+                    NotificationDuration.Short => 500,
+                    NotificationDuration.Long => 2500,
+                    NotificationDuration.Normal => 1000,
+                    _ => throw new ArgumentException(nameof(_settings.Store.NotificationDuration))
+                });
+                _windows.Add(nw);
+            }
+        }
+        else
+        {
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, ScreenHelper.PrimaryScreen, _settings.Store.NotificationPosition) { Owner = mainWindow };
+            nw.Show(_settings.Store.NotificationDuration switch
+            {
+                NotificationDuration.Short => 500,
+                NotificationDuration.Long => 2500,
+                NotificationDuration.Normal => 1000,
+                _ => throw new ArgumentException(nameof(_settings.Store.NotificationDuration))
+            });
+            _windows.Add(nw);
+        }
     }
 
     private static void UpdateAvailableAction()

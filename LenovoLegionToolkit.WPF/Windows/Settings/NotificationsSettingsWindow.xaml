@@ -62,6 +62,17 @@
                         Click="DontShowNotificationsToggle_Click" />
                 </custom:CardControl>
 
+                <custom:CardControl Margin="0,0,0,8">
+                    <custom:CardControl.Header>
+                        <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationOnAllScreens_Title}" Subtitle="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationOnAllScreens_Message}" />
+                    </custom:CardControl.Header>
+                    <wpfui:ToggleSwitch
+                        x:Name="_notificationOnAllScreensToggle"
+                        Margin="0,0,0,8"
+                        AutomationProperties.Name="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationOnAllScreens_Title}"
+                        Click="NotificationOnAllScreensToggle_Click" />
+                </custom:CardControl>
+
                 <custom:CardControl x:Name="_notificationPositionCard" Margin="0,0,0,8">
                     <custom:CardControl.Header>
                         <controls:CardHeaderControl Title="{x:Static resources:Resource.NotificationsSettingsWindow_NotificationPosition_Title}" />
