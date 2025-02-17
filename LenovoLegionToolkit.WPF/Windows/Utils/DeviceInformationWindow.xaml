@@ -93,56 +93,58 @@
                     <TextBlock x:Name="_biosLabel" Focusable="True" />
                 </custom:CardControl>
 
-                <Grid Margin="0,16,0,24">
+                <StackPanel x:Name="_warrantyInfo" Visibility="Hidden">
+                    <Grid Margin="0,16,0,24">
 
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock
-                        Grid.Column="0"
-                        Focusable="True"
-                        FontSize="24"
-                        FontWeight="Medium"
-                        Text="{x:Static resources:Resource.DeviceInformationWindow_Warranty_Title}" />
-                    <wpfui:Button
-                        x:Name="_refreshWarrantyButton"
-                        Grid.Column="1"
-                        Click="RefreshWarrantyButton_OnClick"
-                        Icon="ArrowClockwise32"
-                        ToolTip="{x:Static resources:Resource.DeviceInformationWindow_Refresh}" />
-                </Grid>
+                        <TextBlock
+                            Grid.Column="0"
+                            Focusable="True"
+                            FontSize="24"
+                            FontWeight="Medium"
+                            Text="{x:Static resources:Resource.DeviceInformationWindow_Warranty_Title}" />
+                        <wpfui:Button
+                            x:Name="_refreshWarrantyButton"
+                            Grid.Column="1"
+                            Click="RefreshWarrantyButton_OnClick"
+                            Icon="ArrowClockwise32"
+                            ToolTip="{x:Static resources:Resource.DeviceInformationWindow_Refresh}" />
+                    </Grid>
 
-                <custom:CardControl Margin="0,0,0,8">
-                    <custom:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
-                    </custom:CardControl.Header>
-                    <TextBlock
-                        x:Name="_warrantyStartLabel"
-                        Focusable="True"
-                        Text="-" />
-                </custom:CardControl>
+                    <custom:CardControl Margin="0,0,0,8">
+                        <custom:CardControl.Header>
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyStartDate_Title}" />
+                        </custom:CardControl.Header>
+                        <TextBlock
+                            x:Name="_warrantyStartLabel"
+                            Focusable="True"
+                            Text="-" />
+                    </custom:CardControl>
 
-                <custom:CardControl Margin="0,0,0,8">
-                    <custom:CardControl.Header>
-                        <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyEndDate_Title}" />
-                    </custom:CardControl.Header>
-                    <TextBlock
-                        x:Name="_warrantyEndLabel"
-                        Focusable="True"
-                        Text="-" />
-                </custom:CardControl>
+                    <custom:CardControl Margin="0,0,0,8">
+                        <custom:CardControl.Header>
+                            <controls:CardHeaderControl Title="{x:Static resources:Resource.DeviceInformationWindow_WarrantyEndDate_Title}" />
+                        </custom:CardControl.Header>
+                        <TextBlock
+                            x:Name="_warrantyEndLabel"
+                            Focusable="True"
+                            Text="-" />
+                    </custom:CardControl>
 
 
-                <custom:CardAction
-                    x:Name="_warrantyLinkCardAction"
-                    Margin="0,8,0,8"
-                    Click="WarrantyLinkCardAction_OnClick"
-                    Content="{x:Static resources:Resource.DeviceInformationWindow_LenovoSupport}"
-                    Icon="Open24"
-                    IsChevronVisible="False"
-                    IsEnabled="False" />
+                    <custom:CardAction
+                        x:Name="_warrantyLinkCardAction"
+                        Margin="0,8,0,8"
+                        Click="WarrantyLinkCardAction_OnClick"
+                        Content="{x:Static resources:Resource.DeviceInformationWindow_LenovoSupport}"
+                        Icon="Open24"
+                        IsChevronVisible="False"
+                        IsEnabled="False" />
+                </StackPanel>
 
             </StackPanel>
 

@@ -1838,7 +1838,7 @@ GPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlat
     <value>Özel Mod ayarları, Lenovo Vantage veya hizmetleri çalışırken doğru şekilde uygulanmayacaktır.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>LegionZone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
+    <value>Legion Zone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU bağlı</value>

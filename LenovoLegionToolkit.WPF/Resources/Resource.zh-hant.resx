@@ -139,7 +139,7 @@
     <value>關於</value>
   </data>
   <data name="AboutPage_TranslationCredit" xml:space="preserve">
-    <value>翻譯多數由 flandretw 提供，開源社區校正。</value>
+    <value>翻譯多數由 flandretw 提供，開源社群校正。</value>
     <comment>Please replace this text with something like "Translated into &lt;language&gt; by &lt;your name&gt;."</comment>
   </data>
   <data name="AboutPage_Version" xml:space="preserve">
@@ -543,7 +543,7 @@
     <value>編輯</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_Description" xml:space="preserve">
-    <value>使用 Fn+R 快捷方式時，取消選中您不想使用的更新率。</value>
+    <value>使用 Fn+R 快捷鍵時，取消選擇您不想使用的更新率。</value>
   </data>
   <data name="ExcludeRefreshRatesWindow_NoRefreshRatesFound_Message" xml:space="preserve">
     <value>請確保筆記型電腦顯示器已開啟。否則 Lenovo Legion 工具套件無法載入顯示器資訊。</value>
@@ -774,7 +774,7 @@
     <value>已有可供使用的更新！</value>
   </data>
   <data name="MainWindow_UpdateAvailableWithVersion" xml:space="preserve">
-    <value>已有可供使用的更新 {0} ！</value>
+    <value>已有可供使用的更新 {0}！</value>
   </data>
   <data name="MoveDown" xml:space="preserve">
     <value>往下移</value>
@@ -910,7 +910,7 @@
     <value>下載完成</value>
   </data>
   <data name="PackageControl_GeneralError_Title" xml:space="preserve">
-    <value>發生了一些錯誤</value>
+    <value>發生錯誤</value>
   </data>
   <data name="PackageControl_Http404Error_Message" xml:space="preserve">
     <value>伺服器返回代碼 404。</value>
@@ -919,10 +919,10 @@
     <value>找不到資料</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Message" xml:space="preserve">
-    <value>檢查您的網路連接是否正常。</value>
+    <value>檢查您的網路連線是否正常。</value>
   </data>
   <data name="PackageControl_HttpGeneralError_Title" xml:space="preserve">
-    <value>發生了一些錯誤</value>
+    <value>發生錯誤</value>
   </data>
   <data name="PackageControl_IsUpdateInfo" xml:space="preserve">
     <value>已有可供使用的更新！</value>
@@ -934,17 +934,17 @@
     <value>版本</value>
   </data>
   <data name="PackagesPage_Disclaimer_Message" xml:space="preserve">
-    <value>以下是標記為與您的筆記型電腦相容的套件列表。
+    <value>以下是標記為與您的筆記型電腦相容的套件清單。
 請您始終確保安裝正確的套件。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Message" xml:space="preserve">
     <value>檢查裝置類型和系統設定是否正確。</value>
   </data>
   <data name="PackagesPage_DownloadFailed_Title" xml:space="preserve">
-    <value>發生了一些錯誤</value>
+    <value>發生錯誤</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Message" xml:space="preserve">
-    <value>變更排序、篩選結果、隱藏套件或重新整理列表將停止下載。您確定嗎？</value>
+    <value>變更排序、篩選結果、隱藏套件或重新整理清單將停止下載。您確定嗎？</value>
   </data>
   <data name="PackagesPage_DownloadInProgress_Title" xml:space="preserve">
     <value>下載進行中</value>
@@ -1148,7 +1148,7 @@
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Message" xml:space="preserve">
     <value>在不解除安裝 Lenovo Hotkeys 及相關服務的情況下停用它們。
-如果停用，此應用程式將處理 Fn 快捷方式。
+如果停用，此應用程式將處理 Fn 快捷鍵。
 變更此選項後建議重新啟動。</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
@@ -1282,7 +1282,7 @@
     <value>選擇所有區域</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_SwitchKeyboardLayout_ToolTip" xml:space="preserve">
-    <value>切換鍵盤布局</value>
+    <value>切換鍵盤配置</value>
   </data>
   <data name="SpectrumKeyboardBacklightEditEffectWindow_ClockwiseDirection_Title" xml:space="preserve">
     <value>方向</value>
@@ -1588,7 +1588,7 @@
     <value>當啟用後，變更 Windows 電源計劃時仍將保持亮度不變。</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
-    <value>已有可供使用的更新 {0} ！</value>
+    <value>已有可供使用的更新 {0}！</value>
   </data>
   <data name="GodModeSettingsWindow_CPU_PeakPL" xml:space="preserve">
     <value>峰值功率限制</value>
@@ -1813,7 +1813,7 @@
     <value>無法變更電源模式</value>
   </data>
   <data name="PowerModeUnavailableWithoutACException_Message" xml:space="preserve">
-    <value>當未連接電源供應器時無法啟用{0}。</value>
+    <value>當未連接電源供應器時無法啟用 {0}。</value>
     <comment>For example: "{Performance} power mode is not available without AC power."</comment>
   </data>
   <data name="EditDashboardWindow_Sensors" xml:space="preserve">
@@ -1836,7 +1836,7 @@
     <value>dGPU（獨立顯示卡）目前正在使用或筆記型電腦未使用電池電源</value>
   </data>
   <data name="IGPUModeChangeException_Message_Auto" xml:space="preserve">
-    <value>未使用筆記本電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
+    <value>未使用筆記型電腦或使用電池供電時，dGPU（獨立顯示卡）將自動中斷連接。</value>
   </data>
   <data name="GodModeSettingsWindow_VantageWarning_Title" xml:space="preserve">
     <value>當 Lenovo Vantage 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
@@ -2221,9 +2221,15 @@
 	  <value>嘗試從其他資源獲得更新</value>
   </data>
   <data name="PackagesPage_Error_Title" xml:space="preserve">
-	  <value>發生了一些錯誤</value>
+	  <value>發生錯誤</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
-	  <value>檢查您的網路連接是否正常。</value>
+	  <value>檢查您的網路連線是否正常。</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>播放聲音</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>支援像 wav 或 mp3 等音訊格式。</value>
   </data>
 </root>

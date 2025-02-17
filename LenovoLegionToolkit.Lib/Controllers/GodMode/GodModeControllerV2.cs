@@ -65,14 +65,23 @@ public class GodModeControllerV2(
             { CapabilityID.CPUShortTermPowerLimit, defaultPerformancePreset?.CPUShortTermPowerLimit },
             { CapabilityID.CPUPeakPowerLimit, defaultPerformancePreset?.CPUPeakPowerLimit },
             { CapabilityID.CPUCrossLoadingPowerLimit, defaultPerformancePreset?.CPUCrossLoadingPowerLimit },
-            { CapabilityID.CPUPL1Tau, defaultPerformancePreset?.CPUPL1Tau  },
-            { CapabilityID.APUsPPTPowerLimit, defaultPerformancePreset?.APUsPPTPowerLimit  },
+            { CapabilityID.CPUPL1Tau, defaultPerformancePreset?.CPUPL1Tau },
+            { CapabilityID.APUsPPTPowerLimit, defaultPerformancePreset?.APUsPPTPowerLimit },
             { CapabilityID.CPUTemperatureLimit, defaultPerformancePreset?.CPUTemperatureLimit },
-            { CapabilityID.GPUPowerBoost, defaultPerformancePreset?.GPUPowerBoost  },
+            { CapabilityID.GPUPowerBoost, defaultPerformancePreset?.GPUPowerBoost },
             { CapabilityID.GPUConfigurableTGP, defaultPerformancePreset?.GPUConfigurableTGP  },
-            { CapabilityID.GPUTemperatureLimit, defaultPerformancePreset?.GPUTemperatureLimit  },
+            { CapabilityID.GPUTemperatureLimit, defaultPerformancePreset?.GPUTemperatureLimit },
             { CapabilityID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline, defaultPerformancePreset?.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline },
-            { CapabilityID.GPUToCPUDynamicBoost, defaultPerformancePreset?.GPUToCPUDynamicBoost  },
+            { CapabilityID.GPUToCPUDynamicBoost, defaultPerformancePreset?.GPUToCPUDynamicBoost },
+        };
+
+        var failAllowedSettings = new[]
+        {
+            CapabilityID.GPUPowerBoost,
+            CapabilityID.GPUConfigurableTGP,
+            CapabilityID.GPUTemperatureLimit,
+            CapabilityID.GPUTotalProcessingPowerTargetOnAcOffsetFromBaseline,
+            CapabilityID.GPUToCPUDynamicBoost,
         };
 
         var fanTable = preset.FanTable ?? await GetDefaultFanTableAsync().ConfigureAwait(false);
@@ -93,7 +102,9 @@ public class GodModeControllerV2(
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Failed to apply {id}. [value={value}]", ex);
-                    throw;
+
+                    if (!failAllowedSettings.Contains(id))
+                        throw;
                 }
             }
             else if (defaultPerformanceSettings.GetValueOrDefault(id) is { } defaultPerformanceValue)
@@ -109,7 +120,9 @@ public class GodModeControllerV2(
                 {
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Failed to apply default {id}. [value={defaultPerformanceValue}]", ex);
-                    throw;
+
+                    if (!failAllowedSettings.Contains(id))
+                        throw;
                 }
             }
             else

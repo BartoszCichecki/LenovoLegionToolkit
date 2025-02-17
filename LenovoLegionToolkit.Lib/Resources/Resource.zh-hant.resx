@@ -201,7 +201,7 @@
     <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
-    <value>底部居中</value>
+    <value>底部置中</value>
   </data>
   <data name="NotificationPosition_BottomLeft" xml:space="preserve">
     <value>左下角</value>
@@ -210,16 +210,16 @@
     <value>右下角</value>
   </data>
   <data name="NotificationPosition_Center" xml:space="preserve">
-    <value>居中</value>
+    <value>置中</value>
   </data>
   <data name="NotificationPosition_CenterLeft" xml:space="preserve">
-    <value>居中左側</value>
+    <value>置中左側</value>
   </data>
   <data name="NotificationPosition_CenterRight" xml:space="preserve">
-    <value>居中右側</value>
+    <value>置中右側</value>
   </data>
   <data name="NotificationPosition_TopCenter" xml:space="preserve">
-    <value>頂部居中</value>
+    <value>頂部置中</value>
   </data>
   <data name="NotificationPosition_TopLeft" xml:space="preserve">
     <value>左上角</value>

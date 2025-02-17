@@ -2235,4 +2235,10 @@
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
 	  <value>请确保你的网络连接正常。</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+	  <value>播放音频</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+	  <value>支持如 wav 和 mp3 等常规音频格式。</value>
+  </data>
 </root>

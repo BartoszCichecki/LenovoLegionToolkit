@@ -202,6 +202,9 @@ public class AutomationPipelineControl : UserControl
             var pipeline = CreateAutomationPipeline();
             await _automationProcessor.RunNowAsync(pipeline);
 
+            _runNowButton.Content = Resource.AutomationPipelineControl_RunNow;
+            _runNowButton.IsEnabled = true;
+
             await SnackbarHelper.ShowAsync(Resource.AutomationPipelineControl_RunNow_Success_Title, Resource.AutomationPipelineControl_RunNow_Success_Message);
         }
         catch (Exception ex)
@@ -209,12 +212,10 @@ public class AutomationPipelineControl : UserControl
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Run now completed with errors", ex);
 
-            await SnackbarHelper.ShowAsync(Resource.AutomationPipelineControl_RunNow_Error_Title, Resource.AutomationPipelineControl_RunNow_Error_Message);
-        }
-        finally
-        {
             _runNowButton.Content = Resource.AutomationPipelineControl_RunNow;
             _runNowButton.IsEnabled = true;
+
+            await SnackbarHelper.ShowAsync(Resource.AutomationPipelineControl_RunNow_Error_Title, Resource.AutomationPipelineControl_RunNow_Error_Message);
         }
     }
 
@@ -353,6 +354,7 @@ public class AutomationPipelineControl : UserControl
             OverDriveAutomationStep s => new OverDriveAutomationStepControl(s),
             OverclockDiscreteGPUAutomationStep s => new OverclockDiscreteGPUAutomationStepControl(s),
             PanelLogoBacklightAutomationStep s => new PanelLogoBacklightAutomationStepControl(s),
+            PlaySoundAutomationStep s => new PlaySoundAutomationStepControl(s),
             PortsBacklightAutomationStep s => new PortsBacklightAutomationStepControl(s),
             PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
             RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),

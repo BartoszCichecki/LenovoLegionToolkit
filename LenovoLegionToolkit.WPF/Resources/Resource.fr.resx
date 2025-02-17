@@ -1844,7 +1844,7 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
     <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Lenovo Vantage ou ses services sont en cours d'exécution.</value>
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
-    <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque LegionZone ou ses services sont en cours d'exécution.</value>
+    <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Legion Zone ou ses services sont en cours d'exécution.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
     <value>DGPU connecté</value>

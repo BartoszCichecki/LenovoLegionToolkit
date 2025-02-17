@@ -19,8 +19,6 @@ using LenovoLegionToolkit.WPF.Windows.Utils;
 using Wpf.Ui.Common;
 using MenuItem = Wpf.Ui.Controls.MenuItem;
 
-#pragma warning disable CA2211
-
 namespace LenovoLegionToolkit.WPF.Pages;
 
 public partial class AutomationPage
@@ -180,6 +178,7 @@ public partial class AutomationPage
             new OverclockDiscreteGPUAutomationStep(default),
             new OverDriveAutomationStep(default),
             new PanelLogoBacklightAutomationStep(default),
+            new PlaySoundAutomationStep(default),
             new PortsBacklightAutomationStep(default),
             new PowerModeAutomationStep(default),
             new RefreshRateAutomationStep(default),

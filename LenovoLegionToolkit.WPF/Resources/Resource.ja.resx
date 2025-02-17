@@ -1241,8 +1241,14 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SpectrumKeyboardBacklightControl_Effects" xml:space="preserve">
     <value>エフェクト</value>
   </data>
+  <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Message" xml:space="preserve">
+    <value>プロファイルをエクスポートできませんでした</value>
+  </data>
   <data name="SpectrumKeyboardBacklightControl_ExportProfileError_Title" xml:space="preserve">
     <value>プロフィールをエクスポートできませんでした</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Message" xml:space="preserve">
+    <value>プロファイルをインポートできませんでした</value>
   </data>
   <data name="SpectrumKeyboardBacklightControl_ImportProfileError_Title" xml:space="preserve">
     <value>プロフィールをインポートできませんでした</value>
@@ -1283,8 +1289,14 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SpectrumKeyboardBacklightEditEffectWindow_Title_Edit" xml:space="preserve">
     <value>エフェクトを編集</value>
   </data>
+  <data name="SpectrumKeyboardBacklightProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードのバックライトのプロファイル</value>
+  </data>
   <data name="SpectrumKeyboardEffectControl_Description_AllZones" xml:space="preserve">
     <value>すべてのキー</value>
+  </data>
+  <data name="SpectrumKeyboardEffectControl_Description_Zones" xml:space="preserve">
+    <value>ゾーン {0}</value>
   </data>
   <data name="TimeAutomationPipelineTriggerTabItemContent_Sunrise" xml:space="preserve">
     <value>日の出</value>
@@ -1324,8 +1336,23 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
 
 続行することを選択すると、ログは自動的に有効になります。</value>
   </data>
+  <data name="UnsupportedWindow_Disclaimer_Logs" xml:space="preserve">
+    <value>ログフォルダ</value>
+  </data>
+  <data name="UnsupportedWindow_MachineType" xml:space="preserve">
+    <value>デバイスの種類</value>
+  </data>
+  <data name="UnsupportedWindow_Message" xml:space="preserve">
+    <value>Lenovo Legion Toolkit はお使いのデバイスでテストされていません。</value>
+  </data>
+  <data name="UnsupportedWindow_Model" xml:space="preserve">
+    <value>モデル</value>
+  </data>
   <data name="UnsupportedWindow_Title" xml:space="preserve">
     <value>サポートされていないデバイス</value>
+  </data>
+  <data name="UnsupportedWindow_Vendor" xml:space="preserve">
+    <value>ベンダー</value>
   </data>
   <data name="Update" xml:space="preserve">
     <value>更新</value>
@@ -1405,6 +1432,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="OneLevelWhiteKeyboardBacklightAutomationStepControl_Title" xml:space="preserve">
     <value>キーボードバックライト</value>
+  </data>
+  <data name="PackagesPage_NoMatchingDownloads" xml:space="preserve">
+    <value>一致するダウンロードは見つかりませんでした</value>
   </data>
   <data name="PackagesPage_OnlyShowUpdates" xml:space="preserve">
     <value>更新のみを表示</value>
@@ -1566,6 +1596,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="PoweredOff" xml:space="preserve">
     <value>電源オフ</value>
+  </data>
+  <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Title" xml:space="preserve">
+    <value>キーボードのバックライトのプロファイルをインポート</value>
   </data>
   <data name="SpectrumKeyboardBacklightImportProfileAutomationStepControl_Path" xml:space="preserve">
     <value>パス</value>
@@ -1881,11 +1914,38 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="MacroPage_Enable_Title" xml:space="preserve">
     <value>有効化</value>
   </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+    <value>キー入力を記録し、キーボードのテンキーを使用して呼び出すことができます。</value>
+  </data>
   <data name="MacroAutomationStepControl_Title" xml:space="preserve">
     <value>マクロ</value>
   </data>
   <data name="MacroAutomationStepControl_Message" xml:space="preserve">
     <value>マクロを有効または無効にします。</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+    <value>別のキーが押された時に中断する</value>
+  </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+    <value>キーボードのみ</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>キーボードとマウス</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>すべての入力</value>
+  </data>
+  <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
+    <value>記録オプション</value>
+  </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+    <value>記録は3秒で起動します...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
+    <value>記録中...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+    <value>ESCを押して停止します。</value>
   </data>
   <data name="SettingsPage_CLI_Title" xml:space="preserve">
     <value>CLI</value>
@@ -1904,5 +1964,38 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo VantageとImControllerの両方またはいずれか一方がバックグラウンドで実行されています。</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>確認</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>更新を確認しています…</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>更新の確認</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>更新</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>APIのレート制限に達しました。時間が経ってから再度お試しください。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>更新の確認に失敗しました</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>問題が発生しました。後ほど再度お試しください。</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>更新はありません</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>更新を自動的に確認</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+	  <value>アップデートカタログが見つかりません</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+	  <value>他のソースから更新を取得してください。</value>
   </data>
 </root>

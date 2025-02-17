@@ -150,11 +150,35 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>Ταχεία Φόρτιση</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>Απενεργοποίηση</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>Ενεργοποίηση</value>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>dGPU</value>
@@ -167,6 +191,14 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Υβριδική-iGPU</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>Κάτω κέντρο</value>
@@ -194,6 +226,22 @@
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>Πάνω δεξιά</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>Ανενεργή</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>Ενεργή</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Ισορροπημένη</value>
@@ -289,7 +337,7 @@
     <value>Αναπήδηση Ήχου</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_AudioRipple" xml:space="preserve">
-    <value>Κυμματισμός Ήχου</value>
+    <value>Κυματισμός Ήχου</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_AuroraSync" xml:space="preserve">
     <value>Συγχρονισμός Aurora</value>
@@ -339,6 +387,14 @@
   <data name="Theme_System" xml:space="preserve">
     <value>Συστήματος</value>
   </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>Υψηλό</value>
   </data>
@@ -347,5 +403,97 @@
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>Ανενεργό</value>
+  </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+    <value>Ανενεργός</value>
+  </data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+    <value>Ενεργός</value>
+  </data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+    <value>Ενεργό</value>
+  </data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+    <value>Ανενεργό</value>
+  </data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+    <value>Ανενεργή</value>
+  </data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+    <value>Φορτιστής Ρεύματος</value>
+  </data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+    <value>USB Power Delivery</value>
+  </data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+    <value>Ρεύμα και USB PD</value>
+  </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>Μεγάλη</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>Κανονική</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>Μικρή</value>
+  </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+    <value>Ενεργή</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+    <value>Ανενεργή</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>Σίγαση </value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>Τέλος σίγασης</value>
+  </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+    <value>Απενεργοποιημένο</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+    <value>Λειτουργία Ισχύος Windows</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+    <value>Πλάνο Τροφοδοσίας Windows</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+    <value>Προεπιλογή 4</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>Καθημερινά</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>Ωριαία</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>Μηνιαία</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>Κάθε 3 ώρες</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>Κάθε 12 ώρες</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>Εβδομαδιαία</value>
   </data>
 </root>

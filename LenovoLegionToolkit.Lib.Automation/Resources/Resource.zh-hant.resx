@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當電源供應器連接時</value>
+    <value>當與電源供應器連接時</value>
   </data>
   <data name="ACAdapterDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當電源供應器中斷連接時</value>
+    <value>當與電源供應器中斷連接時</value>
   </data>
   <data name="DeactivateGPUAutomationStepState_KillApps" xml:space="preserve">
     <value>強制關閉應用程式</value>
@@ -136,7 +136,7 @@
     <value>{0} 秒</value>
   </data>
   <data name="LowWattageACAdapterConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當較低功率電源供應器連接時</value>
+    <value>當與較低功率電源供應器連接時</value>
   </data>
   <data name="OnStartupAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當啟動時</value>
@@ -154,10 +154,10 @@
     <value>指定時間</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當連接外接顯示器後</value>
+    <value>當與外接顯示器連接時</value>
   </data>
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當中斷連接外接顯示器後</value>
+    <value>當與外接顯示器中斷連接時</value>
   </data>
   <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當顯示器開啟時</value>
