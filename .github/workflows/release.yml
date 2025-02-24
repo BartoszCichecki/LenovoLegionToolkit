@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
@@ -28,7 +28,7 @@ jobs:
         files: build_installer/LenovoLegionToolkitSetup.exe
         fail_on_unmatched_files: true
     - name: Upload artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: installer
         path: build_installer/LenovoLegionToolkitSetup.exe
