@@ -2522,7 +2522,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when LegionZone or it&apos;s services are running..
+        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when Legion Zone or its services are running..
         /// </summary>
         public static string GodModeSettingsWindow_LegionZoneWarning_Title {
             get {
@@ -2540,7 +2540,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when Lenovo Vantage or it&apos;s services are running..
+        ///   Looks up a localized string similar to Custom Mode settings will not be applied correctly when Lenovo Vantage or its services are running..
         /// </summary>
         public static string GodModeSettingsWindow_VantageWarning_Title {
             get {
@@ -4308,6 +4308,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string PowerPlansWindow_AoAcWarning_Title {
             get {
                 return ResourceManager.GetString("PowerPlansWindow_AoAcWarning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run a saved quick action..
+        /// </summary>
+        public static string QuickActionAutomationStepControl_Message {
+            get {
+                return ResourceManager.GetString("QuickActionAutomationStepControl_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Action.
+        /// </summary>
+        public static string QuickActionAutomationStepControl_Title {
+            get {
+                return ResourceManager.GetString("QuickActionAutomationStepControl_Title", resourceCulture);
             }
         }
         

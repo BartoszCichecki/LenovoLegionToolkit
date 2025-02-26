@@ -357,6 +357,7 @@ public class AutomationPipelineControl : UserControl
             PlaySoundAutomationStep s => new PlaySoundAutomationStepControl(s),
             PortsBacklightAutomationStep s => new PortsBacklightAutomationStepControl(s),
             PowerModeAutomationStep s => new PowerModeAutomationStepControl(s),
+            QuickActionAutomationStep s => new QuickActionAutomationStepControl(s),
             RefreshRateAutomationStep s => new RefreshRateAutomationStepControl(s),
             ResolutionAutomationStep s => new ResolutionAutomationStepControl(s),
             RGBKeyboardBacklightAutomationStep s => new RGBKeyboardBacklightAutomationStepControl(s),
