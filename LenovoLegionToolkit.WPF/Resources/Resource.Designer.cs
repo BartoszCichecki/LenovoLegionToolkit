@@ -2741,7 +2741,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Vantage or its services are running..
+        ///   Looks up a localized string similar to Keyboard backlight cannot be controlled in here when Lenovo Vantage or its services are running..
         /// </summary>
         public static string Keyboard_VantageEnabledWarning_Message {
             get {
@@ -5040,7 +5040,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vantage and/or ImController may have not been disabled correctly.
+        ///   Looks up a localized string similar to Lenovo Vantage and/or ImController may have not been disabled correctly.
         /// </summary>
         public static string SettingsPage_DisableVantage_Error_Message {
             get {
@@ -5049,7 +5049,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t disable Vantage and/or ImController.
+        ///   Looks up a localized string similar to Couldn&apos;t disable Lenovo Vantage and/or ImController.
         /// </summary>
         public static string SettingsPage_DisableVantage_Error_Title {
             get {
@@ -5113,7 +5113,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Vantage and/or ImController may have not been enabled correctly.
+        ///   Looks up a localized string similar to Lenovo Vantage and/or ImController may have not been enabled correctly.
         /// </summary>
         public static string SettingsPage_EnableVantage_Error_Message {
             get {
@@ -5122,7 +5122,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Couldn&apos;t enable Vantage and/or ImController.
+        ///   Looks up a localized string similar to Couldn&apos;t enable Lenovo Vantage and/or ImController.
         /// </summary>
         public static string SettingsPage_EnableVantage_Error_Title {
             get {
