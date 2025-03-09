@@ -1993,9 +1993,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>更新を自動的に確認</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
-	  <value>アップデートカタログが見つかりません</value>
+    <value>アップデートカタログが見つかりません</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
-	  <value>他のソースから更新を取得してください。</value>
+    <value>他のソースから更新を取得してください。</value>
   </data>
 </root>
