@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Projektseite auf GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Drittanbieterbibliotheken</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Über</value>
   </data>
@@ -741,9 +738,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Tastaturbeleuchtung</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Vantage oder dessen Dienste ausgeführt werden.</value>
-  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage oder dazugehörige Dienste werden ausgeführt</value>
   </data>
@@ -851,10 +845,6 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Feststelltaste und Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Deaktiviert Benachrichtigungen für Fn-Tasten-Aktionen wie Mikrofon-Stummschaltung.
-Aktiviere diese Option, wenn Konflikte mit Vollbildanwendungen auftreten.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Keine Benachrichtigungen anzeigen</value>
@@ -1155,12 +1145,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys deaktivieren</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt deaktiviert</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage und/oder ImController konnten nicht deaktiviert werden</value>
-  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Deaktiviert Lenovo Vantage und ImController, ohne sie zu deinstallieren.
 Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
@@ -1179,12 +1163,6 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Lenovo Hotkeys konnte nicht aktiviert werden</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt aktiviert</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage und/oder ImController konnten nicht aktiviert werden</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Sie können Bildwiederholraten ausschließen, um die Tastenkombination Fn+R nützlicher zu machen.</value>
@@ -1845,12 +1823,6 @@ Wenn die dGPU überhaupt nicht reagiert, starten Sie bitte Ihren Laptop neu.</va
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn Legion Zone oder dessen Dienste ausgeführt werden.</value>
   </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU verbunden</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU getrennt</value>
-  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Betriebsmodus</value>
   </data>
@@ -2019,12 +1991,6 @@ Unterstützte Formate sind: {1}.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Zurücksetzen von "Auf Akku seit" beim Starten</value>
-  </data>
-  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>WLAN ausschalten</value>
-  </data>
-  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>WLAN einschalten</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Im Hintergrund starten</value>
@@ -2232,5 +2198,11 @@ Unterstützte Formate sind: {1}.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Gängige Musikformate wie wav oder mp3 werden unterstützt.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Schnellaktion</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Führt eine gespeicherte Schnellaktion aus.</value>
   </data>
 </root>
