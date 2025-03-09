@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Site web du projet sur GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Bibliothèques tierces</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>À propos</value>
   </data>
@@ -1824,6 +1827,12 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Legion Zone ou ses services sont en cours d'exécution.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPU connecté</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPU déconnecté</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mode de fonctionnement du GPU</value>
   </data>
@@ -1991,6 +2000,12 @@ Nécessite un redémarrage.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Réinitialiser "Sur batterie depuis" au démarrage</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Désactiver Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Activer le Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Exécuter en arrière-plan</value>
