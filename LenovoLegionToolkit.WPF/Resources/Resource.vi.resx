@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Liên kết đến dự án trên GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Thư viện bên thứ ba</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Thông tin</value>
   </data>
@@ -742,9 +739,6 @@ CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Đèn nền bàn phím</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo vantage hoặc các chương trình con của nó đang chạy.</value>
-  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage hoặc các dịch vụ của nó đang chạy</value>
   </data>
@@ -852,10 +846,6 @@ CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock và Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Tắt thông báo của các phím tắt Fn, ví dụ như tắt microphone.
-Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Tắt tất cả thông báo</value>
@@ -1156,12 +1146,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage và/hoặc ImController đã không được ngắt đúng cách</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Không thể ngắt Vantage và/hoặc ImController</value>
-  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
 Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
@@ -1180,12 +1164,6 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage và/hoặc ImController có thể đã không được kích hoạt đúng cách</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Không thể kích hoạt Vantage và/hoặc ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
@@ -1846,12 +1824,6 @@ Nếu GPU rời hoàn toàn không phản hồi, hãy khởi động lại máy 
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Cài đặt của Chế độ Custom sẽ không được áp dụng chính xác khi Legion Zone hoặc các dịch vụ của nó đang chạy.</value>
   </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>Đã kết nối với GPU rời</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>Đã ngắt kết nối GPU rời</value>
-  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Chế độ hoạt động của GPU</value>
   </data>
@@ -2020,12 +1992,6 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Đặt lại "Thời gian chạy trên pin" khi khởi động</value>
-  </data>
-  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Tắt WiFi</value>
-  </data>
-  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Bật WiFi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Chạy im lặng</value>
@@ -2229,7 +2195,7 @@ Các định dạng hỗ trợ: {1}.</value>
     <value>Kiểm tra kết nối internet của bạn.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
-    <value>Phát</value>
+    <value>Phát âm thanh</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Hỗ trợ các định dạng âm thanh phổ biến như .wav hoặc .mp3.</value>
