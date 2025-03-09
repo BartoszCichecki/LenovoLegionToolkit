@@ -982,6 +982,9 @@
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>الإعدادات المسبقة رَقَم 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>الإعدادات المسبقة رَقَم 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>غلق</value>
   </data>
