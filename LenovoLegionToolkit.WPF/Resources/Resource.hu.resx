@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Projekt GitHub-on</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Külső könyvtárak</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Névjegy</value>
   </data>
@@ -738,6 +741,9 @@ FIGYELMEZTETÉS: Ez a művelet nem fog megfelelően futni, ha a belső kijelző 
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Billentyűzet háttérvilágítás</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>A billentyűzet háttérvilágítása nem szabályozható itt, amikor a Lenovo Vantage vagy annak szolgáltatásai futnak.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>A Lenovo Vantage vagy annak szolgáltatásai futnak</value>
   </data>
@@ -845,6 +851,10 @@ FIGYELMEZTETÉS: Ez a művelet nem fog megfelelően futni, ha a belső kijelző 
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock és Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Az Fn billentyűkkel végzett műveletek, például a mikrofon elnémítása esetén az értesítés letiltása.
+Engedélyezze ezt az opciót, ha konfliktusok vannak a teljes képernyős alkalmazásokkal.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Ne jelenítsen meg értesítéseket</value>
@@ -1145,6 +1155,12 @@ Az opció módosítása után ajánlott az újraindítás.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo gyorsbillentyűk (Hotkeys) letiltása</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>A Lenovo Vantage és/vagy az ImController esetleg nem megfelelően lett letiltva</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Nem sikerült letiltani a Lenovo Vantage és/vagy ImController-t</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>A Lenovo Vantage és az ImController letiltása eltávolításuk nélkül.
 Az opció módosítása után ajánlott az újraindítás.</value>
@@ -1163,6 +1179,12 @@ Az opció módosítása után ajánlott az újraindítás.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Nem sikerült engedélyezni a Lenovo Hotkeys billentyűket</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>A Lenovo Vantage és/vagy az ImController esetleg nem megfelelően lett engedélyezve</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Nem sikerült engedélyezni a Lenovo Vantage és/vagy ImController-t</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Kizárhat frissítési rátákat, hogy az Fn+R gyorsbillentyű hasznosabbá váljon.</value>
@@ -1823,6 +1845,12 @@ Ha a dGPU egyáltalán nem reagál, kérjük, indítsa újra a laptopját.</valu
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Az Egyéni mód beállításai nem lesznek megfelelően alkalmazva, ha a Legion Zone vagy annak szolgáltatásai futnak.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPU csatlakoztatva</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPU lekapcsolva</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU működési mód</value>
   </data>
@@ -1991,6 +2019,12 @@ A támogatott formátumok a következők: {1}.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>„Akkumulátoron ennyi ideje” visszaállítása indításkor</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fi kikapcsolása</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fi bekapcsolása</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Futás csendben</value>
