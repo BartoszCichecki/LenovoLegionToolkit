@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Stránka projektu na GitHubu</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Knihovny třetích stran</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>O aplikaci</value>
   </data>
@@ -722,9 +719,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvícení klávesnice</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Zde nelze ovládat podsvícení klávesnice, když je spuštěný Vantage nebo jeho služby.</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O aplikaci</value>
   </data>
@@ -829,10 +823,6 @@ VAROVÁNÍ: Tato akce neproběhne správně, pokud je interní displej vypnutý.
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock a Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Zakázat upozornění na akce kláves Fn, jako je ztlumení mikrofonu
-Povol tuto možnost, pokud máš konflikty s aplikacemi na celou obrazovku.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nezobrazovat notifikace</value>
