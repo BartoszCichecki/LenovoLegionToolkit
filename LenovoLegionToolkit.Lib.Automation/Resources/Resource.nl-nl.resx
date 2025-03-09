@@ -200,6 +200,12 @@
     <value>Periodieke actie</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Wanneer Wi-Fi verbinding is verbonden</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Wanneer Wi-Fi verbinding is verbroken</value>
+  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Na het hervatten</value>
   </data>
