@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Pagina del progetto su Github</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Librerie di terze parti utilizzate</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Informazioni su</value>
   </data>
@@ -720,9 +717,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Retroilluminazione tastiera</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>La retroilluminazione della tastiera non può essere controllata qua mentre Vantage o i suoi servizi sono in esecuzione.</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Informazioni su</value>
   </data>
@@ -827,10 +821,6 @@ ATTENZIONE: questa azione non verrà eseguita correttamente se il display intern
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Bloc Maiusc e Bloc Num</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Disabilita la notifica per le azioni dei tasti Fn come la disattivazione del microfono
-Abilita questa opzione in caso di conflitti con le applicazioni a schermo intero.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Non mostrare notifiche</value>
@@ -1121,12 +1111,6 @@ Il riavvio è consigliabile dopo aver cambiato questa impostazione.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Disabilita Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage potrebbe non essere disabilitato correttamente</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Impossibile disattivare Vantage</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Disabilita Lenovo Vantage e i suoi servizi senza disinstallarli.
