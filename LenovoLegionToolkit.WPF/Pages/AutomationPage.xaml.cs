@@ -134,7 +134,7 @@ public partial class AutomationPage
 
         foreach (var pipeline in pipelines.Where(p => p.Trigger is null))
         {
-            var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
+            var control = GenerateControl(pipeline, _manualPipelinesStackPanel, false);
             _manualPipelinesStackPanel.Children.Add(control);
             initializedTasks.Add(control.InitializedTask);
         }
@@ -181,6 +181,7 @@ public partial class AutomationPage
             new PlaySoundAutomationStep(default),
             new PortsBacklightAutomationStep(default),
             new PowerModeAutomationStep(default),
+            new QuickActionAutomationStep(default),
             new RefreshRateAutomationStep(default),
             new ResolutionAutomationStep(default),
             new RGBKeyboardBacklightAutomationStep(default),
@@ -208,9 +209,15 @@ public partial class AutomationPage
         return [.. steps];
     }
 
-    private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, Panel stackPanel)
+    private AutomationPipelineControl GenerateControl(AutomationPipeline pipeline, Panel stackPanel, bool allowQuickActionAutomationStep = true)
     {
-        var control = new AutomationPipelineControl(pipeline, _supportedAutomationSteps);
+        var supportedSteps = _supportedAutomationSteps;
+        if (!allowQuickActionAutomationStep)
+        {
+            supportedSteps = Array.FindAll(supportedSteps, s => s is not QuickActionAutomationStep);
+        }
+
+        var control = new AutomationPipelineControl(pipeline, supportedSteps);
         control.MouseRightButtonUp += (_, e) =>
         {
             ShowPipelineContextMenu(control, stackPanel);
@@ -301,7 +308,7 @@ public partial class AutomationPage
             return;
 
         var pipeline = new AutomationPipeline(newName);
-        var control = GenerateControl(pipeline, _manualPipelinesStackPanel);
+        var control = GenerateControl(pipeline, _manualPipelinesStackPanel, false);
         _manualPipelinesStackPanel.Children.Insert(0, control);
 
         _noManualActionsText.Visibility = _manualPipelinesStackPanel.Children.Count < 1
