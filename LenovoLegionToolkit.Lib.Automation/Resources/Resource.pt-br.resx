@@ -200,12 +200,6 @@
     <value>Ação Periódica</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o WiFi está conectado</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o WiFi está desconectado</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Ao retomar</value>
   </data>
@@ -216,15 +210,15 @@
     <value>Quando o HDR for ligado</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Desativado</value>
+    <value>Desativado</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Ativado</value>
+    <value>Ativado</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Quando o dispositivo for desconectado</value>
+    <value>Quando o dispositivo for desconectado</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Quando o dispositivo for conectado</value>
+    <value>Quando o dispositivo for conectado</value>
   </data>
 </root>
