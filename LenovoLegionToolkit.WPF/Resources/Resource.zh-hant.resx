@@ -2215,21 +2215,21 @@
     <value>自動檢查更新</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
-	  <value>沒有找到更新目錄</value>
+    <value>沒有找到更新目錄</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
-	  <value>嘗試從其他資源獲得更新</value>
+    <value>嘗試從其他資源獲得更新</value>
   </data>
   <data name="PackagesPage_Error_Title" xml:space="preserve">
-	  <value>發生錯誤</value>
+    <value>發生錯誤</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
-	  <value>檢查您的網路連線是否正常。</value>
+    <value>檢查您的網路連線是否正常。</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
-	  <value>播放聲音</value>
+    <value>播放聲音</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
-	  <value>支援像 wav 或 mp3 等音訊格式。</value>
+    <value>支援像 wav 或 mp3 等音訊格式。</value>
   </data>
 </root>
