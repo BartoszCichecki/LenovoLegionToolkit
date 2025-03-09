@@ -13,12 +13,9 @@ public class QuickActionAutomationStep(Guid? pipelineId)
 
     public async Task RunAsync(AutomationContext context, AutomationEnvironment environment, CancellationToken token)
     {
-        if (PipelineId is not null)
-        {
-            await IoCContainer.Resolve<AutomationProcessor>().RunNowAsync(PipelineId ?? Guid.Empty).ConfigureAwait(false);
-        }
-
-        return;
+        if (PipelineId is null)
+            return;
+        await IoCContainer.Resolve<AutomationProcessor>().RunNowAsync(PipelineId ?? Guid.Empty).ConfigureAwait(false);
     }
 
     IAutomationStep IAutomationStep.DeepCopy() => new QuickActionAutomationStep(PipelineId);

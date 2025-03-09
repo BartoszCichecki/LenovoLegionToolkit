@@ -22,7 +22,7 @@ public class QuickActionAutomationStepControl : AbstractAutomationStepControl<Qu
 
     private readonly StackPanel _stackPanel = new();
 
-    private bool _isRefreshing = false;
+    private bool _isRefreshing;
 
     public QuickActionAutomationStepControl(QuickActionAutomationStep step) : base(step)
     {
@@ -65,6 +65,7 @@ public class QuickActionAutomationStepControl : AbstractAutomationStepControl<Qu
         var index = 0;
         var selectedIndex = -1;
         var pipelines = await _processor.GetPipelinesAsync();
+
         foreach (var pipeline in pipelines.Where(p => p.Trigger is null))
         {
             _comboBox.Items.Add(pipeline.Name);
@@ -77,7 +78,6 @@ public class QuickActionAutomationStepControl : AbstractAutomationStepControl<Qu
         _comboBox.SelectedIndex = selectedIndex;
 
         _isRefreshing = false;
-        return;
     }
 
     private async Task<Guid?> GetSelectedPipelineIdAsync()
