@@ -2137,4 +2137,10 @@ Ondersteunde formaten zijn: {1}.</value>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
     <value>Voeg CLI toe aan PATH</value>
   </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Geluid afspelen</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Snelle actie</value>
+  </data>
 </root>
