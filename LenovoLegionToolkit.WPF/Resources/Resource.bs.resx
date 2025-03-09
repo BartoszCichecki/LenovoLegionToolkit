@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Web stranica projekta na GitHub-u</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Biblioteke treće strane</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>O programu</value>
   </data>
@@ -511,10 +508,6 @@ Ovo vrijeme možda neće biti tačno ako je laptop bio napunjen dok je spavao il
   </data>
   <data name="No" xml:space="preserve">
     <value>Ne</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Onemogućuje notifikacije za Fn kratice kao što je utišavanje mikrofona
-Omogućite ovu opciju ukoliko imate konflikata sa aplikacijama u fullscreenu.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Ne prikazuj obavještenja</value>
