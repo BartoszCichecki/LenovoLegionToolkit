@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Site do projeto no GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Bibliotecas de Terceiros</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Sobre</value>
   </data>
@@ -741,9 +738,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
-  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage ou seus serviços estão em execução</value>
   </data>
@@ -851,10 +845,6 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock e Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desativar as notificações para ações das teclas Fn como silenciar o microfone
-Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não exibir notificações</value>
@@ -1155,12 +1145,6 @@ A reinicialização é recomendada após alterar esta opção.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar o Lenovo Hotkeys</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage e/ou ImController podem não ter sido desabilitados corretamente</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Vantage e/ou ImController</value>
-  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desative o Lenovo Vantage e o ImController sem desinstalá-los.
 Uma reinicialização é recomendada após alterar esta opção.</value>
@@ -1179,12 +1163,6 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage e/ou ImController podem não ter sido ativados corretamente</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível habilitar o Vantage e/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Você pode excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1844,12 +1822,6 @@ AVISO: Esta ação não será executada corretamente caso a GPU dedicada não es
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>As configurações do modo personalizado não serão aplicadas corretamente quando o Legion Zone ou seus serviços estiverem em execução.</value>
   </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>GPU dedicada conectada</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>GPU dedicada desconectada</value>
-  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de trabalho da GPU</value>
   </data>
@@ -2018,12 +1990,6 @@ Requer reinicialização.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Redefinir "Na bateria desde" na inicialização</value>
-  </data>
-  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Desativar o Wi-Fi</value>
-  </data>
-  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Ligar o Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Executar silenciosamente</value>
