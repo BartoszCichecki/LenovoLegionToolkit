@@ -200,12 +200,6 @@
     <value>Regelmäßige Aktion</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wenn eine WLAN-Verbindung besteht</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wenn die WLAN-Verbindung getrennt wird</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Beim aufwachen</value>
   </data>
@@ -216,15 +210,15 @@
     <value>Wenn HDR eingeschaltet ist</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Aus</value>
+    <value>Aus</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>An</value>
+    <value>An</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wenn Gerät getrennt ist</value>
+    <value>Wenn Gerät getrennt ist</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wenn Gerät verbunden ist</value>
+    <value>Wenn Gerät verbunden ist</value>
   </data>
 </root>
