@@ -1696,6 +1696,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="IGPUModeChangeException_Title_IGPUOnly" xml:space="preserve">
     <value>dGPUは現在使用中です</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPUが接続されました</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPUが切断されました</value>
+  </data>
   <data name="ToggleHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>ハイブリッドモード</value>
   </data>
@@ -1832,6 +1838,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>起動時に「バッテリー駆動時間」をリセットする</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fiをオフにする</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Wi-Fiをオンにする</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>バックグラウンドで実行</value>
