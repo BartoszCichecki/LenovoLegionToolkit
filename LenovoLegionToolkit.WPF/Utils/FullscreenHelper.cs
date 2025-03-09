@@ -9,7 +9,7 @@ namespace LenovoLegionToolkit.WPF.Utils;
 
 public static class FullscreenHelper
 {
-    public static bool IsAnyApplicationFullscreen()
+    public static unsafe bool IsAnyApplicationFullscreen()
     {
         try
         {
@@ -27,21 +27,15 @@ public static class FullscreenHelper
             if (!PInvoke.GetWindowRect(foregroundWindowHandle, out var appBounds))
                 return false;
 
-            var screenBounds = Screen.FromHandle(foregroundWindowHandle.Value).Bounds;
+            var screenBounds = Screen.FromHandle(foregroundWindowHandle).Bounds;
             var coversFullScreen = appBounds.bottom - appBounds.top == screenBounds.Height && appBounds.right - appBounds.left == screenBounds.Width;
             if (!coversFullScreen)
                 return false;
 
-            unsafe
-            {
-                var processId = 0u;
-                _ = PInvoke.GetWindowThreadProcessId(foregroundWindowHandle, &processId);
-                var process = Process.GetProcessById((int)processId);
-                if (process.ProcessName == "explorer")
-                    return false;
-            }
-
-            return true;
+            var processId = 0u;
+            _ = PInvoke.GetWindowThreadProcessId(foregroundWindowHandle, &processId);
+            var process = Process.GetProcessById((int)processId);
+            return process.ProcessName != "explorer";
         }
         catch (Exception ex)
         {

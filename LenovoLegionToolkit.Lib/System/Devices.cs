@@ -78,15 +78,11 @@ public static class Devices
     private static unsafe string GetClassName(Guid guid)
     {
         var requiredSize = 0u;
-        PInvoke.SetupDiClassNameFromGuid(guid, null, 0, &requiredSize);
+        PInvoke.SetupDiClassNameFromGuid(guid, Array.Empty<char>(), &requiredSize);
 
-        var buffer = new char[requiredSize];
-        fixed (char* ptr = buffer)
-        {
-            var pwStr = new PWSTR(ptr);
-            PInvoke.SetupDiClassNameFromGuid(guid, pwStr, requiredSize, null);
-            return pwStr.ToString();
-        }
+        var chars = new char[requiredSize];
+        PInvoke.SetupDiClassNameFromGuid(guid, chars, null);
+        return chars.ToString() ?? string.Empty;
     }
 
     private static unsafe string GetStringProperty(SetupDiDestroyDeviceInfoListSafeHandle deviceInfoSet, SP_DEVINFO_DATA deviceInfoData, DEVPROPKEY propertyKey)
@@ -194,7 +190,8 @@ public static class Devices
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                devicePath = new string(&deviceDetailData->DevicePath.e0);
+                fixed (char* e0Ptr = &deviceDetailData->DevicePath.e0)
+                    devicePath = new string(e0Ptr);
             }
             finally
             {
@@ -312,7 +309,8 @@ public static class Devices
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiEnumDeviceInterfaces");
 
-                devicePath = new string(&deviceDetailData->DevicePath.e0);
+                fixed (char* e0Ptr = &deviceDetailData->DevicePath.e0)
+                    devicePath = new string(e0Ptr);
             }
             finally
             {

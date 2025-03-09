@@ -145,7 +145,8 @@ public abstract partial class AbstractDGPUNotify : IDGPUNotify
                 if (!result3)
                     PInvokeExtensions.ThrowIfWin32Error("SetupDiGetDeviceInterfaceDetail");
 
-                devicePath = new string(&deviceDetailData->DevicePath.e0);
+                fixed (char* e0Ptr = &deviceDetailData->DevicePath.e0)
+                    devicePath = new string(e0Ptr);
             }
             finally
             {

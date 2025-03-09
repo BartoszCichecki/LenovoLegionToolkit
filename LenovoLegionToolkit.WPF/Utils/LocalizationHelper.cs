@@ -158,14 +158,14 @@ public static class LocalizationHelper
         var ptr = IntPtr.Zero;
         try
         {
-            var length = PInvoke.GetLocaleInfoEx((string?)null, PInvoke.LOCALE_SSHORTDATE, null, 0);
+            var length = PInvoke.GetLocaleInfoEx(null, PInvoke.LOCALE_SSHORTDATE, null, 0);
             if (length == 0)
                 return null;
 
             ptr = Marshal.AllocHGlobal(sizeof(char) * length);
             var charPtr = new PWSTR((char*)ptr.ToPointer());
 
-            length = PInvoke.GetLocaleInfoEx((string?)null, PInvoke.LOCALE_SSHORTDATE, charPtr, length);
+            length = PInvoke.GetLocaleInfoEx(null, PInvoke.LOCALE_SSHORTDATE, charPtr, length);
             return length == 0 ? null : charPtr.ToString();
         }
         finally

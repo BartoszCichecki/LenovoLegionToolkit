@@ -33,7 +33,7 @@ public class QuickActionAutomationStepControl : AbstractAutomationStepControl<Qu
 
     public override IAutomationStep CreateAutomationStep() => new QuickActionAutomationStep(GetSelectedPipelineIdAsync().Result);
 
-    protected override UIElement? GetCustomControl()
+    protected override UIElement GetCustomControl()
     {
         _comboBox.SelectionChanged += async (_, _) =>
         {
