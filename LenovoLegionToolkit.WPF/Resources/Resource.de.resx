@@ -2216,21 +2216,21 @@ Unterstützte Formate sind: {1}.</value>
     <value>Automatisch auf Updates prüfen</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
-	  <value>Update-Katalog nicht gefunden</value>
+    <value>Update-Katalog nicht gefunden</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
-	  <value>Versuche Updates von der anderen Quelle zu erhalten.</value>
+    <value>Versuche Updates von der anderen Quelle zu erhalten.</value>
   </data>
   <data name="PackagesPage_Error_Title" xml:space="preserve">
-	  <value>Etwas ist schiefgelaufen</value>
+    <value>Etwas ist schiefgelaufen</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
-	  <value>Prüfen Sie, ob Ihre Internetverbindung funktioniert.</value>
+    <value>Prüfen Sie, ob Ihre Internetverbindung funktioniert.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
-	  <value>Ton abspielen</value>
+    <value>Ton abspielen</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
-	  <value>Gängige Musikformate wie wav oder mp3 werden unterstützt.</value>
+    <value>Gängige Musikformate wie wav oder mp3 werden unterstützt.</value>
   </data>
 </root>
