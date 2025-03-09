@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Sitio web del proyecto en GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Librerías de terceros</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -744,9 +741,6 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Retroiluminación del teclado</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>La retroiluminación del teclado no puede ser controlada aquí, si Vantage o sus servicios están funcionando.</value>
-  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage o sus servicios se están ejecutando</value>
   </data>
@@ -854,10 +848,6 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Bloqueo de mayúsculas y bloqueo numérico</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono
-Activar esta opción si tiene conflictos con las aplicaciones en pantalla completa.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>No mostrar notificaciones</value>
@@ -1158,12 +1148,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desactivar las teclas de acceso rápido de Lenovo</value>
   </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage y/o ImController pueden no haber sido desactivados correctamente</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>No se ha podido desactivar Vantage y/o ImController</value>
-  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desactivar Lenovo Vantage e ImController sin desinstalarlos.
 Se recomienda reiniciar después de cambiar esta opción.</value>
@@ -1182,12 +1166,6 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>No se pueden activar las teclas de acceso rápido de Lenovo</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage y/o ImController pueden no haber sido activados correctamente</value>
-  </data>
-  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>No se ha podido activar Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puede excluir las tasas de refresco, para que el acceso rápido Fn+R sea más útil.</value>
@@ -1849,12 +1827,6 @@ Si la dGPU no responde del todo, reinicie su portátil.</value>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
   </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU conectada</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU desconectada</value>
-  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de trabajo de la GPU</value>
   </data>
@@ -2022,12 +1994,6 @@ Requiere un reinicio.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Restablecer "En batería desde" al iniciar</value>
-  </data>
-  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Apagar el WiFi</value>
-  </data>
-  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Encender el WiFi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Ejecutar silenciosamente</value>
