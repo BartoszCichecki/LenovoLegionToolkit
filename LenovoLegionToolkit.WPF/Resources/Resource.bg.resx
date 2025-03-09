@@ -735,6 +735,9 @@
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Подсветка на клавиатурата</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Подсветката на клавиатурата не може да бъде управлявана тук, когато Lenovo Vantage или неговите услуги работят.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage или неговите услуги работят</value>
   </data>
@@ -1013,6 +1016,9 @@
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Предварително зададена настройка 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Предварително зададена 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Изключена</value>
   </data>
@@ -1133,6 +1139,12 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Деактивирай приложението Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage и/или ImController може да не са били деактивирани правилно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Lenovo Vantage и/или ImController не можаха да бъдат деактивирани</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Деактивирайте Lenovo Vantage и ImController без да ги деинсталирате.
 Препоръчително е да рестартирате устройство си след промяна в настройката.</value>
@@ -1151,6 +1163,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Приложението Lenovo Hotkeys не можа да бъде активирано</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage и/или ImController може да не са били активирани правилно</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Lenovo Vantage и/или ImController не можаха да бъдат активирани</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Може да изключите избрани честоти на опресняване, за да направите клавишната комбинация Fn+R по-полезна.</value>
@@ -1803,6 +1821,12 @@
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Настройките, създадени от потребителя, няма да бъдат приложени правилно, когато LegionZone или неговите услуги работят.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>Допълнителна видеокарта активирана</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>Допълнителна видео карта деактивирана</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим на работа на видео картата</value>
   </data>
@@ -1968,6 +1992,12 @@
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Нулиране на "На батерия от" брояча при стартиране</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Изключване на Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Включване на Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Тихо стартиране</value>
