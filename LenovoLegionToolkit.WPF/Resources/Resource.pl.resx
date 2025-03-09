@@ -2217,15 +2217,15 @@ Obsługiwane formaty obrazka: {1}.</value>
     <value>Automatycznie sprawdzaj aktualizacje</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
-	  <value>Nie znaleziono katalogu aktualizacji</value>
+    <value>Nie znaleziono katalogu aktualizacji</value>
   </data>
   <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
-	  <value>Spróbuj pobrać aktualizacje z innego źródła.</value>
+    <value>Spróbuj pobrać aktualizacje z innego źródła.</value>
   </data>
   <data name="PackagesPage_Error_Title" xml:space="preserve">
-	  <value>Coś poszło nie tak</value>
+    <value>Coś poszło nie tak</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
-	  <value>Sprawdź połączenie z Internetem.</value>
+    <value>Sprawdź połączenie z Internetem.</value>
   </data>
 </root>
