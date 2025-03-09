@@ -363,7 +363,7 @@ public static partial class Compatibility
         }
     }
 
-    private static bool GetSupportBootLogoChange(int smartFanVersion) => smartFanVersion < 6;
+    private static bool GetSupportBootLogoChange(int smartFanVersion) => smartFanVersion < 8;
 
     private static bool GetHasQuietToPerformanceModeSwitchingBug(BiosVersion? biosVersion)
     {
