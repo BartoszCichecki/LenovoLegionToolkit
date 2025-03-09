@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Сторінка проєкту на GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Сторонні бібліотеки</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Про застосунок</value>
   </data>
@@ -736,6 +739,9 @@
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Підсвітка клавіатури</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Неможливо керувати підсвіткою клавіатури, коли працює Lenovo Vantage або його служби.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vatage або його служби запущені</value>
   </data>
@@ -843,6 +849,10 @@
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock та Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Вимикає сповіщення для таких дій клавіш Fn, як вимкнення мікрофона
+Увімкніть цю опцію, якщо у вас виникають конфлікти з повноекранними програмами.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Не показувати сповіщення</value>
@@ -1143,6 +1153,12 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Вимкнути гарячі клавіші Lenovo</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Можливо, Lenovo Vantage та/або ImController було вимкнено неправильно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Неможливо вимкнути Lenovo Vantage та/або ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Вимкнути Lenovo Vantage та ImController без їхньої деінсталяції.
 Рекомендується перезавантаження після зміни цієї опції.</value>
@@ -1161,6 +1177,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не вдалося увімкнути гарячі клавіші Lenovo</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Можливо, Lenovo Vantage та/або ImController було увімкнено неправильно</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Неможливо увімкнути Lenovo Vantage та/або ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Ви можете виключити частоту оновлення, щоб зробити комбінацію клавіш Fn+R більш корисною.</value>
@@ -1820,6 +1842,12 @@
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Налаштування користувальницького режиму не буде застосовано правильно, коли запущено Legion Zone або його служби.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>Під'єднано дискретний ГП</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>Від'єднано дискретний ГП</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим роботи ГП</value>
   </data>
@@ -1988,6 +2016,12 @@
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Скидання параметра "Від батареї з" під час запуску</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Вимкнути Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Увімкнути Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Тихий запуск</value>
