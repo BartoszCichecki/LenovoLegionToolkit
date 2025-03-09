@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Site do projeto no GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Bibliotecas de terceiros</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Sobre</value>
   </data>
@@ -741,6 +744,9 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Luz do teclado</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Lenovo Vantage estão ativos.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>O Lenovo Vantage ou os seus serviços estão ativos</value>
   </data>
@@ -1148,6 +1154,12 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Desativar Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>O Lenovo Vantage e/ou o ImController podem são ter sido desativados corretamente</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Não foi possível desativar o Lenovo Vantage e/ou o ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desativa o Lenovo Vantage e o ImController sem os desinstalar.
 É recomendado reiniciar após alterar estas opções.</value>
@@ -1166,6 +1178,12 @@ Se desativado, esta app irá executar os atalhos Fn.
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>O Lenovo Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Não foi possível ativar o Lenovo Vantage e/ou o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Podes excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1824,6 +1842,12 @@ Se dGPU não estiver a responder, reinicie o seu laptop.</value>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Configurações de Modo Personalizado não serão aplicados corretamente quando o Legion Zone ou os seus serviços estiverem a ser executados.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPU conectado</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPU desconectado</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de Funcionamento da GPU</value>
   </data>
@@ -1970,6 +1994,12 @@ Formatos suportados são: {1}.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Reinicia "Em bateria desde" ao iniciar</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Desligar o Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Ligar o Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessWaitUntilFinished" xml:space="preserve">
     <value>Esperar finalizar</value>
