@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>GitHubのリポジトリ</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>サードパーティのライブラリ</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>このソフトの情報</value>
   </data>
@@ -733,6 +736,9 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>キーボードバックライト</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Lenovo Vantage またはそのサービスの実行中は、ここでキーボードのバックライトを制御できません。</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage またはそのサービスが実行されています</value>
   </data>
@@ -840,6 +846,10 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock と Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>マイクのミュートなどの Fn キー操作の通知を無効にします。
+全画面アプリケーションと競合する場合は、このオプションを有効にします。</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>通知を非表示</value>
@@ -1131,6 +1141,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Lenovo Hotkeys を無効化</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方が正しく無効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方を無効にできませんでした</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo Vantage と ImController をアンインストールせずに無効にします。
 このオプションを変更した後はデバイスを再起動することをお勧めします。</value>
@@ -1143,6 +1159,12 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Message" xml:space="preserve">
     <value>Lenovo Hotkeys は正しく有効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方が正しく有効になっていない可能性があります</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方を有効にできませんでした</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R ショートカットをさらに便利にするために、リフレッシュレートを除外できます。</value>
