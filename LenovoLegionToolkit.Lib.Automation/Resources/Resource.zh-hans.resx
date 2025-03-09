@@ -200,12 +200,6 @@
     <value>循环自动化</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当与 Wi-Fi 连接时</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>当与 Wi-Fi 断开连接时</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>当唤醒时</value>
   </data>
@@ -216,15 +210,15 @@
     <value>当 HDR 开启时</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>关</value>
+    <value>关</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>开</value>
+    <value>开</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>当与设备断开连接时</value>
+    <value>当与设备断开连接时</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>当与设备连接时</value>
+    <value>当与设备连接时</value>
   </data>
 </root>
