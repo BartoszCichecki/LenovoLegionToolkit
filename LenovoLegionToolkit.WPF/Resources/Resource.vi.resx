@@ -742,6 +742,9 @@ CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Đèn nền bàn phím</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Đèn nền bàn phím không thể được tùy chỉnh nếu Lenovo Vantage hoặc các chương trình con của nó đang chạy.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage hoặc các dịch vụ của nó đang chạy</value>
   </data>
@@ -1149,6 +1152,12 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage và/hoặc ImController đã không được ngắt đúng cách</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Không thể ngắt Lenovo Vantage và/hoặc ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Ngắt kích hoạt Lenovo Vantage và các dịch vụ con mà không cần gỡ cài đặt.
 Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
@@ -1167,6 +1176,12 @@ Nên khởi động lại sau khi thay đổi tùy chọn này.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Không thể kích hoạt Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage và/hoặc ImController có thể đã không được kích hoạt đúng cách</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Không thể kích hoạt Lenovo Vantage và/hoặc ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Bạn có thể loại trừ một số tần số quét, để chức năng Fn+R hữu dụng hơn.</value>
