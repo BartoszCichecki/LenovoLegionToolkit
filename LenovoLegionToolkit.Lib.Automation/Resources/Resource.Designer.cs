@@ -367,7 +367,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When WiFi is connected.
+        ///   Looks up a localized string similar to When Wi-Fi is connected.
         /// </summary>
         public static string WiFiConnectedAutomationPipelineTrigger_DisplayName {
             get {
@@ -376,7 +376,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When WiFi is disconnected.
+        ///   Looks up a localized string similar to When Wi-Fi is disconnected.
         /// </summary>
         public static string WiFiDisconnectedAutomationPipelineTrigger_DisplayName {
             get {

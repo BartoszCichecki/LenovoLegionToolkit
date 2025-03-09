@@ -133,7 +133,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 3rd party libraries.
+        ///   Looks up a localized string similar to Third-party libraries.
         /// </summary>
         public static string AboutPage_ThirdPartyLibraries {
             get {
@@ -1553,7 +1553,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DGPU connected.
+        ///   Looks up a localized string similar to dGPU connected.
         /// </summary>
         public static string DGPU_Connected_Title {
             get {
@@ -1562,7 +1562,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DGPU disconnected.
+        ///   Looks up a localized string similar to dGPU disconnected.
         /// </summary>
         public static string DGPU_Disconnected_Title {
             get {
@@ -3470,7 +3470,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Disables notification for Fn keys actions like microphone mute
+        ///   Looks up a localized string similar to Disables notification for Fn keys actions like microphone mute.
         ///Enable this option if you have conflicts with full screen applications..
         /// </summary>
         public static string NotificationsSettingsWindow_DontShowNotifications_Message {
@@ -6052,7 +6052,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turn off WiFi.
+        ///   Looks up a localized string similar to Turn off Wi-Fi.
         /// </summary>
         public static string TurnOffWiFiAutomationStepControl_Title {
             get {
@@ -6061,7 +6061,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Turn on WiFi.
+        ///   Looks up a localized string similar to Turn on Wi-Fi.
         /// </summary>
         public static string TurnOnWiFiAutomationStepControl_Title {
             get {
