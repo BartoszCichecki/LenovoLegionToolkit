@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Sitio web del proyecto en GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Librerías de terceros</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Acerca de</value>
   </data>
@@ -1827,6 +1830,12 @@ Si la dGPU no responde del todo, reinicie su portátil.</value>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPU conectada</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPU desconectada</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de trabajo de la GPU</value>
   </data>
@@ -1994,6 +2003,12 @@ Requiere un reinicio.</value>
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Restablecer "En batería desde" al iniciar</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Desactiva el Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Encender el Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Ejecutar silenciosamente</value>
@@ -2201,5 +2216,11 @@ Requiere un reinicio.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Se admiten formatos habituales de música como WAV o MP3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Acción rápida</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Ejecutar una acción rápida guardada.</value>
   </data>
 </root>
