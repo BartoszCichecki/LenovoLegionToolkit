@@ -741,6 +741,9 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminação do teclado</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Lenovo Vantage ou seus serviços estão em execução.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage ou seus serviços estão em execução</value>
   </data>
@@ -848,6 +851,10 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock e Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Desativar as notificações para ações das teclas Fn como silenciar o microfone.
+Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não exibir notificações</value>
