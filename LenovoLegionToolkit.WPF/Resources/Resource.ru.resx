@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Страница проекта на GitHub</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>Сторонние библиотеки</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>О программе</value>
   </data>
@@ -739,6 +742,9 @@
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Подсветка клавиатуры</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Lenovo Vantage или его службы.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage или его службы запущены</value>
   </data>
@@ -846,6 +852,10 @@
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock и Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Отключает уведомления о действиях клавиш Fn, таких как приглушение микрофона
+Включите эту опцию, если у вас возникают конфликты с полноэкранными приложениями.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Не показывать уведомления</value>
@@ -1146,6 +1156,12 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Отключить Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Возможно, Lenovo Vantage и/или ImController были отключены неправильно</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Не удалось отключить Lenovo Vantage и/или ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Отключить Lenovo Vantage и ImController, не удаляя их.
 После изменения этого параметра рекомендуется перезагрузка.</value>
@@ -1164,6 +1180,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Не удалось включить клавиши горячих клавиш Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Возможно, Lenovo Vantage и/или ImController были включены неправильно</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Не удалось включить Lenovo Vantage и/или ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Вы можете исключить частоту обновления, чтобы сделать сочетание клавиш Fn+R более полезным.</value>
@@ -1824,6 +1846,12 @@
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Параметры пользовательского режима будут неправильно применены, если запущен Legion Zone или его службы.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>Графический процессор подключен</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>Графический процессор отключен</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Режим работы видеокарты</value>
   </data>
@@ -1992,6 +2020,12 @@
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Сбросить счетчик "На аккумуляторе" при запуске</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Выключить Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Включить Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Тихий запуск</value>
@@ -2199,5 +2233,8 @@
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Поддерживаются такие форматы музыки, как wav или mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Быстрое действие</value>
   </data>
 </root>
