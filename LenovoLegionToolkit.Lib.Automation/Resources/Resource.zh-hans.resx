@@ -200,6 +200,12 @@
     <value>循环自动化</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>当与 Wi-Fi 连接时</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>当与 Wi-Fi 断开连接时</value>
+  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>当唤醒时</value>
   </data>
