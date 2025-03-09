@@ -200,12 +200,6 @@
     <value>Rendszeres művelet</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Ha a WiFi csatlakoztatva van</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Ha a WiFi nincs csatlakoztatva</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Folytatásnál</value>
   </data>
@@ -216,15 +210,15 @@
     <value>Amikor a HDR bekapcsol</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Ki</value>
+    <value>Ki</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Be</value>
+    <value>Be</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Ha a készüléket leválasztották</value>
+    <value>Ha a készüléket leválasztották</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Ha a készülék csatlakoztatva van</value>
+    <value>Ha a készülék csatlakoztatva van</value>
   </data>
 </root>
