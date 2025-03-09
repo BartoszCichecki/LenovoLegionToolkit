@@ -200,12 +200,6 @@
     <value>Периодическое действие</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Когда подключен WiFi</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Когда отключен WiFi</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>При возобновлении</value>
   </data>
@@ -216,15 +210,15 @@
     <value>При включении HDR</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Откл.</value>
+    <value>Откл.</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Вкл.</value>
+    <value>Вкл.</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>При отсоединении устройства</value>
+    <value>При отсоединении устройства</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>При соединении устройства</value>
+    <value>При соединении устройства</value>
   </data>
 </root>
