@@ -200,12 +200,6 @@
     <value>Періодична дія</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
-  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли під'єднано до Wi-Fi</value>
-  </data>
-  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Коли від'єднано від Wi-Fi</value>
-  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>При поновленні</value>
   </data>
@@ -216,15 +210,15 @@
     <value>Коли HDR увімкнено</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Вимкнути</value>
+    <value>Вимкнути</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Увімкнути</value>
+    <value>Увімкнути</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Коли пристрій від'єднано</value>
+    <value>Коли пристрій від'єднано</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Коли пристрій під'єднано</value>
+    <value>Коли пристрій під'єднано</value>
   </data>
 </root>
