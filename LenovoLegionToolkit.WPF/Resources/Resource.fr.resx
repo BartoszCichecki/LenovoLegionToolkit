@@ -743,6 +743,9 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Rétroéclairage du clavier</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Lenovo Vantage ou ses services sont en exécution.</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage ou ses services sont en cours d'exécution</value>
   </data>
@@ -850,6 +853,10 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Verrouillage des majuscules et du pavé numérique</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Désactive la notification pour les actions des touches Fn comme la coupure du microphone.
+Activez cette option si vous avez des conflits avec les applications en plein écran.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Ne pas afficher les notifications</value>
@@ -1150,6 +1157,12 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Désactiver Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage et/ou ImController ont peut-être été mal désactivés</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>Impossible de désactiver Lenovo Vantage et/ou ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Désactive Lenovo Vantage et ImController sans les désinstaller.
 Un redémarrage est recommandé après avoir modifié cette option.</value>
@@ -1168,6 +1181,12 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>Impossible d'activer les raccourcis claviers Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage et/ou ImController n'ont peut-être pas été activés correctement</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>Impossible d'activer Lenovo Vantage et/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Vous pouvez exclure les taux de rafraîchissement, pour rendre le raccourci Fn+R plus pratique.</value>
