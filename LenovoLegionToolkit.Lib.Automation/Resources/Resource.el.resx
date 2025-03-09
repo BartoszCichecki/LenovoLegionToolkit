@@ -200,6 +200,12 @@
     <value>Περιοδική ενέργεια</value>
     <comment>The display name of the periodic automation action.</comment>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Όταν το Wi-Fi είναι συνδεδεμένο</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Όταν το Wi-Fi είναι αποσυνδεδεμένο</value>
+  </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Στη συνέχιση</value>
   </data>
