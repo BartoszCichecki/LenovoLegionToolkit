@@ -201,10 +201,10 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Khi kết nối WiFi</value>
+    <value>Khi kết nối Wi-Fi</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Khi ngắt kết nối WiFi</value>
+    <value>Khi ngắt kết nối Wi-Fi</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Khi tạm dừng</value>
@@ -216,15 +216,15 @@
     <value>Khi HDR bật</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Tắt</value>
+    <value>Tắt</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Bật</value>
+    <value>Bật</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Khi ngắt kết nối thiết bị</value>
+    <value>Khi ngắt kết nối thiết bị</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Khi kết nối thiết bị</value>
+    <value>Khi kết nối thiết bị</value>
   </data>
 </root>

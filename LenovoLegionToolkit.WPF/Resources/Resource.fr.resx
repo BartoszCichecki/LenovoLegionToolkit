@@ -744,7 +744,7 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si l'affichage int
     <value>Rétroéclairage du clavier</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Vantage ou ses services sont en exécution.</value>
+    <value>Le rétroéclairage du clavier ne peut pas être contrôlé par ici quand Lenovo Vantage ou ses services sont en exécution.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage ou ses services sont en cours d'exécution</value>
@@ -1158,10 +1158,10 @@ Il est recommandé de redémarrer l'ordinateur après avoir modifié cette optio
     <value>Désactiver Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage et/ou ImController ont peut-être été mal désactivés</value>
+    <value>Lenovo Vantage et/ou ImController ont peut-être été mal désactivés</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Impossible de désactiver Vantage et/ou ImController</value>
+    <value>Impossible de désactiver Lenovo Vantage et/ou ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Désactive Lenovo Vantage et ImController sans les désinstaller.
@@ -1183,10 +1183,10 @@ Un redémarrage est recommandé après avoir modifié cette option.</value>
     <value>Impossible d'activer les raccourcis claviers Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage et/ou ImController n'ont peut-être pas été activés correctement</value>
+    <value>Lenovo Vantage et/ou ImController n'ont peut-être pas été activés correctement</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Impossible d'activer Vantage et/ou ImController</value>
+    <value>Impossible d'activer Lenovo Vantage et/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Vous pouvez exclure les taux de rafraîchissement, pour rendre le raccourci Fn+R plus pratique.</value>
@@ -1847,10 +1847,10 @@ AVERTISSEMENT : Cette action ne fonctionnera pas correctement si le GPU dédié 
     <value>Les paramètres du mode personnalisé ne seront pas appliqués correctement lorsque Legion Zone ou ses services sont en cours d'exécution.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU connecté</value>
+    <value>dGPU connecté</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU déconnecté</value>
+    <value>dGPU déconnecté</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Mode de fonctionnement du GPU</value>
@@ -2021,10 +2021,10 @@ Nécessite un redémarrage.</value>
     <value>Réinitialiser "Sur batterie depuis" au démarrage</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Éteindre le Wifi</value>
+    <value>Désactiver Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Activer le Wifi</value>
+    <value>Activer le Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Exécuter en arrière-plan</value>

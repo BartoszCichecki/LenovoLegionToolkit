@@ -743,7 +743,7 @@
     <value>Подсветка клавиатуры</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Vantage или его службы.</value>
+    <value>Подсветкой клавиатуры нельзя управлять здесь, когда работает Lenovo Vantage или его службы.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage или его службы запущены</value>
@@ -1157,10 +1157,10 @@
     <value>Отключить Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Возможно, Vantage и/или ImController были отключены неправильно</value>
+    <value>Возможно, Lenovo Vantage и/или ImController были отключены неправильно</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Не удалось отключить Vantage и/или ImController</value>
+    <value>Не удалось отключить Lenovo Vantage и/или ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Отключить Lenovo Vantage и ImController, не удаляя их.
@@ -1182,10 +1182,10 @@
     <value>Не удалось включить клавиши горячих клавиш Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Возможно, Vantage и/или ImController были включены неправильно</value>
+    <value>Возможно, Lenovo Vantage и/или ImController были включены неправильно</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Не удалось включить Vantage и/или ImController</value>
+    <value>Не удалось включить Lenovo Vantage и/или ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Вы можете исключить частоту обновления, чтобы сделать сочетание клавиш Fn+R более полезным.</value>
@@ -2022,10 +2022,10 @@
     <value>Сбросить счетчик "На аккумуляторе" при запуске</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Выключить WiFi</value>
+    <value>Выключить Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Включить WiFi</value>
+    <value>Включить Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Тихий запуск</value>
@@ -2192,10 +2192,49 @@
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Проверить</value>
   </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Проверка наличия обновлений...</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Проверить наличие обновлений</value>
+  </data>
   <data name="SettingsPage_Update_Title" xml:space="preserve">
     <value>Обновить</value>
   </data>
   <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
     <value>Достигнут лимит запросов API, попробуйте позже.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Не удалось проверить обновления</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Что-то пошло не так, повторите попытку позже.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Обновления не найдены</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Автоматически проверять наличие обновлений</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+    <value>Каталога обновлений не найдено</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+    <value>Попробуйте загрузить обновления из другого источника.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+    <value>Что-то пошло не так</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+    <value>Проверьте, что ваше интернет-соединение исправно.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Воспроизвести звук</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+    <value>Поддерживаются такие форматы музыки, как wav или mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Быстрое действие</value>
   </data>
 </root>

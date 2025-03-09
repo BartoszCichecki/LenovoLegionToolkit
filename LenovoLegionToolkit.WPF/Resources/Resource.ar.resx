@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>موقع المشروع على GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>مكتبات الطرف الثالث</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>حول البرنامج</value>
   </data>
@@ -815,10 +812,6 @@
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>مفتاح تحويل الأحرف الصغيرة إلى كبيرة و مفتاح الأرقام</value>
   </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>تعطيل الإشعار بإجراءات مفاتيح Fn مثل كتم صوت الميكروفون
-تمكين هذا الخِيار إذا كان لديك تعارض مع تطبيقات ملء الشاشة.</value>
-  </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>لا تظهر أي إشعارات</value>
   </data>
@@ -989,6 +982,9 @@
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>الإعدادات المسبقة رَقَم 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>الإعدادات المسبقة رَقَم 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>غلق</value>
   </data>
@@ -1099,12 +1095,6 @@
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>تعطيل مفاتيح Lenovo الساخنة</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>ربما لم يتم تعطيل Vantage بشكل صحيح</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>تعذر تعطيل "%s"</value>
   </data>
   <data name="SettingsPage_DisableVantage_Title" xml:space="preserve">
     <value>قم بتعطيل Lenovo Vantage</value>

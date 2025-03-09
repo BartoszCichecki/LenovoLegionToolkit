@@ -745,7 +745,7 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
     <value>Retroiluminación del teclado</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>La retroiluminación del teclado no puede ser controlada aquí, si Vantage o sus servicios están funcionando.</value>
+    <value>La retroiluminación del teclado no puede ser controlada aquí, si Lenovo Vantage o sus servicios están funcionando.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage o sus servicios se están ejecutando</value>
@@ -856,7 +856,7 @@ AVISO: Esta acción no se ejecutará correctamente si la pantalla interna está 
     <value>Bloqueo de mayúsculas y bloqueo numérico</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono
+    <value>Desactivar las notificaciones de las acciones de las teclas Fn como el silenciamiento del micrófono.
 Activar esta opción si tiene conflictos con las aplicaciones en pantalla completa.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1159,10 +1159,10 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
     <value>Desactivar las teclas de acceso rápido de Lenovo</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage y/o ImController pueden no haber sido desactivados correctamente</value>
+    <value>Lenovo Vantage y/o ImController pueden no haber sido desactivados correctamente</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>No se ha podido desactivar Vantage y/o ImController</value>
+    <value>No se ha podido desactivar Lenovo Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desactivar Lenovo Vantage e ImController sin desinstalarlos.
@@ -1184,10 +1184,10 @@ Se recomienda reiniciar después de cambiar esta opción.</value>
     <value>No se pueden activar las teclas de acceso rápido de Lenovo</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage y/o ImController pueden no haber sido activados correctamente</value>
+    <value>Lenovo Vantage y/o ImController pueden no haber sido activados correctamente</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>No se ha podido activar Vantage y/o ImController</value>
+    <value>No se ha podido activar Lenovo Vantage y/o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Puede excluir las tasas de refresco, para que el acceso rápido Fn+R sea más útil.</value>
@@ -1850,10 +1850,10 @@ Si la dGPU no responde del todo, reinicie su portátil.</value>
     <value>Los ajustes del modo personalizado no se aplicarán correctamente, si Legion Zone o sus servicios se están ejecutando.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU conectada</value>
+    <value>dGPU conectada</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU desconectada</value>
+    <value>dGPU desconectada</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de trabajo de la GPU</value>
@@ -2024,10 +2024,10 @@ Requiere un reinicio.</value>
     <value>Restablecer "En batería desde" al iniciar</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Apagar el WiFi</value>
+    <value>Desactiva el Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Encender el WiFi</value>
+    <value>Encender el Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Ejecutar silenciosamente</value>
@@ -2235,5 +2235,11 @@ Requiere un reinicio.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Se admiten formatos habituales de música como WAV o MP3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Acción rápida</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Ejecutar una acción rápida guardada.</value>
   </data>
 </root>

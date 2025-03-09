@@ -852,7 +852,7 @@
     <value>Caps Lock 和 Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>停用麥克風靜音等 Fn 鍵功能通知
+    <value>停用麥克風靜音等 Fn 鍵功能通知。
 如果通知和全螢幕應用程式發生衝突，請啟用此選項。</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1155,10 +1155,10 @@
     <value>停用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 與（或）ImController 可能沒有被正確地停用</value>
+    <value>Lenovo Vantage 與（或）ImController 可能沒有被正確地停用</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>無法停用 Vantage 與（或）ImController</value>
+    <value>無法停用 Lenovo Vantage 與（或）ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>在不解除安裝 Lenovo Vantage 和 ImController 的情況下停用它們。
@@ -1180,10 +1180,10 @@
     <value>無法啟用 Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage 與（或）ImController 可能沒有被正確地啟用</value>
+    <value>Lenovo Vantage 與（或）ImController 可能沒有被正確地啟用</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>無法啟用 Vantage 與（或）ImController</value>
+    <value>無法啟用 Lenovo Vantage 與（或）ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>您可以排除更新率，使用 Fn+R 快捷鍵切換更加實用。</value>
@@ -1845,10 +1845,10 @@
     <value>當 LegionZone 或其他服務正在執行時，客製化模式設定將無法被正確地套用。</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU（獨立顯示卡）已連接</value>
+    <value>dGPU（獨立顯示卡）已連接</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU（獨立顯示卡）已中斷連接</value>
+    <value>dGPU（獨立顯示卡）已中斷連接</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU 運作模式</value>
@@ -2020,10 +2020,10 @@
     <value>啟動時，重設「電池使用時間」</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>關閉 WiFi</value>
+    <value>關閉 Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>開啟 WiFi</value>
+    <value>開啟 Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>靜音地執行</value>

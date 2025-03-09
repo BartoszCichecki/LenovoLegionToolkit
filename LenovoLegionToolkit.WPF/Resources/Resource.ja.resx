@@ -737,7 +737,7 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>キーボードバックライト</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage またはそのサービスの実行中は、ここでキーボードのバックライトを制御できません。</value>
+    <value>Lenovo Vantage またはそのサービスの実行中は、ここでキーボードのバックライトを制御できません。</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage またはそのサービスが実行されています</value>
@@ -1142,10 +1142,10 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>Lenovo Hotkeys を無効化</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>VantageとImControllerの両方またはいずれか一方が正しく無効になっていない可能性があります</value>
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方が正しく無効になっていない可能性があります</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>VantageとImControllerの両方またはいずれか一方を無効にできませんでした</value>
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方を無効にできませんでした</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo Vantage と ImController をアンインストールせずに無効にします。
@@ -1161,10 +1161,10 @@ PayPal で寄付するには、下の PayPal ロゴをクリックするかQR �
     <value>Lenovo Hotkeys は正しく有効になっていない可能性があります</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>VantageとImControllerの両方またはいずれか一方が正しく有効になっていない可能性があります</value>
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方が正しく有効になっていない可能性があります</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>VantageとImControllerの両方またはいずれか一方を有効にできませんでした</value>
+    <value>Lenovo VantageとImControllerの両方またはいずれか一方を有効にできませんでした</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R ショートカットをさらに便利にするために、リフレッシュレートを除外できます。</value>

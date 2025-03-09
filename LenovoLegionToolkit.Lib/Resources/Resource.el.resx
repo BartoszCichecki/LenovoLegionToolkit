@@ -187,7 +187,7 @@
     <value>Υβριδική</value>
   </data>
   <data name="HybridModeState_OnAuto" xml:space="preserve">
-    <value>Υβριδική-Αυτόματο</value>
+    <value>Υβριδική-Αυτόματη</value>
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>Υβριδική-iGPU</value>
@@ -313,7 +313,7 @@
     <value>Ανενεργή</value>
   </data>
   <data name="SpectrumKeyboardBacklightDirection_BottomToTop" xml:space="preserve">
-    <value>Από κάτω προς τα πάνω</value>
+    <value>Από Κάτω προς τα Πάνω</value>
   </data>
   <data name="SpectrumKeyboardBacklightDirection_Clockwise" xml:space="preserve">
     <value>Δεξιόστροφα</value>
@@ -328,7 +328,7 @@
     <value>Δεξιά προς Αριστερά</value>
   </data>
   <data name="SpectrumKeyboardBacklightDirection_TopToBottom" xml:space="preserve">
-    <value>Από πάνω προς τα κάτω</value>
+    <value>Από Πάνω προς τα Κάτω</value>
   </data>
   <data name="SpectrumKeyboardBacklightEffectType_Always" xml:space="preserve">
     <value>Πάντα</value>
@@ -419,10 +419,10 @@
     <value>Ενεργός</value>
   </data>
   <data name="PanelLogoBacklightState_On" xml:space="preserve">
-    <value>Ενεργό</value>
+    <value>Ενεργός</value>
   </data>
   <data name="PanelLogoBacklightState_Off" xml:space="preserve">
-    <value>Ανενεργό</value>
+    <value>Ανενεργός</value>
   </data>
   <data name="InstantBootState_Off" xml:space="preserve">
     <value>Ανενεργή</value>

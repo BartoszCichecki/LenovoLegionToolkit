@@ -151,7 +151,7 @@
     <value>Όταν η εφαρμογή κλείνει</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Σε καθορισμένο χρόνο</value>
+    <value>Σε καθορισμένη ώρα</value>
   </data>
   <data name="ExternalDisplayConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν συνδεθεί εξωτερική οθόνη</value>
@@ -201,10 +201,10 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν το WiFi είναι συνδεδεμένο</value>
+    <value>Όταν το Wi-Fi είναι συνδεδεμένο</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν το WiFi είναι αποσυνδεδεμένο</value>
+    <value>Όταν το Wi-Fi είναι αποσυνδεδεμένο</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Στη συνέχιση</value>
@@ -216,15 +216,15 @@
     <value>Όταν το HDR απενεργοποιείται</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Ανενεργό</value>
+    <value>Ανενεργό</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Ενεργό</value>
+    <value>Ενεργό</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Όταν η συσκευή είναι αποσυνδεδεμένη</value>
+    <value>Όταν η συσκευή είναι αποσυνδεδεμένη</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Όταν η συσκευή είναι συνδεδεμένη</value>
+    <value>Όταν η συσκευή είναι συνδεδεμένη</value>
   </data>
 </root>

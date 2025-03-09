@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>GitHubtaǵı jobanıń veb-saytı</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Sırtqı kitapxanalar</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Baǵdarlama haqqında</value>
   </data>
@@ -739,7 +736,7 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
     <value>Klaviaturanıń arqa jaqtılıǵı</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage yamasa onıń xızmetleri islep turǵanda, klaviaturanıń arqa jaqtılıǵın bul jerde basqarıw múmkin emes.</value>
+    <value>Lenovo Vantage yamasa onıń xızmetleri islep turǵanda, klaviaturanıń arqa jaqtılıǵın bul jerde basqarıw múmkin emes.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo vantage yamasa onıń xızmetlerin islep atır</value>
@@ -848,10 +845,6 @@ DIQQAT: Eger ishki displey óshirilgen bolsa, bul háreket durıs orınlanbaydı
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock hám Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Fn túymesiniń mikrofon dawısın óshiriw sıyaqlı háreketleri haqqındaǵı xabarlamalardı óshiredi
-Eger de tolıq ekranlı baǵdarlamalar menen mashqalalar bolsa, bul varianttı qosıń.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Xabarlamalardı kórsetpew</value>
@@ -1144,10 +1137,10 @@ Bul varianttı ózgertkennen keyin qayta iske túsiriw usınıs etiledi.</value>
     <value>Lenovo Hotkeysti óshiriw</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage hám/yamasa ImController nadurıs óshirilgen bolıwı múmkin</value>
+    <value>Lenovo Vantage hám/yamasa ImController nadurıs óshirilgen bolıwı múmkin</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage hám/yamasa ImControllerdi óshirip bo'lmadı</value>
+    <value>Lenovo Vantage hám/yamasa ImControllerdi óshirip bo'lmadı</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo vantage hám ImController-ni óshirmesten óshirip qoyıń.
@@ -1169,10 +1162,10 @@ Bul varianttı ózgertkennen keyin qayta iske túsiriw usınıs etiledi.</value>
     <value>Lenovo Hotkeystiń túymelerin iske túsiriw ámelge aspadı</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage hám/yamasa ImController tuwrı jaǵılmaǵan bolıwı múmkin</value>
+    <value>Lenovo Vantage hám/yamasa ImController tuwrı jaǵılmaǵan bolıwı múmkin</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage hám/yamasa ImControllerdi jaǵılmadı</value>
+    <value>Lenovo Vantage hám/yamasa ImControllerdi jaǵılmadı</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R túymelerin paydalıraq qılıw ushın, siz jańalanıw tezligin esaptan tısqarı qılıwıńız múmkin</value>
@@ -1825,12 +1818,6 @@ ESKERTIW: Diskret GPU ámeldegi bolmasa, bul ámel tuwrı atqarılmaydı.</value
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Eger Legion Zone yamasa onıń xızmetlerin islep atirǵan bolsa, paydalanıwshı rejimi sazlawları tuwrı qollanılmaydı.</value>
-  </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>Grafika protsessor jaǵıwlı</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>Grafika protsessor óshirilgen</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Video kartanıń rejimi</value>

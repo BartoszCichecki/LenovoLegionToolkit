@@ -159,4 +159,10 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>عند فصل الشاشة الخارجية</value>
   </data>
+  <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عند توصيل واي فاي</value>
+  </data>
+  <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عند انقطاع اتصال واي فاي</value>
+  </data>
 </root>

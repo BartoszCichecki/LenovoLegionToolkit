@@ -216,15 +216,15 @@
     <value>Коли HDR увімкнено</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Вимкнути</value>
+    <value>Вимкнути</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Увімкнути</value>
+    <value>Увімкнути</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Коли пристрій від'єднано</value>
+    <value>Коли пристрій від'єднано</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Коли пристрій під'єднано</value>
+    <value>Коли пристрій під'єднано</value>
   </data>
 </root>

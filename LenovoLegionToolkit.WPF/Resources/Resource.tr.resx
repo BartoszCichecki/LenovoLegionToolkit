@@ -743,7 +743,7 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
     <value>Klavye Işığı</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
+    <value>Lenovo Vantage veya servisleri çalışırken klavye ışığı burada kontrol edilemez.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage veya hizmetleri çalışıyor</value>
@@ -854,7 +854,7 @@ UYARI: Dahili ekran kapalıysa bu işlem doğru çalışmaz.</value>
     <value>Büyük Tuş Kilidi ve Num Kilidi</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Mikrofonun sesini kapatma gibi Fn tuşları eylemleri için ekran bildirimini devre dışı bırakır
+    <value>Mikrofonun sesini kapatma gibi Fn tuşları eylemleri için ekran bildirimini devre dışı bırakır.
 Tam ekran uygulamalarda rahatsız oluyorsanız bu seçeneği etkinleştirin.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1157,10 +1157,10 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
     <value>Lenovo Hotkeys'i Devre Dışı Bırak</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage ve/veya ImController doğru şekilde devre dışı bırakılmamış olabilir</value>
+    <value>Lenovo Vantage ve/veya ImController doğru şekilde devre dışı bırakılmamış olabilir</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage ve/veya ImController devre dışı bırakılamadı</value>
+    <value>Lenovo Vantage ve/veya ImController devre dışı bırakılamadı</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Lenovo Vantage'ı ve lmController hizmetini kaldırmadan devre dışı bırakın.
@@ -1182,10 +1182,10 @@ Bu seçeneği değiştirdikten sonra yeniden başlatma önerilir.</value>
     <value>Lenovo Hotkeys Tuşları etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage ve/veya ImController doğru şekilde etkinleştirilmemiş olabilir</value>
+    <value>Lenovo Vantage ve/veya ImController doğru şekilde etkinleştirilmemiş olabilir</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage ve/veya ImController etkinleştirilemedi</value>
+    <value>Lenovo Vantage ve/veya ImController etkinleştirilemedi</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Fn+R kısayolunu daha kullanışlı hale getirmek için yenileme hızlarını hariç tutabilirsiniz.</value>
@@ -1839,12 +1839,6 @@ GPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlat
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Legion Zone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
-  </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU bağlı</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU bağlı değil</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Çalışma Modu</value>

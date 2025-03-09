@@ -742,7 +742,7 @@ WARNUNG: Diese Aktion wird nicht korrekt ausgeführt, wenn der interne Bildschir
     <value>Tastaturbeleuchtung</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Vantage oder dessen Dienste ausgeführt werden.</value>
+    <value>Die Tastaturbeleuchtung kann nicht gesteuert werden, wenn Lenovo Vantage oder dessen Dienste ausgeführt werden.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage oder dazugehörige Dienste werden ausgeführt</value>
@@ -1156,10 +1156,10 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
     <value>Lenovo Hotkeys deaktivieren</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt deaktiviert</value>
+    <value>Lenovo Vantage und/oder ImController wurden möglicherweise nicht korrekt deaktiviert</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage und/oder ImController konnten nicht deaktiviert werden</value>
+    <value>Lenovo Vantage und/oder ImController konnten nicht deaktiviert werden</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Deaktiviert Lenovo Vantage und ImController, ohne sie zu deinstallieren.
@@ -1181,10 +1181,10 @@ Nach dem Ändern dieser Option wird ein Neustart empfohlen.</value>
     <value>Lenovo Hotkeys konnte nicht aktiviert werden</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage und/oder ImController wurden möglicherweise nicht korrekt aktiviert</value>
+    <value>Lenovo Vantage und/oder ImController wurden möglicherweise nicht korrekt aktiviert</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage und/oder ImController konnten nicht aktiviert werden</value>
+    <value>Lenovo Vantage und/oder ImController konnten nicht aktiviert werden</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Sie können Bildwiederholraten ausschließen, um die Tastenkombination Fn+R nützlicher zu machen.</value>
@@ -1846,10 +1846,10 @@ Wenn die dGPU überhaupt nicht reagiert, starten Sie bitte Ihren Laptop neu.</va
     <value>Die Einstellungen des benutzerdefinierten Modus werden nicht korrekt angewendet, wenn Legion Zone oder dessen Dienste ausgeführt werden.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU verbunden</value>
+    <value>dGPU verbunden</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU getrennt</value>
+    <value>dGPU getrennt</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Betriebsmodus</value>
@@ -2232,5 +2232,11 @@ Unterstützte Formate sind: {1}.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Gängige Musikformate wie wav oder mp3 werden unterstützt.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Schnellaktion</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Führt eine gespeicherte Schnellaktion aus.</value>
   </data>
 </root>

@@ -742,7 +742,7 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Iluminação do teclado</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Vantage ou seus serviços estão em execução.</value>
+    <value>A luz de fundo do teclado não pode ser controlada aqui quando o Lenovo Vantage ou seus serviços estão em execução.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage ou seus serviços estão em execução</value>
@@ -853,7 +853,7 @@ AVISO: Esta ação não será executada corretamente se o display interno estive
     <value>Caps Lock e Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desativar as notificações para ações das teclas Fn como silenciar o microfone
+    <value>Desativar as notificações para ações das teclas Fn como silenciar o microfone.
 Ative esta opção se você tiver conflitos com aplicativos de tela inteira.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1156,10 +1156,10 @@ A reinicialização é recomendada após alterar esta opção.</value>
     <value>Desativar o Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage e/ou ImController podem não ter sido desabilitados corretamente</value>
+    <value>Lenovo Vantage e/ou ImController podem não ter sido desabilitados corretamente</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Vantage e/ou ImController</value>
+    <value>Não foi possível desativar o Lenovo Vantage e/ou ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desative o Lenovo Vantage e o ImController sem desinstalá-los.
@@ -1181,10 +1181,10 @@ Uma reinicialização é recomendada após alterar esta opção.</value>
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage e/ou ImController podem não ter sido ativados corretamente</value>
+    <value>Lenovo Vantage e/ou ImController podem não ter sido ativados corretamente</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível habilitar o Vantage e/ou ImController</value>
+    <value>Não foi possível habilitar o Lenovo Vantage e/ou ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Você pode excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>

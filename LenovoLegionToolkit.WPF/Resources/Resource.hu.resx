@@ -742,7 +742,7 @@ FIGYELMEZTETÉS: Ez a művelet nem fog megfelelően futni, ha a belső kijelző 
     <value>Billentyűzet háttérvilágítás</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>A billentyűzet háttérvilágítása nem szabályozható itt, amikor a Vantage vagy annak szolgáltatásai futnak.</value>
+    <value>A billentyűzet háttérvilágítása nem szabályozható itt, amikor a Lenovo Vantage vagy annak szolgáltatásai futnak.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>A Lenovo Vantage vagy annak szolgáltatásai futnak</value>
@@ -1156,10 +1156,10 @@ Az opció módosítása után ajánlott az újraindítás.</value>
     <value>Lenovo gyorsbillentyűk (Hotkeys) letiltása</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>A Vantage és/vagy az ImController esetleg nem megfelelően lett letiltva</value>
+    <value>A Lenovo Vantage és/vagy az ImController esetleg nem megfelelően lett letiltva</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nem sikerült letiltani a Vantage és/vagy ImController-t</value>
+    <value>Nem sikerült letiltani a Lenovo Vantage és/vagy ImController-t</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>A Lenovo Vantage és az ImController letiltása eltávolításuk nélkül.
@@ -1181,10 +1181,10 @@ Az opció módosítása után ajánlott az újraindítás.</value>
     <value>Nem sikerült engedélyezni a Lenovo Hotkeys billentyűket</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>A Vantage és/vagy az ImController esetleg nem megfelelően lett engedélyezve</value>
+    <value>A Lenovo Vantage és/vagy az ImController esetleg nem megfelelően lett engedélyezve</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nem sikerült engedélyezni a Vantage és/vagy ImController-t</value>
+    <value>Nem sikerült engedélyezni a Lenovo Vantage és/vagy ImController-t</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Kizárhat frissítési rátákat, hogy az Fn+R gyorsbillentyű hasznosabbá váljon.</value>
@@ -1846,10 +1846,10 @@ Ha a dGPU egyáltalán nem reagál, kérjük, indítsa újra a laptopját.</valu
     <value>Az Egyéni mód beállításai nem lesznek megfelelően alkalmazva, ha a Legion Zone vagy annak szolgáltatásai futnak.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU csatlakoztatva</value>
+    <value>dGPU csatlakoztatva</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU lekapcsolva</value>
+    <value>dGPU lekapcsolva</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU működési mód</value>

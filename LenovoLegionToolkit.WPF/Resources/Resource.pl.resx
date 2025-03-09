@@ -1157,10 +1157,10 @@ Po zmianie tego ustawienia zalecane jest ponowne uruchomienie.</value>
     <value>Wyłącz Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage i/lub ImController mógł nie zostać wyłączony prawidłowo</value>
+    <value>Lenovo Vantage i/lub ImController mógł nie zostać wyłączony prawidłowo</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nie można było wyłączyć Vantage i/lub ImControllera</value>
+    <value>Nie można było wyłączyć Lenovo Vantage i/lub ImControllera</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Wyłącz Lenovo Vantage and ImController bez ich odinstalowywania.
@@ -1182,10 +1182,10 @@ Po zmianie tego ustawienia zalecane jest ponowne uruchomienie.</value>
     <value>Nie można było włączyć Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage i/lub ImController mógł nie zostać włączony prawidłowo</value>
+    <value>Lenovo Vantage i/lub ImController mógł nie zostać włączony prawidłowo</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nie można było włączyć Vantage i/lub ImControllera</value>
+    <value>Nie można było włączyć Lenovo Vantage i/lub ImControllera</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Możesz wykluczyć częstotliwości odświeżania ze skrótu Fn+R.</value>
@@ -2227,5 +2227,17 @@ Obsługiwane formaty obrazka: {1}.</value>
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
     <value>Sprawdź połączenie z Internetem.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Odtwórz dźwięk</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+    <value>Wspierane są popularne formaty takie jak wav lub mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Szybkie akcje</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Wykonaj szybką akcję.</value>
   </data>
 </root>

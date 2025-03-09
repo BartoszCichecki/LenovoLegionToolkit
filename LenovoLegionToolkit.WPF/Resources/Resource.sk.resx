@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Stránka projektu na GitHube</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Knižnice tretích strán</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>O projekte</value>
   </data>
@@ -738,9 +735,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Podsvietenie klávesnice</value>
   </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Podsvietenie klávesnice nemôže byť ovládané tu, pokiaľ beží Vantage alebo jeho služby.</value>
-  </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>O projekte</value>
   </data>
@@ -845,10 +839,6 @@ VAROVANIE: Táto akcia neprebehne správne, ak je zabudovaný displej vypnutý.<
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock a Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Zakázať upozornenia na akcie Fn kláves ako stíšenie mikrofónu.
-Povoľte túto možnosť ak máte konflikty s aplikáciami na celú obrazovku.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nezobrazovať upozornenia</value>
@@ -1139,12 +1129,6 @@ Po zmene tejto možnosti sa odporúča reštart.</value>
   </data>
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>Zakázať Lenovo Hotkeys</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage a/alebo ImController možno nebol zakázaný správne</value>
-  </data>
-  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nepodarilo sa zakázať Vantage a/alebo ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Zakázať Lenovo Vantage a ImController bez ich odinštalovania.

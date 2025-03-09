@@ -740,7 +740,7 @@
     <value>Підсвітка клавіатури</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Неможливо керувати підсвіткою клавіатури, коли працює Vantage або його служби.</value>
+    <value>Неможливо керувати підсвіткою клавіатури, коли працює Lenovo Vantage або його служби.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vatage або його служби запущені</value>
@@ -1154,10 +1154,10 @@
     <value>Вимкнути гарячі клавіші Lenovo</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Можливо, Vantage та/або ImController було вимкнено неправильно</value>
+    <value>Можливо, Lenovo Vantage та/або ImController було вимкнено неправильно</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Неможливо вимкнути Vantage та/або ImController</value>
+    <value>Неможливо вимкнути Lenovo Vantage та/або ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Вимкнути Lenovo Vantage та ImController без їхньої деінсталяції.
@@ -1179,10 +1179,10 @@
     <value>Не вдалося увімкнути гарячі клавіші Lenovo</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Можливо, Vantage та/або ImController було увімкнено неправильно</value>
+    <value>Можливо, Lenovo Vantage та/або ImController було увімкнено неправильно</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Неможливо увімкнути Vantage та/або ImController</value>
+    <value>Неможливо увімкнути Lenovo Vantage та/або ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Ви можете виключити частоту оновлення, щоб зробити комбінацію клавіш Fn+R більш корисною.</value>

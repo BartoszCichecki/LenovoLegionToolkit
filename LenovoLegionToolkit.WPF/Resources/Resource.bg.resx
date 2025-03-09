@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Уебсайт на проекта в GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Използвани библиотеки от трети страни</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>За проекта</value>
   </data>
@@ -739,7 +736,7 @@
     <value>Подсветка на клавиатурата</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Подсветката на клавиатурата не може да бъде управлявана тук, когато Vantage или неговите услуги работят.</value>
+    <value>Подсветката на клавиатурата не може да бъде управлявана тук, когато Lenovo Vantage или неговите услуги работят.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage или неговите услуги работят</value>
@@ -848,10 +845,6 @@
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock и Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Изключете известията за действия с клавиша Fn, като заглушаване на микрофона
-Активирайте тази настройка ако изпитвате проблеми с приложения на цял екран.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Не показвай известия</value>
@@ -1023,6 +1016,9 @@
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Предварително зададена настройка 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Предварително зададена 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Изключена</value>
   </data>
@@ -1144,10 +1140,10 @@
     <value>Деактивирай приложението Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage и/или ImController може да не са били деактивирани правилно</value>
+    <value>Lenovo Vantage и/или ImController може да не са били деактивирани правилно</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage и/или ImController не можаха да бъдат деактивирани</value>
+    <value>Lenovo Vantage и/или ImController не можаха да бъдат деактивирани</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Деактивирайте Lenovo Vantage и ImController без да ги деинсталирате.
@@ -1169,10 +1165,10 @@
     <value>Приложението Lenovo Hotkeys не можа да бъде активирано</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage и/или ImController може да не са били активирани правилно</value>
+    <value>Lenovo Vantage и/или ImController може да не са били активирани правилно</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Vantage и/или ImController не можаха да бъдат активирани</value>
+    <value>Lenovo Vantage и/или ImController не можаха да бъдат активирани</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Може да изключите избрани честоти на опресняване, за да направите клавишната комбинация Fn+R по-полезна.</value>
@@ -1998,10 +1994,10 @@
     <value>Нулиране на "На батерия от" брояча при стартиране</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Изключване на WiFi</value>
+    <value>Изключване на Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Включване на WiFi</value>
+    <value>Включване на Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Тихо стартиране</value>

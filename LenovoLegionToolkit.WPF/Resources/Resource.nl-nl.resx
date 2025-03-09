@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Project website op GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Bibliotheken van derden</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Over</value>
   </data>
@@ -743,7 +740,7 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
     <value>Toetsenbordverlichting</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Toetsenbordverlichting kan hier niet worden beheerd wanneer Vantage of zijn services actief zijn.</value>
+    <value>Toetsenbordverlichting kan hier niet worden beheerd wanneer Lenovo Vantage of zijn services actief zijn.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage of zijn services zijn actief</value>
@@ -852,10 +849,6 @@ WAARSCHUWING: Deze actie wordt niet correct uitgevoerd als het interne display i
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock en Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Melding uitschakelen voor acties met Fn-toetsen, zoals microfoon dempen
-Schakel deze optie in als u conflicten hebt met toepassingen op volledig scherm.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Geen meldingen weergeven</value>
@@ -1158,10 +1151,10 @@ Een herstart wordt aanbevolen na het wijzigen van deze optie.</value>
     <value>Schakel Lenovo Hotkeys uit</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage en/of ImController zijn niet correct uitgeschakeld</value>
+    <value>Lenovo Vantage en/of ImController zijn niet correct uitgeschakeld</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Kon Vantage en/of ImController niet uitschakelen</value>
+    <value>Kon Lenovo Vantage en/of ImController niet uitschakelen</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Schakel Legion Vantage en ImController uit zonder deze te verwijderen. 
@@ -1183,10 +1176,10 @@ Een herstart wordt aanbevolen na het wijzigen van deze optie.</value>
     <value>Kan Lenovo Hotkeys niet uitschakelen</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Vantage en/of ImController zijn niet correct ingeschakeld</value>
+    <value>Lenovo Vantage en/of ImController zijn niet correct ingeschakeld</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Kon Vantage en/of ImController niet inschakelen</value>
+    <value>Kon Lenovo Vantage en/of ImController niet inschakelen</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>U kunt verversingssnelheid uitsluiten om de Fn+R-snelkoppeling nuttiger te maken.</value>
@@ -1847,10 +1840,10 @@ WAARSCHUWING: Deze actie zal niet correct uitgevoerd worden als de externe video
     <value>De instellingen van de aangepaste modus wordt niet correct toegepast als Legion Zone of diens services actief zijn.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU verbonden</value>
+    <value>dGPU verbonden</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>Verbinding met DGPU verbroken</value>
+    <value>Verbinding met dGPU verbroken</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Modus</value>
@@ -2022,7 +2015,7 @@ Ondersteunde formaten zijn: {1}.</value>
     <value>Stel de teller voor 'Op batterij sinds' opnieuw in wanneer het systeem opstart</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>WiFi uitschakelen</value>
+    <value>Wifi inschakelen</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
     <value>Wifi inschakelen</value>
@@ -2170,5 +2163,11 @@ Ondersteunde formaten zijn: {1}.</value>
   </data>
   <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
     <value>Voeg CLI toe aan PATH</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Geluid afspelen</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Snelle actie</value>
   </data>
 </root>

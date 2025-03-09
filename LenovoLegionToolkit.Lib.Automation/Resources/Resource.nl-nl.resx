@@ -201,10 +201,10 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wanneer WiFi verbinding is verbonden</value>
+    <value>Wanneer Wi-Fi verbinding is verbonden</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Wanneer WiFi verbinding is verbroken</value>
+    <value>Wanneer Wi-Fi verbinding is verbroken</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Na het hervatten</value>
@@ -216,15 +216,15 @@
     <value>Wanneer HDR ingeschakeld wordt</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Uit</value>
+    <value>Uit</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Aan</value>
+    <value>Aan</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wanneer apparaat niet verbonden is</value>
+    <value>Wanneer apparaat niet verbonden is</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Wanneer apparaat verbonden is</value>
+    <value>Wanneer apparaat verbonden is</value>
   </data>
 </root>

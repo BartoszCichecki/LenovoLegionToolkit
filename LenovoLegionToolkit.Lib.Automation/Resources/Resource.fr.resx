@@ -216,15 +216,15 @@
     <value>Lorsque le HDR est activé</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>Désactivé</value>
+    <value>Désactivé</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>Activé</value>
+    <value>Activé</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Lorsque l'appareil est déconnecté</value>
+    <value>Lorsque l'appareil est déconnecté</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>Lorsque l'appareil est connecté</value>
+    <value>Lorsque l'appareil est connecté</value>
   </data>
 </root>

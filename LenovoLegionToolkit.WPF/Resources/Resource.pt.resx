@@ -745,7 +745,7 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
     <value>Luz do teclado</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Vantage estão ativos.</value>
+    <value>Não podes controlar a luz do teclado aqui enquanto os serviços do Lenovo Vantage estão ativos.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>O Lenovo Vantage ou os seus serviços estão ativos</value>
@@ -854,10 +854,6 @@ ATENÇÃO: Está ação não irá executar corretamente se o ecrã interno estiv
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock e Num Lock</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Desativa notificação para ações das teclas Fn como dar mute ao microfone
-Ativa esta opção se tiveres problemas de conflitos com apps em ecrã inteiro.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Não mostrar notificações</value>
@@ -1159,10 +1155,10 @@ Se desativado, esta app irá executar os atalhos Fn.
     <value>Desativar Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage e/ou o ImController podem são ter sido desativados corretamente</value>
+    <value>O Lenovo Vantage e/ou o ImController podem são ter sido desativados corretamente</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível desativar o Vantage e/ou o ImController</value>
+    <value>Não foi possível desativar o Lenovo Vantage e/ou o ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Desativa o Lenovo Vantage e o ImController sem os desinstalar.
@@ -1184,10 +1180,10 @@ Se desativado, esta app irá executar os atalhos Fn.
     <value>Não foi possível ativar o Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>O Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
+    <value>O Lenovo Vantage e/ou o ImController podem são ter sido ativados corretamente</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Não foi possível ativar o Vantage e/ou o ImController</value>
+    <value>Não foi possível ativar o Lenovo Vantage e/ou o ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Podes excluir taxas de atualização para tornar o atalho Fn+R mais útil.</value>
@@ -1847,10 +1843,10 @@ Se dGPU não estiver a responder, reinicie o seu laptop.</value>
     <value>Configurações de Modo Personalizado não serão aplicados corretamente quando o Legion Zone ou os seus serviços estiverem a ser executados.</value>
   </data>
   <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU conectado</value>
+    <value>dGPU conectado</value>
   </data>
   <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU desconectado</value>
+    <value>dGPU desconectado</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>Modo de Funcionamento da GPU</value>
@@ -1912,6 +1908,9 @@ Poderá ser necessário reiniciar para aplicar mudança.</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_Preset" xml:space="preserve">
     <value>Predefinição</value>
+  </data>
+  <data name="SettingsPage_SmartFnLock_Title" xml:space="preserve">
+    <value>Bloqueio inteligente da tecla Fn</value>
   </data>
   <data name="Off" xml:space="preserve">
     <value>Desligado</value>

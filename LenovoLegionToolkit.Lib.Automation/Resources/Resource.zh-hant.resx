@@ -201,10 +201,10 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當與 WiFi 連接時</value>
+    <value>當與 Wi-Fi 連接時</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>當與 WiFi 中斷連接時</value>
+    <value>當與 Wi-Fi 中斷連接時</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當喚醒時</value>
@@ -216,15 +216,15 @@
     <value>當 HDR 開啟時</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>關閉</value>
+    <value>關閉</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>開啟</value>
+    <value>開啟</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>當與裝置中斷連接時</value>
+    <value>當與裝置中斷連接時</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>當與裝置連接時</value>
+    <value>當與裝置連接時</value>
   </data>
 </root>

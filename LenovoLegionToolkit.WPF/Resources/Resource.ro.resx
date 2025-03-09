@@ -132,9 +132,6 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>Website-ul proiectului pe GitHub</value>
   </data>
-  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
-    <value>Biblioteci terțe</value>
-  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>Despre</value>
   </data>
@@ -721,9 +718,6 @@ ATENȚIE: Această acțiune nu va rula corect dacă afișajul incorporat este op
   </data>
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>Iluminare tastatură</value>
-  </data>
-  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Iluminarea tastaturii nu poate fi controlată aici când Vantage sau serviciile sale rulează.</value>
   </data>
   <data name="MainWindow_NavigationItem_About" xml:space="preserve">
     <value>Despre</value>

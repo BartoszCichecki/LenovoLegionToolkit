@@ -740,7 +740,7 @@ BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies p
     <value>Tastatūras Izgaismojums</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
-    <value>Tastatūras fona apgaismojumu šeit nevar kontrolēt, ja darbojas Vantage vai tā pakalpojumi.</value>
+    <value>Tastatūras fona apgaismojumu šeit nevar kontrolēt, ja darbojas Lenovo Vantage vai tā pakalpojumi.</value>
   </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage vai tā servisi šobrīd ir ieslēgti</value>
@@ -849,10 +849,6 @@ BRĪDINĀJUMS. Ja iebūvētais ekrāns ir izslēgts, šī darbība nedarbosies p
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Burtslēgs un Num Bloķēšana</value>
-  </data>
-  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Atspējo paziņojumu par Fn taustiņu darbībām, piemēram, mikrofona izslēgšanu
-Iespējojiet šo opciju, ja rodas konflikti ar pilnekrāna lietojumprogrammām.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Nerādīt paziņojumus</value>
@@ -1024,6 +1020,9 @@ Jūs varat režīmus mainīt ar Fn+Q.</value>
   <data name="RGBKeyboardBacklightControl_Preset3" xml:space="preserve">
     <value>Priekšiestatījums 3</value>
   </data>
+  <data name="RGBKeyboardBacklightControl_Preset4" xml:space="preserve">
+    <value>Priekšiestatījums 4</value>
+  </data>
   <data name="RGBKeyboardBacklightControl_PresetOff" xml:space="preserve">
     <value>Atspējots</value>
   </data>
@@ -1145,10 +1144,10 @@ Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
     <value>Atspējot Lenovo Hotkeys</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
-    <value>Iespējams, Vantage un/vai ImController nav pareizi atspējots</value>
+    <value>Iespējams, Lenovo Vantage un/vai ImController nav pareizi atspējots</value>
   </data>
   <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
-    <value>Nevarēja atspējot Vantage un/vai ImController</value>
+    <value>Nevarēja atspējot Lenovo Vantage un/vai ImController</value>
   </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>Atspējojiet Lenovo Vantage un ImController, neatinstalējot tos.
@@ -1170,10 +1169,10 @@ Pēc šīs opcijas maiņas ieteicams restartēt datoru.</value>
     <value>Nevarēja iespējot Legion Hotkeys</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
-    <value>Iespējams, Vantage un/vai ImController nav pareizi iespējots</value>
+    <value>Lenovo Iespējams, Vantage un/vai ImController nav pareizi iespējots</value>
   </data>
   <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
-    <value>Nevarēja iespējot Vantage un/vai ImController</value>
+    <value>Nevarēja iespējot Lenovo Vantage un/vai ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>Varat izslēgt atsvaidzināšanas ātrumus, lai padarītu Fn+R saīsni noderīgāku.</value>
@@ -1823,12 +1822,6 @@ BRĪDINĀJUMS. Ja nav pieejams atsevišķs GPU, šī darbība nedarbosies pareiz
   </data>
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Pielāgotā Režīma iestatījumi netiks pielietoti pareizi kamēr Legion Zone un tā servisi ir ieslēgti.</value>
-  </data>
-  <data name="DGPU_Connected_Title" xml:space="preserve">
-    <value>DGPU pieslēdzies</value>
-  </data>
-  <data name="DGPU_Disconnected_Title" xml:space="preserve">
-    <value>DGPU atslēdzies</value>
   </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Darbošanās režīms</value>

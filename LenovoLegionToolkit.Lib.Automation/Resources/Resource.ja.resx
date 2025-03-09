@@ -201,10 +201,10 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>WiFiが接続された時</value>
+    <value>Wi-Fiが接続された時</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>WiFiが切断された時</value>
+    <value>Wi-Fiが切断された時</value>
   </data>
   <data name="OnResumeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>再開時</value>
@@ -216,15 +216,15 @@
     <value>HDRがオンになった時</value>
   </data>
   <data name="MacroAutomationStepState_Off" xml:space="preserve">
-	  <value>オフ</value>
+    <value>オフ</value>
   </data>
   <data name="MacroAutomationStepState_On" xml:space="preserve">
-	  <value>オン</value>
+    <value>オン</value>
   </data>
   <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>デバイスが切断された時</value>
+    <value>デバイスが切断された時</value>
   </data>
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-	  <value>デバイスが接続された時</value>
+    <value>デバイスが接続された時</value>
   </data>
 </root>

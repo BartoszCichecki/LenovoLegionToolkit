@@ -478,4 +478,22 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Predefinição 4</value>
   </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>Diariamente</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>A cada hora</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>Mensalmente</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>A cada 3 horas</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>A cada 12 horas</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>Semanalmente</value>
+  </data>
 </root>
