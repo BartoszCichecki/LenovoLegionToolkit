@@ -132,6 +132,9 @@
   <data name="AboutPage_ProjectWebsiteOnGitHub" xml:space="preserve">
     <value>在 GitHub 上查看项目主页</value>
   </data>
+  <data name="AboutPage_ThirdPartyLibraries" xml:space="preserve">
+    <value>第三方依赖库</value>
+  </data>
   <data name="AboutPage_Title" xml:space="preserve">
     <value>关于</value>
   </data>
@@ -743,6 +746,9 @@
   <data name="KeyboardBacklightPage_Title" xml:space="preserve">
     <value>键盘背光</value>
   </data>
+  <data name="Keyboard_VantageEnabledWarning_Message" xml:space="preserve">
+    <value>由于 Lenovo Vantage 或其服务正在运行导致冲突，无法在此控制键盘背光。</value>
+  </data>
   <data name="Keyboard_VantageEnabledWarning_Title" xml:space="preserve">
     <value>Lenovo Vantage 与之相关服务仍在运行</value>
   </data>
@@ -850,6 +856,10 @@
   </data>
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock 和 Num Lock</value>
+  </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>禁用麦克风静音等 Fn 键操作的弹窗。
+如果弹窗与全屏应用有冲突，请启用此选项。</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>不要显示弹窗</value>
@@ -1153,6 +1163,12 @@
   <data name="SettingsPage_DisableLenovoHotkeys_Title" xml:space="preserve">
     <value>禁用 Lenovo Hotkeys</value>
   </data>
+  <data name="SettingsPage_DisableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage 与 ImController 可能没有被正确禁用。</value>
+  </data>
+  <data name="SettingsPage_DisableVantage_Error_Title" xml:space="preserve">
+    <value>无法禁用 Lenovo Vantage 与 ImController</value>
+  </data>
   <data name="SettingsPage_DisableVantage_Message" xml:space="preserve">
     <value>禁用 Lenovo Vantage 与 ImController 且无需卸载。
 修改此项后推荐重启电脑。</value>
@@ -1171,6 +1187,12 @@
   </data>
   <data name="SettingsPage_EnableLenovoHotkeys_Error_Title" xml:space="preserve">
     <value>无法启用 Lenovo Hotkeys</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Message" xml:space="preserve">
+    <value>Lenovo Vantage 与 ImController 可能没有被正确禁用。</value>
+  </data>
+  <data name="SettingsPage_EnableVantage_Error_Title" xml:space="preserve">
+    <value>无法启用 Lenovo Vantage 与 ImController</value>
   </data>
   <data name="SettingsPage_ExcludeRefreshRates_Message" xml:space="preserve">
     <value>你可以排除某个刷新率，使 Fn+R 快捷键切换更快速。</value>
@@ -1831,6 +1853,12 @@
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>自定义设置在 Legion Zone 及其服务运行时将不会生效。</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>独立显卡已连接</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>独立显卡已断开连接</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>显卡工作模式</value>
   </data>
@@ -1999,6 +2027,12 @@
   </data>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>启动时重置电池使用时间</value>
+  </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>关闭 Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>打开 Wi-Fi</value>
   </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>静默运行</value>
