@@ -2024,7 +2024,7 @@ Requiere un reinicio.</value>
     <value>Restablecer "En batería desde" al iniciar</value>
   </data>
   <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
-    <value>Desactiva el Wi-Fi</value>
+    <value>Apagar el Wi-Fi</value>
   </data>
   <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
     <value>Encender el Wi-Fi</value>
