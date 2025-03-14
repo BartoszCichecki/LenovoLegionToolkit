@@ -173,17 +173,17 @@
     <value>Εφαρμογή και κλείσιμο</value>
   </data>
   <data name="AutomationPage_ActionsEnable_Message" xml:space="preserve">
-    <value>Το Lenovo Legion Toolkit πρέπει να εκτελείται για να λειτουργήσουν οι αυτόματες ενέργειες.</value>
+    <value>Το Lenovo Legion Toolkit πρέπει να εκτελείται για να λειτουργήσουν οι αυτόματες δράσεις.</value>
   </data>
   <data name="AutomationPage_ActionsEnabled_Title" xml:space="preserve">
     <value>Ενεργοποιημένες</value>
   </data>
   <data name="AutomationPage_Actions_Empty" xml:space="preserve">
-    <value>Δεν έχουν οριστεί ενέργειες. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα ενέργεια.</value>
+    <value>Δεν έχουν οριστεί Δράσεις. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα Δράση.</value>
   </data>
   <data name="AutomationPage_Actions_Message" xml:space="preserve">
-    <value>Εάν είναι ενεργή, αυτή η ενέργεια θα εκτελεστεί αυτόματα. Κάθε φορά που αλλάζει η κατάσταση, όλες οι ενέργειες θα αξιολογηθούν από πάνω προς τα κάτω.
-Θα εκτελούνται μόνο οι ενέργειες που αντιστοιχούν στην τρέχουσα κατάσταση.</value>
+    <value>Εάν είναι ενεργή, αυτή η δράση θα εκτελεστεί αυτόματα. Κάθε φορά που αλλάζει η κατάσταση, όλες οι δράσεις θα αξιολογηθούν από πάνω προς τα κάτω.
+Θα εκτελούνται μόνο οι δράσεις που αντιστοιχούν στην τρέχουσα κατάσταση.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
     <value>Ενέργειες</value>
@@ -195,13 +195,13 @@
     <value>Προσθήκη νέας</value>
   </data>
   <data name="AutomationPage_QuickActions_Empty" xml:space="preserve">
-    <value>Δεν έχουν οριστεί Γρήγορες Ενέργειες. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα Γρήγορη Ενέργεια.</value>
+    <value>Δεν έχουν οριστεί Γρήγορες Δράσεις. Πατήστε "Προσθήκη νέας" για να δημιουργήσετε μια νέα Γρήγορη Δράση.</value>
   </data>
   <data name="AutomationPage_QuickActions_Message" xml:space="preserve">
-    <value>Οι γρήγορες ενέργειες είναι διαθέσιμες στο μενού του δεξί κλικ στου εικονίδιο του δίσκου εικονιδίων.</value>
+    <value>Οι γρήγορες δράσεις είναι διαθέσιμες στο μενού του δεξιού κλικ στου εικονίδιο του δίσκου εικονιδίων.</value>
   </data>
   <data name="AutomationPage_QuickActions_Title" xml:space="preserve">
-    <value>Γρήγορες Ενέργειες</value>
+    <value>Γρήγορες Δράσεις</value>
   </data>
   <data name="AutomationPage_RenamePipeline_Placeholder" xml:space="preserve">
     <value>Όνομα...</value>
@@ -234,7 +234,7 @@
     <value>Αποκλειστικό</value>
   </data>
   <data name="AutomationPipelineControl_Exclusive_ToolTip" xml:space="preserve">
-    <value>Να μην εκτελεστούν περαιτέρω ενέργειες όταν εκτελείται αυτή η ενέργεια.</value>
+    <value>Να μην εκτελεστούν περαιτέρω δράσεις όταν εκτελείται αυτή η δράση.</value>
   </data>
   <data name="AutomationPipelineControl_RunNow" xml:space="preserve">
     <value>Εκτέλεση τώρα</value>
@@ -267,7 +267,7 @@
     <value>Στην ανατολή του ηλίου</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtSunset" xml:space="preserve">
-    <value>Στην δύση του ηλίου</value>
+    <value>Στη δύση του ηλίου</value>
   </data>
   <data name="AutomationPipelineControl_SubtitlePart_AtTime" xml:space="preserve">
     <value>Στις {0:D2}:{1:D2}</value>
@@ -401,10 +401,10 @@
     <value>Απαιτείται επανεκκίνηση</value>
   </data>
   <data name="ComboBoxHybridModeControl_Title" xml:space="preserve">
-    <value>GPU σε λειτουργία</value>
+    <value>Κατάσταση Λειτουργίας GPU</value>
   </data>
   <data name="ContextMenu_QuickActions" xml:space="preserve">
-    <value>Γρήγορες ενέργειες</value>
+    <value>Γρήγορες Δράσεις</value>
   </data>
   <data name="Continue" xml:space="preserve">
     <value>Συνέχεια</value>
@@ -427,7 +427,7 @@
   <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Απενεργοποιήστε τη διακριτή GPU εάν είναι άσκοπα ενεργή.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δεν θα εκτελεστεί σωστά, εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη ή η υβριδική λειτουργία δεν είναι ενεργή.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά, εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη ή η υβριδική λειτουργία δεν είναι ενεργή.</value>
   </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Απενεργοποίηση της GPU</value>
@@ -522,7 +522,7 @@
   <data name="DisplayBrightnessAutomationStepControl_Message" xml:space="preserve">
     <value>Αλλαγή φωτεινότητας οθόνης της ενσωματωμένης οθόνης.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη.</value>
   </data>
   <data name="DisplayBrightnessAutomationStepControl_Title" xml:space="preserve">
     <value>Φωτεινότητα οθόνης</value>
@@ -583,7 +583,7 @@
     <value>Υβριδική Λειτουργία</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Disclaimer" xml:space="preserve">
-    <value>Αυτή η λειτουργία τίθεται σε ισχύ μόνο όταν η διακριτή GPU δεν λειτουργεί.</value>
+    <value>Αυτή η λειτουργία τίθεται σε ισχύ μόνο όταν η διακριτή GPU δε λειτουργεί.</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_IGPU_Message" xml:space="preserve">
     <value>Χρήση μόνο της ενσωματωμένης GPU. Αυτή η λειτουργία ελαχιστοποιεί την κατανάλωση ενέργειας και τον θόρυβο.</value>
@@ -715,7 +715,7 @@
   <data name="HDRAutomationStepControl_Message" xml:space="preserve">
     <value>Ενεργοποίηση υψηλού δυναμικού εύρους (HDR) στην ενσωματωμένη οθόνη.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά εάν η ενσωματωμένη οθόνη είναι ανενεργή.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά εάν η ενσωματωμένη οθόνη είναι ανενεργή.</value>
   </data>
   <data name="HDRAutomationStepControl_Title" xml:space="preserve">
     <value>HDR</value>
@@ -751,7 +751,7 @@
     <value>Σχετικά με</value>
   </data>
   <data name="MainWindow_NavigationItem_Actions" xml:space="preserve">
-    <value>Ενέργειες</value>
+    <value>Δράσεις</value>
   </data>
   <data name="MainWindow_NavigationItem_Battery" xml:space="preserve">
     <value>Μπαταρία</value>
@@ -853,7 +853,7 @@
     <value>Caps Lock και Num Lock</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
-    <value>Απενεργοποιεί τις ειδοποιήσεις για ενέργειες πλήκτρων Fn, όπως τη σίγαση μικροφώνου
+    <value>Απενεργοποιεί τις ειδοποιήσεις για δράσεις πλήκτρων Fn, όπως τη σίγαση μικροφώνου.
 Ενεργοποιήστε αυτήν την επιλογή εάν έχετε διενέξεις με εφαρμογές πλήρους οθόνης.</value>
   </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
@@ -1065,7 +1065,7 @@
   <data name="RefreshRateAutomationStepControl_Message" xml:space="preserve">
     <value>Αλλαγή του ρυθμού ανανέωσης της ενσωματωμένης οθόνης.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
   </data>
   <data name="RefreshRateAutomationStepControl_Title" xml:space="preserve">
     <value>Ρυθμός ανανέωσης</value>
@@ -1108,10 +1108,10 @@
     <value>Αποθήκευση...</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Description" xml:space="preserve">
-    <value>Επιλέξτε μία ή περισσότερες γρήγορες ενέργειες για κυκλική εναλλαγή</value>
+    <value>Επιλέξτε μία ή περισσότερες γρήγορες δράσεις για κυκλική εναλλαγή</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_List_Empty" xml:space="preserve">
-    <value>Δεν έχουν οριστεί Γρήγορες Ενέργειες.</value>
+    <value>Δεν έχουν οριστεί Γρήγορες Δράσεις.</value>
   </data>
   <data name="SelectSmartKeyPipelinesWindow_ShowThisApp" xml:space="preserve">
     <value>Εμφάνιση της εφαρμογής</value>
@@ -1214,16 +1214,16 @@
     <value>Πλάνα Τροφοδοσίας Windows</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
-    <value>Αντιστοιχίστε μια Γρήγορη Ενέργεια στο διπλό πάτημα Fn+F9.</value>
+    <value>Αντιστοιχίστε μια Γρήγορη Δράση στο διπλό πάτημα Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Title" xml:space="preserve">
-    <value>Δευτερεύουσα Ενέργεια Έξυπνου Πλήκτρου</value>
+    <value>Δευτερεύουσα Δράση Έξυπνου Πλήκτρου</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Message" xml:space="preserve">
-    <value>Αντιστοιχίστε μια Γρήγορη Ενέργεια στο απλό πάτημα Fn+F9.</value>
+    <value>Αντιστοιχίστε μια Γρήγορη Δράση στο απλό πάτημα Fn+F9.</value>
   </data>
   <data name="SettingsPage_SmartKeySinglePressAction_Title" xml:space="preserve">
-    <value>Ενέργεια Έξυπνου Πλήκτρου</value>
+    <value>Δράση Έξυπνου Πλήκτρου</value>
   </data>
   <data name="SettingsPage_Theme_Description" xml:space="preserve">
     <value>Ορίστε ανοιχτό θέμα, σκούρο θέμα ή ακολουθήστε τις ρυθμίσεις συστήματος.</value>
@@ -1456,7 +1456,7 @@
   <data name="ResolutionAutomationStepControl_Message" xml:space="preserve">
     <value>Αλλαγή ανάλυσης της ενσωματωμένης οθόνης.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
   </data>
   <data name="DpiScaleControl_Title" xml:space="preserve">
     <value>DPI</value>
@@ -1646,7 +1646,7 @@
     <value>Προσθήκη βήματος</value>
   </data>
   <data name="CreateAutomationPipelineWindow_Title" xml:space="preserve">
-    <value>Δημιουργία Ενέργειας</value>
+    <value>Δημιουργία Δράσης</value>
   </data>
   <data name="StatusTrayPopup_PowerMode" xml:space="preserve">
     <value>Λειτουργία Ισχύος</value>
@@ -1739,7 +1739,7 @@
   <data name="OverclockDiscreteGPUAutomationStepControl_Message" xml:space="preserve">
     <value>Αύξηση απόδοσης με υπερχρονισμό της διακριτής GPU.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά, εάν η διακριτή GPU δεν είναι διαθέσιμη.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά, εάν η διακριτή GPU δεν είναι διαθέσιμη.</value>
   </data>
   <data name="PortsBacklightControl_Title" xml:space="preserve">
     <value>Φωτισμός θυρών</value>
@@ -1902,7 +1902,7 @@
     <value>Προσαρμογή</value>
   </data>
   <data name="NotificationsSettingsWindow_Automation" xml:space="preserve">
-    <value>Ενέργειες</value>
+    <value>Δράσεις</value>
   </data>
   <data name="NotificationAutomationStepControl_NotificationText" xml:space="preserve">
     <value>Κείμενο Ειδοποίησης</value>
