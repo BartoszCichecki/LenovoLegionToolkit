@@ -148,7 +148,7 @@
     <value>Όταν ξεκινά η εφαρμογή</value>
   </data>
   <data name="ProcessesStopRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν η εφαρμογή κλείνει</value>
+    <value>Όταν κλείνει η εφαρμογή</value>
   </data>
   <data name="TimeAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Σε καθορισμένη ώρα</value>
@@ -172,10 +172,10 @@
     <value>Όταν κλείνει το καπάκι</value>
   </data>
   <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν το παιχνίδι κλείνει</value>
+    <value>Όταν κλείνει το παιχνίδι</value>
   </data>
   <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Όταν το παιχνίδι εκτελείται</value>
+    <value>Όταν εκτελείται το παιχνίδι</value>
   </data>
   <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
     <value>Όταν ο χρήστης γίνεται ενεργός</value>
