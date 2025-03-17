@@ -201,7 +201,7 @@
     <comment>The display name of the periodic automation action.</comment>
   </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
-    <value>Quando o Wi-Fi está conectado</value>
+    <value>Quando o Wi-Fi estiver conectado</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Quando o Wi-Fi está desconectado</value>
