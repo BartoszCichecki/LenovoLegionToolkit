@@ -2,9 +2,13 @@
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 using System.Windows.Media;
 using LenovoLegionToolkit.Lib;
 using LenovoLegionToolkit.WPF.Utils;
+using Windows.Win32;
+using Windows.Win32.Foundation;
+using Windows.Win32.UI.WindowsAndMessaging;
 using Wpf.Ui.Appearance;
 using Wpf.Ui.Common;
 using Wpf.Ui.Controls;
@@ -42,12 +46,12 @@ public class NotificationWindow : UiWindow
         VerticalContentAlignment = VerticalAlignment.Center,
     };
 
-    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, NotificationPosition position)
+    public NotificationWindow(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text, Action? clickAction, ScreenInfo screenInfo, NotificationPosition position)
     {
         InitializeStyle();
         InitializeContent(symbol, overlaySymbol, symbolTransform, text);
 
-        SourceInitialized += (_, _) => InitializePosition(position);
+        SourceInitialized += (_, _) => InitializePosition(screenInfo.WorkArea, screenInfo.DpiX, screenInfo.DpiY, position);
         MouseDown += (_, _) =>
         {
             Close();
@@ -80,56 +84,69 @@ public class NotificationWindow : UiWindow
         _textBlock.Foreground = (SolidColorBrush)FindResource("TextFillColorPrimaryBrush");
     }
 
-    private void InitializePosition(NotificationPosition position)
+    private void InitializePosition(Rect workArea, uint dpiX, uint dpiY, NotificationPosition position)
     {
-        var desktopWorkingArea = ScreenHelper.GetPrimaryDesktopWorkingArea();
-
         _mainGrid.Measure(new Size(double.PositiveInfinity, 80));
+
+        var multiplierX = dpiX / 96d;
+        var multiplierY = dpiY / 96d;
+        Rect nativeWorkArea = new(workArea.Left, workArea.Top, workArea.Width * multiplierX, workArea.Height * multiplierY);
 
         Width = MaxWidth = MinWidth = Math.Max(_mainGrid.DesiredSize.Width, 300);
         Height = MaxHeight = MinHeight = _mainGrid.DesiredSize.Height;
+        var nativeWidth = Width * multiplierX;
+        var nativeHeight = Height * multiplierY;
 
         const int margin = 16;
+        var nativeMarginX = margin * multiplierX;
+        var nativeMarginY = margin * multiplierY;
+
+        double nativeLeft = 0;
+        double nativeTop = 0;
 
         switch (position)
         {
             case NotificationPosition.BottomRight:
-                Left = desktopWorkingArea.Right - Width - margin;
-                Top = desktopWorkingArea.Bottom - Height - margin;
+                nativeLeft = nativeWorkArea.Right - nativeWidth - nativeMarginX;
+                nativeTop = nativeWorkArea.Bottom - nativeHeight - nativeMarginY;
                 break;
             case NotificationPosition.BottomCenter:
-                Left = (desktopWorkingArea.Right - Width) / 2;
-                Top = desktopWorkingArea.Bottom - Height - margin;
+                nativeLeft = nativeWorkArea.Left + (nativeWorkArea.Width - nativeWidth) / 2;
+                nativeTop = nativeWorkArea.Bottom - nativeHeight - nativeMarginY;
                 break;
             case NotificationPosition.BottomLeft:
-                Left = desktopWorkingArea.Left + margin;
-                Top = desktopWorkingArea.Bottom - Height - margin;
+                nativeLeft = nativeWorkArea.Left + nativeMarginX;
+                nativeTop = nativeWorkArea.Bottom - nativeHeight - nativeMarginY;
                 break;
             case NotificationPosition.CenterLeft:
-                Left = desktopWorkingArea.Left + margin;
-                Top = (desktopWorkingArea.Bottom - Height) / 2;
+                nativeLeft = nativeWorkArea.Left + nativeMarginX;
+                nativeTop = nativeWorkArea.Top + (nativeWorkArea.Height - nativeHeight) / 2;
                 break;
             case NotificationPosition.TopLeft:
-                Left = desktopWorkingArea.Left + margin;
-                Top = desktopWorkingArea.Top + margin;
+                nativeLeft = nativeWorkArea.Left + nativeMarginX;
+                nativeTop = nativeWorkArea.Top + nativeMarginY;
                 break;
             case NotificationPosition.TopCenter:
-                Left = (desktopWorkingArea.Right - Width) / 2;
-                Top = desktopWorkingArea.Top + margin;
+                nativeLeft = nativeWorkArea.Left + (nativeWorkArea.Width - nativeWidth) / 2;
+                nativeTop = nativeWorkArea.Top + nativeMarginY;
                 break;
             case NotificationPosition.TopRight:
-                Left = desktopWorkingArea.Right - Width - margin;
-                Top = desktopWorkingArea.Top + margin;
+                nativeLeft = nativeWorkArea.Right - nativeWidth - nativeMarginX;
+                nativeTop = nativeWorkArea.Top + nativeMarginY;
                 break;
             case NotificationPosition.CenterRight:
-                Left = desktopWorkingArea.Right - Width - margin;
-                Top = (desktopWorkingArea.Bottom - Height) / 2;
+                nativeLeft = nativeWorkArea.Right - nativeWidth - nativeMarginX;
+                nativeTop = nativeWorkArea.Top + (nativeWorkArea.Height - nativeHeight) / 2;
                 break;
             case NotificationPosition.Center:
-                Left = (desktopWorkingArea.Right - Width) / 2;
-                Top = (desktopWorkingArea.Bottom - Height) / 2;
+                nativeLeft = nativeWorkArea.Left + (nativeWorkArea.Width - nativeWidth) / 2;
+                nativeTop = nativeWorkArea.Top + (nativeWorkArea.Height - nativeHeight) / 2;
                 break;
         }
+
+        var windowInteropHandler = new WindowInteropHelper(this);
+
+        PInvoke.SetWindowPos((HWND)windowInteropHandler.Handle, HWND.Null, (int)nativeLeft, (int)nativeTop, 0, 0, SET_WINDOW_POS_FLAGS.SWP_NOSIZE);
     }
 
     private void InitializeContent(SymbolRegular symbol, SymbolRegular? overlaySymbol, Action<SymbolIcon>? symbolTransform, string text)

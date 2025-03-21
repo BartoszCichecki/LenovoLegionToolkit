@@ -2188,6 +2188,12 @@ Supported formats are: {1}.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage and/or ImController is running in the background.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Show notification on all screens connected to your device.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Notification on all screens</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Check</value>
   </data>
