@@ -6,7 +6,7 @@ using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-public class NotificationAoTWindow(ScreenInfo screenInfo, NotificationPosition position) : NativeLayeredWindow
+public class NotificationAoTWindow(ScreenInfo screenInfo, NotificationPosition position) : NativeLayeredWindow, INotificationWindow
 {
     private readonly ScreenInfo _screenInfo = screenInfo;
     private readonly NotificationPosition _position = position;

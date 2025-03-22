@@ -15,7 +15,7 @@ using Wpf.Ui.Controls;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-public class NotificationWindow : UiWindow
+public class NotificationWindow : UiWindow, INotificationWindow
 {
     private readonly Grid _mainGrid = new()
     {
@@ -54,7 +54,7 @@ public class NotificationWindow : UiWindow
         SourceInitialized += (_, _) => InitializePosition(screenInfo.WorkArea, screenInfo.DpiX, screenInfo.DpiY, position);
         MouseDown += (_, _) =>
         {
-            Close();
+            base.Close();
             clickAction?.Invoke();
         };
     }
@@ -64,8 +64,14 @@ public class NotificationWindow : UiWindow
         Show();
         Task.Delay(closeAfter).ContinueWith(_ =>
         {
-            Close();
+            base.Close();
         }, TaskScheduler.FromCurrentSynchronizationContext());
+    }
+
+    public new void Close()
+    {
+        WindowStyle = WindowStyle.None;
+        base.Close();
     }
 
     private void InitializeStyle()

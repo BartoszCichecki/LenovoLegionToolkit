@@ -23,7 +23,7 @@ public class NotificationsManager
 
     private readonly ApplicationSettings _settings;
 
-    private List<NotificationWindow?> _windows = [];
+    private List<INotificationWindow?> _windows = [];
 
     public NotificationsManager(ApplicationSettings settings)
     {
@@ -233,13 +233,8 @@ public class NotificationsManager
         if (_windows.Count != 0)
         {
             foreach (var window in _windows)
-            {
-                if (window is not null)
-                {
-                    window.WindowStyle = WindowStyle.None;
-                    window.Close();
-                }
-            }
+                window?.Close();
+
             _windows.Clear();
         }
 
