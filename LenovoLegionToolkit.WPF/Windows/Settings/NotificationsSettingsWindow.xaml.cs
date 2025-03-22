@@ -78,6 +78,16 @@ public partial class NotificationsSettingsWindow
         RefreshCards();
     }
 
+    private void NotificationAlwaysOnTopToggle_Click(object sender, RoutedEventArgs e)
+    {
+        var state = _notificationAlwaysOnTopToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.NotificationAlwaysOnTop = state.Value;
+        _settings.SynchronizeStore();
+    }
+
     private void NotificationOnAllScreensToggle_Click(object sender, RoutedEventArgs e)
     {
         var state = _notificationOnAllScreensToggle.IsChecked;
