@@ -12,7 +12,6 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
 public class NativeLayeredWindow : NativeWindow, IDisposable
 {
-    private byte _alpha = 250;
     private bool _disposed;
     private Size _size = new(350, 50);
     private Point _pos = new(50, 50);
@@ -25,8 +24,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
             if (Handle != nint.Zero)
             {
                 UpdateWindowSizePosition(_pos.X, _pos.Y, value.Width, value.Height);
-                RECT rect = new();
-                PInvoke.GetWindowRect((HWND)Handle, out rect);
+                PInvoke.GetWindowRect((HWND)Handle, out RECT rect);
                 _size = new(rect.Width, rect.Height);
                 UpdateLayeredWindow();
             }
@@ -57,8 +55,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
             if (Handle != nint.Zero)
             {
                 UpdateWindowSizePosition(value.X, value.Y, _size.Width, _size.Height);
-                RECT rect = new();
-                PInvoke.GetWindowRect((HWND)Handle, out rect);
+                PInvoke.GetWindowRect((HWND)Handle, out RECT rect);
                 _pos = new(rect.left, rect.top);
                 UpdateLayeredWindow();
             }
@@ -144,7 +141,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
         {
             BlendOp = (byte)PInvoke.AC_SRC_OVER,
             BlendFlags = 0,
-            SourceConstantAlpha = _alpha,
+            SourceConstantAlpha = 255,
             AlphaFormat = (byte)PInvoke.AC_SRC_ALPHA
         };
         PInvoke.UpdateLayeredWindow((HWND)Handle, hdcDst, ptDst, size, hdcSrc, ptSrc, colorRef, blend, UPDATE_LAYERED_WINDOW_FLAGS.ULW_ALPHA);
