@@ -6,16 +6,17 @@ using LenovoLegionToolkit.Lib;
 
 namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
-public class NotificationAoTWindow(ScreenInfo screenInfo, NotificationPosition position) : NativeLayeredWindow, INotificationWindow
+public class NotificationAoTWindow : NativeLayeredWindow, INotificationWindow
 {
-    private readonly ScreenInfo _screenInfo = screenInfo;
-    private readonly NotificationPosition _position = position;
+    private readonly Bitmap _bitmap;
+    private readonly ScreenInfo _screenInfo;
+    private readonly NotificationPosition _pos;
 
-    private Bitmap? _bitmap;
-
-    public void SetBitmap(Bitmap bitmap)
+    public NotificationAoTWindow(Bitmap bitmap, ScreenInfo screenInfo, NotificationPosition position)
     {
         _bitmap = bitmap;
+        _screenInfo = screenInfo;
+        _pos = position;
         UpdatePosition();
     }
 
@@ -30,15 +31,11 @@ public class NotificationAoTWindow(ScreenInfo screenInfo, NotificationPosition p
 
     protected override void Paint(PaintEventArgs e)
     {
-        if (_bitmap is not null)
-            e.Graphics.DrawImage(_bitmap, new Rectangle(0, 0, _bitmap.Width, _bitmap.Height));
+        e.Graphics.DrawImage(_bitmap, new Rectangle(0, 0, _bitmap.Width, _bitmap.Height));
     }
 
     private void UpdatePosition()
     {
-        if (_bitmap is null)
-            return;
-
         var multiplierX = _screenInfo.DpiX / 96d;
         var multiplierY = _screenInfo.DpiY / 96d;
         var wa = _screenInfo.WorkArea;
@@ -53,7 +50,7 @@ public class NotificationAoTWindow(ScreenInfo screenInfo, NotificationPosition p
         double left = 0;
         double top = 0;
 
-        switch (_position)
+        switch (_pos)
         {
             case NotificationPosition.BottomRight:
                 left = workArea.Right - Width - marginX;
