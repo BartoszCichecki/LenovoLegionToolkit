@@ -37,6 +37,7 @@ public partial class NotificationsSettingsWindow
         InitializeComponent();
 
         _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
+        _notificationAlwaysOnTopToggle.IsChecked = _settings.Store.NotificationAlwaysOnTop;
         _notificationOnAllScreensToggle.IsChecked = _settings.Store.NotificationOnAllScreens;
 
         _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
