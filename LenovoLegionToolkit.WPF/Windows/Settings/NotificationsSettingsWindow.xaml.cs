@@ -37,6 +37,7 @@ public partial class NotificationsSettingsWindow
         InitializeComponent();
 
         _dontShowNotificationsToggle.IsChecked = _settings.Store.DontShowNotifications;
+        _notificationAlwaysOnTopToggle.IsChecked = _settings.Store.NotificationAlwaysOnTop;
         _notificationOnAllScreensToggle.IsChecked = _settings.Store.NotificationOnAllScreens;
 
         _notificationPositionComboBox.SetItems(Enum.GetValues<NotificationPosition>(), _settings.Store.NotificationPosition, v => v.GetDisplayName());
@@ -76,6 +77,16 @@ public partial class NotificationsSettingsWindow
         _settings.SynchronizeStore();
 
         RefreshCards();
+    }
+
+    private void NotificationAlwaysOnTopToggle_Click(object sender, RoutedEventArgs e)
+    {
+        var state = _notificationAlwaysOnTopToggle.IsChecked;
+        if (state is null)
+            return;
+
+        _settings.Store.NotificationAlwaysOnTop = state.Value;
+        _settings.SynchronizeStore();
     }
 
     private void NotificationOnAllScreensToggle_Click(object sender, RoutedEventArgs e)

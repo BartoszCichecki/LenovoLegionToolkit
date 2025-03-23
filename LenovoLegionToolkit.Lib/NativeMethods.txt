@@ -210,4 +210,17 @@ WlanRegisterNotification
 
 MONITORINFOF_PRIMARY
 
+AC_SRC_ALPHA
+AC_SRC_OVER
+CreateCompatibleDC
+DeleteDC
+DeleteObject
+GetDC
+GetWindowRect
+ReleaseDC
+SelectObject
 SetWindowPos
+ShowWindow
+UpdateLayeredWindow
+WINDOW_STYLE
+WINDOW_EX_STYLE
