@@ -1362,12 +1362,6 @@ Wymaga ponownego uruchomienia.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Spróbuj ponownie</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Wystąpił nieoczekiwany wyjątek:
-{0}
-
-Proszę, zgłoś ten problem na {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Bez nazwy</value>
   </data>

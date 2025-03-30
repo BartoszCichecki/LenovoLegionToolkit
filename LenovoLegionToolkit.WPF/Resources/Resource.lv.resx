@@ -1349,12 +1349,6 @@ Nepieciešama restartēšana.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Mēģiniet vēlreiz</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Radās neparedzēts izņēmums:
-{0}
-
-Lūdzu, ziņojiet par šo problēmu {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Bez nosaukuma</value>
   </data>

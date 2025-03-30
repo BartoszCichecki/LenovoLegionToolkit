@@ -1342,12 +1342,6 @@ Qayta iske túsiriw talap etiledi.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Qayta urınıp kóriń</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Kútilmegen esaptan tıs háreket júz berdi:
-{0}
-
-Ótinish, mashqala haqqında {1}ǵa xabar beriń.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Atı atalmaǵan</value>
   </data>

@@ -1256,12 +1256,6 @@
   <data name="TryAgain" xml:space="preserve">
     <value>حاول مرة أخرى</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>حدث استثناء غير متوقع:
-{0}
-
-الرجاء الإبلاغ عن المشكلة في {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>غير مسمى</value>
   </data>

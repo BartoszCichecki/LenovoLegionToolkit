@@ -1301,12 +1301,6 @@ Vyžaduje restart.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Zkusit znovu</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Došlo k neočekávané chybě:
-{0}
-
-Prosím, nahlaš problém na {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Nepojmenovaný</value>
   </data>

@@ -1359,12 +1359,6 @@ Se desativado, esta app irá executar os atalhos Fn.
   <data name="TryAgain" xml:space="preserve">
     <value>Tentar novamente</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Ocorreu um erro inesperado:
-{0}
-
-Por favor informa o problema em {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Sem nome</value>
   </data>

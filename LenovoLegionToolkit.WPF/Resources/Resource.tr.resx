@@ -1362,12 +1362,6 @@ Yeniden başlatma gerektirir.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Tekrar deneyin</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Beklenmeyen bir hata oluştu:
-{0}
-
-Lütfen sorunu {1} üzerinden bildirin.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Adsız</value>
   </data>

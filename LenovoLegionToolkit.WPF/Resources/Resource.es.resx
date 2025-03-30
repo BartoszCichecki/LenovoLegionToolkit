@@ -1365,12 +1365,6 @@ Requiere un reinicio.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Intentar de nuevo</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Se ha producido una excepción inesperada:
-{0}
-
-Informe del problema en {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Sin nombre</value>
   </data>

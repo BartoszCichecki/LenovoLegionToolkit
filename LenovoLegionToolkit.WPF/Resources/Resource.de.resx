@@ -1362,10 +1362,8 @@ Erfordert einen Neustart.</value>
     <value>Erneut versuchen</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
-    <value>Unerwartete Ausnahme ist aufgetreten:
-{0}
-
-Bitte melden Sie das Problem unter {1}.</value>
+    <value>Unerwartete Ausnahme aufgetreten:
+{0}</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Ohne Titel</value>
