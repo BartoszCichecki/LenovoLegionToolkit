@@ -853,6 +853,10 @@ CẢNH BÁO: Hành động này sẽ không chạy nếu màn hình laptop tắt
   <data name="NotificationsSettingsWindow_CapsAndNumLock" xml:space="preserve">
     <value>Caps Lock và Num Lock</value>
   </data>
+  <data name="NotificationsSettingsWindow_DontShowNotifications_Message" xml:space="preserve">
+    <value>Tắt thông báo của các phím tắt Fn, ví dụ như tắt microphone.
+Bật tùy chọn này nếu có xung đột với các ứng dụng chạy toàn màn hình.</value>
+  </data>
   <data name="NotificationsSettingsWindow_DontShowNotifications_Title" xml:space="preserve">
     <value>Tắt tất cả thông báo</value>
   </data>
@@ -2017,6 +2021,12 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="SettingsPage_OnBatterySinceReset_Title" xml:space="preserve">
     <value>Đặt lại "Thời gian chạy trên pin" khi khởi động</value>
   </data>
+  <data name="TurnOffWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Tắt Wi-Fi</value>
+  </data>
+  <data name="TurnOnWiFiAutomationStepControl_Title" xml:space="preserve">
+    <value>Bật Wi-Fi</value>
+  </data>
   <data name="RunAutomationStepControl_ProcessRunSilently" xml:space="preserve">
     <value>Chạy im lặng</value>
   </data>
@@ -2179,6 +2189,12 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage và/hoặc ImController đang chạy ngầm trong hệ thống.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Hiển thị thông báo lên tất cả các màn hình đang kết nối với máy.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Hiện thông báo lên mọi màn hình</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Kiểm tra</value>
   </data>
@@ -2223,5 +2239,11 @@ Các định dạng hỗ trợ: {1}.</value>
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Hỗ trợ các định dạng âm thanh phổ biến như .wav hoặc .mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Phím tắt Hành động</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Chạy một hành động đã lưu.</value>
   </data>
 </root>
