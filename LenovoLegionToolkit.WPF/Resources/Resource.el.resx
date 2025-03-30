@@ -2189,6 +2189,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Το Lenovo Vantage ή/και το ImController εκτελούνται στο παρασκήνιο.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Να εμφανίζονται ειδοποιήσεις σε όλες τις συνδεδεμένες οθόνες της συσκευής σας.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Ειδοποιήσεις σε όλες τις οθόνες</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Έλεγχος</value>
   </data>
