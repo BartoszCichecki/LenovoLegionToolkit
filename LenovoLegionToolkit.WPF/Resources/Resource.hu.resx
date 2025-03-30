@@ -1362,10 +1362,7 @@ Az opció módosítása után ajánlott az újraindítás.</value>
     <value>Próbálja meg újra</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
-    <value>Váratlan hiba történt:
-{0}
-
-Kérjük, jelentse a problémát itt: {1}.</value>
+    <value>Váratlan kivétel történt: {0}</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Névtelen</value>
