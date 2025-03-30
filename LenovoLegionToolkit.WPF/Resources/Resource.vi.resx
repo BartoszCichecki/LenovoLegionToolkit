@@ -1362,12 +1362,6 @@ Yêu cầu khởi động lại.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Thử lại</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Lỗi ngoài ý muốn đã xảy ra: 
-{0}
-
-Hãy báo cáo lỗi này tại {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Chưa có tên</value>
   </data>
