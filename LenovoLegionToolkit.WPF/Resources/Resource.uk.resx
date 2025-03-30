@@ -1359,12 +1359,6 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Спробувати знову</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Стався несподіваний виняток:
-{0}
-
-Просимо повідомити про проблему на адресу {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Безіменний</value>
   </data>
