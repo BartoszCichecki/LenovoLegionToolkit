@@ -1361,12 +1361,6 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Προσπαθήστε ξανά</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Παρουσιάστηκε μη αναμενόμενη εξαίρεση:
-{0}
-
-Αναφέρετε το πρόβλημα στο {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Ανώνυμο</value>
   </data>
