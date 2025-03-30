@@ -2185,6 +2185,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage та/або ImController працює у фоні.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Показувати повідомлення на всіх екранах під'єднаних до вашого пристрою.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Повідомлення на всіх екранах</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Перевірити</value>
   </data>
@@ -2223,5 +2229,17 @@
   </data>
   <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
     <value>Перевірте, чи працює ваше інтернет-з'єднання.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Програти звук</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+    <value>Підтримуються такі поширені звукові формати, як wav або mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Швидка дія</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Запустити збережену швидку дію.</value>
   </data>
 </root>
