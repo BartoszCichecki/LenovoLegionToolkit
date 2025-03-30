@@ -2196,6 +2196,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage 和 / 或 ImController 正在后台运行。</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>在所有连接到设备的显示器上显示提示弹窗。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>在所有显示器上显示提示弹窗</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>检查</value>
   </data>
@@ -2240,5 +2246,11 @@
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>支持如 wav 和 mp3 等常规音频格式。</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>快捷操作</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>运行一个保存的快捷操作。</value>
   </data>
 </root>
