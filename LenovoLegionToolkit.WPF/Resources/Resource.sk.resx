@@ -1324,12 +1324,6 @@ Vyžaduje reštart.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Skúsiť znova</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Výskyt neočakávanej výnimky:
-{0}
-
-Prosím, nahláste problém na {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Nepomenované</value>
   </data>
