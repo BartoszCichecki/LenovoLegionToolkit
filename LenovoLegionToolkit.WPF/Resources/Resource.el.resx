@@ -424,11 +424,6 @@
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Αρχική</value>
   </data>
-  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Απενεργοποιήστε τη διακριτή GPU εάν είναι άσκοπα ενεργή.
-
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά, εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη ή η υβριδική λειτουργία δεν είναι ενεργή.</value>
-  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Απενεργοποίηση της GPU</value>
   </data>
