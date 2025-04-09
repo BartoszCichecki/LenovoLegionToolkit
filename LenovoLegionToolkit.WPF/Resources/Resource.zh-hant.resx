@@ -1360,6 +1360,10 @@
   <data name="TryAgain" xml:space="preserve">
     <value>再試一次</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>發生了非預期的例外狀況：
+{0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>未命名</value>
   </data>
