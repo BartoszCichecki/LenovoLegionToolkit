@@ -170,7 +170,8 @@ public enum InstantBootState
 public enum KeyboardLayout
 {
     Ansi,
-    Iso
+    Iso,
+    Jp
 }
 
 public enum KnownFolder
