@@ -291,7 +291,7 @@
                         Width="36"
                         Height="32"
                         Margin="2"
-                        KeyCode="0x4D" />
+                        KeyCode="0x4C" />
                 </StackPanel>
 
                 <StackPanel
