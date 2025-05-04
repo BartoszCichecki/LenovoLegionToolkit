@@ -111,7 +111,7 @@ public class SpectrumKeyboardBacklightController
 
         KeyboardLayout keyboardLayout;
         if (keys.Contains(0xA9))
-            keyboardLayout = KeyboardLayout.Jp;
+            keyboardLayout = KeyboardLayout.Jis;
         else if (keys.Contains(0xA8))
             keyboardLayout = KeyboardLayout.Iso;
         else

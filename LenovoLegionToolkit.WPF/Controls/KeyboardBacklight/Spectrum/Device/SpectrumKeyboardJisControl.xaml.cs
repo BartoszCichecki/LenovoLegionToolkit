@@ -1,8 +1,8 @@
 ﻿namespace LenovoLegionToolkit.WPF.Controls.KeyboardBacklight.Spectrum.Device;
 
-public partial class SpectrumKeyboardJPControl
+public partial class SpectrumKeyboardJisControl
 {
-    public SpectrumKeyboardJPControl()
+    public SpectrumKeyboardJisControl()
     {
         InitializeComponent();
     }

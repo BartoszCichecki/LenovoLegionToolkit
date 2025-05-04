@@ -171,7 +171,7 @@ public enum KeyboardLayout
 {
     Ansi,
     Iso,
-    Jp
+    Jis
 }
 
 public enum KnownFolder
