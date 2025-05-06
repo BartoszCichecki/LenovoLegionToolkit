@@ -362,7 +362,7 @@
                         Width="24"
                         Height="32"
                         Margin="2"
-                        KeyCode="0xA8" />
+                        KeyCode="0x4D" />
                 </StackPanel>
 
                 <StackPanel
