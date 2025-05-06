@@ -205,7 +205,12 @@
                     Margin="2"
                     KeyCode="0x22" />
                 <controls:SpectrumZoneControl
-                    Width="52"
+                    Width="24"
+                    Height="32"
+                    Margin="2"
+                    KeyCode="0xA8" />
+                <controls:SpectrumZoneControl
+                    Width="24"
                     Height="32"
                     Margin="2"
                     KeyCode="0x38" />
