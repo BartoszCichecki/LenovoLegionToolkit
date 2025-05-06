@@ -453,6 +453,7 @@
                     Margin="2"
                     KeyCode="0x8D" />
             </StackPanel>
+
             <StackPanel Grid.Row="3" Orientation="Horizontal">
                 <controls:SpectrumZoneControl
                     Width="38"
