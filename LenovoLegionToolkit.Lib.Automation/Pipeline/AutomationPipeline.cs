@@ -13,7 +13,7 @@ namespace LenovoLegionToolkit.Lib.Automation.Pipeline;
 
 public class AutomationPipeline
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
+    public Guid Id { get; init; } = Guid.NewGuid();
 
     public string? IconName { get; set; }
 
@@ -21,9 +21,9 @@ public class AutomationPipeline
 
     public IAutomationPipelineTrigger? Trigger { get; set; }
 
-    public List<IAutomationStep> Steps { get; set; } = [];
+    public List<IAutomationStep> Steps { get; init; } = [];
 
-    public bool IsExclusive { get; set; } = true;
+    public bool IsExclusive { get; init; } = true;
 
     [JsonIgnore]
     public IEnumerable<IAutomationPipelineTrigger> AllTriggers
@@ -45,7 +45,7 @@ public class AutomationPipeline
 
     public AutomationPipeline(IAutomationPipelineTrigger trigger) => Trigger = trigger;
 
-    internal async Task RunAsync(CancellationToken token = default)
+    internal async Task RunAsync(List<AutomationPipeline> otherPipelines, CancellationToken token = default)
     {
         if (token.IsCancellationRequested)
         {
@@ -60,7 +60,7 @@ public class AutomationPipeline
 
         AllTriggers.ForEach(t => t.UpdateEnvironment(environment));
 
-        foreach (var step in Steps)
+        foreach (var step in GetAllSteps(otherPipelines))
         {
             if (token.IsCancellationRequested)
             {
@@ -90,6 +90,24 @@ public class AutomationPipeline
 
         if (stepExceptions.Count != 0)
             throw new AggregateException(stepExceptions);
+    }
+
+    private IEnumerable<IAutomationStep> GetAllSteps(List<AutomationPipeline> pipelines)
+    {
+        foreach (var step in Steps)
+        {
+            if (step is QuickActionAutomationStep qas)
+            {
+                var matchingPipeline = pipelines.FirstOrDefault(p => p.Id != Id && p.Id == qas.PipelineId && p.AllTriggers.IsEmpty());
+                if (matchingPipeline is null)
+                    continue;
+
+                foreach (var matchingPipelineStep in matchingPipeline.GetAllSteps(pipelines))
+                    yield return matchingPipelineStep;
+            }
+
+            yield return step;
+        }
     }
 
     public AutomationPipeline DeepCopy() => new()
