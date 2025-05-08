@@ -11,9 +11,9 @@ namespace LenovoLegionToolkit.WPF.Utils;
 
 public static class ScreenHelper
 {
-    public static List<ScreenInfo> Screens { get; private set; } = [];
+    public static List<ScreenInfo> Screens { get; } = [];
 
-    public static ScreenInfo PrimaryScreen => Screens.Where(s => s.IsPrimary).First();
+    public static ScreenInfo? PrimaryScreen => Screens.FirstOrDefault(s => s.IsPrimary);
 
     public static void UpdateScreenInfos()
     {

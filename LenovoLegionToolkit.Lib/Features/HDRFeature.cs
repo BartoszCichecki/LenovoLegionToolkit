@@ -10,24 +10,34 @@ public class HDRFeature : IFeature<HDRState>
 {
     public Task<bool> IsSupportedAsync()
     {
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Checking HDR support...");
-
-        var display = InternalDisplay.Get();
-        if (display is null)
+        try
         {
             if (Log.Instance.IsTraceEnabled)
-                Log.Instance.Trace($"Built in display not found");
+                Log.Instance.Trace($"Checking HDR support...");
+
+            var display = InternalDisplay.Get();
+            if (display is null)
+            {
+                if (Log.Instance.IsTraceEnabled)
+                    Log.Instance.Trace($"Built in display not found");
+
+                return Task.FromResult(false);
+            }
+
+            var isSupported = display.GetAdvancedColorInfo().AdvancedColorSupported;
+
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"HDR support: {isSupported}");
+
+            return Task.FromResult(isSupported);
+        }
+        catch (Exception ex)
+        {
+            if (Log.Instance.IsTraceEnabled)
+                Log.Instance.Trace($"Failed to check HDR support", ex);
 
             return Task.FromResult(false);
         }
-
-        var isSupported = display.GetAdvancedColorInfo().AdvancedColorSupported;
-
-        if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"HDR support: {isSupported}");
-
-        return Task.FromResult(isSupported);
     }
 
     public Task<bool> IsHdrBlockedAsync()

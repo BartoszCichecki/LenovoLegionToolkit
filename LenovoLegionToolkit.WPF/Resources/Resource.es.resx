@@ -1365,12 +1365,6 @@ Requiere un reinicio.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Intentar de nuevo</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Se ha producido una excepción inesperada:
-{0}
-
-Informe del problema en {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Sin nombre</value>
   </data>
@@ -2190,6 +2184,12 @@ Requiere un reinicio.</value>
   </data>
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage y/o ImController se está(n) ejecutando en segundo plano.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Mostrar notificación en todas las pantallas conectadas a su dispositivo.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Notificación en todas las pantallas</value>
   </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Comprobar</value>

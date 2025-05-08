@@ -286,8 +286,12 @@ public partial class MainWindow
         Height = Math.Max(MinHeight, _applicationSettings.Store.WindowSize.Value.Height);
 
         ScreenHelper.UpdateScreenInfos();
-        var desktopWorkingArea = ScreenHelper.PrimaryScreen.WorkArea;
+        var primaryScreen = ScreenHelper.PrimaryScreen;
 
+        if (!primaryScreen.HasValue)
+            return;
+
+        var desktopWorkingArea = primaryScreen.Value.WorkArea;
         Left = (desktopWorkingArea.Width - Width) / 2 + desktopWorkingArea.Left;
         Top = (desktopWorkingArea.Height - Height) / 2 + desktopWorkingArea.Top;
     }

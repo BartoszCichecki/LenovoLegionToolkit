@@ -424,11 +424,6 @@
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Αρχική</value>
   </data>
-  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
-    <value>Απενεργοποιήστε τη διακριτή GPU εάν είναι άσκοπα ενεργή.
-
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά, εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη ή η υβριδική λειτουργία δεν είναι ενεργή.</value>
-  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Απενεργοποίηση της GPU</value>
   </data>
@@ -1361,12 +1356,6 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Προσπαθήστε ξανά</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Παρουσιάστηκε μη αναμενόμενη εξαίρεση:
-{0}
-
-Αναφέρετε το πρόβλημα στο {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Ανώνυμο</value>
   </data>
@@ -2189,6 +2178,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Το Lenovo Vantage ή/και το ImController εκτελούνται στο παρασκήνιο.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Να εμφανίζονται ειδοποιήσεις σε όλες τις συνδεδεμένες οθόνες της συσκευής σας.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Ειδοποιήσεις σε όλες τις οθόνες</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Έλεγχος</value>
   </data>
@@ -2233,5 +2228,11 @@
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>Υποστηρίζονται κοινές μορφές μουσικής όπως wav ή mp3.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Γρήγορη Δράση</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Εκτελεί μια αποθηκευμένη γρήγορη δράση.</value>
   </data>
 </root>

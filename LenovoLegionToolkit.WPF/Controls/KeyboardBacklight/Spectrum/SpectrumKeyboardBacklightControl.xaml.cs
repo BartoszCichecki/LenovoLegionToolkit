@@ -177,7 +177,8 @@ public partial class SpectrumKeyboardBacklightControl
         var keyboardLayout = currentKeyboardLayout switch
         {
             KeyboardLayout.Ansi => KeyboardLayout.Iso,
-            KeyboardLayout.Iso => KeyboardLayout.Ansi,
+            KeyboardLayout.Iso => KeyboardLayout.Jis,
+            KeyboardLayout.Jis => KeyboardLayout.Ansi,
             _ => throw new ArgumentException(nameof(currentKeyboardLayout))
         };
 

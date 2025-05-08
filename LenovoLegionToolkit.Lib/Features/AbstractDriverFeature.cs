@@ -86,10 +86,15 @@ public abstract class AbstractDriverFeature<T>(Func<SafeFileHandle> driverHandle
     private async Task VerifyStateSetAsync(T state)
     {
         var retries = 0;
+        var verified = false;
+
         while (retries < 10)
         {
             if (state.Equals(await GetStateAsync().ConfigureAwait(false)))
+            {
+                verified = true;
                 break;
+            }
 
             retries++;
 
@@ -97,6 +102,6 @@ public abstract class AbstractDriverFeature<T>(Func<SafeFileHandle> driverHandle
         }
 
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Verify state {state} set failed. [feature={GetType().Name}]");
+            Log.Instance.Trace($"Verify state {state} set {(verified ? "succeeded" : "failed")}. [feature={GetType().Name}]");
     }
 }

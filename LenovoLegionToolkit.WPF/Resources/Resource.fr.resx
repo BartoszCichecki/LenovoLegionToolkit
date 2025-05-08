@@ -1363,12 +1363,6 @@ Nécessite un redémarrage.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Réessayez</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Une exception inattendue s'est produite :
-{0}
-
-Veuillez signaler le problème sur {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Sans nom</value>
   </data>

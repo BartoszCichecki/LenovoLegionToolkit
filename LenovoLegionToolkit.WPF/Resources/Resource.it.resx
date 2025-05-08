@@ -1306,12 +1306,6 @@ Richiede il riavvio.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Riprova</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Si è verificata un'eccezione imprevista: 
-{0} 
-
-segnala il problema su {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Senza nome</value>
   </data>

@@ -1356,12 +1356,6 @@ Vereist opnieuw opstarten.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Probeer het opnieuw</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Er is een onverwachte uitzondering opgetreden:
-{0}
-
-Meld het probleem op {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>naamloos</value>
   </data>

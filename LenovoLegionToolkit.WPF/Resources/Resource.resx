@@ -1363,9 +1363,7 @@ Requires restart.</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
     <value>Unexpected exception occurred:
-{0}
-
-Please report the issue on {1}.</value>
+{0}</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Unnamed</value>

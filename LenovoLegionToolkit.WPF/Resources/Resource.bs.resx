@@ -767,12 +767,6 @@ Zahtijeva ponovno pokretanje.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Pokušaj ponovo</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Desio se neočekivani izuzetak:
-{0}
-
-Molimo prijavite problem na {1}.</value>
-  </data>
   <data name="UnsupportedWindow_Disclaimer" xml:space="preserve">
     <value>Možete izabrati da nastavite na svoju odgovornost, ali imajte na umu da neke od funkcija neće biti dostupne i/ili neće ispravno raditi.
 

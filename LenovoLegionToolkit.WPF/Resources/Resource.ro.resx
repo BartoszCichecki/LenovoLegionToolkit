@@ -1302,12 +1302,6 @@ Necesită repornirea.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Încercați din nou</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>A apărut o eroare neașteptată:
-{0}
-
-Vă rugăm să raportați problema pe {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Fără nume</value>
   </data>

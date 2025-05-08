@@ -109,7 +109,13 @@ public class SpectrumKeyboardBacklightController
             _ => SpectrumLayout.KeyboardOnly // (20, 7)
         };
 
-        var keyboardLayout = keys.Contains(0xA8) ? KeyboardLayout.Iso : KeyboardLayout.Ansi;
+        KeyboardLayout keyboardLayout;
+        if (keys.Contains(0xA9))
+            keyboardLayout = KeyboardLayout.Jis;
+        else if (keys.Contains(0xA8))
+            keyboardLayout = KeyboardLayout.Iso;
+        else
+            keyboardLayout = KeyboardLayout.Ansi;
 
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Layout is {spectrumLayout}, {keyboardLayout}.");

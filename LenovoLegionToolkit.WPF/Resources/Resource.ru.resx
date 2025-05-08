@@ -1362,12 +1362,6 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Повторите попытку</value>
   </data>
-  <data name="UnexpectedException" xml:space="preserve">
-    <value>Произошло непредвиденное исключение:
-{0}
-
-Пожалуйста, сообщите о проблеме на {1}.</value>
-  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Без имени</value>
   </data>

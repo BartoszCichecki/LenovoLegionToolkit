@@ -1361,10 +1361,8 @@
     <value>再試一次</value>
   </data>
   <data name="UnexpectedException" xml:space="preserve">
-    <value>發生異常：
-{0}
-
-請在 {1} 上回報此問題。</value>
+    <value>發生了非預期的例外狀況：
+{0}</value>
   </data>
   <data name="Unnamed" xml:space="preserve">
     <value>未命名</value>
@@ -2187,6 +2185,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage 與（或）ImController 正在背景執行。</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>在所有連接到裝置的顯示器上顯示通知。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>在所有顯示器上顯示通知</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>檢查</value>
   </data>
@@ -2231,5 +2235,11 @@
   </data>
   <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
     <value>支援像 wav 或 mp3 等音訊格式。</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>快捷功能</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>執行已儲存的快捷功能。</value>
   </data>
 </root>

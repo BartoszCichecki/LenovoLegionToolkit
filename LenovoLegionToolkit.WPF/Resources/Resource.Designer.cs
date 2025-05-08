@@ -6108,9 +6108,7 @@ namespace LenovoLegionToolkit.WPF.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to Unexpected exception occurred:
-        ///{0}
-        ///
-        ///Please report the issue on {1}..
+        ///{0}.
         /// </summary>
         public static string UnexpectedException {
             get {

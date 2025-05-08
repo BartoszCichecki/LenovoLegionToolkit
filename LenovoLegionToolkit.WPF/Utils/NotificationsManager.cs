@@ -272,11 +272,15 @@ public class NotificationsManager
         }
         else
         {
-            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, ScreenHelper.PrimaryScreen, _settings.Store.NotificationPosition) { Owner = mainWindow };
+            var primaryScreen = ScreenHelper.PrimaryScreen;
+            if (!primaryScreen.HasValue)
+                return;
+
+            var nw = new NotificationWindow(symbol, overlaySymbol, symbolTransform, text, clickAction, primaryScreen.Value, _settings.Store.NotificationPosition) { Owner = mainWindow };
             if (_settings.Store.NotificationAlwaysOnTop)
             {
                 var bitmap = nw.GetBitmapView();
-                var nwaot = new NotificationAoTWindow(bitmap, ScreenHelper.PrimaryScreen, _settings.Store.NotificationPosition);
+                var nwaot = new NotificationAoTWindow(bitmap, primaryScreen.Value, _settings.Store.NotificationPosition);
                 nwaot.Show(_settings.Store.NotificationDuration switch
                 {
                     NotificationDuration.Short => 500,
