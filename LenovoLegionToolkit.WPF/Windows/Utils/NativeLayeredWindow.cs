@@ -12,7 +12,7 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
 public class NativeLayeredWindow : NativeWindow, IDisposable
 {
-    private const int AnimationDurationMs = 100;
+    private const int AnimationDurationMs = 70;
     private const int AnimationIntevalMs = 10;
     private readonly Timer _animationTimer = new() { Interval = AnimationIntevalMs };
 
