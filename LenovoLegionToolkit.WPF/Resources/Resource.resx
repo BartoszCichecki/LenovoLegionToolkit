@@ -2243,4 +2243,11 @@ Supported formats are: {1}.</value>
   <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
     <value>Run a saved quick action.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Title" xml:space="preserve">
+    <value>Notification always on top</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Message" xml:space="preserve">
+    <value>Always put notification at the top.
+It won't affect other full screen windows, but you will not be able to click on the notifications.</value>
+  </data>
 </root>

@@ -3516,6 +3516,25 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Always put notification at the top.
+        ///It won&apos;t affect other full screen windows, but you will not be able to click on the notifications..
+        /// </summary>
+        public static string NotificationsSettingsWindow_NotificationAlwaysOnTop_Message {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_NotificationAlwaysOnTop_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification always on top.
+        /// </summary>
+        public static string NotificationsSettingsWindow_NotificationAlwaysOnTop_Title {
+            get {
+                return ResourceManager.GetString("NotificationsSettingsWindow_NotificationAlwaysOnTop_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Duration.
         /// </summary>
         public static string NotificationsSettingsWindow_NotificationDuration_Title {
