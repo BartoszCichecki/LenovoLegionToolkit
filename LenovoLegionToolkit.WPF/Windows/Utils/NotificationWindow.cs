@@ -106,22 +106,17 @@ public class NotificationWindow : UiWindow, INotificationWindow
         var resizedBitmap = new Bitmap(newWidth, newHeight);
         using var graphics = Graphics.FromImage(resizedBitmap);
         graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+        graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-        var path = new GraphicsPath();
-        var rect = new Rectangle(0, 0, newWidth, newHeight);
-        const int diameter = 20;
-        path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
-        path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
-        path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
-        path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
-        path.CloseFigure();
+        var borderPath = GetRoundedRectanglePath(new(0, 0, newWidth, newHeight), 10);
+        var penPath = GetRoundedRectanglePath(new(1, 1, newWidth - 3, newHeight - 3), 10);
 
-        graphics.SetClip(path);
+        graphics.SetClip(borderPath);
         graphics.DrawImage(bitmap, 0, 0, newWidth, newHeight);
         graphics.ResetClip();
 
-        using var pen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(64, 64, 64), 2);
-        graphics.DrawPath(pen, path);
+        using var pen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(64, 64, 64), 3);
+        graphics.DrawPath(pen, penPath);
 
         return resizedBitmap;
     }
@@ -237,5 +232,17 @@ public class NotificationWindow : UiWindow, INotificationWindow
         symbolTransform?.Invoke(_symbolIcon);
 
         Content = _mainGrid;
+    }
+
+    private GraphicsPath GetRoundedRectanglePath(Rectangle rect, int radius)
+    {
+        var path = new GraphicsPath();
+        int diameter = radius * 2;
+        path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
+        path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
+        path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
+        path.AddArc(rect.X, rect.Bottom - diameter, diameter, diameter, 90, 90);
+        path.CloseFigure();
+        return path;
     }
 }
