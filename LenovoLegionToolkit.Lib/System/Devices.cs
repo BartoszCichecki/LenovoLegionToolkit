@@ -261,6 +261,27 @@ public static class Devices
         return _spectrumRgbKeyboard;
     }
 
+    public static SafeFileHandle? GetSpectrumRGBKeyboard2(bool forceRefresh = false)
+    {
+        if (_spectrumRgbKeyboard is not null && !forceRefresh)
+            return _spectrumRgbKeyboard;
+
+        lock (Lock)
+        {
+            if (_spectrumRgbKeyboard is not null && !forceRefresh)
+                return _spectrumRgbKeyboard;
+
+            const ushort vendorId = 0x048D;
+            const ushort productIdMasked = 0xC100;
+            const ushort productIdMask = 0xFF00;
+            const ushort descriptorLength = 0x03C0;
+
+            _spectrumRgbKeyboard = FindHidDevice(vendorId, productIdMask, productIdMasked, descriptorLength);
+        }
+
+        return _spectrumRgbKeyboard;
+    }
+
     private static unsafe SafeFileHandle? FindHidDevice(ushort vendorId, ushort productIdMask, ushort productIdMasked, ushort descriptorLength)
     {
         PInvoke.HidD_GetHidGuid(out var devClassHidGuid);

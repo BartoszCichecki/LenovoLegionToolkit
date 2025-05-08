@@ -323,7 +323,7 @@ public static partial class Compatibility
         if (!supportedPowerModes.Contains(PowerModeState.GodMode))
             return false;
 
-        return smartFanVersion is 6 or 7 || legionZoneVersion is 3 or 4;
+        return smartFanVersion is 6 or 7 or 8 || legionZoneVersion is 3 or 4 or 5;
     }
 
     private static async Task<bool> GetSupportsGSyncAsync()
