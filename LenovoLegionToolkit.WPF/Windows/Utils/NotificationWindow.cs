@@ -78,10 +78,10 @@ public class NotificationWindow : UiWindow, INotificationWindow
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
-    public new void Close()
+    public void Close(bool immediate)
     {
         WindowStyle = WindowStyle.None;
-        base.Close();
+        Close();
     }
 
     public Bitmap GetBitmapView()

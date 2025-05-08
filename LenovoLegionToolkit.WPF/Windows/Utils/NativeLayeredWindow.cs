@@ -12,9 +12,15 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
 public class NativeLayeredWindow : NativeWindow, IDisposable
 {
+    private const int AnimationDurationMs = 100;
+    private const int AnimationIntevalMs = 10;
+    private readonly Timer _animationTimer = new() { Interval = AnimationIntevalMs };
+
     private bool _disposed;
     private Size _size = new(350, 50);
     private Point _pos = new(50, 50);
+    private int _animationStep;
+    private byte _opacity;
 
     public Size Size
     {
@@ -66,26 +72,44 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
         }
     }
 
+    public NativeLayeredWindow()
+    {
+        _animationTimer.Tick += AnimationTimer_Tick;
+    }
+
     public void Show()
     {
         if (Handle == nint.Zero)
             CreateLayeredWindow();
 
+        _opacity = 0;
+        _animationStep = 255 / (AnimationDurationMs / AnimationIntevalMs);
+        _animationTimer.Start();
         PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_SHOWNOACTIVATE);
     }
 
-    public void Hide()
+    public void Hide(bool immediate)
     {
         if (Handle == nint.Zero)
             return;
 
-        PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
+        if (immediate)
+        {
+            PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
+            return;
+        }
+       
+        _animationStep = -255 / (AnimationDurationMs / AnimationIntevalMs);
+        _animationTimer.Start();
     }
 
-    public void Close()
+    public void Close(bool immediate)
     {
-        Hide();
-        Dispose();
+        Hide(immediate);
+        if (immediate)
+        {
+            Dispose();
+        }
     }
 
     public void Dispose()
@@ -141,7 +165,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
         {
             BlendOp = (byte)PInvoke.AC_SRC_OVER,
             BlendFlags = 0,
-            SourceConstantAlpha = 255,
+            SourceConstantAlpha = _opacity,
             AlphaFormat = (byte)PInvoke.AC_SRC_ALPHA
         };
         PInvoke.UpdateLayeredWindow((HWND)Handle, hdcDst, ptDst, size, hdcSrc, ptSrc, colorRef, blend, UPDATE_LAYERED_WINDOW_FLAGS.ULW_ALPHA);
@@ -172,6 +196,22 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
             {
                 Size = new(width, height);
                 Position = new(x, y);
+            }
+        }
+    }
+
+    private void AnimationTimer_Tick(object? sender, EventArgs e)
+    {
+        _opacity = (byte)Math.Clamp(_opacity + _animationStep, 0, 255);
+        UpdateLayeredWindow();
+
+        if (_opacity == 0 || _opacity == 255)
+        {
+            _animationTimer.Stop();
+            if (_opacity == 0)
+            {
+                PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
+                Dispose();
             }
         }
     }

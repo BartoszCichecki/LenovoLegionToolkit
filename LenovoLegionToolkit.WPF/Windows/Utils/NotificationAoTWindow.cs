@@ -25,7 +25,7 @@ public class NotificationAoTWindow : NativeLayeredWindow, INotificationWindow
         Show();
         Task.Delay(closeAfter).ContinueWith(_ =>
         {
-            Close();
+            Close(false);
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 

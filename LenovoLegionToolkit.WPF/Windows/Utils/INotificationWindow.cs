@@ -3,5 +3,5 @@
 public interface INotificationWindow
 {
     public void Show(int closeAfter);
-    public void Close();
+    public void Close(bool immediate);
 }

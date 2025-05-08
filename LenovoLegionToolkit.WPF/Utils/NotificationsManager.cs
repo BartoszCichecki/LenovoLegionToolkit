@@ -233,7 +233,7 @@ public class NotificationsManager
         if (_windows.Count != 0)
         {
             foreach (var window in _windows)
-                window?.Close();
+                window?.Close(true);
 
             _windows.Clear();
         }
