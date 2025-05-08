@@ -109,7 +109,7 @@ public class NotificationWindow : UiWindow, INotificationWindow
 
         var path = new GraphicsPath();
         var rect = new Rectangle(0, 0, newWidth, newHeight);
-        const int diameter = 40;
+        const int diameter = 20;
         path.AddArc(rect.X, rect.Y, diameter, diameter, 180, 90);
         path.AddArc(rect.Right - diameter, rect.Y, diameter, diameter, 270, 90);
         path.AddArc(rect.Right - diameter, rect.Bottom - diameter, diameter, diameter, 0, 90);
@@ -120,7 +120,7 @@ public class NotificationWindow : UiWindow, INotificationWindow
         graphics.DrawImage(bitmap, 0, 0, newWidth, newHeight);
         graphics.ResetClip();
 
-        using var pen = new System.Drawing.Pen(System.Drawing.Color.Gray, 2);
+        using var pen = new System.Drawing.Pen(System.Drawing.Color.FromArgb(64, 64, 64), 2);
         graphics.DrawPath(pen, path);
 
         return resizedBitmap;
