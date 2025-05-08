@@ -64,7 +64,7 @@ public class NotificationWindow : UiWindow, INotificationWindow
         SourceInitialized += (_, _) => InitializePosition(screenInfo.WorkArea, screenInfo.DpiX, screenInfo.DpiY, position);
         MouseDown += (_, _) =>
         {
-            base.Close();
+            Close();
             clickAction?.Invoke();
         };
     }
@@ -74,7 +74,7 @@ public class NotificationWindow : UiWindow, INotificationWindow
         Show();
         Task.Delay(closeAfter).ContinueWith(_ =>
         {
-            base.Close();
+            Close();
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -153,8 +153,8 @@ public class NotificationWindow : UiWindow, INotificationWindow
 
         if (_gettingBitMap)
         {
-            nativeLeft = -1024768;
-            nativeTop = -1024768;
+            nativeLeft = -1048576;
+            nativeTop = -1048576;
         }
         else
         {
