@@ -106,7 +106,8 @@ internal class SmartKeyHelper
 
         try
         {
-            var pipeline = (await _automationProcessor.GetPipelinesAsync()).FirstOrDefault(p => p.Id == currentGuid);
+            var pipelines = await _automationProcessor.GetPipelinesAsync();
+            var pipeline = pipelines.FirstOrDefault(p => p.Id == currentGuid);
             if (pipeline is not null)
             {
                 if (Log.Instance.IsTraceEnabled)

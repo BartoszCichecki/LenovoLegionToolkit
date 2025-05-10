@@ -123,10 +123,6 @@ public class AutomationProcessor(
         if (Log.Instance.IsTraceEnabled)
             Log.Instance.Trace($"Pipeline run now pending...");
 
-        List<AutomationPipeline> pipelines;
-        using (await _ioLock.LockAsync().ConfigureAwait(false))
-            pipelines = _pipelines.ToList();
-
         using (await _runLock.LockAsync().ConfigureAwait(false))
         {
             if (Log.Instance.IsTraceEnabled)
@@ -134,6 +130,10 @@ public class AutomationProcessor(
 
             try
             {
+                List<AutomationPipeline> pipelines;
+                using (await _ioLock.LockAsync().ConfigureAwait(false))
+                    pipelines = _pipelines.ToList();
+
                 var otherPipelines = pipelines.Where(p => p.Id != pipeline.Id).ToList();
                 await pipeline.DeepCopy().RunAsync(otherPipelines).ConfigureAwait(false);
 
@@ -152,14 +152,14 @@ public class AutomationProcessor(
 
     public async Task RunNowAsync(Guid pipelineId)
     {
-        using (await _runLock.LockAsync().ConfigureAwait(false))
-        {
-            var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
-            if (pipeline is null)
-                return;
+        AutomationPipeline? pipeline;
+        using (await _ioLock.LockAsync().ConfigureAwait(false))
+            pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
 
-            await RunNowAsync(pipeline).ConfigureAwait(false);
-        }
+        if (pipeline is null)
+            return;
+
+        await RunNowAsync(pipeline).ConfigureAwait(false);
     }
 
     private async Task RunAsync(IAutomationEvent automationEvent)
