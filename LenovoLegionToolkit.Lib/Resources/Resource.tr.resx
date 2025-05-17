@@ -478,4 +478,22 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Ön ayar 4</value>
   </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>Günlük</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>Her saat</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>Aylık</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>Her 3 saatte</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>Her 12 saatte</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>Haftalık</value>
+  </data>
 </root>
