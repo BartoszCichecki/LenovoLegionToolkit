@@ -12,9 +12,10 @@ namespace LenovoLegionToolkit.WPF.Windows.Utils;
 
 public class NativeLayeredWindow : NativeWindow, IDisposable
 {
-    private const int AnimationDurationMs = 70;
-    private const int AnimationIntevalMs = 10;
-    private readonly Timer _animationTimer = new() { Interval = AnimationIntevalMs };
+    private const int ANIMATION_DURATION_MS = 70;
+    private const int ANIMATION_INTERVAL_MS = 10;
+
+    private readonly Timer _animationTimer = new() { Interval = ANIMATION_INTERVAL_MS };
 
     private bool _disposed;
     private Size _size = new(350, 50);
@@ -22,15 +23,15 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
     private int _animationStep;
     private byte _opacity;
 
-    public Size Size
+    protected Size Size
     {
-        get { return _size; }
+        get => _size;
         set
         {
             if (Handle != nint.Zero)
             {
                 UpdateWindowSizePosition(_pos.X, _pos.Y, value.Width, value.Height);
-                PInvoke.GetWindowRect((HWND)Handle, out RECT rect);
+                PInvoke.GetWindowRect((HWND)Handle, out var rect);
                 _size = new(rect.Width, rect.Height);
                 UpdateLayeredWindow();
             }
@@ -43,25 +44,25 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
 
     public int Width
     {
-        get { return _size.Width; }
-        set { _size.Width = value; }
+        get => _size.Width;
+        set => _size.Width = value;
     }
 
     public int Height
     {
-        get { return _size.Height; }
-        set { _size.Height = value; }
+        get => _size.Height;
+        set => _size.Height = value;
     }
 
-    public Point Position
+    protected Point Position
     {
-        get { return _pos; }
+        get => _pos;
         set
         {
             if (Handle != nint.Zero)
             {
                 UpdateWindowSizePosition(value.X, value.Y, _size.Width, _size.Height);
-                PInvoke.GetWindowRect((HWND)Handle, out RECT rect);
+                PInvoke.GetWindowRect((HWND)Handle, out var rect);
                 _pos = new(rect.left, rect.top);
                 UpdateLayeredWindow();
             }
@@ -72,23 +73,23 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
         }
     }
 
-    public NativeLayeredWindow()
+    protected NativeLayeredWindow()
     {
         _animationTimer.Tick += AnimationTimer_Tick;
     }
 
-    public void Show()
+    protected void Show()
     {
         if (Handle == nint.Zero)
             CreateLayeredWindow();
 
         _opacity = 0;
-        _animationStep = 255 / (AnimationDurationMs / AnimationIntevalMs);
+        _animationStep = 255 / (ANIMATION_DURATION_MS / ANIMATION_INTERVAL_MS);
         _animationTimer.Start();
         PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_SHOWNOACTIVATE);
     }
 
-    public void Hide(bool immediate)
+    private void Hide(bool immediate)
     {
         if (Handle == nint.Zero)
             return;
@@ -98,8 +99,8 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
             PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
             return;
         }
-       
-        _animationStep = -255 / (AnimationDurationMs / AnimationIntevalMs);
+
+        _animationStep = -255 / (ANIMATION_DURATION_MS / ANIMATION_INTERVAL_MS);
         _animationTimer.Start();
     }
 
@@ -124,12 +125,12 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
 
     private void CreateLayeredWindow()
     {
-        var style = WINDOW_STYLE.WS_POPUP;
-        var exStyle = WINDOW_EX_STYLE.WS_EX_TOPMOST |
-            WINDOW_EX_STYLE.WS_EX_TOOLWINDOW |
-            WINDOW_EX_STYLE.WS_EX_LAYERED |
-            WINDOW_EX_STYLE.WS_EX_NOACTIVATE |
-            WINDOW_EX_STYLE.WS_EX_TRANSPARENT;
+        const WINDOW_STYLE style = WINDOW_STYLE.WS_POPUP;
+        const WINDOW_EX_STYLE exStyle = WINDOW_EX_STYLE.WS_EX_TOPMOST |
+                                        WINDOW_EX_STYLE.WS_EX_TOOLWINDOW |
+                                        WINDOW_EX_STYLE.WS_EX_LAYERED |
+                                        WINDOW_EX_STYLE.WS_EX_NOACTIVATE |
+                                        WINDOW_EX_STYLE.WS_EX_TRANSPARENT;
         CreateParams cp = new()
         {
             Caption = "LenovoLegionToolkit-NativeLayeredWindow",
@@ -138,7 +139,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
             Height = Size.Height,
             Width = Size.Width,
             Parent = nint.Zero,
-            Style = (int)style,
+            Style = unchecked((int)style),
             ExStyle = (int)exStyle
         };
         CreateHandle(cp);
@@ -150,7 +151,7 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
     private void UpdateLayeredWindow()
     {
         Bitmap bitmap = new(Size.Width, Size.Height, PixelFormat.Format32bppArgb);
-        using Graphics graphics = Graphics.FromImage(bitmap);
+        using var graphics = Graphics.FromImage(bitmap);
         Rectangle cr = new(0, 0, Size.Width, Size.Height);
         Paint(new(graphics, cr));
         var hdcDst = PInvoke.GetDC(HWND.Null);
@@ -177,26 +178,23 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
 
     private void UpdateWindowSizePosition(int x, int y, int width, int height)
     {
-        if (Position.X != x || Position.Y != y || Size.Width != width || Size.Height != height)
+        if (Position.X == x && Position.Y == y && Size.Width == width && Size.Height == height)
+            return;
+
+        if (Handle != nint.Zero)
         {
-            if (Handle != nint.Zero)
-            {
-                SET_WINDOW_POS_FLAGS flags = 0;
-                if (Position.X == x && Position.Y == y)
-                {
-                    flags |= SET_WINDOW_POS_FLAGS.SWP_NOMOVE;
-                }
-                if (Size.Width == width && Size.Height == height)
-                {
-                    flags |= SET_WINDOW_POS_FLAGS.SWP_NOSIZE;
-                }
-                PInvoke.SetWindowPos((HWND)Handle, HWND.Null, x, y, width, height, flags);
-            }
-            else
-            {
-                Size = new(width, height);
-                Position = new(x, y);
-            }
+            SET_WINDOW_POS_FLAGS flags = 0;
+            if (Position.X == x && Position.Y == y)
+                flags |= SET_WINDOW_POS_FLAGS.SWP_NOMOVE;
+            if (Size.Width == width && Size.Height == height)
+                flags |= SET_WINDOW_POS_FLAGS.SWP_NOSIZE;
+
+            PInvoke.SetWindowPos((HWND)Handle, HWND.Null, x, y, width, height, flags);
+        }
+        else
+        {
+            Size = new(width, height);
+            Position = new(x, y);
         }
     }
 
@@ -205,15 +203,15 @@ public class NativeLayeredWindow : NativeWindow, IDisposable
         _opacity = (byte)Math.Clamp(_opacity + _animationStep, 0, 255);
         UpdateLayeredWindow();
 
-        if (_opacity == 0 || _opacity == 255)
-        {
-            _animationTimer.Stop();
-            if (_opacity == 0)
-            {
-                PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
-                Dispose();
-            }
-        }
+        if (_opacity is not (0 or 255))
+            return;
+        _animationTimer.Stop();
+
+        if (_opacity != 0)
+            return;
+
+        PInvoke.ShowWindow((HWND)Handle, SHOW_WINDOW_CMD.SW_HIDE);
+        Dispose();
     }
 
     [DllImport("gdi32.dll", CharSet = CharSet.Auto)]
