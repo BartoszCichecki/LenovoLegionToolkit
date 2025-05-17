@@ -159,10 +159,50 @@
   <data name="ExternalDisplayDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>عند فصل الشاشة الخارجية</value>
   </data>
+  <data name="DisplayOnAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عند تشغيل الشاشات</value>
+  </data>
+  <data name="DisplayOffAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عندما تنطفئ شاشات</value>
+  </data>
+  <data name="GamesStopAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عندما تغلق اللعبة</value>
+  </data>
+  <data name="GamesAreRunningAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عندما تكون اللعبة قيد التشغيل</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName_Zero" xml:space="preserve">
+    <value>عندما يصبح المستخدم نشطا</value>
+  </data>
+  <data name="UserInactivityAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عندما يصبح المستخدم غير نشط</value>
+  </data>
+  <data name="DeactivateGpuQuickAction_Title" xml:space="preserve">
+    <value>إلغاء تفعيل GPU</value>
+    <comment>The display name of the default Quick Action that is presented to the user upon first installation.</comment>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="OverclockDiscreteGPUAutomationStepState_On" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>عند توصيل واي فاي</value>
   </data>
   <data name="WiFiDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>عند انقطاع اتصال واي فاي</value>
+  </data>
+  <data name="MacroAutomationStepState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="MacroAutomationStepState_On" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="DeviceDisconnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عند فصل الجهاز</value>
+  </data>
+  <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>عند توصيل الجهاز</value>
   </data>
 </root>
