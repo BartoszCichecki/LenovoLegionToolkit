@@ -130,7 +130,12 @@ public class AutomationProcessor(
 
             try
             {
-                await pipeline.DeepCopy().RunAsync().ConfigureAwait(false);
+                List<AutomationPipeline> pipelines;
+                using (await _ioLock.LockAsync().ConfigureAwait(false))
+                    pipelines = _pipelines.ToList();
+
+                var otherPipelines = pipelines.Where(p => p.Id != pipeline.Id).ToList();
+                await pipeline.DeepCopy().RunAsync(otherPipelines).ConfigureAwait(false);
 
                 if (Log.Instance.IsTraceEnabled)
                     Log.Instance.Trace($"Pipeline run finished successfully.");
@@ -147,14 +152,14 @@ public class AutomationProcessor(
 
     public async Task RunNowAsync(Guid pipelineId)
     {
-        using (await _runLock.LockAsync().ConfigureAwait(false))
-        {
-            var pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
-            if (pipeline is null)
-                return;
+        AutomationPipeline? pipeline;
+        using (await _ioLock.LockAsync().ConfigureAwait(false))
+            pipeline = _pipelines.Where(p => p.Trigger is null).FirstOrDefault(p => p.Id == pipelineId);
 
-            await RunNowAsync(pipeline).ConfigureAwait(false);
-        }
+        if (pipeline is null)
+            return;
+
+        await RunNowAsync(pipeline).ConfigureAwait(false);
     }
 
     private async Task RunAsync(IAutomationEvent automationEvent)
@@ -175,7 +180,7 @@ public class AutomationProcessor(
 
             List<AutomationPipeline> pipelines;
             using (await _ioLock.LockAsync().ConfigureAwait(false))
-                pipelines = _pipelines;
+                pipelines = _pipelines.ToList();
 
             _cts = new CancellationTokenSource();
             var ct = _cts.Token;
@@ -201,7 +206,8 @@ public class AutomationProcessor(
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Running pipeline... [name={pipeline.Name}, trigger={pipeline.Trigger}, steps.Count={pipeline.Steps.Count}]");
 
-                    await pipeline.RunAsync(ct).ConfigureAwait(false);
+                    var otherPipelines = pipelines.Where(p => p.Id != pipeline.Id).ToList();
+                    await pipeline.RunAsync(otherPipelines, ct).ConfigureAwait(false);
 
                     if (Log.Instance.IsTraceEnabled)
                         Log.Instance.Trace($"Pipeline completed successfully. [name={pipeline.Name}, trigger={pipeline.Trigger}]");

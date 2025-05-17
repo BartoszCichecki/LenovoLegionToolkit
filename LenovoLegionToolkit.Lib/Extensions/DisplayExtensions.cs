@@ -1,12 +1,53 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
 using Windows.Win32;
 using Windows.Win32.Devices.Display;
 using WindowsDisplayAPI;
+using WindowsDisplayAPI.DisplayConfig;
 
 namespace LenovoLegionToolkit.Lib.Extensions;
 
 public static class DisplayExtensions
 {
+    public static void SetSettingsUsingPathInfo(this Display display, DisplaySetting displaySetting)
+    {
+        // Use display path APIs to change internal display resolution & refresh rate.
+        // Compared to Display.SetSettings(), these APIs can change the Active Signal Mode and not just the Desktop mode.
+        // Setting 60Hz will change the Active Signal Mode to 60Hz instead of leaving it at the max refresh rate,
+        // which lets the display consume less power for more battery life.
+        var displaySource = display.ToPathDisplaySource();
+        var pathInfos = PathInfo.GetActivePaths();
+        var newPathInfos = new List<PathInfo>();
+
+        foreach (var pathInfo in pathInfos)
+        {
+            if (pathInfo.DisplaySource != displaySource)
+            {
+                newPathInfos.Add(pathInfo);
+                continue;
+            }
+
+            var targetsInfo = pathInfo.TargetsInfo;
+            var pathTargetInfos = targetsInfo
+                .Select(targetInfo => new PathTargetInfo(targetInfo.DisplayTarget,
+                    new PathTargetSignalInfo(displaySetting, displaySetting.Resolution),
+                    targetInfo.Rotation,
+                    targetInfo.Scaling))
+                .ToArray();
+
+            newPathInfos.Add(new PathInfo(
+                pathInfo.DisplaySource,
+                pathInfo.Position,
+                displaySetting.Resolution,
+                pathInfo.PixelFormat,
+                pathTargetInfos
+            ));
+        }
+
+        PathInfo.ApplyPathInfos(newPathInfos.ToArray());
+    }
+
     public static DisplayAdvancedColorInfo GetAdvancedColorInfo(this Display display)
     {
         var pathDisplayAdapter = display.Adapter.ToPathDisplayAdapter();
