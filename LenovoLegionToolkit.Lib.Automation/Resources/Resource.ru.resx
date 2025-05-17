@@ -129,6 +129,9 @@
   <data name="DeactivateGPUAutomationStepState_RestartGPU" xml:space="preserve">
     <value>Перезапустить графический драйвер</value>
   </data>
+  <data name="Delay_Second" xml:space="preserve">
+    <value>{0} секунда</value>
+  </data>
   <data name="Delay_Second_Many" xml:space="preserve">
     <value>{0} секунд</value>
   </data>

@@ -196,6 +196,10 @@
   <data name="GodModePresetChangedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν η προεπιλογή Προσαρμοσμένης Λειτουργίας αλλάζει</value>
   </data>
+  <data name="PeriodicActionPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Περιοδική δράση</value>
+    <comment>The display name of the periodic automation action.</comment>
+  </data>
   <data name="WiFiConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>Όταν το Wi-Fi είναι συνδεδεμένο</value>
   </data>

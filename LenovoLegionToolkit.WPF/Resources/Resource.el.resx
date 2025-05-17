@@ -186,7 +186,7 @@
 Θα εκτελούνται μόνο οι δράσεις που αντιστοιχούν στην τρέχουσα κατάσταση.</value>
   </data>
   <data name="AutomationPage_Actions_Title" xml:space="preserve">
-    <value>Ενέργειες</value>
+    <value>Δράσεις</value>
   </data>
   <data name="AutomationPage_AddManualPipeline_Placeholder" xml:space="preserve">
     <value>Όνομα...</value>
@@ -424,6 +424,11 @@
   <data name="DashboardPage_Title" xml:space="preserve">
     <value>Αρχική</value>
   </data>
+  <data name="DeactivateGPUAutomationStepControl_Message" xml:space="preserve">
+    <value>Απενεργοποίηση της διακριτής GPU εάν είναι άσκοπα ενεργή.
+
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά, εάν η ενσωματωμένη οθόνη είναι απενεργοποιημένη ή η υβριδική λειτουργία δεν είναι ενεργή.</value>
+  </data>
   <data name="DeactivateGPUAutomationStepControl_Title" xml:space="preserve">
     <value>Απενεργοποίηση της GPU</value>
   </data>
@@ -497,7 +502,7 @@
     <value>Μια οθόνη είναι συνδεδεμένη στην nVidia GPU.</value>
   </data>
   <data name="DiscreteGPUControl_NoProcesses" xml:space="preserve">
-    <value>Δεν υπάρχουν διαδικασίες</value>
+    <value>Δεν υπάρχουν διεργασίες</value>
   </data>
   <data name="DiscreteGPUControl_PerformanceState" xml:space="preserve">
     <value>Κατάσταση απόδοσης</value>
@@ -506,7 +511,7 @@
     <value>Άγνωστο</value>
   </data>
   <data name="DiscreteGPUControl_Processes" xml:space="preserve">
-    <value>Διαδικασίες</value>
+    <value>Διεργασίες</value>
   </data>
   <data name="DiscreteGPUControl_RestartGPU" xml:space="preserve">
     <value>Επανεκκίνηση GPU</value>
@@ -1356,6 +1361,10 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Προσπαθήστε ξανά</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Παρουσιάστηκε απροσδόκητη εξαίρεση:
+{0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Ανώνυμο</value>
   </data>
@@ -1459,7 +1468,7 @@
   <data name="DpiScaleAutomationStepControl_Message" xml:space="preserve">
     <value>Αλλαγή κλίμακας της ενσωματωμένης οθόνης.
 
-ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η ενέργεια δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
+ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτή η δράση δε θα εκτελεστεί σωστά εάν η εσωτερική οθόνη είναι απενεργοποιημένη.</value>
   </data>
   <data name="DashboardPage_Display_Title" xml:space="preserve">
     <value>Οθόνη</value>

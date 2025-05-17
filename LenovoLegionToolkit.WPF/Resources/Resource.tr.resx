@@ -1362,6 +1362,10 @@ Yeniden başlatma gerektirir.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Tekrar deneyin</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Beklenmeyen bir istisna oluştu:
+{0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Adsız</value>
   </data>
@@ -1411,6 +1415,12 @@ Devam etmeyi seçerseniz, kayıt etme otomatik olarak etkinleştirilecektir.</va
   </data>
   <data name="WhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>Klavye ışığı</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Message" xml:space="preserve">
+    <value>Dahili klavyedeki Windows tuşunu devre dışı bırakın.</value>
+  </data>
+  <data name="WinKeyAutomationStepControl_Title" xml:space="preserve">
+    <value>Windows Tuş Kilidi</value>
   </data>
   <data name="WinKeyControl_Message" xml:space="preserve">
     <value>Sadece yerleşik klavyede çalışır.</value>
@@ -1834,6 +1844,12 @@ GPU hiç yanıt vermiyorsa, lütfen dizüstü bilgisayarınızı yeniden başlat
   <data name="GodModeSettingsWindow_LegionZoneWarning_Title" xml:space="preserve">
     <value>Legion Zone veya hizmetleri çalışırken Özel Mod ayarları doğru uygulanmayacaktır.</value>
   </data>
+  <data name="DGPU_Connected_Title" xml:space="preserve">
+    <value>dGPU bağlı</value>
+  </data>
+  <data name="DGPU_Disconnected_Title" xml:space="preserve">
+    <value>dGPU bağlı değil</value>
+  </data>
   <data name="ComboBoxHybridModeAutomationStepControl_Title" xml:space="preserve">
     <value>GPU Çalışma Modu</value>
   </data>
@@ -2036,11 +2052,77 @@ Desteklenen biçimler: {1}.</value>
   <data name="WindowsPowerModesWindow_Title" xml:space="preserve">
     <value>Windows Güç Modları</value>
   </data>
+  <data name="Settings_GodModeFnQSwitchable_Title" xml:space="preserve">
+    <value>Fn+Q ile Özel Moda geçin</value>
+  </data>
+  <data name="Settings_GodModeFnQSwitchable_Message" xml:space="preserve">
+    <value>Fn+Q ile Özel Moda hızlı geçişe izin verin.</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Title" xml:space="preserve">
+    <value>Güç Modu Eşitlemesi</value>
+  </data>
+  <data name="SettingsPage_PowerModeMapping_Message" xml:space="preserve">
+    <value>Güç Modlarını değiştirirken Windows Güç Planını veya Windows Güç Modunu otomatik olarak değiştirin.</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Title" xml:space="preserve">
+    <value>Windows Güç Modları</value>
+  </data>
+  <data name="SettingsPage_WindowsPowerModes_Message" xml:space="preserve">
+    <value>Güç Modu değiştiğinde uygulanacak Windows Güç Planlarını seçin.</value>
+  </data>
+  <data name="CompatibilityCheckError_Message" xml:space="preserve">
+    <value>Cihaz bilgileri okunurken hata oluştu.</value>
+  </data>
+  <data name="MainWindow_NavigationItem_Macro" xml:space="preserve">
+    <value>Makro</value>
+  </data>
+  <data name="MacroPage_Title" xml:space="preserve">
+    <value>Makro</value>
+  </data>
+  <data name="MacroSequenceControl_Repeat_Title" xml:space="preserve">
+    <value>Tekrarla</value>
+  </data>
+  <data name="MacroSequenceControl_IgnoreDelays_Title" xml:space="preserve">
+    <value>Gecikmeleri yoksay</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="MacroSequenceControl_Record" xml:space="preserve">
+    <value>Kayıt</value>
+  </data>
+  <data name="MacroSequenceControl_StopRecording" xml:space="preserve">
+    <value>Kaydı durdur</value>
+  </data>
+  <data name="MacroSequenceControl_DontRepeat" xml:space="preserve">
+    <value>Tekrar etme</value>
+  </data>
+  <data name="MacroPage_Enable_Subtitle" xml:space="preserve">
+    <value>Otomatik makroların çalışması için Lenovo Legion Toolkit çalışıyor olmalıdır.</value>
+  </data>
+  <data name="MacroPage_Enable_Title" xml:space="preserve">
+    <value>Etkinleştir</value>
+  </data>
+  <data name="MacroPage_Subtitle" xml:space="preserve">
+    <value>Tuş vuruşu serilerini kaydedebilir ve klavyenizdeki sayısal tuş takımını kullanarak bunları çağırabilirsiniz.</value>
+  </data>
+  <data name="MacroAutomationStepControl_Title" xml:space="preserve">
+    <value>Makro</value>
+  </data>
+  <data name="MacroAutomationStepControl_Message" xml:space="preserve">
+    <value>Makroları etkinleştir veya devre dışı bırak.</value>
+  </data>
+  <data name="MacroSequenceControl_InterruptOnOtherKey_Title" xml:space="preserve">
+    <value>Başka bir tuşa basıldığında kesintiye uğrar</value>
+  </data>
   <data name="Hide" xml:space="preserve">
     <value>Gizle</value>
   </data>
   <data name="HideAll" xml:space="preserve">
     <value>Tümünü gizle</value>
+  </data>
+  <data name="DevicePipelineTriggerTabItemContent_Devices" xml:space="preserve">
+    <value>Cihazlar</value>
   </data>
   <data name="DeselectAll" xml:space="preserve">
     <value>Tüm seçimi kaldır</value>
@@ -2048,10 +2130,118 @@ Desteklenen biçimler: {1}.</value>
   <data name="SelectAll" xml:space="preserve">
     <value>Tümünü seç</value>
   </data>
+  <data name="MacroSequenceControl_Keyboard" xml:space="preserve">
+    <value>Yalnızca klavye</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouse" xml:space="preserve">
+    <value>Klavye tuşları ve fare düğmeleri</value>
+  </data>
+  <data name="MacroSequenceControl_KeyboardMouseMovement" xml:space="preserve">
+    <value>Tüm girişler</value>
+  </data>
   <data name="MacroSequenceControl_RecordingOptions" xml:space="preserve">
     <value>Kayıt seçenekleri</value>
   </data>
+  <data name="MacroRecordingWindow_Preparing_Title" xml:space="preserve">
+    <value>Kayıt 3 saniye içinde başlayacak...</value>
+  </data>
   <data name="MacroRecordingWindow_Recording_Title" xml:space="preserve">
     <value>Kaydediliyor...</value>
+  </data>
+  <data name="MacroRecordingWindow_Recording_Message" xml:space="preserve">
+    <value>Durdurmak için ESC tuşuna basın.</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlySelected" xml:space="preserve">
+    <value>Yalnızca seçilen cihazları göster</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyRemovable" xml:space="preserve">
+    <value>Yalnızca çıkarılabilir cihazları göster</value>
+  </data>
+  <data name="DeviceAutomationPipelineTriggerTabItemContent_OnlyConnected" xml:space="preserve">
+    <value>Yalnızca bağlı cihazları göster</value>
+  </data>
+  <data name="SettingsPage_CLI_Title" xml:space="preserve">
+    <value>CLI</value>
+  </data>
+  <data name="SettingsPage_CLI_Message" xml:space="preserve">
+    <value>Komut satırından kontrol sağlayan Komut Satırı Arayüzünü etkinleştirin.</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Title" xml:space="preserve">
+    <value>YOLA CLI ekle</value>
+  </data>
+  <data name="SettingsPage_CLIAddToPath_Message" xml:space="preserve">
+    <value>Kullanıcının ortam değişkeni YOLUNA CLI ekleyin.</value>
+  </data>
+  <data name="SettingsPage_Temperature_Title" xml:space="preserve">
+    <value>Sıcaklık</value>
+  </data>
+  <data name="SettingsPage_Temperature_Message" xml:space="preserve">
+    <value>Sıcaklık sensörleri için birimleri seçin.</value>
+  </data>
+  <data name="MainWindows_FnKeysRunning" xml:space="preserve">
+    <value>Lenovo Hotkeys arka planda çalışıyor.</value>
+  </data>
+  <data name="MainWindow_LegionZoneRunning" xml:space="preserve">
+    <value>Legion Zone arka planda çalışıyor.</value>
+  </data>
+  <data name="MainWindows_VantageRunning" xml:space="preserve">
+    <value>Lenovo Vantage ve/veya ImController arka planda çalışıyor.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Cihazınıza bağlı tüm ekranlarda bildirim gösterin.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Tüm ekranlarda bildirim</value>
+  </data>
+  <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
+    <value>Denetle</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Started_Title" xml:space="preserve">
+    <value>Güncelleme denetleniyor...</value>
+  </data>
+  <data name="SettingsPage_CheckUpdates_Title" xml:space="preserve">
+    <value>Güncellemeleri denetle</value>
+  </data>
+  <data name="SettingsPage_Update_Title" xml:space="preserve">
+    <value>Güncelle</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_ReachedRateLimit_Message" xml:space="preserve">
+    <value>API oranı sınırına ulaşıldı, lütfen daha sonra tekrar deneyin.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Title" xml:space="preserve">
+    <value>Güncellemeler kontrol edilemedi</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Error_Unknown_Message" xml:space="preserve">
+    <value>Bir şeyler ters gitti, lütfen sonra tekrar deneyin.</value>
+  </data>
+  <data name="MainWindow_CheckForUpdates_Success_Title" xml:space="preserve">
+    <value>Güncelleme bulunamadı</value>
+  </data>
+  <data name="SettingsPage_UpdateCheckFrequency_Title" xml:space="preserve">
+    <value>Güncellemeleri otomatik olarak denetle</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Title" xml:space="preserve">
+    <value>Güncelleme kataloğu bulunamadı</value>
+  </data>
+  <data name="PackagesPage_UpdateCatalogNotFound_Message" xml:space="preserve">
+    <value>Güncellemeleri başka bir kaynaktan almayı deneyin.</value>
+  </data>
+  <data name="PackagesPage_Error_Title" xml:space="preserve">
+    <value>Bir şeyler ters gitti</value>
+  </data>
+  <data name="PackagesPage_Error_CheckInternet_Message" xml:space="preserve">
+    <value>İnternet bağlantınızın açık ve çalışır olduğunu kontrol edin.</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Title" xml:space="preserve">
+    <value>Sesi oynat</value>
+  </data>
+  <data name="PlaySoundAutomationStepControl_Message" xml:space="preserve">
+    <value>Wav veya mp3 gibi yaygın müzik biçimleri desteklenmektedir.</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
+    <value>Hızlı Eylemler</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Kaydedilmiş hızlı eylem çalıştır.</value>
   </data>
 </root>

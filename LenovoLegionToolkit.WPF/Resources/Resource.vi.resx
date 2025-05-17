@@ -1362,6 +1362,9 @@ Yêu cầu khởi động lại.</value>
   <data name="TryAgain" xml:space="preserve">
     <value>Thử lại</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Đã xảy ra lỗi ngoại lệ bất thường: {0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Chưa có tên</value>
   </data>
