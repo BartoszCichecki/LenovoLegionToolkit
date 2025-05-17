@@ -108,7 +108,7 @@ public class ResolutionFeature : IFeature<Resolution>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting display to {newSettings.ToExtendedString()}");
 
-            InternalDisplay.SetSettings(newSettings);
+            display.SetSettingsUsingPathInfo(newSettings);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Display set to {newSettings.ToExtendedString()}");

@@ -107,7 +107,7 @@ public class RefreshRateFeature : IFeature<RefreshRate>
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Setting display to {newSettings.ToExtendedString()}...");
 
-            InternalDisplay.SetSettings(newSettings);
+            display.SetSettingsUsingPathInfo(newSettings);
 
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Display set to {newSettings.ToExtendedString()}");
