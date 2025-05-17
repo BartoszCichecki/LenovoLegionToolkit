@@ -429,6 +429,7 @@ public readonly struct MachineInformation
         public bool SupportsGodMode => SupportsGodModeV1 || SupportsGodModeV2;
 
         public (bool status, bool connectivity) SupportsAlwaysOnAc { get; init; }
+        public bool SupportsExtremeMode { get; init; }
         public bool SupportsGodModeV1 { get; init; }
         public bool SupportsGodModeV2 { get; init; }
         public bool SupportsGSync { get; init; }
