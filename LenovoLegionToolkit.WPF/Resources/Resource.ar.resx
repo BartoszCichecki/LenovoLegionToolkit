@@ -440,6 +440,9 @@
   <data name="DeviceInformationWindow_BiosVersion_Title" xml:space="preserve">
     <value>اصدار ال BIOS</value>
   </data>
+  <data name="CopiedToClipboard_Message" xml:space="preserve">
+    <value>تم نسخ النص إلى الحافظة.</value>
+  </data>
   <data name="CopiedToClipboard_Message_WithParam" xml:space="preserve">
     <value>"{0}" تم نسخهم.</value>
   </data>
@@ -549,6 +552,9 @@
   </data>
   <data name="Exit" xml:space="preserve">
     <value>خروج</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>تصدير</value>
   </data>
   <data name="ExtendedHybridModeInfoWindow_Auto_Message" xml:space="preserve">
     <value>استخدم كرت الشاشة الداخلى فقط عند استخدام البطارية و استخدم كرت الشاشة الداخلى و الخارجى عندما يكون كابل الطاقة متصل. عندما استخدام كابل طاقة غير قياسى, النظام يستخدم Hybrid-iGPU فقط.</value>
@@ -1126,6 +1132,9 @@
   <data name="SettingsPage_Notifications_Title" xml:space="preserve">
     <value>الإشعارات</value>
   </data>
+  <data name="SettingsPage_WindowsPowerPlans_Title" xml:space="preserve">
+    <value>أوضاع أو خطط الطاقة</value>
+  </data>
   <data name="SettingsPage_SmartKeyDoublePressAction_Message" xml:space="preserve">
     <value>قم بتعيين إجراء سريع للضغط المزدوج على Fn + F9.</value>
   </data>
@@ -1315,6 +1324,12 @@
   <data name="Yes" xml:space="preserve">
     <value>نعم</value>
   </data>
+  <data name="MicrophoneAutomationStepControl_Title" xml:space="preserve">
+    <value>الميكروفون</value>
+  </data>
+  <data name="DashboardPage_Display_Title" xml:space="preserve">
+    <value>الشاشة</value>
+  </data>
   <data name="OneLevelWhiteKeyboardBacklightControl_Title" xml:space="preserve">
     <value>الإضاءة الخلفية للوحة المفاتيح</value>
   </data>
@@ -1323,6 +1338,9 @@
   </data>
   <data name="EditDashboardWindow_CreateGroup_Message" xml:space="preserve">
     <value>الاسم</value>
+  </data>
+  <data name="SaveAndClose" xml:space="preserve">
+    <value>حفظ و إغلاق</value>
   </data>
   <data name="Notification_UpdateAvailable" xml:space="preserve">
     <value>يتوفر {0} تحديث!</value>
