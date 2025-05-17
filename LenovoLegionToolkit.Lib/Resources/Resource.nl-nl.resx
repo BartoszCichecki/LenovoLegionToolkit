@@ -480,4 +480,22 @@
   <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
     <value>Voorinstelling 4</value>
   </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>Dagelijks</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>Elk uur</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>Maandelijks</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>Elke 3 uur</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>Elke 12 uur</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>Wekelijks</value>
+  </data>
 </root>
