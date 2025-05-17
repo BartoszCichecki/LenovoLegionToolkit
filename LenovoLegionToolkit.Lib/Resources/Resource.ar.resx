@@ -150,11 +150,35 @@
   <data name="BatteryState_RapidCharge" xml:space="preserve">
     <value>الشحن السريع</value>
   </data>
+  <data name="FlipToStartState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that Flip to Start is or will be turned off.</comment>
+  </data>
+  <data name="FlipToStartState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that Flip to Start is or will be turned on.</comment>
+  </data>
+  <data name="FnLockState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that Fn Lock is or will be turned off.</comment>
+  </data>
+  <data name="FnLockState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that Fn Lock is or will be turned on.</comment>
+  </data>
   <data name="GPUController_PoweredOff" xml:space="preserve">
     <value>مغلق</value>
   </data>
   <data name="GPUController_PoweredOn" xml:space="preserve">
     <value>يعمل</value>
+  </data>
+  <data name="HDRState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that HDR is or will be turned off.</comment>
+  </data>
+  <data name="HDRState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that HDR is or will be turned on.</comment>
   </data>
   <data name="HybridModeState_Off" xml:space="preserve">
     <value>كرت الشاشة الخارجى</value>
@@ -167,6 +191,14 @@
   </data>
   <data name="HybridModeState_OnIGPUOnly" xml:space="preserve">
     <value>الوضع الهجين للكرت الداخلى</value>
+  </data>
+  <data name="MicrophoneState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that the microphone is or will be turned off.</comment>
+  </data>
+  <data name="MicrophoneState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that the microphone is or will be turned on.</comment>
   </data>
   <data name="NotificationPosition_BottomCenter" xml:space="preserve">
     <value>مركز القاعدة أو القاع</value>
@@ -194,6 +226,22 @@
   </data>
   <data name="NotificationPosition_TopRight" xml:space="preserve">
     <value>يمين القمة</value>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned off.</comment>
+  </data>
+  <data name="OneLevelWhiteKeyboardBacklightState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that One Level White Keyboard Backlight is or will be turned on.</comment>
+  </data>
+  <data name="OverdriveState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that Overdrive is or will be turned off.</comment>
+  </data>
+  <data name="OverdriveState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that Overdrive is or will be turned on.</comment>
   </data>
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>متزن</value>
@@ -339,6 +387,14 @@
   <data name="Theme_System" xml:space="preserve">
     <value>النظام</value>
   </data>
+  <data name="TouchpadLockState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned off.</comment>
+  </data>
+  <data name="TouchpadLockState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that Touchpad Lock is or will be turned on.</comment>
+  </data>
   <data name="WhiteKeyboardBacklightState_High" xml:space="preserve">
     <value>مرتفع</value>
   </data>
@@ -347,5 +403,97 @@
   </data>
   <data name="WhiteKeyboardBacklightState_Off" xml:space="preserve">
     <value>مغلق</value>
+  </data>
+  <data name="WinKeyState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="WinKeyState_On" xml:space="preserve">
+    <value>مفعل</value>
+    <comment>Informs the user that WinLock is or will be turned on.</comment>
+  </data>
+  <data name="PortsBacklightState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="PortsBacklightState_On" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="PanelLogoBacklightState_On" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="PanelLogoBacklightState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="InstantBootState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="InstantBootState_AcAdapter" xml:space="preserve">
+    <value>محول التيار</value>
+  </data>
+  <data name="InstantBootState_UsbPowerDelivery" xml:space="preserve">
+    <value>توصيل الطاقة عبر USB</value>
+  </data>
+  <data name="InstantBootState_AcAdapterAndUsbPowerDelivery" xml:space="preserve">
+    <value>محول التيار و توصيل الطاقة عبر USB</value>
+  </data>
+  <data name="NotificationDuration_Long" xml:space="preserve">
+    <value>طويلة</value>
+  </data>
+  <data name="NotificationDuration_Normal" xml:space="preserve">
+    <value>عادية</value>
+  </data>
+  <data name="NotificationDuration_Short" xml:space="preserve">
+    <value>قصيرة</value>
+  </data>
+  <data name="ModifierKey_Shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="ModifierKey_Ctrl" xml:space="preserve">
+    <value>Ctrl</value>
+  </data>
+  <data name="ModifierKey_Alt" xml:space="preserve">
+    <value>Alt</value>
+  </data>
+  <data name="BatteryNightChargeState_On" xml:space="preserve">
+    <value>مفعل</value>
+  </data>
+  <data name="BatteryNightChargeState_Off" xml:space="preserve">
+    <value>إيقاف</value>
+  </data>
+  <data name="SpeakerState_Mute" xml:space="preserve">
+    <value>كتم</value>
+  </data>
+  <data name="SpeakerState_Unmute" xml:space="preserve">
+    <value>إلغاء الكتم</value>
+  </data>
+  <data name="PowerModeMappingMode_Disabled" xml:space="preserve">
+    <value>معطل</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerMode" xml:space="preserve">
+    <value>وضع طاقة ويندوز</value>
+  </data>
+  <data name="PowerModeMappingMode_WindowsPowerPlan" xml:space="preserve">
+    <value>خطة طاقة ويندوز</value>
+  </data>
+  <data name="RGBKeyboardBacklightPreset_Four" xml:space="preserve">
+    <value>الإعداد 4</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerDay" xml:space="preserve">
+    <value>يوميا</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerHour" xml:space="preserve">
+    <value>كل ساعة</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerMonth" xml:space="preserve">
+    <value>شهريا</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerThreeHours" xml:space="preserve">
+    <value>كل 3 ساعات</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerTwelveHours" xml:space="preserve">
+    <value>كل 12 ساعة</value>
+  </data>
+  <data name="UpdateCheckFrequency_PerWeek" xml:space="preserve">
+    <value>أسبوعيا</value>
   </data>
 </root>
