@@ -1362,6 +1362,10 @@
   <data name="TryAgain" xml:space="preserve">
     <value>Повторите попытку</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>Непредвиденная ошибка:
+{0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>Без имени</value>
   </data>
@@ -2183,6 +2187,12 @@
   <data name="MainWindows_VantageRunning" xml:space="preserve">
     <value>Lenovo Vantage и/или ImController запущены в фоновом режиме.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Message" xml:space="preserve">
+    <value>Показывать уведомления на всех мониторах, подключенных к устройству.</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationOnAllScreens_Title" xml:space="preserve">
+    <value>Уведомления на всех мониторах</value>
+  </data>
   <data name="SettingsPage_CheckUpdatesButton_Content" xml:space="preserve">
     <value>Проверить</value>
   </data>
@@ -2230,5 +2240,8 @@
   </data>
   <data name="QuickActionAutomationStepControl_Title" xml:space="preserve">
     <value>Быстрое действие</value>
+  </data>
+  <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
+    <value>Выполнить сохраненное быстрое действие.</value>
   </data>
 </root>
