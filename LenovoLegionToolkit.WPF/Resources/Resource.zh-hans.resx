@@ -1369,6 +1369,10 @@
   <data name="TryAgain" xml:space="preserve">
     <value>重试</value>
   </data>
+  <data name="UnexpectedException" xml:space="preserve">
+    <value>发生意外异常：
+{0}</value>
+  </data>
   <data name="Unnamed" xml:space="preserve">
     <value>未命名</value>
   </data>
@@ -2246,5 +2250,12 @@
   </data>
   <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
     <value>运行一个保存的快捷操作。</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Title" xml:space="preserve">
+    <value>通知始终置顶</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Message" xml:space="preserve">
+    <value>始终将通知显示在顶部。
+这不会影响其他全屏窗口，但您将无法点击这些通知。</value>
   </data>
 </root>

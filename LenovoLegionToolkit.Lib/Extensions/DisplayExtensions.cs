@@ -18,34 +18,32 @@ public static class DisplayExtensions
         // which lets the display consume less power for more battery life.
         var displaySource = display.ToPathDisplaySource();
         var pathInfos = PathInfo.GetActivePaths();
-        var newPathInfos = new List<PathInfo>();
 
-        foreach (var pathInfo in pathInfos)
+        for (var i = 0; i < pathInfos.Length; i++)
         {
-            if (pathInfo.DisplaySource != displaySource)
+            var pathInfo = pathInfos[i];
+
+            if (pathInfo.DisplaySource == displaySource)
             {
-                newPathInfos.Add(pathInfo);
-                continue;
+                var targetsInfo = pathInfo.TargetsInfo;
+                var pathTargetInfos = targetsInfo
+                    .Select(targetInfo => new PathTargetInfo(targetInfo.DisplayTarget,
+                        new PathTargetSignalInfo(displaySetting, displaySetting.Resolution),
+                        targetInfo.Rotation,
+                        targetInfo.Scaling))
+                    .ToArray();
+
+                pathInfos[i] = new PathInfo(
+                    pathInfo.DisplaySource,
+                    pathInfo.Position,
+                    displaySetting.Resolution,
+                    pathInfo.PixelFormat,
+                    pathTargetInfos
+                );
             }
-
-            var targetsInfo = pathInfo.TargetsInfo;
-            var pathTargetInfos = targetsInfo
-                .Select(targetInfo => new PathTargetInfo(targetInfo.DisplayTarget,
-                    new PathTargetSignalInfo(displaySetting, displaySetting.Resolution),
-                    targetInfo.Rotation,
-                    targetInfo.Scaling))
-                .ToArray();
-
-            newPathInfos.Add(new PathInfo(
-                pathInfo.DisplaySource,
-                pathInfo.Position,
-                displaySetting.Resolution,
-                pathInfo.PixelFormat,
-                pathTargetInfos
-            ));
         }
 
-        PathInfo.ApplyPathInfos(newPathInfos.ToArray());
+        PathInfo.ApplyPathInfos(pathInfos);
     }
 
     public static DisplayAdvancedColorInfo GetAdvancedColorInfo(this Display display)
