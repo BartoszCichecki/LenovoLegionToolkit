@@ -583,15 +583,6 @@ namespace LenovoLegionToolkit.Lib.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Extreme.
-        /// </summary>
-        public static string PowerModeState_Extreme {
-            get {
-                return ResourceManager.GetString("PowerModeState_Extreme", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Custom.
         /// </summary>
         public static string PowerModeState_GodMode {

@@ -246,9 +246,6 @@
   <data name="PowerModeState_Balance" xml:space="preserve">
     <value>Balance</value>
   </data>
-  <data name="PowerModeState_Extreme" xml:space="preserve">
-    <value>Extreme</value>
-  </data>
   <data name="PowerModeState_GodMode" xml:space="preserve">
     <value>Custom</value>
   </data>

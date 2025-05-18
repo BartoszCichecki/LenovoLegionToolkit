@@ -366,8 +366,6 @@ public enum PowerModeState
     Balance,
     [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Performance")]
     Performance,
-    [Display(ResourceType = typeof(Resource), Name = "PowerModeState_Extreme")]
-    Extreme = 223,
     [Display(ResourceType = typeof(Resource), Name = "PowerModeState_GodMode")]
     GodMode = 254
 }
