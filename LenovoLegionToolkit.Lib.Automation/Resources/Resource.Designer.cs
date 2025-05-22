@@ -340,6 +340,24 @@ namespace LenovoLegionToolkit.Lib.Automation.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Session locked.
+        /// </summary>
+        public static string SessionLockAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("SessionLockAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session unlocked.
+        /// </summary>
+        public static string SessionUnlockAutomationPipelineTrigger_DisplayName {
+            get {
+                return ResourceManager.GetString("SessionUnlockAutomationPipelineTrigger_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to At specified time.
         /// </summary>
         public static string TimeAutomationPipelineTrigger_DisplayName {

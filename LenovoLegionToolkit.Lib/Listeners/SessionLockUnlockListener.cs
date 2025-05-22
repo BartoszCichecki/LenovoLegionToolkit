@@ -1,8 +1,8 @@
-﻿using LenovoLegionToolkit.Lib.Utils;
-using Microsoft.Win32;
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
+using LenovoLegionToolkit.Lib.Utils;
+using Microsoft.Win32;
 using Windows.Win32;
 using Windows.Win32.Foundation;
 using Windows.Win32.System.RemoteDesktop;
@@ -18,6 +18,8 @@ public class SessionLockUnlockListener : IListener<SessionLockUnlockListener.Cha
 
     public event EventHandler<ChangedEventArgs>? Changed;
 
+    public bool? IsLocked { get; private set; }
+
     public Task StartAsync()
     {
         SystemEvents.SessionSwitch += SystemEvents_SessionSwitch;
@@ -26,6 +28,7 @@ public class SessionLockUnlockListener : IListener<SessionLockUnlockListener.Cha
 
     public Task StopAsync()
     {
+        SystemEvents.SessionSwitch -= SystemEvents_SessionSwitch;
         return Task.CompletedTask;
     }
 
@@ -37,14 +40,16 @@ public class SessionLockUnlockListener : IListener<SessionLockUnlockListener.Cha
         var flags = GetActiveConsoleSessionFlags();
         if (flags == PInvoke.WTS_SESSIONSTATE_UNKNOWN)
         {
+            IsLocked = null;
             if (Log.Instance.IsTraceEnabled)
                 Log.Instance.Trace($"Unknown error occured when getting active console session flags.");
-
             return;
         }
-        Changed?.Invoke(this, new(flags == PInvoke.WTS_SESSIONSTATE_LOCK));
+        var locked = (flags == PInvoke.WTS_SESSIONSTATE_LOCK);
         if (Log.Instance.IsTraceEnabled)
-            Log.Instance.Trace($"Session switched. [flags={flags}]");
+            Log.Instance.Trace($"Session lock unlock state switched. [locked={locked}]");
+        IsLocked = locked;
+        Changed?.Invoke(this, new(locked));
     }
 
     private unsafe uint GetActiveConsoleSessionFlags()

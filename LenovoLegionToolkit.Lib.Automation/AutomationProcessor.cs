@@ -23,6 +23,7 @@ public class AutomationProcessor(
     GodModeController godModeController,
     GameAutoListener gameAutoListener,
     ProcessAutoListener processAutoListener,
+    SessionLockUnlockListener sessionLockUnlockListener,
     TimeAutoListener timeAutoListener,
     UserInactivityAutoListener userInactivityAutoListener,
     WiFiAutoListener wifiAutoListener)
@@ -48,6 +49,7 @@ public class AutomationProcessor(
             powerStateListener.Changed += PowerStateListener_Changed;
             powerModeListener.Changed += PowerModeListener_Changed;
             godModeController.PresetChanged += GodModeController_PresetChanged;
+            sessionLockUnlockListener.Changed += SessionLockUnlockListener_Changed;
 
             _pipelines = [.. settings.Store.Pipelines];
 
@@ -274,6 +276,12 @@ public class AutomationProcessor(
     private async void ProcessAutoListener_Changed(object? sender, ProcessAutoListener.ChangedEventArgs args)
     {
         var e = new ProcessAutomationEvent(args.Type, args.ProcessInfo);
+        await ProcessEvent(e).ConfigureAwait(false);
+    }
+
+    private async void SessionLockUnlockListener_Changed(object? sender, SessionLockUnlockListener.ChangedEventArgs args)
+    {
+        var e = new SessionLockUnlockAutomationEvent(args.Locked);
         await ProcessEvent(e).ConfigureAwait(false);
     }
 
