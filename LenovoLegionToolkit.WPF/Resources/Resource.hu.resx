@@ -2242,4 +2242,11 @@ A támogatott formátumok a következők: {1}.</value>
   <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
     <value>Mentett gyors művelet futtatása.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Title" xml:space="preserve">
+    <value>Értesítések mindig legfelül</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Message" xml:space="preserve">
+    <value>Tegye az értesítéseket mindig legfelülre.
+Nincs hatással a többi teljes képernyős ablakokra, de nem lehet kattintani az értesítésekre.</value>
+  </data>
 </root>
