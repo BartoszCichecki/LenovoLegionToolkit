@@ -2243,4 +2243,11 @@ Các định dạng hỗ trợ: {1}.</value>
   <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
     <value>Chạy một hành động đã lưu.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Title" xml:space="preserve">
+    <value>Luôn hiện thông báo lên trên cùng</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Message" xml:space="preserve">
+    <value>Thông báo sẽ luôn hiện đè lên trên cửa sổ hay desktop.
+Chức năng này không ảnh hưởng các cửa sổ ở chế độ toàn màn hình, nhưng thông báo sẽ không thể bấm vào được.</value>
+  </data>
 </root>
