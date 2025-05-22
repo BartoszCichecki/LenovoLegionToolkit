@@ -65,6 +65,10 @@ public interface IProcessesAutomationPipelineTrigger : IAutomationPipelineTrigge
     IProcessesAutomationPipelineTrigger DeepCopy(ProcessInfo[] processes);
 }
 
+public interface ISessionLockPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
+
+public interface ISessionUnlockPipelineTrigger : IDisallowDuplicatesAutomationPipelineTrigger;
+
 public interface ITimeAutomationPipelineTrigger : IAutomationPipelineTrigger
 {
     bool IsSunrise { get; }

@@ -234,6 +234,15 @@ public partial class App
 
         try
         {
+            if (IoCContainer.TryResolve<SessionLockUnlockListener>() is { } sessionLockUnlockListener)
+            {
+                await sessionLockUnlockListener.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
             if (IoCContainer.TryResolve<HWiNFOIntegration>() is { } hwinfoIntegration)
             {
                 await hwinfoIntegration.StopAsync();

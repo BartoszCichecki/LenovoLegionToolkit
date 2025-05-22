@@ -46,6 +46,11 @@ public readonly struct ProcessAutomationEvent(ProcessEventInfoType type, Process
     public ProcessInfo ProcessInfo { get; } = processInfo;
 }
 
+public readonly struct SessionLockUnlockAutomationEvent(bool locked) : IAutomationEvent
+{
+    public bool Locked { get; } = locked;
+}
+
 public readonly struct TimeAutomationEvent(Time time, DayOfWeek day) : IAutomationEvent
 {
     public Time Time { get; } = time;
