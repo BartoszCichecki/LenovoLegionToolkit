@@ -217,6 +217,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <wpfui:SymbolIcon
@@ -275,6 +277,42 @@
             <Label
                 x:Name="_batteryDischargeValueLabel"
                 Grid.Row="2"
+                Grid.Column="3"
+                Margin="16,4,0,0"
+                HorizontalAlignment="Right"
+                FlowDirection="LeftToRight"
+                FontSize="{StaticResource SecondaryFontSize}"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <Label
+                Grid.Row="3"
+                Grid.Column="1"
+                Margin="8,4,0,0"
+                VerticalContentAlignment="Center"
+                Content="{x:Static resources:Resource.StatusTrayPopup_MinDischargeRate}"
+                FontSize="{StaticResource SecondaryFontSize}"
+                FontWeight="Medium"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <Label
+                x:Name="_batteryMinDischargeValueLabel"
+                Grid.Row="3"
+                Grid.Column="3"
+                Margin="16,4,0,0"
+                HorizontalAlignment="Right"
+                FlowDirection="LeftToRight"
+                FontSize="{StaticResource SecondaryFontSize}"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <Label
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="8,4,0,0"
+                VerticalContentAlignment="Center"
+                Content="{x:Static resources:Resource.StatusTrayPopup_MaxDischargeRate}"
+                FontSize="{StaticResource SecondaryFontSize}"
+                FontWeight="Medium"
+                Foreground="{DynamicResource TextFillColorSecondaryBrush}" />
+            <Label
+                x:Name="_batteryMaxDischargeValueLabel"
+                Grid.Row="4"
                 Grid.Column="3"
                 Margin="16,4,0,0"
                 HorizontalAlignment="Right"
