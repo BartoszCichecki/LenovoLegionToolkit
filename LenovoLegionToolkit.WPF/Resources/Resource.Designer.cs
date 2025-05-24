@@ -746,6 +746,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Battery maximum charge capacity..
+        /// </summary>
+        public static string BatteryPage_BatteryHealth_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_BatteryHealth_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery health.
+        /// </summary>
+        public static string BatteryPage_BatteryHealth_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_BatteryHealth_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current temperature of the battery..
         /// </summary>
         public static string BatteryPage_BatteryTemperature_Message {
@@ -986,24 +1004,6 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string BatteryPage_Title {
             get {
                 return ResourceManager.GetString("BatteryPage_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Battery wear level..
-        /// </summary>
-        public static string BatteryPage_WearLevel_Message {
-            get {
-                return ResourceManager.GetString("BatteryPage_WearLevel_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wear level.
-        /// </summary>
-        public static string BatteryPage_WearLevel_Title {
-            get {
-                return ResourceManager.GetString("BatteryPage_WearLevel_Title", resourceCulture);
             }
         }
         

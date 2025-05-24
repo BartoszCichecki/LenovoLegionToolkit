@@ -365,11 +365,11 @@ Chỉ có các Hành động thỏa điều kiện hiện tại sẽ được ch
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Dung lượng tối đa</value>
   </data>
-  <data name="BatteryPage_WearLevel_Message" xml:space="preserve">
-    <value>Mức độ chai pin.</value>
+  <data name="BatteryPage_BatteryHealth_Message" xml:space="preserve">
+    <value>Dung lượng sạc tối đa của pin.</value>
   </data>
-  <data name="BatteryPage_WearLevel_Title" xml:space="preserve">
-    <value>Chai pin</value>
+  <data name="BatteryPage_BatteryHealth_Title" xml:space="preserve">
+    <value>Tình trạng pin</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Sạc công suất thấp được kết nối</value>

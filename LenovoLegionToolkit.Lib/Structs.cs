@@ -23,7 +23,7 @@ public readonly struct BatteryInformation(
     int estimateChargeRemaining,
     int designCapacity,
     int fullChargeCapacity,
-    double wearLevel,
+    double batteryHealth,
     int cycleCount,
     bool isLowBattery,
     double? batteryTemperatureC,
@@ -40,7 +40,7 @@ public readonly struct BatteryInformation(
     public int EstimateChargeRemaining { get; } = estimateChargeRemaining;
     public int DesignCapacity { get; } = designCapacity;
     public int FullChargeCapacity { get; } = fullChargeCapacity;
-    public double WearLevel { get; } = wearLevel;
+    public double BatteryHealth { get; } = batteryHealth;
     public int CycleCount { get; } = cycleCount;
     public bool IsLowBattery { get; } = isLowBattery;
     public double? BatteryTemperatureC { get; } = batteryTemperatureC;

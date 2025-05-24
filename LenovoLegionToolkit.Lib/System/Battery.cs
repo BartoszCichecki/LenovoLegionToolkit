@@ -28,8 +28,8 @@ public static class Battery
         DateTime? manufactureDate = null;
         DateTime? firstUseDate = null;
 
-        double wearLevel = (information.DesignedCapacity > 0)
-                ? (double)(information.DesignedCapacity - information.FullChargedCapacity) / information.DesignedCapacity
+        double batteryHealth = (information.DesignedCapacity > 0)
+                ? (double)information.FullChargedCapacity / information.DesignedCapacity
                 : 0.0;
 
         if (Math.Abs(status.Rate) < Math.Abs(MinDischargeRate))
@@ -69,7 +69,7 @@ public static class Battery
             (int)status.Capacity,
             (int)information.DesignedCapacity,
             (int)information.FullChargedCapacity,
-            Math.Round(wearLevel * 100.0, 2, MidpointRounding.AwayFromZero),
+            Math.Round(batteryHealth * 100.0, 2, MidpointRounding.AwayFromZero),
             (int)information.CycleCount,
             powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
             temperatureC,

@@ -158,12 +158,12 @@
 
         <custom:CardControl Margin="0,0,0,24">
             <custom:CardControl.Header>
-                <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_WearLevel_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_WearLevel_Message}" />
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_BatteryHealth_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_BatteryHealth_Message}" />
             </custom:CardControl.Header>
             <TextBlock
-                x:Name="_batteryWearLevelText"
+                x:Name="_batteryHealthText"
                 AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
-                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_WearLevel_Title}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_BatteryHealth_Title}"
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />    

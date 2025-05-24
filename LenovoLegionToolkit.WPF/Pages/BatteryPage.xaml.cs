@@ -129,7 +129,7 @@ public partial class BatteryPage
         _batteryCapacityText.Text = $"{batteryInfo.EstimateChargeRemaining / 1000.0:0.00} Wh";
         _batteryFullChargeCapacityText.Text = $"{batteryInfo.FullChargeCapacity / 1000.0:0.00} Wh";
         _batteryDesignCapacityText.Text = $"{batteryInfo.DesignCapacity / 1000.0:0.00} Wh";
-        _batteryWearLevelText.Text = $"{batteryInfo.WearLevel:0.00} %";
+        _batteryHealthText.Text = $"{batteryInfo.BatteryHealth:0.00} %";
 
         if (batteryInfo.ManufactureDate is not null)
             _batteryManufactureDateText.Text = batteryInfo.ManufactureDate?.ToString(LocalizationHelper.ShortDateFormat) ?? "-";
