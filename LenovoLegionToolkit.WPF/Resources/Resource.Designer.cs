@@ -926,6 +926,42 @@ namespace LenovoLegionToolkit.WPF.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Maximum rate at which battery is charged (+), or discharged (-)..
+        /// </summary>
+        public static string BatteryPage_MaxDischargeRate_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_MaxDischargeRate_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum discharge rate.
+        /// </summary>
+        public static string BatteryPage_MaxDischargeRate_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_MaxDischargeRate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum rate at which battery is charged (+), or discharged (-)..
+        /// </summary>
+        public static string BatteryPage_MinDischargeRate_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_MinDischargeRate_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum discharge rate.
+        /// </summary>
+        public static string BatteryPage_MinDischargeRate_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_MinDischargeRate_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Time since laptop was last connected to AC power.
         ///This time might not be accurate, if laptop was charged when sleeping or off..
         /// </summary>
@@ -950,6 +986,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string BatteryPage_Title {
             get {
                 return ResourceManager.GetString("BatteryPage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Battery wear level..
+        /// </summary>
+        public static string BatteryPage_WearLevel_Message {
+            get {
+                return ResourceManager.GetString("BatteryPage_WearLevel_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wear level.
+        /// </summary>
+        public static string BatteryPage_WearLevel_Title {
+            get {
+                return ResourceManager.GetString("BatteryPage_WearLevel_Title", resourceCulture);
             }
         }
         
@@ -5857,6 +5911,24 @@ namespace LenovoLegionToolkit.WPF.Resources {
         public static string StatusTrayPopup_DiscreteGPU {
             get {
                 return ResourceManager.GetString("StatusTrayPopup_DiscreteGPU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Max discharge rate.
+        /// </summary>
+        public static string StatusTrayPopup_MaxDischargeRate {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_MaxDischargeRate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Min discharge rate.
+        /// </summary>
+        public static string StatusTrayPopup_MinDischargeRate {
+            get {
+                return ResourceManager.GetString("StatusTrayPopup_MinDischargeRate", resourceCulture);
             }
         }
         

@@ -18,9 +18,12 @@ public readonly struct BatteryInformation(
     int batteryLifeRemaining,
     int fullBatteryLifeRemaining,
     int dischargeRate,
+    int minDischargeRate,
+    int maxDischargeRate,
     int estimateChargeRemaining,
     int designCapacity,
     int fullChargeCapacity,
+    double wearLevel,
     int cycleCount,
     bool isLowBattery,
     double? batteryTemperatureC,
@@ -32,9 +35,12 @@ public readonly struct BatteryInformation(
     public int BatteryLifeRemaining { get; } = batteryLifeRemaining;
     public int FullBatteryLifeRemaining { get; init; } = fullBatteryLifeRemaining;
     public int DischargeRate { get; } = dischargeRate;
+    public int MinDischargeRate { get; } = minDischargeRate;
+    public int MaxDischargeRate { get; } = maxDischargeRate;
     public int EstimateChargeRemaining { get; } = estimateChargeRemaining;
     public int DesignCapacity { get; } = designCapacity;
     public int FullChargeCapacity { get; } = fullChargeCapacity;
+    public double WearLevel { get; } = wearLevel;
     public int CycleCount { get; } = cycleCount;
     public bool IsLowBattery { get; } = isLowBattery;
     public double? BatteryTemperatureC { get; } = batteryTemperatureC;

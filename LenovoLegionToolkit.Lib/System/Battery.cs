@@ -13,6 +13,8 @@ namespace LenovoLegionToolkit.Lib.System;
 public static class Battery
 {
     private static readonly ApplicationSettings Settings = IoCContainer.Resolve<ApplicationSettings>();
+    private static int MinDischargeRate { get; set; } = int.MaxValue;
+    private static int MaxDischargeRate { get; set; } = 0;
 
     public static BatteryInformation GetBatteryInformation()
     {
@@ -25,6 +27,22 @@ public static class Battery
         double? temperatureC = null;
         DateTime? manufactureDate = null;
         DateTime? firstUseDate = null;
+
+        double wearLevel = (information.DesignedCapacity > 0)
+                ? (double)(information.DesignedCapacity - information.FullChargedCapacity) / information.DesignedCapacity
+                : 0.0;
+
+        if (Math.Abs(status.Rate) < Math.Abs(MinDischargeRate))
+            MinDischargeRate = status.Rate;
+        if (Math.Abs(status.Rate) > Math.Abs(MaxDischargeRate))
+            MaxDischargeRate = status.Rate;
+
+        if (status.Rate == 0)
+        {
+            MinDischargeRate = int.MaxValue;
+            MaxDischargeRate = 0;
+        }
+
         try
         {
             var lenovoBatteryInformation = FindLenovoBatteryInformation();
@@ -46,9 +64,12 @@ public static class Battery
             (int)powerStatus.BatteryLifeTime,
             (int)powerStatus.BatteryFullLifeTime,
             status.Rate,
+            (status.Rate == 0) ? 0 : MinDischargeRate,
+            MaxDischargeRate,
             (int)status.Capacity,
             (int)information.DesignedCapacity,
             (int)information.FullChargedCapacity,
+            Math.Round(wearLevel * 100.0, 2, MidpointRounding.AwayFromZero),
             (int)information.CycleCount,
             powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
             temperatureC,

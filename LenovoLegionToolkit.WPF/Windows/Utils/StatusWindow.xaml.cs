@@ -229,6 +229,8 @@ public partial class StatusWindow
             _batteryValueLabel.Content = "-";
             _batteryModeValueLabel.Content = "-";
             _batteryDischargeValueLabel.Content = "-";
+            _batteryMinDischargeValueLabel.Content = "-";
+            _batteryMaxDischargeValueLabel.Content = "-";
             return;
         }
 
@@ -257,6 +259,8 @@ public partial class StatusWindow
         _batteryValueLabel.Content = $"{batteryInformation.Value.BatteryPercentage}%";
         _batteryModeValueLabel.Content = batteryState.GetDisplayName();
         _batteryDischargeValueLabel.Content = $"{batteryInformation.Value.DischargeRate / 1000.0:+0.00;-0.00;0.00} W";
+        _batteryMinDischargeValueLabel.Content = $"{batteryInformation.Value.MinDischargeRate / 1000.0:+0.00;-0.00;0.00} W";
+        _batteryMaxDischargeValueLabel.Content = $"{batteryInformation.Value.MaxDischargeRate / 1000.0:+0.00;-0.00;0.00} W";
     }
 
     private void RefreshUpdate(bool hasUpdate) => _updateIndicator.Visibility = hasUpdate ? Visibility.Visible : Visibility.Collapsed;
