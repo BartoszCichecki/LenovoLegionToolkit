@@ -16,6 +16,31 @@ public static class Battery
     private static int MinDischargeRate { get; set; } = int.MaxValue;
     private static int MaxDischargeRate { get; set; } = 0;
 
+    public static void SetMinMaxDischargeRate(BATTERY_STATUS? status = null)
+    {
+        if (!status.HasValue)
+        {
+            var batteryTag = GetBatteryTag();
+            status = GetBatteryStatus(batteryTag);
+        }
+
+        if (status.Value.Rate == 0
+            || (status.Value.Rate > 0 && (MinDischargeRate < 0 || MaxDischargeRate < 0))
+            || (status.Value.Rate < 0 && (MinDischargeRate > 0 || MaxDischargeRate > 0)))
+        {
+            MinDischargeRate = int.MaxValue;
+            MaxDischargeRate = 0;
+        }
+
+        if (status.Value.Rate != 0)
+        {
+            if (Math.Abs(status.Value.Rate) < Math.Abs(MinDischargeRate))
+                MinDischargeRate = status.Value.Rate;
+            if (Math.Abs(status.Value.Rate) > Math.Abs(MaxDischargeRate))
+                MaxDischargeRate = status.Value.Rate;
+        }
+    }
+
     public static BatteryInformation GetBatteryInformation()
     {
         var powerStatus = GetSystemPowerStatus();
@@ -32,16 +57,7 @@ public static class Battery
                 ? (double)information.FullChargedCapacity / information.DesignedCapacity
                 : 0.0;
 
-        if (Math.Abs(status.Rate) < Math.Abs(MinDischargeRate))
-            MinDischargeRate = status.Rate;
-        if (Math.Abs(status.Rate) > Math.Abs(MaxDischargeRate))
-            MaxDischargeRate = status.Rate;
-
-        if (status.Rate == 0)
-        {
-            MinDischargeRate = int.MaxValue;
-            MaxDischargeRate = 0;
-        }
+        SetMinMaxDischargeRate(status);
 
         try
         {
