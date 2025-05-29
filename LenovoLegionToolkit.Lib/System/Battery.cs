@@ -53,10 +53,6 @@ public static class Battery
         DateTime? manufactureDate = null;
         DateTime? firstUseDate = null;
 
-        double batteryHealth = (information.DesignedCapacity > 0)
-                ? (double)information.FullChargedCapacity / information.DesignedCapacity
-                : 0.0;
-
         SetMinMaxDischargeRate(status);
 
         try
@@ -85,7 +81,6 @@ public static class Battery
             (int)status.Capacity,
             (int)information.DesignedCapacity,
             (int)information.FullChargedCapacity,
-            Math.Round(batteryHealth * 100.0, 2, MidpointRounding.AwayFromZero),
             (int)information.CycleCount,
             powerStatus.ACLineStatus == 0 && information.DefaultAlert2 >= status.Capacity,
             temperatureC,
