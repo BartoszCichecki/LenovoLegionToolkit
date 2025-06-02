@@ -18,6 +18,8 @@ public readonly struct BatteryInformation(
     int batteryLifeRemaining,
     int fullBatteryLifeRemaining,
     int dischargeRate,
+    int minDischargeRate,
+    int maxDischargeRate,
     int estimateChargeRemaining,
     int designCapacity,
     int fullChargeCapacity,
@@ -32,6 +34,8 @@ public readonly struct BatteryInformation(
     public int BatteryLifeRemaining { get; } = batteryLifeRemaining;
     public int FullBatteryLifeRemaining { get; init; } = fullBatteryLifeRemaining;
     public int DischargeRate { get; } = dischargeRate;
+    public int MinDischargeRate { get; } = minDischargeRate;
+    public int MaxDischargeRate { get; } = maxDischargeRate;
     public int EstimateChargeRemaining { get; } = estimateChargeRemaining;
     public int DesignCapacity { get; } = designCapacity;
     public int FullChargeCapacity { get; } = fullChargeCapacity;
@@ -40,6 +44,10 @@ public readonly struct BatteryInformation(
     public double? BatteryTemperatureC { get; } = batteryTemperatureC;
     public DateTime? ManufactureDate { get; } = manufactureDate;
     public DateTime? FirstUseDate { get; } = firstUseDate;
+    public double BatteryHealth =>
+        DesignCapacity > 0
+        ? Math.Round((double)FullChargeCapacity / DesignCapacity * 100.0, 2, MidpointRounding.AwayFromZero)
+        : 0.0;
 }
 
 public readonly struct BiosVersion(string prefix, int? version)

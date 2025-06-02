@@ -335,6 +335,18 @@ Chỉ có các Hành động thỏa điều kiện hiện tại sẽ được ch
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>Tốc độ sạc/xả</value>
   </data>
+  <data name="BatteryPage_MinDischargeRate_Message" xml:space="preserve">
+    <value>Tốc độ pin sạc (+), hoặc xả (-) thấp nhất.</value>
+  </data>
+  <data name="BatteryPage_MinDischargeRate_Title" xml:space="preserve">
+    <value>Tốc độ sạc/xả thấp nhất</value>
+  </data>
+  <data name="BatteryPage_MaxDischargeRate_Message" xml:space="preserve">
+    <value>Tốc độ pin sạc (+), hoặc xả (-) cao nhất.</value>
+  </data>
+  <data name="BatteryPage_MaxDischargeRate_Title" xml:space="preserve">
+    <value>Tốc độ sạc/xả cao nhất</value>
+  </data>
   <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
     <value>Ước tính thời gian dùng còn lại: {0}</value>
   </data>
@@ -352,6 +364,12 @@ Chỉ có các Hành động thỏa điều kiện hiện tại sẽ được ch
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>Dung lượng tối đa</value>
+  </data>
+  <data name="BatteryPage_BatteryHealth_Message" xml:space="preserve">
+    <value>Dung lượng sạc tối đa của pin.</value>
+  </data>
+  <data name="BatteryPage_BatteryHealth_Title" xml:space="preserve">
+    <value>Tình trạng pin</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>Sạc công suất thấp được kết nối</value>
@@ -1666,6 +1684,12 @@ Chỉ hoạt động khi chế độ Tùy Chỉnh đang bật.</value>
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>Tốc độ sạc/xả</value>
+  </data>
+  <data name="StatusTrayPopup_MinDischargeRate" xml:space="preserve">
+    <value>Tốc độ sạc/xả thấp nhất</value>
+  </data>
+  <data name="StatusTrayPopup_MaxDischargeRate" xml:space="preserve">
+    <value>Tốc độ sạc/xả cao nhất</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>Có bản cập nhật mới!</value>

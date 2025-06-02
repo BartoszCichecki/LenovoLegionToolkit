@@ -13,6 +13,33 @@ namespace LenovoLegionToolkit.Lib.System;
 public static class Battery
 {
     private static readonly ApplicationSettings Settings = IoCContainer.Resolve<ApplicationSettings>();
+    private static int MinDischargeRate { get; set; } = int.MaxValue;
+    private static int MaxDischargeRate { get; set; } = 0;
+
+    public static void SetMinMaxDischargeRate(BATTERY_STATUS? status = null)
+    {
+        if (!status.HasValue)
+        {
+            var batteryTag = GetBatteryTag();
+            status = GetBatteryStatus(batteryTag);
+        }
+
+        if (status.Value.Rate == 0
+            || (status.Value.Rate > 0 && (MinDischargeRate < 0 || MaxDischargeRate < 0))
+            || (status.Value.Rate < 0 && (MinDischargeRate > 0 || MaxDischargeRate > 0)))
+        {
+            MinDischargeRate = int.MaxValue;
+            MaxDischargeRate = 0;
+        }
+
+        if (status.Value.Rate != 0)
+        {
+            if (Math.Abs(status.Value.Rate) < Math.Abs(MinDischargeRate))
+                MinDischargeRate = status.Value.Rate;
+            if (Math.Abs(status.Value.Rate) > Math.Abs(MaxDischargeRate))
+                MaxDischargeRate = status.Value.Rate;
+        }
+    }
 
     public static BatteryInformation GetBatteryInformation()
     {
@@ -25,6 +52,9 @@ public static class Battery
         double? temperatureC = null;
         DateTime? manufactureDate = null;
         DateTime? firstUseDate = null;
+
+        SetMinMaxDischargeRate(status);
+
         try
         {
             var lenovoBatteryInformation = FindLenovoBatteryInformation();
@@ -46,6 +76,8 @@ public static class Battery
             (int)powerStatus.BatteryLifeTime,
             (int)powerStatus.BatteryFullLifeTime,
             status.Rate,
+            (status.Rate == 0) ? 0 : MinDischargeRate,
+            MaxDischargeRate,
             (int)status.Capacity,
             (int)information.DesignedCapacity,
             (int)information.FullChargedCapacity,

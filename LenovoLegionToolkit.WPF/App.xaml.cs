@@ -23,6 +23,7 @@ using LenovoLegionToolkit.Lib.Features.WhiteKeyboardBacklight;
 using LenovoLegionToolkit.Lib.Integrations;
 using LenovoLegionToolkit.Lib.Listeners;
 using LenovoLegionToolkit.Lib.Macro;
+using LenovoLegionToolkit.Lib.Services;
 using LenovoLegionToolkit.Lib.SoftwareDisabler;
 using LenovoLegionToolkit.Lib.Utils;
 using LenovoLegionToolkit.WPF.CLI;
@@ -137,6 +138,7 @@ public partial class App
         await IoCContainer.Resolve<AIController>().StartIfNeededAsync();
         await IoCContainer.Resolve<HWiNFOIntegration>().StartStopIfNeededAsync();
         await IoCContainer.Resolve<IpcServer>().StartStopIfNeededAsync();
+        await IoCContainer.Resolve<BatteryDischargeRateMonitorService>().StartStopIfNeededAsync();
 
 #if !DEBUG
         Autorun.Validate();
@@ -255,6 +257,15 @@ public partial class App
             if (IoCContainer.TryResolve<IpcServer>() is { } ipcServer)
             {
                 await ipcServer.StopAsync();
+            }
+        }
+        catch { /* Ignored. */ }
+
+        try
+        {
+            if (IoCContainer.TryResolve<BatteryDischargeRateMonitorService>() is { } batteryDischargeMon)
+            {
+                await batteryDischargeMon.StopAsync();
             }
         }
         catch { /* Ignored. */ }

@@ -93,6 +93,32 @@
 
         <custom:CardControl Margin="0,0,0,8">
             <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_MinDischargeRate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_MinDischargeRate_Message}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_batteryMinDischargeRateText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_MinDischargeRate_Title}"
+                FlowDirection="LeftToRight"
+                Focusable="True"
+                FontSize="14" />
+        </custom:CardControl>
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_MaxDischargeRate_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_MaxDischargeRate_Message}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_batteryMaxDischargeRateText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_MaxDischargeRate_Title}"
+                FlowDirection="LeftToRight"
+                Focusable="True"
+                FontSize="14" />    
+        </custom:CardControl>
+
+        <custom:CardControl Margin="0,0,0,8">
+            <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_CurrentCapacity_Message}" />
             </custom:CardControl.Header>
             <TextBlock
@@ -117,7 +143,7 @@
                 FontSize="14" />
         </custom:CardControl>
 
-        <custom:CardControl Margin="0,0,0,24">
+        <custom:CardControl Margin="0,0,0,8">
             <custom:CardControl.Header>
                 <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_DesignCapacity_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_DesignCapacity_Message}" />
             </custom:CardControl.Header>
@@ -128,6 +154,19 @@
                 FlowDirection="LeftToRight"
                 Focusable="True"
                 FontSize="14" />
+        </custom:CardControl>
+
+        <custom:CardControl Margin="0,0,0,24">
+            <custom:CardControl.Header>
+                <controls:CardHeaderControl Title="{x:Static resources:Resource.BatteryPage_BatteryHealth_Title}" Subtitle="{x:Static resources:Resource.BatteryPage_BatteryHealth_Message}" />
+            </custom:CardControl.Header>
+            <TextBlock
+                x:Name="_batteryHealthText"
+                AutomationProperties.HelpText="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Text}"
+                AutomationProperties.Name="{x:Static resources:Resource.BatteryPage_BatteryHealth_Title}"
+                FlowDirection="LeftToRight"
+                Focusable="True"
+                FontSize="14" />    
         </custom:CardControl>
 
         <custom:CardControl Margin="0,0,0,8">
