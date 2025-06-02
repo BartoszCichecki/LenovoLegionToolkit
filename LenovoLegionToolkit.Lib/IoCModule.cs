@@ -92,6 +92,7 @@ public class IoCModule : Module
         builder.Register<PowerModeListener>().AutoActivateListener();
         builder.Register<PowerStateListener>().AutoActivateListener();
         builder.Register<RGBKeyboardBacklightListener>().AutoActivateListener();
+        builder.Register<SessionLockUnlockListener>().AutoActivateListener();
         builder.Register<SpecialKeyListener>().AutoActivateListener();
         builder.Register<SystemThemeListener>().AutoActivateListener();
         builder.Register<ThermalModeListener>().AutoActivateListener();

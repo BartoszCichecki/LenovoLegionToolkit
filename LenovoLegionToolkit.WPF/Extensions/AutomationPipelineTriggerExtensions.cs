@@ -15,6 +15,8 @@ public static class AutomationPipelineTriggerExtensions
         IHDRPipelineTrigger => SymbolRegular.Hdr24,
         IProcessesAutomationPipelineTrigger => SymbolRegular.WindowConsole20,
         IUserInactivityPipelineTrigger => SymbolRegular.ClockAlarm24,
+        ISessionLockPipelineTrigger => SymbolRegular.LockClosed24,
+        ISessionUnlockPipelineTrigger => SymbolRegular.LockOpen24,
         ITimeAutomationPipelineTrigger => SymbolRegular.HourglassHalf24,
         IDeviceAutomationPipelineTrigger => SymbolRegular.UsbPlug24,
         INativeWindowsMessagePipelineTrigger => SymbolRegular.Desktop24,

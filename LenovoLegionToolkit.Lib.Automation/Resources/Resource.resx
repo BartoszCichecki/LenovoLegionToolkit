@@ -227,4 +227,10 @@
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>When device is connected</value>
   </data>
+  <data name="SessionLockAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Session locked</value>
+  </data>
+  <data name="SessionUnlockAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>Session unlocked</value>
+  </data>
 </root>
