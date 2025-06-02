@@ -13,7 +13,7 @@ When ready, press any key to continue...
 ");
 Console.ReadKey();
 
-var device = Devices.GetSpectrumRGBKeyboard();
+var device = Devices.GetSpectrumRGBKeyboard2();
 
 Console.WriteLine("Finding Spectrum keyboard...");
 
@@ -28,41 +28,95 @@ if (device is null)
 Console.WriteLine("Spectrum keyboard found");
 Console.WriteLine();
 
-Console.WriteLine("Reading response for 0xD1...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownD1, 0, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resD1);
-Print(resD1.Bytes);
-Console.WriteLine();
+try
+{
+    Console.WriteLine("Reading response for 0xD1...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownD1, 0, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resD1);
+    Print(resD1.Bytes);
 
-Console.WriteLine("Reading response for 0xC6...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC6, 0, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC6);
-Print(resC6.Bytes);
-Console.WriteLine();
+    Console.WriteLine();
+    Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Not compatible.");
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0xD1 failed.");
+}
 
-Console.WriteLine("Reading response for 0x04...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown04, 0, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res04);
-Print(res04.Bytes);
-Console.WriteLine();
+try
+{
+    Console.WriteLine("Reading response for 0xC6...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC6, 0, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC6);
+    Print(resC6.Bytes);
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0xC6 failed.");
+}
 
-Console.WriteLine("Reading response for 0xC7...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC7, 0, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC7);
-Print(resC7.Bytes);
-Console.WriteLine();
+try
+{
+    Console.WriteLine("Reading response for 0x04...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.Unknown04, 0, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE res04);
+    Print(res04.Bytes);
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0x04 failed.");
+}
 
-Console.WriteLine("Reading response for 0xC4 7...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 7, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC47);
-Print(resC47.Bytes);
-Console.WriteLine();
+try
+{
+    Console.WriteLine("Reading response for 0xC7...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC7, 0, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC7);
+    Print(resC7.Bytes);
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0xC7 failed.");
+}
 
-Console.WriteLine("Reading response for 0xC4 8...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 8, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC48);
-Print(resC48.Bytes);
-Console.WriteLine();
+try
+{
+    Console.WriteLine("Reading response for 0xC4 7...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 7, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC47);
+    Print(resC47.Bytes);
+    Console.WriteLine();
+
+    var spectrumLayout = (resC47.Bytes[6], resC47.Bytes[5]) switch
+    {
+        (22, 9) => "Full",
+        (20, 8) => "KeyboardAndFront",
+        (20, 7) => "KeyboardOnly",
+        _ => "Unknown"
+    };
+    Console.WriteLine($"Layout is {spectrumLayout}.");
+}
+catch
+{
+    Console.WriteLine("Reading 0xC4 7 failed.");
+}
+
+try
+{
+    Console.WriteLine("Reading response for 0xC4 8...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC4, 8, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC48);
+    Print(resC48.Bytes);
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0xC4 8 failed.");
+}
 
 for (var i = 0; i < 10; i++)
 {
@@ -73,22 +127,19 @@ for (var i = 0; i < 10; i++)
     Console.WriteLine();
 }
 
-Console.WriteLine($"Reading response for 0xC5 8...");
-SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC5, 8, 0));
-GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC58);
-Print(resC58.Bytes);
-Console.WriteLine();
-
-Console.WriteLine(resD1.Bytes[4] == 0 ? "Keyboard is RGB." : "Not compatible.");
-
-var spectrumLayout = (resC47.Bytes[6], resC47.Bytes[5]) switch
+try
 {
-    (22, 9) => "Full",
-    (20, 8) => "KeyboardAndFront",
-    (20, 7) => "KeyboardOnly",
-    _ => "Unknown"
-};
-Console.WriteLine($"Layout is {spectrumLayout}.");
+    Console.WriteLine($"Reading response for 0xC5 8...");
+    SetFeature(device, new LENOVO_SPECTRUM_GENERIC_REQUEST(LENOVO_SPECTRUM_OPERATION_TYPE.UnknownC5, 8, 0));
+    GetFeature(device, out LENOVO_SPECTRUM_GENERIC_RESPONSE resC58);
+    Print(resC58.Bytes);
+    Console.WriteLine();
+}
+catch
+{
+    Console.WriteLine("Reading 0xC5 8 failed.");
+}
+
 Console.WriteLine("Reading config complete.");
 Console.WriteLine();
 Console.ReadKey();

@@ -119,6 +119,7 @@ public class IoCModule : Module
         builder.Register<SensorsControllerV1>(true);
         builder.Register<SensorsControllerV2>(true);
         builder.Register<SensorsControllerV3>(true);
+        builder.Register<SensorsControllerV4>(true);
         builder.Register<SmartFnLockController>();
         builder.Register<SpectrumKeyboardBacklightController>();
         builder.Register<WindowsPowerModeController>();
