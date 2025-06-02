@@ -18,7 +18,9 @@ public class BatteryDischargeRateMonitorService
         if (_refreshTask != null)
             return;
 
-        _cts?.Cancel();
+        if (_cts is not null)
+            await _cts.CancelAsync().ConfigureAwait(false);
+
         _cts = new CancellationTokenSource();
 
         var token = _cts.Token;
@@ -34,7 +36,7 @@ public class BatteryDischargeRateMonitorService
                 {
                     Battery.SetMinMaxDischargeRate();
 
-                    await Task.Delay(TimeSpan.FromSeconds(3), token);
+                    await Task.Delay(TimeSpan.FromSeconds(3), token).ConfigureAwait(false);
                 }
                 catch (OperationCanceledException) { }
                 catch (Exception ex)

@@ -52,23 +52,24 @@ public class SessionLockUnlockListener : IListener<SessionLockUnlockListener.Cha
         Changed?.Invoke(this, new(locked));
     }
 
-    private unsafe uint GetActiveConsoleSessionFlags()
+    private static unsafe uint GetActiveConsoleSessionFlags()
     {
-        WTS_INFO_CLASS wtsic = WTS_INFO_CLASS.WTSSessionInfoEx;
-        var dwSessionId = PInvoke.WTSGetActiveConsoleSessionId();
+        const WTS_INFO_CLASS infoClass = WTS_INFO_CLASS.WTSSessionInfoEx;
+
         var sessionFlags = PInvoke.WTS_SESSIONSTATE_UNKNOWN;
-        if (PInvoke.WTSQuerySessionInformation(HANDLE.WTS_CURRENT_SERVER_HANDLE, dwSessionId, wtsic, out var ppBuffer, out var pBytesReturned))
+        var dwSessionId = PInvoke.WTSGetActiveConsoleSessionId();
+
+        if (!PInvoke.WTSQuerySessionInformation(HANDLE.WTS_CURRENT_SERVER_HANDLE, dwSessionId, infoClass, out var ppBuffer, out var pBytesReturned))
+            return sessionFlags;
+
+        if (pBytesReturned > 0)
         {
-            if (pBytesReturned > 0)
-            {
-                WTSINFOEXW info = Marshal.PtrToStructure<WTSINFOEXW>((IntPtr)ppBuffer.Value);
-                if (info.Level == 1)
-                {
-                    sessionFlags = (uint)info.Data.WTSInfoExLevel1.SessionFlags;
-                }
-            }
-            PInvoke.WTSFreeMemory(ppBuffer);
+            var info = Marshal.PtrToStructure<WTSINFOEXW>((IntPtr)ppBuffer.Value);
+            if (info.Level == 1)
+                sessionFlags = (uint)info.Data.WTSInfoExLevel1.SessionFlags;
         }
+
+        PInvoke.WTSFreeMemory(ppBuffer);
         return sessionFlags;
     }
 }

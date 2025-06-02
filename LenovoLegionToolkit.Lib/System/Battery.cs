@@ -14,7 +14,7 @@ public static class Battery
 {
     private static readonly ApplicationSettings Settings = IoCContainer.Resolve<ApplicationSettings>();
     private static int MinDischargeRate { get; set; } = int.MaxValue;
-    private static int MaxDischargeRate { get; set; } = 0;
+    private static int MaxDischargeRate { get; set; }
 
     public static void SetMinMaxDischargeRate(BATTERY_STATUS? status = null)
     {
