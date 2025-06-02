@@ -2244,4 +2244,11 @@
   <data name="QuickActionAutomationStepControl_Message" xml:space="preserve">
     <value>Εκτελεί μια αποθηκευμένη γρήγορη δράση.</value>
   </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Title" xml:space="preserve">
+    <value>Ειδοποίηση πάντα στην κορυφή</value>
+  </data>
+  <data name="NotificationsSettingsWindow_NotificationAlwaysOnTop_Message" xml:space="preserve">
+    <value>Τοποθέτηση ειδοποιήσεως πάντα στην κορυφή.
+Δεν επηρεάζει άλλα παράθυρα πλήρους οθόνης, όμως δε θα είναι εφικτό το κλικ στις ειδοποιήσεις.</value>
+  </data>
 </root>
