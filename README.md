@@ -1,7 +1,7 @@
 > [!IMPORTANT]
 > _Archived on July 24, 2025, This project is no longer actively maintained._
 > 
-> Thank you to everyone who supported, used, contributed to, and shared this project. It's been an amazing journey watching it grow and watching it grow amoung Legion users.
+> Thank you to everyone who supported, used, contributed to, and shared this project. It's been an amazing journey watching it grow and watching amoug Legion users.
 > 
 > As I no longer have time to maintain it, I’ve decided to archive the repo. Feel free to fork and continue development, if you'd like to carry it forward. All code remains available under the existing license.
 > 
