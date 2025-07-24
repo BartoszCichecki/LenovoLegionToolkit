@@ -334,6 +334,18 @@
   <data name="BatteryPage_DischargeRate_Title" xml:space="preserve">
     <value>釋放功率</value>
   </data>
+  <data name="BatteryPage_MinDischargeRate_Message" xml:space="preserve">
+    <value>電池在充電 (+) 或放電 (-) 時的最小功率。</value>
+  </data>
+  <data name="BatteryPage_MinDischargeRate_Title" xml:space="preserve">
+    <value>最小放電功率</value>
+  </data>
+  <data name="BatteryPage_MaxDischargeRate_Message" xml:space="preserve">
+    <value>電池在充電 (+) 或放電 (-) 時的最大功率。</value>
+  </data>
+  <data name="BatteryPage_MaxDischargeRate_Title" xml:space="preserve">
+    <value>最大放電功率</value>
+  </data>
   <data name="BatteryPage_EstimatedBatteryLifeRemaining" xml:space="preserve">
     <value>預估剩餘時間：{0}</value>
   </data>
@@ -351,6 +363,12 @@
   </data>
   <data name="BatteryPage_FullChargeCapacity_Title" xml:space="preserve">
     <value>充飽容量</value>
+  </data>
+  <data name="BatteryPage_BatteryHealth_Message" xml:space="preserve">
+    <value>電池最大充電容量。</value>
+  </data>
+  <data name="BatteryPage_BatteryHealth_Title" xml:space="preserve">
+    <value>電池健康度</value>
   </data>
   <data name="BatteryPage_LowWattageChargerConnected" xml:space="preserve">
     <value>已連接較低功率電源供應器</value>
@@ -1665,6 +1683,12 @@
   </data>
   <data name="StatusTrayPopup_DischargeRate" xml:space="preserve">
     <value>釋放功率</value>
+  </data>
+  <data name="StatusTrayPopup_MinDischargeRate" xml:space="preserve">
+    <value>最小放電功率</value>
+  </data>
+  <data name="StatusTrayPopup_MaxDischargeRate" xml:space="preserve">
+    <value>最大放電功率</value>
   </data>
   <data name="StatusTrayPopup_UpdateAvailable" xml:space="preserve">
     <value>已有可供使用的更新！</value>

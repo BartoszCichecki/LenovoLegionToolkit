@@ -227,4 +227,10 @@
   <data name="DeviceConnectedAutomationPipelineTrigger_DisplayName" xml:space="preserve">
     <value>當與裝置連接時</value>
   </data>
+  <data name="SessionLockAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>使用者鎖定時</value>
+  </data>
+  <data name="SessionUnlockAutomationPipelineTrigger_DisplayName" xml:space="preserve">
+    <value>使用者解鎖時</value>
+  </data>
 </root>
