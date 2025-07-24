@@ -15,14 +15,6 @@
 
 ---
 
-![Ukrainian Flag](assets/ukraine_flag_bar.png)
-
-ロシアの侵略によって被害を受けたウクライナの武装勢力と人々を支援するために、ウクライナの公式募金プラットフォームであるUNITED24で募金を行ってください：https://u24.gov.ua.
-
-**Слава Україні!**
-
-![Ukrainian Flag](assets/ukraine_flag_bar.png)
-
 <br />
 
 レノボ・レギオン・ツールキット（LLT）は、レノボ・レギオン（および類似の）シリーズのノートパソコン向けに作成されたユーティリティで、Lenovo VantageやLegion Zoneでのみ利用可能な機能を変更することができます。
