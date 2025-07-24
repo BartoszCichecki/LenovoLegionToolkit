@@ -1,4 +1,16 @@
-<img height="128" align="left" src="assets/logo.png" alt="Logo">
+> [!IMPORTANT]
+> _Archived on July 24, 2025, This project is no longer actively maintained._
+> 
+> Thank you to everyone who supported, used, contributed to, and shared this project. It's been an amazing journey watching it grow and watching it grow amoung Legion users.
+> 
+> As I no longer have time to maintain it, I’ve decided to archive the repo. Feel free to fork and continue development, if you'd like to carry it forward. All code remains available under the existing license.
+> 
+> For questions, issues, or maintenance, I recommend checking out forks from the community—or even starting your own!
+> 
+> Much love and happy coding,
+>
+> – Bartosz
+
 
 # Lenovo Legion Toolkit
 
@@ -14,14 +26,6 @@
 * [日本語版のREADME](README_ja-JP.md)
 
 ---
-
-![Ukrainian Flag](assets/ukraine_flag_bar.png)
-
-Support the Armed Forces of Ukraine and People Affected by Russia’s Aggression on UNITED24, the official fundraising platform of Ukraine: https://u24.gov.ua.
-
-**Слава Україні!**
-
-![Ukrainian Flag](assets/ukraine_flag_bar.png)
 
 <br />
 
